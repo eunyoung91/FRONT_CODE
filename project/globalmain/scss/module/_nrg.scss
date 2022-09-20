@@ -1,0 +1,1345 @@
+// 노량진 소방
+.nrgso {
+	// template 활용
+	.main-title{
+		margin-bottom: 40px;
+		.main-copy{
+			color:#000;
+			font-size: 32px;
+			line-height: 1.375;
+			font-weight:700;
+			margin-top: 0px;
+		}
+		.desc{
+			font-size:16px;
+			color: #787878;
+		}
+		.asterisk {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 20px;
+			font-weight: 600;
+			padding-top: 5px;
+			margin-left: -6px;
+		}
+		.main-notice {
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.main{
+		// template 활용
+		&-temp-slider {
+			padding: 60px 0;
+			height: 564px;
+			.wrap{
+				height: 444px;
+				// 
+				flex-wrap: inherit;
+				// 
+				.main-slide-left{
+					width:895px;
+
+					.slick-arrow{
+						&.slick-prev{
+							left:0;
+						}
+						&.slick-next{
+							left: 867px;
+						}					
+					}
+
+					.main-slide-list{
+						height: 444px;
+						border-radius: 10px;
+						.slide-list{ 
+							border-radius: 10px;
+							img{
+								border-radius: 10px;
+							}
+							@include pointer(82%, 0, 66px, 73px, 20, bounce);
+							&:after{
+								right: auto;
+								left: 310px;
+							}
+						}
+					}
+
+					.slick-counter{
+						background: none;
+						padding: 0;
+						border-radius: 0;
+						line-height:1;
+						color:#212121;
+						font-size: 16px;
+						position:absolute;
+						right: 92px;
+						bottom: 34px;
+					}
+
+					.main-slide-control{
+						width: 22px;
+						height: 22px;
+						position:absolute;
+						left: 843px;
+						bottom: 30px;
+						&.pause{ 
+							background-image: url("#{$img-path}/_104/main/nrg/pc/btn_pause.png");
+						}
+						&.play{ 
+							background-image: url("#{$img-path}/_104/main/nrg/pc/btn_play.png");
+						}
+					}
+
+					.main-slide-btn{
+						position:absolute;
+						right: 56px;
+						bottom: 30px;
+						width: 22px;
+						height: 22px;
+						&.prev{ right: 138px; }
+						&.next{}
+					}
+				}
+
+				.main-slide-right{
+					width: 285px;
+					margin-left:auto;
+					.slide-group{
+						margin-bottom: 20px;
+						height: 212px;
+						border-radius: 10px;
+						.slide-list {
+							position: relative;
+							width: 285px !important;
+							height: 212px;
+							border-radius: 10px;
+								img{
+									border-radius: 10px;
+								}
+							a{
+								.title-group {
+									position: absolute;
+									top: 84px;
+									left: 30px;
+									.sub-title {
+										font-size: 18px;
+										font-weight: 500;
+										margin-bottom: 10px;
+										color: #212121;
+									}
+									.main-title {
+										font-size: 24px;
+										font-weight: 500;
+										font-weight: bold;
+										line-height: 1.25;
+										strong {
+											color: #0000FF;
+										}
+									}
+								}
+							}
+						}
+					}
+					.slick-dots {
+						position: absolute;
+						right: 30px;
+						top: 20px;
+						li {
+							button {
+								width: 8px;
+								height: 8px;
+								background: #cccccc;
+							}
+							&.slick-active {
+								button {
+									background: #212121;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// template 활용
+		&-temp-product {
+			padding: 0 0 80px 0;
+			.product-list-wrap{
+				.product-list-col{
+					li{
+						width: 305px;
+						height: 450px;
+						border-radius: 30px 10px 30px 10px;
+						padding-left: 60px;
+						&.banner-1 {
+							width: 545px;
+							@include bg($color: #1c78ed, $url: '#{$img-path}/_104/main/nrg/pc/bg_product_banner_1.png', $size: cover);
+						}
+						&.banner-2 {
+							padding-left: 30px;
+							@include bg($color: #25a8c9, $url: '#{$img-path}/_104/main/nrg/pc/bg_product_banner_2.png', $size: cover);
+						}
+						&.banner-3 {
+							padding-left: 30px;
+							@include bg($color: #37a2a7, $url: '#{$img-path}/_104/main/nrg/pc/bg_product_banner_3.png', $size: cover);
+						}
+
+						.product-subtitle {
+							color: #ffd900;
+							.subtitle-1 {
+								font-size: 18px;
+								font-weight: 400;
+								margin-bottom: 5px;
+							}
+							.subtitle-2 {
+								font-size: 24px;
+								font-weight: 700;
+							}
+							.product-flag-square {
+								margin-bottom: 5px;
+							}
+						}
+						.product-subject {
+							margin-top: 15px;
+							strong {
+								letter-spacing: -1.8px;
+							}
+						}
+						.product-desc {
+							margin-top: 15px;
+							.desc-list {
+								div {
+									font-size: 16px;
+									font-weight: 300;
+									color: #ffffff;
+									line-height: 1.65;
+								}
+							}
+						}
+
+						.product-text{
+							position: absolute;
+							left: 30px;
+							bottom: 54px;
+							width: 210px;
+							padding: 15px 23px 14px 23px;
+							font-size: 18px;
+							background: none;
+							border: 1px solid #ffffff;
+							color: #ffffff;
+							border-radius: 23px;
+							.product-name{
+								@include arrow(right, 6px, 6px, 2px, #fff);
+								display:block;
+								&:before{ right: 5px; }
+							}
+							&:hover{
+								color:#000000;
+								background-color:#ffd900;
+								border: none;
+								.product-name{
+									@include arrow(right, 6px, 6px, 2px, #000);
+									display: block;
+									&:before{ right: 5px; }
+								}
+							}
+						}
+						.product-link{
+							position:absolute;
+							left: 60px;
+							right: auto;
+							bottom: 54px;
+							a{
+								position:relative;
+								left:0;
+								bottom:0;
+								width: 210px;
+								&:not(:first-child) { margin-left: 10px;}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// template 활용
+		&-temp-interview {
+			padding: 80px 0;
+			background: #f4f6f8;
+			.main-slide-wrap {
+				width: 1240px;
+				height: 240px;
+				padding: 20px;
+				overflow: hidden;
+				margin-left: -20px;
+				.slide-list {
+					padding: 0;
+					overflow: visible;
+					img {
+						border-radius: 30px 10px 30px 10px;
+						box-shadow: none;
+					}
+				}
+				.slick-slide {
+					width: 386px !important;
+					margin-right: 20px;
+					padding-bottom: 0;
+				}
+				.slick-arrow{
+					display: block;
+					@extend %slick-arrow;
+					width: 40px;
+					height: 40px;
+					border-radius:50%;
+					z-index: 10;
+					position: absolute;
+					top: 111px !important;
+					border: none !important;
+					@include boxShadow(3px 3px 9px 0px rgba(0, 0, 0, 0.23));
+					&.slick-prev{
+						left: -15px !important;
+						@include slideArrow(left, 40px, 40px, 2px, #000, #fff);
+					}
+					&.slick-next{
+						right: -13px !important;
+						@include slideArrow(right, 40px, 40px, 2px, #000,  #fff);
+					}
+				}
+			}
+		}
+
+		// 배너 width값 
+		&-temp-banner-list {
+			&.banner-list-1 {
+				.main-slide-wraps {
+					width: 590px !important;
+					height: 160px !important;
+				}
+			}
+			&.banner-list-2 {
+				.main-slide-wraps {
+					width: 386px !important;
+					height: 120px !important;
+				}
+			}
+		}
+	}
+
+	// 설명회 신청 팝업 
+	.popup { 
+		display:none;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index:300;
+		background-color: rgba(0, 0, 0, 0.8);
+		&.show{display:flex;}
+
+
+		&-wrap{
+			position:relative;
+			width:100%;
+			max-width:600px;
+			background: #ffffff;
+			@include breakpoint(maxMobile){
+				width:auto;
+				max-width:100%;
+			}
+		}
+
+		.popup-close{
+			cursor:pointer;display:inline-block;width:56px;height:56px; position:absolute;top:-50px;right:-10px;z-index:2002;
+			&:before,
+			&:after {content:'';position:absolute;top:50%;left:50%;display:block;width:30px;height:1px;margin-left:-15px;background-color:#fff;}
+			&:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}
+			&:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}
+		}
+		
+		.popup-title { 
+			padding: 28px 0; font-weight: 400; font-size: 20px; text-align: center; color: #fff; letter-spacing: -1px; line-height: 1.2; background-color: #393939; 
+			strong { letter-spacing: -2px; font-size: 35px; font-weight: 900;}
+			@media screen and (max-width: 720px) { 
+				font-size:1.2rem;
+				strong{ font-size:1.8rem;}
+			}
+			&.seoul_toggle{
+				background-color: #ffbf00;
+				color: #393939; 
+			}
+		}
+		
+		.popup-content { 
+			padding: 30px; 
+			@media screen and (max-width: 720px) { padding: 15px; }
+			p { margin: 0; }
+			.subject { font-weight: 700; font-size: 26px; color: #191919; letter-spacing: -2px;}
+			.info { margin-top: 10px; font-size: 19px; color: #000; line-height: 1.8;}
+			li { margin-top: 8px; }
+			li:first-child { margin-top: 0; }
+
+			.form-group{
+				li{
+					margin-bottom:10px;
+					&:after{content:'';display:block;clear:both;}
+					label, select,
+					input { 
+						float:left;display: inline-block; height: 57px; line-height: 57px; font-size: 15px; 
+						&::placeholder{font-size: 15px; }
+						@media screen and (max-width: 720px) { 	
+							height: 37px; line-height: 37px; 
+							font-size: 12px; 
+							&::placeholder{font-size: 12px; }
+						}
+					}
+					label { 
+						position: relative;padding-left: 10px; width: 15%;text-align: left; font-weight: 700; color: #1d1d1d; box-sizing:border-box;font-family:$font-noto;
+						@media screen and (max-width: 720px) { 	
+							width:25%;
+						}
+						&:before { content:''; position: absolute; top:50%; left:0;margin-top:-2px; display: block; width: 4px; height: 4px;background: #333333;}
+					}
+					select, input { 
+						padding-left: 10px; width: 85%; font-weight: 300; border: 1px solid #dcdcdc; box-sizing:border-box;font-family:$font-noto;
+						@media screen and (max-width: 720px) { width: 75%;	}
+					}
+					select {
+						padding-top: 0 !important;
+						padding-bottom: 0 !important;
+					}
+				}
+			}
+
+			.caution { margin-top: 20px; font-size: 13px; color: #888; }
+
+			.agree-wrap{ 
+				margin-top: 20px; color: #686868; 
+				.inner { padding: 20px; background: #eee; text-align: left;}
+				ul ,
+				p { font-size: 13px;  font-weight: 300; line-height: 1.5;font-family:$font-noto;}
+				ul,
+				ul li { margin: 0; line-height: 1.5;}
+				strong { display: inline-block; margin-bottom: 5px; font-size: 16px; font-weight: 700;}
+				.agree-check {
+					margin: 20px 0 0 0;     text-align: left; 
+					input { vertical-align: middle; margin-right: 4px;}
+					@media screen and (max-width: 720px) { 	
+						.agree-check{margin-left:0;margin-top:5%;}
+					}
+				}
+			}
+
+			.action{ 
+				margin-top: 26px; text-align: center;font-size:0; 
+				a { 
+					position: relative; display: inline-block; margin: 0 auto; width: 200px; height: 52px; text-align: center; transition:all 0.9s, color 0.3; border-radius:5px; -webkit-box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18); box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18);background:#ffbf00;
+					span { line-height: 52px; font-family:$font-noto;font-size:20px; font-weight: 500; color: #000; letter-spacing: -2px;}
+					&:hover { 
+						background: #db3725;
+						span { color: #fff;}
+					}
+
+					&.btn-cancle {
+						background: #434343
+						span { color: #bebebe;}
+					}
+
+					&:first-child{margin-right: 12px;}
+				}
+
+				@media screen and (max-width: 720px) { 	
+				
+					margin-top:5%;
+					a{
+						width:46%;
+						span{font-size:16px;}
+						&.btn-cancle{margin-right:5px;}
+					}
+					
+				}
+			}
+			
+			.layer-extra { 
+				margin-top: 26px; padding-top: 26px; color: #333; border-top: 1px dotted #999; text-align:center; font-size:12px;
+				a { text-decoration: underline; color: #5954ff; font-weight: 700; margin-left:3px;font-family: $font-noto;}
+			}
+		
+
+		}
+
+		&-base{
+			.popup-cont{
+				.text-box{
+					.text-box{
+						color:#000;font-family:$font-noto;@include vw(font-size, 24px);line-height:1.5;text-align:left;
+						@media screen and (min-width: 720px) { font-size:16px;}
+					}
+				}
+			}
+		}
+	}
+}
+
+// 노량진 기술직
+.nrtech {
+	.main-title{
+		margin-bottom: 40px;
+		.head-copy {
+			font-weight: 400;
+			font-size: 24px;
+			color: #212121;
+		}
+		.main-copy{
+			color:#000;
+			font-size: 32px;
+			line-height: 1.375;
+			font-weight:700;
+			margin-top: 0px;
+		}
+		.desc{
+			font-size:16px;
+			color: #787878;
+		}
+		.asterisk {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 20px;
+			font-weight: 600;
+			padding-top: 5px;
+			margin-left: -6px;
+		}
+		.main-notice {
+			p {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.btn-action {
+		a{
+			position:relative;
+			vertical-align:middle;
+			display:inline-block;
+			background: #fff;
+			color: #212121;
+			padding: 12px 54px;
+			min-width: 0;
+			font-weight: 400;
+			font-size: 18px;
+			border: none;
+			text-align: center;
+			border-radius: 5px;
+			border: 1px solid #D3DBDE;
+			// @include arrow(right, 6px, 6px, 2px, #fff);
+			&:before{ 
+				display: none;
+			}
+			&:hover{ 
+				border: 1px solid #7856CC;
+				background: #7856CC;
+				color: #fff;
+			}
+		}
+	}
+
+	.main-right-banner {
+		width: 117px;
+		box-sizing: border-box;
+		position: fixed;
+		top: 228px;
+		left: 50%;
+		margin-left: 670px;
+		border: 1px solid #D3DBDE;
+		border-radius: 10px;
+		background: #fff;
+		z-index: 10;
+		padding: 20px 0;
+		ul {
+			li {
+				width: 117px;
+				margin-bottom: 18px;
+				&:last-child {
+					margin-bottom: 0;
+				}
+				a {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					.icon-img {
+						display: block;
+						margin-bottom: 4px;
+					}
+					.title {
+						font-weight: 400;
+						font-size: 14px;
+						color: #212121;
+						letter-spacing: -1px;
+					}
+				}
+			}
+		}
+	}
+
+	.main{
+		&-temp-slider {
+			background-color: #937FC6;
+			padding: 60px 0;
+			height: 564px;
+			.wrap{
+				height: 444px;
+				flex-wrap: inherit;
+				.main-slide-left {
+					width:895px;
+					.slick-arrow{
+						&.slick-prev{
+							left:0;
+						}
+						&.slick-next{
+							left: 867px;
+						}					
+					}
+
+					.main-slide-list{
+						height: 444px;
+						border-radius: 10px;
+						.slide-list{ 
+							border-radius: 10px;
+							img{
+								border-radius: 10px;
+							}
+							@include pointer(82%, 0, 66px, 73px, 20, bounce);
+							&:after{
+								right: auto;
+								left: 310px;
+							}
+						}
+					}
+
+					.slick-counter{
+						background: none;
+						padding: 0;
+						border-radius: 0;
+						line-height:1;
+						color:#212121;
+						font-size: 16px;
+						position:absolute;
+						right: 92px;
+						bottom: 34px;
+					}
+
+					.main-slide-control{
+						width: 22px;
+						height: 22px;
+						position:absolute;
+						left: 843px;
+						bottom: 30px;
+						&.pause{ 
+							background-image: url("#{$img-path}/_104/main/nrg/pc/btn_pause.png");
+						}
+						&.play{ 
+							background-image: url("#{$img-path}/_104/main/nrg/pc/btn_play.png");
+						}
+					}
+
+					.main-slide-btn{
+						position:absolute;
+						right: 56px;
+						bottom: 30px;
+						width: 22px;
+						height: 22px;
+						&.prev{ right: 138px; }
+						&.next{}
+					}
+				}
+
+				.main-slide-right {
+					width: 285px;
+					margin-left:auto;
+					.slide-group{
+						margin-bottom: 20px;
+						height: 212px;
+						border-radius: 10px;
+						.slide-list {
+							position: relative;
+							width: 285px !important;
+							height: 212px;
+							border-radius: 10px;
+							img{
+								border-radius: 10px;
+							}
+							a{
+								.title-group {
+									position: absolute;
+									top: 54px;
+									left: 28px;
+									.sub-title {
+										font-size: 18px;
+										font-weight: 350;
+										margin-bottom: 10px;
+										color: #212121;
+									}
+									.main-title {
+										font-size: 24px;
+										font-weight: 700;
+										line-height: 1.4;
+										strong {
+											color: #0000FF;
+										}
+									}
+								}
+							}
+						}
+					}
+					.slick-dots {
+						position: absolute;
+						right: 20px;
+						top: 20px;
+						li {
+							button {
+								width: 10px;
+								height: 10px;
+								background: #BDBDBD;
+								border-radius: 30px;
+							}
+							&.slick-active {
+								button {
+									width: 20px;
+									background: #212121;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-temp-serial {
+			background: #ffffff;
+			padding: 0 0 60px 0;
+			.main-title {
+				margin-bottom: 20px;
+			}
+			.serial-list-wrap{
+				ul{
+					li{
+						a {
+							border: 1px solid #D3DBDE;
+							font-weight: 400;
+							font-size: 20px;
+							color: #212121;
+							padding: 0 20px;
+							@include arrow(right, 7px, 7px, 1px, #4F4A4A);
+								.icon{
+									top: -2px;
+									margin-left: 8px;
+									padding-right: 1px;
+								}
+						}
+						&:hover{
+							a{
+								font-weight: 400;
+								border:1px solid #7856CC;
+								background-color:#7856CC;
+								color: #fff;
+								@include arrow(right, 7px, 7px, 1px, #fff);
+								.icon-only { 
+									border: 1px solid #fff;
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-temp-product {
+			padding: 0 0 60px 0;
+			.product-list-wrap{
+				.product-list-col{
+					li{
+						width: 336px;
+						height: 450px;
+						border-radius: 30px 10px 30px 10px;
+						padding-left: 32px;
+						&.banner-1 {
+							width: 487px;
+							background: linear-gradient(133.94deg, rgba(255, 255, 255, 0.15) 2.24%, rgba(255, 255, 255, 0) 53.11%), #7856CC;
+						}
+						&.banner-2 {
+							padding-left: 33px;
+							background: linear-gradient(133.94deg, rgba(255, 255, 255, 0.15) 2.24%, rgba(255, 255, 255, 0) 53.11%), #3C71E7;
+						}
+						&.banner-3 {
+							padding-left: 33px;
+							background: linear-gradient(133.94deg, rgba(255, 255, 255, 0.15) 2.24%, rgba(255, 255, 255, 0) 53.11%), #399ED0;
+						}
+
+						.product-subtitle {
+							color: #ffd900;
+							.subtitle-1 {
+								font-size: 18px;
+								font-weight: 400;
+								margin-bottom: 5px;
+							}
+							.subtitle-2 {
+								font-size: 22px;
+								font-weight: 700;
+							}
+							.product-flag-square {
+								margin-bottom: 5px;
+							}
+						}
+						.product-subject {
+							margin-top: 15px;
+							strong {
+								font-size: 36px;
+								font-weight: 800;
+								letter-spacing: -1.8px;
+							}
+						}
+						.product-desc {
+							margin-top: 15px;
+							.desc-list {
+								div {
+									font-size: 16px;
+									font-weight: 300;
+									color: #ffffff;
+									line-height: 1.65;
+								}
+							}
+						}
+						.product-text{
+							position: absolute;
+							left: 30px;
+							bottom: 54px;
+							width: 210px;
+							padding: 15px 23px 14px 23px;
+							font-size: 18px;
+							background: none;
+							border: 1px solid #ffffff;
+							color: #ffffff;
+							border-radius: 23px;
+							.product-name{
+								@include arrow(right, 6px, 6px, 2px, #fff);
+								display:block;
+								&:before{ right: 5px; }
+							}
+							&:hover{
+								color:#000000;
+								background-color:#ffd900;
+								border: none;
+								.product-name{
+									@include arrow(right, 6px, 6px, 2px, #000);
+									display: block;
+									&:before{ right: 5px; }
+								}
+							}
+						}
+						.product-link{
+							position:absolute;
+							left: 32px;
+							right: auto;
+							bottom: 54px;
+							a{
+								position:relative;
+								left:0;
+								bottom:0;
+								width: 207px;
+								&:not(:first-child) { margin-left: 10px;}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-temp-event-lecture {
+			padding:  60px 0 60px 0;
+			.main-slide-wrap {
+				padding: 0 20px 47px 20px;
+				.slide-list {
+					a {
+						.lecture-info { 
+							background: #F1F3F9;
+							.title-group {
+								left: 40px;
+								.lecture-title {
+									font-size: 22px;
+									font-weight: 700;
+								}
+								.subject {
+									font-size: 16px;
+								}
+								.flag{
+									padding: 5px 9px;
+									margin-bottom: 9px;
+									&.free {
+										background: #FE5957;
+									}
+								}
+								.name {
+									font-size: 22px;
+									font-weight: 700;
+								}
+							}
+							.teacher-img {
+								right: -70px;
+							}
+						}
+						.cover {
+							color: #fff;
+							background: rgba(33, 33, 33, 0.5);
+							strong {
+								font-weight: 400;
+								font-size: 16px;
+								@include arrow(right, 5px, 5px, 1px, #fff);
+								&:before{ 
+									margin-top: -2px;
+									right: -15px;
+								}
+							}
+						}
+						&:hover { 
+							.lecture-info { 
+								background: linear-gradient(133.94deg, rgba(255, 255, 255, 0.4) 2.24%, rgba(255, 255, 255, 0) 53.11%), #7856CC;
+								.title-group { 
+									.lecture-title {
+										color: #fff;
+									}
+									.subject {
+										color: #fff;
+									}
+									.name {
+										color: #fff;
+									}
+								}
+							}
+						}
+					}
+				}
+				.slick-dots {
+					bottom: -50px;
+				}
+				.slick-arrow {
+					@include boxShadow(-1px 2px 9px 0px rgba(0, 0, 0, 0.23));
+					&.slick-prev {
+						left: -13px !important;
+					}
+					&.slick-next {
+						right: -13px !important;
+					}
+				}
+			}
+		}
+		
+		&-temp-teachers {
+			@include bg($color: #ffffff, $url: '#{$img-path}NRTECH/main/220715/pc/bg_teachers.png', $size: cover);
+			.wrap {
+				height: 480px;
+				overflow: hidden;
+			}
+			.main-title {
+				.head-copy {
+					margin-bottom: 10px;
+				}
+			}
+			.btn-action {
+				margin-top: 50px;
+				a {
+					border-radius: 5px;
+					&:hover {
+						border: none;
+						background: #212121;
+					}
+				}
+			}
+
+			.main-slide-wrap { 
+				.slide-list {
+					.teacher-card-list {
+						.slick-dots {
+							bottom: 50%;
+							@include translateY(50%);
+							left: 531px;
+							width: 10px;
+							li {
+								display: block;
+								margin-bottom: 8px;
+								width: 10px;
+								height: 10px;
+								margin-left: 0;
+								button {
+									width: 10px;
+									height: 10px;
+									vertical-align: top;
+									background: #BDBDBD;
+								}
+								&.slick-active {
+									height: 20px;
+									button {
+										width: 10px;
+										height: 20px;
+										background: rgba(33, 33, 33, 0.8);
+									}
+								}
+							}
+						}
+						.slick-arrow {
+							display: block;
+							@extend %slick-arrow;
+							width: 24px;
+							height: 24px;
+							z-index: 10;
+							position: absolute;
+							right: 57px;
+							border: none !important;
+							@include transform(rotate(0deg) translateY(0%));
+							&::before {
+								display: none;
+							}
+							&.slick-prev{
+								top: 135px !important;
+								@include bg($url: '#{$img-path}NRTECH/main/220715/pc/arrow_left.png', $size: cover);
+							}
+							&.slick-next{
+								top: 255px !important;
+								@include bg($url: '#{$img-path}NRTECH/main/220715/pc/arrow_right.png', $size: cover);
+							}
+						}
+					}
+					a {
+						.lecture-info { 
+							background: #fff;
+							box-shadow: 5px 5px 15px 4px rgba(0, 0, 0, 0.15);
+							.title-group {
+								.lecture-title {
+									font-size: 22px;
+								}
+								.name {
+									font-size: 28px;
+									font-weight: 700;
+									margin-bottom: 15px;
+								}
+								.subject {
+									font-weight: 400;
+									margin-bottom: 75px;
+								}
+								.btn-more {
+									width: 97px;
+									padding: 5px 14px;
+									background: #F1F3F9;
+									border-radius: 5px;
+									box-sizing: border-box;
+									font-size: 14px;
+									font-weight: 400;
+									color: #808080;
+									@include arrow(right, 4px, 4px, 1px, #808080);
+									&:before{
+										right: 10px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.teacher-list-navs {
+				width: 160px;
+				z-index: 10;
+				margin-left: 89px;
+				margin-right: 13px;
+				overflow: visible !important;
+				.slick-slide {
+					margin: 1px 0;
+					&.slick-current {
+						z-index: 1;
+						@include transition(all, .3s, cubic-bezier(0, 0.59, 0.56, 1.08));
+						.list-nav {
+							background-color: #7856CC;
+							p { 
+								font-weight: 500;
+								color: #ffffff;
+							}
+							//@include boxShadow(5px 0px 20px 0 rgba(0, 0, 0, .2));
+						}
+						p { color: #000000; }
+					}
+				}
+				.slick-arrow {
+					display: block;
+					@extend %slick-arrow;
+					width: 40px;
+					height: 40px;
+					z-index: 10;
+					position: absolute;
+					left: 54px;
+					border: none !important;
+					@include transform(rotate(0deg) translateY(0%));
+					&::before {
+						display: none;
+					}
+					&.slick-prev{
+						top: -59px !important;
+						@include bg($url: '#{$img-path}NRTECH/main/220715/pc/arrow_left_2.png', $size: cover);
+					}
+					&.slick-next{
+						top: 380px !important;
+						@include bg($url: '#{$img-path}NRTECH/main/220715/pc/arrow_right_2.png', $size: cover);
+					}
+				}
+				.list-nav {
+					height: 50px;
+					border-radius: 10px;
+					cursor: pointer;
+					@include boxSizing(border-box);
+					@include transition(all, .3s, cubic-bezier(0, 0.59, 0.56, 1.08));
+					display: flex !important;
+					justify-content: center;
+					align-items: center;
+				}
+				p {
+					margin: 0;
+					text-align: center;
+					line-height: 1.38;
+					color: #000000;
+					&.text {
+						font-size: 18px;
+						font-weight: 400;
+					}
+				}
+			}
+		}
+
+		&-temp-tip {
+			background: #fff;
+			padding-bottom: 60px;
+			.main-title {
+				margin-bottom: 40px;
+			}
+			.main-slide-wrap {
+				width: 1200px;
+				padding: 0 20px 46px 20px;
+				margin-left: -20px;
+				.slick-slide {
+					width: 285px !important;
+				}
+				.slick-dots {
+					bottom: -50px;
+				}
+				.slick-arrow {
+					display: block;
+					@extend %slick-arrow;
+					width: 40px;
+					height: 40px;
+					border-radius:50%;
+					z-index: 10;
+					position: absolute;
+					top: 80px !important;
+					border: none !important;
+					@include boxShadow(-1px 2px 9px 0px rgba(0, 0, 0, 0.23));
+					&.slick-prev{
+						left: -16px !important;
+						@include slideArrow(left, 40px, 40px, 2px, #000, #fff);
+					}
+					&.slick-next{
+						right: -16px !important;
+						@include slideArrow(right, 40px, 40px, 2px, #000,  #fff);
+					}
+				}
+			}
+		}
+
+		&-temp-interview {
+			padding: 60px 0;
+			background: #fff;
+			.main-title {
+				margin-bottom: 20px;
+			}
+			.main-slide-wrap {
+				width: 1240px;
+				height: 240px;
+				padding: 20px;
+				overflow: hidden;
+				margin-left: -20px;
+				margin-top: 0;
+				.slide-list {
+					padding: 0;
+					overflow: visible;
+					img {
+						border-radius: 30px 10px 30px 10px;
+						box-shadow: none;
+					}
+				}
+				.slick-slide {
+					width: 386px !important;
+					margin-right: 20px;
+					padding-bottom: 0;
+				}
+				.slick-arrow{
+					display: block;
+					@extend %slick-arrow;
+					width: 40px;
+					height: 40px;
+					border-radius:50%;
+					z-index: 10;
+					position: absolute;
+					top: 111px !important;
+					border: none !important;
+					@include boxShadow(3px 3px 9px 0px rgba(0, 0, 0, 0.23));
+					&.slick-prev{
+						left: -15px !important;
+						@include slideArrow(left, 40px, 40px, 2px, #000, #fff);
+					}
+					&.slick-next{
+						right: -13px !important;
+						@include slideArrow(right, 40px, 40px, 2px, #000,  #fff);
+					}
+				}
+			}
+		}
+
+		&-temp-reason {
+			padding: 60px 0;
+			background: #F8F9FC;
+			.main-reason-wrap {
+				.main-reason-left { 
+					width: 710px;
+					height: 382px;
+					border-radius: 10px;
+					.slide-list {
+						.reason-slide-title {
+							width: 710px;
+							height: 116px;
+							padding: 30px 0 30px 29px;
+							background: rgba(33, 33, 33, 0.8);
+							border-radius: 10px;
+							.sub-title {
+								font-weight: 300;
+							}
+						}
+					}
+					.reason-slide-btn {
+						bottom: 30px;
+						width: 23px;
+						height: 23px;
+					}
+					.slick-counter {
+						bottom: 40px;
+					}
+				}
+				.main-reason-right {
+					.reason-list-wrap {
+						.reason-top {
+							margin-bottom: 20px;
+						}
+						.reason-bottom {
+							width: 428px;
+							display: flex; 
+							justify-content: space-between;
+						}
+						.reason {
+							position: relative;
+							border: 1px solid #D3DBDE;
+							width: 204px;
+							height: 248px;
+							border-radius: 10px;
+							background: #fff;
+							box-sizing: border-box;
+							.title {
+								font-weight: 700;
+								font-size: 20px;
+								color: #212121;
+								position: absolute;
+								top: 26px;
+								left: 26px;
+							}
+							.icon-reason {
+								position: absolute;
+								bottom: 14px;
+								right: 14px;
+								.on {
+									display: none;
+								}
+							}
+							a {
+								display: block;
+								width: 100%;
+								height: 100%;
+								&:hover {
+									.icon-reason { 
+										.on {
+											display: block;
+										}	
+										.off {
+											display: none;
+										}
+									}
+								}
+							}
+							&.reason-1 {
+								width: 428px;
+								height: 114px;
+								border: none;
+								@include bg($url: '#{$img-path}NRTECH/main/220715/pc/bg_reason_1.png', $size: cover);
+								.title {
+									top: 43px;
+									left: 30px;
+									color: #fff;
+								}
+								&:hover {
+									@include bg($url: '#{$img-path}NRTECH/main/220715/pc/bg_reason_2.png', $size: cover);
+									.title {
+										top: 46px;
+										font-weight: 350;
+										font-size: 16px;
+										color: #212121;
+									}
+								}
+							}
+							&:hover {
+								background: #F3EFFF;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-temp-banner-list {
+			&.banner-list-1 {
+				padding:  50px 0 60px 0;
+				.main-slide-wraps {
+					width: 590px !important;
+					height: 140px !important;
+				}
+			}
+		}
+
+		&-temp-professional {
+			.professional-list {
+				margin-right: 0;
+			}
+		}
+
+		&-temp-map {
+			@include bg($color: #ffffff, $url: '#{$img-path}NRTECH/main/220715/pc/img_academy_map.png');
+		}
+
+		&-temp-info {
+			.wrap {
+				.info-list-wrap {
+					height: 210px;
+				}
+			}
+		}
+	}
+}
+

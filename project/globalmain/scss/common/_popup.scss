@@ -1,0 +1,568 @@
+
+
+
+
+.eduf-layer{
+	.eduf-layer-wrap{
+		width:100%;
+		max-width:720px;
+	}
+
+	.eduf-layer-close{top:0;right:0;}
+	.eduf-layer-content{
+		text-align: left;
+		background-color: #fff;
+		.title {
+			padding: 12px 5%;
+			line-height: normal;
+			font-size: 24px;
+			font-weight: 700;
+			color: #fff;
+			background-color: $color-base-1;
+		}
+		.table {
+			display: block !important;
+		}
+		.item-list { @include rem(padding, 25px); }
+		.list {
+			line-height: 1.4;
+			font-size: 0;
+			color: $color-base-1;
+			border-bottom: 1px solid $border-color-1;
+			&:first-child { border-top: 1px solid $border-color-1 !important; }
+			&.noti { background-color: $bg-color-1; }
+			&-bottom {
+				margin: 9px 0;
+				&:after {
+					content: '';
+					display: block;
+					overflow: hidden;
+					clear: both;
+				}
+				.pop-notice {
+					text-align: left;
+					ul {
+						li {
+							position: relative;
+							color: $color-base-6;
+							line-height: 1.4;
+							word-break: keep-all;
+							@include rem(margin-top, 5px);
+							@include vw(font-size, 24px);
+							@include rem(padding-left, 12px);
+							&:first-child { margin-top: 0;}
+							&:before {
+								content: '·';
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 0;
+								z-index: 1;
+							}
+						}
+					}
+				}
+				.paging {
+					margin: 30px 0;
+				}
+				.buttons {
+					@extend .grid;
+					margin-top: 9px;
+					a {
+						@extend .col;
+						display: block;
+						width: calc(50% - 4px);
+						width: -webkit-calc(50% - 4px);
+						width: -moz-calc(50% - 4px);
+						font-size: 14px;
+						font-weight: 700;
+						color: $color-base-5;
+						text-align: center;
+						height: 40px;
+						line-height: 40px;
+						font-size: 14px;
+						border-radius: 4px;
+						background: #fff;
+						border: 1px solid #666;
+						+ a { margin-left: 4px;}
+						@include boxSizing(border-box);
+						&.btn-regist {
+							color: #fff;
+							background: $color-base-6;
+							border-color: $color-base-6;
+						}
+						&.btn-more {
+							@include breakpoint(desktop){
+								display: none;
+							}
+						}
+						&:only-child {
+							width: 100%;
+							@include breakpoint(desktop){
+								float: right;
+								width: calc(50% - 4px);
+								width: -webkit-calc(50% - 4px);
+								width: -moz-calc(50% - 4px);
+							}
+						}
+						&:last-child {
+							@include breakpoint(desktop){
+								float: right;
+							}
+						}
+					}
+				}
+				@include breakpoint(desktop){
+					.pop-notice {
+						// float: left;
+						// width: 60%;
+						ul {
+							li {
+								font-size: 14px;
+							}
+						}
+					}
+					.paging {
+						clear: both;
+						float: none;
+					}
+					.buttons {
+						// float: right;
+						// width: 40%;
+						margin-top: 40px;
+					}
+				}
+			}
+			&-nodata {
+				padding: 30px 0;
+				text-align: center;
+			}
+		}
+
+		.star {
+			position: relative;
+			a {
+				display: inline-block;
+				vertical-align: top;
+			}
+			i {
+				display: inline-block;
+				vertical-align: middle;
+				@extend %star;
+			}
+			@include breakpoint(desktop){
+				top: -4px;
+			}
+		}
+		.item {
+			display: inline-block;
+			vertical-align: top;
+			padding: 10px;
+			@include vw(font-size, 24px);
+			letter-spacing: -.5px;
+			@include boxSizing(border-box);
+			@include breakpoint(desktop){
+				font-size: 16px;
+				p { font-size: 14px; }
+			}
+			&.subject { width: 20%; font-weight: 700; }
+			&.desc {
+				width: 80%;
+				@include breakpoint(desktop){
+					font-size: 14px;
+				}
+			}
+			&:only-child {
+				display: block;
+				width: 100%;
+				@include rem(max-height, 400px);
+				overflow-y: auto;
+			}
+			a { font-weight: 400; color: $color-base-1; }
+			input[type=text] {
+				padding: 0 5px;
+				height: 30px;
+				width: 100%;
+				border: 1px solid $border-color-3;
+				@include vw(font-size, 24px);
+				@include breakpoint(desktop){
+					padding: 10px;
+					height: 40px;
+					font-size: 15px;
+				}
+			}
+			textarea {
+				@include rem(padding, 10px);
+				@include rem(height, 370px);
+				@include vw(font-size, 24px);
+				@include boxSizing(border-box);
+				width: 100%;
+				resize: none;
+				border: 0;
+				@include breakpoint(desktop){
+					font-size: 15px;
+				}
+			}
+		}
+
+		.pop-list {
+			.search-list {
+				text-align: center;
+				@include rem(margin-bottom, 10px);
+				select {
+					display: inline-block;
+					width: 25%;
+					height: 30px;
+					border: 1px solid $border-color-3;
+					font-size: 13px;
+				}
+				input {
+					display: inline-block;
+					width: 55%;
+					height: 30px;
+					border: 1px solid $border-color-3;
+				}
+				a {
+					display: inline-block;
+					width: 18%;
+					height: 30px;
+					line-height: 30px;
+					vertical-align: middle;
+					font-weight: 700;
+					color: #fff;
+					text-align: center;
+					font-size: 13px;
+					border-radius: 4px;
+					background: #333;
+				}
+
+				@include breakpoint(desktop){
+					text-align: right;
+					select, input {
+						height: 40px;
+						font-size: 15px;
+					}
+					a {
+						height: 40px;
+						line-height: 40px;
+						font-size: 15px;
+					}
+				}
+			}
+			.item {
+				&.subject {
+					width: 100%;
+					padding-bottom: 0;
+					a {
+						display: inline-block;
+						width: 98%;
+						@include vw(font-size, 24px);
+						@extend %textEllipsis;
+						@include breakpoint(desktop){
+							font-size: 16px;
+						}
+					}
+				}
+				&.star {
+					padding-top: 0;
+					width: 26%;
+					text-align: left;
+				}
+				&.writer {
+					padding-top: 0;
+					text-align: left;
+					width: 20%;
+					@include vw(font-size, 24px);
+					@include breakpoint(desktop){
+						font-size: 16px;
+					}
+				}
+
+				@include breakpoint(desktop){
+					&.subject {
+						padding-bottom: 10px;
+						width: 70%;
+					}
+					&.star {
+						text-align: center;
+						padding-top: 10px;
+						width: 20%;
+					}
+					&.writer {
+						padding-top: 10px;
+						text-align: center;
+						width: 10%;
+					}
+				}
+			}
+		}
+
+		.scroll-box {
+			@include rem(padding, 40px);
+			@include rem(height, 300px);
+			overflow-y: scroll;
+			text-align: left;
+			background: #fff;
+			p {
+				font-size: 13px;
+				font-weight: 400;
+				color: $color-base-2;
+				line-height: 1.4;
+				strong { font-weight: 700; color: $color-base-5;}
+				@include breakpoint(desktop){
+					font-size: 15px;
+				}
+			}
+		}
+	}
+	&.popup-board {
+		.eduf-layer-content {
+			.item {
+				&.sort {
+					width: 24%;
+					text-align: center;
+					font-weight: 500;
+					color: $color-base-5;
+					@include vw(font-size, 24px);
+					&.sort-noti {
+						color: #ff0000;
+					}
+					& + .desc { width: 76%; font-size: 16px; }
+				}
+				&.file {
+					@include rem(padding, 20px);
+					max-height: 80px;
+					overflow-y: auto;
+					background: $bg-color-4;
+					a {
+						display: block;
+						font-weight: 400;
+						color: $color-base-2;
+						@include vw(font-size, 22px);
+						&:before {
+							content: '↓';
+							display: inline-block;
+							margin-right: 4px;
+							color: $lecture-color-4;
+						}
+						+ a {
+							@include rem(margin-top, 6px);
+						}
+					}
+				}
+				@include breakpoint(desktop){
+					&.sort {
+						width: 15%;
+						font-size: 16px;
+						+ .desc { width: 85%;}
+					}
+					&.file {
+						max-height: 100px;
+						a {
+							font-size: 15px;
+						}
+					}
+				}
+			}
+			.pop-list {
+				.item {
+					&.subject {
+						width: 76%;
+						padding-bottom: 0;
+						a {
+							display: inline-block;
+							width: 70%;
+							vertical-align: top;
+							font-weight: 500;
+							@include vw(font-size, 24px);
+							@extend %textEllipsis;
+							@include boxSizing(border-box);
+						}
+						.icon {
+							margin-left: 4px;
+							vertical-align: top;
+						}
+					}
+
+					@include breakpoint(desktop){
+						&.subject {
+							width: 85%;
+							padding-bottom: 10px;
+							a {
+								width: 95%;
+								font-size: 16px;
+								font-weight: 400;
+							}
+							// .icon {
+							// 	vertical-align: middle;
+							// }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#popupBoard{
+	.eduf-layer-content{
+		@include rem(min-height, 450px);
+	}
+}
+
+// 설명회 신청 팝업 
+#popupFixBottom { 
+	display:none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index:300;
+	background-color: rgba(0, 0, 0, 0.8);
+	&.show{display:flex;}
+
+
+	.popup-wrap{
+		position:relative;
+		width:100%;
+		max-width:600px;
+		background: #ffffff;
+		@include breakpoint(maxMobile){
+			width:auto;
+			max-width:100%;
+		}
+	}
+
+	.popup-close{
+		cursor:pointer;display:inline-block;width:56px;height:56px; position:absolute;top:-50px;right:-10px;z-index:2002;
+		&:before,
+		&:after {content:'';position:absolute;top:50%;left:50%;display:block;width:30px;height:1px;margin-left:-15px;background-color:#fff;}
+		&:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}
+		&:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}
+	}
+	
+	.popup-title { 
+		padding: 28px 0; font-weight: 400; font-size: 20px; text-align: center; color: #fff; letter-spacing: -1px; line-height: 1.2; background-color: #393939; 
+		strong { letter-spacing: -2px; font-size: 35px; font-weight: 900;}
+		@media screen and (max-width: 720px) { 
+			font-size:1.2rem;
+			strong{ font-size:1.8rem;}
+		}
+		&.seoul_toggle{
+			background-color: #ffbf00;
+			color: #393939; 
+		}
+	}
+	
+	.popup-content { 
+		padding: 30px; 
+		@media screen and (max-width: 720px) { padding: 15px; }
+		p { margin: 0; }
+		.subject { font-weight: 700; font-size: 26px; color: #191919; letter-spacing: -2px;}
+		.info { margin-top: 10px; font-size: 19px; color: #000; line-height: 1.8;}
+		li { margin-top: 8px; }
+		li:first-child { margin-top: 0; }
+
+		.form-group{
+			li{
+				margin-bottom:10px;
+				&:after{content:'';display:block;clear:both;}
+				label, select,
+				input { 
+					float:left;display: inline-block; height: 57px; line-height: 57px; font-size: 15px; 
+					&::placeholder{font-size: 15px; }
+					@media screen and (max-width: 720px) { 	
+						height: 37px; line-height: 37px; 
+						font-size: 12px; 
+						&::placeholder{font-size: 12px; }
+					}
+				}
+				label { 
+					position: relative;padding-left: 10px; width: 15%;text-align: left; font-weight: 700; color: #1d1d1d; box-sizing:border-box;font-family:$font-noto;
+					@media screen and (max-width: 720px) { 	
+						width:25%;
+					}
+					&:before { content:''; position: absolute; top:50%; left:0;margin-top:-2px; display: block; width: 4px; height: 4px;background: #333333;}
+				}
+				select, input { 
+					padding-left: 10px; width: 85%; font-weight: 300; border: 1px solid #dcdcdc; box-sizing:border-box;font-family:$font-noto;
+					@media screen and (max-width: 720px) { width: 75%;	}
+				}
+				select {
+					padding-top: 0 !important;
+					padding-bottom: 0 !important;
+				}
+			}
+		}
+
+		.caution { margin-top: 20px; font-size: 13px; color: #888; }
+
+		.agree-wrap{ 
+			margin-top: 20px; color: #686868; 
+			.inner { padding: 20px; background: #eee; text-align: left;}
+			ul ,
+			p { font-size: 13px;  font-weight: 300; line-height: 1.5;font-family:$font-noto;}
+			ul,
+			ul li { margin: 0; line-height: 1.5;}
+			strong { display: inline-block; margin-bottom: 5px; font-size: 16px; font-weight: 700;}
+			.agree-check {
+				margin: 20px 0 0 0;     text-align: left; 
+				input { vertical-align: middle; margin-right: 4px;}
+				@media screen and (max-width: 720px) { 	
+					.agree-check{margin-left:0;margin-top:5%;}
+				}
+			}
+		}
+
+		.action{ 
+			margin-top: 26px; text-align: center;font-size:0; 
+			a { 
+				position: relative; display: inline-block; margin: 0 auto; width: 200px; height: 52px; text-align: center; transition:all 0.9s, color 0.3; border-radius:5px; -webkit-box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18); box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18);background:#ffbf00;
+				span { line-height: 52px; font-family:$font-noto;font-size:20px; font-weight: 500; color: #000; letter-spacing: -2px;}
+				&:hover { 
+					background: #db3725;
+					span { color: #fff;}
+				}
+
+				&.btn-cancle {
+					background: #434343
+					span { color: #bebebe;}
+				}
+
+				&:first-child{margin-right: 12px;}
+			}
+
+			@media screen and (max-width: 720px) { 	
+			
+				margin-top:5%;
+				a{
+					width:46%;
+					span{font-size:16px;}
+					&.btn-cancle{margin-right:5px;}
+				}
+				
+			}
+		}
+		
+		.layer-extra { 
+			margin-top: 26px; padding-top: 26px; color: #333; border-top: 1px dotted #999; text-align:center; font-size:12px;
+			a { text-decoration: underline; color: #5954ff; font-weight: 700; margin-left:3px;font-family: $font-noto;}
+		}
+	
+
+	}
+
+	.popup-base{
+		.popup-cont{
+			.text-box{
+				color:#000;font-family:$font-noto;@include vw(font-size, 24px);line-height:1.5;text-align:left;
+				@media screen and (min-width: 720px) { font-size:16px;}
+			}
+		}
+	}
+}
+
+

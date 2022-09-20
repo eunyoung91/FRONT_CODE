@@ -1,0 +1,245 @@
+.esa {
+	// template 활용
+	.main-title{
+		margin-bottom: 40px;
+		.main-copy{
+			margin-top: 6px !important;
+			color:#000;
+			font-size: 27px;
+			line-height: 1.4;
+			font-weight:700;
+			margin-top: 0;
+			letter-spacing: -1px;
+			.btn-grounds { margin-left: 10px;}
+		}
+		.desc{
+			font-size:16px;
+			color: #787878;
+		}
+		.asterisk {
+			display: inline-block;
+			vertical-align: top;
+			font-size: 20px;
+			font-weight: 600;
+			padding-top: 5px;
+			margin-left: -6px;
+		}
+	}
+
+	.btn-grounds { color: #aaa;}
+	[class^=main-temp-] .btn-action a{
+		border-radius:30px;
+		&:before{
+			right:40px;
+		}
+	}
+
+	.main{
+		// template 활용
+		&-temp-slider {
+			padding: 0;
+			height: 485px;
+			.wrap{
+				// 
+				flex-wrap: inherit;
+				// 
+				.main-slide-left{
+					position: relative;
+					width: 100%;
+					.slick-arrow{
+						opacity: 1;
+						border-radius: 5px;
+						&.slick-prev{
+							left: -58px;
+						}
+						&.slick-next{
+							left: auto;
+							right: -58px;
+						}
+					}
+					.main-slide-list{
+						height: 485px;
+						border-radius: 0;
+						overflow: inherit;
+						.slide-list{ 
+							border-radius: 10px;
+							img{
+								border-radius: 10px;
+							}
+							@include pointer(82%, 0, 66px, 73px, 20, bounce);
+							&:after{
+								right: auto;
+								left: 310px;
+							}
+						}
+					}
+
+					.slick-counter{
+						position:absolute;
+						top: 70px;
+						right: 52px;
+						font-size: 14px;
+						padding: 0;
+						background: none;
+						border-radius: 0;
+						line-height:1;
+						color:#000;
+						strong {
+							font-weight: 400;
+							&:first-child { font-weight: 700;}
+						}
+					}
+
+					.main-slide-control {
+						position:absolute;
+						top: 71px;
+						width: 15px;
+						height: 16px;
+						left: 1074px;
+						&.pause{ 
+							background-image: url("#{$img-path}/_116/main/pc/icon_pause.png");
+						}
+						&.play{ 
+							background-image: url("#{$img-path}/_116/main/pc/btn_play.png");
+							background-size: 7px auto;
+						}
+					}
+					.main-slide-btn{
+						position:absolute !important;
+						top: 71px;
+						width: 14px;
+						height: 14px;
+						&.prev {
+							@include arrow(left, 6px, 6px, 1px, #000);
+							right: 76px;
+							&:before { left: 0;}
+						}
+						&.next {
+							@include arrow(right, 6px, 6px, 1px, #000);
+							right: 36px;
+							&:before { right: 0;}
+						}
+					}
+					.slide-control-box{
+						position: absolute;
+						z-index: 0;
+						background: rgba(255, 255, 255, 0.5);
+						top: 65px;
+						right: 25px;
+						width: 107px;
+						height: 25px;
+						border-radius: 50px;
+					}
+				}
+			}
+		}
+
+		&-temp-teacher-2{
+			.main-slide-wrap .slide-list a .teacher-box .teacher-img img { position : absolute; width : 135%; right : -110px; bottom : -120px; }
+			.main-slide-wrap .slide-list a.comingsoon .teacher-box .teacher-img img{width:100%;bottom:0;right:0;}
+		}
+
+		//강의소개
+		&-temp-lecture{
+			padding: 70px 0 70px 0;
+			background: #fff;
+			.service-group{
+				margin-left:-10px;
+				margin-bottom: 30px;
+				display:flex;
+				flex-wrap:wrap;
+				justify-content:space-around;
+				.service-list{
+					margin-bottom:20px;
+					.thumb{
+						width:390px;
+						height:214px;overflow:hidden;
+						img{width:100%;height:100%;}
+					}
+					.desc{
+						width:390px;
+						margin-top:10px;
+						font-size: 14px;
+						line-height: 21px;
+						letter-spacing: -0.04em;
+						color: #666666;
+						@extend %textEllipsis;
+					}
+				}
+			}
+		}
+
+		&-temp-event {
+			padding: 0 0 0 0;
+			background: #fff;
+			overflow: hidden;
+			.main-title {
+				margin-bottom: 30px;
+			}
+			.event-list-wrap{
+				display: block;
+				.main-slide-wrap{
+					width:100%;
+					height: 110px;
+					overflow: inherit;
+					.slick-slide{
+						width:100%;
+						height: 110px;
+						text-align: center;
+						a {
+							display: block;
+							width: 100%;
+						}
+						img{
+							width: auto;
+							height: auto;
+							max-width: 100%;
+							display: inline-block;
+							vertical-align: top;
+						}
+					}
+					.slick-dots{
+						top:-42px;
+						left: 50%;
+						width: 1200px;
+						margin-left: -600px;
+					}
+				}
+	
+			}
+		}
+
+		&-temp-tip {
+			padding: 70px 0 0 0;
+			background: #fff;
+			.main-slide-wrap { 
+				padding-top: 0;
+				.slick-dots{
+					display: none !important;
+				}
+			}
+			.btn-action {
+				a{
+					img, span{vertical-align: middle;}
+					img{ padding-right: 5px;}
+				}
+			}
+		}
+
+		&-temp-system {
+			background: #fff;
+			.main-system-tab{
+				.system-tab-list {
+					li{
+						font-size: 20px;
+					}					
+				}
+			}
+		}
+		&-temp-banner1{
+			background-color: #fff;
+			padding:0 0 30px 0;
+		}
+
+	}
+}
