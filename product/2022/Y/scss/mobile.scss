@@ -1,0 +1,754 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.bottom_fix_btn {
+	display: none;
+}
+
+
+.product-eco {
+	.btn-reason {
+
+		position: absolute;
+		right: 5vw;
+		border: none;
+		border-radius: 3px;
+		cursor: pointer;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		background: #e2e2e2;
+		color: #222;
+		border: 1px solid #e4e4e4;
+		z-index:3;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.48vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #222;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: -10px;
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #fcc00e;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	&[data-type="1367"]{
+		
+		.fix-banner {
+			position: fixed;
+			top: 120vw;
+			right: 0;
+			z-index: 100;
+			img {
+				@include vw(width, 132px);
+			}
+		}
+		.visual {
+			background: #cd161a;
+			.btn-reason {
+				top: 56vw;
+				border: none;
+				background: transparent;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+
+				&.last {
+					top: 165vw;
+				}
+			}			
+		}
+
+		.cont1 {
+			background: #fff4cf;
+		}
+	
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #cd161a;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 6.7vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #fff
+			}
+		}
+	}
+
+	&[data-type="2219"]{
+		#edoContent1 {
+			.ecoCont0 {
+				display: block !important
+			}
+		}
+		.fix-banner2219 {
+			position: fixed;
+			top: 65vw;
+			right: 0;
+			z-index: 100;
+			img {
+				@include vw(width, 150px);
+			}
+		}
+		.visual {
+			background: #f0f2e6;
+			.btn-reason {
+				top: 42vw;
+				right: 10vw;
+				border-color: #222;
+				border-radius: 0;
+				background: transparent;
+				// color: #fff;
+				// &::after {
+				// 	border-color: #fff;
+				// }
+
+				&.last {
+					top: initial;
+					bottom: 0vw;
+					right: 6vw;
+				}
+			}			
+		}
+
+		.cont1 {
+			background: #ffd475;
+		}
+		.cont2 {
+			
+			.slider {
+				img {
+					transition: all .3s ;
+					opacity: .5;
+				}
+
+				.slick-current {
+					img {
+						opacity: 1;
+					}
+				}
+			}
+			
+		}
+
+		#edoContent1 {
+			.ecoCont1 {
+				display: none !important;
+			}
+		}
+		
+	
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ca50f7;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 6.7vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #fff
+			}
+		}
+	}
+
+	&[data-type="1903"]{
+		// #edoContent1 {
+		// 	.ecoCont0 {
+		// 		display: block !important
+		// 	}
+		// }
+
+		.fix-banner {
+			position: fixed;
+			top: 120vw;
+			right: 0;
+			z-index: 100;
+			img {
+				@include vw(width, 132px);
+			}
+		}
+		.visual {
+			background: #21128b;
+
+			.btn-reason {
+				top: 42vw;
+				right: 10vw;
+				color: #fff;
+				border-color: #fff;
+				background: transparent;
+				border-radius: 0;
+				opacity: .5;
+				&::after {
+					border-color: #fff;
+				}
+			}
+			.move-img {
+				position:absolute;
+				top: percent(340,765);
+				left: percent(200,720);
+				width: percent(165,720);
+				animation:bounce 2s infinite both;
+			}
+			// .typing-img {
+			// 	overflow:hidden;
+			// 	position:absolute;
+			// 	top: percent(538,765);
+			// 	left: percent(518,720);
+			// 	height: percent(60,765);
+			// 	font-size:0;
+			// 	text-align:left;
+			// 	animation:typing 3s step-start infinite;
+			// 	
+			// }
+			// @keyframes typing {
+			// 	0% {
+			// 		width:0;
+			// 	}
+			// 	5% {
+			// 		width: percent(50,720);
+			// 	}
+			// 	10% {
+			// 		width: percent(70,720);
+			// 	}
+			// 	15% {
+			// 		width: percent(100,720);
+			// 	}
+			// 	20% {
+			// 		width: percent(152,720);
+			// 	}
+			// 	90% {
+			// 		width: percent(152,720);
+			// 	}
+			// 	100% {
+			// 		width:0;
+			// 	}
+			// }
+		}
+
+		.cont1 {
+			background: #ffc20e;
+		}
+
+		.cont3 {
+			@include vw(padding-bottom, 60px);
+			background: #f8f8f8;
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ffc20e;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 6.7vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #fff
+			}
+		}
+	}
+
+	&[data-type="5019"]{
+		.btn-reason {
+			background: transparent;
+			border-radius: 0;
+			color: #fff;
+			opacity: .7;
+		}
+		@mixin priceWrap($ulWidth, $liWidth){
+			width: $ulWidth;
+			margin: 0 auto;
+			@include vw(padding-bottom, 80px);
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+			li {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: column;
+				flex-basis: $liWidth;
+				width: $liWidth;
+				background: #fff;
+				@include vw(margin-bottom, 40px);
+				@include vw(padding, 40px 0 0 0);
+				@include boxShadow(0px 2px 12px 5px  rgba(0, 0, 0, .2));
+
+				> p {
+
+					@include vw(font-size, 24px);
+					color: #ff0000;
+					font-weight: 600;
+					font-family: $font-noto;
+					border-bottom: 2px solid #ff0000;
+					em {
+						font-family: $font-roboto;
+					}
+				}
+
+				h3 {
+					@include vw(font-size, 36px);
+					@include vw(margin, 30px 0 45px 0);
+					color: #222;
+					letter-spacing: -1px;
+					font-weight: 600;
+					line-height: 1.2;
+				}
+
+				.price {
+					@include vw(margin-bottom, 44px);
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					p {
+						position: relative;
+						font-family: $font-roboto;
+						font-weight: 900;
+						letter-spacing: -1px;
+						display: inline-block;
+						&::after {
+							content: '원';
+							font-family: $font-noto;
+						}
+
+						&:first-child {
+							font-weight: 700;
+							@include vw(font-size, 30px);
+							color: #999;
+
+							&::before {
+								content: '';
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translate(-50%, -50%);
+								width: 100%;
+								height: 1px;
+								background: #999;
+							}
+						}
+
+						&:last-child {
+
+							@include vw(font-size, 44px);
+							color: #ff0000;
+
+						}
+					}
+				}
+
+				button {
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					@include vw(height, 72px);
+					@include vw(font-size, 22px);
+					letter-spacing: -1px;
+					font-weight: 700;
+					background: rgb(236,83,207);
+					background: linear-gradient(90deg, rgba(236,83,207,1) 0%, rgba(114,130,227,1) 50%, rgba(3,173,246,1) 100%);
+					color: #fff;
+					
+					&::after {
+						content: '할인받고 수강신청';
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 44.5%;
+						@include vw(right, 18px); 
+						transform: rotate(45deg);
+						@include vw(width, 8px); 
+						@include vw(height, 8px); 
+						border-top: 1px solid #fff;
+						border-right: 1px solid #fff;
+						
+					}
+				}
+
+				&.typeB {
+					> p {
+
+						color: #222;
+						border-bottom: 2px solid #222;
+					}
+
+					button {
+						background: #222222;
+						&::after {
+							content: '응시권 구매하기';
+						}
+					}
+				}
+			}
+		}
+		.priceWrap {
+			@include priceWrap(85%, 48.5%);
+		}
+		
+		.visual {
+			background: #00132a;
+			.btn-reason {
+				top: 42vw;
+				right: 10vw;
+				border-color: #fff;
+				color: #fff;
+				border-radius: 0;
+				background: transparent;
+				opacity: .7;
+				
+				&::after {
+					border-color: #fff;
+				}
+
+				
+			}			
+		}
+
+		.cont1 {
+			background: #e7f9ff;
+			img {
+				opacity: 0;
+			}
+		}
+		.cont2 {
+			
+			
+		}
+
+		.cont4 {
+			.slideTeacher {
+				position: relative;
+				overflow: hidden;
+				margin: 0 auto;
+				z-index: 2;
+				
+				.slick-arrow {
+					position: absolute;
+					top: 30%;
+					z-index: 10;
+					@include vw(width, 66px);
+					@include vw(height, 66px);
+					background: rgba(0, 0, 0, .5);
+					border-radius: 50%;
+					text-indent: -9999px;
+
+					&::after {
+						content: '';
+						position: absolute;
+						@include vw(top, 22px);
+						@include vw(width, 20px);
+						@include vw(height, 20px);
+						border-top: 1px solid #fff;
+						border-right: 1px solid #fff;
+					}
+					&.slick-next {
+						right: 4vw;
+						&::after {
+							transform: rotate(45deg);
+							@include vw(left, 16px);
+						}
+					}
+					&.slick-prev {
+						left: 4vw;
+						&::after {
+							transform: rotate(-135deg);
+							@include vw(right, 16px);
+						}
+						
+					}
+				}
+				.slick-slide {
+					position:relative;
+					@include vw(margin, 0 -15px);
+					.slide-item {
+						img {
+							position: relative;
+							transition: all .3s ease;
+							@include vw(height, 430px);
+							margin: 0 auto;
+							opacity: 1;
+							filter: grayscale(85%);
+							-webkit-filter: grayscale(85%);
+						}
+
+						a {
+							display: block;
+							transition: all .3s ease;
+							position: absolute;
+							top: 0;
+							right: 0;
+							background: #fff;
+							opacity: 1;
+							text-indent: -9999px;
+							pointer-events: none;
+						}
+
+					
+						
+						.slide1 {
+							@include vw(width, 210px);
+							@include vw(height, 170px);
+						}
+						.slide2 {
+							@include vw(width, 170px);
+							@include vw(height, 170px);
+						}
+
+						.slide3 {
+							@include vw(width, 200px);
+							@include vw(height, 170px);
+						}
+						.slide4 {
+							@include vw(width, 200px);
+							@include vw(height, 170px);
+						}
+						.slide5 {
+							@include vw(width, 180px);
+							@include vw(height, 175px);
+						}
+
+						&.item1 {
+							@include vw(width, 469px);
+						}
+						&.item2 {
+							@include vw(width, 463px);
+						}
+						&.item3 {
+							@include vw(width, 467px);
+						}
+						
+						&.item4 {
+							@include vw(width, 599px);
+						}
+						&.item5 {
+							@include vw(width, 496px);
+						}
+
+											
+					}
+					&.slick-center {
+						z-index:5;
+						.slide-item {
+							padding:0;
+							img {
+								filter:none;
+								-webkit-filter: grayscale(0);
+								opacity: 1;
+							}
+
+							a {
+								
+								pointer-events:visible;
+								opacity: 0;
+								text-indent: -9999px;
+							}
+							
+						}
+						
+					}
+				}
+				
+			}
+
+			.review {
+				position: relative;
+				width: 100%;
+				background: #07acf6;
+				margin-top: -3.5vw;
+				@include vw(padding, 60px 0);
+				z-index: 1;
+			}
+
+			.btn-reason {
+				top: -12vw;
+				right: 5vw;
+				color: #222;
+				border-color: #222;
+				opacity: .5;
+				&::after {
+					border-color: #222;
+				}
+			}
+		}
+
+		.cont6 {
+			background: #f7f7f7;
+			@include vw(padding-bottom, 120px);
+			.slider2 {
+				@include vw(width, 620px);
+				margin: 0 auto;
+				@include vw(padding, 80px 0 80px 0);
+				background: #fff;
+				text-align: center;
+				@include boxShadow(0px 2px 12px 5px  rgba(0, 0, 0, .05));
+
+				.item {
+					img {
+						margin: 0 auto;
+					}
+				}
+
+				.slick-dots {
+					margin-top: 0px;
+				}
+			}
+		}
+
+		
+
+		.cont8 {
+			background: #0e0f24 url('https://img.eduwill.net/eduwill/img/2022/Y/product/module/pc/5018/cont8_bg.jpg') no-repeat center bottom;
+			background-size: auto;
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.btn-reason {
+				top: 5vw;
+				right: 5vw;
+			}
+			
+		}
+
+		.cont9 {
+			background: #ffc20e url('https://img.eduwill.net/eduwill/img/2022/Y/product/module/pc/5018/cont9_bg.jpg') no-repeat center top;
+			background-size: cover;
+
+			.btn-reason {
+				@include vw(top, 180px);
+				@include vw(right, 25px);
+				color: #222;
+				border-color: #222;
+
+				&::after {
+					border-color: #222;
+				}
+			}
+			
+		}
+
+		#edoContent1 {
+			.ecoCont1 {
+				display: none !important;
+			}
+		}
+		
+	
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #07acf6;
+			color: #222;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 5vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #fff
+			}
+		}
+	}
+}
+
+
+@import "module/popup";

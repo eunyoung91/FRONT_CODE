@@ -1,0 +1,1150 @@
+@charset "UTF-8";
+.grid, .product-price-zone .price-box, .product-price-zone .price-box .block-anchor, .product-price-zone .price-box .holder {
+  *zoom: 1;
+}
+
+.grid:before, .product-price-zone .price-box:before, .product-price-zone .price-box .block-anchor:before, .product-price-zone .price-box .holder:before, .grid:after, .product-price-zone .price-box:after, .product-price-zone .price-box .block-anchor:after, .product-price-zone .price-box .holder:after {
+  content: '';
+  display: table;
+}
+
+.grid:after, .product-price-zone .price-box:after, .product-price-zone .price-box .block-anchor:after, .product-price-zone .price-box .holder:after {
+  clear: both;
+}
+
+.sr-only {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.grid, .product-price-zone .price-box, .product-price-zone .price-box .block-anchor, .product-price-zone .price-box .holder {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid .col, .product-price-zone .price-box .col, .product-price-zone .price-box .box, .product-price-zone .price-box .title-list, .product-price-zone .price-box .price-list {
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid .col-right, .product-price-zone .price-box .col-right {
+  float: right;
+}
+
+.blink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: blink 1.5s step-start infinite;
+  animation: blink 1.5s step-start infinite;
+}
+
+@-webkit-keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+button {
+  overflow: visible;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  width: auto;
+  outline: 0;
+  cursor: pointer;
+}
+
+.dimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 300;
+  display: none;
+  width: 100%;
+  max-width: 720px;
+  text-align: left;
+  letter-spacing: -1px;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.popup * {
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+
+@media screen and (min-width: 720px) {
+  .popup {
+    width: 900px;
+  }
+}
+
+.popup-body {
+  padding: 15% 5%;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body {
+    padding: 40px;
+  }
+}
+
+.popup-head {
+  padding: 32px 20px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #000;
+  background-color: #ececec;
+}
+
+.popup-desc {
+  padding: 20px;
+}
+
+.popup-desc li {
+  padding: 10px 0;
+  line-height: 1.2;
+  font-size: 20px;
+  color: #000;
+  border-bottom: 1px solid #ccc;
+}
+
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.popup-close:before, .popup-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 1px;
+  margin-left: -15px;
+  background-color: #333;
+}
+
+.popup-close:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.popup-close:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.popup-close span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.popup-close-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.popup-close-layer:before, .popup-close-layer:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 1px;
+  margin-left: -15px;
+  background-color: #333;
+}
+
+.popup-close-layer:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.popup-close-layer:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.popup-close-layer span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.popup.popup-base {
+  border-radius: 10px;
+}
+
+.popup.popup-base p {
+  line-height: 1.2;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-base p {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-base p {
+    font-size: 16px;
+  }
+}
+
+.popup.popup-list .popup-body {
+  padding: 0;
+}
+
+.popup.popup-list .popup-close {
+  right: 0 !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.popup.popup-list .popup-close:before, .popup.popup-list .popup-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 1px;
+  margin-left: -15px;
+  background-color: #fff;
+}
+
+.popup.popup-list .popup-close:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.popup.popup-list .popup-close:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.popup.popup-list .popup-close span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.popup.popup-list .list-title {
+  text-align: left;
+  background: #333333;
+  color: #fff;
+  padding: 4%;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 0.5625rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-title {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-title {
+    font-size: 18px;
+  }
+}
+
+.popup.popup-list .list-title strong {
+  display: block;
+  font-size: 0.9375rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-title strong {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-title strong {
+    font-size: 30px;
+  }
+}
+
+.popup.popup-list .list-view {
+  position: relative;
+  background: #fff;
+  padding: 4%;
+  height: 380px;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-view {
+    height: 500px;
+    overflow-y: auto;
+  }
+}
+
+.popup.popup-list .list-view ul li {
+  line-height: 1.4;
+  color: #333;
+  font-size: 0.6875rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-view ul li {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .popup.popup-list .list-view ul li {
+    font-size: 18px;
+  }
+}
+
+.popup.popup-benefit .popup-body {
+  padding: 0;
+}
+
+.popup.popup-benefit .popup-body img {
+  width: 100%;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+#fixApply {
+  display: none !important;
+}
+
+.product-eco {
+  line-height: normal;
+  letter-spacing: -1px;
+}
+
+.product-eco * {
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+
+.product-eco p {
+  line-height: inherit;
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+.product-eco .container {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.product-eco .wrap {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-eco .wrap-full {
+  width: 100%;
+}
+
+.product-eco .wrap .content {
+  position: relative;
+}
+
+.product-eco .btn {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 66px;
+  height: 73px;
+  background: url("//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png") no-repeat 0 0;
+  background-size: contain;
+  -webkit-animation-name: bounce2;
+          animation-name: bounce2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes bounce2 {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(10px, 10px);
+    transform: translate(10px, 10px);
+  }
+}
+
+@keyframes bounce2 {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(10px, 10px);
+    transform: translate(10px, 10px);
+  }
+}
+
+.product-eco .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 34px;
+  height: 67px;
+  margin-top: -33.5px;
+  border: none;
+  font-size: 0;
+  text-indent: -9999px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.product-eco .slick-arrow.slick-prev {
+  left: -50px;
+  background-image: url("https://img.eduwill.net/eduwill/img/2022/Z/product/220302/pc/btn_prev.png");
+}
+
+.product-eco .slick-arrow.slick-next {
+  right: -50px;
+  background-image: url("https://img.eduwill.net/eduwill/img/2022/Z/product/220302/pc/btn_next.png");
+}
+
+.product-eco .bottom-banner {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  background: rgba(0, 0, 0, 0.8);
+  display: table;
+  width: 100%;
+}
+
+.product-eco .bottom-banner .action a:after {
+  width: 45px;
+  height: 50px;
+  top: 40%;
+  right: 200px;
+}
+
+.product-eco .right-banner {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  z-index: 10;
+  margin-left: 550px;
+}
+
+.product-eco .left-banner {
+  position: fixed;
+  top: 290px;
+  left: 50%;
+  z-index: 10;
+  margin-left: -719px;
+}
+
+.product-eco .left-banner .tit {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  -webkit-animation-name: btnChange;
+          animation-name: btnChange;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes btnChange {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes btnChange {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.product-eco .left-banner .con {
+  color: #000;
+  font-size: 26px;
+  text-align: center;
+  width: 160px;
+  word-break: keep-all;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  line-height: 1.3;
+  font-weight: 600;
+  -webkit-transform: translate(-50%, -45%);
+  transform: translate(-50%, -45%);
+}
+
+.product-eco .left-banner .con span {
+  color: #e75156;
+}
+
+.product-eco .left-banner .foot {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  color: #000;
+  font-size: 18px;
+}
+
+.product-eco .left-banner .close {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+}
+
+.product-eco .left-banner .text {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 1.3;
+  word-break: keep-all;
+  font-weight: 700;
+  color: #000;
+}
+
+.product-eco .left-banner .text.text-1 {
+  top: 6px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  -webkit-animation-name: btnChange;
+          animation-name: btnChange;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: step-start;
+          animation-timing-function: step-start;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@keyframes btnChange {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.product-eco .left-banner .text.text-2 {
+  top: 42px;
+  font-size: 17px;
+}
+
+.product-eco .left-banner .text.text-3 {
+  top: 70px;
+  line-height: 1.2;
+  font-size: 20px;
+  color: #000;
+}
+
+.product-eco .left-banner .text.text-4 {
+  bottom: 26px;
+  line-height: 1.1;
+  font-weight: 600;
+  font-family: 'Roboto';
+  text-align: left;
+}
+
+.product-eco .left-banner .text.text-4 .before-txt {
+  display: inline-block;
+  position: relative;
+  padding: 0 17px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #999;
+}
+
+.product-eco .left-banner .text.text-4 .before-txt .unit {
+  margin-left: 2px;
+  font-size: 18px;
+}
+
+.product-eco .left-banner .text.text-4 .before-txt:after {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 15px;
+  width: 100%;
+  height: 8px;
+  background: url("//img.eduwill.net/eduwill/img/2021/Z/product/211230/pc/icon_arrow.png") no-repeat 0 0;
+  background-size: contain;
+}
+
+.product-eco .left-banner .text.text-4 .after-txt {
+  font-size: 30px;
+  color: #ea1515;
+  text-align: center;
+}
+
+.product-eco .left-banner .text.text-4 .after-txt .unit {
+  margin-left: 0px;
+  font-size: 29px;
+}
+
+.product-eco .left-banner .text .point {
+  display: inline-block;
+  margin: 4px;
+  padding: 0 5px 1px;
+  color: #fff;
+  background-color: #1c5deb;
+}
+
+.product-eco .video-box .video {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.product-eco .video-box video, .product-eco .video-box iframe, .product-eco .video-box .btn-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-eco .video-box .btn-play {
+  z-index: 10;
+}
+
+.product-eco .video-box .btn-play img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-eco .video-box.playing .btn-play {
+  display: none;
+}
+
+.product-title {
+  width: 100%;
+  overflow: hidden;
+  background: url("//img.eduwill.net/eduwill/img/2022/Z/product/220401/pc/bg_title.jpg") no-repeat center/3000px auto;
+  background-color: #2440a1;
+}
+
+.product-title .floating-motion {
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+}
+
+.product-title .floating-motion.motion1 {
+  top: 115px;
+  left: 52px;
+}
+
+.product-title .floating-motion.motion2 {
+  top: 382px;
+  left: 613px;
+}
+
+.product-title .floating-motion.motion3 {
+  top: 201px;
+  left: 51px;
+}
+
+.product-title .floating-motion.motion4 {
+  top: 382px;
+  left: 52px;
+  z-index: 3;
+}
+
+.product-title .floating-motion.motion5 {
+  top: 465px;
+  left: 488px;
+}
+
+.product-title .floating-motion.motion6 {
+  top: 255px;
+  left: -97px;
+}
+
+.product-title .notice {
+  padding: 20px 50px 100px;
+  font-size: 16px;
+  text-align: left;
+  color: #a4adbe;
+}
+
+.product-benefit.first {
+  background: #e4e4e4;
+}
+
+.product-benefit.second {
+  background: -webkit-gradient(linear, left top, left bottom, from(#2d53bd), to(#192d84));
+  background: linear-gradient(to bottom, #2d53bd 0%, #192d84 100%);
+}
+
+.product-benefit.second .flag1 {
+  top: 993px;
+  left: 88px;
+  color: #000;
+}
+
+.product-benefit .flag {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.product-benefit .flag1 {
+  left: 90px;
+  top: 130px;
+}
+
+.product-benefit .flag2 {
+  left: 90px;
+  top: 756px;
+}
+
+.product-price-zone {
+  padding-bottom: 100px;
+}
+
+.product-price-zone.first {
+  background: -webkit-gradient(linear, left top, left bottom, from(#2d53bd), to(#192d84));
+  background: linear-gradient(to bottom, #2d53bd 0%, #192d84 100%);
+}
+
+.product-price-zone.first .btn-box .btn-arrow {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.product-price-zone.first .btn-box .btn-arrow::after {
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.product-price-zone .btn-box {
+  position: absolute;
+  bottom: 55px;
+  right: 50px;
+}
+
+.product-price-zone .btn-box .btn-arrow {
+  display: block;
+  padding: 6px 47px;
+  font-size: 20px;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.product-price-zone .btn-box .btn-arrow::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+  vertical-align: 3px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.product-price-zone .btn-box .btn-arrow:not(:first-of-type) {
+  margin-top: 20px;
+}
+
+.product-price-zone .price-box {
+  position: relative;
+  margin: 0 auto;
+}
+
+.product-price-zone .price-box .block-anchor {
+  display: block;
+  position: relative;
+}
+
+.product-price-zone .price-box .box {
+  position: relative;
+  text-align: left;
+  width: 1036px;
+  margin: 0 30px 0px;
+}
+
+.product-price-zone .price-box .holder {
+  position: absolute;
+  top: 110px;
+  left: 0px;
+  width: 740px;
+  padding: 0 60px 40px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-price-zone .price-box .title-list {
+  line-height: 1;
+  width: 100%;
+  font-size: 26px;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+}
+
+.product-price-zone .price-box .title-list strong {
+  font-size: 45px;
+  display: inline-block;
+  padding-bottom: 18px;
+  letter-spacing: -2px;
+}
+
+.product-price-zone .price-box .price-list {
+  position: absolute;
+  top: 6px;
+  right: 40px;
+  z-index: 2;
+  width: 300px;
+  line-height: 1;
+  text-align: right;
+  margin-top: 35px;
+}
+
+.product-price-zone .price-box .price-list .price-before {
+  position: absolute;
+  top: -30px;
+  left: 60px;
+  text-align: left;
+}
+
+.product-price-zone .price-box .price-list .price-before strong {
+  position: relative;
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: #999999;
+}
+
+.product-price-zone .price-box .price-list .price-before strong em {
+  font-size: 28px;
+  font-family: 'Roboto';
+}
+
+.product-price-zone .price-box .price-list .price-before strong:after {
+  content: '';
+  position: absolute;
+  top: 43%;
+  left: 0px;
+  width: 134px;
+  height: 11px;
+  background: url("//img.eduwill.net/eduwill/img/2021/Z/product/211230/pc/icon_arrow2.png") no-repeat 0 0;
+}
+
+.product-price-zone .price-box .price-list .price-after {
+  font-size: 40px;
+  font-weight: 700;
+  color: #235fe9;
+  letter-spacing: -2px;
+}
+
+.product-price-zone .price-box .price-list .price-after em {
+  font-size: 60px;
+  line-height: 1;
+  font-family: 'Roboto';
+}
+
+.product-price-zone .price-box .price-list .price-after.red {
+  color: #e31515;
+}
+
+.product-price-zone .price-box .action {
+  position: absolute;
+  right: 17px;
+  bottom: 26px;
+  display: table;
+  width: 300px;
+  height: 428px;
+}
+
+.product-price-zone .price-box .action.btn:after {
+  top: 80%;
+  right: 0;
+}
+
+.product-price-zone .price-box .action span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 34px;
+}
+
+.product-price-zone .price-box .action span em {
+  color: #ffde00;
+}
+
+.product-successful {
+  padding-bottom: 90px;
+}
+
+.product-successful .successful-motion {
+  position: absolute;
+  right: 141px;
+  bottom: 143px;
+  width: 167px;
+  height: 5px;
+  overflow: hidden;
+}
+
+.product-successful .successful-motion img {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 167px;
+  height: 442px;
+}
+
+.product-successful.active .successful-motion {
+  height: 442px;
+  -webkit-transition-duration: .8s;
+          transition-duration: .8s;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+}
+
+.product-video {
+  padding-bottom: 130px;
+}
+
+.product-video.pd-top {
+  padding-top: 100px;
+}
+
+.product-video .thumb-list {
+  margin: 0 auto;
+  width: 1010px;
+}
+
+.product-video .thumb-list .thumb {
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+}
+
+.product-video .thumb-list .thumb + .thumb {
+  margin-top: 10px;
+}
+
+.product-video .thumb-list .thumb img {
+  width: 100%;
+}
+
+.product-video .thumb-list .btn-play {
+  position: relative;
+  padding: 0;
+  border: 5px solid #000;
+  cursor: pointer;
+}
+
+.product-video .thumb-list .btn-play::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.product-video .thumb-list .btn-play.active {
+  border: 5px solid #febf0f;
+}
+
+.product-video .thumb-list .btn-play.active:after {
+  display: none;
+}
+
+.product-video .view-wrap {
+  background-color: #efefef;
+  margin: 0 auto;
+  margin-top: 5px;
+  overflow-y: hidden;
+  width: 1000px;
+  height: 562px;
+}
+
+.product-video .view-wrap iframe, .product-video .view-wrap video, .product-video .view-wrap img {
+  width: 100%;
+  height: 100%;
+}
+
+.product-bar {
+  background: #48a33a;
+}
+
+.product-bar .wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -51px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 150px;
+  height: 51px;
+  background: url("//img.eduwill.net/eduwill/img/2022/Z/product/220401/pc/ico_bar.png") no-repeat 0 0;
+}
+/*# sourceMappingURL=web.css.map */

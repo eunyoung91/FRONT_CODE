@@ -1,0 +1,797 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+
+.product-eco {
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #ffc20e;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+	#edoContent2 {
+		.ecoCont4 {
+			display: none;
+			background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 15%);
+		}
+	}
+
+	#edoContent1 {
+		.ecoCont1796 {
+			display: none;
+		}
+	}
+
+	.btn-reason {
+
+		position: absolute;
+		right: 8vw;
+		border: 1px solid #e4e4e4;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		color: #939393;
+		background: transparent;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.2vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #939393;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+		}
+		50% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(-5px);
+		}
+	}
+
+	@-webkit-keyframes bounce {
+		0%, 100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+		}
+		50% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(-5px);
+		}
+	}
+	.bounce {
+		position: absolute;
+		animation: bounce 2s infinite both;
+	  
+	  }
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+	&[data-type="2738_1"]{
+		
+		.visual {
+			z-index: 1;
+			padding:0;
+			background: #641ac9;
+
+			.bounce {
+				position: absolute;
+				@include vw(width, 160px);
+				@include vw(top, 340px);
+				@include vw(right, 90px);
+			}
+		}
+	
+		.cont1 {
+			background: #2f1056;
+			
+			.slide {
+				.slick-dots {
+					
+					.slick-active {
+						button {
+							background: #ec39c7;
+						}
+						
+					}
+				}
+			}
+		}
+		
+		.cont2 {
+			background: #472973;
+			
+		}
+		
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #7706c7;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+
+
+	&[data-type="3435_1"]{
+		#edoContent1 {
+			
+			.ecoCont10 {
+				background: #fffae0;
+				display: block !important;
+			}
+
+		} 
+
+		
+		.monthlyNumber1 {
+			position: absolute;
+			@include vw(left, 77px);
+			@include vw(top, 1069px);
+			@include vw(font-size, 30px);
+
+			font-weight: 900;
+			color: #222;
+			letter-spacing: -1px;
+			font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;;
+		}
+		.visual {
+			background: #21128b;
+			background-size:cover;
+
+			.btn-reason {
+				top: 57vw;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+			}
+
+			.move-img {
+				position:absolute;
+				bottom: percent(310,765);
+				left: percent(50,720);
+				width: percent(165,720);
+				animation:bounce 2s infinite both;
+			}
+			
+		}
+		.cont1 {
+			background: #ffc20e;
+			.wrap {
+				@include vw(padding-top, 338px);
+				> img {
+					&:first-child {
+						position: absolute;
+						@include vw(top, -200px);
+					}
+				}
+			}
+		}
+		.cont2 {
+			background: #100074;
+			@include vw(padding-bottom, 120px);
+			.wrap {
+			
+			}
+		}
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ffbf00;
+			color: #000;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+
+	&[data-type="3435_2"]{
+		
+		.top_banner {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #14111c;
+			z-index: 100;
+
+			.fix {
+				position: absolute;
+				left: 0;
+				@include vw(bottom, -50px);
+				@include vw(width, 260px);
+				@include vw(height, 101px);
+			}
+		}
+		
+		.monthlyNumber1 {
+			position: absolute;
+			@include vw(left, 77px);
+			@include vw(top, 1069px);
+			@include vw(font-size, 30px);
+
+			font-weight: 900;
+			color: #222;
+			letter-spacing: -1px;
+			font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;;
+		}
+		.visual {
+			background: #265dd3;
+
+			.btn-reason {
+				top: 57vw;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+			}
+
+			
+		}
+		.cont1 {
+			background: #070b43;
+			
+		}
+		.cont2 {
+			@include vw(padding-bottom, 120px);
+			.wrap {
+				
+				.priceWrap {
+					position: relative;
+					> div {
+						position: relative;
+						@include vw(width, 620px);
+						@include vw(height, 266px);
+						@include vw(padding, 40px 50px);
+						@include vw(margin, 0 auto 28px auto);
+						box-sizing: border-box;
+						border: 1px solid #dcdcdc;
+
+						h3 {
+							// position: absolute;
+							// top: 10vw;
+							// left:10vw;
+							display: flex;
+							align-items: flex-start;
+							justify-content: flex-start;
+							flex-direction: column;
+							line-height: 1.4;
+							
+							@include vw(font-size, 40px);
+							font-weight: 900;
+
+							em {
+								@include vw(font-size, 25px);
+								font-weight: 600;
+								color: #222;
+								text-align: left;
+							}
+
+						}
+						.price {
+							position: absolute;
+							@include vw(bottom, 40px);
+							@include vw(right, 50px);
+							line-height:1.1;
+							letter-spacing:-1px;
+							display: flex;
+							align-items: flex-end;
+							flex-direction: column;
+							font-family: $font-noto;
+							.before {
+								position: relative;
+								height: 100%;
+								color:#bbb;
+								@include vw(font-size, 30px);
+								text-align: left;
+								font-weight: 500;
+								
+								&::before {
+									content: '';
+									position: absolute;
+									@include vw(top, 15px);
+									left: -5px;
+									width: 50%;
+									height: 1px;
+									line-height: 0;
+									border-top: 1px solid #bbb;
+								}
+							}
+							.after {
+								text-align: right;
+								@include vw(font-size, 50px);
+								@include vw(margin-top, 5px);
+								text-align: left;
+								font-weight: 900;
+							}
+
+							
+							.num {
+								font-family: $font-roboto;
+								font-weight: 700;
+							}
+						}
+						
+						&:nth-last-child(3) {
+							h3,
+							.after {
+								color: #3517cd;
+							}
+						}
+						&:nth-last-child(2) {
+							h3,
+							.after {
+								color: #6417cd;
+							}
+						}
+						&:nth-last-child(1) {
+							h3,
+							.after {
+								color: #9717cd;
+							}
+						}
+
+					}
+
+					.flag2 {
+						position: absolute;
+						top: -3vw;
+						left: 10vw;
+						z-index: 1;
+						@include vw(width, 110px);
+						@include vw(height, 45px);
+						@include vw(border-radius, 40px);
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						font-weight: 700;
+						font-family: $font-roboto;
+						letter-spacing: -1px;
+						@include vw(font-size, 25px);
+						color: #222;
+						background: #02fe2d;
+	
+						&::after {
+							content: '▼';
+							position: absolute;
+							left: 50%;
+							transform: translateX(-50%);
+							@include vw(bottom, -20px);
+							color: #02fe2d;
+							
+						}
+					}
+				}
+				
+			}
+			
+		}
+
+		.cont3 {
+			background: #f5f5f5;
+			
+		}
+
+		.cont4 {
+			@include vw(padding-bottom, 120px);
+			background: #e1f0ff;
+			
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #3517cd;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+
+	&[data-type="1796_1"]{
+		.monthlyNumber1 {
+			position: absolute;
+			@include vw(right, 290px);
+			@include vw(top, 709px);
+			@include vw(font-size, 30px);
+
+			font-weight: 900;
+			color: #222;
+			letter-spacing: -1px;
+			font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;;
+
+		}
+
+		#edoContent1 {
+			.ecoCont1796 {
+				display: block !important;
+			}
+		}
+		.visual {
+			background: #21128b;
+			background-size:cover;
+
+			.btn-reason {
+				top: 57vw;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+			}
+
+			.move-img {
+				position:absolute;
+				bottom: percent(200,765);
+				left: percent(50,720);
+				width: percent(165,720);
+				animation:bounce 2s infinite both;
+			}
+			
+		}
+	
+		.cont1 {
+			
+		}
+
+		.cont2 {
+			background: #100074;
+			@include vw(padding-bottom, 120px);
+			.wrap {
+			
+			}
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ffbf00;
+			color: #000;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	
+	}
+
+	&[data-type="2912"]{
+		.visual {
+			background: #790cdf;
+
+			.btn-reason {
+				background: #5400a2;
+				color: #bb99da;
+				top: 4vw;
+				border: none;
+
+				&::after {
+					border-color: #bb99da;
+				}
+			}
+		}
+		.cont1 {
+			img {
+				@include vw(margin-top, -624px);
+			}	
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #3d1d5a;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	
+	}
+	&[data-type="2911"]{
+		.visual {
+			background: #245d00;
+
+			.btn-reason {
+				background: none;
+				color: #a2bc80;
+				border: 1px solid #a2bc80 !important;
+				top: 38.5vw;
+				border: none;
+
+				&::after {
+					border-color: #a2bc80;
+				}
+			}
+		}
+		.cont1 {
+			img {
+				@include vw(margin-top, -265px);
+			}	
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #034700;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	
+	}
+
+	&[data-type="2908"]{
+		.visual {
+			background: #3e0079;
+
+			.btn-reason {
+				background: none;
+				color: #746eb4;
+				border: 1px solid #746eb4 !important;
+				top: 39vw;
+				
+
+				&::after {
+					border-color: #746eb4;
+				}
+			}
+		}
+		.cont1 {
+			img {
+				@include vw(margin-top, -265px);
+			}	
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #3d1d5a;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	
+	}
+
+	&[data-type="1109"]{
+		.btn-reason {
+			opacity: .5;
+			color: #fff;
+			&::after {
+				border-color: #fff;
+			}
+		}
+		// .monthlyNumber1 {
+		// 	position: absolute;
+		// 	@include vw(left, 77px);
+		// 	@include vw(top, 1069px);
+		// 	@include vw(font-size, 30px);
+
+		// 	font-weight: 900;
+		// 	color: #222;
+		// 	letter-spacing: -1px;
+		// 	font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;;
+		// }
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/Q/product/module/pc/1313/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+	
+			.btn-reason {
+				top: 45vw;
+				
+			}
+		}
+		
+		.cont1 {
+			background: #0c315b;
+		}
+		
+		.cont3 {
+			background: #100074;
+			.wrap {
+				
+			}
+		}
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #0c315b;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+
+
+	&[data-type="3815"]{
+		
+		.foat_banner {
+			position: fixed;
+			right: 0;
+			top: 25vw;
+			z-index: 20;
+
+			img {
+				@include vw(width, 150px);
+			}
+		}
+		.top_banner {
+			text-align: center;
+		}
+		
+		.visual {
+			background: #f9f9f9;
+			.gif {
+				position: absolute;
+				top: 109vw;
+				left: 13vw;
+				@include vw(width, 101px);
+			}
+			.btn-reason {
+				bottom: 8vw;
+				color: #222;
+				background: #fff;
+				opacity: .7;
+				&::after {
+					border-color: #222;
+				}
+			}
+
+			
+		}
+		.cont1 {
+			background: #b81b89;
+			
+			img {
+				margin-top: -6.3vw;
+			}
+		}
+
+		.cont3 {
+			background: #f8eee5;
+			
+		}
+		
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #b81b89;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+
+
+}
+
+
+@import "module/popup";

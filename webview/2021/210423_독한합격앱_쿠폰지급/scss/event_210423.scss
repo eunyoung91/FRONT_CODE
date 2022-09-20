@@ -1,0 +1,445 @@
+@charset "utf-8";
+
+@mixin breakpoint($point) {
+	@if $point == desktop {
+		@media screen and (min-width: 1100px) { @content ; }
+	}
+	@if $point == minDesktop {
+		@media screen and (min-width: 1024px) { @content ; }
+	}
+	@if $point == maxMobile {
+		@media screen and (min-width: 720px) { @content ; }
+	}
+	@else if $point == minMobile {
+		@media screen and (max-width: 320px) { @content ; }
+	}
+}
+
+// rem
+// @include rem(margin, 25px 20px 0);
+// https://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@function parseInt($n) {
+	// The mixin relies on a function to parse the integer from a value with a unit
+	@return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+	$px: (); // We define a list of values for both units
+	$rem: (); // We define a list of values for both units
+
+	@each $value in $values {
+	// We iterate through each value in the given parameter $values
+
+		@if $value == 0 or $value == auto {
+			// If the value is either auto or 0, we append it to the list as-is
+			$px: append($px, $value);
+			$rem: append($rem, $value);
+		} @else {
+			$unit: unit($value); // If the value has a unit, we split it to get both the unit and the raw value
+			$val: parseInt($value); // If the value has a unit, we split it to get both the unit and the raw value
+
+			@if $unit == 'px' {
+				// We append according values to the lists depending on the unit of the given value
+				$px: append($px, $value);
+				$rem: append($rem, ($val / 16 / 2+ rem));
+			}
+
+			@if $unit == 'rem' {
+				// We append according values to the lists depending on the unit of the given value
+				$px: append($px, ($val * 16 + px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+
+	@if $px == $rem {
+		// If the two lists are the same, we ouput only one (like margin-top: 0)
+		#{$property}: $px; // output the result
+	} @else {
+		#{$property}: $rem;  // output the result
+		@include breakpoint(maxMobile){
+			#{$property}: $px; // output the result
+		}
+	}
+}
+// vw
+// @include vw(margin, 25px 20px 0);
+@mixin vw($prop, $vlus) {
+	$px: ();
+	$vw: ();
+
+	@each $vlu in $vlus {
+		@if $vlu == 0 or $vlu == auto {
+			$px: append($px, $vlu);
+			$vw: append($vw, $vlu);
+		} @else {
+			$unit: unit($vlu);
+			$val: parseInt($vlu);
+
+			@if $unit == 'px' {
+				$px: append($px, $vlu);
+				$max-mobile: 720;
+				$vw-context: ($max-mobile * .01) * 1;
+				$vw: append($vw, (($val/$vw-context) * 1 + vw));
+			}
+
+			@if $unit == 'vw' {
+				$px: append($px, ($val * 16 + px));
+				$vw: append($vw, $vlu);
+			}
+		}
+	}
+
+	@if $px == $vw {
+		#{$prop}: $px;
+	} @else {
+		#{$prop}: $vw;
+		@include breakpoint(maxMobile){
+			#{$prop}: $px;
+		}
+	}
+}
+
+
+
+.promotion {
+	font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo";
+	position: relative;
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.btn-pointer {
+		display:inline-block;
+		position:relative;
+		&:before {
+			content:'';
+			position:absolute;
+			top:40%;
+			right:5%;
+			@include vw(width,90px);
+			@include vw(height,90px);
+			background:url(//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_16.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	.slick-arrow {
+		position: absolute;
+		z-index: 1;
+		display: block;
+		@include vw(width, 60px);
+		@include vw(height, 60px);
+		top:50%;
+		margin: 0;
+		padding: 0;
+		text-indent: -9999px;
+		border: none;
+		background: none;
+		outline: none;
+		cursor: pointer;
+		&.slick-prev {
+			@include vw(left, 50px);
+			&:after {
+				content:'';
+				display: block;
+				position: relative;
+				@include vw(top, -10px);
+				@include vw(left, 20px);
+				@include vw(height, 44px);
+				@include vw(width, 44px);
+				border-bottom:0.4167vw solid #b8b8b8;
+				border-left:0.4167vw solid #b8b8b8;
+				transform: rotate(45deg);
+				@include breakpoint(maxMobile){
+					border-bottom:3px solid #b8b8b8;
+					border-left:3px solid #b8b8b8;
+				}
+			}
+		}
+		&.slick-next {
+			@include vw(right, 50px);
+			&:after {
+				content:'';
+				display: block;
+				position: relative;
+				@include vw(top, -10px);
+				@include vw(right, 10px);
+				@include vw(height, 44px);
+				@include vw(width, 44px);
+				border-top:0.4167vw solid #b8b8b8;
+				border-right:0.4167vw solid #b8b8b8;
+				transform: rotate(45deg);
+				@include breakpoint(maxMobile){
+					border-top:3px solid #b8b8b8;
+					border-right:3px solid #b8b8b8;
+				}
+			}
+		}
+	}
+
+	.slick-track{
+		left:0 !important;
+	}
+
+	a, .a:link, a:visited, a:hover, a:active{
+		outline: 0;
+	}
+}
+
+/* 컨텐츠 */
+.promotion {
+	&-title{
+		position: relative;
+		background:#8fa7c4 url(//img.eduwill.net/Img2/mobile2/brand/promotion/mobile_dokhan/210423/title_bg.jpg) center center;
+		background-size: cover;
+		&::after{
+			content:'';
+			position: absolute;
+			display: block;
+			width:100%;
+			height:2px;
+			left: 50%;
+			@include vw(top, 123px);
+			@include vw(margin-left, -326px);
+			background: url(//img.eduwill.net/Img2/mobile2/brand/promotion/mobile_dokhan/210423/title_top_bg.png) center center repeat-X;
+		}
+		.btn-pointer{
+			display: block;
+			@include vw(margin, -60px auto 0);
+			@include vw(padding-bottom, 80px);
+			@include vw(width, 604px);
+		}
+	}
+	
+	&-sect1{
+		background:#6a7e96;
+		@include vw(padding-bottom, 142px);
+		.btn-pointer{
+			@include vw(width, 604px);
+		}
+	}
+
+	&-sect2{
+		background:#8fa7c4 url(//img.eduwill.net/Img2/mobile2/brand/promotion/mobile_dokhan/210423/sect2_bg.jpg) center center;
+		background-size: cover;
+		.popup-btn{
+			position: absolute;
+			display: inline-block;
+			left: 0;
+			@include vw(top, 660px);
+			@include vw(margin, 0 120px);
+			@include vw(width,480px);
+			@include vw(padding, 26px);
+			@include vw(height,84px);
+			@include vw(font-size, 32px);
+			font-weight: 500;
+			line-height: 1;
+			text-align: left;
+			background: #fff;
+			color: #333333;
+			border:1px solid #000;
+			box-sizing: border-box;
+			z-index: 1;
+			font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo";
+			&::after{
+				content: '\25BC';
+				color: #333;
+				position: absolute;
+				display: block;
+				top: 50%;
+				right: 0;
+				transform: translate(-100%, -50%);
+				cursor: pointer;
+				pointer-events: none;
+				transition: .25s all ease;
+				transform-origin:center;
+				@include vw(font-size, 22px);
+			}
+			&.on{
+				&::after{
+					transform: translate(-100%, -50%) rotate(180deg);
+				}
+			}
+		}
+		.select{
+			@include vw(margin, 0 120px);
+			@include vw(width,480px);
+			@include vw(height,84px);
+			@include vw(top, 660px);
+			position: absolute;
+			display: flex;
+			background: #fff;
+			overflow: hidden;
+			color: #333333;
+			border:1px solid #000;
+			box-sizing: border-box;
+			select{
+				font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo";
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				outline: 0;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				background:none;
+				background-image: none;
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
+				flex: 1;
+				color: #333;
+				cursor: pointer;
+				width: 100%;
+				@include vw(font-size, 32px);
+				padding-left: 2.7778vw !important;
+				font-weight: 500;
+				height: auto;
+				border:0;
+				overflow: hidden;
+				.option-ref{
+					@include vw(font-size, 24px);
+				}
+			}
+			&::after{
+				content: '\25BC';
+				color: #333333 !important;
+				position: absolute;
+				display: block;
+				top: 50%;
+				right: 0;
+				transform: translate(0, -50%);
+				cursor: pointer;
+				pointer-events: none;
+				transition: .25s all ease;
+				@include vw(padding-right, 24px);
+			}
+		}
+	}
+
+	&-sect3{
+		background:#f6f6f8;
+		@include vw(padding-bottom, 160px);
+		.slick-slide{
+			@include vw(margin, 0 20px);
+		}
+	}
+
+	&-sect5{
+		background:#f6f6f8;
+		@include vw(padding-bottom, 160px);
+		.slick-slide{
+			@include vw(margin, 0 22px);
+		}
+		.slick-arrow.slick-prev {
+			@include vw(left, 20px);
+		}
+		.slick-arrow.slick-next {
+			@include vw(right, 20px);
+		}
+	}
+
+	&-sect6{
+		@include vw(padding-bottom, 85px);
+		.slick-slide{
+			@include vw(margin, 0 60px);
+		}
+		.btn-pointer{
+			@include vw(width, 604px);
+			@include vw(margin-top, 100px);
+		}
+	}
+
+	&-sect7{
+		background:#e0e0e0;
+		@include vw(line-height, 160px);
+		@include vw(font-size, 54px);
+		letter-spacing: -1px;
+		font-weight:900;
+		color:#727272;
+	}
+
+	&-sect8{
+		background:#eee;
+		@include vw(padding, 50px 45px 130px);
+		li{
+			@include vw(padding-left, 20px);
+			@include vw(font-size, 26px);
+			line-height: 1.8;
+			text-align: left;
+			position: relative;
+			&::before{
+				content:'';
+				display:block;
+				position: absolute;
+				@include vw(top, 22px);
+				@include vw(left, 10px);
+				@include vw(width, 4px);
+				@include vw(height, 4px);
+				@include vw(border-radius, 2px);
+				background-color:#909090;
+			}
+		}
+	}
+
+	/*슬라이드 탭 스타일*/
+	.info-list{
+		@include vw(margin, -6px 32px 0);
+		@include vw(line-height, 100px);
+		@include vw(font-size, 32px);
+		@include vw(letter-spacing, -2px);
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		font-weight: 300;
+		color:#acafb5;
+		.slick-current{
+			font-weight: 500;
+			color:#eb5e00;
+			a{
+				position: relative;
+				display: inline-block;
+				height: 100%;
+				&::after{
+					content:'';
+					position: absolute;
+					display: block;
+					width: 100%;
+					height: 2px;
+					background-color:#eb5e00;
+					left:0;
+					bottom:0;
+				}
+			}
+		}
+	}
+
+}
+
+.popup-layer{
+	display: none;
+	position: absolute;
+	width: 94%;
+	background-color: #fff;
+	border: 1px solid #000;
+	box-sizing: border-box;
+	z-index: 5;
+	@include vw(top, 743px);
+	@include vw(margin, 0 120px);
+	@include vw(width,480px);
+	.popup-body{
+		@include vw(padding, 20px 24px);
+		text-align: left;
+	}
+}

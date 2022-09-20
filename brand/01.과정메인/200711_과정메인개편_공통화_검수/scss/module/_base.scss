@@ -1,0 +1,1659 @@
+.btn-type-white {
+    display: inline-block;
+    @include vw(padding, 16px 68px 16px 48px);
+    @include vw(font-size, 20px);
+    font-weight: 500;
+    @include vw(border-radius, 50px);
+    border: 1px solid #000;
+    background: #fff url("#{$img-path-main}/common/arrow.png") right center no-repeat;
+    @include vw(background-size, 46px auto);
+    @include boxSizing(border-box);
+}
+
+.btn-type-yellow {
+    display: inline-block;
+    @include vw(padding, 16px 68px 16px 48px);
+    @include vw(font-size, 24px);
+    font-weight: 500;
+    @include vw(border-radius, 50px);
+    background: #ffdd00 url("#{$img-path-main}/common/arrow.png") right center no-repeat;
+    @include vw(background-size, 46px auto);
+    @include boxSizing(border-box);
+}
+
+.bg-gray {
+    background: $color-gray;
+}
+
+.page_item_main {
+    position: relative;
+    color: $color-base;
+
+    .fix-free-icon {
+        position: fixed;
+        bottom: 60px;
+        right: 5px;
+        width: 84px;
+        height: 87px;
+        z-index: 201;
+        a {
+            display: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-image: url("https://img.eduwill.net/eduwill/img/2021/G/main/mobile/bg_fix_1.png");
+            background-size: cover;
+            &.free-toggle-2 {
+                background-image: url("https://img.eduwill.net/eduwill/img/2021/G/main/mobile/bg_fix_2.png");
+                background-size: cover;
+            }
+            &.on {
+                display: block;
+            }
+            span {
+                display: block;
+                padding-top: 24px;
+                padding-left: 3px;
+                color: #000;
+                font-size: 14px;
+                line-height: 19px;
+                font-weight: 700;
+            }
+        }
+    }
+
+	// 전 공무원 초시생 배너
+	.fix-begin {
+		position: fixed;
+		bottom: 60px;
+		right: 30px;
+		z-index: 201;
+		& > a {
+			display: block;
+			width: 75px;
+			height: 75px;
+			span {
+				@extend %flexCenter;
+				height: 100%;
+				text-align: center;
+				line-height: 17px;
+				font-size: 15px;
+				font-weight: 700;
+				letter-spacing: -2px;
+				border-radius: 50%;
+				@include boxSizing(border-box);
+				@include boxShadow(0 4px 4px rgba(0, 0, 0, .25));
+				@include animation(beginBlink, 1s, $iteration: infinite, $timing: step-end){
+					0%, 100% {
+						color: #fff;
+						@include radial-gradient(63.33% 63.33% at 34.67% 25.33%, #fedbc7 0%, #ff0000 100%);
+					}
+					50% {
+						color: #000;
+						@include radial-gradient(63.33% 63.33% at 34.67% 25.33%, #fff 0%, #ffc700 100%);
+					}
+				}
+				&:before {
+					@include arrow(right, 5px, 5px, 1px, #000);
+					right: 0;
+					z-index: 1;
+				}
+				&::after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					right: -8px;
+					margin-top: -8px;
+					width: 16px;
+					height: 16px;
+					border-radius: 50%;
+					background-color: #fff;
+				}
+			}
+		}
+		.begin-layer {
+			display: none;
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 300;
+			overflow-y: auto;
+			background: #fff;
+			.begin-box {
+				max-width: 720px;
+				margin: 0 auto;
+				@include vw(padding, 0 46px 150px);
+				@include boxSizing(border-box);
+				.begin-title {
+					@include vw(padding, 74px 0 36px);
+					line-height: 1.4;
+					@include vw(font-size, 40px);
+					font-weight: 700;
+					color: #000;
+					@include vw(letter-spacing, -1px);
+					background: url('//img.eduwill.net/eduwill/img/2021/0/main/210127/bg_begin_title.png') no-repeat right bottom;
+					@include vw(background-size, 172px auto);
+					.red { color: #ff0000; }
+				}
+				.begin-list {
+					@include vw(margin, 0 0 48px);
+					font-size: 0;
+					.ibm-item {
+						@include vw(margin-top, 16px);
+						&:nth-last-child(1),
+						&:nth-last-child(2) {
+							display: inline-block;
+							@include vw(width, 306px);
+						}
+						&:nth-last-child(1) {
+							@include vw(margin-left, 16px);
+						}
+					}
+				}
+				.bottom-close {
+					position: fixed;
+					left: 50%;
+					bottom: 5%;
+					display: inline-block;
+					@include vw(width, 74px);
+					height: auto;
+					vertical-align: top;
+					line-height: 1;
+					font-size: 0;
+					border-radius: 50%;
+					@include boxShadow(2px 1px 20px 0 rgba(58, 68, 82, .2));
+					@include translateX(-50%);
+				}
+			}
+		}
+	}
+
+    // bxSlider reset
+    .bx-wrapper {
+        margin: 0 auto;
+        .bx-viewport {
+            left: 0;
+            border: 0;
+            background: none;
+            @include boxShadow(none);
+        }
+        img {
+            display: inline;
+        }
+    }
+    
+    .swiper-pagination-bullets {
+        @include boxSizing(border-box);
+        .swiper-pagination-bullet {
+            @include vw(width, 16px);
+            @include vw(height, 16px);
+        }
+    }
+
+    // 최상단 배너
+    .section-top-promotion {
+        text-align: center;
+        .swiper-slide {
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: 18%;
+                margin-left: 41.5%;
+                background: url(https://img.eduwill.net/eduwill/img/common/icon/mobile/banner_go.png) no-repeat 0 0;
+                @include vw(width, 28px);
+                @include vw(height, 28px);
+                background-size: cover;
+
+                @media screen and (min-width: 400px) {
+                    margin-left: 170px;
+                    bottom: 19%;
+                }
+            }
+        }
+        .swiper-wrapper.disabled {
+            -webkit-transform: translate3d(0, 0, 0) !important;
+            -ms-transform: translate3d(0, 0, 0) !important;
+            transform: translate3d(0, 0, 0) !important;
+        }
+        .promotion-pagination {
+            position: absolute;
+            z-index: 10;
+            text-align: right;
+            &.disabled {
+                display: none;
+            }
+            &.swiper-pagination-bullets {
+                @include vw(top, 10px);
+                @include vw(padding-right, 10px);
+                bottom: auto;
+            }
+            .swiper-pagination-bullet {
+				@include vw(margin, 0 5px);
+				background-color: #fff;
+                opacity: 0.4;
+                &-active {
+                    opacity:1;
+                }
+            }
+        }
+        img { @extend %max480; }
+    }
+
+    // 상단 비주얼 영역
+    .section-visual {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        background: #000 url("#{$img-path-main}/common/bg_big_banner1.png") no-repeat center center;
+        background-size: cover;
+        img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+        }
+        .swiper-wrapper.disabled {
+            -webkit-transform: translate3d(0px, 0, 0) !important;
+            -ms-transform: translate3d(0px, 0, 0) !important;
+            transform: translate3d(0px, 0, 0) !important;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            bottom: 0;
+            width: auto;
+            height: 100%;
+            @include translateX(-50%);
+        }
+        .visual-pagination {
+            position: absolute;
+            top: 10px;
+            height: 15px;
+            text-align: right;
+            z-index: 1;
+            padding-right: 10px;
+            @include boxSizing(border-box);
+            .swiper-pagination-bullet {
+                @include vw(width, 15px);
+                @include vw(height, 15px);
+                @include vw(margin, 0 2px);
+                background-color: #fff;
+                opacity: 0.4;
+                &.swiper-pagination-bullet-active {
+                    opacity: 1;
+                }
+            }
+            &.disabled {
+                display: none;
+            }
+        }
+    }
+
+    &.progress {
+        &_safety,
+        &_job,
+        &_it,
+        &_engin,
+        &_fireman,
+        &_energy,
+        &_elec,
+        &_arch,
+        &_civ,
+        &_danger,
+        &_math,
+        &_account,
+        &_erp,
+        &_invest,
+        &_trade,
+        &_kor,
+        &_history,
+        &_black,
+        &_guard,
+        &_road,
+        &_trans,
+        &_well,
+        &_flow,
+        &_admin,
+        &_public {
+            .section-visual {
+                background-image: none;
+                background-color: #000;
+            }
+        }
+
+        &_land {
+            .visual-wrap a:after {
+                top: 77%;
+            }
+        }
+    }
+
+    // 합격자모임 슬라이드
+    .section-greeting {
+        @include vw(padding-bottom, 100px);
+        text-align: center;
+        //padding: 25px 0;
+        .total-title {
+            @extend %titleHighlight;
+        }
+        .action {
+            @include vw(margin-top, 80px);
+            a {
+                @extend .btn-type-yellow;
+            }
+        }
+        // .review-gather {
+        //     text-align: center;
+        //     .total-title {
+        //         display: inline-block;
+        //         //margin-bottom: 32px;
+        //         @include vw(font-size, 28px);
+        //         font-weight: 700;
+        //         letter-spacing: -.76px;
+        //         color: $color-base;
+        //         border-bottom: 5px solid #20212e;
+        //     }
+        // }
+        // .action {
+        //     text-align: center;
+        //     width: 100%;
+        //     margin-top: 40px;
+        //     .text {
+        //         margin-bottom: 10px;
+        //         color: $color-base;
+        //         @include vw(font-size, 15px);
+        //         font-weight: 500;
+        //         letter-spacing: -1px;
+        //     }
+        //     a {
+        //         display: inline-block;
+        //         padding: 8px 34px 8px 24px;
+        //         @include vw(font-size, 20px);
+        //         font-weight: 500;
+        //         color: $color-base;
+        //         border-radius: 50px;
+        //         background: #ffdd00 url('#{$img-path-main}/land/arrow.png') right center no-repeat;
+        //         background-size: 23px auto;
+        //     }
+        // }
+    }
+
+    .swiper-greeting {
+        @include vw(margin-top, 60px);
+        .swiper-wrapper {
+            overflow: hidden;
+            overflow-x: scroll;
+            width: 100%;
+            @include vw(padding, 0 40px);
+            @include boxSizing(border-box);
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+            text-align: left;
+        }
+        li {
+            position: relative;
+            display: inline-block;
+            width: 44.44%;
+            padding-right: 10px;
+            font-size: 0;
+            @include boxSizing(border-box);
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .swiper-slide .video-box {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        .video {
+            width: 100%;
+            height: 100%;
+        }
+        .btn-play {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .section-top-banner {
+        text-align: center;
+        img {
+            @extend %max480;
+        }
+        &.bg-yellow {
+            background: #ffdd00;
+        }
+    }
+
+    .section-ment {
+        text-align: center;
+        img {
+            @extend %max480;
+        }
+        &.bg-yellow {
+            background: #ffdd00;
+        }
+        &.ment-start {
+            background: #ffdd00;
+            background: linear-gradient(0deg, #fff 0%, #fff 13%, #ffdd00 13%, #ffdd00 100%);
+        }
+        &.ment-end {
+            background: #ffdd00;
+            background: linear-gradient(0deg, #ffdd00 0%, #ffdd00 84.5%, #fff 84.5%, #fff 100%);
+        }
+        .list {
+            padding: 20px 6.94% 74px;
+            @include boxSizing(border-box);
+            .col {
+                width: 100%;
+                @include vw(margin-top, 40px);
+                background: #fff;
+                text-align: left;
+                @include vw(border-radius, 20px);
+                overflow: hidden;
+                @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.5));
+                // @extend %max400;
+                &:first-child {
+                    margin-top: 0;
+                }
+                a {
+                    display: block;
+                    @include vw(padding, 40px 48px);
+                    width: 100%;
+                    height: 100%;
+                    @include vw(border-radius, 20px);
+                    overflow: hidden;
+                    @include boxSizing(border-box);
+                }
+                .subject {
+                    display: inline-block;
+                    color: $color-base;
+                    font-weight: 700;
+                    @include vw(margin-bottom, 16px);
+                    @include vw(font-size, 16px);
+                    @include vw(line-height, 26px);
+                    border-bottom: 1px solid #212121;
+                    em {
+                        @include vw(font-size, 20px);
+                        font-weight: 700;
+                        font-family: $font-roboto;
+                    }
+                }
+                .desc {
+                    @include vw(margin-bottom, 32px);
+                    font-weight: 700;
+                    color: $color-base;
+                    @include vw(letter-spacing, -.5px);
+                    @include vw(font-size, 18px);
+                    .highlight {
+                        color: #d60315;
+                    }
+                }
+                .action {
+                    @extend .btn-type-white;
+                }
+            }
+        }
+    }
+
+    .section-title-wrap {
+        @include vw(padding-top, 74px);
+        text-align: center;
+        strong {
+            display: block;
+            @include vw(font-size, 18px);
+            font-weight: 500;
+            @include vw(letter-spacing, -1px);
+        }
+
+        .label-num {
+            display: inline-block;
+            @include vw(min-width, 90px);
+            @include vw(padding, 12px 20px 16px);
+            line-height: 1;
+            @include vw(font-size, 28px);
+            @include vw(border-radius, 28px);
+            background: #ffdd00;
+            @include boxSizing(border-box);
+            em {
+                line-height: 1;
+                font-weight: bold;
+            }
+        }
+
+        .rule-title {
+            @include vw(margin-bottom, 32px);
+            span {
+                display: inline-block;
+                color: $color-base;
+                font-weight: 500;
+                @include vw(padding-bottom, 4px);
+                @include vw(letter-spacing, -.67px);
+                @include vw(font-size, 24px);
+                @include vw(line-height, 27px);
+                border-bottom: 1px solid $color-base;
+                em {
+                    @include vw(font-size, 30px);
+                    font-weight: 700;
+                    font-family: $font-roboto;
+                }
+            }
+        }
+
+        .big-title {
+            @include vw(margin-top, 48px);
+            @include vw(font-size, 40px);
+            font-weight: normal;
+            letter-spacing: -2px;
+            font-weight: bold;
+            .highlight {
+                font-weight: bold;
+            }
+        }
+
+        .asterisk {
+            position: relative;
+            top: -5px;
+            @include vw(font-size, 40px);
+            font-weight: 300;
+            &.num {
+                @include vw(top, -10px);
+                @include vw(margin, 0 8px 0 4px);
+                @include vw(font-size, 20px);
+            }
+        }
+
+        .highlight {
+            position: relative;
+            z-index: 1;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                @include vw(height, 10px);
+                background: rgba(255, 221, 0, 0.5);
+                z-index: -1;
+            }
+        }
+
+        .highlight2 {
+            color: #ffdd00 !important;
+            font-weight: 700;
+        }
+
+        .small-title {
+            @include vw(margin-top, 80px);
+            @include vw(font-size, 28px);
+            font-weight: 500;
+            letter-spacing: -1px;
+        }
+
+        .button {
+            position: relative;
+            a {
+                width: auto;
+            }
+        }
+        .action {
+            @extend .btn-type-yellow;
+        }
+    }
+
+    .article-title-wrap {
+        // padding-bottom: 60px;
+        text-align: center;
+        & + .swiper-greeting {
+            margin-top: 60px;
+        }
+        .big-title {
+            @include vw(margin-bottom, 40px);
+            @include vw(padding-top, 64px);
+            line-height: 1.5;
+            @include vw(font-size, 24px);
+            font-weight: 700;
+            color: $color-base;
+            @include vw(letter-spacing, -.67px);
+            background: url("#{$img-path-main}/common/icon_quotes_opne.png") 50% 0 no-repeat;
+            background-size: 14px auto;
+        }
+        .small-title {
+            font-weight: 500;
+            color: $color-base;
+            @include vw(font-size, 18px);
+            @include vw(letter-spacing, -1px);
+        }
+        .action {
+            @include vw(margin-top, 40px);
+            @extend .btn-type-yellow;
+        }
+
+        &.color-white {
+            color: #fff;
+            .big-title {
+                background: url("#{$img-path-main}/common/icon_quotes_opne_yellow.png") 50% 0 no-repeat;
+                background-size: 14px auto;
+            }
+        }
+    }
+
+    .section-img {
+        position: relative;
+        @include vw(margin-top, 100px);
+        text-align: center;
+        img {
+            @extend %max480;
+        }
+        & + .grounds-text {
+            @include vw(margin-top, 80px);
+        }
+    }
+
+    .grounds-text {
+        @include vw(margin-top, 40px);
+        text-align: center;
+        line-height: 1.5;
+        @include vw(font-size, 16px);
+        font-weight: 400;
+        color: #a9a9a9;
+    }
+
+    // eco
+    .eco-puri {
+        position: absolute;
+        top: 80%;
+        right: 10%;
+        left: 57%;
+        text-align: center;
+        line-height: 1.3;
+        font-family: $font-lato;
+        font-size: 4vw;
+        font-weight: 700;
+        color: #333;
+        @include breakpoint(maxImg) {
+            font-size: 18px;
+        }
+        div {
+            display: inline-block;
+        }
+    }
+
+    // 선택의 이유
+    .section-reason {
+        @include vw(padding-bottom, 100px);
+        &.reason-1 .section-title-wrap {
+            @include vw(padding-top, 72px);
+        }
+        .action {
+            text-align: center;
+            width: 100%;
+            @include vw(margin-top, 80px);
+            .text {
+                @include vw(margin-bottom, 20px);
+                @include vw(font-size, 20px);
+                font-weight: 500;
+                letter-spacing: -1px;
+            }
+            a {
+                @extend .btn-type-yellow;
+            }
+        }
+
+        &.reason-product {
+            background: #07005e;
+            &.bg-sky {
+                background: #2aa3dc;
+            }
+            .section-title-wrap {
+                * {
+                    color: #fff;
+                }
+                .label-num em {
+                    color: $color-base;
+                }
+                .big-title .highlight:before {
+                    @include vw(height, 12px);
+                    background: rgba(255, 221, 0, 1);
+                }
+            }
+
+            .list {
+                @include vw(margin-top, 80px);
+                @include vw(padding, 0 50px);
+                @include boxSizing(border-box);
+                .col {
+                    @extend %box;
+                    @include vw(margin-top, 24px);
+                }
+                &.sub-list {
+                    .col {
+                        @include vw(margin-top, 24px);
+                    }
+                }
+                &.text-list {
+                    max-width: 720px;
+                    margin: 0 auto;
+                    font-size: 0;
+                    @include boxSizing(border-box);
+                    .col {
+                        display: inline-block;
+                        @include vw(width, 300px);
+                        @include vw(margin-top, 20px);
+                        &:nth-child(odd) { @include vw(margin-right, 10px); }
+                        &:nth-child(even) { @include vw(margin-left, 10px); }
+                        &.col-soon {
+                            a {
+                                @extend %disabled;
+                                color: #fff;
+                                background: #acacac;
+                                &::after { display: none; }
+                            }
+                        }
+                        a {
+                            position: relative;
+                            display: block;
+                            @include vw(padding, 30px);
+                            @include vw(font-size, 28px);
+                            font-weight: 700;
+                            &::after {
+                                @include arrow(right, 10px, 10px, 2px, #000);
+                                @include vw(right, 30px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.reason-media {
+            .comment {
+                @include vw(margin-top, 40px);
+                @include vw(font-size, 20px);
+            }
+            .grounds-text {
+                @include vw(margin-top, 80px);
+            }
+            .video-box {
+                @include vw(margin, 100px auto 0);
+                // max-width: 720px;
+                @extend %max480;
+            }
+            .video {
+                position: relative;
+                margin: 0 6.944%;
+                video,
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    -o-object-fit: inherit;
+                    object-fit: inherit;
+                }
+            }
+            .video-single {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 7;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    // 합격자 명단 세로형 슬라이드
+    .winner-contents {
+        @include vw(margin-top, 80px);
+        .winner-slide {
+            position: relative;
+            width: 86.11%;
+            overflow: hidden;
+            text-align: center;
+            line-height: 2;
+            @include vw(font-size, 20px);
+            @extend %max480;
+            @include boxSizing(border-box);
+            &:before,
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                z-index: 10;
+                width: 100%;
+                @include vw(height, 100px);
+            }
+            &:before {
+                top: 0;
+                background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(rgba(255, 255, 255, 0)));
+                background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 100%);
+            }
+            &:after {
+                bottom: 0;
+                background: -webkit-gradient(linear, left bottom, left top, from(#fff), to(rgba(255, 255, 255, 0)));
+                background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+
+    // 2020-09-08
+    .winner-contents {
+        .winner-list {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            line-height: 2;
+            @include vw(font-size, 16px);
+            @extend %max480;
+            @include boxSizing(border-box);
+            &:before,
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                z-index: 10;
+                width: 100%;
+                @include vw(height, 100px);
+            }
+            &:before {
+                top: 0;
+                background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(rgba(255, 255, 255, 0)));
+                background: linear-gradient(to bottom, #fff 0%, rgba(255, 255, 255, 0) 100%);
+            }
+            &:after {
+                bottom: 0;
+                background: -webkit-gradient(linear, left bottom, left top, from(#fff), to(rgba(255, 255, 255, 0)));
+                background: linear-gradient(to top, #fff 0%, rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+
+    .review-total {
+        @include vw(margin-top, 120px);
+        text-align: center;
+        & + .grounds-text {
+            @include vw(margin-top, 20px);
+        }
+        .total-title {
+            @extend %titleHighlight;
+            @include vw(font-size, 40px);
+        }
+        .total {
+            @include vw(margin-top, 38px);
+            strong {
+                vertical-align: 3px;
+                line-height: 1;
+                @include vw(font-size, 56px);
+                font-weight: bolder;
+                span {
+                    vertical-align: 3px;
+                    line-height: 1;
+                    @include vw(font-size, 46px);
+                    font-weight: 900;
+                }
+            }
+            em {
+                position: relative;
+                vertical-align: 3px;
+                @include vw(font-size, 30px);
+                font-weight: bold;
+                line-height: 1;
+            }
+            .asterisk {
+                vertical-align: top;
+                @include vw(font-size, 20px);
+                font-weight: 200;
+            }
+        }
+        .small-text {
+            @include vw(margin-top, 40px);
+            color: #222;
+            @include vw(font-size, 18px);
+        }
+    }
+
+    // 교수진 하단 - 리뷰 슬라이드
+    .review-slider {
+        position: relative;
+        @include vw(margin, 80px 50px 0);
+        @include vw(padding-bottom, 60px);
+
+        .swiper-review {
+            width: 100%;
+            @include vw(border-radius, 20px);
+            overflow: hidden;
+            background-color: #fff;
+            @extend %max480;
+            @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+            li {
+                background: #fff;
+                @include vw(border-radius, 20px);
+                overflow: hidden;
+                text-align: center;
+            }
+        }
+
+        .swiper-slide {
+            // height: 137px;
+            .core {
+                @include vw(padding, 48px 44px);
+            }
+            p {
+                text-align: left;
+                @include vw(font-size, 20px);
+                &.desc {
+                    line-height: 1.5;
+                    @include multipleEllipsis(3);
+                    @include vw(font-size, 20px);
+                    font-weight: 600;
+                    letter-spacing: -0.59px;
+                }
+                &.user {
+                    @include vw(margin-top, 20px);
+                }
+            }
+            .highlight {
+                position: relative;
+                z-index: 0;
+                font-weight: bold;
+                color: #d50012;
+            }
+        }
+
+        .swiper-pagination {
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+            .swiper-pagination-bullet {
+                opacity: 1;
+                @include vw(margin, 0 6px);
+                background: #acacac;
+                &-active {
+                    @include vw(width, 30px);
+                    @include vw(border-radius, 50px);
+                    background: #ffdd00;
+                }
+            }
+        }
+    }
+
+    // 합격영상 슬라이드
+    .winner-swiper {
+        @include vw(padding, 80px 0 0);
+        .swiper-picture {
+            @include vw(padding, 0 50px);
+            li .review-title {
+                @include vw(margin-top, 24px);
+                @include vw(font-size, 18px);
+                font-weight: 500;
+            }
+        }
+    }
+
+    // 책 슬라이드
+    .book-slider {
+        & + .grounds-text {
+            @include vw(margin-top, 80px);
+        }
+        .swiper-picture {
+            @include vw(padding, 120px 120px 0);
+            li {
+                text-align: center;
+                @extend %max160;
+                .badge {
+                    position: absolute;
+                    @include vw(top, -40px);
+                    @include vw(left, -40px);
+                    display: table;
+                    text-align: center;
+                    @include vw(width, 160px);
+                    @include vw(height, 160px);
+                    border-radius: 50%;
+                    background: #d50012;
+                    @include boxShadow(4px 4px 12px 0 rgba(0, 0, 0, 0.4));
+                    em {
+                        display: table-cell;
+                        vertical-align: middle;
+                        color: #fff;
+                        line-height: 1.2;
+                        @include vw(font-size, 28px);
+                        font-weight: 700;
+                        strong {
+                            @include vw(font-size, 28px);
+                            font-weight: 700;
+                        }
+                    }
+                }
+                img {
+                    @include boxShadow(7px 7px 18px 0 rgba(0, 0, 0, 0.2));
+                }
+                .caption {
+                    @include vw(margin-top, 50px);
+                    line-height: 1.69;
+                    @include vw(font-size, 20px);
+                    @include multipleEllipsis(2);
+                    text-align: center;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    // 동문회 슬라이드
+    .network-slider {
+        position: relative;
+        &:after {
+            content: "";
+            display: none;
+            position: absolute;
+            top: 4.3%;
+            right: 0;
+            width: 18%;
+            height: 82.3%;
+            background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+            background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+            background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 10;
+        }
+        & + .review-slider {
+            margin-top: 0;
+        }
+        .swiper-picture {
+            @include vw(padding, 28px 50px 90px);
+            li {
+                text-align: center;
+                @include vw(border-radius, 20px);
+                background: #fff;
+                overflow: hidden;
+                @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+            }
+        }
+    }
+
+    // 시스템 슬라이드
+    .system-slider {
+        position: relative;
+        @include vw(margin-top, 100px);
+        .swiper-container {
+            overflow: visible;
+        }
+        .swiper-picture {
+            @include vw(padding, 0 50px);
+            li {
+                @include vw(max-width, 500px);
+                text-align: center;
+                overflow: hidden;
+                @include vw(border-radius, 24px);
+                @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+            }
+        }
+    }
+
+    // 컨텐츠 설명 슬라이드 (ex. 9급 합격전략연구소)
+    .info-slider {
+        position: relative;
+        @include vw(margin-top, 100px);
+        .swiper-picture {
+            @include vw(padding, 28px 50px 90px);
+            li {
+                text-align: center;
+                overflow: hidden;
+                @include vw(border-radius, 20px);
+                background: #fff;
+                @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+            }
+        }
+    }
+
+    // 지식인
+    .kin {
+        &-total {
+            @extend .review-total;
+            .total-title {
+                em {
+                    color: #939393;
+                }
+            }
+        }
+        &-list {
+            @include vw(margin-top, 70px);
+            padding: 0 6.94%;
+            li {
+                position: relative;
+                vertical-align: top;
+                border-bottom: 1px solid #e1e1e1;
+                a {
+                    display: inline-block;
+                    @include vw(padding, 26px 16px 26px 48px);
+                    width: 89.35%;
+                    text-align: left;
+                    line-height: 20px;
+                    vertical-align: top;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    @include vw(font-size, 20px);
+                    font-weight: 500;
+                    background: url("#{$img-path-main}/common/icon_q.png") 8px 50% no-repeat;
+                    background-size: 20px;
+                    @include boxSizing(border-box);
+                }
+                .icon-new {
+                    position: relative;
+                    @include vw(top, 26px);
+                    display: inline-block;
+                    @include vw(width, 40px);
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+
+    // 팩트 체크
+    .section-fact {
+        @include vw(padding-bottom, 60px);
+        .section-title-wrap {
+            strong {
+                @extend %titleHighlight;
+                @include vw(font-size, 44px);
+            }
+            .sub-title {
+                @include vw(margin-top, 30px);
+                line-height: 1.5;
+                @include vw(font-size, 28px);
+                font-weight: 700;
+            }
+        }
+        .fact-slider {
+            position: relative;
+            &:after {
+                content: "";
+                display: none;
+                position: absolute;
+                top: 5.6%;
+                right: 0;
+                width: 18%;
+                height: 76.1%;
+                background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+                background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+                background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+                z-index: 10;
+            }
+            .swiper-picture,
+            .swiper-fact {
+                @include vw(padding, 80px 60px 90px 60px);
+                li {
+                    position: relative;
+                    text-align: center;
+                    @include vw(border-radius, 20px);
+                    background: #fff;
+                    overflow: hidden;
+                    @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+                    .fact-label {
+                        position: absolute;
+                        @include vw(top, -6px);
+                        @include vw(left, 22px);
+                        z-index: 10;
+                        @include vw(width, 60px);
+                    }
+                }
+            }
+        }
+    }
+
+    // 베스트 상품
+    .section-best {
+        text-align: center;
+        background: #07005e;
+        &.bg-sky {
+            background: #2aa3dc;
+        }
+        a {
+            @extend %max480;
+            position: relative;
+            display: block;
+            @include vw(padding-bottom, 80px);
+            &:before {
+                content: "";
+                position: absolute;
+                @include vw(top, 20px);
+                @include vw(left, 20px);
+                display: block;
+                @include vw(width, 72px);
+                @include vw(height, 68px);
+                background: url("#{$img-path-main}/common/icon_crown.png") no-repeat 0 0;
+                background-size: 100% auto;
+            }
+        }
+        .best-item {
+            @extend %clearfix;
+            .flag {
+                @include vw(margin-top, 80px);
+                span {
+                    display: inline-block;
+                    @include vw(padding, 2px 34px);
+                    @include vw(font-size, 32px);
+                    font-weight: bold;
+                    color: #090273;
+                    @include vw(border-radius, 58px);
+                    background-color: #fff;
+                }
+                + .title {
+                    @include vw(margin-top, 48px);
+                }
+            }
+            .title {
+                @include vw(margin-top, 100px);
+                font-weight: bold;
+                @include vw(font-size, 40px);
+                color: #fee200;
+            }
+            .desc {
+                @include vw(margin-top, 60px);
+                word-break: keep-all;
+                @include vw(font-size, 24px);
+                color: #fff;
+                &.bold {
+                    font-weight: 700;
+                }
+            }
+            .action {
+                @extend .btn-type-yellow;
+                @include vw(margin-top, 56px);
+            }
+            .grounds-text {
+                @include vw(margin-top, 48px);
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+
+    // 이벤트
+    .section-event {
+        @include vw(padding-bottom, 100px);
+        .section-title-wrap {
+            strong {
+                margin: 0;
+                @include vw(font-size, 40px);
+                font-weight: bold;
+            }
+        }
+        .list {
+            @include vw(margin-top, 80px);
+            @include vw(padding, 0 50px);
+            li {
+                @extend %box;
+                @include vw(margin-top, 16px);
+            }
+        }
+    }
+
+    // 알짜정보
+    .section-info-quick {
+        @include vw(padding-bottom, 100px);
+        background: $color-gray;
+        .section-title-wrap {
+            strong {
+                margin: 0;
+                @include vw(font-size, 40px);
+                font-weight: bold;
+            }
+        }
+        .list {
+            @include vw(margin-top, 60px);
+            @include vw(padding, 0 25px);
+            ul {
+                @extend %box;
+                @include vw(padding, 40px 0 25px);
+                li {
+                    width: 33.333%;
+                    text-align: center;
+                    &.icon1 a {
+                        background-image: url("#{$img-path-main}/common/icon1.png");
+                    }
+                    &.icon2 a {
+                        background-image: url("#{$img-path-main}/common/icon2.png");
+                    }
+                    &.icon3 a {
+                        background-image: url("#{$img-path-main}/common/icon3.png");
+                    }
+                    a {
+                        display: block;
+                        @include vw(padding-top, 130px);
+                        font-weight: bold;
+                        @include vw(font-size, 18px);
+                        letter-spacing: -1px;
+                        background-repeat: no-repeat;
+                        background-position: 50% top;
+                        @include vw(background-size, 100px);
+                    }
+                }
+            }
+        }
+    }
+
+    // 직영학원
+    .section-academy {
+        @include vw(padding-bottom, 74px);
+        .section-title-wrap {
+            strong {
+                margin: 0;
+                padding: 0;
+                @include vw(font-size, 40px);
+                font-weight: 700;
+            }
+        }
+        .holder {
+            max-width: 640px;
+            @include vw(margin, 60px auto 0);
+            @include vw(padding, 0 26px);
+            @include boxSizing(border-box);
+        }
+        .item .list {
+            @include vw(border-radius, 10px);
+            background-color: #fff;
+            li {
+                border-bottom: 1px solid #f5f5f5;
+                &:first-child {
+                    border-top: 1px solid #f5f5f5;
+                }
+            }
+            .col {
+                float: none;
+                width: 100%;
+                @extend %clearfix;
+                div {
+                    float: left;
+                    display: table;
+                    width: 9%;
+                    @include vw(height, 60px);
+                    margin-left: 1%;
+                    a {
+                        display: table-cell;
+                        @include vw(font-size, 22px);
+                        vertical-align: middle;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        @include vw(background-size, 32px auto);
+                    }
+                }
+                .area {
+                    width: 78%;
+                    margin-left: 0;
+                    a {
+                        width: 100%;
+                        @include vw(padding-left, 16px);
+                        line-height: 1;
+                    }
+                    .label {
+                        @include vw(margin-left, 8px);
+                        vertical-align: middle;
+                        &.new {
+                            @include vw(width, 56px);
+                            @include vw(height, 32px);
+                            background-image: url("#{$img-path-main}/common/icon_new2.png");
+                        }
+                        &.dokhan {
+                            @include vw(width, 60px);
+                            @include vw(height, 32px);
+                            background-image: url("#{$img-path-main}/common/icon_dokhan.png");
+                        }
+                    }
+                }
+                .tel a {
+                    background-image: url("#{$img-path-main}/common/icon_tel.png");
+                }
+                .location {
+                    a {
+                        background-image: url("#{$img-path-main}/common/icon_map.png");
+                    }
+                }
+            }
+        }
+    }
+
+    // 공지사항
+    .section-notice-line {
+        .grid { @extend %max480; }
+        .col {
+            @include vw(line-height, 80px);
+            text-align: center;
+            vertical-align: top;
+            a {
+                vertical-align: top;
+            }
+        }
+        .notice-title {
+            width: 20%;
+            @include vw(font-size, 22px);
+            font-weight: 700;
+        }
+        .notice-post {
+            padding: 0;
+            width: 60%;
+            @include vw(height, 80px);
+            overflow: hidden;
+            text-align: left;
+            a {
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                @include vw(font-size, 20px);
+                color: #939393;
+                font-weight: 400;
+                @include vw(line-height, 80px);
+            }
+            .swiper-wrapper {
+                @include vw(height, 80px);
+            }
+        }
+        .btn-more {
+            width: 20%;
+            text-align: center;
+            @include vw(font-size, 20px);
+            font-weight: 400;
+            color: #4a4a4a;
+        }
+    }
+
+    // 회원가입 배너
+    .section-join {
+        text-align: center;
+        background-color: #06006a;
+        a {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 720px;
+            &:after {
+                content: "";
+                position: absolute;
+                top: 45%;
+                right: 10%;
+                display: block;
+                width: 36px;
+                height: 41px;
+                background: url("#{$img-pointer-path}/icon_pointer_12.png") no-repeat 0 0;
+                background-size: 100% auto;
+                @include animation(pointerBounce, 1s, $iteration: infinite, $timing: linear) {
+                    0%,
+                    100% {
+                        @include translateXY(0, 0);
+                    }
+                    50% {
+                        @include translateXY(10px, 10px);
+                    }
+                }
+            }
+        }
+    }
+
+    // 베스트셀러 아이콘
+    .best-badge {
+        position: absolute;
+        top: -30px;
+        right: -40px;
+        display: inline-block;
+        width: 80px;
+        max-width: 80px;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    .new-badge {
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        display: inline-block;
+        width: 60px;
+        max-width: 60px;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    // CTA 아이콘
+    .visual-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        a {
+            display: block !important;
+            height: 100%;
+            text-align: center;
+
+            &:after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 78%;
+                margin-left: 60px;
+                -webkit-animation: pointerBounce 1s infinite;
+                -moz-animation: pointerBounce 1s infinite;
+                animation: pointerBounce 1s infinite;
+                background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 50% 0;
+                background-size: 100% auto;
+                width: 30px;
+                height: 34px;
+                z-index: 2;
+                display: inline-block;
+            }
+
+            &:nth-child(1):nth-last-child(2),
+            &:nth-child(2):nth-last-child(1) {
+                position: absolute;
+                top: 0;
+                width: 50%;
+            }
+            &:nth-child(1):nth-last-child(2) {
+                left: 0;
+                &:after {
+                    left: auto;
+                    right: 0;
+                    top: 76%;
+                }
+            }
+            &:nth-child(2):nth-last-child(1) {
+                left: 50%;
+                &:after {
+                    margin-left: 120px;
+                    left: 0;
+                    top: 76%;
+                    @include breakpoint(maxMobile) {
+                        margin-left: 140px;
+                    }
+                }
+            }
+        }
+    }
+
+    .pointerBounce {
+        display: inline-block;
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        width: 30%;
+        animation: 1s pointerBounce ease-in-out infinite alternate;
+        z-index: 2;
+    }
+
+    @keyframes pointerBounce {
+        0% {
+            -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+        }
+        100% {
+            -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+        }
+    }
+
+    .best-group {
+        text-align: center;
+        @include vw(margin-top, 50px);
+        max-width: 400px;
+        margin: 0 auto;
+        .best-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #000;
+            letter-spacing: -2px;
+            font-family: $font-noto;
+            strong {
+                font-weight: 900;
+                color: #ea1d00;
+            }
+            @media screen and (max-width: 320px) {
+                font-size: 1.3rem;
+            }
+            @media screen and (min-width: 530px) {
+                font-size: 1.7rem;
+            }
+        }
+
+        .btn-best {
+            display: inline-block;
+            width: 90%;
+            margin: 0 auto;
+
+            @include vw(margin-top, 20px);
+            @include vw(margin-bottom, 16px);
+        }
+
+        .best-notice {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000;
+            font-family: $font-noto;
+            letter-spacing: -2px;
+            @media screen and (min-width: 530px) {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

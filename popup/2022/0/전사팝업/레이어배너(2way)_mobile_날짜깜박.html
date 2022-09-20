@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<!-- 여기부터 -->
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css">
+	<style>
+		.junsa-banner-main { position: fixed; top: 0; left: 0; z-index: 300; width: 100%; height: 100%; background-color: rgba(0,0,0,.7); 	display:flex;flex-wrap:wrap;justify-content: center;align-items:center;}
+		.junsa-banner-main .junsa-inner { position:relative;max-width:640px;}
+
+		#junsaBanner .junsa-inner .close-set {font-size: 15px; font-family: 'Noto Sans KR', '맑은 고딕', 'Molgun Gothic', 'Dotum', '돋움'; letter-spacing: -1px; font-weight: 400;text-align:right;margin-bottom:5px;}
+		#junsaBanner .junsa-inner .close-set span:before { content: '|'; display: inline-block; margin: 0 8px; font-size: 11px; color: #656565; vertical-align: top;}
+		#junsaBanner .junsa-inner .close-set span:first-child:before { display: none; }
+		#junsaBanner .junsa-inner .close-set a { display: inline-block; color: #fff; text-decoration: none; }
+		#junsaBanner .junsa-inner .close-set a:before { content: 'X'; display: inline-block; margin: 0 7px; }
+		#junsaBanner a { display: inline-block; font-family: 'Noto Sans KR', '맑은 고딕', 'Molgun Gothic', 'Dotum', '돋움'; color: #000; text-decoration: none; }
+
+		#junsaBanner .junsa-action{font-size:0;}
+		@media (orientation: landscape) {
+			#junsaBanner .junsa-action{font-size:0;	max-height: calc(100vh - 100px);overflow: auto;}
+			#junsaBanner .junsa-action::-webkit-scrollbar {display: none;}
+		}
+
+		#junsaBanner .junsa-action>a{position:relative;display:inline-block;width:50%;}
+
+		#junsaBanner .junsa-action .icon{ position:absolute;bottom: 0; right: 10%; width:15%; -webkit-animation: junsaBounce 1s infinite; animation: junsaBounce 1s infinite; z-index:2;}
+		#junsaBanner .junsa-action img { width: 100%; }
+
+
+		#junsaBanner .junsa-date{
+			position:absolute;left:0;top:5%;width:100%;text-align:center;
+		}
+
+		#junsaBanner .junsa-date .date-bg{
+			background: #FF8CC5;
+			border-radius: 50px;
+			padding: 7px 15px;
+			text-align:center;
+			display:inline-block;
+		}
+
+		#junsaBanner .junsa-date span{
+			line-height: 1;
+			font-weight:700;
+			font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; 			color:#fff;font-size:3.3vw;
+			-webkit-animation: junsaBlink 1s step-start infinite; animation: junsaBlink 1s step-start infinite; 
+		}
+
+		#junsaBanner .junsa-coupon{position:absolute;top:73.5%; left: 19%; width:63%;text-align:center;}
+		#junsaBanner .junsa-coupon strong{
+			font-family: 'EduwillPassBold', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; 			color:#000;font-size:5vw;line-height:1;font-weight: bold;
+		}
+
+		#junsaBanner .junsa-btn{position:absolute;top:89.5%; left: 9%; width:81%;text-align:center;}
+		#junsaBanner .junsa-btn strong{
+			font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; 			color:#fff;font-size:3.2vw;line-height:1;font-weight: bold;
+		}
+
+
+		@media screen and (min-width: 720px) {
+			#junsaBanner .junsa-date .date-bg{padding: 10px 15px 12px;}
+			#junsaBanner .junsa-date span{font-size:22px;}
+			#junsaBanner .junsa-coupon strong{font-size:33px;}
+			#junsaBanner .junsa-btn strong{font-size:20px;}
+		}
+
+		@media screen and (max-width: 320px) {
+			#junsaBanner .junsa-date .date-bg{padding: 7px 15px;}
+			#junsaBanner .junsa-btn strong{font-size:2vw;}
+		}
+		
+
+		/* animation */
+		@-webkit-keyframes junsaBlink {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0; }
+		}
+
+		@keyframes junsaBlink {
+			0%, 100% { opacity: 1; }
+			50% { opacity: 0; }
+		}
+
+
+		@-webkit-keyframes junsaBounce {
+			0%, 100% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+			50% { -webkit-transform: translate(10px, 10px); -ms-transform: translate(10px, 10px); transform: translate(10px, 10px); }
+		}
+		@keyframes junsaBounce {
+			0%, 100% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+			50% { -webkit-transform: translate(10px, 10px); -ms-transform: translate(10px, 10px); transform: translate(10px, 10px); }
+		}
+
+	</style>
+	<div id="junsaBanner" class="junsa-banner-main">
+		<div class="junsa-inner">
+			<div class="close-set">
+				<span><a href="#" onClick="javascript:closeOneDayAuto('junsaBanner');return false;">오늘 하루 보지 않기</a></span>
+				<span><a href="#" onClick="javascript:document.getElementById('junsaBanner').style.display='none'; return false;">닫기</a></span>
+			</div>
+
+
+			<div class="junsa-action">
+				<a href="링크" target="_blank">
+					<img src="https://img.eduwill.net/eduwill/img/2022/0/junsa/220503/banner/dim_2way_mobile1_1.jpg" alt="" />
+					<div class="icon">
+						<img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" alt="" />
+					</div>
+					<div class="junsa-date">
+						<div class="date-bg"><span>5/9(월) 마감5/9(월) </span></div>
+					</div>
+		
+					<div class="junsa-coupon">
+						<strong>55만원</strong>
+					</div>
+
+					<div class="junsa-btn">
+						<strong>56만원 역대급 할인 받고</strong>
+					</div>
+				</a>
+				<a href="링크" target="_blank">
+					<img src="https://img.eduwill.net/eduwill/img/2022/0/junsa/220503/banner/dim_2way_mobile1_2.jpg" alt="" />
+					<div class="icon">
+						<img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" alt="" />
+					</div>
+					<div class="junsa-date" >
+						<div class="date-bg" style="background-color:#143681;"><span>5/9(월) 마감5/9(월) </span></div>
+					</div>
+
+					<div class="junsa-btn">
+						<strong>선착순 무료</strong>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!--// 여기까지 -->
+</body>
+</html>

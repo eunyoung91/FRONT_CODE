@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	img { border: 0; vertical-align: top;}
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.holder { position: relative; }
+	.icon-pointer {
+		@include pointer(50%, 0, 80px, 88px, 1, bounce);
+	}
+	.slick-arrow {
+		@extend %slick-arrow;
+		top: 50%;
+		border-radius: 50%;
+		left: auto;
+		z-index: 112;
+		&.slick-prev {
+			@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0, .7));
+			left: 4%;
+		}
+		&.slick-next {
+			@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0, .7));
+			left: auto;
+			right: 4%;
+		}
+	}
+
+	.slick-dots {
+		position: absolute;
+		bottom: 8%;
+		right: 0;
+		left: 0;
+		font-size: 0;
+		z-index: 1;
+		li {
+			display: inline-block;
+			@include vw(margin, 0 6px);
+			&.slick-active button {
+				background-color: #ffc20e;
+			}
+		}
+		button {
+			display: block;
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			color: transparent;
+			border: none;
+			border-radius: 50%;
+			background-color: #ddd;
+			outline: none;
+			cursor: pointer;
+		}
+	}
+	.slick-slide {
+		outline: none;
+		a { outline: none;}
+	}
+	
+	.action {
+		position: relative;
+		a {
+			@include arrow(right, 10px, 10px, 2px, #fff);
+			display: block;
+			text-align: center;
+			width: 100%;
+			font-weight: 900;
+			@include vw(padding, 30px 30px 30px 0);
+			@include vw(letter-spacing, -2px);
+			@include vw(font-size, 34px);
+			line-height: 1;
+			background: #080d0a;
+			color:#fff;
+			@include boxSizing(border-box);
+			&:before {
+				@include vw(right, 30px);
+			}
+		}
+	}
+
+	.notice {
+		text-align: right;
+		font-weight: 400;
+		color: rgba(0,0,0, .4);
+		line-height: 1.5;
+		@include vw(font-size, 22px);
+		@include vw(letter-spacing, -1.5px);
+	}
+
+	.sector-title{
+		@include bg($color: #f6e1ea, $url: '#{$img-path}/mobile/bg_title.jpg', $size: auto 100%);
+		.wrap {
+			a{
+				@include vw(bottom, 115px);
+				@include vw(width, 649px);
+				&::after{right: 0;}
+			}
+			.flag{
+				position: absolute;
+				@include vw(bottom, 175px);
+				left: 30%;
+				@include vw(width, 310px);
+				@include vw(height, 90px);
+				@include vw(line-height, 60px);
+				@include bg($url: '#{$img-path}/mobile/title_flag.png', $size: cover);
+				@include vw(font-size, 20px);
+				font-weight: 500;
+				letter-spacing: -0.5;
+				color: #fff;
+				@include animation(imgBounce, 1s, $iteration: infinite){
+					0%, 100% { @include translateY(0); }
+					50% { @include translateY(-10px); }
+				}
+			}
+		}
+	}
+
+	.sector-intro {
+		@include linear-gradient(to bottom, #ec5985 0%, #f285ad 100%);
+	}
+
+	.sector-banner-1 {
+		background: #b8e9ff;
+	}
+
+	.sector-lineup {
+		background: #fff;
+        .tab-list {
+            display: flex;
+            justify-content: space-between;
+			@include vw(width, 660px);
+			@include vw(height, 158px);
+            margin: 0 auto;
+            font-size: 0;
+            a {
+                @extend %variable;
+                position: relative;
+                display: block;
+				@include vw(width, 327px);
+				@include vw(height, 158px);
+				span{display: none;}
+                &.tab-1{
+                    @include bg($url: '#{$img-path}/mobile/tab1-off.png', $size: cover);
+                    &.active{
+                        @include bg($url: '#{$img-path}/mobile/tab1-on.png', $size: cover);
+                    }
+                }
+                &.tab-2{
+                    @include bg($url: '#{$img-path}/mobile/tab2-off.png', $size: cover);
+                    &.active{
+                        @include bg($url: '#{$img-path}/mobile/tab2-on.png', $size: cover);
+                    }
+                }
+            }
+        }
+        .tab-view {
+            position: relative;
+            z-index: 1;
+            display: none;
+            @include vw(height, 1040px);
+            overflow: hidden;
+            &.tab-view-1 { background-color: #ffe3e6; }
+            &.tab-view-2 { background-color: #b8e9ff; }
+            &.active {
+                display: block;
+            }
+            .video-box{
+                position: absolute;
+                @include vw(top, 215px);
+				@include vw(width, 630px);
+				@include vw(height, 350px);
+				left: 50%;
+				transform: translateX(-50%);
+				a{
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					width: 100%;
+				   height: 100%;
+				}
+
+				
+            }
+            .teacher {
+                position: absolute;
+                @include vw(top, 585px);
+				.teacher-1{@include vw(width, 410px);}
+				.teacher-2{@include vw(width, 356px);}
+            }
+            .text-list {
+                position: absolute;
+                @include vw(top, 620px);
+                @include vw(right, 30px);
+				.txt-1{@include vw(width, 323px);}
+				.txt-2{@include vw(width, 359px);}
+            }
+        }
+    }
+
+	.sector-banner-2 {
+		background: #e04478;
+	}
+
+	.sector-event {
+		@include vw(padding-bottom, 100px);
+		.gray-bg{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			@include vw(height, 550px);
+			background-color: #f6f7f8;
+		}
+		a{
+			@include vw(width, 681px);
+		}
+		.flag{
+			position: absolute;
+			@include vw(top, 330px);
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(width, 311px);
+			@include vw(height, 106px);
+			@include vw(line-height, 67px);
+			@include bg($url: '#{$img-path}/mobile/event_flag.png', $size: contain);
+			@include vw(font-size, 20px);
+			font-weight: 500;
+			letter-spacing: -0.5;
+			color: #fff;
+			@extend .effect-blink;
+			@include animationDelay(1s);
+		}
+	}
+
+	.sector-banner-3 {
+		@include bg($url: '#{$img-path}/mobile/bg_banner_3.jpg', $size: cover);
+	}
+}

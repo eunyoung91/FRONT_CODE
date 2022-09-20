@@ -1,0 +1,134 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+
+
+// .bottom_fix_btn{display:none;}
+.product-eco{
+	overflow: hidden;
+	.house{
+		&-visual{
+			@include bg($url: '#{$img-path}/mobile/bg_visual.jpg', $size: cover);
+			margin:0 auto;
+			&:after{
+				display: none;
+			}
+		}
+		&-price{
+			.before-price{
+				@include vw(30px);
+				color:#333 !important;
+				text-decoration: none !important;
+			}
+			.btn-apply{
+				&:before{ top:55% !important; right:0 !important; }
+				@include pointer(50%, 10%, 38px, 43px, 12, bounce);
+			}
+		}
+
+		&-provide{
+			padding-bottom: 5%;
+			background-image: none;
+			background-color: #be3ef1 !important;
+			&:after{
+				background: url(https://img.eduwill.net/eduwill/img/2022/J/product/220607/pc/icon_provide.png) no-repeat 0 0;
+				background-size:cover;
+				@include rem(width, 132px);
+				@include rem(height, 132px);
+			}
+			.list-group ul li{
+				background-color: #74139b;
+				border:1px solid #74139b;
+			}
+			.list-text{
+				color:#dd89ff;
+			}
+		}
+		
+		&-review-list{
+			background-color:#fff;
+			.academy-group{
+				position: relative;
+				left:50%;
+				transform: translateX(-50%);
+				// @include rem(padding, 60px 0);
+				@include rem(width, 1590px);
+				.slick-slide{
+					opacity: 0.5;
+					@include rem(padding, 50px 25px);
+					@include rem(width, 530px);
+					.slide-list{
+						position:relative;
+						border-radius:15px;
+						background-color:#fff;
+						box-shadow: 0px 12px 18px 0px rgba(0, 0, 0, 0.38);
+					}
+					&.slick-current+div{
+						opacity:1;
+						transition: 0.5s ease;
+						transition-delay: 0.1s;
+					}
+				}
+
+			}
+		}
+
+		&-academy-teacher2{
+			background-color: #F2EAFF;
+			@include rem(padding-bottom, 120px);
+			.wrap{
+				padding:0 0;
+			}
+			.teacher-list{
+				@include rem(margin-top,90px);
+				.teacher-title{
+					font-weight:700;@include vw(30px);color:#222;
+					@include rem(padding-bottom,30px);
+					border-bottom:1px solid #d8d8d8;
+				}
+	
+				// .teacher-main{
+				// 	@extend %clearfix;
+				// 	width:100%;text-align:center;
+				// 	a{
+				// 		outline:1px solid red;
+				// 		display:inline-block;width:pImg(240);
+				// 		@include rem(margin,60px 36px 0);
+				// 	}
+				// }
+				.teacher-main{
+					width:86.111%;
+					div{
+						position: relative;
+						z-index:5;
+						left:7%;
+						right:7%;
+						margin:0 auto;
+						@extend %clearfix;
+						a{
+							position: absolute;
+							left:0;
+							z-index:5;
+							width:50%;
+							height:100%;
+							&:last-child{
+								left:50%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// &-academy-teacher{ display:block !important;}
+		&-hjc{ display:block !important;}
+		&-roadmap{ display:block !important;}
+
+	}
+}
+
+
+

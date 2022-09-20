@@ -1,0 +1,940 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+@import "module/motion";
+@import "module/base";
+
+.bottom_fix_btn { display: none !important; }
+.pcView {
+    display: none !important;
+}
+.product-eco {
+    overflow: hidden;
+    * {
+        font-family: $font-roboto;
+        @include vw(letter-spacing, -1.5px);
+    }
+    .only-mobile {
+        display: inline-block;
+        &br { display: block; }
+    }
+    .only-pc { display: none; }
+    .wrap,
+    .wrap-full {
+        max-width: 720px;
+    }
+
+    .btn-grounds {
+        position: absolute;
+        @include vw(font-size, 20px);
+        color: #bbb;
+        span {
+            color: #bbb;
+            @include vw(padding-right, 12px);
+            @include arrow(right, 6px, 6px, 1px, #bbb);
+            &:before {
+                right: 0
+            }
+        }
+    }
+
+    .icon-pointer {
+        @include pointer(50%, 0, 57px, 65px, 20, bounce);
+    }
+
+    .slick-arrow {
+        border-radius: 50%;
+        &.slick-prev {
+            @include slideArrow(left, 40px, 40px, 2px, #000);
+            @include vw(left, -40px);
+        }
+        &.slick-next {
+            @include slideArrow(right, 40px, 40px, 2px, #000);
+            @include vw(right, -40px);
+        }
+    }
+
+    .sector {
+        &-floating {
+            z-index: 100;
+            position: fixed !important;
+            left: 0;
+            @include vw(bottom, 72px);
+            width: 100%;
+            @include vw(height,170px);
+            background-color: rgba(0, 11, 39, 0.9);
+            opacity: 0;
+            a {
+                display: block;
+                @include pointer(50%, 0, 72px, 68px, 12, bounce);
+            }
+            .item {
+                position: absolute;
+                @include vw(left, 40px);
+                @include vw(top, -20px);
+                @include vw(Width, 250px);
+            }
+        }
+        &-title {
+            position: relative;
+            @include vw(padding-bottom, 80px);
+            @include bg($url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+            .motion {
+                opacity: 0;
+                &.btn-grounds {
+                    @include vw(top, 168px);
+                    left: 0;
+                    right: 0;
+                    a {
+                        color: #b3daff;
+                        span {
+                            color: #b3daff;
+                            &:before {
+                                border-color: #b3daff;
+                            }
+                        }
+                    }
+                }
+                &.title-3 {
+                    display: inline-block;
+                    @include vw(width, 212px);
+                }
+                &.title-4 {
+                    display: inline-block;
+                    @include vw(width, 252px);
+                }
+                &.title-5 {
+                    display: inline-block;
+                    @include vw(width, 212px);
+                }
+            }
+        }
+		&-earlybird {
+			@include vw(padding-bottom,110px);
+			span {
+				@include vw(font-size,26px);
+				color: #ffba27;
+				font-weight: 900;
+				position: absolute;
+				@include vw(top, 101px);
+				left: 58%;
+			}
+			.flag {
+				@include vw(width, 201px);
+				@include vw(left, 45px);
+				@include vw(top, 29px);
+				position: absolute;
+			}
+			.action {
+				a {
+					@include pointer(69%, 3%, 62px, 69px, 1, bounce);
+				}
+			}
+		}
+		&-points {
+			.bar {
+				position: relative;
+				background-color: #000d31;
+				@include vw(margin-bottom, 50px);
+				.btn-base {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					@include vw(top, 330px);
+										img {
+						@include vw(width, 94px);
+					}
+				}
+				&:after {
+					content: "";
+					display: inline-block;
+					@include bg($url: "#{$img-path}/mobile/arrow.png", $size: cover);
+					@include vw(width, 156px);
+					@include vw(height, 79px);
+					@include vw(top, 400px);
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+			.point {
+				position: relative;
+				@include vw(padding-top, 130px);
+				width: 100%;
+				@include vw(height, 1605px);
+				img {
+					@include vw(width, 316px);
+				}
+				.first-img {
+					@include vw(width, 628px);
+				}
+			}
+		}
+        &-benefit {
+            background-color: #090039;
+            &-title {
+                z-index: 10;
+                position: relative;
+                background-color: #ffd600;
+                @include bg($color: #ffd600);
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    @include vw(bottom, -55px);
+                    @include vw(width, 142px);
+                    @include vw(height, 57px);
+                    margin: 0 auto;
+                    @include bg($url: '#{$img-path}/mobile/img_reason_tail.png', $size: 100%);
+                }
+            }
+        }
+
+        &-support {
+            background-color: #9cdbff;
+            &-title {
+                z-index: 5;
+                position: relative;
+                @include bg($url: '#{$img-path}/mobile/bg_support.jpg', $size: cover);
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    @include vw(bottom, -48px);
+                    @include vw(width, 142px);
+                    @include vw(height, 50px);
+                    margin: 0 auto;
+                    @include bg($url: '#{$img-path}/mobile/img_support_tail.png', $size: 100%);
+                }
+            }
+        }
+
+        &-price-item {
+            @include vw(margin-bottom, 100px);
+            @include vw(padding, 100px 0 0);
+            @include linear-gradient(to bottom, #fdcf0e 0%, #fdcf0e 100%);
+            .title {
+                p {
+                    @include vw(font-size, 54px);
+                    line-height: 1.2;
+                    font-weight: 900;
+                    color: #4c13df;
+                    span {
+                        color: #4c13df
+                    }
+                }
+                h3 {
+                    @include vw(font-size, 54px);
+                    line-height: 1.2;
+                    font-weight: 900;
+                }
+            }
+            .item-group {
+                @include vw(margin, 100px 50px);
+                text-align: left;
+                background: #fff;
+                @include vw(padding, 60px 50px);
+                @include vw(border-radius, 30px);
+                @include boxShadow(0 10px 15px 0 rgba(0, 0, 0, .3));
+                @include boxSizing(border-box);
+
+                &+.item-group {
+                    @include vw(margin-top, 60px);
+                }
+
+                .item-subject {
+                    font-weight: 900;
+                    color: #222;
+                    line-height: 1.2;
+                    @include vw(margin-bottom, 30px);
+                    @include vw(letter-spacing, -2px);
+                    @include vw(font-size, 46px);
+
+                    .item-label {
+                        @include vw(margin-bottom, 30px);
+                        @include vw(padding, 8px 0);
+                        @include vw(font-size, 28px);
+                        width: 50%;
+                        text-align: center;
+                        letter-spacing: -1px;
+                        line-height: 1;
+                        font-weight: 900;
+                        color: #000;
+                        background: #ffda31;
+                    }
+
+                    strong {
+                        color: #ef2f08;
+                        font-weight: 900;
+                    }
+
+                    .flag-new {
+                        display: inline-block;
+                        vertical-align: sub;
+                        @include vw(width, 87px);
+                    }
+
+                    .flag-list {
+                        @include vw(margin-bottom, 30px);
+
+                        &>div {
+                            display: inline-block;
+                            @include vw(margin-right, 10px);
+                            @include vw(padding, 9px 30px);
+                            line-height: 1;
+                            @include vw(font-size, 25px);
+                            font-weight: 500;
+                            @include vw(border-radius, 52px);
+
+                            &.flag-1 {
+                                color: #000;
+                                background-color: #ffdd00;
+                            }
+
+                            &.flag-2 {
+                                color: #fff;
+                                background-color: #353535;
+                            }
+                        }
+                    }
+                }
+
+                .item-info {
+                    @include vw(padding-bottom, 30px);
+                    border-bottom: 1px solid #eaeaea;
+
+                    .info-tit {
+                        @include vw(font-size, 30px);
+                        font-weight: 700;
+                        color: #222;
+                    }
+
+                    .info-txt {
+                        @include vw(font-size, 26px);
+                    }
+
+                    .red {
+                        color: #ef2f08;
+                    }
+                }
+
+                .item-desc {
+                    @include vw(padding, 36px 0);
+                    border-bottom: 1px solid #eaeaea;
+
+                    &.pt-0 {
+                        padding-top: 0;
+                    }
+
+                    .desc-tit {
+                        @include vw(font-size, 30px);
+                        @include vw(margin-bottom, 20px);
+                        font-weight: 700;
+                        color: #222;
+
+                        .red {
+                            color: #ef2f08;
+                        }
+
+                        .small {
+                            font-weight: 400;
+                            @include vw(font-size, 22px);
+                            color: #666;
+                        }
+                    }
+
+                    ul {
+                        li {
+                            position: relative;
+                            line-height: 1.5;
+                            font-weight: 500;
+                            @include vw(letter-spacing, -2px);
+                            @include vw(margin-top, 10px);
+                            @include vw(padding-left, 20px);
+                            @include vw(font-size, 28px);
+                            font-weight: 500;
+                            color: #222;
+
+                            .highlight {
+                                font-weight: 500;
+                            }
+
+                            .small {
+                                display: inline-block;
+                                color: #bbb;
+                                @include vw(margin-left, 4px);
+                                @include vw(font-size, 20px);
+                            }
+
+                            &:before {
+                                content: '·';
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                z-index: 1;
+                            }
+
+                            .btn-detail {
+                                display: inline-block;
+                                @include vw(width, 147px);
+                                @include vw(margin-left, 10px);
+                            }
+
+                            .point-highlight {
+                                position: relative;
+                                display: inline-block;
+                                @include vw(padding, 0 20px);
+                                @include vw(font-size, 28px);
+                                font-weight: 500;
+                                color: #222;
+                                @include vw(border-radius, 50px);
+                                background: #ffda31;
+                            }
+
+                            p {
+                                @include vw(font-size, 26px);
+                            }
+                        }
+                    }
+                }
+
+                .item-price {
+                    position: relative;
+                    @include vw(padding-top, 36px);
+
+                    .text-price {
+                        @include vw(font-size, 27px);
+                        font-weight: 700;
+                        color: #010101;
+                    }
+
+                    .discount-price {
+                        @include vw(font-size, 37px);
+                        font-weight: 700;
+                        color: #e63a15;
+                    }
+
+                    .before-price {
+                        position: relative;
+                        @include vw(padding-right, 20px);
+                        @include vw(font-size, 25px);
+                        color: #010101;
+                        @include arrow(right, 10px, 10px, 2px, #000);
+
+                        &::before {
+                            right: 0;
+                        }
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            margin-top: -1px;
+                            background-color: #000;
+                        }
+
+                        span {
+                            font-family: $font-roboto;
+                            @include vw(font-size, 25px);
+                            color: #010101;
+                        }
+
+                        &:last-child {
+                            width: 100%;
+                            padding: 0;
+                            text-align: right;
+                            text-decoration: none;
+                            @include vw(font-size, 58px);
+                            color: #e63a15;
+
+                            &::before,
+                            &::after {
+                                display: none;
+                            }
+
+                            span {
+                                @include vw(font-size, 60px);
+                                color: #e63a15;
+                            }
+                        }
+                    }
+
+                    .after-price {
+                        float: right;
+                        @include vw(margin-top, -20px);
+                        @include vw(font-size, 58px);
+                        color: #e63a15;
+                        @include vw(letter-spacing, -2px);
+
+                        span {
+                            font-family: $font-roboto;
+                            @include vw(font-size, 60px);
+                            color: #e63a15;
+                            @include vw(letter-spacing, -2px);
+                        }
+                    }
+                }
+
+                .action {
+                    &.type-3 {
+                        a {
+                            @include arrow(right, 12px, 12px, 2px, #fff);
+                            width: 100%;
+                            @include vw(height, 84px);
+                            padding: 0;
+                            @include vw(margin-top, 12px);
+                            border: 0;
+                            @include vw(border-radius, 10px);
+                            @include linear-gradient(to right, #fa5a00 0, #ea1d00 100%);
+
+                            &::before {
+                                @include vw(right, 50px);
+                            }
+
+                            span {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                padding-right: 0;
+                                @include vw(line-height, 84px);
+                                @include vw(font-size, 40px);
+                                font-weight: 900;
+                                color: #fff;
+                                @include vw(letter-spacing, -2px);
+                                background: none;
+                                @include boxSizing(border-box);
+                            }
+                        }
+
+                        &.off {
+                            a {
+                                @include linear-gradient(to right, #bdbdbd 0%, #707070 100%);
+                                box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5),
+                                    inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .link-list {
+                .link-item:nth-child(1) {
+                    background-color: #fff;
+                }
+
+                .link-item:nth-child(2) {
+                    background-color: #ebebeb;
+                }
+
+                .btn-link,
+                .btn-link2 {
+                    @include pointer(50%, 0, 70px, 77px, 12, bounce);
+                    display: block !important;
+                    overflow: hidden;
+                    @include vw(padding, 40px 50px);
+                }
+
+                .text {
+                    float: left;
+                    line-height: 1.2;
+                    text-align: left;
+                    @include vw(font-size, 32px);
+                    font-weight: 900;
+                    color: #000;
+
+                    span {
+                        line-height: 1.4;
+                        @include vw(font-size, 42px);
+                    }
+                }
+
+                .detail {
+                    position: relative;
+                    float: right;
+                    @include vw(margin-top, 5px);
+                    @include vw(padding-right, 10px);
+                    @include vw(width, 224px);
+                    @include vw(height, 86px);
+                    @include vw(line-height, 86px);
+                    @include vw(font-size, 30px);
+                    font-weight: 900;
+                    color: #fff;
+                    @include vw(border-radius, 86px);
+                    @include linear-gradient(to right, #bdbdbd 0%, #707070 100%);
+                    box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5),
+                        inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+                    @include arrow(right, 12px, 12px, 2px, #fff);
+
+                    &:before {
+                        @include vw(right, 30px);
+                    }
+                }
+            }
+        }
+
+        &-free {
+            background-color: #ffd600;
+            img {
+                @include vw(margin-top, -40px);
+            }
+            span {
+                position: absolute;
+                @include vw(top, 350px);
+                left: 50%;
+                @include vw(font-size, 78px);
+                font-weight: 900;
+                color: #eb2700;
+                @include vw(margin-left, 110px);
+                @include animation(opacity, 1s, $iteration: infinite, $timing: linear) {
+                    0%,
+                    100% {
+                        opacity: 0;
+                    }
+            
+                    50% {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &-pass {
+            .sector-unbreakable {
+                background-color: #ebeef3;
+                .unbreakable-list {
+                    &:before {
+                        @include linear-gradient(180deg, #ebeef3 0%, rgba(255, 255, 255, 0) 100%);
+                    }
+                    &:after {
+                        @include linear-gradient(0deg, #ebeef3 0%, rgba(255, 255, 255, 0) 100%);
+                    }
+                }
+            }
+        }
+
+        &-tendency {
+            @include vw(padding, 100px 0);
+            .title {
+                h3 {
+                    @include vw(font-size, 56px);
+                    font-weight: 900;
+                    line-height: 1.2;
+                    strong {
+                        font-weight: 900;
+                        color: #4c13df;
+                    }
+                }
+            }
+            .tabs {
+                @include vw(margin, 64px 0 40px);
+                @include vw(padding, 0 40px);
+                ul {
+                    display: flex;
+                    li {
+                        width: 100%;
+                        @include vw(font-size, 34px);
+                        font-weight: 900;
+                        color: #a9a9a9;
+                        @include vw(margin-right, 20px);
+                        @include vw(padding, 20px 0);
+                        @include vw(border-radius, 40px);
+                        background-color: #dddddd;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        &.active {
+                            color: #fff;
+                            background-color: #4c13df;
+                        }
+                    }
+                }
+            }
+            .tab-contents {
+                .tab-content {
+                    display: none;
+                    &.on {
+                        display: block;
+                    }
+                    .video {
+                        position: relative;
+                        @include vw(height, 402px);
+						img{
+							width: 100%;
+							height: 100%;
+						}
+                        a {
+                            z-index: 5;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                display: block;
+                                width: 100%;
+                                height: 101%;
+                                background-color: rgba(0, 0, 0, 0.5);
+                            }
+                        
+                            &:after {
+                                content: "";
+                                position: absolute;
+                                left: 50%;
+                                top: 50%;
+                                transform: translate(-50%, -50%);
+                                @include vw(width, 64px);
+                                @include vw(height, 72px);
+                                @include bg($url: '#{$img-path}/pc/icon_play.png', $size: 100%);
+                            }
+                        }
+                        video {
+                            display: block;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-reason {
+            background-color: #252053;
+            &-title {
+                position: relative;
+                background-color: #ffd600;
+                // &:after {
+                //     content: "";
+                //     position: absolute;
+                //     left: 0;
+                //     right: 0;
+                //     @include vw(bottom, -55px);
+                //     @include vw(width, 142px);
+                //     @include vw(height, 57px);
+                //     margin: 0 auto;
+                //     @include bg($url: '#{$img-path}/mobile/img_reason_tail.png', $size: 100%);
+                // }
+            }
+
+            .btn-grounds {
+                @include vw(top, 1915px);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+        &-point {
+            .slick {
+                &-dots {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    @include vw(bottom, 50px);
+                    li {
+                        display: inline-block;
+                        @include vw(width, 20px);
+                        @include vw(height, 20px);
+                        @include vw(margin, 0 7px);
+                        @include vw(border-radius, 20px);
+                        background-color: rgba(0, 0, 0, 0.3);
+                        transition: all .3s;
+                        overflow: hidden;
+                        &.slick-active {
+                            @include vw(width, 52px);
+                            background-color: #ffc20e;
+                        }
+                        button {
+                            text-indent: -999em;
+                        }
+                    }
+                }
+            }
+            &.sector-point1 {
+                background-color: #cedef9;
+                .tabs {
+                    border-bottom: 2px solid #000;
+                    ul {
+                        display: flex;
+                        @include vw(padding, 0 40px);
+                
+                        li {
+                            @include vw(padding, 24px 0);
+                            width: 50%;
+                            @include vw(font-size, 36px);
+                            line-height: 1.2;
+                            font-weight: 600;
+                            color: #000000;
+                            background-color: #ebf2ff;
+                
+                            span {
+                                display: block;
+                            }
+                
+                            &.active {
+                                color: #fff;
+                                background-color: #000000;
+                                span {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+                .tab-contents {
+                    .tab-content {
+                        display: none;
+                        @include vw(padding-bottom, 90px);
+                        background-color: #adcafb;
+                        &.on {
+                            display: block
+                        }
+                        .teacher {
+                            @include vw(padding-top, 24px);
+                            .action {
+                                position: absolute;
+                                @include vw(top, 432px);
+                                left: 50%;
+                                @include vw(width, 192px);
+                            }
+                        }
+                        .text-wrap {
+                            .video {
+                                position: relative;
+                                @include vw(width, 640px);
+                                @include vw(height, 400px);
+                                @include vw(margin, 48px auto 40px);
+                                a {
+                                    z-index: 5;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    display: block;
+                                    width: 100%;
+                                    height: 100%;
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background-color: rgba(0, 0, 0, 0.5);
+                                    }
+                                
+                                    &:after {
+                                        content: "";
+                                        position: absolute;
+                                        left: 50%;
+                                        top: 50%;
+                                        transform: translate(-50%, -50%);
+                                        @include vw(width, 64px);
+                                        @include vw(height, 72px);
+                                        @include bg($url: '#{$img-path}/pc/icon_play.png', $size: 100%);
+                                    }
+                                }
+                                video {
+                                    width: 100%;
+                                    height: 100%;
+
+                                }
+                            }
+                        }
+                        &.teacher-1 {
+                            .action {
+                                @include vw(margin-left, -220px);
+                            }
+                        }
+                        &.teacher-2 {
+                            .action {
+                                @include vw(margin-left, 80px);
+                            }
+                        }
+                    }
+                }
+                .btn-grounds {
+                    @include vw(top, 420px);
+                    left: 50%;
+                    @include vw(margin-left, -70px);
+                    a {
+                        color: #707070;
+                        span {
+                            color: #707070;
+                            &:before {
+                                border-color: #707070
+                            }
+                        }
+                    }
+                }
+            }
+            &.sector-point3 {
+                .btn-grounds {
+                    @include vw(top, 300px);
+                    left: 50%;
+                    @include vw(margin-left, 128px);
+                }
+                .slider-wrapper {
+                    @include vw(padding, 0 40px);
+                }
+            }
+            &.sector-point4 {
+                background-color: #fff;
+				.action{
+					position: absolute;
+					@include vw(bottom, 83px);
+					left: 50%;
+					transform: translateX(-50%);
+					img{
+						@include vw(width, 337px);
+					}
+				}
+            }
+            &.sector-point5 {
+                background-color: #f3f6fb;
+            }
+        }
+        &-start {
+            .btn-grounds {
+                @include vw(top, 382px);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.popup {
+    &-body {
+        .form-wrapper {
+            .form {
+                .notice {
+                    li {
+                        @include vw(font-size, 20px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.product_counsel {
+    @include vw(bottom, 280px);
+}

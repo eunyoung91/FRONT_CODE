@@ -1,0 +1,224 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	img { border: 0; vertical-align: top;}
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.holder { position: relative; }
+	.icon-pointer {
+		@include pointer(50%, 0, 98px, 95px, 20, bounce);
+	}
+
+	.slider{
+		.slick-slide{
+			opacity: 0.5;
+			&.slick-active{
+				opacity: 1;
+			}
+		}
+	}
+	.slick-arrow {
+		@extend %slick-arrow;
+		top: 50%;
+		border-radius: 50%;
+		left: auto;
+		z-index: 112;
+		&.slick-prev {
+			@include slideArrow(left, 82px, 82px, 2px, #212121, rgba(255,255,255, .7));
+			left: 1%;
+		}
+		&.slick-next {
+			@include slideArrow(right, 82px, 82px, 2px, #212121, rgba(255,255,255, .7));
+			left: auto;
+			right: 1%;
+		}
+	}
+
+	.slick-dots {
+		position: absolute;
+		bottom: 8%;
+		right: 0;
+		left: 0;
+		font-size: 0;
+		z-index: 1;
+		li {
+			display: inline-block;
+			@include vw(margin, 0 6px);
+			&.slick-active button {
+				background-color: #ffc20e;
+			}
+		}
+		button {
+			display: block;
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			color: transparent;
+			border: none;
+			border-radius: 50%;
+			background-color: #ddd;
+			outline: none;
+			cursor: pointer;
+		}
+	}
+	.slick-slide {
+		outline: none;
+		a { outline: none;}
+	}
+
+	.notice {
+		text-align: right;
+		font-weight: 400;
+		color: rgba(0,0,0, .4);
+		line-height: 1.5;
+		@include vw(font-size, 22px);
+		@include vw(letter-spacing, -1.5px);
+	}
+
+	.sector-title {
+		background: #fff url('#{$img-path}/pc/bg_title.jpg') 50% 0 no-repeat;
+		background-size: 100% 100%;
+	}
+
+	.sector-banner-1{
+		background: #48F4E6;
+		.wrap{
+			position: relative;
+		}
+		.no-sign{
+			z-index: 2;
+			position: absolute;
+			@include vw(bottom, -105px);
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(width, 145px);
+			@include vw(height, 144px);
+		}
+	}
+
+	.sector-intro{
+		background: #001F3E;
+	}
+
+	.sector-video{
+		@include vw(padding-bottom, 100px);
+		background: #F8F8F8;
+		.video-box{
+			@include vw(width, 637px);
+			@include vw(height, 376px);
+			margin: 0 auto;
+		}
+	}
+
+	.sector-review{
+		@include vw(padding-bottom, 90px);
+		background: #CCF9F5;
+		.slick-slide{
+			@include vw(width, 440px);
+			@include vw(height, 460px);
+		}
+	}
+
+	.sector-banner-2{
+		background: #FF3E3E;
+		.wrap{
+			position: relative;
+			&::after{
+				z-index: 2;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				@include vw(bottom, -35px);
+				display: block;
+				content: '';
+				@include vw(width, 158px);
+				@include vw(height, 36px);
+				background: url('#{$img-path}/mobile/banner_2_arrow.png') 50% 0 no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+
+	.sector-teacher{
+		@include vw(padding, 100px 0);
+		background: #F8F8F8;
+		.slick-slide{
+			@include vw(width, 526px);
+			@include vw(height, 790px);
+			@include vw(margin, 0 12px);
+		}
+	}
+
+	.sector-lecture{
+		position: relative;
+		@include vw(padding-bottom, 100px);
+		background: #282828;
+		.lecture-con{
+			@include vw(width, 638px);
+			margin: 0 auto;
+		}
+		.action{
+			position: absolute;
+			@include vw(bottom, 70px);
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(width, 448px);
+			@include vw(height, 90px);
+		}
+	}
+	
+	.sector-map{
+		position: relative;
+		@include vw(padding-bottom, 100px);
+		background: #282828;
+		.map-con{
+			@include vw(width, 638px);
+			margin: 0 auto;
+		}
+		.map-box{
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(top, 590px);
+			@include vw(width, 538px);
+			@include vw(height, 300px);
+		}
+		.map-btn{
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(bottom, 70px);
+			@include vw(width, 437px);
+			@include vw(height, 90px);
+		}
+	}
+
+	.sector-banner-3{
+		background: #6543FF;
+	}
+}

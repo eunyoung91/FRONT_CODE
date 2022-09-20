@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="(c)2015 에듀윌" />
+<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+<meta name="keywords" content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/brand/dev/css/import.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/brand/dev/css/contents.css" />
+
+<script type="text/javascript" src="http://img.eduwill.net/resources/brand/dev/script/jquery/jquery-1.8.3.min.js"></script><!-- 공통js :: -->
+<script type="text/javascript" src="http://img.eduwill.net/resources/brand/dev/script/front_ui.js"></script><!-- 공통js :: -->
+</head>
+
+<body>
+<!-- skip nav -->
+<div id="skip_nav">
+	<a href="#category">전체메뉴 바로가기</a>
+	<a href="#container">본문 바로가기</a>
+	<a href="#footer">하단메뉴 바로가기</a>
+</div>
+<!--// #skip_nav -->
+
+<div id="wrap">
+	<!-- 최상단 공통 배너 :: #topBanner -->
+	<div id="topBanner">
+		<div class="ban_area">
+			<a href="#"><img src="http://img.eduwill.net/Img2/mobile2/brand_new/common/top_banner.png" alt="업계최초 8관왕 달성 대한민국 IT이노베이션 대상 대통령상 수상" /></a>
+		</div>
+	</div>
+	<!-- // 최상단 공통 배너 :: #topBanner -->
+	
+	<div id="header"><!-- header -->
+		<div class="top">
+			<h1>
+				<a href="http://brand.eduwill.net/main/main.will">
+					<span class="sr_only">에듀윌</span>
+				</a>
+			</h1>
+			<a href="#" class="btn_category"><span class="sr_only">전체메뉴</span></a>
+			<a href="javascript:fn_NoticeList();" class="btn_alarm"><span class="sr_only">알림</span><i class="bell"></i></a>
+			<a href="#" class="btn_gnb open"><span class="sr_only">마이페이지</span></a>
+		</div>
+	</div><!-- // header -->
+
+	<div id="container">
+		<div id="content">
+			<!--
+			<div class="title">
+				<h2>나의강의실</h2>
+			</div>
+			-->
+
+			<div class="section myroom"><!-- 각 메뉴별 클래스명을 넣어줌 :: 나의강의실 - myroom -->
+				
+				<div class="form">
+					<label for="all_process" class="tts">전체 과정</label>
+					<select id="all_process" class="full">
+						<option>기초이론</option>
+						<option>기본이론</option>
+						<option>특강</option>
+						<option>심화특강</option>
+						<option>핵심&amp;문제풀이</option>
+						<option>핵심요약</option>
+						<option>마무리특강</option>
+						<option>모의고사</option>
+					</select>
+				</div>
+
+				<div class="form">
+					<label for="all_lecture" class="tts">전체 강좌</label>
+					<select id="all_lecture" class="full">
+						<option>전체 강좌</option>
+						<option>수강중 강좌</option>
+						<option>일시중지 강좌</option>
+						<option>종료 강좌</option>
+					</select>
+				</div>
+				
+
+				<!-- 프리패스 -->
+				<div class="frepass_book">
+					<p>자격증 프리패스 강의를 위한 교재를 선택하세요</p> 
+					<p class="button">
+						<a href="#" class="g_btn_h">자격증 교재선택하기</a> 
+						<a href="#" class="g_btn_h">공무원 교재선택하기</a>
+					</p>
+				</div>
+
+				<!-- 강의설문조사 : 2016-06-01오픈 -->
+				<style type="text/css">
+				.survey > a { display:block; text-align:center; background:#fde18d;}
+				.survey_layer { display:none; position:absolute; top:15px; left:0; padding:0 6px; width:100%; box-sizing:border-box; z-index:1000;}
+				.survey_head { padding:16px; font-size:15px; color:#323232; text-align:left; background:#fdcf5d;}
+				.survey_body { padding:9px 9px 20px; background:#fff;}
+				.survey_body .s_top { background:url('http://img.eduwill.net/Img2/mobile2/brand_new/event/survey/bg_object.png') right bottom no-repeat; background-size:100px;}
+				.survey_body .s_top p { padding:9px 0 15px; font-size:13px; color:#333; line-height:1.4;}
+				.survey_body .s_top p span { display:inline-block; padding:5px 0 0; color:#888;}
+				.survey_body .s_list { padding:15px 8px; margin-bottom:13px; background:#f5f5f5;}
+				.survey_body .s_list > dl > dt { margin-top:12px; padding-bottom:7px; font-weight:bold; color:#000; font-size:12px; border-bottom:1px solid #e5e5e5;}
+				.survey_body .s_list > dl > dt:first-child { margin-top:0;}
+				.survey_body .s_list > dl > dd ul { overflow:hidden;}
+				.survey_body .s_list > dl > dd ul li { float:left; margin-top:6px; padding-right:10px;}
+				.survey_body .s_list > dl > dd ul li label { font-size:12px;}
+				.survey_body .s_list > dl > dd ul li input[type="radio"] + label:before { top:0; width:13px; height:13px;}
+				.survey_body .s_list .sv_text { margin-top:14px;}
+				.survey_body .s_list .sv_text dl dt { margin:14px 0 0; font-size:12px; color:#000; font-weight:bold;}
+				.survey_body .s_list .sv_text dl dt span { color:#888; font-weight:normal;}
+				.survey_body .s_list .sv_text dl dt:first-child { margin-top:0;}
+				.survey_body .s_list .sv_text dl dd textarea { padding:6px; height:42px; font-size:12px; border-color:#848484;}
+				.survey_body .s_list .sv_text dl dd textarea#sv_t02 { height:74px;}
+				.survey_body .btn_go { display:inline-block; padding:0 20px; height:30px; line-height:30px; text-align:center; color:#fff; font-weight:800; background:#2a2a2a;}
+				.close_survey { position:absolute; top:6px; right:12px; width:12px;}
+				</style>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$(".open_survey").click(function(){
+						$(".dim2").show();
+						$(".survey_layer").show();
+						return false;
+					});
+					$(".close_survey").click(function(){
+						$(".dim2").hide();
+						$(".survey_layer").hide();
+						return false;
+					});
+				});
+				</script>
+				<div class="survey">
+					<a href="#" class="open_survey"><img src="http://img.eduwill.net/Img2/mobile2/brand_new/event/survey/bn_160601.jpg" alt="강의 한 편 한 편을 영화로 만들고 싶습니다 꿈을 이룰 수 있는 영화같은 강의 만들기, 함께해주세요! 강의평가하기" /></a>
+
+					<div class="survey_layer">
+						<div class="survey_head">
+							꿈을 이룰 수 있는<br />
+							영화같은 강의 만들기, <strong>함께해주세요!</strong>
+						</div>
+						<div class="survey_body">
+							<div class="s_top">
+								<p>
+									안녕하세요! 에듀윌 입니다.<br />
+									수험생 여러분의 소리에 귀를 기울여 보다 좋은 <br />
+									강의를 만들고자 ‘강의 만족도 설문조사’를 실시합니다.<br />
+									합격을 위해 항상 고민하고 발전하겠습니다!<br />
+									감사합니다.<br />
+									<span>소요시간 : 약 2분 내외</span>
+								</p>
+							</div>
+
+							<div class="s_list">
+								<dl>
+									<dt>1. 교수님의 수업준비 및 태도에 전반적으로 만족한다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv01" id="sv01_1" /><label for="sv01_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv01" id="sv01_2" /><label for="sv01_2">그렇다</label></li>
+											<li><input type="radio" name="sv01" id="sv01_3" /><label for="sv01_3">보통이다</label></li>
+											<li><input type="radio" name="sv01" id="sv01_4" /><label for="sv01_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv01" id="sv01_5" /><label for="sv01_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+									<dt>2. 교수님의 강의 진행 속도가 너무 빠르지도, 너무 느리지도 않아 적절하다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv02" id="sv02_1" /><label for="sv02_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv02" id="sv02_2" /><label for="sv02_2">그렇다</label></li>
+											<li><input type="radio" name="sv02" id="sv02_3" /><label for="sv02_3">보통이다</label></li>
+											<li><input type="radio" name="sv02" id="sv02_4" /><label for="sv02_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv02" id="sv02_5" /><label for="sv02_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+									<dt>3. 교수님이 강의를 이해하기 쉽게 설명해준다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv03" id="sv03_1" /><label for="sv03_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv03" id="sv03_2" /><label for="sv03_2">그렇다</label></li>
+											<li><input type="radio" name="sv03" id="sv03_3" /><label for="sv03_3">보통이다</label></li>
+											<li><input type="radio" name="sv03" id="sv03_4" /><label for="sv03_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv03" id="sv03_5" /><label for="sv03_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+									<dt>4. 커리큘럼 별 난이도가 적절하다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv04" id="sv04_1" /><label for="sv04_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv04" id="sv04_2" /><label for="sv04_2">그렇다</label></li>
+											<li><input type="radio" name="sv04" id="sv04_3" /><label for="sv04_3">보통이다</label></li>
+											<li><input type="radio" name="sv04" id="sv04_4" /><label for="sv04_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv04" id="sv04_5" /><label for="sv04_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+									<dt>5. 강의 시간 및 강의 시수가 적절하다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv05" id="sv05_1" /><label for="sv05_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv05" id="sv05_2" /><label for="sv05_2">그렇다</label></li>
+											<li><input type="radio" name="sv05" id="sv05_3" /><label for="sv05_3">보통이다</label></li>
+											<li><input type="radio" name="sv05" id="sv05_4" /><label for="sv05_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv05" id="sv05_5" /><label for="sv05_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+									<dt>6. 강의에 흥미를 느끼고 열심히 하고자 하는 동기부여가 된다.</dt>
+									<dd>
+										<ul>
+											<li><input type="radio" name="sv06" id="sv06_1" /><label for="sv06_1">매우 그렇다</label></li>
+											<li><input type="radio" name="sv06" id="sv06_2" /><label for="sv06_2">그렇다</label></li>
+											<li><input type="radio" name="sv06" id="sv06_3" /><label for="sv06_3">보통이다</label></li>
+											<li><input type="radio" name="sv06" id="sv06_4" /><label for="sv06_4">그렇지 않다</label></li>
+											<li><input type="radio" name="sv06" id="sv06_5" /><label for="sv06_5">전혀 그렇지 않다</label></li>
+										</ul>
+									</dd>
+								</dl>
+
+								<div class="sv_text">
+									<dl>
+										<dt><label for="sv_t01">※ 가장 만족도가 높았던 교수님을 적어주세요. <span>(100byte)</span></label></dt>
+										<dd>
+											<textarea name="" id="sv_t01" cols="30" rows="10"></textarea>
+										</dd>
+
+										<dt><label for="sv_t02">※ 기타 의견을 자유롭게 기재해주세요. <span>(300byte)</span></label></dt>
+										<dd>
+											<textarea name="" id="sv_t02" cols="30" rows="10"></textarea>
+										</dd>
+									</dl>
+								</div>
+							</div>
+
+							<div class="align_c">
+								<a href="#" class="btn_go">의견 전달하기</a>
+							</div>
+						</div>
+						<a href="#" class="close_survey"><img src="http://img.eduwill.net/Img2/mobile2/brand_new/event/survey/btn_close.png" alt="닫기" /></a>
+					</div>
+				</div>
+				<!-- // 강의설문조사 : 2016-06-01오픈 -->
+
+				<div class="table_section">
+					<table width="100%" cellpadding="0" cellspacing="0" class="g_table_a">
+					<caption>과정별 강좌 리스트</caption>
+					<colgroup>
+						<col width="20%" />
+						<col width="20%" />
+						<col width="80%" />
+					</colgroup>
+					<thead>
+					<tr>
+						<th scope="col">과정</th>
+						<th scope="col">종류</th>
+						<th scope="col">강좌명</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort1">패키지</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>공통과목 (국어, 영어, 한국사) 평생회원반</a>
+						</td>
+					</tr>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort2">단과</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>9급 국어 마무리특강 [김세현]</a>
+						</td>
+					</tr>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort1">패키지</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>공통과목 (국어, 영어, 한국사) 평생회원반</a>
+						</td>
+					</tr>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort2">단과</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>9급 국어 마무리특강 [김세현]</a>
+						</td>
+					</tr>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort1">패키지</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>공통과목 (국어, 영어, 한국사) 평생회원반</a>
+						</td>
+					</tr>
+					<tr>
+						<td>공인<br />중개사</td>
+						<td><span class="sort2">단과</span></td>
+						<td class="left">
+							<a href="#"><span class="g_point_a">[2014]</span>9급 국어 마무리특강 [김세현]</a>
+						</td>
+					</tr>
+					</tbody>
+					</table>
+				</div>
+
+				<div class="g_txt_a">
+					<span class="g_point_a">강의</span>는 <span class="g_point_a">“edu -Manager”</span> 설치 후 수강하실 수 있습니다.
+					<p class="g_point_b">다운로드 최초 1회</p>
+					3G/4G 환경에서는 데이터 요금이 발생할 수 있습니다. 
+					<p class="g_point_b">Wi-Fi 환경 권장</p>
+				</div>
+				
+				<ul class="app_down clearfix">
+					<li class="google"><a href="#"><img src="http://img.eduwill.net/Img2/mobile2/brand_new/content/btn_google.png" alt="구글플레이 다운" /></a></li>
+					<li class="appstore"><a href="#"><img src="http://img.eduwill.net/Img2/mobile2/brand_new/content/btn_appstore.png" alt="앱스토어 다운" /></a></li>
+				</ul>
+
+			</div>
+
+		</div>
+		<!-- // #content -->
+	</div>
+	<!-- // #container -->
+
+	<div id="footer">
+		<div class="bottom_fix_btn">
+			<div class="top"><a href="#"><span class="tts">TOP</span></a></div>
+			<ul class="clearfix">
+				<li class="btn1"><a href="#"><span>카톡상담</span></a></li>
+				<li class="btn2"><a href="#"><span>상담예약</span></a></li>
+				<li class="btn3"><a href="#"><span>1600-6700</span></a></li>
+			</ul>
+		</div>
+
+		<ul class="footer_btn clearfix">
+			<li class="btn1"><a href="#"><span>로그인</span></a></li>
+			<li class="btn2">
+				<a href="#"><span>패밀리사이트</span></a>
+				<div class="family_site">
+					<ul>
+						<li><a href="#">학점은행제</a></li>
+						<li><a href="#">기업교육센터</a></li>
+						<li><a href="#">인터넷서점</a></li>
+						<li><a href="#">인재경영</a></li>
+						<li><a href="#">지식발전소</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<div class="foot_cont">
+			<ul class="tel_info clearfix">
+				<li>
+					<span class="txt">고객상담 및 주간기술지원</span>
+					<span class="num">1600-6700</span>
+				</li>
+				<li>
+					<span class="txt">야간기술지원</span>
+					<span class="num">02-2650-3599</span>
+				</li>
+			</ul>
+
+			<ul class="info_btn clearfix">
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">이용약관</a></li>
+				<li><a href="#">개인정보처리방침</a></li>
+				<li><a href="#">PC버전</a></li>
+			</ul>
+			<div class="copyright">
+				copyright &copy; (주)에듀윌 All rights reserved.
+			</div>
+		</div>
+	</div>
+	<!-- // #footer -->
+</div>
+<!-- // #wrap -->
+</body>
+</html>

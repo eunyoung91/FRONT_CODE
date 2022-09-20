@@ -1,0 +1,102 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+@import "module/motion";
+@import "module/base";
+@import "module/animate";
+
+// @include pointer(50%, 0, 66px, 73px, 20, bounce);
+// @include boxSizing(border-box);
+
+// #fixApply { display: none !important; }
+
+.product-eco {
+	overflow-x: hidden;
+	.only-mobile,
+	.mobile-only{display: none;}
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		letter-spacing: -1px;
+		box-sizing: border-box;
+	}
+
+	.wrap {
+		width: 1100px;
+		margin:0 auto;
+	}
+
+	label{
+		cursor: pointer;
+	}
+
+	.item { position: relative;}
+
+	.link-pointer {
+		@include pointer(80%, -10%, 57px, 65px, 12, bounce);
+	}
+	.section-info{
+		.wrap{
+			width:1000px;
+		}
+	}
+	.section-search {
+		background: #F6F6F6;
+		.wrap{ width:1000px;}
+		.typing{
+			position:absolute;
+			left:45px;
+			top:383px;
+			line-height:1;
+			color:#022222;
+			font-weight:900;
+			font-size:40px;
+			&:after{
+				content:'';
+				position:relative;
+				top:-5px;
+				display: inline-block; 
+				animation-name: cursor; 
+				animation-duration: 0.3s; 
+				animation-iteration-count: infinite; 
+				width:2px;
+				height:40px;
+				background-color:#fff;
+				vertical-align:middle;
+				@keyframes cursor{ 
+					0%{	background-color:#fff;} 
+					50%{background-color:#022222;} 
+					100%{background-color:#fff;} 	
+				}
+			}
+		}
+	}
+
+	.section-increase{
+		background-color: #ad1cff;
+		padding-bottom:100px;
+		// .wrap{ width:1000px; margin:0 auto;}
+		.graph-wrap{
+			// background:#fff;
+			position:relative;
+			padding-top:250px;
+			padding-bottom:200px;
+			.img-content{position:absolute;left:0;top:0;}
+		}
+		.winner-contents{
+			margin-left:90px;
+			margin-top:-50px;
+			transform:translateX(-40px);
+			.winner-list{
+				transform: perspective(300px) rotateX(45deg);overflow:hidden;
+				p{color:#fff;font-size:18px;margin:5px 0;font-weight: 100;text-align:center;}
+			}
+		}
+		.img-content{ margin-top:50px;}
+	}
+}

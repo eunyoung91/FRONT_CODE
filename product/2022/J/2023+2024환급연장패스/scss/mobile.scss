@@ -1,0 +1,123 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup"; 
+@import "base/motion";
+
+.house{
+	&-content{
+
+	}
+
+	&-visual{
+		background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220104/mobile/bg_title.jpg') no-repeat 50% 0;
+		max-width:1024px;
+		margin:0 auto;
+		background-size:cover;
+		&:after{
+			display:none;
+		}
+		.visual{
+			position: relative; 
+			z-index:3;
+			max-width:720px;
+			margin:0 auto;
+		}
+		.title{
+			position: absolute;
+			left:0;
+			right:0;
+			top:84%;
+			margin:0;
+			margin:0 auto;
+			padding:0;
+			display: inline-block;
+			div{
+				&.notice{
+					color:#222;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	&-provide{
+		position:relative;	
+		@include rem(padding-bottom,250px);
+		background:#de1c32;
+		&:after{
+			content:'';position:absolute;left:50%;top:0;
+			background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220104/mobile/icon_provide.png') no-repeat 0 0;background-size:cover;
+			@include vw(width, 132px);
+			@include vw(height, 132px);
+			@include vw(margin-left, -66px);	
+			@include vw(margin-top, -58px);
+		}
+		.title{
+			text-align:center;
+			>div{color:#fff;}
+		}
+
+		.list{
+			&-group{
+				ul{
+					li{ background-color:#ce1429;border:1px solid #eb6e7c;}
+				}
+			}
+		
+			&-title{color:#fff;}
+			&-text{color:#eb6e7c;}
+		}
+
+	}
+
+	&-refund-plus{
+		background-color: #fcf5ae;
+		// &.no-icon{
+		// 	.wrap{
+		// 		&:after{
+		// 			display: none;
+		// 		}
+		// 	}
+		// }
+		// @include linear-gradient(to right, #ffd323 0%, #ffbf11 100%);
+		// .wrap{
+		// 	&:after{
+		// 		content:'';position:absolute;left:50%;top:0;
+		// 		@include vw(width, 132px);
+		// 		@include vw(height, 132px);
+		// 		@include vw(margin-left, -66px);	
+		// 		@include vw(margin-top, -58px);
+		// 		background:url(https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/icon_plus.png) no-repeat 0 0;z-index:2;
+		// 		background-size:cover;
+		// 	}
+		// }
+	}
+
+	&-price{
+		background:#f1f1f1;
+		padding:50px 0;
+		position:relative;z-index:2;
+		.item{
+			&-group{	
+				position:relative;
+				// @include rem(top,-150px);
+				top:0;
+				width:pImg(620);margin:0 auto;max-width:620px;
+				&-box{
+					.item-subject{
+						@include vw(font-size, 48px);
+					}
+				}
+			}
+		}
+	}
+	&-step{
+	}
+
+}
+
+

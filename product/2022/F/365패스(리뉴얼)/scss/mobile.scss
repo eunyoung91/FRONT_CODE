@@ -1,0 +1,367 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/motion";
+@import "module/popup";
+
+// .bottom_fix_btn{
+// 	display: none !important;
+// }
+.only-pc{
+	display: none !important;
+}
+.product-eco {
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		letter-spacing: -1px;
+		box-sizing: border-box;
+	}
+	.container {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.holder { position: relative; }
+	.item {
+		position: relative;
+		@include boxSizing(border-box);
+	}
+	
+	.grounds-text {
+		position: relative;
+		text-align: left;
+		color: rgba(167,166,166, .6);
+		font-weight: 400;
+		@include rem(margin-top, 20px);
+		@include rem(font-size, 24px);
+	}
+
+	.sector-fix-apply {	
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 101;
+		display: block;
+		background-color: #2b2b2b;
+	}
+
+	.sector-title {
+		@include bg($color: #c4fbeb, $url: '#{$img-path}/mobile/bg_title.png', $size: cover);
+		.date-title {
+			position: absolute;
+			top: percent(400,1772);
+			left: percent(219);
+			@include vw(font-size,32px);
+			font-weight: 600;
+			color: #ffffff;
+		}
+		.action {
+			width: percent(100);
+			position: absolute;
+			top: 23%;
+			right: percent(50);
+		}
+	}
+
+	.sector-benefit {
+		@include bg($color: #3bd7c6);
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: -4%;
+			left: 50%;
+			z-index: 1;
+			@include translateX(-50%);
+			width: 15%;
+			height: 15%;
+			@media screen and (min-width: 720px) { 
+				width: 100px;
+				height: 100px;
+			}
+			@include bg($url: '#{$img-path}/pc/plus_1.png', $size: contain);
+		}
+	}
+
+	.sector-company {
+		background: #f7f7f7;
+		.slider-wrap {
+			position: absolute;
+			top: percent(60,380);
+			left: percent(50);
+			width: percent(620);
+			overflow:hidden;
+			&:before,
+			&:after {
+				content:'';
+				position:absolute;
+				top:0;
+				bottom:0;
+				z-index:10;
+				width:25%;
+			}
+			.slick-slide {
+				@include rem(margin-right, 18px);	
+			}
+		}
+	}
+
+	.sector-banner {
+		position: relative;
+		display: block;
+		@include linear-gradient(to right, #5cd0c8, #86eac8, #91f0c8);
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			@include vw(bottom, -75px);
+			@include vw(margin-left, -150px);
+			left: 50%;
+			@include vw(width, 300px);
+			@include vw(height, 75px);
+			z-index: 10;
+			@include bg($url: '#{$img-path}/pc/bg_bar.png', $size: cover);
+		}
+	}
+
+	.sector-curriculum{
+		.motion-box{
+			@include vw(width, 620px);
+			@include vw(padding-bottom, 100px);
+			margin: 0 auto;
+			text-align: left;
+			& > div{
+				@include vw(margin-top, 20px);
+			}
+			.motion-r-5{
+				img{
+					@include vw(margin-top, -25px);
+				}
+			}
+		}
+	}
+
+	.sector-teacher {
+		.info-pager {
+			@include vw(padding, 0 50px);
+			@include vw(width, 720px);
+			margin: 0 auto;
+			&.slick-slider .slick-track,
+			&.slick-slider .slick-list {
+				left: 0 !important;
+				width: 100% !important;
+			}
+			.slick-slide {
+				@include vw(width, 295px);
+				@include vw(margin, 0 30px 20px 0);
+				//@include boxShadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
+				&:nth-child(2n){
+					margin-right: 0;
+				}
+				.col {
+					position: relative;
+					cursor: pointer;
+					@include transition(background-color, 0.3s);
+					@include boxSizing(border-box);
+					@include vw(width, 295px);
+					.teacher-img {
+						background: #c6c6c6;
+					}
+				}
+				&.slick-current {
+					.col {
+						border: 2px solid #ffac00;
+						.teacher-img {
+							@include linear-gradient(to right, #ff9800 0%, #f4b300 100%);
+						}
+
+					}
+				}
+			}
+		}
+		.info-slider {
+			width: 100%;
+			@include vw(margin-top, 50px);
+			background: #edf7f7;
+			.col {
+				text-align: center;
+				img {
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+	.sector-book {
+		@include vw(padding-bottom, 100px);
+		.book-slider{
+			text-align: center;
+			.slick-slide{
+				@include vw(padding-left, 10px);
+			}
+			img{
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.sector-support {
+		background: #f7f7f7;
+	}
+	.sector-free {
+		background: #f4f5f9;
+		.free-flag {
+			position: absolute;
+			@include vw(top, 92px);
+			@include vw(left, 137px);
+			@include vw(font-size,30px);
+			color: #36dcd0;
+			font-weight: 700;
+			@include animation(opacityChange, 1s, $iteration: infinite){
+				0% { opacity: 0; }
+				50% { opacity: 1; }
+				100% { opacity: 0; }
+			}
+		}
+	}
+
+	.sector-balloon{
+		position: relative;
+		.motion-box{
+			position: absolute;
+			@include vw(top, 572px);
+			@include vw(left, 106px);
+			@include vw(width, 502px);
+			@include vw(height, 670px);
+			.motion-1{text-align: left}
+			.motion-2{text-align: right;@include vw(margin-top, 40px);}
+		}
+	}
+
+
+	.sector-winner {
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2022/0/event/220627/mobile/bg_winner.jpg', $size: cover);
+		.action {
+			position: absolute;
+			@include vw(width, 108px);
+			top:85%;
+			@include vw(right, 50px);
+			left:auto;
+		}
+	}
+
+	.sector-search {
+		@include linear-gradient(to bottom, white 80%, #f6f6f6 100%);
+		.typing {
+			position:absolute;
+			@include vw(top, 394px);
+			@include vw(left, 86px);
+			color:#022222;
+			font-weight:900;
+			@include vw(font-size,40px);
+			line-height:1;
+			&:after{
+				content:'';
+				position:relative;
+				@include vw(top, -4px);
+				display: inline-block; 
+				animation-name: cursor; 
+				animation-duration: 0.3s; 
+				animation-iteration-count: infinite; 
+				@include vw(width, 3px);
+				@include vw(height, 40px);
+				background-color:#fff;
+				vertical-align:middle;
+				@keyframes cursor{ 
+					0%{	background-color:#fff;} 
+					50%{background-color:#022222;} 
+					100%{background-color:#fff;}
+				}
+			}
+		}
+	}
+
+	.sector-perfect {
+		background: #f7f7f7;
+	}
+
+	.sector-service {
+		background: #f7f7f7;
+	}
+
+	.sector-apply-banner {
+		@include rem(padding, 30px 0);	
+		background: #179ee9;
+			.banner-title {
+			@include vw(font-size,42px);
+			font-weight: 900;
+			color: #ffffff;
+			span {
+				color: #fbf675;
+			}
+		}
+	}
+
+	.sector-year5 {
+		@include rem(padding-bottom, 90px);
+		.year5-box {
+            position: relative;
+            margin: 0 percent(40);
+            @include rem(padding-bottom, 50px);
+            overflow: hidden;
+        }
+        .year5-title {
+            position: relative;
+            .action {
+                position: absolute;
+				top: 17%;
+				right: percent(220);
+				@include vw(font-size,20px);
+				color: #999999;
+            }
+        }
+        .year5-list {
+            overflow: hidden;
+            @include transform(perspective(570px) rotateX(45deg));
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                @include rem(height, 50px);
+                @include linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                @include rem(height, 50px);
+                @include linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            }
+            .slick-slide {
+                @include rem(margin-top, 30px);
+                img { display: inline-block; }
+            }
+        }
+	}
+}

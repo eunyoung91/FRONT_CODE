@@ -1,0 +1,533 @@
+@charset "utf-8";
+
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+
+
+
+	/*근거문구버튼*/
+	.btn-text{
+		position:relative;
+		display:inline-block;
+		@include vw(padding-right,20px);
+		@include vw(font-size,18px);
+		@include vw(letter-spacing,-1px);
+		line-height:1;
+		font-weight:400;
+		@include vw(padding,8px 18px 8px 10px);
+		cursor: pointer;
+		background-color: rgba(246,246,246,0.7);
+		color:rgba(0,0,0,0.6);
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			display: block;
+			@include vw(width,5px);
+			@include vw(height, 5px);
+			@include vw(margin-top, -2.5px);
+			border-width: 0;
+			border-style: solid;
+			-webkit-transform: rotate(	45deg);
+			transform: rotate(	-49deg);
+			border-bottom-width: 1px;
+			border-right-width: 1px;				
+			@include vw(right,10px);
+			color:rgba(0,0,0,0.6);
+		}
+		&.type2{
+			background-color: transparent;
+			border:none;
+			line-height: 1.5;
+			font-weight: 400;
+			border-radius: 0;
+			&:after{
+				@include vw(right, 20px,);
+			}
+		}
+		&.type3{
+			font-weight: 900;
+			border-radius: 0;
+			line-height: 1.5;
+			&:after{
+				border-color: #fff;
+				@include vw(border-bottom-width,2px);
+				@include vw(border-right-width, 2px);
+				@include vw(right, 20px,);
+			
+			
+			}
+		}
+		@include breakpoint(desktop){
+			position:relative;
+			display:inline-block;
+			padding-right:20px;
+			letter-spacing:-1px;
+			line-height:1;
+			font-weight:400;
+			padding: 5px 20px 7px 10px;
+			cursor: pointer;
+			background-color: rgba(246,246,246,0.8);
+			color:#000;
+			border-radius: 5px;
+			font-weight: 300;
+			font-size: 15px;
+			&:after{
+				content: '';
+				position: absolute;
+				top: 50%;
+				display: block;
+				width: 5px;
+				height: 5px;
+				margin-top: -3.4px;
+				border-width: 0;
+				border-style: solid;
+				-webkit-transform: rotate(	45deg);
+				transform: rotate(	-49deg);
+				border-bottom-width: 1px;
+				border-right-width: 1px;
+				right: 10px;
+				border-color: #555;
+			}
+			&.type2{
+				background-color: transparent;
+				border:none;
+				line-height: 1.5;
+				font-weight: 400;
+				border-radius: 0;
+				&:after{
+					right: 20px;
+				}
+			}
+			&.type3{
+				font-weight: 900;
+				border-radius: 0;
+				line-height: 1.5;
+
+				&:after{
+					border-color: #fff;
+					border-bottom-width:2px;
+					border-right-width: 2px;
+					right: 20px;
+				
+				}
+			}
+		}
+	}
+	/*배경그라데이션*/
+	.bg-gradation{
+		background: rgb(248,248,248); 
+		background: -moz-linear-gradient(top,  rgba(255,255,255,1) 1%, rgba(248,248,248,1) 100%); 
+		background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 1%,rgba(248,248,248,1) 100%); 
+		background: linear-gradient(to bottom,  rgba(255,255,255,1) 1%,rgba(248,248,248,1) 100%); 
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='ffffff', endColorstr='#f8f8f8',GradientType=0 ); 
+	}
+	/*슬라이드 arrow*/
+	.slick-arrow {
+		@extend %slick-arrow;
+		&.slick-prev {
+			@include slideArrow(left,100px, 100px, 3px, #000);
+			left:0;
+			background: none
+		}
+		&.slick-next {
+			@include slideArrow(right, 100px, 100px, 3px, #000);
+			right: 0;
+			background: none
+		}
+		@include breakpoint(desktop){
+			margin-top: -39px;
+			&.slick-prev {
+				@include slideArrow(left, 40px, 40px, 3px, #fff);
+				left: 27px;;
+				background: #000
+			}
+			&.slick-next {
+				@include slideArrow(right, 40px, 40px, 3px, #fff);
+				right: 27px;
+				background: #000
+			}
+		}
+    }
+
+	/*슬라이드 dots*/
+    .slick-dots {
+		width: 100%;
+		@include vw(margin-top, 20px);
+		text-align: center;
+		li{
+			display: inline-block;
+			@include vw(margin,0 6px);
+			button {
+				@include vw	(width, 20px);
+				@include vw(height, 20px);
+				text-indent: -9999em;
+				border: none;
+				border-radius: 50%;
+				background-color: #cfcfcf;
+				outline: none;
+				cursor: pointer;
+			}
+			&.slick-active {
+				button {
+					@include vw(width,60px);
+					@include vw(border-radius,15px);
+					background-color: #ffc20e;
+				}
+			}
+		}
+    }
+	/*별표*/
+	.asterisk{
+		position: relative;
+		@include vw(padding-right,5px);
+		&:after{
+			content: '*';
+			display: inline-block;
+			position: absolute;
+			@include vw(top,5px);
+			@include vw(right,-5px);
+			@include vw(font-size,25px);
+			color: rgba(204,204,204,0.8);
+			font-weight: 300;
+		}
+	}
+
+	/*컨텐츠타이틀*/
+	.content-title{
+		@include vw(padding,80px 50px 10px);
+		text-align: left;
+		strong{
+			font-weight: 900;
+			@include vw(font-size, 42px);
+			color:#222;
+			@include vw(letter-spacing,-3px);
+			line-height: 1.3;
+			.point-color{
+				@include vw(font-size, 30px);
+			}
+		}
+		@include breakpoint(desktop){
+			padding:80px 50px 10px;
+			strong{
+				font-size: 40px;
+				line-height: 1.5;
+				.point-color{
+					font-size: 40px;
+				}
+			}
+		}
+		.sub{display:block;color:#bfbfbf;@include vw(padding-top,5px);@include vw(font-size,12px)}
+		
+	}
+	.content-title-center{
+		strong{
+			position: relative;
+			font-weight: 900;
+			@include vw(font-size,42px);
+			display: block;
+			display: block;
+			text-align: center;
+			color:#fff;
+			line-height: 1.5;
+			letter-spacing: -1px;
+			.sub-title{
+				@include vw(font-size,28px);
+				font-weight: 600;
+				@include breakpoint(desktop){
+					font-size: 24px;
+				}
+			}
+		}
+		.eco-1718 {
+			position: relative;
+			text-align: center;
+			color:#fffefe;
+			top:0px;
+		
+		}
+	}
+	/*근거문구*/
+
+		/*전산*/
+	.eco-1718,
+	.eco-4385,
+	.eco-3272,
+	.eco-5142 {
+		margin-bottom:0 !important;
+		p{
+			color: #bfbfbf;
+			@include vw(font-size,12px);
+			@include vw(letter-spacing, -0.5px);
+				padding: 0;
+				margin: 0;
+				opacity: 0.7;
+		}
+		@include breakpoint(desktop){
+		
+			position:relative !important;
+			top:0 !important;
+			p{
+				letter-spacing: -0.5px;
+			}
+		}
+	}
+	.brand2022{
+		.eco-1718{
+			p.brand2022{display: block;}
+			p.survey-6{display: none;}
+		}
+	}
+	.survey-3{
+		.eco-1718{
+			p.survey-3{display: block;}
+			p.survey-6{display: none;}
+		}
+	}
+	.survey-5{
+		.eco-1718{
+			p.survey-5{display: block;}
+			p.brand2022{display: none;}
+			p.survey-6{display: none;}
+		}
+	}
+	.survey-6{
+		.eco-1718{
+			p.survey-6{display: block;}
+		}
+	}
+	.newbrand{
+		.eco-1718{
+			p.newbrand{display: block;}
+		}
+	}
+	.newbrand.mo{
+		.eco-1718{
+			.newbrand span{display: block;}
+		}
+	}
+	/*재경*/
+	.eco-3222,	
+	.eco-3109 {
+		margin-bottom:0 !important;
+		strong{display: none;}
+		p{
+			display: none;
+			color: #bfbfbf;
+			@include vw(font-size,12px);
+			@include vw(letter-spacing, -0.5px);
+			margin:0;padding:0
+		}
+		@include breakpoint(desktop){
+			position:relative !important;
+			top:0 !important;
+			p{
+				letter-spacing: -0.5px;
+			}
+		}
+	}
+	.samil{/* 2021년 12월 삼일회계법인 최우수기관 인증*/
+		.eco-3222{
+			p.samil{display: block;}
+		}
+	}
+	.brand{/*2022 대한민국 브랜드만족도 재경관리사 교육 1위*/
+		.eco-3222{
+			p.brand{display: block;}
+		}
+	}
+	.brand-all{/*2019/20220 한국 브랜드만족지수 재경관리사 교육 1위
+		           2021/2022 대한민국 브랜드만족도 재경관리사 교육 1위*/
+		.eco-3222{
+			p.brand-all{display: block !important;}
+		}
+	}
+	/*한매*/
+	.eco-3475 p{display: none;}
+	.brand{/*2022 대한민국 브랜드만족도 한경TESAT/매경TEST 교육 1위*/
+		.eco-3475{
+			.brand{display: block;}
+		}
+	}
+	/*한경*/
+	.brand-1{/*2022 대한민국 브랜드만족도 한경TESAT/매경TEST 교육 1위*/
+		.eco-3475{
+			.brand1{display: block;}
+		}
+	}
+	.base-text-2{/*2022 대한민국 브랜드만족도 한경TESAT 교육 1위*/
+		.eco-3109{
+			.base-text-2{display: block;}
+		}
+	}
+	/*매경*/
+	.brand-2{/*2022 대한민국 브랜드만족도 매경TEST교육 1위*/
+		.eco-3475{
+			.brand2{display: block;}
+		}
+	}
+	/*국제*/
+	/*무역영어*/
+	.eco-4385 div{display: none;}
+	.brand{
+		.eco-4385{
+			.brand{display: block !important;}
+		}
+	}
+	.brand-1{
+		.eco-4385{
+			.brand-1{display: block !important;}
+		}
+	}
+
+	/*국제무역사*/
+	.eco-3272  strong,
+	.eco-3272  p{display: none;}
+	.sector-2{// * 2022 대한민국 브랜드만족도 국제무역사 교육 1위
+		.eco-3272{
+			.sector-2 p{display: block !important;}
+		}
+	}
+	/**kbs한국어*/
+	.brand{/*2022 대한민국 브랜드만족도 KBS한국어능력시험 교육 1위*/
+		.eco-4412{
+			div.brand{display: block;}
+		}
+	}
+	.brand-1{/*2020/2019 한국브랜드만족지수 KBS한국어능력시험 교육 1위*/
+		.eco-4412{
+			div.brand-1{display: block;}
+		}
+	}
+	.survey-1{/*2에듀윌 KBS한국어/실용글쓰기 합격수기 분석결과(2020~2021.05)*/
+		.eco-4412{
+			div.survey-1{display: block;}
+		}
+	}
+		/**실용글쓰기*/
+		.brand{/*2022 대한민국 브랜드만족도 실용글쓰기 교육 1위*/
+			.eco-4686{
+				div.brand{display: block;}
+			}
+		}
+		.brand-1{/*2020/2019 한국브랜드만족지수 실용글쓰기 교육 1위*/
+			.eco-4686{
+				div.brand-1{display: block;}
+			}
+		}
+		.survey-1{/*에듀윌 KBS한국어/실용글쓰기 합격수기 분석결과(2020~2021.05)*/
+			.eco-4686{
+				div.survey-1{display: block;}
+			}
+		}
+		.curr-1{/*에듀윌 KBS한국어/실용글쓰기 정규 커리큘럼 수강생 수  기준*/
+			.eco-4686{
+				div.curr-1{display: block;}
+			}
+		}
+	/**ERP*/
+	.eco-1992  p{display: none;}
+	.brand{/*대한민국 브랜드만족도 ERP정보관리사 교육 1위*/
+		.eco-1992{
+			p.brand{display: block;}
+		}
+	}
+	.brand-1{/* 2022/2021 대한민국 브랜드만족도 ERP정보관리사 교육 1위<br />
+		* 2020/2019 한국브랜드 만족지수 ERP정보관리사 교육 1위*/
+		.eco-1992{
+			p.brand-1{display: block;}
+		}
+	}
+	.survey-1{/*2ERP정보관리사 매출 중 더블합격환급패스 비율(2021)*/
+		.eco-1992{
+		p.survey-1{display: block;}
+		}
+	}
+	/*한국사*/
+	.eco-5142 div{display: none;}
+
+	.brand{/*2022 대한민국 브랜드만족도 한국사능력검정교육 1위(한경비즈니스)*/
+		.eco-5142{
+			div.brand{display: block;}
+		}
+	}
+	.brand-1{/*2022/2021 대한민국 브랜드만족도 한국사능력검정 교육 1위(한경비즈니스,* 2020/2019 한국브랜드만족지수 한국사능력검정 교육 1위(주간동아,G밸리뉴스)*/
+		.eco-5142{
+			div.brand-1{display: block;}
+		}
+	}
+.survey-1{/*(유튜브, 네이버TV) 에듀윌 한국사 생방송 35~40회, 42~59회(총 24회) 고급/심화 가답안 기준*/
+	.eco-5142{
+		div.survey-1{display: block;}
+	}
+}
+.survey-2{/*(유튜브, 네이버TV) 에듀윌 한국사 D-2/가답안 생방송 35회~59회(총 25회) 합산 누적 조회수 1,046,118회(22.6.13 기준)*/
+	.eco-5142{
+		div.survey-2{display: block;}
+	}
+}
+.survey-3{/*에듀윌 한국사능력검정 수강생 증가율(2018.03~2021.01)*/
+	.eco-5142{
+		div.survey-3{display: block;}
+	}
+}
+	
+	
+
+	/*가격단마감날짜*/
+
+	.eco-4618,/*KBS한국어*/
+	.eco-4585,/*ERP*/
+	.eco-4571,/*한국사*/
+	.eco-4590,/*한경매경*/
+	.eco-4571,/*재경*/
+	.eco-4572,/*국제*/
+	.eco-4572-mobile,
+	.eco-4491{/*전산*/
+		display: inline-block;
+		.sale-date  {
+			display: inline-block;
+			@include vw(font-size,18px);
+			@include vw(border-radius,5px);
+			@include vw(padding,3px 8px);
+			color: red;
+			border: 1.5px solid red;
+			font-weight: 600;
+			display: inline-block;
+		}
+	}
+	.eco-4585{margin-left: 10px;position: relative;@include vw(top,0px);}
+
+	.eco-4618.pc,/*KBS한국어*/
+	.eco-4585.pc,/*ERP*/
+	.eco-4571.pc,/*한국사*/
+	.eco-4590.pc,/*한경매경*/
+	.eco-4571.pc,/*재경*/
+	.eco-4572.pc,/*국제*/
+	.eco-4491.pc{
+		display: inline-block;
+		.sale-date  {
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			padding: 0 8px;
+			font-weight: 600;
+			border: 2px solid red;
+			font-weight: 900;
+			display: inline-block;
+			box-sizing: border-box;
+			margin-left:5px
+	}
+}
+.eco-4585.pc{top:0}
+
+.product-apply-title{
+	border-top:10px solid #f3f3f3;
+	.content-title{@include vw(padding, 100px 0 50px);padding-left:16px;}
+	@include breakpoint(desktop){
+		border-top:5px solid #f3f3f3;
+		.content-title{padding:0;padding-top:95px;}
+	}
+}

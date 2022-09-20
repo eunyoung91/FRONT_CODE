@@ -1,0 +1,803 @@
+$img-lecture-path: '//img.eduwill.net/resources/img/common/lecture';
+
+$color-base: #333334;
+$color-base-medium: #666;
+$color-base-light: #999;
+$color-1: #798bce;
+$color-2: #a9b2c5;
+$color-3: #f5f7f9;
+$color-4: #3f63bf;
+$color-highlight-1: #dd3203;
+$color-highlight-2: #d8552f;
+$label-best: #f63b28;
+$label-complete: $color-base-medium;
+$label-new: #fa7f2d;
+$label-ing: $color-1;
+$border-color: #eaeaf4;
+$bg-color: #f5f5f5;
+
+%variable {
+    &:only-child,
+    &:nth-child(1):nth-last-child(1) { width: 100%; }
+
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) { width: 50%; }
+
+    &:nth-child(1):nth-last-child(3),
+    &:nth-child(2):nth-last-child(2),
+    &:nth-child(3):nth-last-child(1) { width: 33.33%; width: calc(100% / 3); }
+
+    &:nth-child(1):nth-last-child(4),
+    &:nth-child(2):nth-last-child(3),
+    &:nth-child(3):nth-last-child(2),
+    &:nth-child(4):nth-last-child(1) { width: 25%; }
+}
+
+%star {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url('//img.eduwill.net/resources/teacher/img/star_off.png') 0 0 no-repeat;
+    &.on { background-image: url('//img.eduwill.net/resources/teacher/img/star_on.png'); }
+}
+
+.lecture-container {
+    position: relative;
+    color: $color-base;
+    background-color: #fff;
+    * {
+        line-height: normal;
+        font-family: $font-noto;
+        letter-spacing: -1px;
+    }
+    p { margin: 0; line-height: 1; }
+    .label {
+        display: inline-block;
+        min-width: 34px;
+        height: 17px;
+        min-height: 17px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 17px;
+        font-size: 10px;
+        border-width: 1px;
+        border-style: solid;
+        @include boxSizing(border-box);
+        &-best {
+            color: $label-best;
+            border-color: $label-best;
+        }
+        &-complete {
+            font-size: 11px;
+            color: $label-complete;
+            border-color: $label-complete;
+        }
+        &-new {
+            color: $label-new;
+            border-color: $label-new;
+        }
+        &-ing {
+            color: #fff;
+            border-color: $label-ing;
+            background-color: $label-ing;
+        }
+        &-event {
+            color: #fff;
+            border-color: $label-best;
+            background-color: $label-best;
+        }
+    }
+    .btn {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        border-width: 1px;
+        border-style: solid;
+        @include boxSizing(border-box);
+        span {
+            position: relative;
+            display: inline-block;
+        }
+        &-ot {
+            border-color: $color-2;
+            span { color: $color-2; }
+        }
+        &-sampling {
+            border-color: $color-2;
+            span { color: $color-2; }
+        }
+        &-cart {
+            font-weight: 700;
+            border-color: $color-highlight-1;
+            background-color: #fff;
+            span { color: $color-highlight-1; }
+        }
+        &-buy {
+            font-weight: 700;
+            border-color: $color-highlight-1;
+            background-color: $color-highlight-1;
+            span { color: #fff; }
+        }
+        &-intro {
+            border-color: $color-4;
+            span { color: $color-4; }
+        }
+        &-tpass {
+            font-weight: 700;
+            border-color: $color-2;
+            background-color: $color-2;
+            span { color: #fff; }
+        }
+        &-more {
+            border-width: 0;
+            border-top-width: 1px;
+            border-top-color: $bg-color;
+            span {
+                font-size: 14px;
+                color: $color-base-medium;
+                &:after {
+                    content: '↓';
+                    display: inline-block;
+                }
+            }
+        }
+        &-link {
+            border: none;
+            span {
+                padding-right: 10px;
+                font-size: 12px;
+                font-weight: 400;
+                color: $color-base-light;
+                &:after {
+                    @include arrow(right, 5px, 5px, 1px, $color-base-light);
+                    right: 0;
+                }
+            }
+        }
+    }
+    .no-data {
+        @include rem(padding, 50px 0);
+        text-align: center;
+        font-size: 20px;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        .holder { border: none; }
+    }
+
+    // 강좌목록
+    .lecture-tab {
+        @extend .grid;
+        margin: 0 16px;
+        a {
+            @extend .col;
+            width: 50%;
+            padding: 8px 0 7px;
+            text-align: center;
+            font-size: 16px;
+            color: $color-2;
+            border-bottom: 1px solid $color-2;
+            background-color: $color-3;
+            @extend %variable;
+            &.active {
+                font-weight: 700;
+                color: #fff;
+                background-color: $color-2;
+            }
+        }
+    }
+    .lecture-section {
+        display: none;
+        &.active { display: block; }
+
+        .item-list {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .item {
+            position: relative;
+            &-lecture {
+                .bundle-info { padding-top: 15px; }
+                .subject {
+                    font-size: 16px;
+                    span { font-weight: 700; }
+                }
+                .bundle-price { margin-top: 9px; }
+            }
+            &-book {
+                .core {
+                    &:first-child {
+                        padding-top: 10px;
+                        border-top: 1px dashed $border-color;
+                    }
+                }
+                .subject { font-size: 12px; }
+                .bundle-price { margin-top: 5px; }
+                .price-after {
+                    font-size:13px;
+                    .unit { font-size: 11px; }
+                }
+            }
+        }
+        .core { margin: 0 16px; }
+    }
+
+    .core {
+        position: relative;
+        &.disabled {
+            label { cursor: default; pointer-events: none; }
+            .checkbox { opacity: .5; }
+            .bundle-info span { color: #999; }
+            em {
+                display: inline-block;
+                margin-right: 5px;
+                font-weight: 400;
+                color: $color-1;
+            }
+        }
+    }
+
+    .checkbox {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        margin-top: -6px;
+    }
+
+    label {
+        display: table;
+        width: 100%;
+        cursor: pointer;
+        table-layout: fixed;
+        padding-bottom: 16px;
+        @include boxSizing(border-box);
+    }
+
+    .sort-list {
+        margin: 16px 16px 0;
+        & + .lecture-list .list:first-child { margin-top: 16px; }
+        select { width: 100%; }
+    }
+
+    .lecture-list {
+        padding: 0 16px 33px;
+        @extend %clearfix;
+        .list {
+            margin-top: 16px;
+            border: 1px solid $color-2;
+            @include boxSizing(border-box);
+            @include breakpoint(minDesktop){
+                float: left;
+                width: calc(50% - 4px);
+                &:nth-child(odd){ clear: left; margin-right: 4px; }
+                &:nth-child(even){ clear: right; margin-left: 4px; }
+            }
+        }
+        .holder {
+            display: table;
+            width: 100%;
+            @include boxSizing(border-box);
+        }
+        & + .lecture-action {
+            padding: 0;
+            background: none;
+            .btn { width: 100%; }
+        }
+    }
+
+    .label-list {
+        padding-left: 24px;
+        font-size: 0;
+        .label {
+            margin-left: 5px;
+            &:first-child { margin-left: 0; }
+        }
+        & + .subject { margin-top: 8px; }
+    }
+
+    .bundle {
+        position: relative;
+        @include boxSizing(border-box);
+        &-price { text-align: right; }
+        .subject {
+            position: relative;
+            padding-left: 24px;
+            font-size: 16px;
+            color: $color-base;
+            @extend %textEllipsis;
+            a {
+                position: relative;
+                z-index: 1;
+                display: block;
+                @extend %textEllipsis;
+            }
+            span { color: $color-base; }
+        }
+        .info {
+            margin-top: 5px;
+            padding-left: 24px;
+            vertical-align: top;
+            font-size: 12px;
+            color: $color-1;
+            span {
+                position: relative;
+                display: inline-block;
+                margin-left: 8px;
+                padding-left: 8px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    display: block;
+                    width: 1px;
+                    height: 14px;
+                    margin-top: -7px;
+                    background-color: $color-1;
+                }
+                &:first-child {
+                    margin-left: 0;
+                    padding-left: 0;
+                    &:before { display: none; }
+                }
+            }
+        }
+        .price {
+            display: inline-block;
+            font-family: $font-roboto !important;
+            & + .price { margin-left: 5px; }
+            &-before {
+                font-size: 13px;
+                font-weight: 500;
+                color: #999;
+                text-decoration: line-through;
+                .unit { font-size: 11px; font-weight: 400; }
+            }
+            &-after {
+                font-size: 18px;
+                font-weight: 700;
+                color: $color-base;
+                .unit { font-size: 13px; }
+            }
+            &-discount {
+                font-size: 13px;
+                font-weight: 500;
+                color: $color-highlight-2;
+            }
+        }
+        a {
+            position: relative; z-index: 1;
+            &.btn {
+                width: 90px;
+                margin-top: 6px;
+                padding: 2px 10px;
+                &:first-child { margin-top: 0; }
+            }
+        }
+    }
+
+    .lecture-action {
+        padding: 16px 24px;
+        text-align: center;
+        font-size: 0; 
+        background-color: $color-3;
+        .btn {
+            width: calc(50% - 2.5px);
+            margin-left: 2.5px;
+            padding: 7px 0;
+            &:first-child { margin-left: 0; margin-right: 2.5px; }
+        }
+    }
+
+    // 강좌소개
+    .lecture-title {
+        padding: 24px 16px 8px;
+        text-align: left;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .lecture-detail {
+        padding-bottom: 16px;
+        background-color: #f4f4f6;
+    }
+
+    .detail-intro {
+        background-color: #fff;
+        .core { margin: 16px 16px 0; }
+        .bundle {
+            display: block;
+            &-link {
+                width: auto;
+                margin-top: 32px;
+                font-size: 0;
+                .btn {
+                    margin-left: 8px;
+                    padding: 4px 0 5px;
+                    font-size: 13px;
+                    &:first-child { margin-left: 0; }
+                    &:nth-child(1):nth-last-child(3),
+                    &:nth-child(2):nth-last-child(2),
+                    &:nth-child(3):nth-last-child(1) {
+                        width: calc(100%/3 - 5.5px);
+                    }
+                    &:nth-child(1):nth-last-child(2),
+                    &:nth-child(2):nth-last-child(1) {
+                        width: calc(50% - 4px);
+                    }
+                    &:only-child,
+                    &:nth-child(1):nth-last-child(1) { width: 100%; }
+                }
+            }
+            .subject {
+                padding-left: 0;
+                font-size: 18px;
+                white-space: normal;
+            }
+            .info { 
+                padding-left: 0;
+                font-size: 12px;
+            }
+            .name {
+                @include rem(margin-top, 40px);
+                //padding-left: 24px;
+                font-size: 16px;
+            }
+        }
+        .item {
+            &-teacher {
+                height: 245px;
+                text-align: center;
+                background: url('#{$img-lecture-path}/bg_lecture.png') no-repeat center top;
+                background-size: cover;
+                img { width: auto; height: 100%; }
+            }
+            &-lecture {
+                text-align: left;
+                .subject span { font-weight: 700; }
+            }
+        }
+        .label-list { padding-left: 0; }
+    }
+
+    .detail-info {
+        // margin: 16px 16px 0;
+        padding: 16px 16px 32px;
+        border-bottom: 1px solid $border-color;
+        background-color: #fff;
+        .item-list {
+            text-align: left;
+            border: 1px solid $color-1;
+        }
+        .item-title {
+            display: block;
+            width: auto;
+            margin: 16px 0 0 24px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 400;
+            color: $color-base-medium;
+            & + .core { margin-top: 6px; }
+        }
+        .item-lecture {
+            padding: 0 16px;
+            .subject span { font-weight: 500; }
+        }
+        .item-book {
+            padding: 0 16px;
+            .item-title {
+                margin-top: 0;
+                padding-top: 16px;
+                border-top: 1px dashed $border-color;
+            }
+        }
+        .item-total {
+            padding: 11px 16px 12px;
+            background-color: $color-3;
+            .core {
+                text-align: right;
+                border: none;
+                background: none;
+                @extend %clearfix;
+            }
+            .bundle {
+                display: inline-block;
+                &-info {
+                    float: left;
+                    padding-top: 5px;
+                    .subject {
+                        padding: 0;
+                        font-size: 13px;
+                        &:before { display: none; }
+                    }
+                }
+                &-price {
+                    float: right;
+                    margin-top: 0;
+                }
+            }
+        }
+        .core {
+            & + .core {
+                padding-top: +px;
+            }
+        }
+        .bundle-info {
+            .subject {
+                position: relative;
+                padding-left: 24px;
+            }
+        }
+        .bundle-price { margin-top: 16px; }
+        .lecture-action {
+            margin-top: 16px;
+            padding: 0;
+            background: none;
+            .btn {
+                margin-left: 8px;
+                padding: 8px 0;
+                font-size: 14px;
+                &:first-child { margin-left: 0; margin-right: 0; }
+                &-tpass { font-size: 13px; }
+                &:nth-child(1):nth-last-child(3),
+                &:nth-child(2):nth-last-child(2),
+                &:nth-child(3):nth-last-child(1) {
+                    width: calc(100%/3 - 5.5px);
+                }
+                &:nth-child(1):nth-last-child(2),
+                &:nth-child(2):nth-last-child(1) {
+                    width: calc(50% - 4px);
+                }
+                &:only-child,
+                &:nth-child(1):nth-last-child(1) { width: 100%; }
+            }
+        }
+    }
+
+    .detail-table {
+        margin-top: 16px;
+        border-bottom: 1px solid $border-color;
+        background-color: #fff;
+        .lecture-tab a {
+            border-top-color: $color-2;
+            &.active { background-color: $color-2; }
+        }
+
+        .table-section {
+            display: none;
+            margin: 0 16px;
+            padding-bottom: 32px;
+            &.active { display: block; }
+            &.fold {
+                .table-body {
+                    position: relative;
+                    overflow: hidden;
+                    max-height: 370px;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        @include rem(height, 90px);
+                        background: transparent;
+                        background: linear-gradient(0deg, #fff 0%, transparent 100%);
+                    }
+                }
+                .table-action .btn-list-more span:after { @include arrow(bottom, 5px, 5px, 1px, #666); }
+            }
+            &-1 {
+                .row { margin-top: 16px; }
+                .cell-desc { border-top: 1px solid $border-color; }
+            }
+            &-2 {
+                .table-col {
+                    border-bottom: 1px solid $border-color;
+                    .row {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                    }
+                    .cell {
+                        display: table-cell;
+                        width: 20%;
+                        padding: 8px 0;
+                        text-align: center;
+                        vertical-align: middle;
+                        &-desc {
+                            width: 60%;
+                            padding: 8px 9px;
+                            text-align: left;
+                            border-top: none;
+                        }
+                    }
+                    .table-head .row { margin-top: 0; border-top: none; }
+                    .table-body .row:first-child { border-top-color: $color-base; }
+                }
+            }
+            &-3 {
+                .table {
+                    border-bottom: 1px solid $border-color;
+                    .table-body .row:first-child { border-top: none; }
+                    a { display: block; padding: 0 16px; }
+                    .cell {
+                        padding: 0;
+                        &-desc {
+                            padding-top: 8px;
+                            @extend %textEllipsis;
+                        }
+                    }
+                }
+            }
+            .table-title {
+                position: relative;
+                margin: 24px 16px 0;
+                text-align: left;
+                font-size: 18px;
+                font-weight: 700;
+                .total {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: $color-base-light;
+                }
+                .btn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+            }
+            .table {
+                margin-top: 12px;
+                &-row {
+                    .row { border-top: 0; }
+                    .cell { text-align: left; }
+                    .cell-desc {
+                        color: $color-base-medium;
+                    }
+                }
+                &-head {
+                    .cell {
+                        text-align: center;
+                        @extend .cell-title;
+                    }
+                }
+                &-body {
+                    .cell-rank,
+                    .cell-writer { display: inline-block; margin-top: 8px; padding: 0 0 12px; }
+                    .cell-writer { padding-left: 8px; }
+                    .cell-round { color: $color-base-medium; }
+                    .cell-writer,
+                    .cell-time { color: $color-base-light; }
+                }
+            }
+            .row { border-top: 1px solid $border-color; }
+            .cell {
+                padding: 8px 16px;
+                text-align: center;
+                font-size: 14px;
+                @include boxSizing(border-box);
+                &:only-child { padding: 16px 0; }
+                &-title { font-weight: 600; }
+                &-desc {
+                    text-align: left;
+                }
+            }
+        }
+
+        .table-action {
+            @include rem(margin-top, 40px);
+            text-align: center;
+            .btn-list-more {
+                display: block;
+                @include rem(padding, 10px 40px);
+                @include vw(20px);
+                font-weight: 400;
+                color: #666;
+                border: 1px solid $border-color;
+                background-color: #fff;
+                @include breakpoint(maxMobile){
+                    display: inline-block;
+                    font-size: 14px;
+                }
+                span {
+                    position: relative;
+                    display: inline-block;
+                    padding-right: 15px;
+                    &:after {
+                        @include arrow(top, 5px, 5px, 1px, #666);
+                        right: 0;
+                        margin-top: -1px;
+                    }
+                }
+            }
+        }
+
+        // 별점표기
+        .grade span { @extend %star; }
+    }
+}
+
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 1001;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+    @include boxSizing(border-box);
+    @include translateX(-50%);
+    * { font-family: $font-noto; }
+    &-close a {
+        @include close(40px, 40px, 1px, #fff);
+        @include breakpoint(maxMobile){
+            @include close(60px, 60px, 1px, #fff);
+        }
+    }
+    &-content {
+        text-align: left;
+        background-color: #fff;
+        .title {
+            padding: 10px 5%;
+            @include vw(30px);
+            font-weight: 700;
+            color: #fff;
+            background-color: $color-base;
+        }
+        .item-list { @include rem(padding, 25px); }
+        .list {
+            line-height: 1.4;
+            font-size: 0;
+            color: $color-base;
+            border-top: 1px solid $border-color;
+            &:first-child { border-top-color: $border-color; }
+            &:last-child { border-bottom: 1px solid $border-color; }
+        }
+        // 별점표기
+        .grade a { @extend %star; }
+        .item {
+            display: inline-block;
+            vertical-align: top;
+            padding: 10px;
+            @include vw(24px);
+            letter-spacing: -.5px;
+            @include boxSizing(border-box);
+            &.subject { width: 20%; }
+            &.desc { width: 80%; }
+            &:only-child {
+                display: block;
+                width: 100%;
+                @include rem(max-height, 400px);
+                overflow-y: auto;
+            }
+            table {
+                width: 100% !important;
+                border-bottom: 1px solid $color-base;
+                border-right: 1px solid $color-base;
+                th,
+                td {
+                    text-align: center;
+                    border-top: 1px solid $color-base;
+                    border-left: 1px solid $color-base;
+                }
+            }
+            a { font-weight: 700; color: $color-base; }
+        }
+    }
+}

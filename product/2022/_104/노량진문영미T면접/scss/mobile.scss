@@ -1,0 +1,386 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+.only-pc {
+	display: none;
+}
+.only-mobile {
+	display: inline-block;
+}
+
+.product-eco {
+	text-align: center;
+	font-family: $font-noto;
+	.container {
+		margin-top: 0;
+		border-bottom-width: 0;
+		background-repeat: no-repeat;
+		background-position: center top;
+		background-size: cover;
+		@extend %clearfix;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		@include boxSizing(border-box);
+	}
+	.slider-contents {
+		position: relative;
+		margin: 0 auto;
+	}
+	.slick-dots {
+		position: absolute;
+		@include vw(bottom, -30px);
+		right: 0;
+		left: 0;
+		font-size: 0;
+		text-align: center;
+		li {
+			display: inline-block;
+			@include vw(margin, 0 6px);
+			&.slick-active button {
+				@include vw(width, 16px);
+				@include vw(height, 16px);
+				@include vw(border-radius, 50px);
+				background-color: #fc6107;
+			}
+		}
+		button {
+			display: block;
+			@include vw(width, 16px);
+			@include vw(height, 16px);
+			color: transparent;
+			border: none;
+			@include vw(border-radius, 50px);
+			background-color: #bcbcbc;
+			outline: none;
+			cursor: pointer;
+		}
+	}
+	.slick-arrow{
+		top: 50%;
+		z-index: 10;
+		content: '';
+		padding: 0;
+		margin:0;
+		border: none;
+		background: none;
+		outline: none;
+		text-indent: -9999px;
+		display: block;
+		border-width: 0;
+		border-style: solid;
+		cursor: pointer;
+		@include vw(width, 50px);
+		@include vw(height, 50px);
+		border-radius:50%;
+		background-color: rgba(255,255,255, .4);
+		@include vw(margin-top, -25px);
+		box-sizing: border-box;
+		&.slick-prev{
+			position: absolute !important;
+			@include vw(left, -20px);
+			@include arrow(left, 10px, 10px, 2px, #45434d);
+			&::before{
+				@include vw(left, 18px);
+			}
+		}
+		&.slick-next{
+			position: absolute !important;
+			@include vw(right, -20px);
+			@include arrow(right, 10px, 10px, 2px, #45434d);
+			&::before{
+				@include vw(left, 18px);
+			}
+		}
+	}
+	.pointer{ @include pointer(50%, 8%, 66px, 73px, 1, bounce); }
+
+	.sector-title {
+		background-color: #ff864b;
+	}
+	.sector-intro {
+		&-1{ @include bg($url: '#{$img-path}/mobile/intro_bg.jpg', $size: cover); }
+		&-2{ background-color: #fffcd5; }
+	}
+	.sector-teacher { background-color: #6c98e9; }
+	.sector-program{
+		.program-banner{
+			@include vw(width, 555px);
+			@include vw(height, 800px);
+			@include vw(margin, 30px auto 0);
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			&-1{ 
+				@include vw(width, 254px);
+				@include vw(height, 332px);
+				@include bg($url: '#{$img-path}/pc/off_1.png', $size: cover); 
+				&.on{
+					@include bg($url: '#{$img-path}/pc/on_1.png', $size: cover);
+					box-shadow: 10px 10px 20px rgba(0, 0, 0, .2);
+				}
+			}
+			&-2{ 
+				@include vw(width, 254px);
+				@include vw(height, 332px);
+				@include bg($url: '#{$img-path}/pc/off_2.png', $size: cover); 
+				&.on{
+					@include bg($url: '#{$img-path}/pc/on_2.png', $size: cover); 
+					box-shadow: 10px 10px 20px rgba(0, 0, 0, .2);
+				}
+			}
+			&-3{ 
+				@include vw(width, 254px);
+				@include vw(height, 332px);
+				@include bg($url: '#{$img-path}/pc/off_3.png', $size: cover); 
+				&.on{
+					@include bg($url: '#{$img-path}/pc/on_3.png', $size: cover);
+					box-shadow: 10px 10px 20px rgba(0, 0, 0, .2);
+				}
+			}
+			&-4{ 
+				@include vw(width, 254px);
+				@include vw(height, 332px);
+				@include bg($url: '#{$img-path}/pc/off_4.png', $size: cover); 
+				&.on{
+					@include bg($url: '#{$img-path}/pc/on_4.png', $size: cover); 
+					box-shadow: 10px 10px 20px rgba(0, 0, 0, .2);
+				}
+			}
+		}
+	}
+	.sector-benefit{
+		.benefit{
+			&-slide{
+				@include vw(width, 678px);
+				margin: 0 auto;
+			}
+			&-txt{
+				@include vw(margin-top, 20px);
+			}
+		}
+	} 
+	.sector-video{
+		background-color: #bcabff;
+		@include vw(padding-bottom, 100px);
+		.video{
+			&-slide{
+				@include vw(width, 656px);
+				margin: 0 auto;
+			}
+		}
+	} 
+	.sector-orange{
+		background-color: #ff864b;
+	}
+	.sector-map {
+		@include vw(padding-bottom, 100px);
+		.title-box {
+			position: relative;
+			@include vw(margin-top, 100px);
+			@include vw(margin-left, 35px);
+			text-align: left;
+			line-height: 1.2;
+			@include vw(font-size, 45px);
+			font-weight: 900;
+			color: #000;
+			letter-spacing: -2px;
+			strong { font-weight: 900; color: #25158a; }
+		}
+		.map-list {
+			position: relative;
+			@include vw(margin, 70px 35px 0);
+			@include vw(padding, 60px 40px 40px);
+			@include vw(border-width, 4px);
+			border-style: solid;
+			border-color: #d4d4d4;
+			background-color: #fff;
+			.map-title {
+				position: absolute;
+				@include vw(top, -22px);
+				@include vw(left, -3px);
+				z-index: 1;
+				@include vw(padding, 10px 20px);
+				@include vw(font-size, 32px);
+				font-weight: 700;
+				color: #222;
+				background-color: #ffbf00;
+			}
+			.map-box {
+				@extend .grid;
+				& > div {
+					position: relative;
+					@extend .col;
+				}
+				.core {
+					@include vw(padding-top, 50px);
+					text-align: left;
+					dl {
+						@include vw(margin-bottom, 35px);
+						dt {
+							@include vw(margin-bottom, 10px);
+							@include vw(font-size, 30px);
+							font-weight: 700;
+							color:#202020;
+						}
+						dd {
+							@include vw(font-size, 28px);
+							font-weight: 400;
+							color: #585858;
+							@include vw(letter-spacing, -1.5px);
+						}
+					}
+				}
+			}
+		}
+		.btn-box {
+			@extend %clearfix;
+			@include vw(margin, 30px 35px 0);
+			text-align: center;
+			font-size: 0;
+			li {
+				display: block;
+				@include vw(margin-top, 40px);
+				&:first-child { margin-top: 0; }
+				a {
+					position: relative;
+					width: 100%;
+					@include vw(padding, 22px 0);
+					line-height: 1.1;
+					@include vw(font-size, 32px);
+					font-weight: 700;
+					color: #222;
+					@include vw(letter-spacing, -2px);
+					@include vw(border-radius, 5px);
+					background-color: #ffbf00;
+					@include pointer(60%, -8%, 77px, 75px, 20, bounce);
+					em {
+						display: block;
+						@include vw(margin-bottom, 5px);
+						@include vw(font-size, 26px);
+					}
+					.date {
+						display: block;
+						@include vw(font-size, 30px);
+					}
+					.end{
+						display: none;
+					}
+					&.complete {
+						color: #787878;
+						background-color:#ddd;
+						.txt{display: none;}
+						.end{display: block;}
+						&:after { display: none; }
+					}
+					&.end{
+						color: #9d9d9d;
+						background-color:#5b5b5b;
+						.txt{display: none;}
+						.end{display: block;}
+						&:after { display: none; }
+					}
+				}
+			}
+		}
+	}
+	.sector-schedule{
+		background-color: #f4f4f4;
+	}	
+	.product-apply{
+		background-color: #fff;
+		@include vw(padding, 100px 0 0);
+		.title-box {
+			position: relative;
+			@include vw(margin-left, 35px);
+			text-align: left;
+			line-height: 1.2;
+			@include vw(font-size, 45px);
+			font-weight: 900;
+			color: #000;
+			letter-spacing: -2px;
+		}
+		.sub-title-box {
+			@include vw(width, 656px);
+			@include vw(margin, 60px auto 0);
+			@include vw(padding-bottom, 30px);
+			border-bottom: 1px solid #000;
+			text-align: start;
+			@include vw(font-size, 34px);
+			font-weight: 700;
+			color: #000;
+		}
+		.sector-personality-test{
+			@include vw(padding-bottom, 50px);
+			ul{
+				li{
+					&:first-of-type{@include vw(margin-bottom, 40px);}
+					&:last-of-type{border-top: 1px solid #000;}
+					@include vw(width, 656px);
+					margin: 0 auto;
+					border-bottom: 1px solid #000;
+					color: #000;
+					> div{
+						&.start{
+							@include vw(padding, 30px);
+							box-sizing: border-box;
+							background-color: #f4f4f4;
+							@include vw(font-size, 28px);
+							font-weight: 700;
+						}
+						&.middle{
+							border-top: 1px dotted #898989;
+							border-bottom: 1px dotted #898989;
+							@include vw(padding, 20px);
+							div, p{
+								display: flex;
+								text-align: start;
+								@include vw(margin-bottom, 30px);
+								@include vw(font-size, 24px);
+								letter-spacing: -0.25;
+								span{
+									@include vw(width, 120px);
+									font-weight: 700;
+								}
+							}
+							p{
+								@include vw(margin-left, 120px);
+								@include vw(font-size, 22px);
+							}
+						}
+						&.end{
+							@include vw(padding, 40px 0);
+							.price{
+								@include vw(font-size, 44px);
+								font-weight: 700;
+								color: #ff3e3e;
+							}
+							button{
+								width: 100%;
+								@include vw(height, 80px);
+								@include vw(margin-top, 20px);
+								background-color: #ff3e3e;
+								color: #fff;
+								border: none;
+								@include vw(border-radius, 5px);
+								@include vw(font-size, 34px);
+								font-weight: 700;
+								cursor: pointer;
+								@include arrow(right, 10px, 10px, 1px, #fff);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

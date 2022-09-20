@@ -1,0 +1,45 @@
+@charset "utf-8";
+.curriculum-body{position:relative;top:0;bottom:0;width:100%;height:100%;overflow-y:scroll;background-color:#f5f7f9;}
+.curriculum-body .curriculum-title h2.on{display:block;}
+.curriculum-body .curriculum-title h2{display:none;padding:40px 0 20px 24px;font-size:20px;line-height: 1.4;letter-spacing:-0.83px;color:#000000;font-weight:300;}
+.curriculum-body .lecture-close{position:relative;display:block;float:right;width:24px;height:24px;margin:20px 20px 0 0;z-index:99;}
+.curriculum-body .lecture-close::after{content:'';position:absolute;display:block;top:12px;width:22px;height:2px;border-radius:2px;transform:rotate(45deg);background-color:#333;}
+.curriculum-body .lecture-close::before{content:'';position:absolute;display:block;top:12px;width:22px;height:2px;border-radius:2px;transform:rotate(-45deg);background-color:#333;}
+.curriculum-body .lecture-close span{font-size:0;overflow:hidden;text-indent:-999px;visibility: hidden;}
+
+.curriculum-lecture{position:relative;height:calc(100% - 200px); padding-bottom:200px;}
+.curriculum-body .curriculum-menu{position:relative;display:flex;justify-content:flex-start;padding-left:24px;padding-top:20px;padding-bottom:10px;z-index:9;}
+.curriculum-body .curriculum-menu.sticky{position:fixed;top:0;left:0;width:100%;}
+.curriculum-body .curriculum-menu button{position:relative;padding-bottom:16px;margin-right:32px;font-weight:600;font-size: 20px;letter-spacing:-1px;line-height:1;text-align: center;color: #999;background:none;border:0;-webkit-appearance:none;-webkit-border-radius:0;outline: 0;}
+.curriculum-body .curriculum-menu button.on{color:#000;}
+.curriculum-body .curriculum-menu button.on::before{content:'';position:absolute;display:block;width:5px;height:5px;border-radius:50%;background-color:#eb5e00;left:calc(50% - 2.5px);bottom:0;}
+
+.curriculum-body .menu-1depth.on{display:block;}
+.curriculum-body .menu-1depth{display:none;position:relative;top:0;bottom:0;width:100%;min-height:calc(100% - 32px);padding-top:32px;}
+.curriculum-body .menu-1depth > li{overflow:visible;}
+.curriculum-body .menu-1depth > li > h3{display:block;box-sizing: border-box;width:142px;padding-left:24px;line-height:52px;font-size:15px;color:#666;letter-spacing:-0.41px;}
+.curriculum-body .menu-1depth > li.on > h3{position:relative;background-color:#fff;color:#000;border-bottom:1px solid #eaeaf4;}
+.curriculum-body .menu-1depth > li.on > h3::before{content:'';position:absolute;left:0;top:0;display:block;width:4px;height:52px;background-color:#eb5e00;}
+
+.curriculum-body .menu-1depth > li.on > .menu-2depth{display:block;}
+.curriculum-body .menu-2depth{display:none;position:absolute;box-sizing:border-box;left:142px;top:0;bottom:0;width:calc(100% - 142px);padding:10px 20px 120px 20px;margin-bottom:-120px;border-radius:30px 0 0 0;background-color:#fff;overflow:auto;outline: 0;}
+.curriculum-body .menu-2depth > h4{display:block;box-sizing: border-box;width:100%;margin-bottom:5px;padding:22px 0 13px 0;border-bottom:1px solid #eaeaf4;font-size:15px;letter-spacing:-0.41px;line-height:1;}
+.curriculum-body .menu-2depth > ul > li{line-height:36px;font-size:14px;letter-spacing:-0.38px;color:#666;}
+.curriculum-body .menu-2depth > ul > li.on{color:#eb5e00;}
+.curriculum-body .menu-2depth .path-arrow{position:relative;top:0;display:inline-block;font-size:0;width:15px;height:5px;margin:0 0 4px 6px;vertical-align:middle;}
+.curriculum-body .menu-2depth .path-arrow::after{content:'';position:absolute;display:block;top:0px;width:7px;height:1px;transform:rotate(35deg);background-color:#000;}
+.curriculum-body .menu-2depth .path-arrow::before{content:'';position:absolute;display:block;bottom:0px;width:7px;height:1px;transform:rotate(-35deg);background-color:#000;}
+
+.curriculum-body .lecture-search.on{bottom:0;box-shadow: 0 -2px 20px 0 rgba(0, 0, 0, 0.1);}
+.curriculum-body .lecture-search{display:block;position:fixed;bottom:-102px;left:0;height:102px;width:100%;padding:14px 22px;box-sizing:border-box;border-radius: 12px 12px 0 0;box-shadow:none;background-color:#fff;transition:all .3s;}
+.curriculum-body .lecture-search .search-title{display:inline-block;width:100%;font-size:14px;line-height:1;margin-bottom:10px;}
+.curriculum-body .lecture-search .search-area{position:relative;display:flex;justify-content:space-between;width:100%;line-height:1;box-sizing:border-box;padding: 8px 14px 8px 16px;border-radius: 6px;border: solid 2px #eb5e00;}
+.curriculum-body .lecture-search .hide{font-size:0;overflow:hidden;text-indent:-999px;visibility: hidden;}
+.curriculum-body .lecture-search .input-search{flex:1;padding:0;height:auto;font-size: 14px;letter-spacing:-0.5px;border:0;}
+.curriculum-body .lecture-search .btn-search{width:100%;line-height:24px;text-align:left;font-size:14px;color:#999999;background:none;border:0;-webkit-appearance:none;-webkit-border-radius:0;}
+.curriculum-body .lecture-search .search-area::before{content:'';display:block;position:absolute;top:8px;right:18px;width:15px;height:15px;border:2px solid #333;border-radius:50%;}
+.curriculum-body .lecture-search .search-area::after{content:'';display:block;position:absolute;top:26px;right:14px;width:8px;height:2px;border-radius:2px;transform:rotate(45deg);background-color:#333;;}
+
+@media screen and (max-width:340px){
+	.curriculum-body .curriculum-title h2{font-size:18px;}
+}

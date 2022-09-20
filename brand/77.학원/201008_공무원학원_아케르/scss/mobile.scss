@@ -1,0 +1,486 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import url('https://img.eduwill.net/resources/common/web/css/webfont.css');
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+$img-gov-path: "//img.eduwill.net/resources/img/common/offline/acer/g/201008/mobile";
+$img-cop-path: "//img.eduwill.net/resources/img/common/offline/acer/c/201008/mobile";
+$img-fire-path: "//img.eduwill.net/resources/img/common/offline/acer/gso/201008/mobile";
+$img-tech-path: "//img.eduwill.net/resources/img/common/offline/acer/tech/201008/mobile";
+$img-army-path: "//img.eduwill.net/resources/img/common/offline/acer/army/201008/mobile";
+
+$color-gov-primary: #04dcff;
+$color-cop-primary: #9aff69;
+$color-fire-primary: #ffa415;
+$color-tech-primary: #04dcff;
+$color-army-primary: #04dcff;
+$color-base-1: #000;
+$color-base-2: #363636;
+
+.acer {
+    font-family: $font-noto;
+    * { line-height: normal; }
+    .container {
+        position: relative;
+        margin: 0;
+        border: none;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+    .wrap {
+        position: relative;
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    p { margin: 0; }
+    .tab-wrap {
+        .tab-contents .item {
+            display: none;
+            &.in { display: block; }
+        }
+    }
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        @include vw(width, 60px);
+        @include vw(height, 60px);
+        @include vw(margin-top, -30px);
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+        text-indent: -9999px;
+        border: none;
+        background: none;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% auto;
+        cursor: pointer;
+        outline: none;
+        &.slick-prev { left: 0; background-image: url('#{$img-cop-path}/btn_prev.png'); }
+        &.slick-next { right: 0; background-image: url('#{$img-cop-path}/btn_next.png'); }
+    }
+    &-title {
+        background-size: cover;
+        .progress-g & { background-image: url('#{$img-gov-path}/bg_title.jpg'); }
+        .progress-c & { background-image: url('#{$img-cop-path}/bg_title.jpg'); }
+        .progress-gso & { background-image: url('#{$img-fire-path}/bg_title.jpg'); }
+        .progress-tech & { background-image: url('#{$img-tech-path}/bg_title.jpg'); }
+        .progress-army & { background-image: url('#{$img-army-path}/bg_title.jpg'); }
+        .action {
+            position: absolute;
+            top: 72%;
+            right: 0;
+            left: 0;
+            a {
+                display: inline-block;
+                width: 32%;
+            }
+        }
+    }
+    &-band {
+        &.band-1 {
+            .progress-g & { background-color: $color-gov-primary; }
+            .progress-c & { background-color: $color-cop-primary; }
+            .progress-gso & { background-color: $color-fire-primary; }
+            .progress-tech & { background-color: $color-tech-primary; }
+            .progress-army & { background-color: $color-army-primary; }
+        }
+        &.band-2,
+        &.band-3 {
+            background-color: $color-base-2;
+        }
+        &.band-4 {
+            .desc {
+                margin-left: 6.944%;
+                @include vw(padding-top, 100px);
+                text-align: left;
+                line-height: 1.4;
+                @include vw(font-size, 38px);
+                font-weight : 500;
+                color: $color-base-2;
+                @include vw(letter-spacing, -3px);
+                strong {
+                    position: relative;
+                    z-index: 0;
+                    display: inline-block;
+                    line-height: 1;
+                    font-family: $font-lato;
+                    font-weight : 700;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        z-index: -1;
+                        width: 100%;
+                        @include vw(height, 20px);
+                        .progress-g & { background-color: $color-gov-primary; }
+                        .progress-c & { background-color: $color-cop-primary; }
+                        .progress-gso & { background-color: $color-fire-primary; }
+                        .progress-tech & { background-color: $color-tech-primary; }
+                        .progress-army & { background-color: $color-army-primary; }
+                    }
+                }
+            }
+        }
+    }
+    &-winner {
+        @include vw(padding-bottom, 87px);
+        .wrap:first-child {
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 100% auto;
+            .progress-g & { background-image: url('#{$img-gov-path}/bg_winner.jpg'); }
+            .progress-c & { background-image: url('#{$img-cop-path}/bg_winner.jpg'); }
+            .progress-gso & { background-image: url('#{$img-fire-path}/bg_winner.jpg'); }
+            .progress-tech & { background-image: url('#{$img-tech-path}/bg_winner.jpg'); }
+            .progress-army & { background-image: url('#{$img-army-path}/bg_winner.jpg'); }
+        }
+        .winner-wrap {
+            @include vw(margin, 0 20px 0 30px);
+            p {
+                margin: 0;
+                text-align: left;
+                line-height: 2;
+                @include vw(font-size, 18px);
+                font-weight: 400;
+                color: $color-base-1;
+                &.notice {
+                    @include vw(margin-top, 20px);
+                    color: #999;
+                }
+            }
+        }
+		.video-group {
+			@include vw(margin, 40px 40px 0);
+			* { vertical-align: top; }
+			& + .action {
+				@include vw(margin-top, 40px);
+			}
+			.video-list {
+				@include vw(padding, 4px);
+				@include boxSizing(border-box);
+			}
+			.slick-arrow {
+				@extend %slick-arrow;
+				border-radius: 50%;
+				&.slick-prev {
+					@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0, 0, 0, .5));
+					@include vw(left, -30px);
+				}
+				&.slick-next {
+					@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0, 0, 0, .5));
+					@include vw(right, -30px);
+				}
+			}
+		}
+        .interview-list {
+            @include vw(margin-top, 140px);
+            .slick-slide {
+                outline: none;
+                @include vw(padding, 0 40px);
+            }
+            a {
+                position: relative;
+                display: block;
+            }
+        }
+        .action { margin: 0 13.472%; }
+    }
+    &-program {
+        &.program-tab {
+            width: 100%;
+            z-index: 10;
+            background: #d6d6d6;
+            @include boxShadow(inset 0px -10px 10px 0 rgba(196, 196, 196, .75));
+            .col {
+                width: 33.33%;
+                border-left: 1px solid #fefefe;
+                &:first-child { border-left: 0; }
+                &.in {
+                    a {
+                        position: relative;
+                        color: $color-base-1;
+                        background-color: #fff;
+                        .progress-g & { border-color: $color-gov-primary; }
+                        .progress-c & { border-color: $color-cop-primary; }
+                        .progress-gso & { border-color: $color-fire-primary; }
+                        .progress-tech & { border-color: $color-tech-primary; }
+                        .progress-army & { border-color: $color-army-primary; }
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            @include vw(bottom, -11px);
+                            left: 50%;
+                            display: block;
+                            @include vw(width, 20px);
+                            @include vw(height, 20px);
+                            @include vw(margin-left, -10px);
+                            @include rotate(45deg);
+                            border-width: 0;
+                            border-style: solid;
+                            @include vw(border-bottom-width, 2px);
+                            @include vw(border-right-width, 2px);
+                            background-color: #fff;
+                            .progress-g & { border-color: $color-gov-primary; }
+                            .progress-c & { border-color: $color-cop-primary; }
+                            .progress-gso & { border-color: $color-fire-primary; }
+                            .progress-tech & { border-color: $color-tech-primary; }
+                            .progress-army & { border-color: $color-army-primary; }
+                        }
+                        strong:after { display: block; }
+                    }
+                }
+            }
+            a {
+                display: block;
+                @include vw(padding, 20px);
+                text-align: left;
+                line-height: 1.2;
+                @include vw(font-size, 20px);
+                color: #898989;
+                @include vw(border-width, 2px);
+                border-style: solid;
+                border-color: transparent;
+                em {
+                    display: inline-block;
+                    line-height: 1;
+                    font-weight: 400;
+                    border-top: 1px solid #898989;
+                }
+                strong {
+                    position: relative;
+                    z-index: 0;
+                    display: block;
+                    @include vw(margin-top, 10px);
+                    @include vw(font-size, 30px);
+                    font-weight: 700;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        z-index: -1;
+                        display: none;
+                        width: 60%;
+                        @include vw(height, 10px);
+                        .progress-g & { background-color: $color-gov-primary; }
+                        .progress-c & { background-color: $color-cop-primary; }
+                        .progress-gso & { background-color: $color-fire-primary; }
+                        .progress-tech & { background-color: $color-tech-primary; }
+                        .progress-army & { background-color: $color-army-primary; }
+                    }
+                }
+            }
+        }
+        &.program-1 {
+            background-color: #fff;
+            .item { @include vw(margin-top, 10px); }
+        }
+        &.program-2 {
+            @include vw(padding-bottom, 110px);
+            .tab-wrap { margin: 0 8.33%; }
+            .tab-list {
+                margin: 0 -2px;
+                li {
+                    width: 25%;
+                    padding: 0 2px;
+                    &.in {
+                        a {
+                            background-color: $color-base-2;
+                            .progress-g & { 
+                                color: $color-gov-primary;
+                                border-color: $color-gov-primary;
+                            }
+                            .progress-c & { 
+                                color: $color-cop-primary;
+                                border-color: $color-cop-primary;
+                            }
+                            .progress-gso & { 
+                                color: $color-fire-primary;
+                                border-color: $color-fire-primary;
+                            }
+                            .progress-tech & { 
+                                color: $color-tech-primary;
+                                border-color: $color-tech-primary;
+                            }
+                            .progress-army & { 
+                                color: $color-army-primary;
+                                border-color: $color-army-primary;
+                            }
+                            @include boxShadow(none);
+                        }
+                    }
+                }
+                a {
+                    display: block;
+                    @include vw(padding, 30px 0);
+                    line-height: normal;
+                    @include vw(font-size, 25px);
+                    font-weight: 700;
+                    color: #838383;
+                    @include vw(border-width, 2px);
+                    border-style: solid;
+                    border-color: #d6d6d6;
+                    background: #d6d6d6;
+                    @include boxShadow(inset 0px -10px 10px 0 rgba(196, 196, 196, .75));
+                }
+            }
+        }
+        &.program-3 { background-color: #3c3c3c; }
+    }
+    &-academy {
+        z-index: 1;
+        background: #fff;
+        background: linear-gradient(0deg, #fff 0%, #fff 50%, #3c3c3c 50%, #3c3c3c 100%);
+        .slick-slide {
+            width: auto;
+            img { width: 100%; max-width: 100%; }
+        }
+        .notice {
+            margin: 0 5%;
+            text-align: left;
+            @include vw(font-size, 20px);
+            color: #333;
+        }
+    }
+    &-benefit {
+        @include vw(padding-bottom, 120px);
+        background: #fff;
+        background: linear-gradient(0deg, #262725 0%, #262725 50%, #fff 50%, #fff 100%);
+        .benefit-list {
+            margin: 0 5%;
+            @include vw(margin-top, 100px);
+            .item {
+                position: relative;
+                @include vw(margin-top, 40px);
+                text-align: left;
+                @include vw(border-width, 4px);
+                border-style: solid;
+                background-color: #fff;
+                background-repeat: no-repeat;
+                background-position: right center;
+                background-size: auto 100%;
+                @include boxShadow(5px 5px 0 rgba(70, 70, 70, .5));
+                .progress-g & { border-color: $color-gov-primary; }
+                .progress-c & { border-color: $color-cop-primary; }
+                .progress-gso & { border-color: $color-fire-primary; }
+                .progress-tech & { border-color: $color-tech-primary; }
+                .progress-army & { border-color: $color-army-primary; }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    @include vw(width, 30px);
+                    @include vw(height, 30px);
+                    border-radius: 50%;
+                    opacity: .8;
+                    .progress-g & { background-color: $color-gov-primary; }
+                    .progress-c & { background-color: $color-cop-primary; }
+                    .progress-gso & { background-color: $color-fire-primary; }
+                    .progress-tech & { background-color: $color-tech-primary; }
+                    .progress-army & { background-color: $color-army-primary; }
+                }
+                &-1 {
+                    margin-top: 0;
+                    background-image: url('#{$img-cop-path}/icon_benefit_1.png');
+                    &:after { right: 10%; bottom: 68%; }
+                }
+                &-2 {
+                    background-image: url('#{$img-cop-path}/icon_benefit_2.png');
+                    &:after { right: 8%; bottom: 28%; }
+                }
+                &-3 {
+                    background-image: url('#{$img-cop-path}/icon_benefit_3.png');
+                    &:after { right: 5%; bottom: 57%; }
+                }
+                .holder { @include vw(padding, 50px); }
+                .subject {
+                    line-height: 1.38;
+                    @include vw(font-size, 30px);
+                    font-weight: 700;
+                    color: $color-base-1;
+                }
+                .info {
+                    @include vw(margin-top, 10px);
+                    @include vw(font-size, 20px);
+                    font-weight: 400;
+                    color: $color-base-2;
+                }
+            }
+        }
+        .action {
+            margin: 0 6.4583%;
+            @include vw(margin-top, 100px);
+            a {
+                position: relative;
+                display: inline-block;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 70%;
+                    right: 10%;
+                    @include vw(width, 66px);
+                    @include vw(height, 73px);
+                    background: url('#{$img-common-path}/icon/pointer/icon_pointer_1.png') no-repeat 0 0;
+                    background-size: 100% auto;
+                    @include animation(bounce, 1s, $iteration: infinite){
+                        0%,100% { @include translateXY(10px, 10px); }
+                        50% { @include translateXY(-10px, -10px); }
+                    }
+                }
+            }
+        }
+        .desc {
+            margin: 0 5%;
+            @include vw(margin-top, 100px);
+            text-align: left;
+            line-height: 1.5;
+            @include vw(font-size, 40px);
+            font-weight: 400;
+            color: #fff;
+            strong {
+                @include vw(font-size, 45px);
+                font-weight: 700;
+            }
+        }
+    }
+    &-consult {
+        @include vw(padding, 80px 0);
+        background-color: #f9f9f9;
+        span {
+            line-height: 1;
+            @include vw(font-size, 60px);
+            font-weight: 700;
+            color: $color-base-2;
+            letter-spacing: -2px;
+        }
+        em {
+            position: relative;
+            display: inline-block;
+            @include vw(margin-right, 30px);
+            @include vw(padding-right, 30px);
+            line-height: 1;
+            letter-spacing: -2px;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                @include vw(width, 2px);
+                @include vw(height, 40px);
+                @include vw(margin-top, -20px);
+                background-color: $color-base-2;
+            }
+        }
+    }
+}
+

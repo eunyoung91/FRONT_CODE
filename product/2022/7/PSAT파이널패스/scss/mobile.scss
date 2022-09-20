@@ -1,0 +1,1060 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.product-eco {
+	overflow: hidden;
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		color: #000;
+		@include vw(letter-spacing, -2px);
+	}
+	[class^="product-"],
+	.container,
+	.holder,
+	.item {
+		position: relative;
+	}
+	.wrap,
+	.wrap-full {
+		max-width: 720px;
+	}
+
+	.eco-puri {
+		display: inline-block;
+	}
+	button {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+		font-family: inherit;
+		text-decoration: none;
+		border: none;
+		background: transparent;
+		outline: 0;
+		cursor: pointer;
+	}
+	.only-pc {
+		display: none;
+	}
+	.only-mobile {
+		display: block;
+	}
+
+	// base
+	.asterisk {
+		display: inline-block;
+		font-weight: 300;
+		@include vw(font-size, 14px);
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.grounds-text {
+		@include vw(margin-top, 15px);
+		text-align: left;
+		line-height: 1.5;
+		@include vw(font-size, 16px);
+		font-weight: 400;
+		color: rgba(255, 255, 255, .6);
+		@include vw(letter-spacing, -1px);
+	}
+
+	// banner
+	.fix-bottom {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		@include vw(height, 120px);
+		z-index: 11;
+		@include vw(padding, 20px 0 0);
+		background: rgba(0, 0, 0, 0.8);
+		@include boxSizing(border-box);
+		.wrap {
+			@extend %clearfix;
+			@include vw(padding, 0 30px);
+			strong {
+				float: left;
+				text-align: left;
+				line-height: 1.2;
+				@include vw(font-size, 30px);
+				font-weight: 900;
+				color: #fff;
+				@include vw(letter-spacing, -2px);
+				em {
+					color: #ffbf00;
+					@include vw(font-size, 30px);
+					font-style: normal;
+					font-weight: 900;
+					@include vw(letter-spacing, -2px);
+				}
+			}
+
+			a {
+				position: relative;
+				float: right;
+				@include vw(margin-left, 20px);
+				@include vw(width, 248px);
+				@include vw(height, 63px);
+				text-align: center;
+				vertical-align: top;
+				@include vw(border-radius, 100px);
+				@include linear-gradient(to right, #fb5e00 0%, #ef2e00 100%);
+				span {
+					/*@include arrow(right, 12px, 12px, 3px, #fff);*/
+					display: block;
+					@include vw(padding-right, 6px);
+					@include vw(font-size, 30px);
+					font-weight: 900;
+					color: #fff;
+					@include vw(line-height, 63px);
+					@include vw(letter-spacing, -2px);
+					em {
+						@include vw(font-size, 30px);
+						font-weight: 900;
+						color: #ffe800;
+					}
+					&:after {
+						position: absolute;
+						top: 50%;
+						@include vw(margin-top, -6px);
+						@include vw(right, 30px);
+					}
+				}
+				@include pointer(60%, 0, 57px, 65px, 12, bounce);
+			}
+		}
+	}
+	.fix-right {
+		position: static;
+		background-color: #fc0;
+	}
+
+	// 강조
+	.point-1 { color: #0092ef; }
+	.point-2 { color: #fff600; }
+	.point-3 { color: #f23a00; }
+	.point-4 { color: #eb2300; }
+	.point-5 { color: #00b2ff; }
+
+	// common
+	.action {
+		@include vw(margin-top, 12px);
+		font-size: 0;
+		a {
+			display: inline-block;
+			@include vw(padding, 14px 50px 15px);
+			border: 1px solid #222;
+			@include vw(border-radius, 60px);
+			@include boxSizing(border-box);
+			span {
+				position: relative;
+				display: block;
+				@include vw(padding-right, 30px);
+				@include vw(font-size, 20px);
+				font-weight: 700;
+				color: #222;
+				@include vw(letter-spacing, -1px);
+				&::after {
+					content: '→';
+					position: absolute;
+					top: 50%;
+					right: 0;
+					display: block;
+					font-family: cursive;
+					@include vw(font-size, 20px);
+					font-weight: 400;
+					@include translateY(-50%);
+				}
+			}
+		}
+
+		&.type-2 {
+			a {
+				width: percent(450);
+				background: #fff;
+				border: 1px solid #e2e2e2;
+				@include vw(border-radius, 100px);
+				@include boxShadow(0 4px 0 0 rgba(0, 0, 0, .1));
+				@include boxSizing(border-box);
+				span {
+					@include vw(padding-right, 30px);
+					@include vw(font-size, 28px);
+					@include vw(letter-spacing, -1.5px);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					font-weight: 700;
+					color: #222;
+					background: none;
+					@include arrow(right, 8px, 8px, 2px, #000);
+					&::before {
+						right: 0;
+					}
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&.type-3 {
+			a {
+				@include vw(width, 300px);
+				@include vw(padding, 5px 10px);
+				background: #b0bbf7;
+				span {
+					@include vw(padding, 0 30px 0 10px);
+					@include vw(font-size, 23px);
+					@include arrow(right, 6px, 6px, 2px, #000);
+				}
+			}
+		}
+	}
+	.section-title {
+		position: relative;
+		text-align: left;
+		line-height: 1.3;
+		@include vw(font-size, 50px);
+		font-weight: 900;
+		color: #000;
+		@include vw(letter-spacing, -2px);
+		strong { font-weight: 900; }
+		&.title-white {
+			color: #fff;
+			.grounds-text {
+				color: rgba($color: #fff, $alpha: .4);
+			}
+		}
+		&.title-center { text-align: center; }
+		em {
+			display: inline-block;
+			@include vw(margin-left, 3px);
+			vertical-align: middle;
+			@include vw(font-size, 16px);
+			color: #707070;
+			&.star {
+				vertical-align: text-top;
+				@include vw(font-size, 20px);
+				color: inherit;
+			}
+		}
+		.small-title {
+			display: inline-block;
+			@include vw(font-size, 36px);
+		}
+		.sub-title {
+			display: block;
+			@include vw(margin-top, 16px);
+			@include vw(font-size, 30px);
+			font-weight: 300;
+			color: inherit;
+			@include vw(letter-spacing, -2px);
+		}
+		.grounds-text {
+			@include vw(margin-top, 20px);
+			font-weight: 400;
+			color: #afafaf;
+		}
+		.q-mark {
+			display: block;
+			line-height: 1;
+			font-family: 'Engravers MT';
+			@include vw(font-size, 100px);
+			font-weight: 400;
+		}
+		.icon {
+			display: block;
+			@include vw(width, 156px);
+			@include vw(margin, 0 auto 30px);
+			line-height: 1;
+			font-size: 0;
+		}
+	}
+
+	.icon-pointer {
+		@include pointer(50%, 0, 66px, 73px, 20, bounce);
+	}
+
+	.slick-dots {
+		@extend %slick-dots;
+		li {
+			@include vw(width, 27px);
+			@include vw(height, 27px);
+			@include vw(margin, 0 5px);
+			border-radius: 50%;
+			background-color: #3382ca;
+			&.slick-active {
+				background-color: #fff;
+			}
+		}
+	}
+
+	.slick-arrow {
+		border-radius: 50%;
+		&.slick-prev {
+			left: 0;
+			@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+		}
+		&.slick-next {
+			right: 0;
+			@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+		}
+	}
+
+	// page
+	.sector-title {
+		@include bg($color: #060716, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+		.wrap {
+			max-width: 100%;
+		}
+		.wrap > img {
+			display: inline-block;
+			@include vw(min-width, 864px);
+			@include vw(margin, 0 -152px);
+		}
+		.flag {
+			position: absolute;
+			@include vw(top, 755px);
+			left: 50%;
+			z-index: 1;
+			@include vw(width, 207px);
+			@include vw(margin-left, 133px);
+			@extend .effect-bounce-updown;
+		}
+		.text-list {
+			position: absolute;
+			@include vw(top, 166px);
+			right: 0;
+			left: 0;
+			& > div {
+				@include vw(margin-top, -17px);
+				.off { display: block; }
+				.on { display: none; }
+				&.active {
+					.off { display: none; }
+					.on { display: block; }
+				}
+			}
+		}
+	}
+
+	.sector-intro {
+		@include vw(padding-bottom, 120px);
+		@include linear-gradient(to right, #0077d1 0%, #005db7 100%);
+		.section-title {
+			@include vw(padding-top, 120px);
+		}
+		.intro-list {
+			@include vw(width, 373px);
+			@include vw(margin, 60px auto 0);
+		}
+		.slick-dots {
+			@include vw(margin-top, 10px);
+		}
+	}
+
+	.benefit-box {
+		@include vw(margin, 0 60px);
+		.list {
+			font-size: 0;
+			text-align: center;
+			.col {
+				float: none;
+				position: relative; 
+				display: inline-block;
+				overflow: hidden;
+				@include vw(margin, 0 10px 10px);
+				@include vw(border-radius, 0 30px 0 30px);
+				// border-top: 1px solid #bdbdbd;
+				background-color: #fff;
+				@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, 0.2));
+			}
+			.subject {
+				position: absolute;
+				top: 50%;
+				@include vw(left, 30px);
+				text-align: left;
+				line-height: 1.3;
+				@include vw(font-size, 30px);
+				font-weight: 900;
+				color: #222;
+				@include vw(letter-spacing, -1.5px);
+				@include translateY(-50%);
+				span {
+					font-weight: 900;
+				}
+				em {
+					position: relative;
+					display: inline-block;
+					vertical-align: top;
+					@include vw(top, 5px);
+					@include vw(margin-left, 4px);
+					font-weight: 500;
+					color: #707070;
+				}
+				.badge {
+					display: inline-block;
+					@include vw(margin-bottom, 6px);
+					@include vw(padding, 7px 12px 6px);
+					vertical-align: top;
+					line-height: 1;
+					font-weight: 900;
+					@include vw(font-size, 15px);
+					color: #11142d;
+					@include vw(letter-spacing, -1px);
+					@include vw(border-radius, 50px);
+					@include linear-gradient(to right, #fedd12 0%, #fcc10a 100%);
+				}
+				.flag {
+					position: absolute;
+					@include vw(top, 140px);
+					@include vw(left, 160px);
+				}
+			}
+		}
+	}
+
+	.sector-benefit {
+		@include vw(padding-bottom, 50px);
+		.section-title {
+			@include vw(padding-top, 120px);
+		}
+		.benefit-box {
+			@include vw(margin-top, 60px);
+		}
+	}
+
+	.sector-item {
+		@include vw(padding-bottom, 100px);
+		.price-table {
+			@include vw(margin, 0 60px);
+			// table
+			table {
+				text-align: center;
+				color: #414141;
+				border-collapse: collapse !important;
+				table-layout: auto;
+				// @include boxShadow(0 2px 10px 0 rgba(0, 0, 0, 0.2));
+				[class^="row-"] {
+					td {
+						vertical-align: top;
+						@include vw(font-size, 18px);
+						color: #414141;
+						border-style: solid;
+						border-width: 0;
+						@include vw(border-right-width, 1px);
+						// border-left-width: 1px;
+						border-color: #ccc;
+						background-color: #fff;
+						&:last-child {
+							text-align: left;
+							font-weight: 400;
+						}
+						&.sort {
+							width: 20%;
+							vertical-align: middle;
+							@include vw(font-size, 22px);
+							font-weight: 700;
+							color: #000;
+							@include vw(border-left-width, 4px);
+							border-left-color: #262938;
+							background-color: #efefef;
+						}
+						&.current {
+							width: 40%;
+							&:last-child {
+								@include vw(border-right-width, 4px);
+								border-right-color: #262938;
+							}
+							td {
+								color: #414141;
+								&:last-child {
+									@include vw(border-right-width, 4px);
+									border-right-color: #262938;
+								}
+							}
+						}
+						&.other {
+							width: 40%;
+							@include vw(border-right-width, 4px);
+							border-right-color: #262938;
+						}
+					}
+					.cell {
+						position: relative;
+						display: inline-block;
+						width: 100%;
+						@include vw(padding, 0 20px);
+						vertical-align: top;
+						line-height: 1.45;
+						@include boxSizing(border-box);
+					}
+					.dash {
+						display: inline-block;
+						vertical-align: top;
+						@include vw(line-height, 26px);
+						font-weight: 400;
+					}
+					&.row-title {
+						td {
+							text-align: center;
+							@include vw(font-size, 30px);
+							font-weight: 900;
+							color: #fff;
+							@include vw(border-top-width, 4px);
+							border-top-color: #262938;
+							@include vw(border-left-width, 4px);
+							border-left-color: #262938;
+							border-radius: 0;
+							&.current { background-color: #008de7; }
+							&.other { background-color: #476bc4; }
+						}
+						.cell {
+							@include vw(padding-top, 25px);
+							@include vw(padding-bottom, 25px);
+							color: #fff;
+							span {
+								display: block;
+							}
+						}
+						.title-flag {
+							position: absolute;
+							@include vw(top, -50px);
+							left: 50%;
+							@include vw(width, 220px);
+							@include vw(padding, 5px 10px);
+							line-height: 1.2;
+							@include vw(font-size, 15px);
+							font-weight: 500;
+							@include vw(border-radius, 55px);
+							background-color: #000;
+							@include boxSizing(border-box);
+							@include boxShadow(0 2px 10px 0 rgba(0, 0, 0, 0.2));
+							@include translateX(-50%);
+							&::before {
+								content: '';
+								position: absolute;
+								top: 95%;
+								left: 20%;
+								display: block;
+								border-top: 10px solid #000;
+								border-left: 10px solid transparent;
+								@include rotate(15deg);
+							}
+						}
+					}
+					&.row-subject {
+						td { @include vw(border-top-width, 1px); }
+						.current {
+							@include vw(border-right-width, 4px);
+							border-right-color: #262938;
+							.cell { color: #414141; }
+						}
+						.other .cell {
+							color: #5c5c5c;
+						}
+						.cell {
+							@include vw(padding-top, 15px);
+							@include vw(padding-bottom, 20px);
+							@include vw(font-size, 20px);
+							span {
+								@include vw(font-size, 15px);
+							}
+						}
+					}
+					&.row-benefit {
+						td {
+							@include vw(border-top-width, 1px);
+						}
+						.current {
+							position: relative;
+							z-index: 1;
+							.cell {
+								padding: 0;
+							}
+						}
+						.title {
+							@include vw(padding, 10px 40px 11px);
+							@include vw(font-size, 20px);
+							font-weight: 900;
+							color: #002ea3;
+							@include linear-gradient(to right, #ffd327 0%, #ffbb27 100%);
+						}
+						.title-flag {
+							display: inline-block;
+							@include vw(padding, 3px 10px);
+							vertical-align: middle;
+							@include vw(font-size, 12px);
+							font-weight: 700;
+							color: #fff;
+							@include vw(border-radius, 5px);
+							@include linear-gradient(to right, #09a3eb 0%, #4760ff 100%);
+						}
+						.list {
+							@include vw(padding, 20px 10px);
+							font-size: 0;
+							.list-item {
+								display: inline-block;
+								text-align: center;
+								vertical-align: middle;
+								img {
+									@include vw(width, 260px);
+									& + span {
+										text-align: right;
+										@include vw(font-size, 16px);
+										font-weight: 300;
+										color: #a5a5a5;
+									}
+								}
+								span {
+									display: block;
+									@include vw(font-size, 18px);
+									font-weight: 700;
+								}
+							}
+						}
+					}
+					&.row-program {
+						td {
+							@include vw(border-top-width, 1px);
+							background: #fff;
+							&.blank {
+								border-bottom: 0;
+								background: none;
+							}
+							&.sort {
+								background-color: #efefef;
+							}
+						}
+						.cell {
+							@include vw(padding-top, 40px);
+							@include vw(padding-bottom, 40px);
+							color: #414141;
+						}
+						P {
+							@include vw(margin-bottom, 10px);
+							@include vw(font-size, 20px);
+							font-weight: 700;
+							color: #000;
+						}
+						ul { @include vw(margin-top, 10px); }
+						li {
+							position: relative;
+							display: inline-block;
+							@include vw(font-size, 18px);
+							font-weight: 700;
+						}
+						.gray {
+							@include vw(font-size, 18px);
+							color: rgba($color: #303030, $alpha: 0.6);
+						}
+					}
+					&.row-price {
+						font-family: $font-roboto;
+						td {
+							@include vw(border-top-width, 1px);
+							@include vw(border-bottom-width, 4px);
+							border-bottom-color: #262938;
+							&.sort {
+								@include vw(border-bottom-width, 4px);
+								border-bottom-color: #262938;
+							}
+						}
+						.cell {
+							@include vw(padding-top, 20px);
+							@include vw(padding-bottom, 30px);
+							text-align: center;
+						}
+						.before-price {
+							text-decoration: line-through;
+							@include vw(font-size, 40px);
+							color: #959595;
+							span {
+								@include vw(font-size, 40px);
+								color: #959595;
+							}
+							&:only-child {
+								text-decoration: none;
+								@include vw(font-size, 60px);
+								color: #000;
+								span {
+									@include vw(font-size, 70px);
+									color: #ff0e0e;
+								}
+							}
+						}
+						.after-price {
+							@include vw(margin-left, 10px);
+							@include vw(font-size, 60px);
+							color: #000;
+							span {
+								@include vw(font-size, 70px);
+								color: #ff0e0e;
+							}
+						}
+					}
+					&.row-action {
+						td {
+							text-align: center;
+							border: none;
+							background: none;
+							&.current .btn-apply {
+								@include linear-gradient(to right, #f85100 0%, #ea1e00 100%);
+								@include boxShadow(inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5));
+							}
+							&.other {
+								@include vw(border-right-width, 4px);
+								border-right-color: #262938;
+								.btn-apply {
+									@include linear-gradient(to right, #476dfc 0%, #82c6ff 100%);
+									@include boxShadow(inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5));
+								}
+							}
+						}
+						.cell {
+							@include vw(padding, 40px 0);
+						}
+						.btn-apply {
+							@include pointer(50%, 0, 60px, 66px, 12, bounce);
+							display: block;
+							@include vw(width, 607px);
+							@include vw(padding, 22px);
+							text-align: center;
+							@include vw(font-size, 36px);
+							font-weight: 900;
+							color: #fff;
+							@include vw(border-radius, 55px);
+							@include boxSizing(border-box);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sector-down {
+		@include vw(padding-bottom, 100px);
+		background-color: #f7f7f7;
+		.section-title {
+			@include vw(padding-top, 100px);
+		}
+		.down-box {
+			@include vw(margin, 50px 50px 0);
+			.down-text {
+				display: inline-block;
+				text-align: left;
+				line-height: 1.2;
+				@include vw(font-size, 45px);
+				font-weight: 900;
+				strong {
+					line-height: 1;
+					@include vw(font-size, 55px);
+					font-weight: 900;
+					font-style: italic;
+				}
+				em {
+					display: inline-block;
+					vertical-align: baseline;
+					line-height: 1;
+					@include vw(font-size, 18px);
+				}
+			}
+			.action {
+				@include vw(margin-top, 20px);
+			}
+			.down-img {
+				@include vw(width, 529px);
+				margin: 0 auto;
+			}
+		}
+		.action {
+			.btn-apply {
+				@include pointer(50%, 0, 60px, 66px, 12, bounce);
+				display: block;
+				@include vw(width, 600px);
+				height: auto;
+				margin: 0 auto;
+				@include vw(padding, 22px);
+				text-align: center;
+				@include vw(font-size, 36px);
+				font-weight: 900;
+				color: #fff;
+				@include vw(border-radius, 55px);
+				border: none;
+				@include boxSizing(border-box);
+				@include linear-gradient(to right, #f85100 0%, #ea1e00 100%);
+				@include boxShadow(inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5));
+			}
+		}
+		.grounds-text {
+			@include vw(margin-top, 10px);
+			color: #9b9b9b;
+		}
+		.plus-box {
+			position: relative;
+			margin: 0 auto;
+			.box-inner {
+				position: absolute;
+				@include vw(top, 150px);
+				@include vw(right, 100px);
+				@include vw(left, 100px);
+				@extend %clearfix;
+			}
+			.box-flag {
+				display: inline-block;
+				@include vw(padding, 10px 30px);
+				@include vw(font-size, 24px);
+				font-weight: 900;
+				color: #191f86;
+				@include vw(border-radius, 50px);
+				background-color: #fff;
+				@include boxSizing(border-box);
+				@include boxShadow(0 2px 10px 0 rgba(0, 0, 0, 0.2));
+				span {
+					font-style: italic;
+				}
+			}
+			.box-title {
+				@include vw(margin, 10px 0 30px);
+				@include vw(font-size, 60px);
+				font-weight: 900;
+				color: #00fff5;
+			}
+			ul {
+				@extend %dot-list;
+				@include vw(margin-top, 20px);
+				text-align: left;
+				li {
+					@include vw(padding-left, 15px);
+					@include vw(font-size, 24px);
+					font-weight: 700;
+					color: #fff;
+				}
+
+			}
+			.action {
+				@include vw(margin-top, 20px);
+				a {
+					@include pointer(80%, 0, 57px, 65px, 12, bounce);
+					@include vw(width, 500px);
+					@include vw(padding, 20px);
+					line-height: 1.3;
+					@include vw(font-size, 30px);
+					font-weight: 700;
+					color: #fff;
+					@include vw(border-bottom-width, 10px);
+					border-bottom-style: solid;
+					border-bottom-color: #0b424f;
+					@include vw(border-radius, 120px);
+					background: #eb2200;
+					@include boxShadow(none);
+				}
+			}
+		}
+	}
+
+	.sector-review {
+		@include vw(padding-bottom, 100px);
+		background: #fdcf0e;
+		.wrap-full {
+			max-width: 100%;
+		}
+		.section-title {
+			@include vw(padding-top, 60px);
+		}
+		.review-list {
+			@include vw(margin-top, 50px);
+			.slick-slide {
+				@include vw(width, 409px);
+				@include vw(margin, 0 -15px);
+			}
+			.slick-arrow {
+				&.slick-prev {
+					left: 50%;
+					@include vw(margin-left, -220px);
+				}
+				&.slick-next {
+					right: 50%;
+					@include vw(margin-right, -220px);
+				}
+			}
+		}
+	}
+
+	.sector-band {
+		@include vw(padding-bottom, 105px);
+		@include bg($color: #11123f, $url: '#{$img-path}/mobile/bg_band.jpg', $size: cover);
+		.section-title {
+			@include vw(padding-top, 105px);
+			line-height: 1.1;
+		}
+	}
+
+	.sector-band-2 {
+		@include vw(padding-bottom, 100px);
+		@include bg($color: #11123f, $url: '#{$img-path}/mobile/bg_band_2.jpg', $size: cover);
+		.section-title {
+			@include vw(padding-top, 100px);
+		}
+		.price-box {
+			@include vw(margin-top, 40px);
+			strong {
+				display: inline-block;
+				@include vw(padding, 10px 80px);
+				line-height: 1;
+				@include vw(font-size, 40px);
+				font-weight: 900;
+				color: #000;
+				@include vw(border-radius, 50px);
+				background-color: #fff;
+				@include boxSizing(border-box);
+				@include boxShadow(0 2px 10px 0 rgba(0, 0, 0, 0.2));
+				span {
+					color: #d12000;
+				}
+			}
+		}
+		.flag {
+			position: absolute;
+			@include vw(top, 230px);
+			@include vw(left, 100px);
+			z-index: 1;
+			@include vw(width, 241px);
+			@extend .effect-bounce-updown;
+		}
+	}
+
+	.sector-teacher {
+		z-index: 1;
+		@include vw(padding-bottom, 150px);
+		@include bg($color: #181b5b, $url: '#{$img-path}/mobile/bg_teacher.jpg', $size: cover);
+		&::after {
+			content: '';
+			position: absolute;
+			@include vw(bottom, -121px);
+			left: 50%;
+			@include vw(width, 280px);
+			@include vw(height, 191px);
+			@include bg($url: "#{$img-path}/pc/icon_arrow.png", $size: cover);
+			@include translateX(-50%);
+		}
+
+		.section-title {
+			@include vw(padding-top, 120px);
+			em {
+				display: inline-block;
+				vertical-align: baseline;
+				line-height: 1;
+				@include vw(font-size, 18px);
+				font-weight: 400;
+				color: inherit;
+			}
+		}
+		.grounds-text {
+			text-align: center;
+			color: rgba($color: #fff, $alpha: .6);
+		}
+	}
+
+	.sector-lineup {
+		.lineup-list {
+			@include vw(min-width, 1024px);
+			@include vw(margin, 0 -152px);
+			.slick-slide {
+				position: relative;
+			}
+			.slick-arrow {
+				@include vw(margin-top, 150px);
+				&.slick-prev {
+					left: 50%;
+					@include vw(margin-left, -320px);
+				}
+				&.slick-next {
+					right: 50%;
+					@include vw(margin-right, -320px);
+				}
+			}
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		.video-box {
+			position: absolute;
+			@include vw(top, 1260px);
+			right: 0;
+			left: 0;
+			@include vw(width, 631px);
+			@include vw(height, 355px);
+			margin: 0 auto;
+		}
+	}
+
+	.sector-step {
+		@include vw(padding-bottom, 100px);
+		@include linear-gradient(to right, #0077d1 0%, #005db7 100%);
+		.section-title {
+			@include vw(padding-top, 100px);
+			.small-title {
+				display: block;
+				@include vw(margin-top, 40px);
+				color: #ffea00;
+			}
+		}
+		.step-list {
+			@include vw(margin, 20px 30px 0);
+			& > div {
+				position: relative;
+				display: inline-block;
+				@include vw(margin, -20px 0);
+				.off { display: block; }
+				.on { display: none; }
+				&.active {
+					.off { display: none; }
+					.on { display: block; }
+				}
+			}
+		}
+	}
+
+	.sector-service {
+		@include vw(padding-bottom, 100px);
+		.section-title {
+			@include vw(padding-top, 100px);
+		}
+		.service-list {
+			@include vw(width, 660px);
+			margin: 0 auto;
+			.slick-slide {
+				position: relative;
+			}
+			.action {
+				position: absolute;
+				@include vw(top, 660px);
+				right: 0;
+				left: 0;
+				a {
+					height: auto;
+					@include vw(padding, 10px);
+					border: none;
+					@include linear-gradient(to bottom, #ffd90d 0%, #ffbe3e 100%);
+					span {
+						@include arrow(right, 10px, 10px, 2px, #000);
+						@include vw(padding, 0 50px);
+						@include vw(line-height, 40px);
+						&::after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}

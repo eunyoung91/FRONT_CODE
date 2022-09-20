@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "mixins";
+
+
+/* 컨텐츠 */
+.product-eco {
+	//PC
+	@mixin shadowBg(){
+		background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+	}
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent2 {
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+
+			.ecoCont1 {
+				background: url('http://img.eduwill.net/eduwill/img/2022/_108/event/220210/pc/cont4_bg.jpg') no-repeat center 95px;
+				background-size: cover;
+
+				.wrap {
+					padding-top: 90px;
+
+					.btn-reason {
+						bottom: 134px;
+						right: 50px;
+						border-color: #fff;
+						color: #fff;
+						opacity: .5;
+						&::after {
+							border-color: #fff;
+						}
+			
+					}	
+				}
+			}
+
+			.ecoCont2 {
+				background: #f9f9f9;
+				
+			}
+
+			.ecoCont3 {
+				display: none;
+				background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 15%);
+			}
+			
+		}
+
+	}
+
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent2 {
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.ecoCont1 {
+				.btn-reason {
+					bottom: 9.5vw;
+					border: 1px solid #fff;
+					color: #fff;
+					opacity: .4;
+					&::after {
+						border-color: #fff;
+					}
+		
+				}	
+			}
+
+			.ecoCont2 {
+				@include shadowBg();
+				//background: #f9f9f9 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+				
+			}
+
+			.ecoCont3 {
+				display: none;
+				background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(255,255,255,1) 15%);
+			}
+		}
+		
+	}
+}

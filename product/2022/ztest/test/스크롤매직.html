@@ -1,0 +1,162 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="content-language" content="kr" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+	<title></title>
+	<!-- 자동화 페이지 포함 -->
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+	<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+	<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+	<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+	<script type="text/javascript"
+		src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+	<!-- // 자동화 페이지 포함 -->
+	<!-- eco -->
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+	<script type="text/javascript"
+		src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+	<!--// eco -->
+	<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+	<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+	<link href="https://img.eduwill.net/eduwill/live/css/common/eduf.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+<link rel="stylesheet" href="css/web3.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+
+<div class="product-eco">
+	<div class="wrap">
+		<div class="top">
+		  <h1>ScrollMagic Demo</h1>
+		  <p>스크롤매직 라이브러리 데모입니다.<br/><a href="http://scrollmagic.io/examples/" target="_blank">여기</a>에서 더 많은 예시를 확인할 수 있습니다.</p>
+		</div>
+		<div class="main">
+		  <div class="textWrap">
+		  <h2>What a wonderful!</h2>
+			<p class="text">Dolore occaecat cupidatat nostrud voluptate officia anim culpa minim in eiusmod eiusmod in. Esse magna excepteur est eiusmod excepteur laborum amet esse sint sit velit cupidatat excepteur. Aliquip magna dolore quis in tempor ipsum. Ad nostrud cupidatat ut do exercitation nulla ipsum culpa. Dolor laboris sunt voluptate nostrud. Cupidatat non sint est proident pariatur nulla. Aliqua reprehenderit ad do in ut deserunt sit.</p>
+	  <p class="text">Amet aliquip incididunt exercitation et consequat sint laborum nulla. Excepteur qui ut cillum eu quis irure elit proident deserunt eiusmod consectetur. Amet occaecat et ex in dolore velit esse occaecat fugiat id et.</p>
+		  </div>
+		  <div class="iconWrap">
+		  <div class="spacer"></div>
+		  <div class="trigger" id="trigger1">Trigger (1)</div>
+		  <div class="icon-back">
+			<p id="animate1" class="icon">♥︎</p>
+		  </div>
+		  <div class="trigger" id="trigger2">Trigger (2)</div>
+		  <div class="icon-back">
+			<p id="animate2" class="icon">★</p>
+		  </div>
+		  <div class="trigger" id="trigger3">Trigger (3)</div>
+		  <div class="icon-back">
+			<p id="animate3" class="icon">✿</p>
+		  </div>
+		</div>
+		<div class="footer"><a href="https://nykim.work">nykim.work</a></div>
+		  <div class="fixed">
+			<p class="info1">one</p>
+			<p class="info2">two</p>
+			<p class="info3">three</p>
+		  </div>
+	  </div>
+</div>
+
+
+<script src="//img.eduwill.net/eduwill/live/libs/ScrollMagic/ScrollMagic.min.js"></script>
+<script src="//img.eduwill.net/eduwill/live/libs/ScrollMagic/debug.addIndicators.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script> -->
+
+
+<script type="text/javascript" src="//img.eduwill.net/resources/eduwill/live/js/slick/slick.js"></script>
+<script type="text/javascript" src="//img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript" src="//img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+	var url = window.location.href;
+	var str = 'math.eduwill.net';
+	var checkUrl = url.indexOf(str);
+
+		
+	$(function () {
+		productInit();
+	});
+
+	function productInit() {
+		scrollEvent();
+	}
+
+	function scrollEvent() {
+		var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 436}});
+
+		var tween1 = TweenMax.to('#animate1', 0.3, {
+		color: "#60c5ba",
+		scale: 4,
+		y: 10,
+		rotation: 360
+		});
+
+		var tween2 = TweenMax.to('#animate2', 0.3, {
+		color: "#ffc952",
+		scale: 4,
+		y: 10,
+		rotation: 360
+		});
+
+		var tween3 = TweenMax.to('#animate3', 0.3, {
+		color: "#6a60a9",
+		scale: 4,
+		y: 10,
+		rotation: 360
+		});
+
+		var scene1 = new ScrollMagic.Scene({
+			triggerElement: "#trigger1"
+		
+		})
+		.setClassToggle('.info1', 'active')
+		.setTween(tween1)
+		.addTo(controller)
+		.addIndicators({
+			name: "1"
+		});
+
+
+		var scene2 = new ScrollMagic.Scene({
+			triggerElement: "#trigger2"
+		})
+		.setClassToggle('.info2', 'active')
+		.setTween(tween2)
+		.addTo(controller)
+		.addIndicators({
+			name: "2"
+		});
+
+		var scene3 = new ScrollMagic.Scene({
+			triggerElement: "#trigger3"
+		})
+		.setClassToggle('.info3', 'active')
+		.setTween(tween3)
+		.addTo(controller)
+		.addIndicators({
+			name: "3"
+		});
+				
+	
+	
+	}
+
+</script>
+
+</body>
+
+</html>
+

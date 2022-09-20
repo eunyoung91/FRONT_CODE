@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+.product-eco{
+	min-width:1200px;
+	overflow:hidden;
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		letter-spacing:-1px;
+	}
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	img { border: 0; vertical-align: top;}
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap{
+		position:relative;
+		width:1200px;
+		margin:0 auto;
+		text-align:center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.holder { position: relative; }
+
+	.wing-right {
+		position: fixed;
+		top: 250px;
+		right: 10px;
+		width: 190px;
+		border-radius: 0 30px 0 30px;
+		overflow: hidden;
+		z-index: 10;
+		@include boxShadow(0 0 10px 0 rgba(0, 0, 0, .1));
+		.wing-title{
+			border-radius: 0 30px 0 0;
+		}
+	}
+	.action {
+		position: relative;
+		a {
+			@include arrow(right, 10px, 10px, 3px, #fff);
+			display: block;
+			width: 100%;
+			padding: 45px 0;
+			font-weight: 900;
+			letter-spacing: -2px;
+			font-size: 34px;
+			line-height: 1;
+			background: #080d0a;
+			color:#fff;
+			&:before {
+				right: 80px;
+			}
+		}
+	}
+	
+	.icon-pointer {
+		@include pointer(50%, 0, 80px, 88px, 1, bounce);
+	}
+	.slick-arrow {
+		@extend %slick-arrow;
+		top: 50%;
+		border-radius: 50%;
+		left: 50% !important;
+		z-index: 112;
+		&.slick-prev {
+			@include slideArrow(left, 50px, 50px, 3px, #fff, rgba(0,0,0, .7));
+			margin-left: -628px; 
+		}
+		&.slick-next {
+			@include slideArrow(right, 50px, 50px, 3px, #fff, rgba(0,0,0, .7));
+			margin-left: 560px;
+		}
+	}
+
+	.notice {
+		text-align: right;
+		font-size: 14px;
+		font-weight: 400;
+		letter-spacing: -1px;
+		color: rgba(0,0,0, .4);
+		line-height: 1.5;
+	}
+
+	.sector-title{
+		@include bg($url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+		height: 883px;
+		.wrap {
+			img{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			a{
+				top: 677px;
+				width: 681px;
+				height: 131px;
+				&::after{right: 0;}
+			}
+			.flag{
+				position: absolute;
+				top: 640px;
+				left: calc(50% - 155px);
+				width: 310px;
+				height: 90px;
+				line-height: 60px;
+				@include bg($url: '#{$img-path}/pc/title_flag.png', $size: contain);
+				font-size: 20px;
+				font-weight: 500;
+				letter-spacing: -0.5;
+				color: #fff;
+				@include animation(imgBounce, 1s, $iteration: infinite){
+					0%, 100% { @include translateY(0); }
+					50% { @include translateY(-10px); }
+				}
+			}
+		}
+	}
+
+	.sector-intro {
+		@include linear-gradient(to bottom, #ec5985 0%, #f285ad 100%);
+		position: relative;
+        overflow: hidden;
+        .stamp{
+            position: absolute;
+			top: -300px;
+			left: -500px;
+            transform: translateX(-50%);
+        }
+	}
+
+	.sector-banner-1 {
+		background: #b8e9ff;
+	}
+
+	.sector-lineup {
+		background: #fff;
+        .tab-list {
+            display: flex;
+            justify-content: space-between;
+            width: 1200px;
+			height: 158px;
+            margin: 0 auto;
+            font-size: 0;
+            a {
+                @extend %variable;
+                position: relative;
+                display: block;
+                width: 549px;
+                height: 158px;
+				span{display: none;}
+                &.tab-1{
+                    @include bg($url: '#{$img-path}/pc/tab1-off.png', $size: cover);
+                    &.active{
+                        @include bg($url: '#{$img-path}/pc/tab1-on.png', $size: cover);
+                    }
+                }
+                &.tab-2{
+                    @include bg($url: '#{$img-path}/pc/tab2-off.png', $size: cover);
+                    &.active{
+                        @include bg($url: '#{$img-path}/pc/tab2-on.png', $size: cover);
+                    }
+                }
+            }
+        }
+        .tab-view {
+            position: relative;
+            z-index: 1;
+            display: none;
+            height: 1075px;
+            overflow: hidden;
+            &.tab-view-1 { background-color: #ffe3e6; }
+            &.tab-view-2 { background-color: #b8e9ff; }
+            &.active {
+                display: block;
+            }
+            .wrap{width: 1200px;}
+            .video-box{
+                position: absolute;
+                top: 261px;
+                right: 0;
+				width: 632px;
+				height: 355px;
+				a{
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 1;
+					width: 100%;
+					height: 100%;
+				}
+            }
+            .teacher {
+                position: absolute;
+                top: 250px;
+                left: -60px;
+				z-index: -1;
+            }
+            .home {
+                position: absolute;
+                top: 645px;
+                right: 0;
+            }
+            .text-list {
+                position: absolute;
+                top: 670px;
+                right: 0;
+            }
+        }
+    }
+
+	.sector-banner-2 {
+		background: #e04478;
+	}
+
+	.sector-event {
+		padding-bottom: 120px;
+		.gray-bg{
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 615px !important;
+			background-color: #f6f7f8;
+		}
+		a{margin-top: 40px;}
+		.flag{
+			position: absolute;
+			top: 360px;
+			left: 170px;
+			width: 311px;
+			height: 106px;
+			line-height: 67px;
+			@include bg($url: '#{$img-path}/pc/event_flag.png', $size: contain);
+			font-size: 20px;
+			font-weight: 500;
+			letter-spacing: -0.5;
+			color: #fff;
+			@extend .effect-blink;
+			@include animationDelay(1s);
+		}
+	}
+
+	.sector-banner-3 {
+		@include bg($url: '#{$img-path}/pc/bg_banner_3.jpg', $size: cover);
+	}
+}

@@ -1,0 +1,259 @@
+// wrap
+#wrap {
+	position: relative;
+}
+
+// header
+#header {
+	@extend .grid;
+	.inner{
+		width:100%;
+	}
+	.upper {
+		position: relative;
+		margin: 0 auto;
+		@extend %clearfix;
+		width: $layout-desktop;
+		padding: 0;
+		padding: 30px 0;
+		height: 84px;
+		@include boxSizing(border-box);
+		a { display: inline-block;}
+		.eduwill {
+            width: 86px;
+            /*height: 25px;
+			background: url('#{$img-path}/logo.png');*/
+			height: 30px;
+			background: url('https://img.eduwill.net/Img2/Common/BI/type2/live/logo.svg');
+			background-size: cover;
+		}
+		.logo-text {
+			position: relative;
+			top: -3px;
+			color: $color-base-dark;
+			font-size: 23px;
+			margin-left:8px;
+			span {
+				letter-spacing: -1px;
+			}
+		}
+	}
+	.util {
+		position: absolute;
+		top: 33px;
+		right: 0;
+		text-align: right;
+		.search {
+			position: relative;
+			display: inline-block;
+			a {
+				position: relative;
+				display: block;
+				width: 180px;
+				height: 30px;
+				background: #f1f1f1;
+				border-radius: 50px;
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					right: 16px;
+					top: 50%;
+					width: 17px;
+					height: 17px;
+					margin-top: -9px;
+					background: url('#{$img-path}/common/btn_search.png') 0 0 no-repeat;
+					background-size: 100%;
+				}
+			}
+			.search-layer {
+				position: absolute;
+				top: -9px;
+				right: 0;
+				width: 450px;
+				height: 45px;
+				border-bottom: 1px solid $border-color-black;
+				@include boxSizing(border-box);
+				background: $bg-color-white;
+				.search-inner {
+					&:after {
+						content:'';
+						display: block;
+						clear: both;
+					}
+					input {
+						float: left;
+						padding: 0 8px;
+						width: 400px;
+						height: 42px;
+						font-size: 15px;
+						font-weight: 400;
+						color: $color-black;
+						border: 0;
+						@include boxSizing(border-box);
+						&:focus {
+							outline:none;
+						}
+					}
+					.btn-search {
+						float: left;
+						width: 50px;
+						height: 44px;
+						border: 0;
+						cursor: pointer;
+						background: url('#{$img-path}/btn_search.png') 50% 50% no-repeat;
+						&:focus {
+							outline:none;
+						}
+					}
+				}
+			}
+		}
+		.login {
+			position: relative;
+			display: inline-block;
+			line-height: 30px;
+			vertical-align: top;
+			margin-left: 27px;
+			.user {
+				display: inline-block;
+			}
+			.btn-join {
+				color: $color-base-medium;
+				font-size: 12px;
+				font-weight: 400;
+				margin-right: 13px;
+			}
+			.btn-login {
+				padding: 0 16px;
+				border-radius: 3px;
+				background: $button-color-1;
+				color: $color-base-dark;
+				font-size: 12px;
+				
+			}
+			.btn-logout {
+				padding-right: 27px;
+				font-size: 12px;
+				text-align: right;
+				color: $color-base-medium;
+				background: url('#{$img-path}/common/icon_logout.png') 94% 50% no-repeat;
+				span {
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	.lower {
+		position: relative;
+		.gnb {
+			position: relative;
+			margin: 0 auto;
+			@extend %clearfix;
+			width: $layout-desktop;
+			padding: 0;
+			.col {
+				width:20%;
+				&:hover{
+					a{
+						color:$color-yellow;
+						font-weight: bold;
+					}
+				}
+				&.in{
+					a{
+						color:$color-yellow;
+						font-weight:bold;
+					}
+				}
+				>a {
+					display: block;
+					@include boxSizing(border-box);
+					font-size: 15px;
+					color: $color-black;
+					font-weight: 400;
+					line-height: 50px;
+					letter-spacing: normal;
+					span{
+						padding-left: 30px;
+					}
+				}
+			}
+		}
+		.menu{
+			//display: none;
+			margin: 0 auto;
+			@include boxSizing(border-box);
+			padding: 0;
+			background-color:$bg-color-white;
+			border-top: 1px solid $border-color-light;
+			position: absolute;
+			top:50px;
+			left:0;
+			right:0;
+			z-index:7;
+			height:0;
+			box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+			ul{
+				width: $layout-desktop;
+				margin:0 auto;
+				overflow:hidden;
+				height:100%;
+				li{
+					position: relative;
+					width:20%;
+					float:left;
+					padding:19px 0 24px 19px;
+					&:before{
+						content:'';
+						position: absolute;
+						top:0;
+						left:0;
+						width:1px;
+						height:200px;
+						background-color:$border-color-light;
+					}
+					&:last-child{
+						&:after{
+							content:'';
+							position: absolute;
+							top:0;
+							right:0;
+							width:1px;
+							height:200px;
+							background-color:$border-color-light;
+						}	
+					}
+					a{
+						display:block;
+						padding-bottom:9px;
+						font-size: 13px;
+						letter-spacing: -.43px;
+						span{
+							display:inline-block;
+							line-height:1.4;
+						}
+						&:hover{
+							color:$color-yellow;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// container
+#container {
+	height: 100%;
+	background-color: $bg-color-white;
+}
+
+// inner
+.inner {
+	position: relative;
+	margin: 0 auto;
+	@extend %clearfix;
+	width: $layout-desktop;
+	padding: 0;
+}

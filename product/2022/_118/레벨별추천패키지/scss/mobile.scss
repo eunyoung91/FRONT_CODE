@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+/* 공통 */
+.product-eco {
+	[class*="sector-"]{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.5s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+}
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	.sector-visual{
+		background: linear-gradient(145deg, #7bd0ff 20%, #6fe7ff 100%);
+	}
+	.sector-subject {
+		background-color: #deeafd;
+	}
+	.sector-test {
+		background-color: #fed444;
+	}
+}

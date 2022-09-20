@@ -1,0 +1,536 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+body { line-height: inherit;}
+.eduf-layer {
+	* {
+		font-family: $font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	.eduf-layer-wrap {
+		.popup-title {
+			position: relative;
+			@include vw(padding, 30px 0 50px);
+			p{
+				text-align: left;
+				strong{
+					color:#000;
+					font-family:$font-noto;
+					font-weight: 900;
+					line-height: 1;
+					@include vw(letter-spacing, -2px);
+					@include vw(font-size, 35px);
+				}
+			}
+		}
+
+		.eduf-layer-content {
+			text-align: left;
+			background: #fff;
+			@include vw(padding, 30px 40px 40px);
+			&::-webkit-scrollbar { @include vw(width, 8px);}
+			&::-webkit-scrollbar-track { background: #f1f1f1;}
+			&::-webkit-scrollbar-thumb { background: #888;}
+			&::-webkit-scrollbar-thumb:hover { background: #666;}
+			
+			.form {
+				@include vw(padding-bottom, 30px);
+				.form-title,
+				.label-title {
+					position: relative;
+					font-weight: 700;
+					color: #010101;
+					@include vw(font-size, 28px);
+					@include vw(letter-spacing, -1.5px);
+					@include vw(margin-bottom, 14px);
+					strong {
+						color: #aaa;
+						&.comp {
+							color: #ec303d;
+						}
+					}
+					@include breakpoint(maxMobile){
+						font-size: 20px;
+					}
+				}
+				.col {
+					width: 49%;
+					input[type="text"] {
+						@include vw(padding, 15px 20px);
+						@include vw(height, 60px);
+						@include vw(font-size, 20px);
+						width: 100%;
+						font-weight: 700;
+						color: #000;
+						border: 1px solid #dbdbdb;
+					}
+					&.col-left { float: left;}
+					&.col-right { float: right;}
+					&.col-full { float: none; width: 100%;}
+					.select-form {
+						position: relative;
+						select {
+							@include vw(padding, 15px 20px);
+							@include vw(height, 60px);
+							@include vw(font-size, 20px);
+							@include vw(letter-spacing, -1.5px);
+							width: 100%;
+							font-weight: 700;
+							color: #aaa;
+							border: 1px solid #dbdbdb;
+						}
+						&:after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 50%;
+							right: 1px;
+							@include vw(width, 43px);
+							@include vw(height, 16px);
+							@include translateY(-50%);
+							background: url('#{$img-path}/pc/icon_arrow.jpg') 0 0 no-repeat;
+							background-size: cover;
+							z-index: 1;
+						}
+					}
+				}
+				.type-check {
+					input {
+						position: relative;
+						display: inline-block;
+						vertical-align: top;
+						@include vw(top, 5px);
+						@include vw(margin-right, 5px);
+						@include vw(width, 30px);
+						@include vw(height, 30px);
+						@include breakpoint(maxMobile){
+							top: 0;
+							width: 24px;
+							height: 24px;
+						}
+					}
+					label {
+						font-weight: 400;
+						color: #000;
+						vertical-align: top;
+						@include vw(font-size, 28px);
+						@include vw(letter-spacing, -1.5px);
+						+ input {
+							@include vw(margin-left, 20px);
+						}
+						@include breakpoint(maxMobile){
+							font-size: 20px;
+						}
+					}
+				}
+				.filebox {
+					position:relative;
+					width:100%;
+					@include boxSizing(border-box);
+					@extend .grid;
+					input[type="file"] {
+						position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+					}
+					input {
+						outline: none;
+						&.upload-name {
+							@extend .col;
+							@include vw(padding, 20px); 
+							@include vw(height, 80px);
+							@include vw(font-size, 24px);
+							width: 70%;
+							border: 1px solid #bbb;
+							border-right: 0;
+							border-radius: 5px 0 0 5px;
+							@include breakpoint(maxMobile){
+								font-size: 20px;
+								height: 50px;
+							}
+						}
+					}
+					label {
+						@extend .col;
+						@include vw(padding, 25px 0);
+						@include vw(height, 80px);
+						@include vw(font-size, 26px);
+						@include vw(letter-spacing, -2px);
+						line-height: 1;
+						font-weight: 700;
+						width: 30%;
+						color: #666;
+						border: 1px solid #bbb;
+						background-color: #eee;
+						border-radius:  0 5px 5px 0;
+						text-align:center;
+						cursor:pointer;
+					}
+					@include breakpoint(maxMobile) {
+						label,
+						.upload-name {
+							height: 50px;
+							font-size: 20px;
+							padding: 0 20px;
+							line-height: 50px;
+						}
+						label {
+							@include arrow(right, 10px, 10px, 2px, #666);
+							&:before{
+								@include vw(right, 30px);
+							}
+						}
+					}
+				}
+				&.text-write {
+					textarea {
+						@include vw(padding, 20px);
+						@include vw(height, 140px);
+						width: 100%;
+						text-align: left;
+						line-height: 1.4;
+						font-weight: 400;
+						@include vw(font-size, 26px);
+						resize:  none;;
+						border: 1px solid #dcdcdc;
+						@include boxSizing(border-box);
+						@include breakpoint(maxMobile){
+							font-size: 14px;
+							color: #222;
+						}
+					}
+				}
+				&.number {
+					.label-title {
+						width: 30%;
+						@include vw(padding-top, 15px);
+						@include vw(padding-bottom, 15px);
+						&:before {
+							@include vw(top, 36px);
+						}
+						@include breakpoint(maxMobile) {
+							padding-top: 0;
+							padding-bottom: 0;
+							height: 50px;
+							line-height: 50px;
+							&:before {top: 22px;}
+						}
+					}
+					.inputs {
+						width: 70%;
+						select,
+						input {
+							width: 100%;
+							@include vw(padding, 20px);
+							@include vw(font-size, 26px);
+							border: 1px solid #bbb;
+							border-radius: 5px;
+							@include boxSizing(border-box);
+							@include breakpoint(maxMobile) {
+								height: 50px;
+								font-size: 20px;
+								padding: 0 20px;
+								line-height: 50px;
+							}
+						}
+					}
+				}
+				+ .form {
+					@include vw(padding-top, 30px);
+					border-top: 1px dashed #ddd;
+				}
+				&.privacy { @include vw(margin-top, 40px);}
+				&.approve {
+					text-align: center;
+					.form-title {
+						@include vw(font-size, 28px);
+						@include breakpoint(maxMobile){
+							font-size: 22px;
+						}
+					}
+				}
+				p {
+					font-weight: 400;
+					color: #979797;
+					@include vw(font-size, 24px);
+					@include vw(letter-spacing, -1.5px);
+					@include breakpoint(maxMobile){
+						font-size: 16px;
+					}
+				}
+				table {
+					width: 100%;
+					@include vw(margin-top, 10px);
+					thead {
+						th {
+							@include vw(padding, 14px 0);
+							@include vw(font-size, 20px);
+							@include vw(letter-spacing, -1.5px);
+							font-weight: 700;
+							color: #000;
+							text-align: center;
+							background: #f6f6f6;
+							border-left: 1px solid #dbdbdb;
+						}
+						tr {
+							th:first-child {border-left: 0;}
+						}
+					}
+					tbody {
+						td {
+							@include vw(padding, 14px 0);
+							@include vw(font-size, 20px);
+							@include vw(letter-spacing, -1.5px);
+							font-weight: 400;
+							color: #000;
+							text-align: center;
+							border-bottom: 1px solid #dbdbdb;
+							border-left: 1px solid #dbdbdb;
+							strong { color: #ec303d;}
+						}
+						tr {
+							td:first-child {border-left: 0;}
+						}
+					}
+					@include breakpoint(maxMobile){
+						thead th,
+						tbody td { font-size: 18px;}
+					}
+
+					+ p { @include vw(margin-top, 10px);}
+				}
+				.agree-check {
+					@include vw(margin-top, 30px);
+					input {
+						position: relative;
+						display: inline-block;
+						vertical-align: top;
+						@include vw(top, 5px);
+						@include vw(margin-right, 5px);
+						@include vw(width, 30px);
+						@include vw(height, 30px);
+						@include breakpoint(maxMobile){
+							top: 0;
+							width: 24px;
+							height: 24px;
+						}
+					}
+					label {
+						font-weight: 700;
+						color: #000;
+						vertical-align: top;
+						@include vw(font-size, 28px);
+						@include vw(letter-spacing, -1.5px);
+						+ input {
+							@include vw(margin-left, 20px);
+						}
+						@include breakpoint(maxMobile){
+							font-size: 20px;
+						}
+					}
+				}
+
+				.scroll-box {
+					@include vw(padding, 20px);
+					@include vw(margin, 10px 0);
+					background: #f8f8f8;
+					color: #555;
+					line-height: 1.5;
+					word-break: keep-all;
+					@include vw(letter-spacing, -1.5px);
+					@include vw(font-size, 24px);
+					strong, span {
+						display: block;
+						line-height: 1.5;
+					}
+					span {
+						@include vw(margin-left, 15px);
+					}
+					em {
+						font-weight: 500;
+						color: #000;
+						@include vw(font-size, 28px);
+					}
+					.highlight {
+						color: #ec303d;
+					}
+					@include breakpoint(maxMobile){
+						font-size: 14px;
+						em { font-size: 16px;}
+					}
+				}
+			}
+
+			.tip-note {
+				@include vw(margin-top, 10px);
+				@include vw(font-size, 20px);
+				color: #999;
+				word-break: keep-all;
+				font-weight: 400;
+				@include breakpoint(maxMobile) {
+					font-size: 15px;
+				}
+			}
+
+			.popup-btn {
+				@include vw(margin-top, 60px);
+				text-align:center;
+				@extend %clearfix;
+				a, button {
+					position: relative;
+					display: block;
+					width: 100%;
+					margin: 0 auto;
+					text-align: center;
+					background: #ec303d;
+					@include vw(height, 80px);
+					@include boxSizing(border-box);
+					span {
+						text-align: center;
+						color: #fff;
+						font-weight: 900;
+						@include vw(font-size, 35px);
+						@include vw(letter-spacing, -2px);
+						@include vw(line-height, 80px);
+					}
+				}
+			}
+
+			.base-contents {
+				.list {
+					li {
+						color: #222;
+						line-height: 1.5;
+						word-break: keep-all;
+						@include vw(font-size, 22px);
+						@include vw(letter-spacing, -1px);
+						@include breakpoint(minDesktop) {
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+	&.eduf-layer-form {
+		.eduf-layer-wrap {
+			width: 100% !important;
+			max-width: 720px !important;
+			.eduf-layer-close { background-color: #fff;}
+		}
+		::placeholder {
+			color: #ccc !important;
+			font-weight: 700;
+			@include vw(font-size, 20px);
+			@include vw(letter-spacing, -1px);
+		}
+	}
+
+	&.eduf-layer-story {
+		//display: flex;
+		.eduf-layer-wrap {
+			width: 100% !important;
+			max-width: 600px !important;
+			.eduf-layer-close {
+				background-color: #393939;
+				&:before,
+				&:after { background-color: #fff;}
+			}
+		}
+		::placeholder {
+			color: #333 !important;
+			font-weight: 400;
+			@include vw(font-size, 24px);
+			@include vw(letter-spacing, -1px);
+			@include breakpoint(maxMobile) {
+				font-size: 16px;
+			}
+		}
+		.eduf-layer-content {
+			padding: 0;
+			.popup-title {
+				position: relative;
+				@include vw(padding, 40px);
+				background: #393939;
+				border-radius: 0;
+				p{
+					text-align: left;
+					strong{
+						display: block;
+						color:#fff;
+						font-family:$font-noto;
+						font-weight: 900;
+						line-height: 1.3;
+						@include vw(letter-spacing, -2px);
+						@include vw(font-size, 35px);
+					}
+					span {
+						@include vw(margin-top, 20px);
+						display: inline-block;
+						line-height: 1.3;
+						font-weight: 400;
+						color: rgba(255,255,255, .6);
+						@include vw(font-size, 26px);
+						@include breakpoint(maxMobile){
+							font-size: 14px;
+						}
+					}
+				}
+			}
+			.popup-cont {
+				@include vw(padding,  40px 30px);
+			}
+			.ex-text {
+				@include vw(margin-bottom, 20px);
+				color: #999;
+				line-height: 1.5;
+				font-weight: 500;
+				@include vw(font-size, 28px);
+				@include breakpoint(maxMobile){
+					font-size: 16px;
+				}
+			}
+			.popup-btn {
+				@include vw(margin-top, 30px);
+				text-align:center;
+				@extend %clearfix;
+				a, button {
+					position: relative;
+					display: inline-block;
+					width: 45%;
+					box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18);
+					-webkit-box-shadow: inset 3px 3px 2px 0px rgba(255,255,255,0.18);
+					@include transition(all .9, color .3);
+					@include vw(border-radius, 5px);
+					@include vw(height, 60px);
+					@include boxSizing(border-box);
+					span {
+						display: block;
+						width: 100%;
+						text-align: center;
+						color: #000;
+						font-weight: 700;
+						@include vw(font-size, 20px);
+						@include vw(letter-spacing, -2px);
+						@include vw(line-height, 60px);
+					}
+					&.btn-apply {
+						@include linear-gradient(to bottom, rgba(255,213,0,1) 0%, rgba(255,213,0,1) 89%, rgba(233,194,0,1) 96%, rgba(233,194,0,1) 100%);
+					}
+					&.btn-cancle {
+						background-color: #cbcbcb;
+					}
+					+ a,button {
+						@include vw(margin-left, 10px);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+

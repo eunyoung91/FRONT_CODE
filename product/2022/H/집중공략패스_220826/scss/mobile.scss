@@ -1,0 +1,391 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+.product-eco {
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		letter-spacing: -1px;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	p {
+		line-height:100%;
+		margin: 0;
+		//text-align: left;
+		@include vw(font-size,20px);
+		color: #666;
+		&.notice { @include rem(margin-top, 10px); }
+		&.brand,
+		&.survey { position: absolute; }
+	}
+	.bg{background: #fbf6eb;}
+	.slick-dots {
+		width: 100%;
+		@include rem(margin-top, 30px);
+		text-align: center;
+		li {
+			display: inline-block;
+			@include rem(margin, 0 6px);
+			button {
+				@include rem(width, 20px);
+				@include rem(height, 20px);
+				text-indent: -9999em;
+				border: none;
+				border-radius: 50%;
+				background-color: #b2b2b2;
+				outline: none;
+				cursor: pointer;
+			}
+			&.slick-active {
+				button {
+					@include rem(width, 55px);
+					@include rem(border-radius, 15px);
+					background-color: #ffc20e;
+				}
+			}
+		}
+	}
+
+	.action{
+		a{
+			position: relative;
+			display: inline-block;
+		}
+	}
+	.pointer {
+		display: inherit !important;
+		@include pointer(80%, 16%, 60px, 66px, 12, bounce);
+	}
+	.point-color{color:#ff3a1e}
+	.eco{
+		position: absolute;
+		@include vw(left,50px);
+		@include vw(top,237px);
+		@include vw(width,620px);
+		text-align: left;
+		p{
+			@include vw(padding-top,5px);
+			line-height: 1.2;
+			@include vw(text-indent,-15px);
+			@include vw(padding-left,8px);
+		}
+	}
+
+	.sector{
+		&-title {
+			position: relative;
+			background: url('#{$img-path}/mobile/bg_title.jpg')no-repeat center;
+			background-size: cover;
+			margin:0 auto;
+			.action{
+				position: absolute;
+				@include vw(top,245px);
+				@include vw(right,50px);
+				@include vw(width,86px);	
+			}
+		}
+		&-benefit {
+			position: relative;
+			.action{
+				position: absolute;
+				@include vw(bottom,110px);
+				@include vw(right,30px);
+				@include vw(width,130px);	
+			}
+		}
+		&-sale{
+			@include vw(padding-bottom,110px);
+			.content-title{
+				strong{
+					font-weight: 600;
+					@include vw(font-size,42px);
+					
+				}
+			}
+			.sale-box{
+				border:2px solid #304267;
+				background-color: #fff;
+				@include vw(padding-top,30px);
+				@include vw(width,620px);
+				box-sizing: border-box;
+				@include vw(margin,20px auto 10px);
+				position: relative;
+				.title{
+					font-weight: 900;
+					@include vw(font-size,32px);
+					color:#000;
+					text-align: left;
+					line-height: 1.3;
+				}
+				.price-area{
+					position: relative;
+					border-top: 1px solid #a7a7a7;
+					@include vw(padding-bottom,65px);
+					@include vw(margin,30px 30px 0);
+					.price{
+						border-top: 1px solid #a7a7a7;
+						color:#ff3a1e;
+						@include vw(font-size,30px);
+						@include vw(padding,30px 0);
+						font-weight: 900;
+						strong{
+							color:#ff3a1e;
+							@include vw(font-size,50px);
+							font-weight: 900;
+							font-family: 'Roboto';
+						}
+					}
+				}
+				.action{
+					position: absolute;
+					bottom:0;
+					width:100%;
+					a{
+						display: block;
+						background: #304267;
+						color: #fff;
+						@include vw(font-size,22px);
+						font-weight: 900;
+						border-radius: 0;
+						@include vw(padding,20px);
+						position: relative;
+						&:after{
+							border:none;
+							@include vw(width,60px);
+							@include vw(height,66px);
+						}
+						&:before{
+							content: ' 〉';
+							font-weight: 900;
+							position: absolute;
+							@include vw(right,20px);
+							@include vw(font-size,15px);
+							font-family: serif;
+							top: 41%;
+
+						}
+					}
+				}
+			}
+			
+			.form-control {
+				text-align: left;
+				box-sizing: border-box;
+				@include vw(padding,0  0 0 30px);
+				.form-list {
+					@extend %clearfix;
+					@include vw(padding-bottom,30px);
+					@include vw(margin-top,21px);
+					.fake-checkbox {
+						position: relative;
+						float: left;
+						width: 50%;
+						@include vw(margin-bottom,5px);
+						
+					}
+					input.checkbox {
+						@extend .sr-only;
+						&:checked + label { background-image: url('#{$img-path}/mobile/icon_checked.png');@include vw(background-size,20px); }
+					}
+					label {
+						@include vw(padding-left,34px);
+						@include vw(font-size,26px);
+						line-height: 1;
+						font-weight: 400;
+						cursor: pointer;
+						background-image: url('#{$img-path}/mobile/icon_check.png');
+						@include vw(background-size,20px);
+						background-repeat: no-repeat;
+						background-position: left center;
+					}
+				}
+				.info {
+					// margin: 12px 0 0 8px;
+					// @extend .notice;
+				}
+				// & + .action { margin: 30px 0 0 7px; }
+			}
+		}
+		&-select{
+			span{
+				display: inline-block;
+				position: absolute;
+				@include vw(top,388px);
+				@include vw(right,20px);
+				@include vw(width,132px);
+
+
+			}
+			.one{
+				position: absolute;
+				@include vw(top,412px);
+			}
+		}
+		&-band{
+			position: relative;
+			@include vw(padding,40px 0 50px);
+			background-color:#304267 ;
+			.content-title-center strong{
+				font-weight: 600;
+				@include vw(font-size,42px);
+				display: inline-block;
+				line-height: 1.3;
+				.color-point{color:#ffdf4b}
+			}
+			.brand{
+				@include vw(padding-top,5px);
+				p{color:rgba(255,255,255,0.4)}
+			}
+		}
+		&-plan{
+			.eco{
+				@include vw(top,287px);
+			}
+		}
+		&-teacher{
+			.action{
+				position: absolute;
+				@include vw(right,50px);
+				@include vw(top,223px);
+			}
+			.gif{
+			    position: absolute;
+				@include vw(width,560px);
+				@include vw(top,980px);
+				left:0;
+				right:0;
+				margin:0 auto;
+			}
+		}
+		&-book{
+			.action{
+				position: absolute;
+				@include vw(right,50px);
+				@include vw(top,183px);
+			}
+			.slider-single-dots{
+				@include vw(width,620px);
+				position: absolute;
+				left:0;
+				right:0;
+				margin:0 auto;
+				@include vw(top,823px);
+				&.review{
+				width:100%;
+				@include vw(top,823px);
+				}
+			}
+			.slick-dots{
+				position: absolute;
+				@include vw(top,560px);
+				z-index: 99;
+			}
+		}
+		&-service{
+			.action{
+				position: absolute;
+				@include vw(right,50px);
+				@include vw(top,220px);
+			}
+		}
+		&-winner{
+			background: linear-gradient(135deg, rgba(255,191,0,1) 0%,rgba(255,234,0,1) 100%);
+			overflow: hidden;
+			@include rem(padding-bottom, 50px);
+			.winner-wrap {
+				position: relative;
+				height: auto;
+				@include rem(margin-top, -40px);
+				position: relative;
+				.winner-list{
+				@include rem(padding, 50px 0);
+				position: relative;
+				transform: perspective(400px) rotateX(35deg);
+				overflow: hidden;
+					p {
+						text-align: center;
+						line-height: 2;
+						@include vw(font-size,20px);
+						font-weight: 400;
+						color: #222;
+					}
+				}
+			}
+		}
+		&-review{
+			@include rem(padding-bottom, 80px);
+			.action{
+				position: absolute;
+				@include vw(top,235px);
+				@include vw(left,50px);
+				a{
+					background: #ff3a1e;
+					color:#fff;
+					border-radius: 3px;
+					&:after{border-color: #fff;}
+					.point-color{color:#ffdf4b;font-weight: bold;}
+				}
+			}
+			.slick-slider{@include vw(margin-top,20px);}
+			.slick-dots{
+				position: relative;
+				@include vw(top,-40px);
+			}
+		
+		}
+		&-increase{
+			.eco{
+				@include vw(top,287px);
+			}
+		}
+		&-skill{
+			.action{
+				position: absolute;
+				@include vw(right,50px);
+				@include vw(top,210px);
+			}
+		}
+		&-accumulate{
+			.action{
+				position: absolute;
+				@include vw(right,50px);
+				@include vw(top,280px);
+			}
+		}
+		
+	}
+}
+.popup-body{
+	.eco-5142{padding-top:15px}
+	.eco-5142 div p{
+		color:#333 !important;
+		opacity: 1 !important;
+		font-weight: 400 !important;
+	}
+}
+.sector-unbreakable {
+	background:none !important;
+	 .unbreakable-list:before {
+		 background: linear-gradient(180deg, #fbf6eb 0%, rgba(255, 255, 255, 0) 100%) !important;
+	 }
+	 .unbreakable-list:after {
+		 background: linear-gradient(0deg,#fbf6eb 0%, rgba(255, 255, 255, 0) 100%) !important;
+	 }
+ 
+ }
+ 

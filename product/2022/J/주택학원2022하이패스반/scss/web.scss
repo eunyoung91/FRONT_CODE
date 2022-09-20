@@ -1,0 +1,100 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";  
+
+.fix-apply{opacity:0;}
+p{
+	line-height:1;
+	font-family: $font-noto;
+	margin:0;
+}
+.product-eco{
+
+	.house{
+		&-visual{
+			@include bg($color: #BC0BDD, $url: '#{$img-path}/pc/bg_visual.jpg', $size: cover);
+			height:1070px;
+			&:after{
+				display:none;
+			}
+		}
+		&-price{
+			.price-group{
+				position:relative;
+				.before{
+					font-size:30px;
+					color:#333;
+					text-decoration: none;
+				}
+			}
+			.after-price{ font-size:40px;}
+			.btn-apply{
+				&:before{ top:55% !important; right:0 !important; }
+				@include pointer(50%, 0, 57px, 65px, 12, bounce);
+			}
+		}
+		&-provide{
+			background-image: none;
+			background-color: #be3ef1 !important;
+			padding-bottom: 120px;
+			&:after{
+				background: url(https://img.eduwill.net/eduwill/img/2022/J/product/220607/pc/icon_provide.png) no-repeat 0 0;
+			}
+			.list-group ul li{
+				background-color: #74139b;
+				border:1px solid #74139b;
+			}
+			.list-text{
+				color:#dd89ff;
+			}
+		}
+		&-winner-list{
+			padding-top: 60px;
+		}
+
+		&-academy-teacher2{
+			@include bg($url: '#{$img-path}/pc/bg_teacher2.jpg', $size: cover);
+			padding-bottom: 120px;
+			.teacher-list{
+				ul{
+					@extend %clearfix;
+					li{
+						float:none !important;
+						a{display:block;}
+					}
+				}
+				.teacher-main{
+					text-align: center;
+					margin:0 auto;
+					>div{
+						width:1100px;
+						background-color: #fff;
+						height:472px;
+						@extend %clearfix;
+						margin:0 auto;
+						text-align:center;
+						position: relative;
+						a{
+							position: absolute;
+							left:0;
+							right:0;
+							margin:0 auto;
+							z-index:5;
+							display:inline-block;
+							height:472px;
+							float:left;
+							&:last-child{
+								left:50%;
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+}

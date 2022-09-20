@@ -1,0 +1,150 @@
+// display flex
+%flexCenter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-item: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+// clearfix
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%textEllipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
+%sr-only {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    padding: 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    text-indent: -9999px;
+}
+
+%grid {
+    position: relative;
+    @extend %clearfix;
+    @include boxSizing(border-box);
+}
+
+%col-left {
+    position: relative;
+    float: left;
+    @include boxSizing(border-box);
+}
+
+%col-right {
+    position: relative;
+    float: right;
+    @include boxSizing(border-box);
+}
+
+%max160 {
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto;
+}
+
+%max400 {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+%max480 {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+%max720 {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+%list {
+    margin: 0 percent(32);
+    @include rem(margin-top, 32px);
+    a { display: block; }
+}
+
+%listBox {
+    position: relative;
+    @include rem(margin-top, 12px);
+    overflow: hidden;
+    @include rem(border-radius, 4px);
+    @include boxShadow(0 6px 20px 0 rgba(0, 0, 0, .2));
+    background-color: #fff;
+    &:first-child { margin-top: 0; }
+    a { display: block; }
+}
+
+%slide {
+    @include rem(padding-top, 32px);
+    padding-right: percent(32);
+    @include rem(padding-bottom, 40px);
+    padding-left: percent(32);
+}
+
+%slideBox {
+    position: relative;
+    @include rem(border-radius, 4px);
+    @include boxShadow(0 9px 28px 0 rgba(0, 0, 0, .2));
+}
+
+%box {
+    @extend %max400;
+    @include vw(border-radius, 10px);
+    background: #fff;
+    overflow: hidden;
+    @include boxShadow(3px 3px 18px 0px rgba(0, 0, 0, 0.2));
+    &:first-child { margin-top: 0; }
+}
+
+%bgTail {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    @include rem(height, 72px);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 100% auto;
+}
+
+// 선택불가
+%disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}

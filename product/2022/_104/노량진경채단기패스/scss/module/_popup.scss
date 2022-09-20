@@ -1,0 +1,125 @@
+.popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 200;
+    display: none;
+    @include vw(width, 680px);
+    max-width: 720px;
+    letter-spacing: -1px;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+        max-width: 1000px;
+    }
+    * { font-family: $font-noto; }
+    .popup-close{
+		position: absolute;
+        @include vw(top, 12px);
+        @include vw(right, 10px);
+		display: block;
+		@include vw(width, 56px);
+		@include vw(height, 56px);
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			@include vw(width, 28px);
+			@include vw(height, 3px);
+			@include vw(margin-left, -14px);
+			@include vw(border-radius, 3px);
+			background-color: #fff;
+		}
+
+		&:before {
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			-webkit-transform: rotate(315deg);
+			transform: rotate(315deg);
+		}
+
+		span {
+			position: absolute;
+			display: inline-block;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			width: 0px;
+			height: 0px;
+			margin: -1px;
+			padding: 0;
+			word-break: keep-all;
+			white-space: nowrap;
+			color: transparent;
+			border: 0;
+			text-indent: -9999px;
+		}
+	}
+    .popup-body {
+        @include vw(padding, 25px);
+        text-align: left;
+        line-height: 1.4;
+        @include vw(font-size, 18px);
+        font-weight: 400;
+        color: #222;
+        // border: 2px solid #000;
+        background-color: #fff;
+    }
+}
+.popup-teacher {
+    .popup-head {
+        overflow: hidden;
+        @include vw(border-radius, 20px 20px 0 0);
+        background: #212121;
+        color: #fff;
+        @include vw(font-size, 28px);
+        line-height: 1.5;
+        font-weight: 700;
+        text-align: left;
+        @include vw(padding, 20px 42px);
+    }
+    .popup-body {
+        overflow: hidden;
+        @include vw(border-radius, 0 0 20px 20px);
+        @include vw(padding, 36px 42px 55px);
+        .title {
+            @include vw(margin-bottom, 10px);
+            @include vw(font-size, 26px);
+            color: #212121;
+            font-weight: 700;
+        }
+        .profile-list {
+            @extend %dot-list;
+            li {
+                @include vw(font-size, 22px);
+                line-height: 2;
+                font-weight: 350;
+            }
+            .dash-list {
+                @extend %dash-list;
+                li {
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}

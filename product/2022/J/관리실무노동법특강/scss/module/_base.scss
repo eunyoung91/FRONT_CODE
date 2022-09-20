@@ -1,0 +1,96 @@
+.promotion,
+.product,
+.product-eco,
+.fullservice {
+    text-align: center;
+	overflow: hidden;
+    [class^="sector-"] {
+        position: relative;
+    }
+    .wrap {
+        position: relative;
+        margin: 0 auto;
+    }
+    .wrap-full {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+	.holder{ position:relative;}
+
+	.slick-arrow {
+		position: absolute;
+		top:0;
+		text-indent:-99999px;
+		@include vw(width, 17px);
+		@include vw(height, 30px);
+        &.slick-prev{
+            left: 6%;
+			background: url('https://img.eduwill.net/eduwill/img/2022/J/product/220419/mobile/btn_prev.png') no-repeat 50% 0;
+			background-size:cover;
+        }
+        &.slick-next{
+            right: 6%;
+			background: url('https://img.eduwill.net/eduwill/img/2022/J/product/220419/mobile/btn_next.png') no-repeat 50% 0;
+			background-size:cover;
+        }
+	}
+	.slick-dots {
+        width: 100%;
+        @include vw(margin-top, 20px);
+        text-align: center;
+        li {
+            display: inline-block;
+            @include vw(margin, 0 4px);
+            button {
+                cursor: pointer;
+                text-indent: -10000em;
+                border: 0;
+                border-radius: 50%;
+				@include vw(width, 15px);
+				@include vw(height, 15px);
+                background:#bbb;
+            }
+            &.slick-active {
+                button {
+					@include vw(width, 40px);
+					@include vw(border-radius, 15px);
+					background:#ffbe00;
+                }
+            }
+        }
+    }
+	.btn{
+		&:hover{color:#999;}
+		position:relative;display:inline-block;
+		border:1px solid #bbb;
+		z-index:5;
+		line-height:1;
+		color:#999;
+		letter-spacing:-1px;
+		background-color: #fff;
+		@include vw(border-radius, 4px);
+		@include arrow(right, 5px, 5px, 1px, #bbb);
+		@include vw(font-size, 18px);
+		@include vw(padding, 10px 20px 10px 10px);
+		@include breakpoint(maxMobile){
+			@include vw(font-size, 14px);
+			@include vw(padding, 5px 20px 5px 10px);
+		}
+		&-text{
+			border-color:#222;color:#999;
+			&:after{
+				content: '';
+				background: url('https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_text.png') no-repeat 50% 0;
+				width: 13px;
+				height: 6px;
+				position: absolute;
+				right: -20px;
+				top: 50%;
+				margin-top: -3px;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,97 @@
+.header {
+    // section-intro 존재
+    .has-intro & {
+        &.header-top {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            // color: #fff;
+            // border-bottom-width: 0;
+            // background: none;
+            // .upper {
+            //     background: none;
+            //     .logo { background-image: url('//img.eduwill.net/Img2/Common/BI/type5/live/logo.svg'); }
+            // }
+            // .action a {
+            //     width: 44px;
+            //     background-size: 44px;
+            //     &.btn_category { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/main/2019/icon_menu.png'); }
+            //     &.btn_mypage { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/main/2019/icon_mypage.png'); }
+            //     &.btn_alarm { right: 40px; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/main/2019/icon_bell.png'); }
+            // }
+        }
+    }
+
+    // header-bottom 활성화
+    .header-sticky & {
+        &.header-top {
+            position: fixed;
+            top: -48px;
+            @include transition(top, .23s, ease-out);
+        }
+        &.header-bottom {
+            position: fixed;
+            top: 0;
+            @include transition(top, .2s, ease-out);
+        }
+    }
+
+    // header-top, header-bottom 활성화
+    .header-original & {
+        &.header-top {
+            position: fixed;
+            top: 0;
+            color: #000;
+            border-bottom-width: 1px;
+            background-color: #fff;
+            @include transition(top, .23s, ease-out);
+            .upper {
+                background: #fff;
+                .logo { background-image: url('//img.eduwill.net/Img2/Common/BI/type2/live/logo.svg'); }
+            }
+            .action a {
+                width: 48px;
+                background-size: 24px;
+                &.btn_category { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_menu.png'); }
+                &.btn_mypage { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_mypage.png'); }
+                &.btn_alarm { right: 40px; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_bell.png'); }
+            }
+        }
+        &.header-bottom {
+            position: fixed;
+            top: 49px;
+            @include transition(top, .23s, ease-out);
+        }
+    }
+
+    .in_app.header-original & {
+        &.header-bottom {
+            top: 0;
+        }
+    }
+
+    // scroll_menu 존재할 때 header 페이지 고정
+    .header-sticky-scroll &.header-bottom {
+        position: relative;
+        top: 0;
+    }
+
+    .page_location &.header-bottom { display: none; }
+    .page-academy-main & { display: block; }
+
+    // .in_app.page_lecture & { display: none; }
+    .in_app.page-academy-main & { display: block; }
+}
+
+// scroll_menu 상단 고정
+.header-sticky-scroll {
+    .scroll_menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 200;
+        @include transition(top, .18s, ease-out);
+    }
+}

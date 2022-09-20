@@ -1,0 +1,130 @@
+// clearfix
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// text ellipsis
+%textEllipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.sr_only,
+.sr-only {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    padding: 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    text-indent: -9999px;
+}
+
+// 그리드 작업
+.grid {
+    position: relative;
+    @extend %clearfix;
+    @include boxSizing(border-box);
+    .col {
+        position: relative;
+        float: left;
+        @include boxSizing(border-box);
+    }
+}
+
+// 테이블 작업
+.table {
+    display: table;
+    .table-cell {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+%slick-dots {
+    li {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 0;
+        button {
+            display: block;
+            font-size: 0;
+            color: transparent;
+            text-indent: -9999px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+}
+
+%slick-arrow {
+    position: absolute;
+    top: 40%;
+    z-index: 10;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-indent: -9999px;
+    border: none;
+    background: none;
+    outline: none;
+    border-width: 0;
+    border-style: solid;
+    @include transform(rotate(45deg) translateY(-50%));
+    cursor: pointer;
+}
+
+
+// animation
+.effect-bounce-diagonal {
+	@include animation(effectBounceDiagonal, .8s, $iteration: infinite){
+		0%, 100% { @include translateXY(0, 0); }
+		50% { @include translateXY(-10px, -10px); }
+	}
+}
+
+.effect-bounce-updown {
+	@include animation(effectBounceUpDown, .8s, $iteration: infinite){
+		0%, 100% { @include translateY(0); }
+		50% { @include translateY(-10px); }
+	}
+}
+
+.effect-extend {
+	@include animation(effectExtend, 1s, $iteration: infinite){
+		0%, 100% { @include scaleXY(1, 1); }
+		50% { @include scaleXY(1.1, 1.1); }
+	}
+}
+
+.effect-blink {
+	@include animation(effectBlink, 1s, $timing: step-end, $iteration: infinite){
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+}
+
+%wide {
+	position: relative;
+	left: 50%;
+	display: block;
+	@include translateX(-50%);
+}

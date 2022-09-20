@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+<meta name="copyright" content="(c)2018 에듀윌" />
+<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+<meta name="keywords" content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/brand/dev/css/import.css" /><!-- css for site primary -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/brand/dev/css/popup.css" /><!-- css for popup -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/jquery/jquery-2.1.4.min.js"></script><!-- 공통 js -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/scrollfix/scrollfix.js"></script><!-- scrollfix plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/front_ui.js"></script><!-- 공통js :: -->
+</head>
+<body class="page_popup"><!-- body Class 중요 : page_popup -->
+
+<div id="skip_nav"><!-- skip nav -->
+	<a href="#category">전체메뉴 바로가기</a>
+	<a href="#container">본문 바로가기</a>
+	<a href="#footer">하단메뉴 바로가기</a>
+</div><!--// skip_nav -->
+
+<div id="wrap"><!-- wrap -->
+
+	<div id="header"><!-- header -->
+		<div class="lower page_title" data-scrollfix="top">
+			<h2>배송지 확인/수정하기</h2>
+			<div class="action">
+				<a href="javascript:;" class="btn_close"><span class="sr_only">팝업 닫기</span></a>
+			</div>
+		</div>
+	</div><!-- // header -->
+
+	<div id="container"><!-- container -->
+		<div class="popup popup_delivery">
+			<div class="popbody">
+				<div class="section">
+					<ul class="g_tab_c">
+						<li class="on"><a href="#">현재 주소로 배송</a></li>
+						<li class=""><a href="#">다른 주소로 배송</a></li>
+					</ul>
+
+					<div class="table_section table_form" style="margin:20px 0 15px;">
+						<table class="g_table_a" cellpadding="0" cellspacing="0" width="100%">
+						<caption>배송지 입력</caption>
+						<colgroup>
+							<col width="23%">
+							<col width="*">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">수령인</th>
+								<td class="left">
+									<input type="text" id="" placeholder="이름" class="full" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">연락처</th>
+								<td class="left">									
+									<input type="text" id="" placeholder="연락처" class="full" />
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">배송지<br />주소</th>
+								<td class="left">
+									<div class="form_group">
+										<div class="form_input zipcode">
+											<input type="text" id="" placeholder="우편번호" readonly="readonly" />
+											<a href="#">주소검색</a>
+										</div>
+
+										<div class="form_input address">
+											<input type="text" id="" placeholder="기본주소" readonly="readonly" />
+										</div>
+
+										<div class="form_input address">
+											<input type="text" id="" placeholder="상세주소" />
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">배송시<br />요청사항</th>
+								<td class="left">
+									<select id="start_online" class="full">
+										<option>선택하세요.</option>		
+										<option>부재시 연락주세요.</option>
+										<option>부재시 이웃집에 맡겨주세요.</option>
+										<option>부재시 경비실에 맡겨주세요.</option>
+										<option>부재시 문제메시지를 보내주세요.</option>
+										<option>부재시 음성메시지를 남겨주세요</option>
+									</select>
+									<input type="text" id="" placeholder="추가요청사항" class="full" style=" margin-top:5px;" />
+								</td>
+							</tr>
+						</tbody>
+						</table>
+						<p style="margin:5px 0 0;">
+							<input type="checkbox" id="with_modify" name="" />
+							<label for="with_modify" style="margin-top:5px;">변경 정보로 회원정보 변경</label>
+						</p>
+					</div>
+					<a href="#" class="g_btn_b full" style="margin:12px 0 30px">신청하기</a>
+				</div>
+			</div>
+		</div>
+	</div><!-- // container -->
+
+</div><!-- // wrap -->
+
+<script type="text/javascript">
+	$(function(){
+		// 관심과정 탭
+		$('.wish_tab li a').each(function(idx){
+			$(this).click(function(){
+				var activeTab = $(this).attr('href');
+				$('.w_item_list').hide();
+				$(activeTab).show();
+				$('.wish_tab li').removeClass('on');
+				$(this).parent().addClass('on');
+				return false;
+			});
+		});
+	});
+</script>
+</body>
+</html>

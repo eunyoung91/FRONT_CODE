@@ -1,0 +1,1843 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+#goTop1 { display: none !important; }
+
+.eco-top-4229 {
+	.top-earlybird { display: block; background-color: #3356e4; }
+	.sector-earlybird { display: none; }
+}
+
+.eco-middle-4229 {
+	.top-earlybird { display: none; }
+	.sector-earlybird { display: block; }
+}
+
+.product-eco {
+	overflow: hidden;
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		@include vw(letter-spacing, -1px);
+	}
+
+	text-align: center;
+	[class^="product-"],
+	.item {
+		position: relative;
+	}
+	.wrap,
+	.wrap-full {
+		max-width: 720px;
+	}
+
+	.eco-puri {
+		display: inline-block;
+	}
+	button {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+		font-family: inherit;
+		text-decoration: none;
+		border: none;
+		background: transparent;
+		outline: 0;
+		cursor: pointer;
+	}
+	.only-pc {
+		display: none;
+	}
+	.only-mobile {
+		display: block;
+	}
+
+	.icon-pointer {
+		@include pointer(60%, 0, 57px, 65px, 12, bounce);
+	}
+
+	// banner
+	.fix-bottom {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		z-index: 20;
+		@include vw(padding, 10px 30px);
+		text-align: left;
+		background: rgba(0, 0, 0, 0.8);
+		@include boxSizing(border-box);
+		.wrap {
+			@extend %clearfix;
+			strong {
+				float: left;
+				line-height: 1.2;
+				@include vw(font-size, 36px);
+				font-weight: 900;
+				color: #fff;
+				@include vw(letter-spacing, -2px);
+				em {
+					color: #ffbf00;
+					@include vw(font-size, 40px);
+					font-style: normal;
+					font-weight: 900;
+					@include vw(letter-spacing, -2px);
+				}
+			}
+
+			a {
+				float: right;
+				// @include vw(margin-left, 50px);
+				@include vw(padding, 20px 50px);
+				text-align: center;
+				vertical-align: top;
+				@include vw(border-radius, 100px);
+				@include linear-gradient(to right, #f2312e 0%, #ed2a25 100%);
+				span {
+					display: block;
+					line-height: 1;
+					@include vw(font-size, 36px);
+					font-weight: 900;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	// paragraph
+	p {
+		margin: 0;
+		padding: 0;
+		@include vw(font-size, 18px);
+		color: inherit;
+		font-family: $font-roboto;
+		&.fly,
+		&.eco {
+			position: absolute;
+		}
+	}
+
+	// base
+	.grounds-text {
+		line-height: 1.5;
+		@include vw(font-size, 14px);
+		font-weight: 400;
+		color: rgba(0, 0, 0, 0.4);
+	}
+
+	.asterisk {
+		display: inline-block;
+		@include vw(font-size, 13px);
+		font-weight: 300;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	// 강조
+	.point-1 {
+		color: #5e2ad4;
+	}
+	.point-2 {
+		color: #f9c400;
+	}
+	.point-3 { color: #0939b2; } // 라이브클래스 사용중
+	.highlight {
+		display: inline-block;
+		position: relative;
+		font-weight: 900;
+		@include vw(padding, 0 5px);
+		z-index: 1;
+		&:before {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			@include vw(height, 22px);
+			background: #f9c400;
+			z-index: -1;
+		}
+	}
+
+	// slider
+	.slider-contents {
+		position: relative;
+		width: percent(620);
+		margin: 0 auto;
+	}
+	.slick-dots {
+		@extend %slick-dots;
+		li {
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			@include vw(margin, 0 5px);
+			@include vw(border-radius, 20px);
+			background-color: #d7d7d7;
+			&.slick-active {
+				@include vw(width, 50px);
+				background-color: #12b334;
+			}
+		}
+	}
+	
+	.slick-arrow {
+		border-radius: 50%;
+		&.slick-prev {
+			@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+			@include vw(left, -30px);
+		}
+		&.slick-next {
+			@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+			@include vw(right, -30px);
+		}
+	}
+
+	// common
+	.action {
+		@include vw(margin-top, 12px);
+		a {
+			display: inline-block;
+			@include vw(padding, 14px 50px 15px);
+			border: 1px solid #222;
+			@include vw(border-radius, 60px);
+			@include boxSizing(border-box);
+			span {
+				position: relative;
+				display: block;
+				@include vw(padding-right, 30px);
+				@include vw(font-size, 20px);
+				font-weight: 700;
+				color: #222;
+				@include vw(letter-spacing, -1px);
+				&::after {
+					content: '→';
+					position: absolute;
+					top: 50%;
+					right: 0;
+					display: block;
+					font-family: cursive;
+					@include vw(font-size, 20px);
+					font-weight: 400;
+					@include translateY(-50%);
+				}
+			}
+		}
+
+		&.type-2 {
+			a {
+				width: percent(450);
+				background: #fff;
+				border: 1px solid #e2e2e2;
+				@include vw(border-radius, 100px);
+				@include boxShadow(0 4px 0 0 rgba(0, 0, 0, .1));
+				@include boxSizing(border-box);
+				span {
+					@include vw(padding-right, 30px);
+					@include vw(font-size, 28px);
+					@include vw(letter-spacing, -1.5px);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					font-weight: 700;
+					color: #222;
+					background: none;
+					@include arrow(right, 8px, 8px, 2px, #000);
+					&::before {
+						right: 0;
+					}
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&.type-3 {
+			a {
+				position: relative;
+				width: 100%;
+				padding: 0;
+				border: 0;
+				@include vw(border-radius, 10px);
+				@include vw(height, 84px);
+				@include linear-gradient(to right, #fa5a00 0, #ea1d00 100%);
+				span {
+					display: block;
+					width: 100%;
+					text-align: center;
+					padding-right: 0;
+					font-weight: 900;
+					color: #fff;
+					background: none;
+					@include vw(font-size, 40px);
+					@include vw(letter-spacing, -2px);
+					@include vw(line-height, 84px);
+					@include boxSizing(border-box);
+					@include arrow(right, 12px, 12px, 2px, #fff);
+					&::before {
+						@include vw(right, 50px);
+					}
+					&::after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		&.cop,
+		&.fire,
+		&.post,
+		&.seven {
+			display: none;
+		}
+
+		&.gov {
+			display: block; 
+		}
+	}
+	.comm-title {
+		@include vw(margin, 0 50px 45px);
+		@include vw(letter-spacing, -2px);
+		@include vw(font-size, 50px);
+		text-align: left;
+		font-weight: 900;
+		line-height: 1.4;
+		color: #000;
+	}
+	.comm-sub-title {
+		position: relative;
+		@include vw(margin-left, 50px);
+		@include vw(padding-left, 28px);
+		@include vw(letter-spacing, -2px);
+		@include vw(font-size, 40px);
+		text-align: left;
+		font-weight: 900;
+		color: #000;
+		line-height: 1;
+		border-left: 1px solid #c1c1c1;
+		.highlight {
+			position: relative;
+			display: inline-block;
+			z-index: 1;
+			@include vw(padding, 0 5px);
+			@include vw(font-size, 40px);
+			font-weight: 900;
+			line-height: 1;
+			&:before {
+				content: '';
+				display: inline-block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				@include vw(height, 15px);
+				background: #f9c400;
+				z-index: -1;
+			}
+		}
+		em {
+			position: relative;
+			@include vw(top, 5px);
+			vertical-align: bottom;
+			@include vw(font-size, 22px);
+			color: #222;
+		}
+		.sub-title {
+			@include vw(margin-top,16px);
+			@include vw(letter-spacing, -2px);
+			@include vw(font-size, 30px);
+			font-weight: 300;
+			line-height: 1.4;
+			color: #000;
+		}
+		.grounds-text {
+			@include vw(margin-top, 20px);
+			font-weight: 400;
+			color: #afafaf;
+		}
+	}
+	.section-title {
+		position: relative;
+		text-align: left;
+		line-height: 1.3;
+		@include vw(font-size, 50px);
+		font-weight: 900;
+		color: #000;
+		@include vw(letter-spacing, -2px);
+		&.title-white {
+			color: #fff;
+			.grounds-text {
+				color: rgba($color: #fff, $alpha: .4);
+			}
+		}
+		&.title-center { text-align: center; }
+		em {
+			display: inline-block;
+			@include vw(margin-left, 3px);
+			vertical-align: middle;
+			@include vw(font-size, 16px);
+			color: #707070;
+			&.star {
+				vertical-align: top;
+				@include vw(font-size, 20px);
+				color: inherit;
+			}
+		}
+		.small-title {
+			display: inline-block;
+			@include vw(font-size, 36px);
+		}
+		.sub-title {
+			display: block;
+			@include vw(margin-top, 16px);
+			@include vw(font-size, 30px);
+			font-weight: 300;
+			color: inherit;
+			@include vw(letter-spacing, -2px);
+		}
+		.grounds-text {
+			@include vw(margin-top, 20px);
+			font-weight: 400;
+			color: #afafaf;
+		}
+	}
+
+	[class^="sector-"] {
+		.section-title {
+			@include vw(font-size, 55px);
+		}
+	}
+
+	.product-system {
+		@include vw(padding, 100px 0 115px);
+		.grounds-text {
+			@include vw(margin, 15px 0 0 50px);
+			text-align: left;
+			line-height: 1.4;
+			font-weight: 400;
+			color: #afafaf;
+		}
+		.action {
+			@include vw(margin-top, 48px);
+		}
+	}
+
+	.product-life {
+		@include vw(padding-bottom, 115px);
+		.slider-contents {
+			.life-col {
+				position: relative;
+				.caption {
+					position: absolute;
+					top: percent(672,806);
+					left: 0;
+					right: 0;
+					font-weight: 700;
+					text-align: center;
+					line-height: 1.5;
+					color: #222;
+					@include vw(letter-spacing, -2px);
+					@include vw(font-size, 30px);
+				}
+			}
+		}
+		.slick-arrow {
+			&.slick-prev {
+				@include vw(left, 50px);
+			}
+			&.slick-next {
+				@include vw(right, 50px);
+			}
+		}
+	}
+
+	.product-puri {
+		@include vw(padding-bottom, 115px);
+		.action {
+			@include vw(margin-top, 48px);
+		}
+	}
+
+	.product-king {
+		@include vw(padding-bottom, 100px);
+		.slider-contents {
+			position: absolute;
+			top: percent(110, 567);
+			left: percent(59);
+			width: percent(600);
+			height: percent(227, 567);
+			overflow: hidden;
+			z-index: 1;
+			.slick-slide {
+				.col {
+					padding: 0;
+					margin: 0;
+					vertical-align: top;
+					border-bottom: 1px solid #b2b2b2;
+					@extend .grid;
+					strong {
+						@extend .col;
+						text-align: center;
+						font-weight: 700;
+						color: #000;
+						border: 0;
+						vertical-align: top;
+						@include vw(padding, 10px 0);
+						@include vw(font-size, 22px);
+						@include vw(letter-spacing, -1.5px);
+						&.num {
+							width: 16%;
+						}
+						&.desc {
+							width: 84%;
+							text-align: left;
+							font-weight: 500;
+							vertical-align: middle;
+							@include vw(padding-left, 10px);
+							@include boxSizing(border-box);
+							.ea {
+								display: inline-block;
+								vertical-align: middle;
+								@include vw(font-size, 20px);
+								@include vw(margin-left, 5px);
+								color: #ffa300;
+							}
+						}
+						@include breakpoint(maxMobileFold) {
+							padding: 10px 0;
+						}
+					}
+				}
+			}
+
+			
+		}
+	}
+
+	.product-care {
+		border-style: solid;
+		border-color:#ececef;
+		border-width: 0;
+		@include vw(padding-bottom, 115px);
+		@include vw(border-bottom-width, 20px);
+		.comm-sub-title {
+			word-break: keep-all;
+			line-height: 1.4;
+			padding-right: percent(200);
+		}
+		.care-list {
+			@extend .grid;
+			@include vw(margin, 45px auto 0);
+			width: percent(616);
+			.col {
+				@extend .col;
+				@include vw(padding, 25px);
+				@include vw(margin-bottom, 12px);
+				width: 49%;
+				margin-right: 2%;
+				text-align: left;
+				border: 1px solid #9b9b9b;
+				@include vw(border-radius, 20px);
+				@include boxSizing(border-box);
+				dl {
+					dt {
+						@include vw(margin-bottom, 20px);
+						@include vw(font-size, 26px);
+						@include vw(letter-spacing, -2px);
+						font-weight: 900;
+						line-height: 1.4;
+						color: #222;
+					}
+					dd {
+						@include vw(font-size, 22px);
+						@include vw(letter-spacing, -2px);
+						font-weight: 400;
+						color: #7e7e7e;
+						line-height: 1.4;
+					}
+				}
+				&:nth-child(2n) { margin-right: 0;}
+			}
+		}
+	}
+
+	.product-program {
+		.grounds-text {
+			position: absolute;
+			text-align: left;
+			top: percent(615,777);
+			left: percent(104);
+			z-index: 1;
+			span {
+				display: block;
+				&.first { display: none; }
+				&.nurse {
+					display: block !important;
+				}
+			}
+		}
+	}
+
+	// page
+	.sector-title {
+		z-index: 1;
+		@include bg($color: #2c5bab, $url: "#{$img-path}/mobile/bg_title.jpg", $size: cover);
+		.title-text {
+			position: absolute;
+			left: 0;
+			right: 0;
+			text-align: center;
+			font-weight: 700;
+			color: #fff;
+			line-height: 1.4;
+			@include vw(letter-spacing, -2px);
+			@include vw(top, 465px);
+			@include vw(font-size, 36px);
+			strong {
+				color: #00ff9b;
+				line-height: 1.4;
+				@include vw(letter-spacing, -2px);
+			}
+			em {
+				margin-left: 3px;
+				color: #00ff9b;
+				font-weight: 500;
+				vertical-align: bottom;
+				@include vw(font-size, 20px);
+			}
+		}
+		.grounds-text {
+			position: absolute;
+			@include vw(top, 1188px);
+			@include vw(padding-right, 52px);
+			left: 0;
+			right: 0;
+			text-align: right;
+			@include boxSizing(border-box);
+		}
+	}
+
+	.benefit-box {
+		.list {
+			@include vw(margin, 0 -10px);
+			font-size: 0;
+			text-align: center;
+		}
+		.col {
+			float: none;
+			position: relative; 
+			display: inline-block;
+			overflow: hidden;
+			@include vw(margin, 0 10px 12px);
+			@include vw(border-radius, 0 30px 0 30px);
+			border-top: 1px solid #bdbdbd;
+			background-color: #fff;
+			@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, 0.2));
+		}
+		.subject {
+			position: absolute;
+			@include vw(top, 22px);
+			@include vw(left, 25px);
+			@include vw(padding-top, 10px);
+			text-align: left;
+			line-height: 1.3;
+			@include vw(font-size, 24px);
+			font-weight: 900;
+			color: #222;
+			@include vw(letter-spacing, -1.5px);
+			span {
+				font-weight: 900;
+			}
+			em {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				@include vw(top, 5px);
+				@include vw(margin-left, 4px);
+				font-weight: 500;
+				color: #707070;
+			}
+			.badge {
+				display: inline-block;
+				width: auto;
+				height: auto;
+				@include vw(margin-bottom, 6px);
+				@include vw(padding, 7px 12px 6px);
+				vertical-align: top;
+				line-height: 1;
+				@include vw(font-size, 15px);
+				font-weight: 900;
+				color: #11142d;
+				@include vw(border-radius, 50px);
+				@include linear-gradient(to right, #f6d305 0%, #f7b300 100%);
+			}
+		}
+		.flag {
+			position: absolute;
+			@include vw(top, 140px);
+			@include vw(left, 160px);
+			@include vw(width, 76px)
+		}
+	}
+
+	.sector-benefit {
+		@include vw(padding-bottom, 120px);
+		background: #fff;
+		.section-title {
+			@include vw(margin-top, 50px);
+			text-align: center;
+		}
+		.benefit-box {
+			@include vw(margin-top, 50px);
+			.col { @include vw(width, 274px); }
+		}
+		.grounds-text {
+			width: percent(620);
+			margin: 0 auto;
+			@include vw(padding, 10px 0 0 0);
+			text-align: left;
+			color: #9a9a9a;
+			line-height: 1.6;
+		}
+	}
+
+	.sector-benefit-plus {
+		@include vw(padding-bottom, 100px);
+		background: #5e2ad4;
+		&:after {
+			content: "";
+			position: absolute;
+			@include vw(top, -55px);
+			left: 50%;
+			z-index: 1;
+			display: block;
+			@include vw(width, 132px);
+			@include vw(height, 132px);
+			border-radius: 50%;
+			@include bg($color: #5e2ad4, $url: '//img.eduwill.net/eduwill/img/2022/G/common/bg/bg_plus.png', $size: cover);
+			@include translateX(-50%);
+		}
+		.section-title {
+			@include vw(padding, 80px 0 0);
+			text-align: center;
+			@include vw(font-size, 60px);
+			color: #fff;
+		}
+		.benefit-box {
+			@include vw(margin-top, 50px);
+			.col {
+				@include vw(width, 274px);
+				background: #5e2ad4;
+				@include transition(all, .3s);
+			}
+			.subject {
+				@include vw(top, 10px);
+				color: #fff;
+			}
+		}
+		.grounds-text {
+			padding-left: percent(50);
+			padding-right: percent(50);
+			word-break: keep-all;
+			text-align: center;
+			color: rgba(255, 255, 255, 0.4);
+			@include boxSizing(border-box);
+		}
+	}
+
+	.sector-management {
+		padding-bottom: 50px;
+		@include linear-gradient(to bottom, #fff 77%, #ffc900 77%);
+		.wrap-full {
+			max-width: 100%;
+			@include bg($color: #00b4ff, $url: '//img.eduwill.net/eduwill/img/2022/G/product/220623/pc/bg_management.jpg', $size: cover);
+			img {
+				@include vw(margin-bottom, -213px);
+			}
+			.price-box {
+				position: absolute;
+				@include vw(top, 1090px);
+				@include vw(right, 50px);
+				@include vw(left, 50px);
+				text-align: center;
+				p.price-before {
+					@include vw(margin-right, 50px);
+					@include vw(font-size, 47px);
+				}
+				p.price-after {
+					@extend .effect-blink;
+					@include vw(font-size, 65px);
+					span {
+						@include vw(font-size, 75px);
+					}
+				}
+			}
+		}
+
+		.management-box {
+			@include vw(margin-top, 213px);
+			.management-pager {
+				margin: 0 auto;
+				&.management-pager-fixed {
+					position: fixed;
+					top: 48px;
+					right: 0;
+					left: 0;
+					z-index: 10;
+					width: 100%;
+					margin-top: 0;
+					background-color: #fff;
+					& + .management-list {
+						@include vw(padding-top, 110px);
+					}
+					.slick-list {
+						margin: 0 auto;
+					}
+				}
+				.slick-track,
+				.slick-list {
+					left: 0 !important;
+				}
+				.slick-slide {
+					width: 25% !important;
+					cursor: pointer;
+					&:first-child .text::before {
+						display: none;
+					}
+					.text {
+						position: relative;
+						display: block;
+						@include vw(padding, 23px 0);
+						line-height: 1.2;
+						@include vw(font-size, 26px);
+						color: #000;
+						background-color: #9e9e9e;
+						@include transition(all, .4s, cubic-bezier(0.12, 0.49, 0.35, 0.95));
+						&::before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							display: block;
+							@include vw(width, 1px);
+							height: 100%;
+							background-color: #fff;
+						}
+					}
+					&.slick-current {
+						.text {
+							font-weight: 700;
+							color: #fff;
+							background-color: #1ab02b;
+						}
+					}
+				}
+			}
+			.management-list {
+				.phone {
+					@include vw(width, 540px);
+					@include vw(margin, 20px auto 0);
+				}
+
+				.slick-dots {
+					right: 0;
+					@include vw(bottom, 100px);
+					left: 0;
+					text-align: center;
+				}
+			}
+		}
+
+		.management-teacher {
+			.section-title {
+				@include vw(margin-top, 50px);
+				text-align: center;
+				p {
+					color: #000;
+				}
+			}
+			.teacher {
+				@include vw(margin-top, 70px);
+			}
+			.action {
+				@include vw(margin, -10px 50px 0 0);
+				text-align: right;
+				a {
+					@include vw(width, 116px);
+					padding: 0;
+					border: none;
+					&::before {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.management-apply {
+			@include vw(margin, 46px 50px 0);
+			@include vw(border-radius, 50px);
+			background-color: #fff;
+			@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, 0.2));
+			@include boxSizing(border-box);
+			.apply-box {
+				@include vw(padding, 50px);
+				& > div {
+					position: relative;
+					&.price-box {
+						@include vw(margin-top, 50px);
+					}
+				}
+				.title {
+					text-align: left;
+					line-height: 1;
+					font-family: $font-roboto;
+					@include vw(font-size, 48px);
+					font-weight: 900;
+					color: #000;
+					span {
+						font-family: $font-roboto;
+					}
+					strong {
+						font-family: $font-roboto;
+						font-weight: 900;
+						color: #0034ae;
+					}
+				}
+			}
+	
+			.action {
+				margin-top: 0;
+				a {
+					display: block;
+					width: 100%;
+					margin-top: 0;
+					@include vw(padding, 30px 0);
+					text-align: center;
+					@include vw(font-size, 40px);
+					font-weight: 900;
+					color: #fff;
+					@include vw(letter-spacing, -2px);
+					border: none;
+					@include vw(border-radius, 0 0 50px 50px);
+					background-color: #e63a15;
+					&::before {
+						display: none;
+					}
+					&:after {
+						@include vw(width, 57px);
+						@include vw(height, 65px);
+					}
+					p,
+					span {
+						padding: 0;
+						color: inherit;
+						font-size: inherit;
+						&::before {
+							display: none;
+						}
+					}
+					em {
+						@include arrow(right, 12px, 12px, 2px, #ffc900);
+						@include vw(margin-left, 50px);
+						@include vw(padding-right, 50px);
+						color: #ffc900;
+						font-style: normal;
+						font-weight: 900;
+						@include vw(letter-spacing, -2px);
+					}
+					.apply-flag {
+						position: absolute;
+						@include vw(top, -25px);
+						@include vw(left, 50px);
+						@include vw(padding, 10px 28px);
+						@include vw(font-size, 23px);
+						@include vw(border-radius, 54px);
+						background-color: #373737;
+					}
+					.timer-management {
+						display: inline-block;
+					}
+				}
+			}
+		}
+
+		.price-box {
+			text-align: left;
+			.price-flag {
+				position: absolute;
+				@include vw(top, -10px);
+				left: 0;
+				@include vw(padding, 7px 20px);
+				@include vw(font-size, 17px);
+				font-weight: 700;
+				color: #fff;
+				background-color: #0034ae;
+			}
+			p {
+				display: inline-block;
+				line-height: 1;
+				span {
+					font-weight: 700;
+					line-height: 1;
+					font-family: $font-roboto;
+				}
+				&.price-before {
+					@include vw(margin-right, 80px);
+					@include vw(padding, 0 20px);
+					@include vw(font-size, 48px);
+					font-weight: 700;
+					color: #9e9e9e;
+					@include arrow(right, 15px, 15px, 2px, #9e9e9e);
+					&::before {
+						right: 0;
+					}
+					&::after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						left: 0;
+						width: 100%;
+						@include vw(height, 2px);
+						@include vw(margin-top, -1px);
+						background-color: #9e9e9e;
+					}
+					span {
+						@include vw(font-size, 50px);
+					}
+				}
+				&.price-after {
+					@include vw(font-size, 95px);
+					font-weight: 700;
+					color: #e63a15;
+					span {
+						@include vw(font-size, 110px);
+					}
+				}
+			}
+		}
+
+		.grounds-text {
+			@include vw(margin, 40px 20px 0 0);
+			text-align: right;
+			@include vw(font-size, 16px);
+		}
+
+		.fix-bottom-management {
+			position: fixed;
+			right: 0;
+			bottom: 50px;
+			left: 0;
+			@include vw(height, 120px);
+			z-index: 99;
+			@include vw(padding, 20px 0);
+			background: rgba(0, 0, 0, 0.8);
+			@include boxSizing(border-box);
+			.wrap {
+				text-align: left;
+				@include vw(padding-left, 20px);
+				.text {
+					display: inline-block;
+					vertical-align: middle;
+					text-align: left;
+					line-height: 1.2;
+					@include vw(font-size, 26px);
+					font-weight: 900;
+					color: #fff;
+					@include vw(letter-spacing, -2px);
+					p {
+						@include vw(font-size, 36px);
+						color: #fff;
+					}
+					em {
+						color: #ffe400;
+						font-style: normal;
+						font-weight: 900;
+					}
+				}
+
+				.timer-management {
+					display: inline-block;
+					p {
+						@include vw(font-size, 28px);
+						color: #ffe400;
+					}
+				}
+
+				a {
+					@include arrow(right, 12px, 12px, 2px, #fff);
+					@include vw(margin-left, 50px);
+					@include vw(padding, 15px 80px);
+					vertical-align: middle;
+					text-align: center;
+					@include vw(font-size, 28px);
+					font-weight: 900;
+					color: #fff;
+					@include vw(letter-spacing, -2px);
+					@include vw(border-radius, 76px);
+					background-color: #ff5525;
+					@include boxShadow(inset 0 2px 2px 0 rgba(255, 255, 255, .5), 0 9px 24px 0 rgba(0, 0, 0, .16));
+					&::after {
+						@include vw(width, 57px);
+						@include vw(height, 65px);
+					}
+					em {
+						color: #faec04;
+						font-style: normal;
+						font-weight: 900;
+						@include vw(letter-spacing, -2px);
+					}
+				}
+			}
+		}
+	}
+
+	.sector-liveclass {
+		@include vw(padding-bottom, 80px);
+		background-color: #6affe2;
+		.section-title {
+			@include vw(padding-top, 80px);
+			text-align: center;
+			line-height: 1.2;
+			.sub-title {
+				@include vw(margin-bottom, 10px);
+				text-align: center;
+			}
+			span { line-height: 1.2; }
+		}
+		.benefit-box {
+			@include vw(margin, 40px 50px 0);
+			.col {
+				display: block;
+				@include vw(padding-bottom, 50px);
+			}
+			.text-box {
+				@include vw(margin-top, -180px);
+				text-align: center;
+			}
+			.subject {
+				position: static;
+				text-align: center;
+				@include vw(font-size, 36px);
+			}
+			.desc {
+				@include vw(font-size, 24px);
+				font-weight: 400;
+				& + .subject {
+					@include vw(margin-top, 40px);
+				}
+			}
+			.action {
+				@include vw(margin, 50px 50px 0);
+				a {
+					width: 100%;
+					@include vw(height, 56px);
+					@include vw(margin-top, 10px);
+					padding: 0;
+					&:after {
+						display: none;
+					}
+				}
+				span {
+					@include vw(line-height, 56px);
+					@include vw(font-size, 20px);
+					&:after {
+						right: 10%;
+					}
+				}
+			}
+		}
+	}
+
+	.sector-earlybird {
+		.earlybird-item {
+			position: relative;
+			z-index: 1;
+			@include vw(padding-bottom, 60px);
+			background-color: #ffcc00;
+		}
+		.earlybird-flag {
+			position: absolute;
+			@include vw(top, -21px);
+			left: 50%;
+			@include vw(width, 433px);
+			@include vw(height, 103px);
+			@include vw(padding-top, 15px);
+			text-align: center;
+			line-height: 1.2;
+			@include vw(font-size, 28px);
+			color: #fff;
+			@include bg($url: '//img.eduwill.net/eduwill/img/2022/G/common/flag/pc/flag_earlybird.png', $size: cover);
+			@include translateX(-50%);
+			@include boxSizing(border-box);
+			strong {
+				display: block;
+				line-height: 1.2;
+				font-weight: 900;
+			}
+		}
+		.section-title {
+			@include vw(padding-top, 140px);
+			text-align: center;
+			@include vw(font-size, 55px);
+			strong {
+				display: block;
+				font-weight: 900;
+				color: #3356e4;
+			}
+		}
+		.benefit-box {
+			@include vw(margin-top, 100px);
+			.list {
+				@include vw(margin, 0 45px);
+				.col {
+					@include vw(margin-top, 37px);
+					overflow: visible;
+					border-top: 0;
+					&:first-child { margin-top: 0; }
+				}
+				.badge {
+					position: absolute;
+					@include vw(top, -20px);
+					@include vw(left, 28px);
+					@include vw(min-width, 210px);
+					width: auto;
+					height: auto;
+					@include vw(padding, 5px 0);
+					@include vw(font-size, 22px);
+					font-weight: 700;
+					color: #fff;
+					@include vw(border-radius, 43px);
+					background: #3356e4;
+				}
+				.subject {
+					@include vw(top, 50px);
+					@include vw(left, 40px);
+					padding: 0;
+					text-align: center;
+					@include vw(font-size, 26px);
+				}
+				.desc {
+					position: absolute;
+					@include vw(top, 100px);
+					@include vw(left, 40px);
+					padding: 0;
+					text-align: left;
+					@include vw(font-size, 20px);
+					strong {
+						display: block;
+					}
+				}
+			}
+		}
+		.action {
+			@include vw(margin-top, 80px);
+			a span {
+				@include vw(font-size, 28px);
+			}
+		}
+		.btn-notice {
+			@include vw(margin-top, 20px);
+			display: inline-block;
+			@include vw(padding, 4px 10px);
+			line-height: 1;
+			@include vw(font-size, 18px);
+			color: rgba($color: #000000, $alpha: .4);
+			border: 1px solid rgba($color: #000000, $alpha: .4);
+		}
+
+		.earlybird-notice {
+			@include vw(padding-bottom, 50px);
+			background-color: #f1f2f4;
+			&.fold {
+				display: none;
+			}
+			.notice-box {
+				@include vw(margin, 0 40px);
+				@include vw(padding-top, 50px);
+				text-align: left;
+			}
+			.notice-list {
+				@include vw(margin-top, 10px);
+				li,
+				p {
+					line-height: 1.4;
+					@include vw(font-size, 16px);
+					color: #000;
+				}
+				p { @include vw(margin-top, 10px); }
+				&.refer-list {
+					@extend %refer-list;
+				}
+				.red { color: #ff0035; }
+			}
+		}
+	}
+
+	.sector-item {
+		@include vw(padding, 0 0 100px);
+		.wrap { @extend %clearfix; }
+		.tab-box {
+			.tab-list {
+				font-size: 0;
+				a {
+					display: inline-block;
+					@include vw(width, 300px);
+					@include vw(margin, 0 8px);
+					@include vw(padding, 20px);
+					@include vw(font-size, 30px);
+					font-weight: 900;
+					color: #999;
+					@include vw(border-radius, 86px);
+					background-color: #f1f1f1;
+					@include boxSizing(border-box);
+					&.series-1.active {
+						color: #fff;
+						background-color: #ff0e0e;
+					}
+					&.series-2.active {
+						color: #fff;
+						background-color: #0092ef;
+					}
+				}
+			}
+			.tab-view {
+				display: none;
+				&.active {
+					display: block;
+				}
+				&.series-1 {
+					.eco-4428 {
+						.price-1 { display: block; }
+						.price-2 { display: none; }
+					}
+				}
+				&.series-2 {
+					.eco-4428 {
+						.price-1 { display: none; }
+						.price-2 { display: block; }
+					}
+					.item-group .item-price .after-price {
+						color: #0092ef;
+					}
+					.action.type-3 a {
+						@include linear-gradient(to right, #0075fc 0%, #0092ef 100%);
+					}
+				}
+			}
+		}
+		.item-group {
+			// width: percent(620);
+			@include vw(width, 640px);
+			@include vw(margin, 50px auto 0);
+			text-align: left;
+			background: #fff;
+			@include vw(padding, 60px 0 0);
+			@include vw(border-radius, 30px);
+			@include boxShadow(0 10px 15px 0 rgba(0, 0, 0, 0.3));
+			@include boxSizing(border-box);
+			& + .item-group {
+				@include vw(margin-top, 60px);
+			}
+			.item-subject {
+				font-weight: 900;
+				color: #222;
+				line-height: 1.2;
+				@include vw(padding, 0 50px);
+				@include vw(margin-bottom, 30px);
+				@include vw(letter-spacing, -2px);
+				@include vw(font-size, 46px);
+				.item-label {
+					@include vw(margin-bottom, 30px);
+					@include vw(padding, 8px 0);
+					@include vw(font-size, 28px);
+					width: 50%;
+					text-align: center;
+					letter-spacing: -1px;
+					line-height: 1;
+					font-weight: 900;
+					color: #000;
+					background: #ffda31;
+				}
+				strong {
+					color: #ef2f08;
+					font-weight: 900;
+				}
+				.flag-list {
+					@include vw(margin-bottom, 30px);
+					& > div {
+						display: inline-block;
+						@include vw(margin-right, 10px);
+						@include vw(padding, 9px 30px);
+						line-height: 1;
+						@include vw(font-size, 25px);
+						font-weight: 500;
+						@include vw(border-radius, 52px);
+						&.flag-1 {
+							color: #000;
+							background-color: #ffdd00;
+						}
+						&.flag-2 {
+							color: #fff;
+							background-color: #353535;
+						}
+						&.flag-3 {
+							color: #fff;
+							background-color: #e63a15;
+						}
+					}
+				}
+			}
+			.item-desc {
+				@include vw(padding, 0 50px 36px);
+				ul {
+					@include vw(padding-bottom, 36px);
+					@include vw(border-bottom-width, 1px);
+					border-bottom-style: solid;
+					border-bottom-color: #eaeaea;
+					li {
+						position: relative;
+						line-height: 1.3;
+						font-weight: 500;
+						@include vw(letter-spacing, -2px);
+						@include vw(margin-top, 10px);
+						@include vw(padding-left, 20px);
+						@include vw(font-size, 28px);
+						span {
+							color: #e63a15;
+						}
+						.small {
+							display: inline-block;
+							@include vw(margin-left, 4px);
+							@include vw(font-size, 20px);
+						}
+						&:before {
+							content: "·";
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							z-index: 1;
+						}
+						.point-highlight {
+							position: relative;
+							display: inline-block;
+							padding: 0 30px 0 10px;
+							border-radius: 50px;
+							font-weight: 500;
+							color: #222;
+							@include vw(padding, 0 20px);
+							@include vw(font-size, 28px);
+							background: #ffda31;
+						}
+						.btn-detail {
+							display: inline-block;
+							@include vw(width, 147px);
+							@include vw(margin-left, 10px);
+						}
+					}
+				}
+				img + p {
+					@include vw(margin-top, 10px);
+				}
+				P {
+					@include vw(font-size, 28px);
+					font-weight: 500;
+					color: #010101;
+					&.flag-band {
+						@include vw(width, 305px);
+					}
+					&.effect-blink {
+						@include vw(margin, 36px 0 10px);
+						@include vw(font-size, 28px);
+						font-weight: 700;
+						color: #e63a15;
+					}
+				}
+			}
+			.desc-benefit {
+				@include vw(padding, 36px 50px);
+				@include linear-gradient(to right, #ffd227 0%, #ffba27 100%);
+				.limit-label {
+					display: inline-block;
+					line-height: 1;
+					font-weight: 700;
+					color: #fff;
+					background-color: #431ec8;
+					@include vw(margin-bottom, 12px);
+					@include vw(border-radius, 6px);
+					@include vw(padding, 10px 20px 6px);
+					@include vw(font-size, 22px);
+					@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, 0.2));
+				}
+				ul {
+					li {
+						line-height: 1.3;
+						font-weight: 700;
+						@include vw(letter-spacing, -2px);
+						@include vw(margin-top, 10px);
+						@include vw(padding-left, 20px);
+						@include vw(font-size, 28px);
+					}
+				}
+			}
+			.item-price {
+				position: relative;
+				@include vw(padding, 30px 50px 35px);
+				text-align: left;
+				&:before {
+					content: "";
+					display: block;
+					width: 90%;
+					height: 1px;
+					position: absolute;
+					top: 0;
+					left: 50%;
+					background: #ddd;
+					@include translateX(-50%);
+				}
+				strong {
+					display: block;
+					text-align: left;
+				}
+				.before-price {
+					position: relative;
+					display: inline-block;
+					font-weight: 700;
+					color: #bbb;
+					line-height: 1;
+					text-decoration: line-through;
+					@include vw(font-size, 30px);
+					&:only-child {
+						color: #000;
+						font-weight: 900;
+						line-height: 1.2;
+						@include vw(font-size, 60px);
+						@include vw(margin-bottom, 16px);
+						@include vw(letter-spacing, -3px);
+						text-decoration: none;
+						span {
+							@include vw(font-size, 46px);
+							font-weight: 900;
+							color: #ea1d00;
+							text-decoration: none;
+						}
+					}
+				}
+
+				.btn-coupon {
+					display: inline-block;
+					position: absolute;
+					@include vw(top, 36px);
+					right: 0;
+					color: #fff;
+					font-weight: 400;
+					line-height: 1;
+					vertical-align: top;
+					background: #222;
+					@include vw(font-size, 24px);
+					@include vw(margin-bottom, 16px);
+					@include vw(border-radius, 8px);
+					@include vw(padding, 12px 20px);
+					&:after {
+						content: ">";
+						display: inline-block;
+						font-family: $font-KHNPHD;
+						@include vw(margin-left, 14px);
+					}
+				}
+				.after-price {
+					display: inline-block;
+					color: #ea1d00;
+					font-weight: 900;
+					line-height: 1.2;
+					@include vw(font-size, 46px);
+					@include vw(margin-bottom, 16px);
+					@include vw(letter-spacing, -3px);
+					span {
+						@include vw(font-size, 46px);
+						font-weight: 900;
+						color: #ea1d00;
+					}
+				}
+				.btn-apply {
+					@include pointer(60%, 0, 57px, 65px, 12, bounce);
+				}
+			}
+			.discount-label {
+				position: relative;
+				display: inline-block;
+				@include vw(margin-bottom, 10px);
+				@include vw(padding, 3px 15px);
+				color: #fff;
+				font-weight: 700;
+				@include vw(font-size, 24px);
+				@include vw(border-radius, 5px);
+				background-color: #431ec8;
+				@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, 0.2));
+				strong {
+					color: #ffc327;
+				}
+			}
+		}
+		.link-list {
+			@include vw(margin-top, 80px);
+			.link-item:nth-child(1) { background-color: #ffe000; }
+			.link-item:nth-child(2) { background-color: #ffc000; }
+			.btn-link,
+			.btn-link2 {
+				display: block;
+				overflow: hidden;
+				@include vw(padding, 40px 50px);
+			}
+			.text {
+				float: left;
+				line-height: 1.2;
+				text-align: left;
+				@include vw(font-size, 46px);
+				font-weight: 900;
+				color: #000;
+				span { line-height: 1; }
+			}
+			.detail {
+				position: relative;
+				float: right;
+				@include vw(width, 234px);
+				@include vw(height, 86px);
+				@include vw(margin-top, 10px);
+				@include vw(line-height, 86px);
+				@include vw(font-size, 30px);
+				font-weight: 900;
+				color: #fff;
+				@include vw(border-radius, 86px);
+				@include linear-gradient(to right, #ff0e0e 0%, #ff0e0e 100%);
+				box-shadow: inset 1px 2px 1px rgba(215, 11, 10, 0.5), inset -1px -1px 1px rgba(215, 11, 10, 0.5), 1px 2px 1px rgba(215, 11, 10, 0.5);
+				&::after {
+					@include arrow(right, 12px, 12px, 2px, #fff);
+					@include vw(right, 30px);
+				}
+			}
+		}
+	}
+
+	.sector-winner2 {
+		@include vw(padding-bottom, 50px);
+		background-color: #fbf6ee;
+		.section-title {
+			position: relative;
+			display: inline-block;
+			@include vw(margin-top, 80px);
+			text-align: center;
+			@include vw(font-size, 45px);
+			.small-title {
+				@include vw(font-size, 30px);
+				font-weight: 400;
+			}
+		}
+		.winner-contents {
+			position: relative;
+			@include vw(margin-top, 50px);
+			.winner-list {
+				position: relative;
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					left: 0;
+					z-index: 1;
+					display: block;
+					width: 100%;
+					@include vw(height, 100px);
+					@include linear-gradient(to bottom, rgba(251,246,238,1) 0%, rgba(251,246,238,0) 100%);
+				}
+			}
+			p {
+				text-align: center;
+				line-height: 2;
+				font-weight: 400;
+				@include vw(font-size, 20px);
+				color: #000;
+			}
+			.winner {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				z-index: 2;
+				@include vw(width, 301px);
+				background-color: #fbf6ee;
+				@include translateX(-50%);
+				&::before {
+					content: '';
+					position: absolute;
+					top: 100%;
+					right: 0;
+					left: 0;
+					z-index: 1;
+					display: block;
+					width: 100%;
+					@include vw(height, 100px);
+					@include linear-gradient(to bottom, rgba(251,246,238,1) 0%, rgba(251,246,238,0) 100%);
+				}
+			}
+		}
+		.grounds-text {
+			@include vw(margin, 50px 50px 0 0);
+			text-align: right;
+		}
+	}
+
+	.sector-reason {
+		background: #f4f4f4;
+	}
+
+	.sector-review {
+		@include vw(padding, 111px 0 108px);
+		@include bg($color: #fbecd7, $url: "#{$img-path}/mobile/bg_review.jpg", $size: cover);
+		.thumb {
+			display: block;
+			width: percent(540);
+			@include vw(margin, 0 auto 40px);
+			span {
+				display: block;
+				text-align: left;
+				color: #000;
+				font-weight: 500;
+				line-height: 1.3;
+				@include vw(margin-top, 20px);
+				@include vw(font-size, 24px);
+			}
+		}
+		.slider-contents {
+			@include vw(width, 469px);
+			margin: 0 auto;
+		}
+		.slick-arrow {
+			&.slick-prev {
+				@include vw(left, -10px);
+			}
+			&.slick-next {
+				@include vw(right, -5px);
+			}
+		}
+
+		.action {
+			@include vw(margin-top, 60px);
+			a {
+				background: #fff;
+				border-color: rgba(242, 224, 189, 0.8);
+			}
+		}
+	}
+
+	.sector-teacher {
+		@include vw(padding-bottom, 138px);
+		@include bg($color: #6f34d8, $url: "#{$img-path}/pc/bg_teacher.jpg", $size: cover);
+		.slider-contents {
+			position: relative;
+			width: 100%;
+			
+			.slick-dots {
+				li {
+					background-color: #8c78ce;
+					&.slick-active {
+						background-color: #00ffcb;
+					}
+				}
+			}
+			.slick-arrow {
+				&.slick-prev {
+					left: 0;
+				}
+				&.slick-next {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.sector-refund {
+		@include bg($color: #ffd700, $url: "#{$img-path}/mobile/bg_refund.jpg", $size: cover);
+		.wrap {
+			width: 100%;
+			img {
+				position: relative;
+				z-index: 2;
+			}
+		}
+		.refund-title {
+			position: absolute;
+			@include vw(top, 114px);
+			@include vw(left, 52px);
+			@include vw(font-size, 55px);
+			@include vw(letter-spacing, -3px);
+			text-align: left;
+			font-weight: 900;
+			line-height: 1.2;
+			color: #000;
+			z-index: 100;
+			strong {
+				color: #ff2906;
+				line-height: 1.2;
+				@include vw(letter-spacing, -3px);
+				font-weight: 900;
+			}
+			em {
+				@include vw(font-size, 30px);
+				vertical-align: top;
+			}
+		}
+		.grounds-text {
+			position: absolute;
+			@include vw(top, 740px);
+			@include vw(left, 52px);
+			@include vw(font-size, 20px);
+			text-align: left;
+			z-index: 10;
+		}
+		.refund-contents {
+			position: absolute;
+			@include vw(top, 345px);
+			left: 50%;
+			@include translateX(-50%);
+			width: 100%;
+			max-width: 720px;
+			z-index: 1;
+			.refund-list {
+				.slick-slide div {
+					line-height: 1.2;
+					vertical-align: top;
+				}
+				p {
+					width: 10% !important;
+					font-weight: 500;
+					color: rgba(0, 0, 0, 0.4);
+					text-align: center;
+					line-height: 1.2;
+					@include vw(font-size, 22px);
+					&:nth-child(3) {
+						@include vw(margin-right, 280px);
+					}
+				}
+			}
+		}
+	}
+
+	.sector-awards {
+		border-style: solid;
+		border-color: #ececef;
+		border-width: 0;
+		@include vw(border-top-width, 20px);
+	}
+
+	.sector-pass-banner {
+		@include vw(padding, 50px 0);
+	}
+}

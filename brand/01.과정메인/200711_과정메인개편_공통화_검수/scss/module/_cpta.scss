@@ -1,0 +1,122 @@
+.progress_cpta {
+    .section-visual {
+        background: url("#{$img-path-main}/common/bg_big_banner2.png") no-repeat center center;
+        background-size: cover;
+    }
+
+    .section-title-wrap {
+        @include vw(letter-spacing, -2px);
+        // .label-num {
+        //     @include vw(font-size, 40px);
+        // }
+        .big-title {
+            @include vw(margin-top, 40px);
+            @include vw(letter-spacing, -2px);
+            // @include vw(font-size, 55px);
+        }
+        strong {
+            @include vw(letter-spacing, -2px);
+        }
+    }
+
+    .section-ment {
+        position: relative;
+        &.ment-start {
+            @include vw(padding-bottom, 140px);
+            background: #ffdd00;
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 50%;
+                @include vw(bottom, -40px);
+                @include vw(width, 1px);
+                @include vw(height, 80px);
+                background: #000;
+                z-index: 1;
+            }
+        }
+        .action {
+            a {
+                @extend .btn-type-white;
+                background-color: transparent;
+            }
+        }
+        .grounds-text {
+            color: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .section-reason {
+        .review-total .asterisk {
+            vertical-align: 9px;
+            font-weight: 500;
+        }
+        &.reason-1 {
+            .section-title-wrap {
+                padding-top: 76px;
+                @include vw(padding-top, 150px);
+            }
+            .grounds-text {
+                color: #fff;
+            }
+        }
+        &.reason-3 {
+            background: $color-gray;
+        }
+        &.reason-5 {
+            background: $color-gray;
+            .small-title {
+                color: #666;
+                @include vw(font-size, 22px);
+            }
+            .small-desc {
+                position: relative;
+                @include vw(margin-top, 44px);
+                @include vw(padding-top, 44px);
+                color: #666;
+                @include vw(letter-spacing, -1px);
+                @include vw(font-size, 16px);
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    @include vw(margin-left, -12px);
+                    @include vw(width, 24px);
+                    @include vw(height, 1px);
+                    background: #000;
+                    z-index: 1;
+                }
+            }
+        }
+        &.reason-7 {
+            .small-title {
+                color: #666;
+                @include vw(font-size, 30px);
+            }
+            @include vw(padding-bottom, 58px);
+        }
+		&.reason-youtube {
+			border-top: 1px solid #EEEEEE;
+			.swiper-review2 {
+				@include vw(width, 600px);
+				margin: 0 auto;
+			}
+			.swiper-slide {
+				width: 90%;
+			}
+			.btn-video{ 
+				position:relative;
+			}
+		}
+    }
+
+    .review-slider .swiper-slide .core {
+        @include vw(padding, 48px 200px 48px 44px);
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: auto 100%;
+    }
+}

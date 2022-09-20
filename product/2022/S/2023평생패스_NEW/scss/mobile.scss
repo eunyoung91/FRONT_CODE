@@ -1,0 +1,486 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/motion";
+@import "module/popup";
+
+.bottom_fix_btn{
+	display: none !important;
+}
+.only-pc{
+	display: none !important;
+}
+.product-eco {
+    overflow: hidden;
+    * {
+        line-height: normal;
+        font-family: $font-roboto;
+        font-size: inherit;
+        color: inherit;
+        letter-spacing: -1px;
+    }
+    text-align: center;
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.only-pc,
+	.pc-only{display: none;}
+	.holder { position: relative;}
+	.item { position: relative;}
+
+    .slick-arrow {
+        border-radius: 50%;
+        &.slick-prev {
+            @include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+            left: 30px;
+        }
+        &.slick-next {
+            @include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+            right: 30px;
+        }
+    }
+    .slick-dots {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        font-size: 0;
+        text-align: center;
+		li {
+			display: inline-block;
+			@include vw(margin, 0 6px);
+			&.slick-active button {
+				@include vw(width, 60px);
+				@include vw(border-radius, 50px);
+				background-color: #1848c2;
+			}
+		}
+		button {
+			display: block;
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			color: transparent;
+			border: none;
+			border-radius: 50%;
+			background-color: #f2f2f2;
+			outline: none;
+			cursor: pointer;
+		}
+    }
+	
+	.sector{
+		&-top-banner{
+			@include bg($color: #0f1837, $url: '#{$img-path}/mobile/bg_top_banner.jpg', $size: cover);	
+		}
+		&-title{
+			@include bg($color: #0f1837, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			.action {
+				position: absolute;
+				z-index:7;
+				bottom:5%;
+				@include vw(right, 50px);
+				@include vw(width, 118px);
+			}
+		}
+		&-plus{			
+			@include linear-gradient(to bottom, #1c45b1 0%, #1c388b 50%, #1c388b 50%, #1c388b 50%, #1c388b 50%, #1c388b 100%);
+			.wrap{
+				&:before{
+					content: '';
+					@include vw(width, 100px);
+					@include vw(height, 100px);
+					@include bg($url: '#{$img-path}/pc/ico_plus.png', $size: cover);
+					background-size:cover;
+					position: absolute;
+					left: 50%;
+					transform: translate(-50%,0);
+					@include vw(top, -50px);
+					z-index: 0;
+				}
+			}
+		}
+		&-interview{
+			background-color: #f5f5f7;
+			.holder{
+				.action {
+					position: absolute;
+					z-index:7;
+					top:50%;
+					@include vw(right, 50px);
+					@include vw(width, 118px);
+				}
+			}
+			.interview-group{
+				position:relative;
+				@include vw(width, 620px);
+				margin:0 auto;
+				overflow:hidden;
+				.video-box{
+					position:relative;
+					width:100%;
+					@include vw(height, 352px);
+					margin:0 auto;
+					background-color:#000;
+					video, iframe{width:100%;height:100%;}
+					.btn-video{
+						position:absolute;left:0;top:0;
+					}
+				}
+				.interview-list{
+					font-size: 0;
+					@include vw(margin-top, 10px);
+					.slick-list {
+						@include vw(margin, 0 -3px);
+						.slick-slide {
+							@include vw(margin, 0 3px);
+							.slide-list{
+								position:relative;
+								text-align:right;
+								.btn-play{
+									position:relative;
+									display:block;
+									&:after{
+										content:'';
+										position:absolute;
+										right:0;
+										top:0;
+										cursor:pointer;
+										width:100%; height:100%;
+										background-color: rgba(0,0,0,0.4);
+									}
+									&:focus{outline: 0;}
+									&.on{
+										&:after{
+											content:'';
+											position:absolute;
+											right:0;
+											top:0;
+											cursor:pointer;
+											width:100%; height:100%;
+											background-color:transparent;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}	
+		}
+
+		&-review{
+			background-color: #f4f4f4;
+			@include vw(padding-top, 50px);
+			.wrap{
+				width:100%;
+				.slide-left{
+					@include vw(margin-left, 29px);
+					.slick-slide {
+						@include vw(margin, 0 10px);
+						@include vw(width, 552px);
+					}
+					.slick-arrow{
+						display: none !important;
+						opacity:0;
+					}
+					.slick-dots{
+						display: none !important;
+						opacity:0;
+					}
+				}
+			}
+		}
+
+		&-winner-list{
+			background-color: #f4f4f4;
+			.winner-contents{
+				@include vw(padding-bottom, 60px);
+				margin:0 auto;
+				@include vw(margin-top, -20px);
+				.winner-list{
+					transform: perspective(400px) rotateX(45deg);overflow:hidden;
+					p{
+						color:#999;
+						@include vw(font-size, 20px);
+						@include vw(margin, 4px 0);
+						line-height:1.5;
+						font-weight: 500;
+						text-align:center;
+						font-family: $font-noto;
+					}
+				}
+			}
+		}
+
+		&-bar{
+			@include linear-gradient(to right, #dbecfe 0%, #dbecfe 100%);
+			.wrap{
+				&:after{
+					content:'';
+					@include bg($url: '#{$img-path}/pc/bar_after.png', $size: cover);
+					position: absolute;
+					z-index:7;
+					@include vw(width, 250px);
+					@include vw(height, 65px);
+					@include vw(bottom, -65px);
+					left:0;
+					right:0;
+					margin:0 auto;
+				}
+			}
+
+		}
+
+		&-step{
+			background-color: #fff;
+			@include vw(padding-top, 100px);
+			@include vw(padding-bottom, 120px);
+			.slide-center{
+				.slick-list{
+					@include vw(margin, 0 -10px);
+				}
+				.slick-slide {
+					@include vw(margin, 0 10px);
+					@include vw(width, 552px);
+				}
+				.slick-arrow{
+					display: none !important;
+					opacity:0;
+				}
+				.slick-dots{
+					position: relative;
+				}
+			}
+		}
+
+		&-benefit-slide{
+			@include bg($color: #0f1837, $url: '#{$img-path}/mobile/bg_benefit_slide.jpg', $size: cover);
+			.wrap{
+				text-align: center;
+				margin:0 auto;
+				.action {
+					position: absolute;
+					z-index:7;
+					top: 90%;
+					@include vw(right, 50px);
+					@include vw(width, 118px);
+				}
+			}
+		}
+
+		&-curriculum{
+			.graph-wrap{
+				width:100%;
+				@include vw(height, 502px);
+				overflow: hidden;
+				.graph-box{
+					margin:0 auto;
+					position: relative;
+					.motion{
+						position: absolute;
+						z-index:5;
+						&-1{ top:0; }
+						&-2{ @include vw(top, 84px); }
+						&-3{ @include vw(top, 168px); }
+						&-4{ @include vw(top, 252px); }
+						&-5{ @include vw(top, 336px); }
+						&-6{ @include vw(top, 420px); }
+					}
+				}
+			}
+			.circle-box{
+				position: absolute;
+				z-index:10;
+				top:39%;
+				left:0;
+				right:0;
+				margin:0 auto;
+			}
+		}
+		&-new{
+			background-color: #eff6fd;
+			.flag-new{
+				position: absolute;
+				z-index:10;
+				@include vw(top, -18px);
+				left:0;
+				right:0;
+				margin:0 auto;
+			}
+			.flag-2023{
+				position: absolute;
+				z-index:10;
+				top:40%;
+				left:1%;
+				@include vw(width, 136px);
+				@include vw(height, 139px);
+			}
+		}
+		&-teacher{
+			@include linear-gradient(to bottom, #fff 0%, #fff 60%, #fff 60%, #fff 60%, #eff6fd 60%, #eff6fd 100%);
+			background-color: #fff;
+			.teacher-tabslider{
+				position: relative;
+				@include vw(width, 620px);
+				margin:0 auto;
+			}
+			.tag{
+				position: absolute;
+				z-index:10;
+				top:65%;
+				right:2%;
+				@include vw(width, 136px);
+				@include vw(height, 139px);
+			}
+			.icon-vs{
+				position: absolute;
+				z-index:10;
+				margin:0 auto;
+				top:85%;
+				left:0;
+				right:0;
+				@include vw(width, 81px);
+				@include vw(height, 53px);
+			}
+			
+			.other{
+				position: relative;
+			}
+			.info-pager {
+				@include vw(width, 620px);
+				@include vw(height, 388px);
+				@include vw(margin, 0 auto 50px);
+				&.slick-slider .slick-track,
+				&.slick-slider .slick-list {
+					top:0;
+					left: 0 !important;
+				}
+				.slick-list {
+					// @include vw(margin, 0 -20px);
+				}
+				.slick-slide {
+					// @include vw(margin, 0 20px);
+				}
+				.slick-slide {
+					.col {
+						cursor: pointer;
+						@include transition(background-color, 0.3s);
+						@include vw(width, 218px);
+						@include vw(height, 388px);
+						background-size:contain !important;
+						&1{ @include bg($url: '#{$img-path}/mobile/teacher1.png'); }
+						&2{ @include bg($url: '#{$img-path}/mobile/teacher2.png'); }
+						&3{ @include bg($url: '#{$img-path}/mobile/teacher3.png'); }
+					}
+					&.slick-current {
+						.col {
+							@include vw(width, 218px);
+							@include vw(height, 388px);
+							background-size:contain !important;
+							&1{ @include bg($url: '#{$img-path}/mobile/teacher1_on.png'); }
+							&2{ @include bg($url: '#{$img-path}/mobile/teacher2_on.png'); }
+							&3{ @include bg($url: '#{$img-path}/mobile/teacher3_on.png'); }
+						}
+					}
+				}		
+			}
+			.info-slider {
+				width: 100%;
+				.col {
+					text-align: center;
+					img {
+						display: inline-block;
+						@include boxShadow(0 20px 10px 0 rgba(0, 0, 0, 0.5));
+					}
+				}
+			}
+		}
+		&-book{
+			.stamp{
+				position: absolute;
+				z-index:10;
+				top:66%;
+				right:13%;
+				@include vw(width, 207px);
+			}
+			.action{
+				position: absolute;
+				z-index:7;
+				top: 36%;
+				@include vw(right, 50px);
+				@include vw(width, 118px);
+			}
+		}
+
+		&-exam{
+			background-color: #fff;
+			@include vw(padding-bottom, 120px)
+			.slide-one{
+				margin:0 auto;
+				&.first{
+					@include vw(width, 464px);
+					.slick-dots{
+						display: none;
+						opacity:0;
+					}
+				}
+				&.second{
+					@include vw(width, 668px);
+					.slick-arrow{
+						display: none;
+						opacity:0;
+					}
+				}
+				img{
+					margin: auto;
+				}
+				.slick-arrow {
+					border-radius: 50%;
+					&.slick-prev {
+						@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+						@include vw(left, -60px);
+					}
+					&.slick-next {
+						@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+						@include vw(right, -60px);
+					}
+				}
+				.slick-dots {
+					top:auto;
+					bottom:0;
+				}
+			}
+		}
+
+		&-contents{
+			background: #f4f4f4;
+		}
+		&-service {
+			background: #fff;
+		}
+		&-winner{
+			@include bg($color: #040301, $url: 'https://img.eduwill.net/eduwill/img/2022/0/event/220414/pc/bg_winner.jpg', $size: cover);
+			.action{
+				position: absolute;
+				bottom:10%;
+				@include vw(right, 50px);
+				@include vw(width, 118px);
+			}
+		}
+		&-bar-bottom {
+			@include linear-gradient(to right, #2d3655 0%, #363869 100%);
+		}
+	}
+}

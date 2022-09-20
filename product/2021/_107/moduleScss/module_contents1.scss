@@ -1,0 +1,418 @@
+@charset "utf-8";
+@import "mixins";
+
+/* 컨텐츠 */
+@mixin shadowBg(){
+	background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+}
+.product-eco {
+
+	@media screen and (min-width: 530px) {
+		.teacher-list-box .col a .t-info .t-name { padding-right: 23px; background-size: 18px auto;}
+	}
+
+	.ecoCont1 {
+		// @include shadowBg();
+		.motion-1 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-2 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-3 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-4 { opacity: 0; width: 0; @include transition(all, .5s); }
+		
+		&.active {
+			.motion-1 { opacity: 1; width:96%; @include transitionDelay(.3s); }
+			.motion-2 { opacity: 1; width:100%; @include transitionDelay(.6s); }
+			.motion-3 { opacity: 1; width:100%; @include transitionDelay(.9s); }
+			.motion-4 { opacity: 1; width:100%; @include transitionDelay(1.2s); }
+		}
+	}
+	//PC
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent1 {
+			p {
+				&.plusIcon {
+					position: absolute;
+					top: -60px;
+					left: 50%;
+					width: 180px;
+					height: 180px;
+					margin-left: -90px;
+					border-radius: 50%;
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					color: #fff;
+					font-size: 103px;
+					font-family: 'Roboto';
+					font-weight: 500;
+					background: #432767;
+				}
+				&.eventType {
+					position: absolute;
+					font-size: 60px;
+					color: #fff;
+					font-weight: 900;
+					letter-spacing: -4px;
+					font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+					em {
+						color: #05fbfa;
+					}
+		
+					&.A {
+						top: 107px;
+						left: 181px;
+					}
+					&.B {
+						bottom: 425px;
+						left: 200px;
+					}
+		
+				}
+			}
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.slide4065 {
+				padding: 30px 0 60px 0;
+				img {
+					margin: auto;
+				}
+				
+				.slick-dots {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 35px;
+					li {
+						button {
+							width: 14px;
+							height: 14px;
+							margin-right: 10px;
+							border-radius: 14px;
+							text-indent: -9999px;
+							background: #adadad;
+							border: none;
+							transition: all .3s ease;
+						}
+				
+						&.slick-active {
+				
+							button {
+								width: 38px;
+								background: #ffc20e;
+								border-radius: 20px;
+							}
+						}
+				
+					}
+				}
+			}
+			.ecoContVisual {
+				background:url('https://img.eduwill.net/eduwill/img/2021/Q/product/211224/pc/eco4327/ecoContVisual_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+				padding-bottom: 200px;
+
+				.btn-reason {
+					top: 60px;
+					right: 10px;
+
+					background: #fffecc;
+
+				}
+				.winner-contents {
+					width: 900px;
+					margin: 0 auto;
+					.winner-list {
+						transform: perspective(240px) rotateX(35deg);
+						p {
+							margin: 5px 0;
+							color: #222;
+							font-size: 16px;
+							font-weight: 700;
+							text-align: center;
+						}
+					}
+				}
+			}
+			
+			.ecoCont1 {
+				// @include shadowBg();
+				.wrap {
+					
+					.btn-reason {
+						top: 158px;
+						right: 50px;
+						color: #8a8a8a;
+						border-color: #8a8a8a;
+
+						&::after {
+							border-color: #8a8a8a;
+						}
+					}
+
+					.img {
+						position: relative;
+						z-index: 1;
+					}
+
+					.graph {
+						position: absolute;
+						top: 433px;
+						left: 50px;
+						right: 50px;
+
+						p {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							@include vw(height, 71px);
+							@include vw(margin-bottom, 10px);
+							@include vw(padding, 0 25px 0 40px);
+							@include vw(border-top-right-radius, 71px);
+							@include vw(border-bottom-right-radius, 71px);
+							background: rgb(235,57,199);
+							background: linear-gradient(90deg, rgba(235,57,199,1) 38%, rgba(101,26,201,1) 100%);
+							
+							box-sizing: border-box;
+
+							span {
+								font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+								color: #fff;
+								&:first-child {
+									@include vw(font-size, 21px);
+									font-weight: 600;
+								}
+								&:last-child {
+									@include vw(font-size, 40px);
+									font-weight: 900; 
+									font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+									em {
+										@include vw(font-size, 25px);
+										font-weight: 600; 
+										
+									}
+								}
+							}
+						}
+						
+					}
+				}
+			}
+
+			.ecoCont2 {
+				background: #f8f6ff;
+			}
+
+			.ecoCont4 {
+				background: #432767;
+			}
+			.ecoCont6 {
+				padding-bottom: 70px;
+				.btn-refunds {
+					position: absolute;
+					top: 523px;
+					right: 162px;
+				}
+			}
+			.ecoCont7 {
+				background: #432767 url('https://img.eduwill.net/eduwill/img/2022/V/product/module/pc/eco4144/ecoCont7_bg.png') no-repeat center top !important;				
+			}
+		}
+
+	}
+
+	//MOBILE
+	&[data-device="mo"]{
+		.slide4065 {
+			@include vw(padding, 40px 40px 80px 40px);
+			img {
+				margin: auto;
+			}
+			
+			.slick-dots {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				li {
+					button {
+						width: 14px;
+						height: 14px;
+						margin-right: 10px;
+						border-radius: 14px;
+						text-indent: -9999px;
+						background: #adadad;
+						border: none;
+						transition: all .3s ease;
+					}
+			
+					&.slick-active {
+			
+						button {
+							width: 38px;
+							background: #ffc20e;
+							border-radius: 20px;
+						}
+					}
+			
+				}
+			}
+
+		}
+		// content moudule
+		#edoContent1 {
+			p {
+				&.plusIcon {
+					position: absolute;
+					left: 50%;
+					@include vw(top, -54px);
+					@include vw(width, 180px);
+					@include vw(height, 180px);
+					@include vw(margin-left, -90px);
+					border-radius: 50%;
+					
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					
+					color: #fff;
+					@include vw(font-size, 103px);
+					font-family: 'Roboto';
+					font-weight: 700;
+					@include vw(line-height, 10px);
+					
+					background: #432767;
+					box-sizing: border-box;
+					padding:20px 0;
+				}
+				&.eventType {
+					position: absolute;
+					@include vw(font-size, 58px);
+					color: #fff;
+					font-weight: 900;
+					@include vw(letter-spacing, -7px);
+					line-height: 1.3;
+					text-align: center;
+					
+					em {
+						color: #05fbfa;
+					}
+		
+					&.A {
+						@include vw(top, 100px);
+						@include vw(left, 50px);
+						@include vw(right, 50px);
+					}
+					&.B {
+						@include vw(bottom, 450px);
+						@include vw(left, 50px);
+						@include vw(right, 50px);
+					}
+		
+				}
+			}
+			#eduf-paragraph {
+				margin-bottom: 0 !important;
+			}
+			.ecoContVisual {
+				background:url('https://img.eduwill.net/eduwill/img/2021/_106/product/211220/mobile/eco4010/ecoContVisual_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+
+				.btn-reason {
+					top: 7.5vw;
+					right: 5vw;
+
+					background: #fffecc;
+
+				}
+
+				.btn {
+					position:absolute;
+					@include vw(top,50px);
+					right:0;
+					@include vw(width,234px);
+				}
+				.winner-contents {
+					overflow:hidden;
+					position:absolute;
+					bottom: -32vw;
+					left:50%;
+					transform:translateX(-50%);
+					width:100%;
+					@include vw(height,260px);
+					@include vw(padding-bottom,370px);
+					.winner-list {
+						transform:perspective(150px) rotateX(25deg);
+						.slick-track {
+							transform:translate(0) !important;
+						}
+					}
+					p {
+						color:#3e3e3e;
+						@include vw(font-size,18px);
+						font-weight:700;
+						line-height:normal;
+						text-align: center;
+					}
+				}
+			}
+			.ecoCont1 {
+
+				#eduf-paragraph {
+					//margin-bottom: 0 !important;
+				}
+
+				.btn-reason {
+					top: -15vw;
+				}
+
+				.img {
+					position: relative;
+					z-index: 1;
+				}
+
+				.graph {
+					width: 86%;
+    				margin: 0 auto 20px auto;
+
+					p {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						@include vw(height, 71px);
+						@include vw(margin-bottom, 10px);
+						@include vw(padding, 0 30px);
+						@include vw(border-top-right-radius, 71px);
+						@include vw(border-bottom-right-radius, 71px);
+						background: rgb(235,57,199);
+						background: linear-gradient(90deg, rgba(235,57,199,1) 38%, rgba(101,26,201,1) 100%);
+						
+						box-sizing: border-box;
+
+						span {
+							font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+							color: #fff;
+							&:first-child {
+								@include vw(font-size, 24px);
+								font-weight: 600;
+							}
+							&:last-child {
+								@include vw(font-size, 40px);
+								font-weight: 600; 
+								font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+								em {
+									@include vw(font-size, 25px);
+									font-weight: 600; 
+									
+								}
+							}
+						}
+					}
+					
+				}
+				
+			}
+		}
+	}
+}

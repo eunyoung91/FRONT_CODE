@@ -1,0 +1,431 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+
+#contents{
+	.land{
+		&-content{
+            .pointer{
+                @include pointer(50%, 10%, 43px, 53px, 12, bounce);         
+            }
+		}
+
+        &-title{
+            background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 0;
+			background-size:cover;
+        }
+
+        &-lecture{
+            @include rem(padding-bottom, 100px);
+			background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_lecture.jpg') no-repeat 50% 0;
+			background-size:cover;
+		}
+
+		&-price{
+            background-color:#fff;
+            .notice{
+                @include rem(margin-top, 30px);
+            }
+
+            .item-group-price{
+                padding:0;border:none;
+                .btn-apply{margin-top:0;}
+            }
+
+			.item-group {
+				@include rem(top, -100px);
+
+				.item-subject {
+					strong {
+						color: #ea1d00;
+						font-weight: 900;
+						@include px2vw(letter-spacing, -2);
+						@include vw(50px);
+					}
+				}
+				.item-benefit {
+					.row {
+						position: relative;
+						@include px2vw(padding-left, 16);
+						@include px2vw(margin-top, 5);
+						@include vw(28px);
+						font-weight: 700;
+						line-height: 1.4;
+						color: #000;
+						strong {
+							font-weight: 700;
+							color: #000;
+							word-break: keep-all;
+							@include vw(28px);
+							@include px2vw(letter-spacing, -1.5);
+							line-height: 1.4;
+						}
+						&:before {
+							content: '·';
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+						&:first-child { margin-top: 0;}
+					}
+				}
+			}
+
+			+ .land-benefit {
+				.title {
+					@include rem(padding-top, 5px);
+				}
+			}
+		}
+
+
+		&-benefit{
+            background-color:#fff;
+            .wrap{padding:0;}
+            .title{
+				@include rem(padding-top, 80px);
+				img {
+					@include px2vw(width, 102);
+				}
+			}
+			.notice{position:absolute;left:6%; right: 6%; bottom:3%;color:#000;opacity:0.5;}
+		}
+
+		&-provide{
+            @include rem(padding-bottom, 100px);
+			.title {opacity:1;}
+		}
+
+		&-academy-review2 {
+			@include px2vw(padding-bottom, 100);
+			.wrap { padding: 0;}
+			background: #fffedd;
+			.title { padding-top: 0;}
+			.academy-review2-list {
+				.slick-slide {
+					@include px2vw(padding-left, 20);
+					@include px2vw(padding-right, 20);
+					opacity: .5;
+					&.slick-current { opacity: 1;}
+				}
+				.slick-arrow {
+					@include px2vw(width, 30);
+					@include px2vw(height, 30);
+					@include px2vw(margin-top, -15);
+					&.slick-prev { left: 6%;}
+					&.slick-next { right: 9%;}
+				}
+			}
+		}
+
+        &-reason-winners{
+            @include rem(padding-top, 100px);
+        }
+
+        &-exam{display:block !important;}
+        &-teacher{
+            .teacher-list{margin-top:0;}
+            display:block !important;
+        }
+
+        &-academy-review{
+			background-color:#ffbf00;
+		}
+
+
+		&-uland{
+            .wrap{padding:0;}
+			background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_uland.jpg') no-repeat 50% 0;
+			background-size:cover;
+			.floating-uland{position:absolute;right:5%;top:12%;width:percent(150);}
+		}
+
+        &-package{
+            background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_package.jpg') no-repeat 50% 0;
+			background-size:cover;
+            display:block !important;
+            &:after{display:none;}
+            .img-content{
+                +.img-content{display:none;}
+            }
+        }
+
+        &-agency{
+            .title{
+				padding-top:0;
+				& > div.main{margin-top:0;}
+			}
+            .agency-list{
+                padding:0 percent(50);
+                @include rem(margin-top, 50px);
+            }
+
+            .notice{
+                @include rem(margin-top, 30px);
+                text-align:center;color:#000;font-weight:700;@include vw(30px);
+            }
+        }
+
+		&-reason-qna{
+			display:none;
+		}
+
+		&-prize2{
+			display:none;
+		}
+	}
+
+	&.yearly{
+		.land{
+			&-title{
+				.wrap { padding:  0;}
+				background-image: url('#{$img-path}/mobile/bg_title_210825.jpg') 
+			}
+
+			&-benefit{
+				background: #fff;
+				.title{
+					@include rem(padding-top,80px);
+				}
+				.notice {
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#c32d3e;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_red.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #c32d3e;
+						border: 1px solid #eb6f7d;
+					}
+				}
+
+				.list-text{color:#fa8d9a;}
+			}
+
+		}
+	}
+
+	&.short{
+		width: 100% !important;
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/mobile/bg_title_short.jpg') 
+			}
+
+			&-price {
+				background: #fff;
+			}
+
+			&-benefit{
+				background-color: #fff;
+				.notice {
+					left: 7%;
+					right: 7%;
+					word-break: keep-all;
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#03b355;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_short.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #03c45e;
+						border: 1px solid #73ec80;
+					}
+				}
+
+				.list-text{color:#a0dfbe;}
+			}
+
+		}
+	}
+
+	&.short-2 {
+		width: 100% !important;
+		.land{
+			&-title{
+				background-color: #f3f3f3;
+				background-image: url('#{$img-path}/mobile/bg_short_2.png') 
+			}
+
+			&-video {
+				@include px2vw(padding-top, 100);
+				@include px2vw(padding-bottom, 50);
+				background: #f3f3f3;
+				.video-cont {
+					position: relative;
+					width: 100%;
+					@include px2vw(height, 350);
+					margin: 0 auto;
+					background: #000;
+					iframe, video {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+
+			&-price {
+				@include px2vw(padding-top, 50);
+				@include px2vw(padding-bottom, 100);
+				background: #f3f3f3;
+			}
+
+			&-benefit{
+				@include px2vw(padding-top, 50);
+				background-color: #fff;
+				.notice {
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#00a1b5;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_short_2.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #00adc2;
+						border: 1px solid #009bae;
+					}
+				}
+
+				.list-text{color:#83e8f4;}
+			}
+
+		}
+	}
+
+	&.all {
+		width: 100% !important;
+		.land{
+			&-title{
+				background-color: #dde7ff;
+				background-image: url('#{$img-path}/mobile/bg_title_all.jpg') 
+			}
+
+			&-price {
+				@include px2vw(padding-top, 100);
+				@include px2vw(padding-bottom, 50);
+				.item-group {
+					top: 0;
+					.item-subject {
+						strong {
+							background: linear-gradient(to right, #6d00ff, #1e00ea);
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+							font-weight: 900;
+							@include px2vw(letter-spacing, -2);
+							@include vw(50px);
+						}
+					}
+				}
+
+				
+			}
+
+			&-benefit{
+				@include px2vw(padding-top, 50);
+				background-color: #fff;
+				.main {
+					.highlight { color: #2004ee !important;}
+				}
+				.notice {
+					left: 6%;
+					right: 6%;
+					word-break: keep-all;
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#003053;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_all.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #003686;
+						border: 1px solid #193b6f;
+					}
+				}
+
+				.list-text{color:rgba(255,255,255, .4);}
+			}
+
+		}
+	}
+
+	&.all-2 {
+		width: 100% !important;
+		.land{
+			&-title{
+				.wrap {
+					padding: 0;
+				}
+				background-image: url('#{$img-path}/mobile/bg_title_all_2.jpg') 
+			}
+
+			&-price {
+				@include px2vw(padding-top, 100);
+				@include px2vw(padding-bottom, 50);
+				.item-group {
+					top: 0;
+					.item-subject {
+						strong {
+							background: linear-gradient(to right, #ff0068, #ea00a5);
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+						}
+					}
+				}
+			}
+
+			&-benefit{
+				@include px2vw(padding-top, 50);
+				background-color: #fff;
+				.main {
+					.highlight { color: #f93974 !important;}
+				}
+				.notice {
+					left: 6%;
+					right: 6%;
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#000053;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_all2.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #003686;
+						border: 1px solid #193b6f;
+					}
+				}
+
+				.list-text{color:rgba(255,255,255, .4);}
+			}
+
+		}
+	}
+}

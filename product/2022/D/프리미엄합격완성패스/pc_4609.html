@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title>도로교통사고감정사</title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/eduf.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<!--// eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<!-- ECO -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/dev/js/common/script.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/dev/js/common/eduf.js"></script>
+<link rel="stylesheet" href="css/web.css">
+
+<!-- 여기부터 -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/css/2022/D/product/220502/web.css?v=1">
+<div id="contents" class="product-eco">
+	<div class="wing right">
+		<a href="#sectorPrice" class="page-move">
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/wing_right_1.png" alt="" />
+		</a>
+	</div>
+	<div class="sector-title">
+		<div class="wrap">
+			<a href="javascript:edufLayerOpen('#edufLayerBase');" class="btn btn-text">근거확인</a>
+			<div class="light light-1"><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/light_1.png" alt="" /></div>
+			<div class="light light-2"><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/light_2.png" alt="" /></div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/title.png" alt="" />
+		</div>
+	</div>
+
+	<div class="sector-benefit">
+		<div class="wrap">
+			<div class="benefit-title">
+				에듀윌 합격생 10명 중 9명<em>*</em>은 단기 합격!<br>
+				<strong class="highlight">업계 1위<em>*</em> 단독 프리미엄 혜택 제공</strong>
+			</div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/benefit.jpg" alt="" />
+			<a href="javascript:edufLayerOpen('#edufLayerBase');" class="btn btn-text">근거확인</a>
+		</div>
+	</div>
+
+	<div class="sector-benefit-plus">
+		<div class="wrap">
+			<div class="benefit-title">
+				여기서 끝이 아닙니다!
+				<strong>1위<em>*</em> 에듀윌 수강생 202% 폭발적 증가 기념 추가 혜택</strong>
+				<p class="notice">* 에듀윌 도로교통사고감정사 수강생 증가율(2018년, 2021년 비교)</p>
+			</div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/benefit_plus.png" alt="" />
+		</div>
+	</div>
+	<script>
+		$(function() {
+			scrollProvideEvent(null);
+			$(window).on("scroll", scrollProvideEvent);
+		});
+		var _isProvideScroll = false;
+
+		function scrollProvideEvent(st) {
+			var scrollTop = $(window).scrollTop();
+			var offsetTop = $(".sector-benefit-plus").offset().top;
+			if (scrollTop > offsetTop - 600) {
+				if (_isProvideScroll == true) return;
+				TweenMax.fromTo($(".sector-benefit-plus .wrap > img"), 0.5, {
+					y: 50,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1,
+					ease: Sine.easeInOut
+				});
+				_isProvideScroll = true;
+			} else {
+				if (_isProvideScroll == false) return;
+				TweenMax.fromTo($(".sector-benefit-plus .wrap > img"), 0.5, {
+					y: 0,
+					opacity: 1
+				}, {
+					y: 50,
+					opacity: 0,
+					ease: Sine.easeInOut
+				});
+				_isProvideScroll = false;
+			}
+		}
+	</script>
+
+	<div id="sectorPrice" class="sector-price">
+		<div class="wrap">
+			<div class="price-box">
+				<div class="price-subject">2022 프리미엄 합격완성패스</div>
+				<div class="price-text">
+					<!-- <p class="sale-flag">60% 역대급 특별할인</p>
+					<div class="sale">
+						<span class="before-price">1,450,000원</span>
+						<strong>580,000원</strong>
+					</div> -->
+					<div class="after-price"><strong>580,000</strong>원</div>
+					<a href="#productApply" class="page-move icon-pointer"><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/btn_apply.png" alt=""></a>
+				</div>
+				<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/price_box.png" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-winner">
+		<div class="wrap">
+			<div class="title-group center-mode">
+				<div class="main-t">
+					에듀윌 도로교통사고감정사 합격생<br>
+					<strong class="highlight">10명 중 9명<em>*</em>은 6개월 내 단기 합격!</strong>
+					<p class="notice">*2018~2020 에듀윌 도로교통사고감정사 합격생 대상 설문조사 응답 결과</p>
+				</div>
+			</div>
+			<div class="winner-contents">
+				<div class="winner-list"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			winnerList();
+		});
+		function winnerList(){
+			var options = {
+				jsonFileNm: 'D202111_WINNER.min',
+			};
+			var slickOptions = {
+				slidesPerRow: 5,
+				slidesToShow: 10,
+			};
+			eduf.UI.Winner('.winner-list', options, slickOptions);
+		}
+	</script>
+
+	<div class="sector-search">
+		<div class="wrap">
+			<div class="title-group center-mode">
+				<div class="main-t">
+					수 많은 도.감.사 수험생이 찾는 곳은 <strong class="highlight">오직 1위<em>*</em> 에듀윌뿐!</strong><br>
+					업계 유일 독보적인 검색량이 1위<em>*</em>를 증명합니다
+				</div>
+				<p class="notice">
+					*2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위<br>
+					*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개업체비교
+				</p>
+			</div>
+
+			<div class="search-box">
+				<div class="typing"></div>
+				<img alt="" src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/search.jpg" />
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var typingBool = false;
+			var typingIdx = 0;
+			var typingTxt = "에듀윌 도로교통사고감정사 "; 
+			typingTxt = typingTxt.split(""); 
+			if (typingBool == false) {
+				typingBool = true;
+				var tyInt = setInterval(typing, 500);
+			}
+
+			function typing() {
+				if (typingIdx < typingTxt.length) {	
+					$(".typing").append(typingTxt[typingIdx]);
+					typingIdx++;
+
+					if(typingIdx > (typingTxt.length-1)) {
+						typingIdx = 0;
+						$(".typing").empty();
+					}
+				} else {
+					clearInterval(tyInt);
+				}
+			}
+		});
+	</script>
+
+	<div class="sector-bar">
+		<div class="wrap">
+			<div class="bar-title">
+				다양한 진로, 평생 직장이 가능한 국가공인 전문 자격증<br>
+				<strong>1위<em>*</em> 에듀윌에서 시작해야 할 이유가 충분합니다!</strong>
+				<p class="notice">*2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-info-1">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					취업부터 승진까지!<br>
+					<strong class="highlight">도로교통사고감정사 자격증 하나로 가능합니다</strong>
+				</div>
+			</div>
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/info_1.png" />
+		</div>
+	</div>
+
+	<div class="sector-info-2">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					자격 제한 없는 유망 전문직 도로교통사고감정사!<br>
+					<strong class="highlight">지금 1위<em>* </em> 에듀윌을 시작해야 하는 이유입니다</strong>
+				</div>
+				<p class="notice">* 2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위</p>
+			</div>
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/info_2.jpg" />
+		</div>
+	</div>
+
+	<div class="sector-info-3">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					예상하기 어려운 도.감.사 난이도!<br>
+					<strong class="highlight">1위<em>* </em> 에듀윌에서 준비해야 확실한 합격이 가능합니다</strong>
+				</div>
+				<p class="notice">* 2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위</p>
+			</div>
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/info_3.jpg" />
+		</div>
+	</div>
+
+	<div class="sector-info-4">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					1위* 에듀윌 도로교통사고감정사!<br>
+					<strong class="highlight">수강생이 추천하고, 합격생이 증명합니다</strong>
+				</div>
+				<p class="notice">* 2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위</p>
+			</div>
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/info_4.jpg" />
+		</div>
+	</div>
+
+	<div class="sector-bar">
+		<div class="wrap">
+			<div class="bar-title">
+				합격할 수밖에 없는 콘텐츠,<br>
+				<strong>모두 독보적 1위<em>*</em> 에듀윌에서만 확인할 수 있습니다</strong>
+				<p class="notice">*2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-book">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					100% 저자 직강!<br>
+					<strong class="highlight">출제경향 완전 분석, 독보적 1위<em>*</em> 에듀윌 교재</strong>
+				</div>
+				<p class="notice">* 블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개업체비교</p>
+			</div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/book.jpg" alt="">
+		</div>
+	</div>
+
+	<div class="sector-teacher">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					수많은 합격자 배출!<br>
+					<strong class="highlight">만족도 100%, 독보적 1위<em>*</em> 에듀윌 명품 교수진</strong>
+				</div>
+				<p class="notice">
+					*에듀윌 강의만족도 조사결과, 도로교통사고감정사 대표교수 기준(2021.09)<br>
+					*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개업체비교
+				</p>
+			</div>
+
+			<div class="teacher-box">
+				<a href="https://road.eduwill.net/Doro/Teacher/Teacher/Teacher_Detail_review.asp?TCode=DL05&Subj=DL" target="_blank" class="btn-link link-1"><span class="sr-only">박상규 교수 자세히보기</span></a>
+				<a href="https://road.eduwill.net/Doro/Teacher/Teacher/Teacher_Detail_review.asp?TCode=DA02&Subj=DA" target="_blank" class="btn-link link-2"><span class="sr-only">이규헌 교수 자세히보기</span></a>
+				<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/teacher.jpg" alt="">
+			</div>
+
+			<div class="teacher-contents">
+				<div class="teacher-review">
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/teacher_review_1.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/teacher_review_2.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/teacher_review_3.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/teacher_review_4.png" alt="" /></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(function(){
+			$('.teacher-review').slick({
+				autoplay: true,
+				autoplaySpeed: 2000,
+				infinite: true,
+				arrows: false,
+				dots: true,
+				slidesToScroll: 1,
+				speed: 1000,
+				slidesToShow: 1,
+			});
+		});
+	</script>
+
+	<div class="sector-curriculum">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					따라만 오면 합격!<br>
+					<strong class="highlight">합격 최적, 독보적 1위<em>*</em> 에듀윌 커리큘럼</strong>
+				</div>
+				<p class="notice">*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개업체비교</p>
+			</div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/curriculum.gif" alt="">
+		</div>
+	</div>
+
+	<div class="sector-care">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					시작부터 마무리까지 독보적 1위<em>*</em>의 올케어!<br>
+					<strong class="highlight">합격 필수, 프리미엄 콘텐츠 특별 제공</strong>
+				</div>
+				<p class="notice">*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개 업체 비교</p>
+			</div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/care.jpg" alt="">
+		</div>
+	</div>
+
+	<div class="sector-bar">
+		<div class="wrap">
+			<div class="bar-title">
+				2022년 도로교통사고감정사 합격! <br>
+				<strong>지금 독보적 1위<em>*</em> 에듀윌에서 시작하세요</strong>
+				<p class="notice">*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개 업체 비교</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-winners">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">
+					독보적 1위<em>*</em> 에듀윌이라서 가능한 결과
+				</div>
+				<p class="notice">
+					*블랙키위 검색 키워드 조회 결과(2021년), 주제어:업체명+도로교통사고감정사/도로 4개업체비교<br>
+					*2018~2020 에듀윌 도로교통사고감정사 합격생 대상 설문조사 응답 결과
+				</p>
+			</div>
+
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/winners.gif" alt="">
+		</div>
+	</div>
+
+	<div class="sector-graph">
+		<div class="wrap">
+			<div class="title-group">
+				<div class="main-t">매년 폭발적으로 증가하는 1위<em>*</em> 에듀윌 수강생 수</div>
+				<p class="notice">
+					*2022 대한민국 브랜드만족도 도로교통사고감정사 교육 1위<br>
+					*에듀윌 도로교통사고감정사 수강생 증가율(2018년 ,2021년 비교)
+				</p>
+			</div>
+			<div class="winner-contents">
+				<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/graph.png" alt="">
+				<div class="winner-list"></div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div class="sector-prize">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/prize_title.png" alt="">
+			<div class="grid">
+				<div class="col">
+					<div class="subtitle">
+						<div class="main"><strong class="highlight">4년연속</strong><br>도로교통사고감정사<br>교육 1위</div>
+					</div>
+					<div class="img-content">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/img_prize_left.png" alt="" />
+					</div>
+					<div class="notice">
+						* 2022/2022 대한민국브랜드 만족도<br>
+						&nbsp;&nbsp; 2020/2019 한국브랜드 만족지수 도로교통사고감정사 교육 1위
+					</div>
+				</div>
+				<div class="col">
+					<div class="subtitle">
+						<div class="main"><strong class="highlight">업계최초</strong><br>대통령상 3관왕 및<br>정부기관상 17관왕 달성</div>
+					</div>
+					<div class="img-content">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/img_prize_right.png" alt="" />
+					</div>
+					<div class="notice">
+						* 대통령표창 3회 수상, 국무총리상, 과학기술정보통신부 장관상, 여성가족부 장관상, 법무부 장관상,<br>
+						   미래창조과학부 장관상, 고용노동부 장관상 2회, 산업자원부 장관상, 정보통신부 장관상, <br>
+						   과학기술부 장관상, 서울특별시장상 수상, 문화체육관광부 장관상 2회, 사회공헌대상 정부기관상
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="eco-2181"></div>
+	<script>
+		getEcoDynamicForClass(2181, 'eco-2181'); /* 공통 : 6년간 */
+		$(function(){
+			$(window).on('load', function(){
+				$('.sector-unbreakable .unbreakable-title .title').html('6년간 깨지지 않는 합격자 수 1위<em>*</em> 에듀윌');
+			});
+		});
+	</script>
+
+	<div class="sector-service">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/service.jpg" alt="">
+		</div>
+	</div>
+
+	<div class="sector-bar apply-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/D/product/220502/pc/apply_title.jpg" alt="">
+		</div>
+	</div>
+</div>
+
+<div class="eduf-layer eduf-layer-base" id="edufLayerBase">
+	<div class="eduf-layer-wrap">
+		<a href="javascript:edufLayerClose('#edufLayerBase');" class="eduf-layer-close"><span class="sr-only">닫기</span></a>
+		<div class="eduf-layer-title">
+			<strong>근거문구</strong>
+		</div>
+		<div class="eduf-layer-content">
+			<div class="eco-4182"></div>
+		</div>
+	</div>
+</div>
+
+<script>
+	getEcoDynamicForClass(4182, 'eco-4182');
+
+	$(function(){
+		titleMotion();
+		pageMove('.page-move');
+	});
+
+	function titleMotion(){
+		var $title = $('.sector-title');
+
+		TweenMax.fromTo( $title.find('.light-1'), .5, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, delay: .2, ease: Power3.easeIn, onComplete: function(){
+			TweenMax.fromTo( $title.find('.light-1'), .6, { scale: 1 }, { scale: 1.4, repeat: -1, yoyo: true });
+		}});
+		TweenMax.fromTo( $title.find('.light-2'), .5, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, delay: .4, ease: Power3.easeIn, onComplete: function(){
+			TweenMax.fromTo( $title.find('.light-2'), .6, { scale: 1 }, { scale: 1.4, repeat: -1, yoyo: true });
+		}});
+	}
+</script>
+
+<!-- ECO -->
+
+<div id="productApply"></div>
+
+</body>
+</html>
+
+

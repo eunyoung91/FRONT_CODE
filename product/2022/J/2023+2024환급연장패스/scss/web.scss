@@ -1,0 +1,133 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";
+@import "base/motion";
+
+.house{
+	&-content{
+	}
+
+	&-banner-follow{
+		position: fixed; 
+		top: 25%; 
+		right: 0;
+		width: 214px;
+		z-index: 20; 
+		background: none;
+		text-align: right;
+	}
+	
+	&-visual{
+		background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220104/pc/bg_title_220419.jpg') no-repeat 50% 0;
+		background-size:cover;
+		height:940px;
+		&:after{
+			display: none;
+		}
+		.title{
+			position: absolute;
+			left:0;
+			right:0;
+			top:790px;
+			margin:0;
+			margin:0 auto;
+			padding:0;
+			display: inline-block;
+			div{
+				&.notice{
+					color:#222;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	&-benefit{
+		padding-bottom:91px;
+		.title{
+			opacity:0;
+			padding-top:60px;
+		}
+	}
+
+	&-provide{
+		position:relative;
+		padding-bottom:120px;
+		background: #de1c32; /* Old browsers */
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			width:132px;
+			height:132px;
+			margin-left:-66px;
+			margin-top:-55px;
+			background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220104/pc/icon_provide.png') no-repeat 0 0;
+			z-index:2;
+		}
+		.title{
+			opacity:0;
+			>div{color:#fff;}
+		}
+		.list{
+			&-group{
+				width: 920px;
+				margin: 0 auto;
+				margin-top: 66px;
+				ul{
+					li{
+						background-color:#ce1429;border:1px solid #eb6e7c;
+						&:nth-child(4n+1){margin-left: 14px;}
+					}
+				}
+			}
+			&-text{color:#eb6e7c;}
+		}
+	}
+
+	&-refund-plus{
+		// @include linear-gradient(to right, #ffd323 0%, #ffbf11 100%);
+		background-color: #fcf5ae;
+		// &.no-icon{
+		// 	.wrap{
+		// 		&:after{
+		// 			display: none;
+		// 		}
+		// 	}
+		// }
+		// .wrap{
+		// 	&:after{
+		// 		content:'';position:absolute;left:50%;top:0;width:132px;height:132px;margin-left:-66px;margin-top:-58px;
+		// 		background:url(https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/icon_plus.png) no-repeat 0 0;z-index:2;
+		// 	}
+		// }
+	}
+
+	&-price{
+		background:#f1f1f1;
+		padding:50px 0;
+		.item{
+			&-group{
+				position:absolute;
+				left:50%;
+				margin-left:-560px;
+				position: relative;
+				bottom:0;
+			}
+		}
+	}
+	&-step{
+		background:url('https://img.eduwill.net/eduwill/img/2021/J/product/210907/pc/bg_step.jpg') no-repeat 50% 0;
+		background-size:cover;
+	}
+
+
+}
+.house-winner-list{
+	padding-top: 0;
+}

@@ -1,0 +1,55 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animation";
+@import "module/motion";
+@import "module/base";
+@import "module/popup";
+#fixApply{
+	display: none !important;
+}
+.fix-apply{
+	bottom: 100px;
+}
+.fix-bottom{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0,0,0,.85);
+	z-index: 10;
+}
+
+.icon-pointer {
+	&:after {
+		content: '';
+		position: absolute;
+		top:40px; 
+		right:32%; 
+		display: block;
+		width: 80px;
+		height: 80px;
+		background: url('#{$img-pointer-path}/icon_pointer_20.png') no-repeat 0 0;
+			background-size: contain;
+			@include animation(pointerBounce, .8s, $iteration: infinite){
+				0%, 100% { @include translateXY(0, 0); }
+				50% { @include translateXY(10px, 10px); }
+			}
+		}
+	}
+
+.sector{
+	&-title{
+		@include bg($url: '#{$img-path3}/pc/bg_title.jpg', $size: cover);
+		.wrap{
+			width:1523px;
+		}	
+	}
+	&-video{
+		@include bg($url: '#{$img-path3}/pc/bg_video.jpg', $size: cover);
+	}
+	&-bar{
+		@include bg($url: '#{$img-path3}/pc/bg_bar.jpg', $size: cover);
+	}
+}

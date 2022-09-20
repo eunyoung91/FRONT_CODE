@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-language" content="kr" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- IE7 호환성보기 강제해제 -->
+    <title></title>
+    <!-- 자동화 페이지 포함 -->
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+    <link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+    <script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+    <!-- <script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script> -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+    <!-- // 자동화 페이지 포함 -->
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+    <script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+  </head>
+  <body>
+    <!-- body 내만 작업 -->
+    <!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+    <!-- <link href="css/web.css" rel="stylesheet" /> -->
+
+    <!-- eco -->
+    <style type="text/css">
+      .product-eco {
+        position: relative;
+      }
+      .product-eco * {
+        font-family: "Noto Sans KR", "맑은 고딕", "Malgun gothic";
+        font-weight: 400;
+        letter-spacing: -0.5px;
+      }
+      .product-eco img {
+        vertical-align: top;
+      }
+
+      .product-eco .sr_only {
+        display: inline-block;
+        position: absolute;
+        z-index: -1;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        *height: 0;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        word-break: keep-all;
+        white-space: nowrap;
+        color: transparent;
+        border: 0;
+        text-indent: -9999px;
+      }
+
+      .product-eco .grid {
+        position: relative;
+        *zoom: 1;
+        -webkfit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .product-eco .grid:before,
+      .product-eco .grid:after {
+        content: "";
+        display: table;
+      }
+      .product-eco .grid:after {
+        clear: both;
+      }
+      .product-eco .grid .col {
+        float: left;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .product-eco .wing {
+        position: fixed;
+        right: 0;
+        top: 40%;
+        z-index: 100;
+      }
+      .product-eco .wing-3 {
+        position: relative;
+        width: 200px;
+        height: 263px;
+        padding: 30px 0;
+        margin: -4px 0 8px 10px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        background: linear-gradient(172deg, #50eee5, #fff66a);
+        color: #262625;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.15);
+      }
+      .product-eco .wing-3-title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 500;
+      }
+      .product-eco .wing-3-title > span {
+        font-size: 26px;
+        font-weight: 700;
+        color: #013a78;
+      }
+      .product-eco .wing-3-date {
+        margin: 4px 0 0 0;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -1px;
+      }
+      .product-eco .wing-3-option {
+        padding: 10px 12px;
+        margin: 16px 25px 0;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .product-eco .wing-3-option > span {
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .product-eco .option-1 {
+        position: relative;
+      }
+      .product-eco .option-1::after {
+        position: absolute;
+        bottom: -28px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "";
+        display: block;
+        width: 23px;
+        height: 23px;
+        background: url("https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/wing_3_plus.png");
+      }
+      .product-eco .option-2 {
+        margin-top: 35px;
+      }
+      .product-eco .wing a {
+        display: block;
+      }
+      .product-eco .section-title {
+        background: url("https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/bg_title_220524.jpg") 50% 0 no-repeat;
+        background-size: cover;
+      }
+      .product-eco .section-title .wrap {
+        width: 100% !important;
+      }
+      .product-eco .section {
+        position: relative;
+        width: 100%;
+        min-width: 1100px;
+      }
+      .product-eco .section .wrap {
+        position: relative;
+        width: 1100px;
+        margin: 0 auto;
+      }
+      .product-eco .section .article {
+        position: relative;
+      }
+      .product-eco .section2 {
+        background: #ecf5ff;
+      }
+      /* 220527 이벤트 추가 */
+      .product-eco .section-event1 {
+        background: #fff;
+      }
+      .product-eco .section3 {
+        background: url("https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/bg_apply.jpg") 50% 0 no-repeat;
+      }
+
+      /* 220808 이벤트추가 */
+      .product-eco .price-wing {
+        z-index: 30;position: absolute;left: 50%;top: 159px; margin-left: 176px; border-radius: 20px 0 20px 0; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15); line-height: 1.2;  animation: blink 1s infinite step-end;
+      }
+      .product-eco .price-wing:after {content: ""; position: absolute; left: 0; bottom: -18px; border-top: 36px solid transparent; border-left: 36px solid #fff; border-bottom: 36px solid transparent; border-right: 36px solid transparent;}
+      .product-eco .price-wing .wing-wrapper {border-radius: 20px 0 20px 0; background: #fff; overflow: hidden;}
+      .product-eco .price-wing .title {padding: 20px 24px; background: linear-gradient(to right, #027dcf 0%, #014b89 100%);}
+      .product-eco .price-wing .title h3{font-size: 20px; font-weight: 900; color: #fff; text-align: left; padding: 0;}
+      .product-eco .price-wing .content {text-align: left; padding: 20px 24px;}
+      .product-eco .price-wing .content p {font-size: 24px; font-weight: 900; margin: 0;}
+      .product-eco .price-wing .content span{font-family: "Montserrat"; font-weight: 700;}
+      .product-eco .price-wing .content .before-price {position: relative; margin: 12px 0 0; display: inline-block; font-size: 20px; font-weight: 700; color: #929292;}
+      .product-eco .price-wing .content .before-price:after {content: ""; position: absolute; left: 0; top: 50%; width: 100%; height: 1px; background: #929292; transform: translateY(-50%);}
+      .product-eco .price-wing .content .after-price {font-size: 36px; font-weight: 900; color: #ec4822;}
+      .product-eco .price-wing .content .after-price span {font-size: 36px; font-weight: 800;}
+
+      @keyframes blink {
+        0%,100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .product-eco .section-apply-event {z-index:10;line-height: 1.2;letter-spacing: -2px; background: linear-gradient(20deg, #00fdff 5%, #00ccff 100%);}
+      .product-eco .section-apply-event .wrap {text-align: left; padding: 140px 50px 180px; box-sizing: border-box;}
+      .product-eco .section-apply-event .title {display: inline-block; padding: 12px 28px; border-radius: 36px; background: linear-gradient(to right, #027dcf 0%, #014b89 100%);}
+      .product-eco .section-apply-event .title h3{margin: 0; padding: 0; color: #fff; font-weight: 600; font-size: 30px;}
+      .product-eco .section-apply-event .text-content p {font-size: 40px; color: #013874; margin: 24px 0 16px;}
+      .product-eco .section-apply-event .text-content strong {font-size: 54px; font-weight: 900; color: #212121;}
+      .product-eco .section-apply-event .text-content strong span {position: relative; font-weight: 900; color: #212121;}
+      .product-eco .section-apply-event .text-content strong span:before{z-index: -1; content: ""; position: absolute; left: 0; bottom: 4px; width: 100%; height: 22px; background: #fff000;}
+      .product-eco .section-apply-event .coupon {position: absolute;top: 180px; left: 50%; margin-left: 176px;}
+      .product-eco .section-apply-event .action {position: absolute;left:0;right:0;bottom: -70px;display: inline-block;text-align: center;margin: 0 auto;}
+      .product-eco .section-apply-event .action a{position: relative; display: inline-block;}
+      .product-eco .section-apply-event .action a:after {z-index: 1;content: ""; position: absolute; top: 50%; right: -10px; width: 79px; height:88px; display: block; background: url("//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png") no-repeat 0 0; background-size: 100% auto; animation: pointerBounceDiagonal .8s infinite}
+
+      @keyframes pointerBounceDiagonal {
+        0%, 100% {
+          transform: translate(0, 0);
+        }
+        50% {
+          transform: translate(-10px, -10px);
+        }
+      }
+      </style>
+    <div class="product-eco">
+      <div style="text-align: center; background-color: #ffe000"><img src="https://img.eduwill.net/Img2/Common/Banner/topBanner/pc/200727/top_banner_cop.png" /></div>
+      <!--
+	<div class="section top-banner" style="background: #fff000;">
+	<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/banner/banner_top.jpg" /></div>
+	</div>
+	-->
+
+      <div class="price-wing">
+        <div class="wing-wrapper">
+          <div class="title">
+            <h3>합격지원 EVENT</h3>
+          </div>
+          <div class="content">
+            <p>9월 개강반</p>
+            <div class="before-price">정가 <span>599,000</span>원</div>
+            <div class="after-price"><span>149,000</span>원</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wing">
+        <a href="https://nrc.eduwill.net/Promotion/Consult#sectionApply" target="_blank"><img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/wing_1.png" /> </a>
+        <a href="https://pf.kakao.com/_sMIaxb" target="_blank"> <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/wing_2.png" /> </a>
+      </div>
+
+      <div class="section section-title">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/title_220524.png" /></div>
+      </div>
+
+      <!-- 220809 초특가 이벤트단 추가 -->
+      <div class="section section-apply-event">
+        <div class="wrap">
+          <div class="text-content">
+            <div class="title">
+              <h3>합격지원 EVENT</h3>
+            </div>
+            <p>선착순 <span>50</span>명 한정</p>
+            <strong>8/31(수)까지 단 50명만!<br/><span class="highlight">역대급 초특가 혜택</span></strong>
+          </div>
+          <div class="coupon">
+            <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/apply_coupon.png" />
+          </div>
+          
+          <div class="action">
+            <a href="#productApply" class="page-move">
+              <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/btn_apply.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="section section1">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/section1.jpg" /></div>
+      </div>
+      <!-- 220527 이미지 및 텍스트 수정 -->
+      <div class="section section2">
+        <div class="wrap">
+          <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/section2_title.jpg" />
+          <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/reason1_220527.jpg" />
+          <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/reason2_220524.jpg" />
+          <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/reason3_220527.jpg" />
+          <img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/benefit_220527.jpg" />
+        </div>
+      </div>
+
+      <!-- 220527 apply 배경 수정 -->
+      <div class="section section3">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/Won2/Product/cop/200601_1/pc/apply_title_220527.png" /></div>
+      </div>
+    </div>
+    <!-- // eco -->
+    <div id="productApply"></div>
+  </body>
+</html>

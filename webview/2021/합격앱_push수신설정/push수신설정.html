@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="(c)2015 에듀윌" />
+<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+<meta name="keywords" content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/brand/dev/css/import.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/brand/dev/css/contents.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/brand/dev/css/app_ui.css" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/jquery/jquery-2.1.4.min.js"></script><!-- jquery -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/iscroll.js"></script><!-- iscroll plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/scrollfix/scrollfix.js"></script><!-- scrollfix plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/script/jquery.rwdImageMaps.min.js"></script><!-- imageMap plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/front_ui.js"></script><!-- front js -->
+
+<body class="in_app">
+	<!-- 210322 -->
+	<style>
+		.in_app { background: #f7f7f9; }
+		.select .select_txt { font-size: 1rem; color: #3a7bd3; }
+		.select .select_txt span{ width: 7px; height: 7px; border-top: 1px solid #c4c4c6; border-right: 1px solid #c4c4c6;  display: inline-block; transform: rotate(45deg); }
+		/* layer */
+		.layer_select { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 10000; background-color: rgba(36, 36, 41, .8);  visibility:hidden; opacity:0;  }
+		.layer_select .layer_wrap { position: absolute; top: 50%; right: 11.11%; left: 11.11%; border-radius: 8px; background-color: #fff; -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .3); -moz-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .3); box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .3); -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%);  padding: 24px; }
+		.layer_select .title { font-weight: bold; color: #000; }
+		.layer_select .action a:first-child { margin-top: 13px; }
+		.layer_select .action a { display: block; margin-top: 12px; padding: 8px 0 8px; font-size: 1rem; color: #242429; text-align: center; border-radius: 2px; background-color: #fff; border: 1px solid #e4e4e9; }
+		.layer_select .layer_close { display: block; margin-top: 12px; padding: 14px 0 15px; font-size: 1.125rem; font-weight: bold; border-radius: 2px; background-color: #fff; border: 1px solid #ccc; text-align: center; }
+		.dimed { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; background-color: rgba(36, 36, 41, .8); display: none; }
+	</style>
+	<!-- 210322 -->
+	
+	<div id="skip_nav"><!-- skip nav -->
+		<a href="#mainContent">본문 바로가기</a>
+		<a href="#footer">하단메뉴 바로가기</a>
+	</div><!--// skip_nav -->
+
+	<div id="wrap"><!-- wrap -->
+		<div id="container"><!-- container -->
+			<div id="contents"><!-- contents -->
+
+				<div class="section_push_setting"><!-- section_push_setting -->
+					<div class="push">
+						<div class="grid holder item">
+							<div class="col info">
+								<p class="title">푸시 알림 받기</p>
+							</div>
+							<div class="col check">
+								<span class="fake_checkbox">
+									<input type="checkbox" id="checkboxPush" class="checkbox">
+									<label for="checkboxPush"></label>
+								</span>
+							</div>
+						</div>
+						<div class="push_notice">
+							알림을 설정하시려면, PUSH 알림 수신을 ON 해주세요.
+						</div>
+						<div class="holder item_list">
+							<div class="grid item">
+								<div class="col info">
+									<p class="title">합격생활</p>
+									<p class="desc">합격 생활 서비스에 발송하는 다양한 알림</p>
+								</div>
+								<div class="col check">
+									<span class="fake_checkbox">
+										<input type="checkbox" id="checkboxA" class="checkbox" checked>
+										<label for="checkboxA"></label>
+									</span>
+								</div>
+							</div>
+							<div class="grid item">
+								<div class="col info">
+									<p class="title">학습서비스</p>
+									<p class="desc">질문 답변, 강좌 연장신청 등 학습에 필요한 알림</p>
+								</div>
+								<div class="col check">
+									<span class="fake_checkbox">
+										<input type="checkbox" id="checkboxB" class="checkbox" checked>
+										<label for="checkboxB"></label>
+									</span>
+								</div>
+							</div>
+							<div class="grid item">
+								<div class="col info">
+									<p class="title">광고성 알림</p>
+									<p class="desc">합격전략설명회, 이벤트, 모의고사 등 혜택 알림</p>
+								</div>
+								<div class="col check">
+									<span class="fake_checkbox">
+										<input type="checkbox" id="checkboxC" class="checkbox">
+										<label for="checkboxC"></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="select">
+						<div class="grid holder item">
+							<div class="col info">
+								<p class="title">문풀훈련소 과정</p>
+							</div>
+							<div class="col check">
+								<a href="#layerChangeItem01" id="selectClick" class="btn_change_item" data-layer="true">
+									<p class="select_txt">공인중개사 <span></span></p>
+								</a>
+							</div>
+						</div>
+						<div class="push_notice">
+							과정선택 후 기상퀴즈/기출문제 푸시 설정이 가능합니다.
+						</div>
+						<div class="holder item_list list">
+							<div class="grid item">
+								<div class="col info">
+									<p class="title">기상퀴즈</p>
+									<p class="desc">설정한 시간에 알림 받기</p>
+								</div>
+							<!-- 팝업  -->
+							<div class="col check">
+								<a href="#layerChangeItem02" class="btn_change_item" data-layer="true">
+									<p class="select_txt">오전 8시 <span></span></p>
+								</a>
+							</div>
+							<!-- 팝업 -->
+							</div>
+							<div class="grid item">
+								<div class="col info">
+									<p class="title">기출퀴즈</p>
+									<p class="desc">문출 훈련서 기출퀴즈 서비스에 필요한 알림</p>
+								</div>
+								<div class="col check">
+									<span class="fake_checkbox">
+										<input type="checkbox" id="checkboxE" class="checkbox">
+										<label for="checkboxE"></label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- // section_push_setting -->
+
+				<!-- 210322 ( class 제거 )-->
+				<div id="layerChangeItem01" class="layer_select"><!-- layer_change_item01 -->
+				<!-- //210322 -->
+					<div class="layer_wrap">
+						<div class="holder">
+							<div class="title">
+								문풀훈련소 과정
+							</div>
+							<div class="action">
+								<!-- 210322 ( class 추가 )-->
+								<a href="#layerChangeItem01" data-layer="false" class="close"><span>선택 안함</span></a>
+								<!-- //210322 -->
+								<a href="javascript:;"><span>공인중개사</span></a>
+								<a href="javascript:;"><span>주택관리사</span></a>
+								<a href="javascript:;"><span>9급 공무원</span></a>
+								<a href="javascript:;"><span>7급 공무원</span></a>
+								<a href="javascript:;"><span>경찰공무원</span></a>
+								<a href="javascript:;"><span>소방공무원</span></a>
+							</div>
+						</div>
+					</div>
+				</div><!-- // layer_change_item01 -->
+
+				<!-- 210322 ( class 제거 )-->
+				<div id="layerChangeItem02" class="layer_select"><!-- layer_change_item02 -->
+				<!-- //210322 -->
+					<div class="layer_wrap">
+						<div class="holder">
+							<div class="title">
+								기상퀴즈 알림 시간
+							</div>
+							<div class="action">
+								<!-- 210322 ( class 추가 )-->
+								<a href="#layerChangeItem02" data-layer="false" class="close"><span>선택 안함</span></a>
+								<!-- //210322 -->
+								<a href="javascript:;"><span>오전 6시</span></a>
+								<a href="javascript:;"><span>오전 7시</span></a>
+								<a href="javascript:;"><span>오전 8시</span></a>
+							</div>
+						</div>
+					</div>
+				</div><!-- // layer_change_item02 -->
+
+			</div><!-- // contents -->
+		</div><!-- // container -->
+	</div><!-- wrap -->
+
+	<script type="text/javascript">
+		$(function(){
+			$('input#checkboxPush').on('click', function(){
+				if ( $(this).prop('checked') ) {
+					$('.push').addClass('receive');
+				} else {
+					$('.push').removeClass('receive');
+				}
+			});
+
+			// 210322
+			// pop open
+			$(".btn_change_item").on("click", function () {
+				$("#layerChangeItem01").css({
+					visibility: "visible",
+					opacity: 1
+				});
+			});
+
+			// pop close 
+			$(".close").on("click", function () {
+				$("#layerChangeItem01").css({
+					visibility: "hidden",
+					opacity: 0
+				});
+			});
+
+			$(document).on("click", function (e) {
+				if ($("#layerChangeItem01").is(e.target)) {
+					$("#layerChangeItem01").css({
+						visibility: "hidden",
+						opacity: 0
+					});
+				}
+			});
+			// 210322
+		});
+	</script>
+</body>
+</html>

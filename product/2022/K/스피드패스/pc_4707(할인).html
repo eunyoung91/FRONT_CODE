@@ -1,0 +1,630 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/eduf.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<!--// eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<!-- ECO -->
+
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/dev/js/common/script.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/dev/js/common/eduf.js"></script>
+<link rel="stylesheet" href="css/web.css">
+
+<!-- 여기부터 -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link href="https://img.eduwill.net/eduwill/css/2021/K/common/common.css" rel="stylesheet">
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/css/2022/K/product/220518/web.css?v=1">
+
+<div id="contents" class="product-eco">
+	<!--  신강의 배너
+	<div class="eco-4081"></div>
+	<script>
+		getEcoDynamicForClass(4081, 'eco-4081');
+	</script>-->
+
+	<div class="fix-banner">
+		<div class="wrap">
+			<a href="#productApply" class="icon-pointer page-move">
+				<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/fix_banner.png" alt="">
+			</a>
+		</div>
+	</div>
+	
+	<div class="sector-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/title.png" alt="" />
+		</div>
+	</div>
+
+	<div class="sector-benefit">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/benefit.png" alt="" />
+			<a href="javascript:edufLayerOpen('#edufLayerBase');" class="btn btn-text">근거확인</a>
+		</div>
+	</div>
+
+	<div class="sector-benefit-plus">
+		<div class="wrap">
+			<div class="effect-bounce-updown"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/plus_label.png" alt="" /></div>
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/benefit_plus.png" alt="" />
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			scrollProvideEvent(null);
+			$(window).on("scroll", scrollProvideEvent);
+		});
+		var _isProvideScroll = false;
+
+		function scrollProvideEvent(st) {
+			var scrollTop = $(window).scrollTop();
+			var offsetTop = $(".sector-benefit-plus").offset().top;
+			if (scrollTop > offsetTop - 600) {
+				if (_isProvideScroll == true) return;
+				TweenMax.fromTo($(".sector-benefit-plus .wrap > img"), 0.5, {
+					y: 50,
+					opacity: 0
+				}, {
+					y: 0,
+					opacity: 1,
+					ease: Sine.easeInOut
+				});
+				_isProvideScroll = true;
+			} else {
+				if (_isProvideScroll == false) return;
+				TweenMax.fromTo($(".sector-benefit-plus .wrap > img"), 0.5, {
+					y: 0,
+					opacity: 1
+				}, {
+					y: 50,
+					opacity: 0,
+					ease: Sine.easeInOut
+				});
+				_isProvideScroll = false;
+			}
+		}
+	</script>
+
+	<div class="sector-price">
+		<div class="wrap">
+			<div class="benefit-banner"><a href="#productApply" class="page-move"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/suprise_banner.png" alt=""></a></div>
+			<div class="price-group">
+				<div class="col combine blink">
+					<div class="price-title">
+						1차+2차 스피드패스
+					</div>
+					<div class="desc">
+						<ul>
+							<li class="point-color">22년 시험일까지 무한 수강</li>
+							<li>베스트셀러 1위 교재 4권 제공</li>
+							<li>4회독 합격 커리큘럼</li>
+							<li>핵심요약특강&고득점특강</li>
+						</ul>
+					</div>
+					<div class="price-won">
+						<div class="before-pay">680,000원</div>
+						<div class="current-pay"><strong>370,000</strong>원</div>
+					</div>
+					<a href="#productApply" class="page-move icon-pointer btn-price"><strong>혜택 받고 수강하기</strong></a>
+				</div>
+				<div class="col second">
+					<div class="price-title">
+						2차 스피드패스
+					</div>
+					<div class="desc">
+						<ul>
+							<li class="point-color">22년 시험일까지 무한 수강</li>
+							<li>베스트셀러 1위 교재 2권 제공</li>
+							<li>4회독 합격 커리큘럼</li>
+							<li>2차 마무리 고득점특강</li>
+						</ul>
+					</div>
+					<div class="price-won">
+						<div class="before-pay">480,000원</div>
+						<div class="current-pay"><strong>300,000</strong>원</div>
+					</div>
+					<a href="#productApply" class="page-move icon-pointer btn-price"><strong>혜택 받고 수강하기</strong></a>
+				</div>
+				<div class="col first">
+					<div class="price-title">
+						1차 스피드패스
+					</div>
+					<div class="desc">
+						<ul>
+							<li class="point-color">22년 시험일까지 무한 수강</li>
+							<li>베스트셀러 1위 교재 2권 제공</li>
+							<li>4회독 합격 커리큘럼</li>
+							<li>1차 핵심요약특강</li>
+						</ul>
+					</div>
+					<div class="price-won">
+						<div class="before-pay">480,000원</div>
+						<div class="current-pay"><strong>280,000</strong>원</div>
+					</div>
+					<a href="#productApply" class="page-move icon-pointer btn-price"><strong>혜택 받고 수강하기</strong></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-reason">
+		<div class="wrap-full">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/reason_title.png" alt="">
+			<div class="slider-wrap">
+				<div class="slider">
+					<div class="slide-item">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/reason_1.png" alt="">
+					</div>
+					<div class="slide-item">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/reason_2.png" alt="">
+					</div>
+					<div class="slide-item">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/reason_3.png" alt="">
+					</div>
+					<div class="slide-item">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/reason_4.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.slider').slick({
+				centerMode: true,
+				centerPadding: '0',
+				infinite: true,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 5000,
+				variableWidth: true,
+				dots: false,
+				arrows: false,
+			});
+		});
+	</script>
+
+	<div class="sector-graph">
+		<div class="wrap-full">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/graph.jpg" alt="">
+		</div>
+	</div>
+
+
+	<div class="sector-bar arrow">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/bar_text_1.png" alt="">
+		</div>
+	</div>
+
+	<div class="sector-perfect">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/perfect_title.png" alt="">
+			<div class="perfect-list">
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_1.png" alt=""></div>
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_2.png" alt=""></div>
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_3.png" alt=""></div>
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_4.png" alt=""></div>
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_5.png" alt=""></div>
+				<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/perfect_6.png" alt=""></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.perfect-list').slick({
+				autoplay: true,
+				autoplaySpeed: 2000,
+				infinite: true,
+				cssEase: 'linear',
+				arrows: true,
+				dots:false,
+				slidesToScroll: 1,
+				speed: 800,
+				slidesToShow: 1,
+				pauseOnHover: false,
+                pauseOnFocus: false,
+			});
+		});
+	</script>
+
+	<div class="sector-interview">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_title.png" alt="">
+		</div>
+		<div class="wrap-full">
+			<div class="slide-wrap">
+				<div class="slider-video">
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_YSB_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_1.png" alt=""></a></div>
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_KYH_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_2.png" alt=""></a></div>
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_JWJ_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_3.png" alt=""></a></div>
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_YSB_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_1.png" alt=""></a></div>
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_KYH_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_2.png" alt=""></a></div>
+					<div class="slide-item"><a href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20220128/K_JWJ_interview.mp4');"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/interview_3.png" alt=""></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.slider-video').slick({
+				arrows: true,
+				centerMode: true,
+				variableWidth: true,
+				infinite: true,
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 4000,
+				dots: true,
+
+			});
+		});
+	</script>
+
+	<div class="sector-bar arrow">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/bar_text_2.png" alt="">
+		</div>
+	</div>
+
+	<div class="sector-curriculum">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/curriculum_title.jpg" alt="">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2021/K/product/210521/pc/img_step.gif">
+			<div class="special">
+				<div class="flag"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/special_flag.gif" alt=""></div>
+				<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/special.jpg" alt="">
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-teacher">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/teacher_title.png" alt="">
+			<div class="teacher-list">
+				<ul class="teacher-main">
+					<li>
+						<a href="https://guard.eduwill.net/Kyb/Teacher/Teacher/Teacher_Detail_review.asp?TCode=OL03&Subj=OL&classCode=117100100109" target="_blank">
+							<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/teacher_list_1.png" alt="여성곤" />
+						</a>
+					</li>
+					<li>
+						<a href="https://guard.eduwill.net/kyb/Teacher/Teacher/Teacher_Detail_review.asp?TCode=OL00&Subj=PG&classCode=117100100103" target="_blank">
+							<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/teacher_list_2.png" alt="임지수" />
+						</a>
+					</li>
+					<li>
+						<a href="https://guard.eduwill.net/kyb/Teacher/Teacher/Teacher_Detail_review.asp?TCode=GL00&Subj=GL&classCode=117100102102" target="_blank">
+							<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/teacher_list_3.png" alt="어상일" />
+						</a>
+					</li>
+					<li>
+						<a href="https://guard.eduwill.net/kyb/Teacher/Teacher/Teacher_Detail_review.asp?TCode=SL00&Subj=SL&classCode=117100102103" target="_blank">
+							<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/teacher_list_4.png" alt="이근명" />
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="teacher-contents">
+                <div class="teacher-review">
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_1.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_2.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_3.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_4.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_5.png" alt="" /></div>
+					<div><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220111/pc/teacher_review_6.png" alt="" /></div>
+                </div>
+            </div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$('.teacher-review').slick({
+				autoplay: true,
+				autoplaySpeed: 2000,
+				infinite: true,
+				arrows: false,
+				dots:true,
+				slidesToScroll: 1,
+				speed: 1000,
+				slidesToShow: 1,
+			});
+		});
+	</script>
+
+	<div class="sector-book">
+		<div class="wrap">
+			<div class="book-title">
+				뚝심있게 그 자리를 지키는 이유<br>
+				<strong class="highlight">39개월 베스트셀러 1위 교재 제공</strong>
+			</div>
+			<a href="javascript:edufLayerOpen('#edufLayerBase');" class="btn btn-text">근거확인</a>
+			<div class="img-content">
+				<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/img_book.png" alt="" />
+			</div>
+		</div>
+	</div>
+
+	<div class="sector-mock">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/mock.jpg" alt="">
+			<div class="slide-wrap">
+				<div class="mock-tab">
+					<div class="tab-list"><a href="javascript:;">전문 교수진 출제</a></div>
+					<div class="tab-list"><a href="javascript:;">맞춤 성적 리포트</a></div>
+					<div class="tab-list"><a href="javascript:;">약점 보안 오답노트</a></div>
+				</div>
+				<div class="mock-tab-view">
+					<div class="tab-view"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/tab_view_1.jpg" alt=""></div>
+					<div class="tab-view"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/tab_view_2.jpg" alt=""></div>
+					<div class="tab-view"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/tab_view_3.jpg" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			$('.mock-tab').slick({
+				autoplay: true,
+				autoplaySpeed: 2000,
+				infinite: true,
+				arrows: false,
+				dots:false,
+				slidesToScroll: 1,
+				speed: 1000,
+				slidesToShow: 3,
+				asNavFor: '.mock-tab-view',
+			});
+			$('.mock-tab-view').slick({
+				autoplay: true,
+				autoplaySpeed: 2000,
+				infinite: true,
+				arrows: false,
+				dots:false,
+				slidesToScroll: 1,
+				speed: 1000,
+				slidesToShow: 1,
+				asNavFor: '.mock-tab',
+			});
+		});
+	</script>
+
+	<div class="sector-bar arrow">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/bar_text_3.png" alt="">
+		</div>
+	</div>
+
+	<div class="sector-celebration">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celebration.png" alt="">
+		</div>
+		<div class="wrap-full">
+			<div class="slide-wrap">
+				<div class="review-list">
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_1.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_2.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_3.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_4.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_5.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_6.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_7.png" alt=""></div>
+					<div class="slide-item"><img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/celeb_review_8.png" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			$('.review-list').slick({
+				arrows: true,
+				centerMode: true,
+				variableWidth: true,
+				infinite: true,
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 4000,
+				dots: false,
+
+			});
+		});
+	</script>
+
+	<div class="sector-bar arrow">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/bar_text_4.png" alt="">
+		</div>
+	</div>
+
+	<div class="sector-awards">
+		<div class="wrap">
+			<a href="javascript:edufLayerOpen('#edufLayerBase');" class="btn btn-text">근거확인</a>
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/awards.png" alt="">
+		</div>
+	</div>
+
+	<div class="sector-person">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/person_title.png" alt="">
+			<img src="https://img.eduwill.net/eduwill/img/2021/K/product/210521/pc/img_choice.gif" alt="">
+		</div>
+	</div>
+
+	<div class="sector-winner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/winner_graph.png" alt="">
+			<div class="winner-contents">
+				<div class="winner-list"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			winnerList();
+		});
+		function winnerList(){
+			var options = {
+				jsonFileNm: 'K202201_WINNER.min',
+			};
+			var slickOptions = {
+				slidesPerRow: 5,
+				slidesToShow: 10,
+			};
+			eduf.UI.Winner('.winner-list', options, slickOptions);
+		}
+	</script>
+
+	<div class="sector-search">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/search_title.png" alt="">
+			<div class="search-img">
+				<div class="typing"></div>
+				<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/search.png" alt="">
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function(){
+			var typingBool = false;
+			var typingIdx = 0;
+			var typingTxt = "압도적 1위 에듀윌 경비지도사 "; 
+			typingTxt = typingTxt.split(""); 
+			if (typingBool == false) {
+				typingBool = true;
+				var tyInt = setInterval(typing, 500);
+			}
+
+			function typing() {
+				if (typingIdx < typingTxt.length) {	
+					$(".typing").append(typingTxt[typingIdx]);
+					typingIdx++;
+
+					if(typingIdx > (typingTxt.length-1)) {
+						typingIdx = 0;
+						$(".typing").empty();
+					}
+				} else {
+					clearInterval(tyInt);
+				}
+			}
+		});
+	</script>
+
+	<div class="sector-reason-5 guard-prize">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/prize_title.png" alt="">
+			<div class="grid">
+				<div class="col">
+					<div class="subtitle">
+						<div class="main"><strong class="highlight">4년연속</strong><br>경비지도사 교육 1위</div>
+					</div>
+					<div class="img-content">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/img_prize_left.png" alt="" />
+					</div>
+					<div class="notice">
+						* 2021년 대한민국브랜드 만족도,<br>
+						* 2020/2019 한국브랜드 만족지수 경비지도사 교육 1위
+					</div>
+				</div>
+				<div class="col">
+					<div class="subtitle">
+						<div class="main"><strong class="highlight">업계최초</strong><br>대통령상 3관왕 및<br>정부기관상 13관왕 달성</div>
+					</div>
+					<div class="img-content">
+						<img src="https://img.eduwill.net/eduwill/img/2022/K/common/pc/img_prize_right.png" alt="" />
+					</div>
+					<div class="notice">
+						* 대통령표창 3회 수상, 국무총리상, 과학기술정보통신부 장관상, 여성가족부 장관상, 법무부 장관상, <br>
+						미래창조과학부 장관상, 고용노동부 장관표창, 산업자원부 장관상, 정보통신부 장관상, <br>
+						과학기술부 장관상, 서울특별시장상 수상
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="eco-2181"></div>
+	<script>
+		getEcoDynamicForClass(2181, 'eco-2181'); /* 공통 : 6년간 */
+	</script>
+
+	<div class="sector-bar-3">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/bar_3.png" alt="">
+		</div>
+	</div>
+
+
+	<div class="sector-service">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/service.jpg" alt="">
+		</div>
+	</div>
+
+	<div class="sector-bar apply-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/K/product/220518/pc/apply_title.jpg" alt="" />
+		</div>
+	</div>
+
+</div>
+<script>
+	getEcoDynamicForClass(4124, 'eco-4124');
+
+	$(function(){
+		$(window).load(function(){
+			pageMove('.page-move');
+		});
+	});
+</script>
+<div class="eduf-layer eduf-layer-base" id="edufLayerBase">
+	<div class="eduf-layer-wrap">
+		<a href="javascript:edufLayerClose('#edufLayerBase');" class="eduf-layer-close"><span class="sr-only">닫기</span></a>
+		<div class="eduf-layer-title">
+			<strong>근거문구</strong>
+		</div>
+		<div class="eduf-layer-content">
+			<div data-eduwill-eco-content="4502"></div>
+		</div>
+	</div>
+</div>
+
+<!-- ECO -->
+
+<div id="productApply"></div>
+
+</body>
+</html>
+
+

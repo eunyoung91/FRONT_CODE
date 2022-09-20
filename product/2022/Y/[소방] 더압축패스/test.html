@@ -1,0 +1,99 @@
+
+<div id="productBasket">
+
+	<ul>
+		<li v-for="(productList, idx) in productLists">
+			<p v-for="productList.discountTitle"></p>
+			<h3 v-for="productList.title"></h3>
+
+			<div class="priceWrap">
+				<p>{{productList.goodPrice}}</p>
+				<p>{{productList.goodSale}}</p>
+			</div>
+
+			<button type="button" :onclick="insertBasketNew(''+productList.productCode+'%7c1');">장바구니테스트</button>
+		</li>
+	</ul>
+
+</div>
+
+<script type="text/javascript" src="//img.eduwill.net/resources/common/web/js/es6-promise/es6-promise.min.js"></script>
+<script type="text/javascript" src="//img.eduwill.net/resources/common/web/js/es6-promise/es6-promise.auto.min.js"></script>
+<script type="text/javascript" src="//img.eduwill.net/resources/common/web/js/vue/vue@(minify).js"></script>
+
+<script src="//img.eduwill.net/resources/common/web/js/payment.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+		el: '#productBasket',
+		data: {
+			
+			productTitle: [],
+
+			productLists: [
+				{productCode: '22Y0Y0105A', title: '더-압축패스<br>전기+기계', discountTitle: '10% 특별할인', goodPrice:'520,000', goodSale:'320,000'},
+				{productCode: '22Y0E0105Q', title: '더-압축패스<br>기계분야', discountTitle: '10% 특별할인', goodPrice:'520,000', goodSale:'320,000'},
+				{productCode: '22Y0Y0305A', title: 'CBT 응시권<br>전기분야', discountTitle: '특별구성 21회분!', goodPrice:'520,000', goodSale:'320,000'},
+				{productCode: '22Y0E0305Q', title: 'CBT 응시권<br>기계분야', discountTitle: '특별구성 21회분!', goodPrice:'520,000', goodSale:'320,000'},
+
+			]
+
+
+
+		},
+		methods: {
+			
+			//소방상품 가격 조회
+			// _f_initSetProductView: function(productCodeTmp, masterSeqTmp){
+
+			// 	let _productCode = this.productLists.productCode;		//for
+			// 	let _masterSeq = masterSeqTmp;
+
+			// }
+		},
+		mounted: function() {
+			
+		},
+
+	});
+    //var productCode = '22Q0Y0Q06';
+
+    //하위상품 부분 조회
+    function setSubProductView(productCodeTmp, masterSeqTmp) {
+        var productCode = '22Q0Y0Q06';
+
+        $.get('/ProductAuto/Ajax_LoadProductSubView', {productCode: encodeURIComponent(productCode)}, function (response) {
+
+			// let _subViewWrap = document.getElementById('subView');
+			// let _allChangeWrap = document.getElementById('allChangeYn');
+
+
+			//document.getElementById('subView').innerHTML = response;
+			console.log(response);
+
+			
+
+            //$("#subView").html(response);
+        	//if ($("#allChangeYn").val() == "Y") setProductInfoView(productCode, $("#mHakProductCode").val(), $("#mBookProductCode").val(), masterSeq);
+        });
+    }
+
+    function setMainProductView() {
+        
+        var productCode = '22Y0Z0108A';
+        var mKindCode = 'KM003';
+        var masterSeq = '40940';
+        
+        axios({
+            method: 'post',
+            url: 'https://engin.eduwill.net/ProductAuto/Ajax_LoadProductMainView',
+            data: {
+                "masterSeq": masterSeq, "productCode": productCode, "mKindCode": mKindCode
+            }
+        }).then((response) => console.log(response));
+
+
+        
+    }
+
+</script>
+

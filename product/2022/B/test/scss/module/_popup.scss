@@ -1,0 +1,431 @@
+.search-popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .7);
+}
+.popup {
+    position: absolute;
+	// position: fixed;
+    left: 50%;
+    top: 0;
+    z-index: 200;
+    display: none;
+    width: 100%;
+    // max-width: 720px;
+    letter-spacing: -1px;
+	background:#fff;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+		width:100%;
+    }
+    * { font-family: $font-noto; }
+    .popup-close {
+        position: absolute;
+		@include close(45px, 45px, 1px, #333);
+		cursor:pointer;
+		top: 5px;
+        right:5px;
+    }
+	.popup-head{
+        @include vw(padding, 50px 0);
+        background-color: #fff;
+		max-width:1120px;
+		margin:0 auto;
+		border-bottom: 1px solid #000;
+		@include boxSizing(border-box);
+		// 검색영역
+		.search-box {
+			@extend .grid;
+			width: 600px;
+			height: 48px;
+			padding: 0 25px;
+			border-radius: 10px;
+			background-color: #f4f5f7;
+			margin:0 auto;
+			@include boxShadow(1px 1px 10px 2px rgba(0, 0, 0, .2));
+		}
+		.search-text {
+			@extend .col;
+			width: 94%; 
+			border-bottom: none;
+			input {
+				width: 100%;
+				height: 46px;
+				line-height: 46px;
+				padding: 0;
+				font-size: 15px;
+				color: #848b94;
+				border: none;
+				background: none;
+				outline: none;
+				text-align: left;
+			}
+		}
+		.search-action {
+			float:right;
+			width: 6%; 
+			border-bottom: none; 
+			.icon {
+				width: 20px;
+				height: 20px;
+				margin: 10px 0 10px 5px;
+				background-image: url('https://img.eduwill.net/eduwill/img/2021/0/main/210127/icon_search.png');
+				padding: 0;
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				background-size: 100% auto;
+				position: relative;
+				display: block;
+				font-size: 13px;
+				padding: 14px;
+				color: #444;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				span { @extend .sr-only; }
+			}
+		}
+
+
+	}
+    .popup-body {
+        background-color: #fff;
+		max-width:1120px;
+		margin:0 auto;
+		@include boxSizing(border-box);
+		//공통
+		.keyword-title{
+			font-size: 22px;
+			font-weight: 800;
+		}
+		.keyword-list{
+			width:60%;
+			margin:0 auto;
+			display: flex;
+			gap: 10px 1.5%;
+			flex-wrap: wrap;
+			justify-content: left;
+			li{
+				a{
+					display:block;
+					font-size:16px;
+					height:40px;
+					line-height:40px;
+					border-radius:20px;
+					padding:0 20px;
+					text-align: center;
+					color:#000;
+					background-color:#eee;
+					border:1px solid #eee;
+					@include boxSizing(border-box);
+				}
+				&:hover{
+					a{
+						background-color:#FFD900;
+						border:1px solid #FFD900;
+					}
+				}
+				&.active{
+					a{
+						background-color:#FFD900;
+						border:1px solid #FFD900;
+					}
+				}
+			}
+		}
+
+		.sort-title{
+			font-size: 22px;
+			font-weight: 800;
+			color:#444;
+		}
+		.sort-list{
+			display: flex;
+			gap: 14px 1.25%;
+			flex-wrap: wrap;
+			justify-content: left;
+			li{
+				display: inline-block;
+				width: 19%;
+				a{
+					display:block;
+					font-size:16px;
+					text-align: left;
+					color:#000;
+					@include boxSizing(border-box);
+					span{
+						// border-bottom:1px solid transparent;
+					}
+				}
+				&:hover{
+					a{
+						span{
+							border-bottom:1px solid #333;
+						}
+					}
+				}
+			}
+		}
+
+		//모든 교육과정 보기
+		.item-group{
+			position: relative;
+			display:table;
+			table-layout: fixed;
+			width:100%;
+			padding:16px 0;
+			.item-title{
+				text-align: left;
+				font-size: 18px;
+				font-weight: 600;
+				width:14%;
+				color:#444;
+				display:table-cell;
+			}
+			.item-sub-title{
+				text-align: left;
+				font-size: 16px;
+				font-weight: 600;
+				width:7%;
+				color:#92BE14;
+				display:table-cell;
+			}
+			.item-list-box{
+				display:table-cell;
+				width:86%;
+				.item-list{
+					display: flex;
+					gap: 20px 0;
+					flex-wrap: wrap;
+					justify-content: left;
+					width:84%;
+					li{
+						display: inline-block;
+						width: 20%;
+						a{
+							display:block;
+							font-size:16px;
+							text-align: left;
+							color:#000;
+							@include boxSizing(border-box);
+						}
+						&:hover{
+							a{
+							}
+						}
+						&.active{
+							a{
+							}
+						}
+					}
+				}
+			}
+		}
+		.item-group+ .item-group {
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				left:auto;
+				right:0;
+				width:100%;
+				height:1px;
+				background-color:#EAEAEA;
+			}
+		}
+
+		.item-group:nth-child(1) .item-title{ width:7%;}
+		.item-group:nth-child(2) .item-title{ width:7%;}
+		.item-group:nth-child(3) .item-title{ width:7%; }
+		.item-group:nth-child(1)+ .item-group {
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				left:auto;
+				right:0;
+				width:92%;
+				height:1px;
+				background-color:#EAEAEA;
+			}
+		}
+		.item-group:nth-child(2)+ .item-group {
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				left:auto;
+				right:0;
+				width:92%;
+				height:1px;
+				background-color:#EAEAEA;
+			}
+		}
+		.item-group + .service-group{
+			margin-top:20px;
+			border-top:1px solid #333;
+		}
+
+		//모든 직영학원 보기
+		.aca-group{
+			position: relative;
+			display:table;
+			table-layout: fixed;
+			width:100%;
+			padding:16px 0;
+			.aca-title{
+				text-align: left;
+				font-size: 18px;
+				font-weight: 600;
+				width:14%;
+				color:#444;
+				display:table-cell;
+			}
+			.aca-list-box{
+				display:table-cell;
+				width:86%;
+				.aca-list{
+					display: flex;
+					gap: 20px 0;
+					flex-wrap: wrap;
+					justify-content: left;
+					width:100%;
+					li{
+						display: inline-block;
+						width: 10%;
+						a{
+							display:block;
+							font-size:16px;
+							text-align: left;
+							color:#000;
+							@include boxSizing(border-box);
+						}
+						&:hover{
+							a{
+							}
+						}
+						&.active{
+							a{
+							}
+						}
+					}
+				}
+			}
+		}
+		.aca-group+ .aca-group {
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				left:auto;
+				right:0;
+				width:100%;
+				height:1px;
+				background-color:#EAEAEA;
+			}
+		}
+		.aca-group + .service-group{
+			margin-top:20px;
+			border-top:1px solid #333;
+		}
+		
+		//서비스
+		.service-group{
+			position: relative;
+			display:table;
+			table-layout: fixed;
+			width:100%;
+			padding:16px 0;
+			.service-title{
+				text-align: left;
+				font-size: 18px;
+				font-weight: 600;
+				width:14%;
+				color:#444;
+				display:table-cell;
+				vertical-align: middle;
+			}
+			.service-list-box{
+				display:table-cell;
+				vertical-align: middle;
+				width:86%;
+				.service-list{
+					display: flex;
+					gap: 20px 0;
+					flex-wrap: wrap;
+					justify-content: left;
+					width:100%;
+					li{
+						display: inline-block;
+						width: 20%;
+						a{
+							display: table;
+							.icon{ display:table-cell; vertical-align: middle;}
+							span{
+								display:table-cell; 
+								vertical-align: middle;
+								font-size: 13px;
+								padding-left: 7px;
+							}
+							em{ font-weight: 800; display: block;}
+						}
+						&:hover{
+							a{
+							}
+						}
+						&.active{
+							a{
+							}
+						}
+					}
+				}
+			}
+		}
+		.service-group+ .service-group {
+			&:after{
+				content:'';
+				position: absolute;
+				top:0;
+				left:auto;
+				right:0;
+				width:100%;
+				height:1px;
+				background-color:#EAEAEA;
+			}
+		}
+
+		.popup-view{
+			 
+		}
+		//검색 전
+		.view-search-before{
+			text-align: center;
+			.keyword-list{
+				margin:0 auto;
+			}
+		}
+		//검색 후
+		.view-search-after{
+			text-align: left;
+			>div{
+				border-bottom: 1px solid #444;
+				padding:20px 0;
+
+				&:last-child{
+					border-bottom: none;
+				}
+			}
+			.keyword-list{
+				margin:initial;
+			}	
+		}
+    }
+}
+

@@ -1,0 +1,117 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animation";
+@import "module/motion";
+@import "module/base";
+@import "module/popup";
+.product-eco{
+	font-family: $font-roboto;
+	letter-spacing: -.5px;
+	.wrap{
+		position: relative;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		letter-spacing: -1px;
+		font-family: $font-noto;
+	}
+	img{width:100%;}
+	
+	.fix-bottom{
+		position: fixed;
+		@include vw(bottom, 50px);
+		left: 0;
+		width: 100%;
+		background-color: rgba(0,0,0,.85);
+		z-index: 10;
+	}
+
+	.slick-arrow{
+	display: none !important;
+	}
+
+	.slick-dots {
+		width: 100%;
+		@include vw(margin-top, 20px);
+		text-align: center;
+		li{
+			display: inline-block;
+			@include vw(margin,0 6px);
+			button {
+				@include vw	(width, 20px);
+				@include vw(height, 20px);
+				text-indent: -9999em;
+				border: none;
+				border-radius: 50%;
+				background-color: #cfcfcf;
+				outline: none;
+				cursor: pointer;
+			}
+			&.slick-active {
+				button {
+					@include vw(width,60px);
+					@include vw(border-radius,15px);
+					background-color: #74339c;
+				}
+			}
+		}
+	}
+
+	.icon-pointer {
+		&:after {
+			content: '';
+			position: absolute;
+			top:40%; 
+			right:17%; 
+			display: block;
+			@include vw(width, 50px);
+			@include vw(height, 50px);
+			background: url('#{$img-pointer-path}/icon_pointer_20.png') no-repeat 0 0;
+			background-size: contain;
+			@include animation(pointerBounce, .8s, $iteration: infinite){
+				0%, 100% { @include translateXY(0, 0); }
+				50% { @include translateXY(10px, 10px); }
+			}
+		}
+	}
+	
+	.sector{
+		&-title{
+			@include bg($url: '#{$img-path3}/mobile/bg_title.jpg', $size: cover);
+		}
+		&-review{
+			position: relative;
+			.review-box{
+				@include vw(width, 720px);
+				position: absolute;
+				@include vw(top, 740px);		
+				left: 0;
+				.slide-review{
+					overflow: hidden;
+					@include vw(width, 656px);
+					margin: 0 auto;
+					img{
+						
+						@include vw(width, 656px);
+						display: inline-block;
+						
+					}
+				}
+			}
+		}
+		&-video{
+			background-color: #faf3ff;
+		}
+
+		&-bar{
+			@include bg($url: '#{$img-path3}/mobile/bg_bar.jpg', $size: cover);
+		}
+	}
+}
+
+
+
+
+
