@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, shrink-to-fit=no">
+<title>공무원 공통</title>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+</head>
+<body>
+
+<link rel="stylesheet" href="css/teacher.css">
+
+<div class="product">
+	<div class="teacher-tab">
+		<button type="button" data-item="G" data-sort="yellow">9급공무원(노란색)</button>
+		<button type="button" data-item="7" data-sort="yellow">7급공무원(노란색)</button>
+		<button type="button" data-item="C" data-sort="yellow">경찰공무원(노란색)</button>
+		<button type="button" data-item="_104" data-sort="yellow">소방공무원(노란색)</button>
+		<button type="button" data-item="T" data-sort="yellow">계리직공무원(노란색)</button>
+		<button type="button" data-item="G" data-sort="grey">9급공무원(회색)</button>
+		<button type="button" data-item="7" data-sort="grey">7급공무원(회색)</button>
+		<button type="button" data-item="C" data-sort="grey">경찰공무원(회색)</button>
+		<button type="button" data-item="_104" data-sort="grey">소방공무원(회색)</button>
+		<button type="button" data-item="T" data-sort="grey">계리직공무원(회색)</button>
+	</div>
+
+	<div class="teacher-list"></div>
+	<!--
+	<div class="teacher-list">
+		<div class="teacher">
+			<a href="" target="_blank">
+				<div class="teacher-info">
+					<div class="subject">국어</div>
+					<div class="name">배영표</div>
+					<div class="text">30만 수험생의 선택<br>탐나는 공무원 국어</div>
+				</div>
+				<img src="//img.eduwill.net/eduwill/img/2022/G/common/teacher/square/KO33.png" alt="">
+			</a>
+		</div>
+
+		<div class="teacher soon">
+			<a href="javascript:;">
+				<img src="//img.eduwill.net/eduwill/img/2022/G/common/teacher/soon/KO33.png" alt="">
+			</a>
+		</div>
+	</div>
+	-->
+
+</div>
+<script type="text/javascript">
+	$(function(){
+		// teacherList('G');
+
+		$('.teacher-tab button').on('click', function($sort){
+			var $sort = $(this).data('item');
+
+			teacherList($sort);
+
+			$('.teacher-list').html('');
+		});
+	});
+
+	function teacherList(item){
+		var item;
+		var url = "//img.eduwill.net/eduwill/live/json/"+item+"/"+item+"202204_TEACHER.min.json";
+		// img.eduwill.net/eduwill/live/json/G/G202204_TEACHER.min.json
+
+		try {
+			$.ajax({
+				type: "GET"
+				, url: url
+				, dataType: "json"
+				, traditional: true // ajax 배열 넘기기 옵션!
+				, data: {"sort": ["yellow", "grey", "slide", "card", "square"]}
+				, success: function (data) {
+					teacherDrawList(data);
+				}
+				, error: function (data) {
+					console.dir(data.responseText);
+				}
+			});
+		}
+		catch (e) {
+			console.error(e);
+		}
+	}
+
+	function teacherDrawList(data, listCnt){
+		if (data.length > 0) {
+			$(data).each(function () {
+				$(".teacher-list").append('<div class="teacher"><a href="//'+this.item+'.eduwill.net/Prof/'+ this.tcode +'/' + this.scode +'" target="_blank"><div class="teacher-info"><div class="subject">' + this.subject + '</div><div class="name">' + this.name + '</div></div><img src="//img.eduwill.net/eduwill/img/2022/G/common/teacher/'+ this.sort[0] +'/'+ this.tcode +'.png" alt="' + this.name + '">');
+			});
+
+			listCnt = listCnt || 4;
+			var modCnt = listCnt - (data.length % listCnt);
+			if (modCnt > 0) {
+				for (var i = 0; i < modCnt; i++) {
+					$(".teacher-list").append('<div class="teacher soon"><a href="javascript:;"><img src="//img.eduwill.net/eduwill/img/2022/G/common/teacher/'+ this.sort[0] +'/soon.png" alt=""></a></div>');
+				}
+			}
+		}
+	}
+</script>
+</body>
+</html>

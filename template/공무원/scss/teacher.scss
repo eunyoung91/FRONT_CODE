@@ -1,0 +1,67 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.product * { font-family: $font-noto; }
+
+.teacher-list {
+	@extend .grid;
+	@include vw(margin, 10px);
+	.teacher {
+		@extend .col;
+		@include vw(margin, 10px);
+		.teacher-info {
+			position: absolute;
+			@include vw(left, 10px);
+			@include vw(bottom, 20px);
+			text-align: left;
+			line-height: 1.2;
+			color: #000;
+			.subject {
+				@include vw(font-size, 17px);
+				@include vw(letter-spacing, -1px);
+				background-color: #fff;
+			}
+			.name {
+				position: relative;
+				display: inline-block;
+				@include vw(padding-right, 25px);
+				@include vw(font-size, 20px);
+				font-weight: 700;
+				@include vw(letter-spacing, -1px);
+				&::after {
+					content: '';
+					position: absolute;
+					top: 50%;
+					right: 0;
+					display: block;
+					@include vw(width, 19px);
+					@include vw(height, 18px);
+					@include bg($url: '//img.eduwill.net/eduwill/img/2022/G/common/icon/icon_home_grey.png');
+					@include translateY(-50%);
+				}
+			}
+		}
+	}
+	&.teacher-list-grey {
+		.teacher-info {
+			@include vw(left, 15px);
+			@include vw(bottom, 175px);
+			color: #fff;
+			.subject {
+				@include vw(font-size, 15px);
+				@include vw(letter-spacing, -1px);
+				background: none;
+			}
+			.name {
+				@include vw(font-size, 18px);
+				&::after {
+					@include bg($url: '//img.eduwill.net/eduwill/img/2022/G/common/icon/icon_home_white.png');
+				}
+			}
+		}
+	}
+}
