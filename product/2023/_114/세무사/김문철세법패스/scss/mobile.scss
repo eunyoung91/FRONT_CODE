@@ -1,0 +1,424 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/motion";
+@import "module/popup";
+
+.bottom_fix_btn .top {
+    display: none !important;
+}
+
+.product_counsel{bottom:22%;}
+
+.product-eco {
+    overflow: visible;
+    * {
+        line-height: normal;
+        font-family: $font-roboto;
+        font-size: inherit;
+        color: inherit;
+        letter-spacing: -1px;
+    }
+
+    text-align: center;
+    [class^="product-"],
+    .item {
+        position: relative;
+    }
+    .wrap,
+    .wrap-full {
+        max-width: 720px;
+    }
+
+    button {
+        display: inline-block;
+        vertical-align: middle;
+        white-space: nowrap;
+        font-family: inherit;
+        text-decoration: none;
+        border: none;
+        background: transparent;
+        outline: 0;
+        cursor: pointer;
+    }
+    .only-pc {
+        display: none;
+    }
+    .only-mobile {
+        display: inline-block;
+        &br { display: block; }
+    }
+	.pointer{
+		@include pointer(60%, 0, 57px, 65px, 12, bounce);
+	}
+	.pointer-small{
+		@include pointer(85%, 5%, 35px, 38px, 12, bounce);
+	}
+	.icon-pointer {
+		@include pointer(50%, 0, 99px, 96px, 20, bounce);
+	}
+
+	// slide
+	.slick-arrow {
+		border-radius: 50%;
+		&.slick-prev {
+			@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+			@include vw(left, 15px);
+		}
+		&.slick-next {
+			@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+			@include vw(right, 15px);
+		}
+	}
+	.slick-dots {
+		@extend %slick-dots;
+		li {
+			display: inline-block;
+			@include vw(width, 12px);
+			@include vw(height, 12px);
+			@include vw(margin, 0 4px);
+			@include vw(border-radius, 12px);
+			background-color: #fff;
+			cursor: pointer;
+			@include transition(all, .5s);
+			@include breakpoint(desktop){
+				margin: 0 4px;
+			}
+			&.slick-active {
+				@include vw(width, 47px);
+				background-color: #00ffd2;
+			}
+		}
+	}
+
+    // 근거버튼
+    .action {
+        .btn-base{
+            display: block;
+            @include vw(width, 120px);
+            @include vw(height, 42px);
+            border: 1px solid #999;
+            @include vw(font-size, 22px);
+            @include vw(line-height, 42px);
+            @include vw(letter-spacing, -0.6px);
+            color: #999999;
+            box-sizing: border-box;
+        }
+    }
+
+    // banner
+    .fix-bottom {
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        z-index: 112;
+        text-align: left;
+        background: rgba(0, 0, 0, 0.8);
+        @include boxSizing(border-box);
+        .wrap {
+            @extend %clearfix;
+            a {
+                @include pointer(60%, 5%, 57px, 65px, 12, bounce);
+			}
+        }
+    }
+
+    // paragraph
+    p {
+        margin: 0;
+        padding: 0;
+        @include vw(font-size, 18px);
+        color: #666;
+        font-family: $font-roboto;
+        &.fly,
+        &.eco {
+            position: absolute;
+        }
+    }
+
+    // base
+    .grounds-text {
+        line-height: 1.5;
+        @include vw(font-size, 17px);
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    // page
+	.sector-floating {
+		z-index: 20;
+		position: fixed;
+		left: 0;
+		bottom: 50px;
+		width: 100%;
+		// @include vw(height, 140px);
+		background-color: rgba(0, 0, 0, 0.8);
+		img {
+			@include vw(margin-top, -16px);
+		}
+	}
+
+	.sector-title {
+		position: relative;
+		@include bg($url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+		.wrap {
+			@include vw(height, 958px);
+		}
+		.action {
+			position: absolute;
+			@include vw(top, 593px);
+			@include vw(right, 174px);
+			@include vw(width, 151px);
+		}
+	}
+
+	.sector-price {
+		@include vw(padding, 425px 0 60px 0);
+		.price-box {
+			position: relative;
+			z-index: 4;
+			.price {
+				position: absolute;
+				@include vw(top, 155px);
+				@include vw(right, 85px);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				.before-price {
+					text-decoration: line-through;
+					font-weight: 700;
+					@include vw(font-size, 32px);
+					opacity: .5;
+					color: #fff;
+					@include vw(margin-bottom, -20px);
+				}
+				.after-price {
+					font-weight: 800;
+					@include vw(font-size, 70px);
+					color: #fff;
+				}
+			}
+		}
+		.price-action {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 10;
+			a {
+				@include pointer(50%, 25%, 99px, 96px, 20, bounce);
+			}
+		}
+	}
+	&.product-230113 {
+		.sector-price {
+			@include vw(padding-top, 592px);
+			.price-action {
+				position: static;
+			}
+		}
+	}
+
+	.sector-special {
+		@include linear-gradient(to bottom, #fff 3.95%, #1e387b 3.95%);
+	}
+
+	.sector-recommend-1 {
+		.wrap {
+			@include vw(height, 490px);
+			z-index: 2;
+		}
+		.video-box {
+			position: relative;
+			.thumbnail {
+				position: absolute;
+				@include vw(width, 660px);
+				@include vw(top, 235px);
+				@include vw(left, 30px);
+			}
+		}
+	}
+	&.product-230113 {
+		.sector-recommend-1 {
+			@include vw(margin-top, 130px);
+		}
+	}
+
+	.sector-recommend-2 {
+		background: #e1e7ed;
+		.video-box {
+			position: relative;
+			.thumbnail {
+				position: absolute;
+				@include vw(width, 660px);
+				@include vw(top, 537px);
+				@include vw(left, 30px);
+			}
+		}
+	}
+
+	.sector-review {
+		@include vw(padding, 40px 0 45px 0);
+		background: #3f75ff;
+		.wrap {
+			&::after {
+				content: '';
+				@include vw(width, 225px);
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: linear-gradient(270deg, rgba(63,117,255,1) 0%, rgba(255,255,255,0) 100%);
+			}
+		}
+		.review-list {
+			.slick-slide {
+				@include vw(width, 344px);
+				@include vw(margin, 0 -20px);
+			}
+		}
+		.review2-list {
+			.slick-slide {
+				@include vw(width, 720px);
+			}
+		}
+		.desc {
+			font-weight: 300;
+			@include vw(font-size, 18px);
+			color: #fff;
+			opacity: .5;
+			position: absolute;
+			@include vw(bottom, 0px);
+			@include vw(right, 30px);
+		}
+	}
+	&.product-230113 {
+		.sector-review {
+			@include vw(padding, 0 0 110px);
+			.wrap::after {
+				display: none;
+			}
+			.desc {
+				position: static;
+				@include vw(margin, 40px 30px 0 0);
+				text-align: right;
+			}
+		}
+	}
+
+	.sector-curriculum {
+		background: #2e334f;
+		.video-box {
+			position: absolute;
+			@include vw(top, 274px);
+			@include vw(left, 30px);
+			@include vw(width, 659px);
+		}
+	}
+
+	.sector-tip {
+		background: #2e334f;
+		.video-box {
+			position: absolute;
+			@include vw(top, 223px);
+			@include vw(left, 30px);
+			@include vw(width, 659px);
+		}
+	}
+
+	.sector-teacher {
+		@include bg($url: '#{$img-path}/mobile/bg_teacher.jpg', $size: cover);
+		.wrap {
+			z-index: 3;
+			&:after {
+				content: '';
+				position: absolute;
+				@include vw(top, 425px);
+				@include vw(right, -110px);
+				@include vw(width, 542px);
+				@include vw(height, 639px);
+				@include bg($url: '#{$img-path}/mobile/img_teacher.png', $size: cover);
+				z-index: 1;
+			}
+		}
+		.reason-list {
+			@include vw(width, 660px);
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			@include vw(top, 273px);
+			@include vw(left, 30px);
+			z-index: 2;
+			div {
+				@include vw(margin-bottom, 10px);
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+			.number {
+				position: absolute;
+				top: 50%;
+				@include vw(left, -24px);
+				display: block;
+				@include vw(width, 48px);
+				@include vw(height, 48px);
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				@include vw(line-height, 48px);
+				font-family: $font-roboto;
+				@include vw(font-size, 30px);
+				font-weight: 900;
+				color: #fff;
+				border-radius: 50%;
+				background-color: #5f6f95;
+				@include translateY(-50%);
+			}
+		}
+	}
+
+	.sector-benefit {
+		.wrap {
+			z-index: 2;
+		}
+		.coupon {
+			position: absolute;
+			@include vw(bottom, -70px);
+			left: 0;
+		}
+	}
+
+	.sector-benefit-2 {
+		background: #224fc3;
+		.wrap {
+			z-index: 1;
+			&::after {
+				content: '';
+				position: absolute;
+				@include vw(bottom, -60px);
+				@include vw(right, 80px);
+				@include vw(width, 211px);
+				@include vw(height, 180px);
+				@include bg($url: '#{$img-path}/mobile/icon_fig.png', $size: cover);
+				z-index: 5;
+			}
+		}
+	}
+	&.product-230113 {
+		.sector-benefit-2 .wrap::after {
+			@include vw(width, 363px);
+			@include vw(height, 209px);
+			background-image: url('#{$img-path}/mobile/icon_fig_230113.png');
+		}
+	}
+
+	.sector-blank {
+		.wrap {
+			@include vw(height, 90px);
+		}
+	}
+}

@@ -1,0 +1,460 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	.wrap {
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.slick-dots {
+		@extend %slick-dots2;
+		@include vw(margin-top, 20px);
+		text-align: center;
+		li {
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			@include vw(margin, 0 6px);
+			border-radius: 50%;
+			background-color: #d8d8d8;
+			&.slick-active {
+				background-color: #1a2553;
+			}
+		}
+	}
+
+	/* 컨텐츠 */
+	.sector {
+		&.gray {background-color: #f6f6f6;	}// 회색 바탕배경
+
+		&-banner {
+			background-color: rgba(0, 0, 0, 0.8);
+			position: fixed;
+			bottom: 50px;
+			left: 0;
+			right: 0;
+			z-index: 30;
+			a {
+				@include pointer(65%, 55px, 56px, 62px, 1, bounce);
+			}
+		}
+
+		&-link {
+			background-color: #000;
+			.link-wrap {
+				display: flex;
+				a {
+					position: relative;
+					display: block;
+					width: 100%;
+					filter: grayscale(100%);
+					&:first-child {
+						filter: grayscale(0%);
+						&:after {
+							content: "";
+							position: absolute;
+							top: 50%;
+							right: 0;
+							width: 1px;
+							@include vw(height, 90px);
+							background-color: #777;
+							transform: translateY(-50%);
+						}
+					}
+					&:hover {
+						filter: grayscale(0%);
+					}
+				}
+			}
+		}
+
+		&-title {
+			background-color: #ffd2d5;
+			position: relative;
+			.action {
+				position: absolute;
+				@include vw(bottom, 50px);
+				left: 46%;
+				transform: translateX(-50%);
+				@include pointer(65%, 55px, 56px, 62px, 1, bounce);
+				img {
+					@include vw(width, 656px);
+				}
+			}
+		}
+
+		&-apply {
+			line-height: 1.2;
+			font-family: $font-noto;
+			@include vw(padding-top, 100px);
+			@include vw(padding-bottom, 140px);
+			background-color: #fff;
+			.title {
+				@include vw(font-size, 42px);
+				font-weight: 800;
+				color: #000;
+				text-align: center;
+				letter-spacing: -2px;
+				@include vw(margin-bottom, 60px);
+			}
+			.tab-list {
+				@include vw(border-top-left-radius, 20px);
+				@include vw(border-top-right-radius, 20px);
+				display: flex;
+				@include vw(margin, 0 50px);
+				border-bottom: 1px solid #a4a4a4;
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+				li {
+					position: relative;
+					width: 100%;
+					text-align: center;
+					@include vw(font-size, 28px);
+					font-weight: 900;
+					line-height: 1.2;
+					color: #959595;
+					border-right: 1px solid #a4a4a4;
+					@include vw(padding, 20px 0);
+					background-color: #ebebeb;
+					&:first-child {
+						@include vw(border-top-left-radius, 20px);
+					}
+					&:last-child {
+						border-right: 0;
+						@include vw(border-top-right-radius, 20px);
+					}
+					&.active {
+						color: #fff;
+						background-color: #770000;
+					}
+					&.best {
+						&:before {
+							content: "";
+							position: absolute;
+							@include vw(left, -50px);
+							@include vw(top, 20px);
+							@include vw(width, 70px);
+							@include vw(height, 83px);
+							@include bg($url: "#{$img-path}/pc/flag.png", $size: 100%);
+						}
+					}
+				}
+			}
+			.tab-view {
+				box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+				display: none;
+				@include vw(margin, 0 50px);
+				background-color: #f5f5f5;
+				@include vw(border-bottom-left-radius, 20px);
+				@include vw(border-bottom-right-radius, 20px);
+				&.on {
+					display: block;
+				}
+				.list {
+					position: relative;
+					text-align: left;
+					@include vw(padding, 24px 80px);
+					font-weight: 600;
+					&:after {
+						content: "";
+						position: absolute;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						@include vw(width, 580px);
+						height: 1px;
+						margin: 0 auto;
+						background-color: #a4a4a4;
+					}
+
+					p,
+					li {
+						@include vw(font-size, 26px);
+						color: #000;
+					}
+
+					&.date {
+						@include bg($url: "#{$img-path}/pc/icon_calendar.png");
+						@include vw(background-size, 40px);
+						@include vw(background-position, 20px 32px);
+						p {
+							color: #ef2700;
+						}
+					}
+					&.band {
+						@include bg($url: "#{$img-path}/pc/icon_band_off.png");
+						@include vw(background-size, 40px);
+						@include vw(background-position, 20px 32px);
+					}
+					&.lecture {
+						text-align: center;
+					}
+					&.graduation {
+						@include bg($url: "#{$img-path}/pc/icon_graduation_off.png");
+						@include vw(background-size, 40px);
+						@include vw(background-position, 20px 32px);
+					}
+
+					&.book {
+						@include bg($url: "#{$img-path}/pc/icon_book_off.png");
+						@include vw(background-size, 40px);
+						@include vw(background-position, 20px 32px);
+					}
+					&.product {
+						text-align: center;
+						position: relative;
+							.red-notice{
+									position: absolute;
+									left: 50%;
+									line-height: 2;
+									transform: translateX(-50%);
+									@include vw(bottom, 10px);
+									text-align: center;
+									background-color: #fb0000;
+									color:#fff;
+									@include vw(width, 270px);
+									@include vw(height, 40px);
+									@include vw(font-size,20px);
+									@include vw(border-radius,20px);
+								}
+						&:after {
+							display: none;
+						}
+					}
+					&.price {
+						text-align: center;
+						&:after {
+							display: none;
+						}
+						.del {
+							position: relative;
+							@include vw(font-size, 40px);
+							color: #737373;
+							&:after {
+								content: "";
+								position: absolute;
+								@include vw(top, 25px);
+								left: 29%;
+								@include vw(width, 200px);
+								@include vw(height, 12px);
+								@include bg($url: "#{$img-path}/pc/del.png", $size: 100%);
+							}
+						}
+						.price {
+							@include vw(font-size, 60px);
+							font-weight: 900;
+							color: #770000;
+						}
+					}
+				}
+				.action {
+					position: relative;
+					text-align: left;
+					a {
+						position: relative;
+						display: block;
+						width: 100%;
+						color: #fff;
+						@include vw(font-size, 40px);
+						font-weight: 900;
+						@include vw(padding, 28px 0);
+						@include vw(border-radius, 20px);
+						background-color: #000;
+						@include pointer(65%, 55px, 56px, 62px, 1, bounce);
+						span {
+							@include vw(font-size, 30px);
+							font-weight: 700;
+							color: #ffd100;
+							@include vw(padding-left, 95px);
+						}
+						em {
+							position: absolute;
+							@include vw(top, 27px);
+							@include vw(right, 98px);
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							@include vw(width, 60px);
+							@include vw(height, 60px);
+							color: #000;
+							border-radius: 50%;
+							@include vw(font-size, 30px);
+							font-weight: 900;
+							background-color: #ffd100;
+						}
+						&:hover {
+							background-color: #770000;
+						}
+					}
+				}
+			}
+			&.apply-2 {
+				.tab-view {
+					background-color: #fff;
+				}
+			}
+		}
+
+		&-bar {
+			position: relative;
+			background-color: #770000;
+			&:after {
+				content: "";
+				display: block;
+				@include vw(width, 35px);
+				@include vw(height, 35px);
+				background-color: #770000;
+				transform: rotate(45deg);
+				position: absolute;
+				top: 89%;
+				left: 49%;
+			}
+		}
+
+		&-point {
+			.tab-wrap {
+				@include vw(width, 620px);
+				margin: 0 auto;
+				.tab-list {
+					display: none;
+					display: flex;
+					justify-content: center;
+					li {
+						cursor: pointer;
+						line-height: 79%;
+					}
+				}
+			}
+			.tab-view {
+				@include vw(width, 620px);
+				display: none;
+				@include vw(padding, 40px);
+				box-sizing: border-box;
+				margin: 0 auto;
+				background-color: #f5f5f5;
+				&.on {
+					display: block !important;
+				}
+			}
+			&.point1 {
+				.video {
+					@include vw(width, 540px);
+					@include vw(height, 303px);
+					position: relative;
+					img {
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 10;
+						@include vw(width, 540px);
+						@include vw(height, 303px);
+					}
+				}
+			}
+			&.point2 {
+				.tab-view {
+					position: relative;
+					@include vw(width, 620px);
+					@include vw(padding, 40px 0);
+					background-color: #f5f5f5;
+					.popup-btn {
+						position: absolute;
+						@include vw(bottom, 460px);
+						@include vw(left, 180px);
+						img {
+							@include vw(width, 300px);
+						}
+					}
+
+					&.on {
+						display: block !important;
+					}
+					&.view-2 {
+						.popup-btn {
+							@include vw(bottom, 340px);
+						}
+					}
+				}
+			}
+		}
+
+		// 공통영역
+		&-teacher {
+			background: #f6f6f6;
+			.btn-teacher {
+				position: absolute;
+				width: 43%;
+				z-index: 7;
+				top: 82%;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				bottom: 12%;
+			}
+		}
+		
+		&-story {
+			@include vw(padding-bottom, 120px);
+			background: #fff;
+			.interview-list {
+				@include vw(margin, 0 37px);
+				.video {
+					position: relative;
+					display: block;
+					@include vw(margin-top, 40px);
+					&:first-child {
+						margin-top: 0;
+					}
+				}
+			}
+			.story-slider {
+				@include vw(margin, 40px 13px 0);
+			}
+		}
+
+		&-network {
+			@include vw(padding-bottom, 120px);
+			background: #f6f6f6;
+			.slick-slide {
+				@include vw(width, 620px);
+				@include vw(margin, 0 10px);
+				padding: 0;
+				opacity: 0.3;
+				filter: blur(0);
+				&.slick-active {
+					opacity: 0.3;
+					filter: blur(0);
+				}
+				&.slick-center {
+					opacity: 1;
+					filter: blur(1);
+				}
+				p {
+					overflow: hidden;
+				}
+			}
+		}
+
+		&-lecture {
+			background: #fff;
+		}
+
+		&-awrads {
+			background: #f6f6f6;
+			a.btn-awrads {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 7;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				margin: 0 auto;
+			}
+		}
+	}
+}

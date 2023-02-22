@@ -1,0 +1,653 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+@import "module/motion";
+@import "module/popup";
+
+//.eco-4153 { display: none !important;}
+.top-banner { opacity:0; z-index: 1; display: none !important;}
+.product-eco{
+	min-width:1200px;
+	overflow:hidden;
+	*, *:before, *:after {
+		font-family:$font-roboto;
+		letter-spacing:-1px;
+	}
+	
+	[class^="sector-"] {
+		position: relative;
+		text-align: center;
+	}
+
+	.wrap{
+		position:relative;
+		width:1200px;
+		margin:0 auto;
+		text-align:center;
+	}
+	
+
+	.btn-text, .btn-grounds{
+		display:inline-block;
+		padding: 5px 10px;
+		color:rgba(0, 0, 0, .5);
+		font-size:14px;
+		letter-spacing:-1px;
+		line-height:1;
+		font-weight:400;
+		border: 1px solid rgba(0, 0, 0, .5);
+		span{
+			padding-right:12px;
+			@include arrow(right, 7px, 7px, 1px, rgba(0, 0, 0, .5));
+			&:before{
+				right:0;
+				margin-top: -5.5px;
+			}
+		}
+		&.color-fff {
+			color: rgba(255,255,255, .6);
+			border: 1px solid rgba(255,255,255, .6);
+			span {
+				&:before {
+					border-color: rgba(255,255,255, .6);
+				}
+			}
+		}
+		&.border-none {
+			border: 0;
+		}
+	}
+
+	.icon-pointer {
+		@include pointer(50%, 0, 66px, 73px, 1, bounce);
+	}
+
+	.slide-group{
+		position:relative;
+		.slick-dots {
+			text-align: center;
+			li {
+				display: inline-block;
+				margin-left:6px;
+				button {
+					cursor: pointer;
+					text-indent: -10000em;
+					border: 0;padding:0;
+					border-radius: 50%;
+					width:10px;height:10px;
+					background:#bbbbbb;
+				}
+				&.slick-active {
+					button {
+						background:#f4582e;
+					}
+				}
+			}
+		}
+	}
+
+	.holder{position:relative;}
+
+	.notice-text {
+		text-align: left;
+		font-size: 14px;
+		color: #878787;
+		font-weight: 400;
+		line-height: 1.4;
+	}
+
+	.fix-right{
+		position:fixed;
+		top: 20%;
+		right: 20px;
+		z-index: 12;
+		width: 246px;
+		> div {
+			display: block;
+		}
+		.slide-group {
+			width: 220px;
+			margin: -10px 0 0 20px;
+			border-radius: 20px;
+			@include linear-gradient(to bottom, #ffc500 0%, #fc6500 100%);
+			@include boxShadow(0 10px 15px 0px rgba(0, 0, 0, 0.4));
+			.slick-dots {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 20px;
+				li {
+					button { background-color: #fff;}
+					&.slick-active {
+						button {
+							width: 34px;
+							border-radius: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.fix-bottom {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		height: 80px;
+		background: rgba(0,0,0, .8);
+		z-index: 11;
+		.wrap {
+			position: relative;
+			top: -20px;
+			a {
+				@include pointer(60%, 10%, 57px, 65px, 12, bounce);
+			}
+		}
+	}
+
+	.sector-title{
+		position:relative;
+	}
+
+	.sector-short-price{
+		padding-bottom: 120px;
+		.price-box {
+			@extend %clearfix;
+			padding: 18px 50px 0;
+			> div {
+				position: relative;
+				float: left;
+				width: 346px;
+				border-radius: 20px;
+				border: 3px solid #999;
+				@include boxSizing(border-box);
+				@include boxShadow(0 0 15px 0 rgba(0, 0, 0, .2));
+				&:not(:first-child) { margin-left: 30px;}
+				.price-flag {
+					position: absolute;
+					top: -18px;
+					left: 0;
+					right: 0;
+					text-align: center;
+					span {
+						display: inline-block;
+						padding: 8px 20px;
+						border-radius: 100px;
+						text-align: center;
+						font-size: 17px;
+						font-family: $font-roboto;
+						font-weight: 900;
+						color: #fff;
+						line-height: 1;
+						background: #3f3adf;
+					}
+				}
+				.price-title {
+					padding: 36px 0;
+					text-align: center;
+					font-weight: 900;
+					font-size: 36px;
+					color: #222;
+					letter-spacing: -1.5px;
+					line-height: 1.3;
+				}
+
+				.price-desc {
+					padding: 30px;
+					min-height: 358px;
+					background: #fbfbfb;
+					@include boxSizing(border-box);
+					ul {
+						li {
+							position: relative;
+							padding-left: 13px;
+							font-size: 20px;
+							text-align: left;
+							font-weight: 700;
+							color: #222;
+							line-height: 1.3;
+							&:not(:first-child) { margin-top: 14px;}
+							&:before {
+								content: '·';
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 0;
+								z-index: 1;
+							}
+						}
+					}
+				}
+
+				.price-text {
+					padding: 38px 0 30px;
+					text-align: center;
+					.before-price {
+						text-decoration: line-through;
+						font-size: 24px;
+						color: #959595;
+						font-weight: 400;
+						line-height: 1.2;
+						margin-bottom: 8px;
+					}
+					.after-price {
+						font-size: 29px;
+						color: #222;
+						font-weight: 900;
+						line-height: 1;
+						strong {
+							font-size: 39px;
+							letter-spacing: -2px;
+							font-weight: 900;
+							line-height: 1;
+						}
+					}
+				}
+
+				.price-action {
+					a {
+						@include arrow(right, 10px, 10px, 3px, #fff);
+						position: relative !important;
+						display: block !important;
+						padding: 24px 0;
+						font-size: 31px;
+						color: #fff;
+						font-weight: 900;
+						line-height: 1;
+						letter-spacing: -1.5px;
+						border-radius: 0 0 15px 15px;
+						background: #999;
+						&:before {
+							right: 30px;
+						}
+						
+					}
+				}
+
+				&.box-1 {
+					border-color: #3f3adf;
+					.price-title { color: #3f3adf;}
+					.price-desc { background: #f1f1ff;}
+					.price-text {
+						.after-price {
+							color: #3f3adf;
+							strong { color: #3f3adf;}
+						}
+					}
+					.price-action {
+						a {  background: #3f3adf;}
+					}
+				}
+			}
+		}
+	}
+
+	.sector-basic-price {
+		.price-box {
+			padding: 55px 50px 55px 70px;
+			width: 1102px;
+			margin: 0 auto;
+			border-radius: 15px;
+			background: #fff;
+			@include boxShadow(0 0 10px 0 rgba(0, 0, 0, .3));
+			@include boxSizing(border-box);
+			@extend %clearfix;
+			.price-desc {
+				float: left;
+				width: 50%;
+				padding-top: 25px;
+				text-align: left;
+				.price-title {
+					margin-bottom: 40px;
+					font-size: 40px;
+					letter-spacing: -2px;
+					font-weight: 900;
+					line-height: 1;
+					color: #222;
+				}
+				.benefit-list {
+					.col {
+						display: inline-block;
+						padding-right: 40px;
+						font-size: 20px;
+						color: #222;
+						line-height: 1.4;
+						@include boxSizing(border-box);
+						+ .col {
+							padding-left: 30px;
+							border-left: 1px solid #eee;
+						}
+					}
+				}
+			}
+			.price-group {
+				float: right;
+				width: 430px;
+				text-align: right;
+				.price-text {
+					@extend %clearfix;
+					margin-bottom: 20px;
+					text-align: left;
+					width: 100%;
+					span {
+						display: block;
+						font-weight: 900;
+						&.before-text {
+							color: #bbb;
+							font-size: 30px;
+							letter-spacing: -1.5px;
+							line-height: 1.4;
+							text-decoration: line-through;
+						}
+						&.after-text {
+							font-size: 54px;
+							letter-spacing: -2px;
+							line-height: 1;
+							color: #ea1d00;
+						}
+					}
+				}
+				.btn-action {
+					@include arrow(right, 10px, 10px, 3px, #fff);
+					display: block;
+					width: 100%;
+					text-align: center;
+					border-radius: 8px;
+					font-size: 40px;
+					color: #fff;
+					font-weight: 900;
+					line-height: 85px;
+					letter-spacing: -2px;
+					@include linear-gradient(to right, #fa5a00 0%, #ea1d00 100%);
+				}
+			}
+		}
+	}
+
+	.sector-info {
+		padding-bottom: 100px;
+		background: #f9f9f9;
+	}
+
+	.sector-check {
+		.btn-text {
+			position: absolute;
+			top: 244px;
+			right: 50px;
+			z-index: 1;
+		}
+	}
+
+	.sector-winner {
+		overflow: hidden;
+		background:#fff url('#{$img-path}/pc/bg_winner.jpg') 50% 0 no-repeat;
+		.btn-text {
+			position: absolute;
+			top: 262px;
+			right: 50px;
+			z-index: 1;
+		}
+		.winner-list {
+			margin-top: -20px;
+			overflow:hidden;
+			transform: perspective(400px) rotateX(35deg);
+			overflow:hidden;
+			@include boxSizing(border-box);
+			p { margin: 0; padding: 0; text-align: center; color: #000; font-size: 24px; font-weight: 500; line-height: 2; margin:0;letter-spacing:-1px;}
+		}
+	}
+
+	.sector-bar {
+		background:#332fd6;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 99.9%;
+			left: 50%;
+			@include translateX(-50%);
+			z-index: 1;
+			width: 309px;
+			height: 75px;
+			background: url('#{$img-path}/pc/bar_arrow.png') no-repeat 50% 0;
+			background-size:cover;
+		}
+		&.not-arrow {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.sector-teacher {
+		.btn-text {
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			z-index: 1;
+		}
+		.wrap {
+			> img { position: relative; z-index: 2;}
+		}
+		.graph {
+			position: absolute;
+			top: 437px;
+			left: 50px;
+			right: 50px;
+			z-index: 1;
+			p {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				@include vw(height, 71px);
+				@include vw(margin-bottom, 10px);
+				@include vw(padding, 0 25px 0 40px);
+				@include vw(border-top-right-radius, 71px);
+				@include vw(border-bottom-right-radius, 71px);
+				background: #3330d6;
+				background: linear-gradient(90deg, #2fa1d6 38%, #3330d6 100%);
+				
+				box-sizing: border-box;
+
+				span {
+					font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+					color: #fff;
+					&:first-child {
+						@include vw(font-size, 21px);
+						font-weight: 600;
+					}
+					&:last-child {
+						@include vw(font-size, 40px);
+						font-weight: 900; 
+						font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+						em {
+							@include vw(font-size, 25px);
+							font-weight: 600; 
+							
+						}
+					}
+				}
+			}
+			
+		}
+	}
+
+	.sector-curriculum { background: #f4f4f4;}
+	.sector-cbt { background: #fff;}
+	.sector-contents { background: #f4f4f4;}
+
+	.sector-service {
+		.flag {
+			position: absolute;
+			top: 404px;
+			z-index: 11;
+			&.flag-1 { left: 490px;}
+			&.flag-2 { right: 0;}
+		}
+		.slideTable {
+			position: absolute;
+			top: 490px;
+			right: 50px;
+			width: 530px;
+			height:255px;
+			overflow: hidden;
+			background: #fff;
+			z-index: 10;
+			.slick-slide {
+				border-bottom: 2px solid #dbdbdb;
+			}
+			.tableWrap {
+				&:last-child {
+					dl {
+						border: none;
+					}
+				}
+			}
+			dl {
+				display: flex;
+				align-items: center;
+				font-size: 18px;
+				color: #222;
+				padding: 6px 30px;
+				font-family: $font-noto;
+				line-height:1.5;
+				dt {
+					font-weight: 700;
+					padding-right: 30px;
+				}
+				em {
+					color: #ffa300;
+				}
+			}
+		}
+	}
+
+	.sector-grand {
+		background: url('#{$img-path}/pc/bg_grand.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.wrap {
+			width: 1300px;
+			padding: 100px 0;
+			.flag {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: 165px;
+			}
+			.trophy {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				margin-left: 30px;
+			}
+			.review-wrap {
+				text-align: left;
+				.review-title {
+					margin-bottom: 70px;
+					h3{ 
+						font-size: 30px;
+						font-weight: 400;
+						line-height: 1.3;
+						color: #ffed00;
+					}
+				}
+				.review {
+					display: flex !important;
+					align-items: flex-end;
+					margin-bottom: 40px;
+					p {
+						margin: 0;
+						padding: 0;
+						font-size: 40px;
+						font-weight: 700;
+						color: #fff;
+						font-family: $font-noto;
+					}
+					span {
+						font-size: 20px;
+						font-weight: 300;
+						color: #fff;
+						margin-left: 24px;
+						font-family: $font-noto;
+					}
+				}
+			}
+			
+
+
+		}
+	}
+
+	.sector-apply-title {
+		background: #2971ff;
+		strong {
+			display: inline-block;
+			padding: 45px 0;
+			color: #fff;
+			font-weight: 900;
+			font-size: 45px;
+			letter-spacing: -3px;
+			line-height: 1;
+		}
+	}
+
+
+	/* 6개월 단기패스 */
+	&.shortpass {
+		.sector-title{
+			background: url('#{$img-path}/pc/2761/bg_title.jpg') 50% 0 no-repeat;
+			background-size: cover;
+			.btn-text {
+				position: absolute;
+				top: 168px;
+				right: 25px;
+				z-index: 1;
+			}
+		}
+
+		.sector-benefit {
+			background: #18409d;
+		}
+	}
+
+	/* 0원 합격패스 */
+	&.zero {
+		.sector-benefit {
+			@include linear-gradient(to bottom, #fff 30%, #ffdc00 30%);
+		}
+		.sector-basic-price {
+			padding-bottom: 100px;
+			margin-top: -80px;
+			background: #ffdc00;
+		}
+	}
+
+	/* 연간패스 */
+	&.year {
+		.sector-title {
+			background: url('#{$img-path}/pc/2475/bg_title.jpg') 50% 0 no-repeat;
+			background-size: cover;
+			.btn-text {
+				position: absolute;
+				top: 180px;
+				right: 50px;
+				z-index: 1;
+				border: 0;
+			}
+		}
+
+		.sector-basic-price {
+			padding-bottom: 120px;
+		}
+	}
+	
+
+	&.year,
+	&.zero {
+		.sector-winner { display: none !important;}
+	}
+}
+
+

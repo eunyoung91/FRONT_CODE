@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" type="text/css">
+<!-- 레이어 배너 -->
+<style>
+#layerDiscount { position: fixed; top: 0; left: 0; z-index: 300; width: 100%; height: 100%; background-color: rgba(0,0,0,.7); }
+#layerDiscount .timer p:first-child { margin-left: 0; }
+#layerDiscount .layer-inner { position: absolute; top: 50%; left: 50%; z-index: 1; -webkit-transform: translate(-50%, -49%); -ms-transform: translate(-50%, -49%); transform: translate(-50%, -49%); }
+#layerDiscount .layer-inner a { position: relative; display: block; }
+#layerDiscount .timer-wrap { position: absolute; top: 2px; right: 2px; left: 2px; background-color: rgba(0, 51, 67, .95); }
+#layerDiscount .timer { padding: 10px 0 10px 180px; text-align: left; white-space: nowrap; }
+#layerDiscount .timer p { display: inline-block; margin: 0 0 0 10px; padding: 0; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; font-size: 26px; font-weight: 700; color: #fff; }
+#layerDiscount .discount { position: absolute; top: 252px; right: 60px; bottom: 124px; left: 530px; text-align: center; }
+#layerDiscount .discount p { margin: 0; line-height: 1; font-family: 'KHNPHD', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-weight: bold; letter-spacing: -1px; }
+#layerDiscount .discount p.title { margin-top: 29px; font-size: 26px; color: #23140e; }
+#layerDiscount .discount p.percent { margin-top: 13px; font-size: 35px; color: #e1150b; }
+#layerDiscount .discount p.period { display: inline-block; margin-top: 9px; padding: 4px 10px 2px; font-size: 28px; color: #fff; background-color: #e81909; }
+#layerDiscount .close-set { position: absolute; right: 0; top: -30px; font-size: 15px; font-family:'맑은 고딕', 'Molgun Gothic', 'Dotum', '돋움'; letter-spacing: -1px; font-weight: 400; }
+#layerDiscount .close-set span:before { content: '|'; display: inline-block; margin: 0 8px; font-size: 11px; color: #656565; vertical-align: top; }
+#layerDiscount .close-set span:first-child:before { display: none; }
+#layerDiscount .close-set a { display: inline-block; color: #fff; text-decoration: none; }
+</style>
+<div id="layerDiscount">
+    <div class="layer-inner">
+        <div class="close-set">
+            <span><a href="#" onclick="javascript:closeOneDayAuto('layerDiscount');return false;">오늘 하루 보지 않기</a></span>
+            <span><a href="#" class="layer-discount-close">닫기</a></span>
+        </div>
+        <a href="//event.eduwill.net/Event/2020/X/SpecialDiscount" target="_blank">
+            <div class="timer-wrap">
+                <div class="timer">
+                    <p>마감까지</p>
+                    <p>D-<span class="day">00</span>일</p>
+                    <p><span class="hour">00</span>시간</p>
+                    <p><span class="min">00</span>분</p>
+                    <p><span class="sec">00</span>초</p>
+                    <p><span class="msec">00</span>전</p>
+                </div>
+            </div>
+            <img src="https://img.eduwill.net/Img2/common/promotion/sale/banner/banner_layer.png" alt="주라주라 할인 해주라">
+            <div class="discount">
+                <p class="title">할인 이벤트</p>
+                <p class="percent">최대 30% 할인</p>
+                <p class="period">단, 11일간의 초특가</p>
+            </div>
+        </a>
+    </div>
+</div>
+<!-- // 레이어 배너 -->
+
+<!-- 플로팅 배너 -->
+<style>
+#floatingDiscount { position: absolute; display: none; top: -250px; left: 50%; z-index: 100; margin-left: -700px; }
+#floatingDiscount .close-action { margin-top: 10px; text-align: center; }
+#floatingDiscount .close-action a { vertical-align: top; line-height: 1; font-family: 'Noto Sans KR'; text-decoration: none; }
+#floatingDiscount .close-action a.today-close { display: inline-block; padding: 4px 15px; border-radius: 20px; background: rgba(102, 102, 102, 0.8); }
+#floatingDiscount .close-action a.today-close span { display: block; font-size: 12px; color: #fff; }
+#floatingDiscount .close-action a.today-close span:before { content: 'Ⅹ'; display: inline-block; margin-right: 2px; }
+#floatingDiscount .close-action a.close { position: absolute; top: 0; right: 0; display: block; width: 30px; height: 30px; }
+#floatingDiscount .close-action a.close .sr-only { width: 0; height: 0; font-size: 0; visibility: hidden; }
+#floatingDiscount .close-action a.close:before,
+#floatingDiscount .close-action a.close:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 15px; height: 1px; margin-left: -7.5px; background-color: #000; }
+#floatingDiscount .close-action a.close:before { -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+#floatingDiscount .close-action a.close:after { -webkit-transform: rotate(315deg); -ms-transform: rotate(315deg); transform: rotate(315deg); }
+</style>
+<div id="floatingDiscount">
+    <a href="//event.eduwill.net/Event/2020/X/SpecialDiscount" target="_blank">
+        <img src="https://img.eduwill.net/resources/img/math/banner/201005/banner_floating.png" alt="" />
+    </a>
+    <div class="close-action">
+        <a class="today-close" href="javascript:;" onClick="javascript:closeOneDayAuto('floatingDiscount');return false;"><span>오늘 하루 보지 않기</span></a>
+        <a class="close" href="javascript:;" onClick="javascript:document.getElementById('floatingDiscount').style.display='none'; return false;"><span class="sr-only">닫기</span></a>
+    </div>
+</div>
+<!-- // 플로팅 배너 -->
+
+<script src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.layer-discount-close').on('click', function(){
+            $('#layerDiscount').fadeOut(200);
+            $('#floatingDiscount').fadeIn(200);
+        });
+
+        setTimeout(function(){
+            $('#layerDiscount').fadeOut(200);
+            if( $('#layerDiscount').hide() ){
+                $('#floatingDiscount').fadeIn(200);
+            }
+        }, 5000);
+
+        getTimer('#layerDiscount .timer','October 16, 2020, 20:59');
+    });
+</script>
+
+
+
+</body>
+</html>

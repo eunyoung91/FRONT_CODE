@@ -1,0 +1,139 @@
+.eduf-layer-close {
+	@include breakpoint(desktop) {
+		top: 0; right: 0;
+	}
+}
+
+.eduf-layer-base {
+	.eduf-layer-content {
+		.list {
+			> li {
+				text-align: left;
+				font-family: $font-noto;
+				font-weight: 400;
+				line-height: 1.4;
+				word-break: keep-all;
+				color: #999;
+				@include vw(letter-spacing, -1px);
+				@include vw(font-size, 24px);
+				@include breakpoint(maxMobile){
+					font-size: 16px;
+				}
+				+ li {
+					@include vw(margin-top, 12px);
+				}
+			}
+		}
+	}
+}
+
+.popup-dimmed {
+	display:none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index:2000;
+	background-color: rgba( 0, 0, 0, 0.7);
+}
+.popup-layer-benefit {
+	display: none;
+	position:absolute;
+	top: 0;
+	left:50%;
+	width: 90%;
+	max-width: 720px;
+	z-index:40000;
+	@include translateX(-50%);
+	@include boxSizing(border-box);
+	@include breakpoint(minDesktop) {
+		width: 1100px;
+		max-width: 1100px;
+	}
+
+	.popup-close{
+		position:absolute;
+		top:0;
+		right:0;
+		@include vw(width, 60px);
+		@include vw(height, 60px);
+		z-index: 10;
+		background: #000;
+		a {
+			display: block;
+			@include vw(width, 60px);
+			@include vw(height, 60px);
+			cursor: pointer;
+			&:before,
+			&:after {
+				content:'';
+				position:absolute;
+				top:50%; left:50%;
+				@include vw(width, 26px);
+				@include vw(margin-left, -13px);
+				@include vw(height, 2px);
+				display:block;
+				background-color:#fff;
+			}
+			&:before{
+				@include rotate(45deg);
+			}
+			&:after{
+				@include rotate(-45deg);
+			}
+		}
+	}
+	
+	.popup-title {
+		position: relative;
+		background: #393939;
+		p{
+			text-align: center;
+			@include vw(padding, 25px 30px);
+			strong{
+				color:#fff;
+				font-family:$font-noto;
+				font-weight: 900;
+				@include vw(letter-spacing, -2px);
+				@include vw(font-size, 40px);
+				@include breakpoint(maxMobile){
+					font-size: 34px;
+				}
+			}
+		}
+	}
+	.popup-cont {
+		background: #fff;
+		* {
+			font-family: $font-noto;
+			@include vw(letter-spacing, -1px);
+		}
+		.base-text {
+			p,
+			strong {
+				font-family: $font-noto;
+				display: block;
+				letter-spacing: -1px;
+				color: #222;
+				@include vw(font-size, 24px);
+				@include breakpoint(minDesktop) {
+					font-size: 16px;
+				}
+			}
+			p {
+				font-weight: 400;
+				+ strong {
+					@include vw(margin-top, 20px);
+				}
+			}
+		}
+	}
+
+	&.scroll-pop {
+		.popup-cont {
+			overflow-y: scroll;
+			@include vw(min-height, 600px);
+		}
+	}
+}

@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+</head>
+<body>
+
+
+
+
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" type="text/css" />
+<style>
+#layerDiscount { position: fixed; top: 0; left: 0; z-index: 300; width: 100%; height: 100%; background-color: rgba(0,0,0,.7); }
+#layerDiscount .layer-inner { position: absolute; top: 50%; left: 50%; z-index: 1; -webkit-transform: translate(-50%, -49%); -ms-transform: translate(-50%, -49%); transform: translate(-50%, -49%); }
+#layerDiscount .layer-inner a { position: relative; display: block; }
+#layerDiscount .timer-wrap { position: absolute; top: 2px; right: 2px; left: 2px; background-color: #097566; }
+#layerDiscount .timer { padding: 10px 0 10px 130px; text-align: left; white-space: nowrap; }
+#layerDiscount .timer p { display: inline-block; margin: 0 0 0 10px; padding: 0; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; font-size: 24px; font-weight: 700; color: #fff; }
+#layerDiscount .timer p:first-child { margin-left: 0; }
+#layerDiscount .text { position: absolute; top: 280px; right: 38px; left: 485px; text-align: center; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-size: 30px; font-weight: 700; color: #d14028; }
+#layerDiscount .pointer { position: absolute; top: 95%; right: 30%; width: 36px; -webkit-animation: pointerMoving .8s infinite; animation: pointerMoving .8s infinite; }
+#layerDiscount .pointer img { width: 100%; }
+#layerDiscount .close-set { position: absolute; right: 0; top: -30px; font-size: 15px; font-family:'맑은 고딕', 'Molgun Gothic', 'Dotum', '돋움'; letter-spacing: -1px; font-weight: 400; }
+#layerDiscount .close-set span:before { content: '|'; display: inline-block; margin: 0 8px; font-size: 11px; color: #656565; vertical-align: top; }
+#layerDiscount .close-set span:first-child:before { display: none; }
+#layerDiscount .close-set a { display: inline-block; color: #fff; text-decoration: none; }
+@-webkit-keyframes pointerMoving {
+    0%, 100% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+    50% { -webkit-transform: translate(-10px, -10px); -ms-transform: translate(-10px, -10px); transform: translate(-10px, -10px); }
+}
+@keyframes pointerMoving {
+    0%, 100% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+    50% { -webkit-transform: translate(-10px, -10px); -ms-transform: translate(-10px, -10px); transform: translate(-10px, -10px); }
+}
+</style>
+<div id="layerDiscount">
+    <div class="layer-inner">
+        <div class="close-set">
+            <span><a href="#" onClick="javascript:closeOneDayAuto('layerDiscount');return false;">오늘 하루 보지 않기</a></span>
+            <span><a href="#" onClick="javascript:document.getElementById('layerDiscount').style.display='none'; return false;">닫기</a></span>
+        </div>
+        <a href="https://event.eduwill.net/Event/2021/_104/Discount_210108" target="_blank">
+            <div class="timer-wrap">
+                <div class="timer">
+                    <p>마감까지</p>
+                    <p>D-<span class="day">00</span>일</p>
+                    <p><span class="hour">00</span>시간</p>
+                    <p><span class="min">00</span>분</p>
+                    <p><span class="sec">00</span>초</p>
+                    <p><span class="msec">00</span>전</p>
+                </div>
+            </div>
+            <img src="https://img.eduwill.net/eduwill/img/2021/_104/event/210112/banner/banner_layer.jpg" alt="" />
+            <strong class="text">기간한정</strong>
+            <span class="pointer"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_16.png" alt=""></span>
+        </a>
+    </div>
+</div>
+<script src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+    $(function(){
+        getTimer('#layerDiscount .timer','January 18,2021,20:59');
+    });
+</script>
+    
+
+
+
+</body>
+</html>

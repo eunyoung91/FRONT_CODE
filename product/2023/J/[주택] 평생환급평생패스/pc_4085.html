@@ -1,0 +1,762 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/eduf.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<!--// eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<!-- <link rel="stylesheet" href="css/web.css"> -->
+
+<!-- ECO -->
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/dev/js/common/script.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+
+<link href="https://img.eduwill.net/eduwill/css/2023/J/product/230203/web.css?230203" rel="stylesheet" />
+<link href="https://img.eduwill.net/eduwill/css/2022/J/common/220419/timer.css" rel="stylesheet" />
+
+<div class="product-eco">
+
+    <!-- 221223 가격인상배너추가 -->
+    <div style="background-color:#FFD900">
+        <div class="wrap">
+			<a class="page-move" href="#productApply">
+			<img src="https://pds.eduwill.net/board/board133/1200x60%20(2).gif" />
+			</a>
+		</div>
+    </div>
+    <!-- // 221223 가격인상배너추가 -->
+
+    <div class="eco-5617"></div>
+
+	<!-- 환급배너 -->
+    <div class="fix-bottom" style="z-index: 100;position: fixed;background: #000;height: 100px;width: 100%;left: 0;bottom: 0;">
+        <div class="wrap" style="width:1200px;height:100%;margin:0 auto;">
+			<a style="position:absolute;left:0;bottom:0;display:block" class="page-move" href="#productApply">
+				<img src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/fix_bottom.gif" />
+			</a>
+		</div>
+    </div>
+	<!-- // 환급배너 -->
+	<!-- 타이머 -->
+    <div class="eco-3236"></div>
+	<!-- // 타이머 -->
+
+    <div class="eco-5489"></div>
+
+    <div class="eco-2753"></div>
+
+    <div class="eco-4338"></div>
+
+    <div class="right-banner" style="position: fixed;top: 260px;right: 0;z-index: 20;">
+		<a> <img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/update_banner_220101.gif" /> </a>
+	</div>
+
+	<div class="house-content sector-refunds-after">
+		<div class="section-1">
+			<div class="wrap">
+				<strong>[에듀윌 환급액 전년대비 248% 증가] </strong> 넘쳐나는 합격 후기 ▼
+				<a href="javascript:popupOpen('.rationale-dimmed', 'bestPopup');" class="btn-text color-fff"><span>근거확인 ></span></a>
+			</div>
+		</div>
+
+		<div class="section-2">
+			<div class="wrap">
+				<div class="refunds-review">
+					<div class="refunds-review-list"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				refundsReviewList();
+
+				function refundsReviewList(){
+					var options = {
+						jsonFileNm: "J202302_REVIEWLIST.min",
+					};
+					var slickOptions = {
+						speed: 800,
+						slidesPerRow: 2,
+						slidesToShow: 3,
+						autoplaySpeed: 4000, 
+					};
+					eduf.UI.Winner('.refunds-review-list', options, slickOptions);
+				}
+			});
+		</script>
+	</div>
+
+    <div class="house-content sector-visual-hyeri bg-18">
+        <div class="visual-cover"></div>
+        <div class="wrap-full">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/visual_J_221228.png" />
+            <div class="visual-hyeri-1"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/0/product/221212/pc/hyeri_1.png" /></div>
+        </div>
+        <div class="visual-hyeri-2"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/0/product/221212/pc/hyeri_2.png" /></div>
+    </div>
+
+    <div class="house-content house-refund">
+        <div class="wrap">
+
+            <div class="refund-top">
+				<div class="holder">
+					<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_refund.jpg"/>
+					<div class="notice-list">
+						<p class="notice">
+							*PG사 수수료 3%, 교재 판매가, 제세공과금 22% 제외 후 환급<br/>
+							*하단 환급 안내사항 확인 필수<br/>
+							*[역대급 환급금] 2022 에듀윌 주택관리사 환급금 과거년도 비교 결과<br/>
+						</p>
+						<p class="notice">
+							*2021 4월 주택관리사 수강생 만족도 조사 결과
+						</p>
+					</div>
+				</div>
+			</div>
+            <div class="refund-list">
+                <div class="holder">
+					<a class="btn" href="javascript:popupOpen('.rationale-dimmed', 'rationalePopup');">근거보기</a>
+					<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_refund_list.jpg"/>
+					<p class="notice">
+						*반드시 하단 혜택 상세 내용 및 상품 유의사항을 확인하시기 바랍니다.<br/>
+						*학습매니저 관리는 무료 서비스로, 회사 운영 정책상 중단/변경될 수 있습니다. (이용약관 의거)
+					</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+	<div class="house-content house-refund-plus" id="earlyBirdEvent">
+		<div class="wrap">
+			<div class="motion-box">
+				<img alt="" class="motion motion-1" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_refund_plus.png" />
+			</div>
+		</div>
+	</div>
+	
+	<!-- 가격영역 -->
+	<div class="eco-3033"></div>
+	<!-- // 가격영역 -->
+
+    <div class="house-content house-first">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_first.png"/>
+			<p class="notice">
+				*[1,600명] 2020년 23회 2차(최종) 시험 원서접수 이벤트 및 풀 서비스 시 수험번호를 입력한 수강 회원 기준<br/>
+				*[4년 연속] 2021년, 2020년 주택관리관계법규, 공동주택관리실무 과목별 최고득점 / 2019년 주택관리관계법규 최고득점 / 2022년 전국 수석합격 및 공동주택관리실무 최고득점<br/>
+				*[압도적 1위] 주요 4개 업체 간 카카오데이터트렌드 주간 검색량 비교 결과 (2021.06.01~2021.12.31)<br/>
+				*[역대급 환급금] 2022 에듀윌 주택관리사 환급금 과거 연도 비교 결과<br/>
+				*[사상 최대 합격자 수] 2022 에듀윌 주택관리사 합격자 수 자체 집계 결과<br/>
+				*[248% 증가] 21년 대비 22년 에듀윌 주택관리사 환급액 증가율 기준 (2023.02.01 기준)<br/>
+			</p>
+		</div>
+    </div>
+
+	<div class="house-content house-bar">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/bar1.jpg"/>
+		</div>
+    </div>
+
+	<div class="house-content house-content-01">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/teacher_title.jpg"/>
+			<div class="notice">
+				*2023 대한민국 브랜드만족도 주택관리사 교육 1위(한경비즈니스)
+			</div>
+		</div>
+		<div class="eco-3049"></div>
+	</div>
+
+    <div class="house-content house-curri">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_curri.jpg" />
+		</div>
+    </div>
+
+    <div class="house-content house-bestbook">
+        <div class="wrap">
+			<a class="btn-text" href="javascript:popupOpen('.rationale-dimmed', 'rationalePopup');">근거보기</a>
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/bestbook_title.jpg" />
+            <div class="img-group">
+				<img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/bestbook.png" />
+			</div>
+            <!-- <div class="floating">
+				<a href="https://event.eduwill.net/Content/J/HitMaster" target="_blank"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/floating_1.png" /></a> <a href="http://www.yes24.com/24/Category/Display/001001015005012" target="_blank"> <img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/floating_2.png" /></a>
+			</div> -->
+        </div>
+    </div>
+
+	<div class="house-content sector-hit">
+        <div class="tab-box">
+            <ul class="tab-list-hit">
+                <li class="on">회계원리</li>
+                <li>공동주택 시설개론</li>
+                <li>민법</li>
+                <li>주택관리관계법규</li>
+                <li>공동주택관리실무</li>
+            </ul>
+        </div>
+        <div class="wrap">
+            <div class="tab-view-hit">
+            </div>
+        </div>
+	</div>
+	<script>
+		var _tabList;
+		var _tabListMobile;
+		var _tabView;
+
+		$(function() {
+			_tabList = $(".sector-hit").find(".tab-list-hit").children("li");
+			_tabListMobile = $(".sector-hit").find(".tab-box li");
+			_tabView = $(".sector-hit").find(".tab-view-hit");
+
+			tabControl(0);
+			_tabList.on("click", function(){
+				var idx = $(this).index();
+				tabControl(idx);
+			});
+        });
+
+		function tabControl(idx) {
+			_tabList.removeClass("on");
+			_tabList.eq(idx).addClass("on");
+
+			_tabView.empty();
+			if (idx == 0) {
+				for (i = 1; i <= 40; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+			} else if (idx == 1) {
+				for (i = 41; i <= 80; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+			} else if (idx == 2) {
+				for (i = 1; i <= 40; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+			} else if (idx == 3) {
+				for (i = 1; i <= 24; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+				for (i = 49; i <= 64; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+			} else if (idx == 4) {
+				for (i = 25; i <= 48; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+				for (i = 65; i <= 80; i++) {
+					_tabView.append('<div class="tab-cell"><div class="tab-text"><p>2022년 주택관리사 기출문제</p><p>에듀윌 합격비법(강의,교재,모의고사)</p></div><img src="http://img.eduwill.net/eduwill/img/2022/J/simple/220825/pc/tab' + (idx + 1) + '/' + i + '.jpg" alt="" /></div>');
+				}
+			}
+		}
+	</script>
+
+	<div class="house-content house-bestbook-slide">
+		<div class="slide-group">
+			<div class="slide-container slide-bestseller">
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review1.png" /></div>
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review2.png" /></div>
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review3.png" /></div>
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review4.png" /></div>
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review5.png" /></div>
+				<div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/book_review_02_220727.png" /></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(function() {
+			$('.slide-bestseller').slick({
+				autoplay: true,
+				autoplaySpeed: 3000,
+				infinite: true,
+				arrows: false,
+				dots: true,
+				slidesToScroll: 1,
+				speed: 500,
+				slidesToShow: 1,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+				centerMode: true,
+				variableWidth: true,
+			});
+		});
+	</script>
+
+    <div class="house-content house-system">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/system_title.jpg" />
+            <ul class="list">
+                <li><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/system1.png" /> <a class="tip-btn"> <img alt="물음표" src="https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/icon_quest.png" /> </a>
+
+                    <div class="tip-layer"><img alt="팁" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/layer1.png" /></div>
+                </li>
+                <li><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/system2.png" /> <a class="tip-btn"> <img alt="물음표" src="https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/icon_quest.png" /> </a>
+                    <div class="tip-layer"><img alt="팁" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/layer2.png" /></div>
+                </li>
+                <li><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/system3.png" /> <a class="tip-btn"> <img alt="물음표" src="https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/icon_quest.png" /> </a>
+                    <div class="tip-layer"><img alt="팁" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/layer3.png" /></div>
+                </li>
+            </ul>
+			<p class="notice">
+				*학습매니저의 관리는 무료서비스로, 회사 운영 정책상 중단/변경될 수 있습니다.<br/>
+				(이용약관 의거)
+			</p>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.tip-btn').click(function() {
+                $(this).next('.tip-layer').toggleClass('act');
+            });
+        });
+    </script>
+
+	<div class="house-content house-bar">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/bar2.jpg"/>
+			<p class="notice">
+				*[10명 중 9명]단일교육기관 2020년 주택관리사 직영학원 연간반 수강생 중 최종합격자 기준
+			</p>
+		</div>
+	</div>
+
+    <div class="house-content house-bar-graph">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_bar_graph.jpg"/>
+			<p class="notice">
+				*[역대급 환급금] 2022 에듀윌 주택관리사 환급금 과거 연도 비교 결과<br/>
+				*[사상 최대 합격자 수] 2022 에듀윌 주택관리사 합격자 수 자체 집계 결과<br/>
+				*[248% 증가] 21년 대비 22년 에듀윌 주택관리사 환급액 증가율 기준 (2023.02.01 기준)<br/>
+			</p>
+		</div>
+    </div>
+
+    <div class="house-content house-interviewee">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview_title.png" />
+            <div class="tab-list">
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab6_on.png" /> </a></div>
+
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab4_off.png" /> </a></div>
+
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab5_off.png" /> </a></div>
+
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab1_off.png" /> </a></div>
+
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab2_off.png" /> </a></div>
+
+                <div><a href="javascript:;"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/tab3_off.png" /> </a></div>
+            </div>
+            <div class="tab-contents">
+                <div><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210421/house_interview6.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review6.png" /></a></div>
+
+                <div><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/220125/1월_주택관리사_홈페이지설명회용_정의헌합격생.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review4.png" /></a></div>
+
+                <div><a class="btn-video"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review5.png" /></a></div>
+
+                <div><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210421/house_interview1.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review1.png" /></a></div>
+
+                <div><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210421/house_interview2.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review2.png" /></a></div>
+
+                <div><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210421/house_interview3.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/event/211115/pc/interveiw_review3.png" /></a></div>
+            </div>
+        </div>
+        <div class="slide-group">
+            <div class="slide-container slide-interview">
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview1.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview2.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview3.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview4.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview5.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/interview_01_220727.png" /></div>
+            </div>
+        </div>
+        <div class="wrap">
+			<a class="btn" href="https://event.eduwill.net/VictoryStory/J/Housing_Manager#/" target="_blank">실시간 업데이트! 합격수기 더보기</a>
+		</div>
+    </div>
+    <script>
+        $(function() {
+            houseSlideTabList();
+            $('.slide-interview').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: false,
+                dots: true,
+                slidesToScroll: 1,
+                speed: 500,
+                slidesToShow: 1,
+                pauseOnHover: false,
+                pauseOnFocus: false,
+                centerMode: true,
+                variableWidth: true,
+            });
+        });
+
+        function houseSlideTabList() {
+            $('.tab-contents').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                infinite: true,
+                arrows: false,
+                autoplaySpeed: 2000,
+                adaptiveHeight: true,
+                asNavFor: '.tab-list',
+                pauseOnHover: true,
+                pauseOnFocus: true,
+            });
+
+            $('.tab-list').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: false,
+                infinite: true,
+                asNavFor: '.tab-contents',
+                arrows: false,
+                dots: false,
+                autoplaySpeed: 2000,
+                centerMode: false,
+                focusOnSelect: true
+            });
+
+            $('.tab-list').on("afterChange", function() {
+                var tabList = $(".tab-list").find(".slick-slide");
+                tabList.each(function() {
+                    $(this).find("img").attr('src', $(this).find('img').attr('src').replace('_on', '_off'));
+                });
+                var currentList = $(".tab-list").find(".slick-current");
+                currentList.find("img").attr('src', currentList.find("img").attr('src').replace('_off', '_on'));
+            });
+        }
+    </script>
+
+    <div class="house-content house-winners">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/winner_title.jpg" /></div>
+
+        <div class="winners-group">
+            <div class="winners-cover"></div>
+
+            <div class="winners-wrap">
+                <div class="text-box">
+                    <div class="text1"><strong>최종 합격생 1,710명 중<br />
+                            에듀윌 합격생 1,600명 예상!</strong></div>
+
+                    <div class="text2">확인된 에듀윌 합격생만 1.103명에<br />
+                        13년간 베스트셀러 1위 에듀윌 교재로 독학하신 분들과<br />
+                        연락이 닿지 않은신 분들까지 합하면 1600명 에상!</div>
+                </div>
+            </div>
+
+            <video autoplay="" class="bg-video" controls="" id="" loop="" muted="" playsinline="" poster="">
+                <source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20191220/Jutek2019_Hap_PC1231.mp4" type="video/mp4" /></video>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            scrollEvent(null);
+            $(window).on("scroll", scrollEvent);
+        });
+
+        var _isWinnerScroll = false;
+
+        function scrollEvent(st) {
+            var scrollTop = $(window).scrollTop();
+            var offsetTop = $(".house-winners").offset().top;
+            if (scrollTop > offsetTop - 50) {
+                if (_isWinnerScroll == true) return;
+                TweenMax.fromTo($(".winners-cover"), 0.7, {
+                    width: "53%"
+                }, {
+                    width: 0,
+                    ease: Sine.easeOut,
+                    onComplete: function() {
+                        $(".house-winners .bg-video").fadeIn();
+                    }
+                });
+                $(".winners-wrap .text-box").hide();
+                _isWinnerScroll = true;
+            } else {
+                if (_isWinnerScroll == false) return;
+                TweenMax.fromTo($(".winners-cover"), 0.7, {
+                    width: 0
+                }, {
+                    width: "53%",
+                    ease: Sine.easeOut,
+                    onComplete: function() {
+                        $(".house-winners .bg-video").fadeOut();
+                        $(".winners-wrap .text-box").fadeIn();
+                    }
+                });
+
+                _isWinnerScroll = false;
+            }
+        }
+    </script>
+
+    <div class="house-content house-winners-list">
+        <div class="wrap">
+            <div class="text-box">
+                <div class="text1"><strong>2022년 제25회 주택관리사 최종 합격자 중 에듀윌 회원</strong></div>
+            </div>
+            <div class="eduf-winner-contents">
+                <div class="eduf-winner-list"></div>
+                <div class="winner-cover"></div>
+            </div>
+            <div style="padding-top: 30px;z-index: 100;position: relative;opacity: .4;font-size: 14px;">
+				※ 2022년 25회 정답 채점 풀서비스 이벤트 참여 시, 수험번호를 입력한 에듀윌 회원 기준
+			</div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            winnerList();
+        });
+
+        function winnerList() {
+            var options = {
+                jsonFileNm: 'J202104_WINNER.min',
+            };
+            var slickOptions = {
+                slidesPerRow: 5,
+                slidesToShow: 6,
+            };
+            eduf.UI.Winner('.eduf-winner-list', options, slickOptions);
+        }
+    </script>
+
+    <div class="house-content house-one-review">
+        <div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_one_review.png" />
+		</div>
+    </div>
+
+    <div class="house-content house-alumni">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/img_network.png" /></div>
+
+        <div class="slide-group">
+            <div class="slide-container slide-network">
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/network_review1.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/network_review2.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/network_review3.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/network_review4.png" /></div>
+
+                <div class="slide-list"><img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/network_review5.png" /></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.slide-network').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: false,
+                dots: true,
+                slidesToScroll: 1,
+                speed: 500,
+                slidesToShow: 1,
+                pauseOnHover: false,
+                pauseOnFocus: false,
+                centerMode: true,
+                variableWidth: true,
+            });
+        });
+    </script>
+
+    <div class="house-content house-difference">
+        <div class="wrap">
+            <div clsas="holder">
+				<img alt="" src="https://img.eduwill.net/eduwill/img/2022/J/product/220419/pc/img_differ.jpg" />
+				<a class="btn" href="https://hjc.eduwill.net/
+				" target="_blank">에듀윌 취업지원센터 바로가기</a>
+			</div>
+            <div class="img-group">
+				<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_step.jpg" />
+				<span class="step step-1"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_setp1.png" /></span> <span class="step step-2"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_setp2.png" /></span> <span class="step step-3"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_setp3.png" /></span> <span class="step step-4"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_setp4.png" /></span>
+			</div>
+        </div>
+
+		<div class="slide-group">
+			<div class="slide-container slide-job">
+			<div class="slide-list"><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210209/Jutaek_KJH_Interview.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/job_review1.png" /></a></div>
+			
+			<div class="slide-list"><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210209/Jutaek_YMJ_Interview.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/job_review2.png" /></a></div>
+			
+			<div class="slide-list"><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210209/PCG_Interview.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/job_review3.png" /></a></div>
+			
+			<div class="slide-list"><a class="btn-video" href="javascript:edufLayerVideoOpen('http://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210209/Jutaek_BES_Interview.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/job_review4.png" /></a></div>
+			
+			<div class="slide-list"><a class="btn-video" href="javascript:edufLayerVideoOpen('https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210209/JSL_Interview.mp4');"><img alt="" src="https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/job_review5.png" /></a></div>
+			</div>
+		</div>
+    </div>
+
+    <script>
+        $(function() {
+            houseScrollStepListener(null);
+            $(window).on("scroll", houseScrollStepListener);
+
+			$('.slide-job').slick({
+				autoplay: true,
+				autoplaySpeed: 3000,
+				infinite: true,
+				arrows: false,
+				dots: true,
+				slidesToScroll: 1,
+				speed: 500,
+				slidesToShow: 1,
+				pauseOnHover: false,
+				pauseOnFocus: false,
+				centerMode: true,
+				variableWidth: true,
+			});
+        });
+
+        var _isStepScroll = false;
+
+        function houseScrollStepListener() {
+            var scrollTop = $(window).scrollTop();
+            var offsetTop = $(".house-difference").offset().top;
+            var stepPoint = $('.house-difference .step');
+            if (scrollTop > offsetTop - 50) {
+                if (_isStepScroll == true) return;
+
+                stepPoint.each(function(i) {
+                    TweenMax.fromTo($(this), .5, {
+                        opacity: 0,
+                        y: -100
+                    }, {
+                        opacity: 1,
+                        y: 0,
+                        delay: (.1 * i),
+                        ease: Bounce.easeOut
+                    });
+                });
+
+                _isStepScroll = true;
+            } else {
+                if (_isStepScroll == false) return;
+
+                TweenMax.set(stepPoint, {
+                    opacity: 0,
+                    y: -100
+                });
+
+                _isStepScroll = false;
+            }
+        }
+    </script>
+
+	<div class="house-content house-differ-plus">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill/img/2023/J/product/230203/pc/img_differ_plus.png" />
+		</div>
+	</div>
+
+    <div class="eco-3056"></div>
+    <div class="eco-3058"></div>
+</div>
+
+<!-- popup -->
+<div class="rationale-popup" id="bestPopup">
+    <div class="rationale-title"><strong>근거문구</strong></div>
+
+    <div class="rationale-cont">
+        <div data-eduwill-eco-content="3725"></div>
+    </div>
+    <a class="rationale-close" href="javascript:popupClose('.rationale-dimmed', 'bestPopup');"><span class="sr-only">팝업 닫기</span> </a>
+</div>
+
+<div class="eco-3404"></div>
+<!-- popup -->
+<script>
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+
+    getEcoDynamicForClass(5489, 'eco-5489'); //쿠폰배너
+    getEcoDynamicForClass(2753, 'eco-2753'); //[주택] 합격패스_라이브설명회 배너
+    getEcoDynamicForClass(3236, 'eco-3236'); //[주택관리사,컨텐츠, PC] 평생환급 합격패스 타이머배너
+    getEcoDynamicForClass(4338, 'eco-4338'); //[주택,PC] 마이크로브랜드배너
+
+    getEcoDynamicForClass(3033, 'eco-3033'); //[주택관리사,컨텐츠, PC] 평생환급 합격패스 가격단(상단)
+    getEcoDynamicForClass(3049, 'eco-3049'); //[주택관리사,컨텐츠, PC] 선택의이유-교수진리스트
+    getEcoDynamicForClass(3056, 'eco-3056'); //[주택관리사,컨텐츠, PC] 선택의이유-성공로드맵
+    getEcoDynamicForClass(3058, 'eco-3058'); //[주택관리사,컨텐츠, PC] 타이틀배너-합격자수가선택의기준
+
+    getEcoDynamicForClass(3404, 'eco-3404'); //[주택관리사] 근거문구팝업
+    getEcoDynamicForClass(3725, 'eco-3725'); //[주택관리사] 근거문구팝업
+    getEcoDynamicForClass(5617, 'eco-5617');
+
+    $(function() {
+        $(window).load(function() {
+            pageMove('.page-move');
+        });
+
+        $(window).on('scroll', function() {
+            var wt = $(window).scrollTop();
+            var section = $('.motion-box');
+
+            section.each(function(i) {
+                if (wt >= section.eq(i).offset().top - 500) {
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            });
+        });
+
+    });
+</script>
+
+<!-- ECO -->
+
+<div id="productApply"></div>
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,409 @@
+﻿@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "abstracts/variables";
+@import "module/motion";
+@import "module/popup";
+
+.product-eco{
+	overflow: hidden;
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	.land-content,
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap{
+		position:relative;
+		width: 100%;
+		max-width: 720px;
+		margin:0 auto;
+		text-align:center;
+	}
+
+	.holder, .item { position: relative;}
+
+	.btn-text, .btn-grounds{
+		display:inline-block;
+		line-height:1;
+		font-weight:400;
+		@include vw(padding, 10px 15px);
+		@include vw(font-size, 20px);
+		color: rgba(0,0,0, .8);
+		border: 1px solid rgba(0,0,0, .5);
+		span{
+			vertical-align: middle;
+			line-height: 1;
+			@include vw(padding-right, 16px);
+			@include arrow(right, 8px, 8px, 1px, rgba(0,0,0, .6));
+			&:before {
+				right:0;
+				@include vw(margin-top, -6px);
+			}
+		}
+		&.color-fff {
+			color: rgba(255,255,255, .8);
+			border: 1px solid rgba(255,255,255, .8);
+			span {
+				&:before {
+					border-color: rgba(255,255,255, .8);
+				}
+			}
+		}
+		&.border-none {
+			border: 0;
+		}
+	}
+
+	.icon-pointer {
+		@include pointer(50%, 0, 66px, 73px, 1, bounce);
+	}
+
+	.notice-text {
+		@include vw(padding, 0 50px);
+		@include vw(font-size,  20px);
+		word-break: keep-all;
+		text-align: left;
+		color: #878787;
+		font-weight: 400;
+		line-height: 1.4;
+	}
+
+	.slide-group{
+		position:relative;
+		@include vw(margin-top, 20px);
+		.slick-dots {
+			text-align: center;
+			li {
+				display: inline-block;
+				margin-left:6px;
+				button {
+					cursor: pointer;
+					text-indent: -10000em;
+					border: 0;padding:0;
+					border-radius: 50%;
+					@include vw(width, 20px);
+					@include vw(height, 20px);
+					background:#bbb;
+				}
+				&.slick-active {
+					button {
+						@include vw(width, 55px);
+						@include vw(border-radius, 20px);
+						background:#ffc20e;
+					}
+				}
+			}
+		}
+	}
+
+	.fix-bottom {
+		position: fixed;
+		bottom: 50px;
+		right: 0;
+		left: 0;
+		@include vw(height, 100px);
+		background: rgba(0,0,0, .8);
+		z-index: 201;
+		.wrap {
+			position: relative;
+			@include vw(top, -20px);
+			a {
+				@include pointer(60%, 0, 57px, 65px, 12, bounce);
+			}
+		}
+	}
+
+	.fix-right {
+		position: fixed;
+		right: 0;
+		@include vw(top, 804px);
+		@include vw(width, 136px);
+		z-index: 12;
+		> img {
+			display: block;
+			position: relative;
+			&.effect-blink {
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: 2;
+			}
+		}
+	}
+
+	.sector-benefit { background: #f4f4f4;}
+
+	.sector-info {
+		@include vw(padding-bottom, 150px);
+		background: #f9f9f9;
+	}
+
+	.sector-check {
+		.btn-text {
+			position: absolute;
+			@include vw(top, 258px);
+			@include vw(right, 30px);
+			z-index: 1;
+		}
+	}
+
+	.sector-winner {
+		overflow: hidden;
+		background:#fff url('#{$img-path}/mobile/bg_winner.jpg') 50% 0 no-repeat;
+		background-size: cover;
+		.btn-text {
+			position: absolute;
+			@include vw(top, 92px);
+			@include vw(right, 80px);
+			z-index: 1;
+		}
+		.winner-list {
+			overflow:hidden;
+			transform: perspective(400px) rotateX(35deg);
+			overflow:hidden;
+			@include boxSizing(border-box);
+			p {
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				color: #000;
+				@include vw(font-size, 28px);
+				@include vw(letter-spacing, -1.5px);
+				font-weight: 500;
+				line-height: 2;
+			}
+		}
+	}
+
+	.sector-bar {
+		background:#332fd6;
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 99.9%;
+			left: 50%;
+			@include translateX(-50%);
+			z-index: 1;
+			@include vw(width, 309px);
+			@include vw(height, 75px);
+			background: url('#{$img-path}/pc/bar_arrow.png') no-repeat 50% 0;
+			background-size:cover;
+		}
+		&.not-arrow {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.sector-teacher {
+		.btn-text {
+			position: absolute;
+			@include vw(top, 36px);
+			@include vw(right, 60px);
+			z-index: 1;
+		}
+		.graph {
+			position: absolute;
+			@include vw(top,  784px);
+			@include vw(left, 50px);
+			@include vw(width, 620px);
+			p {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				@include vw(height, 71px);
+				@include vw(margin-bottom, 10px);
+				@include vw(padding, 0 30px);
+				@include vw(border-top-right-radius, 71px);
+				@include vw(border-bottom-right-radius, 71px);
+				background: #3330d6;
+				background: linear-gradient(90deg, #2fa1d6 38%, #3330d6 100%);
+				box-sizing: border-box;
+
+				span {
+					font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+					color: #fff;
+					&:first-child {
+						@include vw(font-size, 24px);
+						font-weight: 600;
+					}
+					&:last-child {
+						@include vw(font-size, 40px);
+						font-weight: 600; 
+						font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+					}
+				}
+			}
+			
+		}
+	}
+
+	.sector-curriculum { background: #f4f4f4;}
+	.sector-cbt {
+		@include vw(padding-bottom, 130px);
+		background: #fff;
+	}
+	.sector-contents { background: #f4f4f4;}
+
+
+	.sector-service {
+		.flag {
+			position: absolute;
+			@include vw(right, 24px);
+			@include vw(width, 130px);
+			z-index: 11;
+			&.flag-1 { @include vw(top, 497px);}
+			&.flag-2 { @include vw(top, 1112px);}
+		}
+		.slideTable {
+			position: absolute;
+			top:75%;
+			left:0;
+			right:0;
+			margin:0 auto;
+			@include vw(width, 600px);
+			@include vw(height, 280px);
+			overflow: hidden;
+			background: #fff;
+			z-index: 10;
+			.slick-slide {
+				border-bottom: 1px solid #dbdbdb;
+			}
+			.tableWrap {
+				&:last-child {
+					dl {
+						border: none;
+					}
+				}
+			}
+			dl {
+				display: flex;
+				align-items: center;
+				@include vw(font-size, 20px);
+				color: #000;
+				@include vw(padding, 0 30px);
+				font-family: $font-noto;
+				line-height:1.5;
+				@include vw(letter-spacing, -1.5px);
+				dt {
+					width:8%;
+					font-weight: 700;
+					text-align: center;
+					@include vw(padding, 7px 0);
+				}
+				dd{
+					width:92%;
+					@include vw(padding, 7px 0);
+				}
+				em {
+					color: #ffa300;
+				}
+			}
+		}
+	}
+
+	.sector-grand {
+		@include vw(padding, 150px 0);
+		background: url('#{$img-path}/mobile/bg_grand.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.review-wrap {
+			.review-title {
+				text-align: center;
+				font-family: $font-noto;
+				@include vw(letter-spacing, -4px);
+				line-height:1.5;
+				h3{
+					@include vw(font-size, 38px);
+					font-weight: 900;
+					color: #fff;
+					span {
+						@include vw(font-size, 58px);
+						font-weight: 900;
+						color: #ffed00;
+					}
+				}
+			}
+			.review-list {
+				@include vw(margin-top, 100px);
+				@include vw(padding, 0 50px);
+				.review {
+					display: flex !important;
+					align-items: flex-end;
+					justify-content: space-between;
+					text-align: left;
+					@include vw(margin-bottom, 12px);
+					p {
+						@include vw(font-size, 28px);
+						font-weight: 700;
+						color: #fff;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
+					span {
+						display: block;
+						@include vw(min-width, 100px);
+						@include vw(margin-left, 12px);
+						@include vw(font-size, 18px);
+						text-align: right;
+						font-weight: 400;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	.sector-apply-title {
+		background: #2971ff;
+		strong {
+			display: inline-block;
+			@include vw(padding, 50px 0);
+			@include vw(font-size, 45px);
+			@include vw(letter-spacing, -3px);
+			color: #fff;
+			font-weight: 900;
+			line-height: 1;
+		}
+	}
+
+	/* 단기패스 */
+	&.shortpass {
+		.sector-title {
+			background: #749ace;
+			.btn-text {
+				position: absolute;
+				@include vw(top, 260px);
+				@include vw(right, 50px);
+				z-index: 1;
+			}
+		}
+
+		.sector-benefit {
+			background: #18409d;
+		}
+	}
+
+	/* 연간패스 */
+	&.year {
+		.sector-title {
+			background: url('#{$img-path}/mobile/2476/bg_title.jpg') 50% 0 no-repeat;
+			background-size: cover;
+			.btn-text {
+				position: absolute;
+				@include vw(top, 280px);
+				@include vw(right, 50px);
+				z-index: 1;
+			}
+		}
+	}
+	&.year,
+	&.zero {
+		.sector-winner { display: none !important;}
+	}
+
+}

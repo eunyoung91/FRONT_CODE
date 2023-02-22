@@ -1,0 +1,479 @@
+@charset "UTF-8";
+.grid {
+  *zoom: 1;
+}
+.grid:before, .grid:after {
+  content: "";
+  display: table;
+}
+.grid:after {
+  clear: both;
+}
+
+.cont2 .motion-1 {
+  opacity: 0;
+  width: 0;
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+}
+.cont2 .motion-2 {
+  opacity: 0;
+  width: 0;
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+}
+.cont2 .motion-3 {
+  opacity: 0;
+  width: 0;
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+}
+.cont2 .motion-4 {
+  opacity: 0;
+  width: 0;
+  transition: all 0.5s;
+  transition-timing-function: ease-out;
+}
+.cont2.active .motion-1 {
+  opacity: 1;
+  width: 100%;
+  transition-delay: 0.3s;
+}
+.cont2.active .motion-2 {
+  opacity: 1;
+  width: 100%;
+  transition-delay: 0.6s;
+}
+.cont2.active .motion-3 {
+  opacity: 1;
+  width: 100%;
+  transition-delay: 0.9s;
+}
+.cont2.active .motion-4 {
+  opacity: 1;
+  width: 100%;
+  transition-delay: 1.2s;
+}
+
+.slideY {
+  position: absolute;
+  animation: 0.4s slideUpY ease-in-out infinite alternate;
+}
+@keyframes slideUpY {
+  0% {
+    transform: translate(0, 5px);
+  }
+  100% {
+    transform: translate(-5px, 0);
+  }
+}
+.sr-only {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.grid {
+  box-sizing: border-box;
+}
+.grid .col {
+  float: left;
+  box-sizing: border-box;
+}
+
+.bounce {
+  animation: bounce 1.5s infinite both;
+}
+.layer-dim, .layer-dimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: #000;
+  opacity: 0.8;
+  overflow: hidden;
+}
+.layer-review {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10001;
+  max-width: 768px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.layer-review .layer-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+  top: -60px;
+  z-index: 10002;
+}
+.layer-review .layer-close:before, .layer-review .layer-close:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-left: -15px;
+  background-color: #fff;
+}
+.layer-review .layer-close:before {
+  transform: rotate(45deg);
+}
+.layer-review .layer-close:after {
+  transform: rotate(315deg);
+}
+.layer-review .layer-close span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+.layer-review .layer-box {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.layer-review .layer-box iframe,
+.layer-review .layer-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: inherit;
+     object-fit: inherit;
+}
+
+.eduf-layer-base * {
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+.eduf-layer-base .eduf-layer-title {
+  text-align: center;
+  background: linear-gradient(to right, #ff9447 0%, #eb2200 100%);
+}
+.eduf-layer-base .eduf-layer-title p {
+  font-size: 3.3333333333vw;
+  color: #fff;
+  font-weight: 700;
+}
+@media screen and (min-width: 720px) {
+  .eduf-layer-base .eduf-layer-title p {
+    font-size: 24px;
+  }
+}
+.eduf-layer-base .eduf-layer-title .eduf-layer-close:before, .eduf-layer-base .eduf-layer-title .eduf-layer-close:after {
+  background-color: #fff;
+}
+.eduf-layer-base .eduf-layer-content {
+  padding: 5.5555555556vw;
+}
+@media screen and (min-width: 720px) {
+  .eduf-layer-base .eduf-layer-content {
+    padding: 40px;
+  }
+}
+.eduf-layer-base .eduf-layer-content table {
+  width: 100%;
+  border: 1px solid #000;
+}
+.eduf-layer-base .eduf-layer-content table tr {
+  border-top: 1px solid #000;
+}
+.eduf-layer-base .eduf-layer-content table tr:first-child {
+  border-bottom: 0;
+}
+.eduf-layer-base .eduf-layer-content table th, .eduf-layer-base .eduf-layer-content table td {
+  font-size: 3.3333333333vw;
+  text-align: center;
+  padding: 1.3888888889vw;
+  border-right: 1px solid #000;
+}
+@media screen and (min-width: 720px) {
+  .eduf-layer-base .eduf-layer-content table th, .eduf-layer-base .eduf-layer-content table td {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 720px) {
+  .eduf-layer-base .eduf-layer-content table th, .eduf-layer-base .eduf-layer-content table td {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 720px) {
+  .eduf-layer-base .eduf-layer-content table th, .eduf-layer-base .eduf-layer-content table td {
+    padding: 10px;
+  }
+}
+.eduf-layer-base .eduf-layer-content table th:last-child, .eduf-layer-base .eduf-layer-content table td:last-child {
+  border-right: none;
+}
+.eduf-layer-base .eduf-layer-content table th {
+  font-weight: 700;
+  background: #f5f5f5;
+}
+.eduf-layer-base .eduf-layer-content table td {
+  font-weight: 500;
+}
+
+.fix-apply {
+  display: none !important;
+}
+
+/* 공통 */
+.product-eco .wrap {
+  width: 1200px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  line-height: normal;
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+.product-eco .btn-pointer {
+  display: inline-block;
+  position: relative;
+}
+.product-eco .btn-pointer:before {
+  content: "";
+  position: absolute;
+  right: -13px;
+  bottom: -20px;
+  width: 57px;
+  height: 65px;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png") no-repeat 50% 50%;
+  background-size: 100% auto;
+  animation: 0.5s slideupY ease-in-out infinite alternate;
+}
+@keyframes slideupY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* 컨텐츠 */
+.product-eco * {
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+.product-eco .fix-bottom {
+  z-index: 30;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+.product-eco .fix-bottom .action {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.product-eco .sector-title {
+  background: url("https://img.eduwill.net/eduwill/img/2023/_118/product/230214/pc/bg_title.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+.product-eco .sector-title .price-area2 {
+  position: absolute;
+  left: 50%;
+  bottom: -153px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 30px;
+  padding: 60px 90px;
+  transform: translateX(-50%);
+  z-index: 10;
+  box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+.product-eco .sector-title .price-area2 .title-wrap {
+  text-align: left;
+}
+.product-eco .sector-title .price-area2 .title-wrap .title-label {
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #ff9d5b 0%, #ff6141 100%);
+}
+.product-eco .sector-title .price-area2 .title-wrap p {
+  font-size: 45px;
+  font-weight: 900;
+  color: #39120b;
+  margin: 15px 0 30px;
+  letter-spacing: -2px;
+}
+.product-eco .sector-title .price-area2 .title-wrap ul {
+  display: flex;
+  align-items: center;
+}
+.product-eco .sector-title .price-area2 .title-wrap ul li {
+  position: relative;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  text-align: left;
+  padding: 0 30px;
+}
+.product-eco .sector-title .price-area2 .title-wrap ul li:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 50px;
+  background: #d9d9d9;
+  transform: translateY(-50%);
+}
+.product-eco .sector-title .price-area2 .title-wrap ul li:first-child {
+  text-align: left;
+  padding-left: 0;
+}
+.product-eco .sector-title .price-area2 .title-wrap ul li:first-child:before {
+  display: none;
+}
+.product-eco .sector-title .price-area2 .price-wrap .price {
+  display: flex;
+  align-items: center;
+}
+.product-eco .sector-title .price-area2 .price-wrap .price .before-price {
+  font-size: 24px;
+  font-weight: 900;
+  color: #999;
+  margin-right: 32px;
+  text-decoration: line-through;
+}
+.product-eco .sector-title .price-area2 .price-wrap .price .after-price {
+  font-size: 52px;
+  font-weight: 900;
+  color: #eb2200;
+}
+.product-eco .sector-title .price-area2 .price-wrap .action {
+  margin-top: 40px;
+}
+.product-eco .sector-title .price-area2 .price-wrap .action a {
+  display: block;
+  width: 420px;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  padding: 24px 0;
+  border-radius: 16px;
+  background: linear-gradient(to right, #f95600 0%, #eb2200 100%);
+}
+.product-eco .sector-title .price-area2 .price-wrap .action a span {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+}
+.product-eco .sector-title .price-area2 .price-wrap .action a span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-width: 0;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+  border-top-width: 3px;
+  border-right-width: 3px;
+  right: 0;
+}
+.product-eco .sector-preview {
+  background: #fff;
+}
+.product-eco .sector-preview .wrap {
+  width: 1240px;
+}
+.product-eco .sector-preview .preview-wrap {
+  position: relative;
+}
+.product-eco .sector-preview .preview-wrap .video-wrap {
+  position: absolute;
+  top: 161px;
+  left: 70px;
+  width: 600px;
+  height: 336px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.product-eco .sector-preview .preview-wrap .video-wrap .eduf-iframe-player {
+  z-index: 5;
+  position: relative;
+  cursor: pointer;
+}
+.product-eco .sector-preview .preview-wrap .video-wrap iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.product-eco .sector-preview .preview-wrap .action {
+  position: absolute;
+  top: 832px;
+  left: 0;
+  right: 0;
+}
+.product-eco .sector-start {
+  background: #ffeee9;
+}
+.product-eco .sector-start .wrap {
+  width: 1240px;
+}
+.product-eco .sector-trophy {
+  background: #fff;
+}
+.product-eco .sector-test {
+  background: #fed444 url("https://img.eduwill.net/eduwill/img/2022/_118/product/220818/pc/bg_content_5.png") no-repeat;
+}
+.product-eco .sector-test .btn {
+  position: absolute;
+  top: 80px;
+  right: 0;
+}
+.product-eco .product-sentence {
+  background-color: #ff794c;
+}/*# sourceMappingURL=web.css.map */

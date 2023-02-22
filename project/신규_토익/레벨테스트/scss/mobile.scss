@@ -12,43 +12,37 @@
 .leveltest{
     .sector{
         &-main{
-            height: 567px;
             background: #ffdeb4 url('#{$img-path}/leveltest/mobile/main_bg.jpg') repeat-x 50% 50%;
             background-size: cover;
 
             .wrap{
-                height: 100%;
-                padding: 0;
-                width: 310px;
-
+                @include vw(width, 640px);
+                margin: 0 auto;
+                @include vw(padding, 100px 0 0);
+                a {
+                    position: relative;
+                    display: block;
+                }
                 .txt{
-                    position: absolute;
-                    top: 50px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 320px;
+                    @include vw(width, 640px);
                 }
                 .person{
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 320px;
+                    @include vw(width, 620px);
+                    @include vw(margin-top, 64px);  
                 }
                 .btn-go{
                     z-index: 2;
-                    position: absolute;
-                    bottom: 120px;
+                    position: absolute !important;
+                    @include vw(bottom, 180px);
                     left: 50%;
                     transform: translateX(-50%);
                     width: 100%;
-
+                    @include pointer(40px, 15px, 40px, 52px, 1, bounce);
                     .color1, .color2{
                         position: absolute;
                         top: 0;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 360px;
+                        width: 100%;
+                        left: 0;
                     }                        
                     .color1{
                         animation: 1.5s blink1 infinite;
@@ -59,10 +53,7 @@
                 }
                 .pointer{
                     position: absolute;
-                    top: 40px;
-                    right: 33px;
-                    width: 40px;
-                    
+                    display: none;
                 }
             }
         }
@@ -72,15 +63,15 @@
 
             .process{
                 display: flex;
-                height: 37px;
-                padding-top: 34px;
+                @include vw(padding-top, 80px);
                 li {
                     position: relative;
                     flex: 1;
                     text-align: center;
                     font-weight: 600;
-                    font-size: 12px;
+                    @include vw(font-size, 20px);
                     line-height: 1;
+                    @include vw(padding-bottom, 24px);
                     color: #bcb6a7; 
                     margin-right: 4px;
 
@@ -130,24 +121,24 @@
 
                 .txt1{
                     color: #f15a23;
-                    font-size: 14px;
+                    @include vw(font-size, 28px);
                     font-weight: 400;
-                    margin-top: 50px;
+                    @include vw(margin-top, 120px);
                 }
                 .txt2{
                     color: #212121;
-                    font-size: 23px;
-                    font-weight: 500;                    
-                    margin-top: 25px;
-                    margin-bottom: 15px;
+                    @include vw(font-size, 48px);
+                    font-weight: 500;            
+                    @include vw(margin-top, 64px);
+                    @include vw(margin-bottom, 36px);
                 }
                 .question-box{
                     background-color: #f6f6f6;
-                    margin-bottom: 25px;
-                    padding: 30px;
+                    @include vw(margin-bottom, 36px);
+                    @include vw(padding, 48px);
                     .q{
                         color: #212121;
-                        font-size: 17px;
+                        @include vw(font-size, 24px);
                         font-weight: 500;                        
 
                         .blank {
@@ -156,24 +147,23 @@
                             width: 78px;
                             border-bottom: 1px solid #212121;
                             position: relative;
-                            top: -9px;
+                            top: -6px;
                         }
                     }
                     .candi{
                         max-width: 600px;
                         color: #212121;
-                        font-size: 14px;
-                        font-weight: 400;                        
-                        margin-top: 20px;
+                        @include vw(font-size, 24px);
+                        font-weight: 400;
+                        @include vw(margin-top, 40px);
                         margin-left: auto;
                         margin-right: auto;
-                        padding-left: 20px;
-                        padding-right: 20px;
+                        @include vw(padding, 0 40px);
                         li{
                             display: inline-block;
                             width: 49%;
                             text-align: left;
-                            padding: 6px 0;
+                            @include vw(padding, 12px 0);
 
                             &.active{
                                 color: #f15a23;
@@ -184,18 +174,18 @@
                 }
                 .question-img {
                     display: block;
-                    margin: 0 auto 25px auto;                    
+                    @include vw(margin, 0 auto 40px);
                 }
                 .rd-group{
                     color: #212121;
-                    font-size: 15px;
+                    @include vw(font-size, 24px);
                     font-weight: 500;
-                    margin-bottom: 30px;
+                    @include vw(margin-bottom, 60px);
                     
                     label{
                         display: inline-block;
-                        height: 30px;
-                        margin-right: 143px;
+                        vertical-align: middle;
+                        @include vw(margin-right, 120px);
                         cursor: pointer;
 
                         &:last-of-type{
@@ -209,7 +199,7 @@
                                 &~span {
                                     &:after {
                                         background: url('#{$img-path}/leveltest/mobile/qna_check_active.jpg') no-repeat 0 0;
-                                        background-size: 30px 30px;
+                                        @include vw(background-size, 30px 30px);
                                     }
                                 }
                                 
@@ -219,20 +209,20 @@
                         span{
                             position: relative;
                             display: inline-block;
-                            height: 100%;
-                            padding-left: 45px;
-                            line-height: 2;
+                            vertical-align: middle;
+                            width: 100%;
+                            @include vw(padding-left, 36px);
 
                             &:after{
                                 content: "";
                                 position: absolute;
-                                top: 0;
+                                @include vw(top, 4px);
                                 left: 0;
                                 display: block;
-                                width: 30px;
-                                height: 30px;
+                                @include vw(width, 30px);
+                                @include vw(height, 30px);
                                 background: url('#{$img-path}/leveltest/mobile/qna_check_default.jpg') no-repeat 0 0;
-                                background-size: 30px 30px;
+                                @include vw(background-size, 30px 30px);
                             }                             
                         }
                     }
@@ -288,23 +278,23 @@
 
                 .btn-test-result{
                     display: block;
-                    width: 340px;
-                    height: 82px;
+                    @include vw(width, 640px);
+                    @include vw(padding, 28px 0);
                     text-indent: -9999px;
-                    margin: 0 auto 0 auto;
-                    background: url('#{$img-path}/leveltest/mobile/btn_go_result_default.png') no-repeat 50% 50%;
-                    background-size: 340px 82px;
+                    @include vw(margin, 0 auto 36px);
+                    background: url('#{$img-path}/leveltest/mobile/btn_go_result_default.png') no-repeat;
+                    background-size: cover;
 
                     &:hover{
-                        background-image: url('#{$img-path}/leveltest/mobile/btn_go_result_active.png');
-                        background-size: 340px 82px;
+                        background-image: url('#{$img-path}/leveltest/mobile/btn_go_result_active.png') no-repeat;
+                        background-size: cover;
                     }
                 }
             }
         }  
 
         &-result-top{
-            height: 80px;
+            @include vw(padding-top, 72px);
             text-align: center;
             background: #fff7e2;
             border-bottom: 2px solid #f59b03;
@@ -313,9 +303,8 @@
                 position: relative;
                 color: #212121;
                 font-weight: 600;
-                font-size: 19px;
-                letter-spacing: -1px;
-                padding-top: 40px;
+                @include vw(padding-top, 20px);
+                @include vw(font-size, 32px);
 
                 em{
                     color: #f59b03;
@@ -324,7 +313,7 @@
                 &:after{
                     content: "";
                     position: absolute;
-                    top: 25px;
+                    top: 0;
                     left: 50%;
                     transform: translateX(-50%);
                     display: block;
@@ -337,16 +326,15 @@
         }        
 
         &-result-middle{
-            padding-top: 30px;
-
+            @include vw(padding-top, 60px);
             .wrap{
                 padding-bottom: 0;
 
                 .tit{
-                    font-size: 23px;
+                    @include vw(font-size, 36px);
                     font-weight: 600;
                     color: #212121;
-                    margin-bottom: 20px;
+                    @include vw(margin-bottom, 24px);
                 }
 
                 .teacher{
@@ -354,26 +342,26 @@
                     position: absolute;
                     top: 0px;
                     right: 0px;
-                    width: 120px;
+                    @include vw(width, 240px);
                 }
                 .general{
-                    font-size: 12px;
+                    @include vw(font-size, 18px);
                     color: #212121;
                     border-top: 2px solid #222222;
                     border-bottom: 1px solid #cccccc;
-                    padding: 23px 0;
-                    margin-bottom: 50px;
-                    line-height: 2;
+                    @include vw(padding, 24px 0);
+                    @include vw(margin-bottom, 48px);
+                    line-height: 1.8;
 
                     >.inner{
-                        margin-right: 120px;
+                        @include vw(margin-right, 240px);
                     }
                 }
 
                 .study{
                     border-top: 2px solid #222222;
-                    border-bottom: 1px solid #cccccc;                    
-                    margin-bottom: 50px;
+                    border-bottom: 1px solid #cccccc;
+                    @include vw(margin-bottom, 80px);
 
                     table{
                         th, td{
@@ -388,18 +376,17 @@
                         }
 
                         th{
-                            font-size: 13px;
+                            @include vw(font-size, 20px);
                             font-weight: 600;
-                            color: #222222;
+                            color: #222;
                             text-align: center;
                             background: #f6f6f6;
                         }
                         td{
-                            font-size: 12px;
+                            @include vw(font-size, 20px);
                             font-weight: 400;
                             color: #222222;
-                            padding: 15px;
-
+                            @include vw(padding, 18px);
                             >.inner{
                                 // width: 805px;
                             }
@@ -410,12 +397,11 @@
                 .recommend{
                     position: relative;
                     z-index: 3; 
-                    margin-bottom: 50px;
+                    @include vw(margin-bottom, 80px);
 
                     a{
                         display: block;
-                        margin-bottom: 15px;
-                        
+                        @include vw(margin-bottom, 20px);
                         &:last-of-type{
                             margin-bottom: 0;
                         }                        
@@ -434,16 +420,15 @@
                 padding-top: 0;
 
                 .tit{
-                    font-size: 23px;
+                    @include vw(font-size, 36px);
                     font-weight: 600;
                     color: #212121;
-                    margin-bottom: 20px;
+                    @include vw(margin-bottom, 20px);
                 }             
                 
                 .formula{
-                    margin-bottom: 60px;
+                    @include vw(margin-bottom, 80px);
                     background: #f6f6f6;
-                    
 
                     .slide-wrap{
                         .slide-group{
@@ -615,13 +600,13 @@
 
                 .btn-again{
                     display: block;
-                    width: 330px;
-                    height: 50px;
+                    @include vw(width, 620px);
                     text-indent: -9999px;
                     margin: 0 auto;
+                    @include vw(margin-bottom, 30px);
+                    @include vw(padding, 48px 0);
                     background: url('#{$img-path}/leveltest/mobile/result_btn_again_default.png') no-repeat 50% 50%;
-                    background-size: 330px 50px;
-                    margin-bottom: 25px;
+                    @include vw(background-size, 614px);
                 }
 
             }

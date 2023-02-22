@@ -2255,7 +2255,7 @@
 			}
 			dt {
 				display: block;
-				@include vw(Font-size, 32px);
+				@include vw(font-size, 32px);
 				color: #222;
 				font-weight: 700;
 				overflow: hidden;
@@ -2267,8 +2267,8 @@
 				-webkit-line-clamp: 2;
 				-webkit-box-orient: vertical;
 				overflow: hidden;
-				@include vw(padding-top, 48x);
-				@include vw(Font-size, 26px);
+				@include vw(padding-top, 48px);
+				@include vw(font-size, 26px);
 				@include vw(line-height, 36px);
 				color: #666;
 			}
@@ -2304,9 +2304,19 @@
 	.banner-area {
 		@include vw(padding, 0 32px);
         @include vw(margin-bottom, 48px);
+        a {
+            p {
+                @include vw(margin-bottom, 20px);
+            }
+            &:last-child {
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
 		p {
 			width: 100%;
-			@include vw(height, 200px);
+			height: auto !important;
 			@include vw(margin-top, 16px);
             @include bg($color: #f9f9f9);
 			&:first-child {
@@ -5127,4 +5137,9 @@
     100% {
         opacity: 0;
     }
+}
+
+// 230206 에코노출관련 수정
+.eco-5275 {
+    display: none;
 }

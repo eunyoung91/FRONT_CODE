@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<script type="text/JavaScript" src="http://public.eduwill.net/common/js/jquery/jquery-1.7.2.min.js"></script>
+
+	<!-- 원서접수팝업 여기부터 -->
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css">
+	<div id="dday200521_1" style="position: absolute; top: 0px; left:50%;margin-left:506px; z-index: 1000;">
+		<img src="https://img.eduwill.net/Img2/Common/Banner/200504/banner_1.png" alt="" usemap="#ddaymap200520_1">
+		<p style="position:absolute;left:0;top:60px;width:133px;text-align:center;color:#0b151f;font-size:30px;font-family: 'Montserrat';font-weight:700;z-index: 1001;">D-<strong style="color:#1388ff;" class="dayNew">7</strong></p>
+		<map name="ddaymap200520_1" id="ddaymap200520_1">
+			<area coords="1,0,102,1,102,29,133,29,133,132,0,132" shape="poly" href="링크영역" alt="자세히보기">
+			<area shape="rect" coords="104,2,133,26" href="#" onclick="javascript:document.getElementById('dday200521_1').style.display='none'; return false;" alt="닫기">
+		</map>
+	 </div>
+	
+	<script type="text/javascript">
+		$(function(){
+			setTimeout(showSecNew, delayNew);
+		});
+	
+		var delayNew = 10;
+		var endNew = new Date("Nov 21,2020,23:59:59").getTime(); //디데이
+		var secondNew = 1000;
+		var minuteNew = secondNew * 60;
+		var hourNew = minuteNew * 60;
+		var dayNew = hourNew * 24;
+	
+		function showSecNew() {
+			var now = new Date();
+			var distance = endNew - now;
+			if (distance < 0 ) {
+				$("#dday200521_1").find(".dayNew").text("0");
+			} else {
+				var days = Math.floor(distance / dayNew);
+				$("#dday200521_1").find(".dayNew").text((days.toString().length == 1) ? "0"+days : days);
+	
+				setTimeout(showSecNew, delayNew);
+			}
+		}
+	</script>
+	<!--// 원서접수팝업 여기부터 -->
+
+	<!-- 시험일 팝업 여기부터 --> 
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css">
+	<div id="dday200520_2" style="position: absolute; top: 0px; left:50%;margin-left:306px; z-index: 1000;">
+		<img src="https://img.eduwill.net/Img2/Common/Banner/200504/banner_2.png" alt="" usemap="#ddaymap200520_2">
+		<p style="position:absolute;left:0;top:60px;width:133px;text-align:center;color:#f93014;font-size:30px;font-family: 'Montserrat';font-weight:700;z-index: 1001;">D-<strong style="color:#f93014;" class="dayNew2">185</strong></p>
+		<map name="ddaymap200520_2" id="ddaymap200504_2">
+			<area shape="rect" coords="104,2,133,26" href="#" onclick="javascript:document.getElementById('dday200520_2').style.display='none'; return false;" alt="닫기">
+		</map>
+	 </div>
+	<script type="text/javascript">
+		$(function(){
+			setTimeout(showSecNew2, delayNew2);
+		});
+	
+		var delayNew2 = 10;
+		var endNew2 = new Date("Oct 21,2020,23:59:59").getTime(); //디데이
+		var secondNew2 = 1000;
+		var minuteNew2 = secondNew2 * 60;
+		var hourNew2 = minuteNew2 * 60;
+		var dayNew2 = hourNew2 * 24;
+	
+		function showSecNew2() {
+			var now = new Date();
+			var distance = endNew2 - now;
+			if (distance < 0 ) {
+				$("#dday200520_2").find(".dayNew2").text("0");
+			} else {
+				var days = Math.floor(distance / dayNew2);
+				$("#dday200520_2").find(".dayNew2").text((days.toString().length == 1) ? "0"+days : days);
+	
+				setTimeout(showSecNew2, delayNew2);
+			}
+		}
+	</script>
+	<!--// 시험일 팝업 여기까지 --> 
+
+ </body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+</head>
+<body>
+
+<!--
+# 메인 중앙 배너 ( dim & n초 뒤 사라짐 효과 )
+# YYMMDD = 게시날짜 (eg) 180601
+-->
+<style type="text/css">
+	#layer191213 .banner-layer-dim { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1001; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .6); }
+	#layer191213 .banner-layer-wrap { position: absolute; top: 50%; left: 50%; z-index: 1002; width: 720px; height: 522px; margin: -261px 0 0 -360px; }
+	#layer191213 .timer { position: absolute; top: 40px; left: 50%; width: 720px; padding: 10px 0; -webkit-transform: translateX(-25%); -ms-transform: translateX(-25%); transform: translateX(-25%); *zoom: 1; }
+	#layer191213 .timer:before,
+	#layer191213 .timer:after { content: ''; display: table; }
+	#layer191213 .timer:after { clear: both; }
+	#layer191213 p { float: left; margin: 0 0 0 10px; padding: 0; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; font-size: 21px; font-weight: 700; color: #fff; }
+	#layer191213 p:first-child { margin-left: 0; color: #ffea00; }
+</style>
+
+<div id="layer191213">
+	<div class="banner-layer-dim banner-layer-close" onClick="javascript:document.getElementById('layer191213').style.display='none'; return false;"></div>
+	<div class="banner-layer-wrap">
+		<img src="https://www.eduwill.net/Img2/Kyb/promotion/191213/banner/banner_layer.png" alt="2019년 역대급 할인 이벤트" usemap="#mapLayer191213" />
+		<map name="mapLayer191213" id="mapLayer191213">
+			<area shape="rect" coords="0,40,720,522" href="https://guard.eduwill.net/kyb/promotion/191213/index.asp" alt="자세히보기" />
+			<area shape="rect" coords="530,0,676,40" href="#" alt="일주일간 보지 않기" onClick="javascript:closeWeekDayAuto('layer191213'); return false;" />
+			<area shape="rect" coords="676,0,720,40" href="#" alt="팝업 닫기" class="banner-layer-close" onClick="javascript:document.getElementById('layer191213').style.display='none'; return false;" />
+		</map>
+		<div class="timer">
+			<p>마감까지</p>
+			<p>D-<span class="day">00</span>일</p>
+			<p><span class="hour">00</span>시간</p>
+			<p><span class="min">00</span>분</p>
+			<p><span class="sec">00</span>초</p>
+			<p><span class="msec">00</span>전</p>
+		</div>
+	</div>
+</div>
+
+<div id="banner191213" style="display: none; position: fixed; right: 0; bottom:0; left:0; width: 100%; text-align: center; z-index: 1001; background: #130c6b;">
+	<img src="https://img.eduwill.net/Img2/Kyb/promotion/191213/banner/banner_fixed.jpg" alt="2019년 역대급 할인 이벤트" usemap="#map191213" style="vertical-align: top;" />
+	<map name="map191213" id="map191213">
+		<area shape="rect" coords="0,0,988,100" href="https://guard.eduwill.net/kyb/promotion/191213/index.asp" alt="자세히보기" />
+		<area shape="rect" coords="988,0,1020,32" href="#" onClick="javascript:document.getElementById('banner191213').style.display='none'; return false;" title="닫기" />
+	</map>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.banner-layer-close').on('click', function(){
+			$('#layer191213').fadeOut(200);
+			$('#banner191213').fadeIn(200);
+		});
+		setTimeout(showSec, delay);
+		setTimeout(function(){
+			$('#layer191213').fadeOut(200);
+			if( $('#layer191213').hide() ){
+				$('#banner191213').fadeIn(200);
+			}
+		}, 5000);
+	});
+
+	var delay = 10;
+	var end = new Date("December 30,2019,23:59:59").getTime(); //디데이
+	var _second = 1000;
+	var _minute = _second * 60;
+	var _hour = _minute * 60;
+	var _day = _hour * 24;
+
+
+	function showSec() {
+		var now = new Date();
+		var distance = end - now;
+		if (distance < 0 ) {
+			$(".day").text("0");
+			$(".hour").text("00");
+			$(".min").text("00");
+			$(".sec").text("00");
+			$(".msec").text("00");
+		} else {
+			var days = Math.floor(distance / _day);
+			var hours = Math.floor( (distance % _day ) / _hour );
+			var minutes = Math.floor( (distance % _hour) / _minute );
+			var seconds = Math.floor( (distance % _minute) / _second );
+			var mseconds =  "00";
+			try { mseconds = Math.floor( (distance % _minute) % 1000).toString().substring(0,2); } catch(e) {}
+
+
+			$(".day").text((days.toString().length == 1) ? "0"+days : days);
+			$(".hour").text((hours.toString().length == 1) ? "0"+hours : hours);
+			$(".min").text((minutes.toString().length == 1) ? "0"+minutes : minutes);
+			$(".sec").text((seconds.toString().length == 1) ? "0"+seconds : seconds);
+			$(".msec").text(mseconds);
+
+			setTimeout(showSec, delay);
+		}
+	}
+</script>
+
+</body>
+</html>

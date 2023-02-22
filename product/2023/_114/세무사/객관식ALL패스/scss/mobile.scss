@@ -1,0 +1,665 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.bottom_fix_btn .top {
+	display: none !important;
+}
+
+.product-eco {
+	overflow: hidden;
+	* {
+		line-height: normal;
+		font-family: $font-roboto;
+		color: #000;
+		letter-spacing: -1px;
+	}
+	[class^="product-"],
+	.container,
+	.holder,
+	.item {
+		position: relative;
+	}
+	.wrap {
+		max-width: 720px;
+	}
+	.wrap-full {
+		width: 100%;
+	}
+	button {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+		font-family: inherit;
+		text-decoration: none;
+		border: none;
+		background: transparent;
+		outline: 0;
+		cursor: pointer;
+	}
+	.only-pc {
+		display: none;
+	}
+	.only-mobile {
+		display: inline-block;
+		&br { display: block; }
+	}
+	.icon-pointer {
+		@include pointer(50%, 0, 99px, 96px, 20, bounce);
+	}
+	.wide {
+		@extend %wide;
+	}
+
+	// base
+	.grounds-text {
+		@include vw(font-size, 20px);
+		font-weight: 400;
+		line-height: 1.5;
+		color: rgba(0, 0, 0, 0.4);
+	}
+	.asterisk {
+		display: inline-block;
+		font-weight: 300;
+		@include vw(font-size, 14px);
+		color: rgba(255, 255, 255, 0.6);
+	}
+	p {
+		margin: 0;
+		text-align: left;
+		@include vw(font-size, 20px);
+		font-family: $font-roboto;
+		&.notice {
+			margin-top: 10px;
+		}
+		&.fly,
+		&.eco {
+			position: absolute;
+		}
+		&.grounds-text {
+			@include vw(margin-top, 15px);
+			line-height: 1.5;
+			text-align: left;
+			color: #999;
+			font-weight: 400;
+			@include vw(font-size, 20px);
+		}
+	}
+	
+	// banner
+	.fix-bottom {
+		position: fixed;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		@include vw(height, 120px);
+		z-index: 11;
+		background: rgba(0, 0, 0, 0.8);
+		@include boxSizing(border-box);
+		@include vw(padding, 0 30px);
+		display: flex;
+		align-items: center;
+		.wrap {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			strong {
+				text-align: left;
+				line-height: 1.2;
+				@include vw(font-size, 28px);
+				font-weight: 500;
+				color: #fff;
+				@include vw(letter-spacing, -2px);
+				em {
+					color: #ffbf00;
+					@include vw(font-size, 30px);
+					font-style: normal;
+					font-weight: 900;
+					@include vw(letter-spacing, -2px);
+				}
+			}
+			a {
+				@include vw(width, 192px);
+				text-align: center;
+				vertical-align: top;
+				@include pointer(60%, 0, 79px, 77px, 20, bounce);
+			}
+		}
+	}
+
+	// slider
+	.slider-contents {
+		.slick-dots {
+			@extend %slick-dots;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			text-align: center;
+			li {
+				@include vw(margin, 0 3.5px);
+				button {
+					@include vw(width, 20px);
+					@include vw(height, 20px);
+					@include vw(border-radius, 20px);
+					background-color: #d7d7d7;
+				}
+				&.slick-active button {
+					@include vw(width, 50px);
+					background-color: #a07dda;
+				}
+			}
+		}
+		.slick-arrow {
+			border-radius: 50%;
+			&.slick-prev {
+				@include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+				@include vw(left, -20px);
+			}
+			&.slick-next {
+				@include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+				@include vw(right, -20px);
+			}
+		}
+	}
+	.slick-slide {
+		* {
+			line-height: 1;
+			font-size: 0;
+			vertical-align: top;
+		}
+	}
+
+	// 리뷰 근거 문구
+	.review-desc {
+		@include vw(height, 80px);
+		@include vw(margin-top, -70px);
+		opacity: 0.6;
+		.wrap {
+			@include vw(font-size, 18px);
+		}
+	}
+
+	// page
+	.sector {
+		&-title {
+			z-index: 1;
+			@include bg($url: "#{$img-path}/mobile/bg_title.jpg", $size: cover);
+			.action {
+				position: absolute;
+				@include vw(top, 170px);
+				@include vw(right, 65px);
+				z-index: 3;
+				a {
+					display: block;
+					@include vw(width, 77px);
+				}
+			}
+		}
+
+		&-benefit {
+			@include vw(padding-bottom, 95px);
+			@include bg($color: #fff, $url: '#{$img-path}/mobile/bg_benefit.jpg', $size: cover);
+			.price-box {
+				position: relative;
+				@include vw(width, 640px);
+				@include vw(height, 360px);
+				@include vw(border-radius, 2px);
+				margin: 0 auto;
+				@include vw(margin-top, 18px);
+				background: #262938;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				.flag {
+					position: absolute;
+					@include vw(top, -30px);
+					left: 50%;
+					@include translateX(-50%);
+					@include vw(width, 318px);
+					.flag-text {
+						position: absolute;
+						@include vw(top, 18px);
+						@include vw(left, 45px);
+						color: #fff;
+						font-weight: 500;
+						@include vw(font-size, 24px);
+					}
+				}
+				.price {
+					@include vw(margin-bottom, 30px);
+					.price-text {
+						@include vw(font-size, 40px);
+						color: #fff;
+						font-weight: 700;
+					}
+					.price-list {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						@include vw(margin-top, -20px);
+						.before-price {
+							position: relative;
+							.before-num {
+								@include vw(font-size, 39px);
+								color: #7d7d93;
+								font-family: $font-roboto;
+								font-weight: 600;
+								&::before {
+									content: '';
+									@include vw(width, 220px);
+									@include vw(height, 12px);
+									position: absolute;
+									@include vw(top, 20px);
+									@include vw(left, -10px);
+									@include bg($url: "#{$img-path}/mobile/arrow_price.png", $size: cover);
+								}
+							}
+						}
+						.after-price {
+							@include vw(margin-left, 30px);
+							.after-num {
+								@include vw(font-size, 72px);
+								color: #97ff00;
+								font-weight: 800;
+								font-family: $font-roboto;
+							}
+						}
+					}
+				}
+				.price-btn {
+					@include pointer(70%, 0%, 65px, 72px, 1, bounce);
+					@include vw(width, 380px);
+				}
+			}
+		}
+
+		&-review {
+			@include vw(padding-bottom, 50px);
+			.review-slide {
+				.slick-slide {
+					li {
+						img {
+							width: 40.2777777778vw !important;
+							@media screen and (min-width: 720px) { 
+								width: 290px !important;
+							} 
+						}
+					}
+				}
+			} 
+		}
+
+		&-award {
+			@include bg($url: "#{$img-path}/mobile/bg_award.jpg", $size: cover);
+		}
+
+		&-target {
+			.wrap-full{
+				max-width: 100%;	
+			}
+			.tab-list {
+				@extend %flexCenter;
+				display: flex;
+				max-width: 720px;
+				@include vw(margin, 0 auto 0px);
+				@include vw(padding, 0 40px);
+				box-sizing: border-box;
+				li{
+					&.on{
+						background: #292e44;
+						color: #fff;
+					}
+					width: 50%;
+					@include vw(height, 93px);
+					text-align: center;
+					@include vw(margin, 0 4px 0);
+					@include vw(border-radius, 30px 30px 0 0);
+					box-sizing: border-box;
+					@include vw(font-size, 30px);
+					font-weight: 700;
+					line-height: 1;
+					color: #292e44;
+					background: #e9e9e9;
+				}
+				a{
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+			.slider .slick-slide { 
+				@include vw(padding-top,70px);
+				@include vw(width, 516px);
+				@include vw(margin, -10px auto 0px);
+			}
+			.tab-view {
+				display: none;
+				background-color: #292e44;
+				.teacher {
+					position: relative;
+					&:before,
+					&:after {
+						content: '';
+						position: absolute;
+						display: block;
+						top: 0;
+						width: 50%;
+						height: 100%;
+						background-repeat: repeat-x;
+						background-position: 0 0;
+					}
+					&:before { left: 0; }
+				}
+				.action {
+					position: absolute;
+					left: 50%;
+					@include vw(margin-left, -15px);
+					@include vw(top, 313px);
+					z-index: 10;
+					@include vw(width, 70px);
+					@include vw(height, 70px);
+					a{width: 100%;height: 100%;display: block;}
+				}
+				.slider {
+					z-index: 1;
+					margin: 0 auto;
+					@include vw(padding-bottom, 100px);
+					background-color: #292e44;
+				}
+				.slick-slide {
+					position: relative;
+					// opacity: .5;
+					&.slick-active {
+						opacity: 1;
+						.stamp {
+							display: block;
+							@include animation(stampEvent, .8s, $timing: cubic-bezier(0.89, -0.01, 0.96, 0.07)){
+								0% { opacity: 0; @include scaleXY(1.2, 1.2); }
+								100% { opacity: 1; @include scaleXY(1, 1); }
+							}
+						}
+					}
+					.stamp {
+						position: absolute;
+						@include vw(top, 420px);
+						@include vw(right, 20px);
+						display: none;
+						@include vw(width, 231px);
+					}						
+				}
+				.slick-arrow {
+					position: absolute;
+					top: 48%;
+					z-index: 10;
+					content: '';
+					padding: 0;
+					margin:0;
+					border: none;
+					outline: none;
+					text-indent: -9999px;
+					display: block; 
+					cursor:pointer;
+					@include vw(width, 101px);
+					@include vw(height, 101px);
+					@include vw(margin-top, -25px);
+					&.slick-prev {
+						left:50%;
+						margin-left:-43% ;
+						background: url('//img.eduwill.net/eduwill/img/2022/_114/event/220718/mobile/slide_prev.png') 0 0 no-repeat; background-size: cover;
+					}
+					&.slick-next {
+						right:50%;
+						margin-right:-43% ;
+						background: url('//img.eduwill.net/eduwill/img/2022/_114/event/220718/mobile/slide_next.png') 0 0 no-repeat; background-size: cover;
+					}
+				}					
+			}		
+		}
+
+		&-compare {
+			@include bg($url: "#{$img-path}/mobile/bg_compare.jpg", $size: cover);
+		}
+
+		&-check-1 {
+			background: #f5f5f5;
+		}
+
+		&-check-2 {
+			background: #ffffff;
+		}
+
+		&-banner {
+			@include bg($color: #2b213e, $url: '#{$img-path}/mobile/bg_banner.jpg', $size: cover);
+		}
+
+		&-allpass-1 {
+			background: #fff;
+		}
+
+		&-allpass-2 {
+			@include vw(padding-bottom, 130px);
+			background: #f5f5f5;
+			#commonTeacherBox {
+				.common-teacher-title {
+					@include vw(margin-bottom, 50px);
+					@include vw(padding-left, 50px);
+					@include vw(font-size, 50px);
+					font-weight: 800;
+					text-align: left;
+					max-width: 720px;
+					.emphasize {
+						@include vw(font-size, 32px);
+						font-weight: 500; 
+						color:#222222;
+					}
+					.teacher-action {
+						a {
+							@include vw(font-size, 19px);
+							font-weight: 300;
+							color: #454545;
+							display: block; 
+							@include vw(margin-top, 15px);
+						}
+					}
+				}
+				.common-teacher-list {
+					@include vw(width, 550px);
+					margin: 0 auto;
+					box-sizing: border-box;
+					display: flex;
+					flex-wrap: wrap;
+					@include vw(margin-bottom, 30px);
+					.col {
+						@include vw(margin-bottom, 25px);
+						@include vw(margin-right, 25px);
+						@include vw(width, 260px);
+						box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+						&:nth-child(2n) {
+							margin-right: 0; 
+						}
+					}
+				}
+				.common-teacher-review-list {
+					max-width: 720px;
+					.slick-arrow {
+						&.slick-prev {
+							position: absolute;
+							@include vw(top, 100px);
+							@include vw(left, 10px);
+							@include vw(width, 50px);
+							@include vw(height, 50px);
+							z-index: 10;
+							display: block;
+							margin: 0;
+							padding: 0;
+							font-size: 0;
+							color: transparent;
+							text-indent: -9999px;
+							border: none;
+							outline: none;
+							cursor: pointer;
+							background: rgba(0, 0, 0, 0.4);
+							border-radius: 50%;
+							&::before {
+								content: '';
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								display: block;
+								@include vw(width, 15px);
+								@include vw(height, 15px);
+								border-width: 0;
+								border-style: solid;
+								border-color: #fff;
+								border-bottom-width: 2px;
+								border-left-width: 2px;
+								transform: translate(-25%, -50%) rotate(45deg);
+							}
+						}
+						&.slick-next {
+							position: absolute;
+							@include vw(top, 100px);
+							@include vw(right, 10px);
+							@include vw(width, 50px);
+							@include vw(height, 50px);
+							z-index: 10;
+							display: block;
+							margin: 0;
+							padding: 0;
+							font-size: 0;
+							color: transparent;
+							text-indent: -9999px;
+							border: none;
+							outline: none;
+							cursor: pointer;
+							background: rgba(0, 0, 0, 0.4);
+							border-radius: 50%;
+							&::before {
+								content: '';
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								display: block;
+								@include vw(width, 15px);
+								@include vw(height, 15px);
+								border-width: 0;
+								border-style: solid;
+								border-color: #fff;
+								border-top-width: 2px;
+								border-right-width: 2px;
+								transform: translate(-75%, -50%) rotate(45deg);
+							}
+						}
+					}
+					.slick-dots {
+						position: absolute;
+						@include vw(top, 285px);
+						right: 0;
+						left: 0;
+						text-align: center;
+						padding-right: 0;
+						li {
+							display: inline-block;
+							@include vw(margin, 0 3px);
+							button {
+								@include vw(width, 10px);
+								@include vw(height, 10px);
+								border-radius: 50%;
+								background-color: #7f7f7f;
+								display: block;
+								font-size: 0;
+								color: transparent;
+								text-indent: -9999px;		
+								border: 0;
+							}
+							&.slick-active {
+								button {
+									background-color: #3153ff;
+								}
+							}
+						}
+					}
+				}
+			}
+			&.white {
+				background-color: #f8f7f0;
+				@include vw(padding-bottom, 0);
+				@include vw(padding-top, 0);
+				.teacher-major {
+					.major-list {
+						@include vw(width, 500px);
+						margin: 0 auto;
+					}
+					.col {
+						display: inline-block;
+						@include vw(width, 190px);
+					}
+				}
+				.action {
+					&.base {
+						position: absolute;
+						@include vw(top, 252px);
+						@include vw(left, 345px);
+						@include vw(width, 115px);
+					}
+					&.teacher {
+						@include vw(width, 330px);
+						margin: 0 auto;
+						@include vw(margin-top, 40px);
+					}
+				}
+				.teacher-slide {
+					@include vw(margin-top, 40px);
+					.slick-slide {
+						@include vw(width, 510px);
+						@media screen and (min-width: 720px) { 
+							@include vw(width, 460px);
+						}
+					}
+					.slick-dots {
+						width: 100%;
+						margin: 0 auto;
+						text-align: center;
+						@include vw(margin-top, 330px);
+						li {
+							display: inline-block;
+							&.slick-active button {
+								@include vw(width, 10px);
+								background-color: #ffbe00;
+							}
+						}
+						button {
+							@include vw(width, 10px);
+							@include vw(height, 10px);
+							background-color: #bbbbbb;
+						}
+					}	
+				}
+			}
+		}
+
+		&-allpass-3 {
+			background: #fff;
+		}
+
+		&-allpass-4 {
+			background: #f5f5f5;
+		}
+
+		&-allpass-5 {
+			@include vw(padding-bottom, 125px);
+		}
+
+		&-achieve {
+			background: #132439;
+		}
+	}
+}

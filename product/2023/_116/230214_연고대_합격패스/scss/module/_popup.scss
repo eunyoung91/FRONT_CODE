@@ -1,0 +1,55 @@
+.eduf-layer-base2 {
+	.eduf-layer-wrap {
+		@include breakpoint(desktop){
+			max-width: 1000px!important;
+		}
+		.eco-5111,
+		.eco-5096 {
+			overflow-x: scroll;
+			@include breakpoint(desktop){
+				overflow-x: auto;
+			}
+			table {
+				min-width: 1000px;
+				@include breakpoint(desktop){
+					min-width: auto;
+				}
+			}
+		}
+		table {
+			width: 100%;
+			table-layout: fixed;
+			border-right: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			th {
+				background-color: #f4f4f4;
+			}
+			th,
+			td {
+				@include vw(padding, 10px 0);
+				text-align: center;
+				@include vw(font-size, 14px);
+				color: #000;
+				border-top: 1px solid #ddd;
+				border-left: 1px solid #ddd;
+				p {
+					@include vw(margin-top, 10px);
+					text-align: center;
+					@include vw(font-size, 14px);
+					opacity: 1
+				}
+			}
+			.cell-subject {
+				text-align: left;
+				@include vw(padding-left, 10px);
+				word-break: keep-all;
+			}
+			.cell-teacher,
+			.cell-book {
+				img {
+					@include vw(width, 100px);
+				}
+			}
+		}
+	}
+}

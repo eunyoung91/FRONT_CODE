@@ -1,0 +1,108 @@
+.layer {
+
+    &-dim,
+    &-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+
+    &-review {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10001;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+
+
+        .layer-close {
+            @include close(60px, 60px, 2px, #fff);
+            top: -60px;
+            z-index: 10002;
+        }
+
+        .layer-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+
+            iframe,
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+
+    }
+}
+
+.eduf-layer-base {
+    * {
+        font-family: $font-noto;
+    }
+    .eduf-layer-title {
+        text-align: center;
+        background: linear-gradient(to right, #ff9447 0%, #eb2200 100%);
+        p {
+            @include vw(font-size, 24px);
+            color: #fff;
+            font-weight: 700;
+        }
+        .eduf-layer-close {
+            &:before, &:after {
+                background-color: #fff;
+            }
+        }
+    }
+    .eduf-layer-content {
+        @include vw(padding, 40px);
+        table {
+            width: 100%;
+            border: 1px solid #000;
+            tr {
+                border-top: 1px solid #000;
+                &:first-child {
+                    border-bottom: 0;
+
+                }
+            }
+            th, td {
+                @include vw(font-size, 24px);
+                @include breakpoint(maxMobile) {
+                    font-size: 18px;
+                }
+                text-align: center;
+                @include vw(padding, 10px);
+                border-right: 1px solid #000;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+            th {
+                font-weight: 700;
+                background: #f5f5f5;
+            }
+            td {
+                font-weight: 500;
+            }
+        }
+    }
+}

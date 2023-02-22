@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.fix-apply{display: none !important;}
+
+/* 공통 */
+.product-eco {
+	.wrap {
+		width: 1200px;
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		line-height: normal;
+		font-family: $font-noto;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.5s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+}
+
+/* 컨텐츠 */
+.product-eco {
+	* {
+		font-family: $font-noto;
+	}
+	.fix-bottom {
+		z-index: 30;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.85);
+		.action {
+			position: absolute;
+			right: 50px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	.sector-title {
+		background:url('#{$img-path}/pc/bg_title.jpg') no-repeat 50% 50%;
+		background-size:cover;
+
+		.price-area2 {
+			position: absolute;
+			left: 50%;
+			bottom: -153px;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			background: #fff;  
+			border-radius: 30px;
+			padding: 60px 90px;
+			transform: translateX(-50%);
+			z-index: 10;
+			@include boxShadow(0 15px 30px 0px rgba(0, 0, 0, .15));
+			@include boxSizing(border-box);
+			.title-wrap {
+				text-align: left;
+				.title-label {
+					display: inline-block;
+					font-size: 20px;
+					color: #fff;
+					font-weight: 700;
+					line-height: 1.2;
+					padding: 8px 12px;
+					border-radius: 20px;
+					background: linear-gradient(to bottom, #ff9d5b 0%, #ff6141 100%);
+				}	
+				p {
+					font-size: 45px;
+					font-weight: 900;
+					color: #39120b;
+					margin: 15px 0 30px;
+					letter-spacing: -2px;
+				}
+				ul {
+					display: flex;
+					align-items: center;
+					li {
+						position: relative;
+						font-size: 22px;
+						font-weight: 500;
+						color: #000;
+						text-align: left;
+						padding: 0 30px;
+						&:before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							left: 0;
+							width: 1px;
+							height: 50px;
+							background: #d9d9d9;
+							transform: translateY(-50%);
+						}
+						&:first-child {
+							text-align: left;
+							padding-left: 0;
+							&:before {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			.price-wrap {
+				.price {
+					display: flex;
+					align-items: center;
+					.before-price {
+						font-size: 24px;
+						font-weight: 900;
+						color: #999;
+						margin-right: 32px;
+						text-decoration: line-through;
+					}
+					.after-price {
+						font-size: 52px;
+						font-weight: 900;
+						color: #eb2200;
+					}
+				}
+				.action {
+					margin-top: 40px;
+					a {
+						display: block;
+						width: 420px;
+						font-size: 30px;
+						color: #fff;
+						font-weight: 700;
+						padding: 24px 0;
+						border-radius: 16px;
+						background: linear-gradient(to right, #f95600 0%, #eb2200 100%);
+						span {
+							position: relative;
+							display: inline-block;
+							padding-right: 20px;
+							&:before {
+								@include arrow(right, 12px, 12px, 3px, #fff);
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.sector-preview {
+		background: #fff;
+		.wrap {
+			width: 1240px;
+		}
+		.preview-wrap {
+			position: relative;
+			.video-wrap {
+				position: absolute;
+				top: 161px;
+				left: 70px;
+				width: 600px;
+				height: 336px;
+				border-radius: 24px;
+				overflow: hidden;
+				.eduf-iframe-player {
+					z-index: 5;
+					position: relative;
+					cursor: pointer;
+				}
+				iframe {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+				}
+			}
+
+			.action {
+				position: absolute;
+				top: 832px;
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+	.sector-start {
+		background: #ffeee9;
+		.wrap {
+			width: 1240px;
+		}
+	}
+	.sector-trophy {
+		background: #fff;
+	}
+	.sector-test {
+		background: #fed444 url('https://img.eduwill.net/eduwill/img/2022/_118/product/220818/pc/bg_content_5.png') no-repeat;
+		.btn {
+			position: absolute;
+			top: 80px;
+			right: 0;
+		}
+	}
+	.product-sentence {
+		background-color: #ff794c;
+	}
+	
+}

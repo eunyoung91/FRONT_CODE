@@ -1,0 +1,368 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";
+
+.grab{ position: relative;}
+.fly{ position: absolute;}
+.house{
+	&-content{
+		.wrap{ padding:0; margin:0 auto;}
+	}
+	&-title{
+		background: #F8F8F8 url('#{$img-path}/mobile/bg_title.jpg') no-repeat top center;
+		background-size:cover;
+		max-width:1024px;
+		margin:0 auto;
+		&:after{
+			display: none;
+		}
+	}
+
+	&-benefit{
+		.list-group{
+			@include vw(padding, 0);
+			@include vw(padding, 0 40px);
+			@include vw(margin-left, 0);
+			li{
+				&:nth-child(5){
+					.tip-btn{
+						position: absolute;
+						top:21%;
+						right:19%;
+						@include vw(width, 30px);
+						@include vw(height, 30px);
+						img{ 
+							width:100%;
+						}
+					}
+					.tip-layer{
+						position: absolute;
+						top:35%;
+						left:0;
+						right:0;
+						display: none;
+						&.act{
+							display: block;
+						}
+					}
+				}
+				&:nth-child(6){
+					.tip-btn{
+						position: absolute;
+						top:32%;
+						right:26%;
+						@include vw(width, 30px);
+						@include vw(height, 30px);
+						img{ 
+							width:100%;
+						}
+					}
+					.tip-layer{
+						position: absolute;
+						top:42%;
+						left:0;
+						right:0;
+						display: none;
+						&.act{
+							display: block;
+						}
+					}
+				}
+			}
+		}
+		.btn-group{
+			@include vw(margin-right, 40px);
+		}
+
+	}
+
+	&-provide{
+		position:relative;
+		padding-bottom: 0;
+		background: #4f4deb;
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			@include vw(width, 132px);
+			@include vw(height, 132px);
+			@include vw(margin-left, -66px);	
+			@include vw(margin-top, -55px);
+			background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/icon_plus.png') no-repeat 0 0;
+			background-size:cover;
+			z-index:2;
+		}
+	}
+
+	&-price{
+		background-color: #f1f1f1;
+		@include vw(padding, 80px 0);
+		position:relative;
+		.item{
+			&-group{
+				position: relative;
+				top: 0;
+				background-color:#fff;
+				margin:0 auto;
+				position:relative;
+				text-align:left;
+				font-family: $font-noto;
+				@include boxSizing(border-box);
+				@include vw(border-radius, 15px);
+				@include vw(width, 640px);
+				@include vw(padding,60px 35px); 
+				@include boxShadow(14px 14px 30px 0px rgba(0, 0, 0, 0.18));
+				&-box{
+					.item{
+						&-subject{
+							color:#222;
+							@include vw(font-size, 42px);
+							font-weight:900;line-height:1;
+						}
+						&-benefit{
+							@include vw(margin-top,40px);
+							text-align:left;
+							.row{
+								strong{
+									vertical-align:middle;
+									display:inline-block;
+									color:#222;
+									line-height:1.3;
+									font-weight:500;
+									@include vw(margin-left, 5px);
+									@include vw(font-size, 24px);
+								}
+								.small{
+									color:#bbb; @include vw(font-size, 18px);
+								}
+							}
+						}
+					}
+				}
+				&-price{
+					border-top:2px solid #eaeaea;
+					font-family: $font-noto;
+					@include boxSizing(border-box);
+					@include vw(margin-top,34px);
+					@include vw(padding-top,46px);
+					.price-box{position: relative;}
+					.before-price, .after-price, .btn{
+						vertical-align: middle;
+						line-height:1;
+						font-family: $font-roboto;
+					}
+					.before-price{
+						color:#bbb;
+						font-weight:700;
+						@include vw(font-size, 26px);
+						text-decoration: none;
+						@include vw(margin-right, 12px);
+						@include vw(padding-right, 24px);
+						background: url("#{$img-path}/pc/del.png")no-repeat 50% center;
+						background-size: 100%;
+					}
+					.after-price{
+						color:#222;
+						font-weight:bold;
+						@include vw(font-size, 40px);
+					}
+					.price-text{
+						color:#eb2000;
+						font-weight:bold;
+						letter-spacing: -1.5px;
+						@include vw(font-size, 42px);
+						@include vw(padding, 10px 0);
+					}
+					.btn{
+						background-color:#000;
+						color:#fff;
+						font-family: $font-noto;
+						@include vw(margin-left, 10px);
+						@include vw(font-size, 20px);
+						@include vw(padding, 8px 20px 8px 10px);
+					}
+					.btn-apply{
+						width:100%;
+						display:block; 
+						@include vw(margin-top, 10px);
+						@include pointer(50%, 5%, 57px, 65px, 12, bounce);
+					}
+				}
+			}
+		}
+	}
+	
+	&-medal {
+		background: url("#{$img-path}/mobile/bg_medal.jpg") no-repeat top center;
+		background-size: cover
+	}
+
+	&-start{}
+	
+	&-exam-review{
+		@include vw(padding-bottom, 120px);	
+		.wrap{ width:100%; max-width:1024px; margin:0 auto;}
+		height:100%;
+		background:#4f4deb;
+		.slick-list{
+			.slick-slide{
+				@include vw(margin, 0 10px);
+				@include vw(width, 367px);
+				opacity: 0.5;
+				&.slick-current {
+					opacity: 1;
+				}
+			}
+		}
+		.slick-dots{
+			position: relative;
+			@include vw(margin-top, 90px);
+		}
+		.action{
+			position: absolute;
+			@include vw(bottom, 70px);
+			@include vw(right, 50px);
+			a{
+				display: inline-block;
+				@include vw(width, 272px);
+				img{ width:100%; }
+			}
+		}
+	}
+
+	&-how{
+		background:#f2f2fa;
+		.action{
+			position: absolute;
+			top:63%;
+			left:55%;
+			a{
+				@include vw(width, 162px);
+				@include vw(height, 23px);
+				display: block;
+			}
+		}
+	}
+
+	&-key{
+		@include vw(padding, 0 0 100px);
+		.grab{
+			.btn-text{
+				position: absolute;
+				@include vw(top, 64px);
+				left: 50%;
+				display: inline-block;
+				@include vw(font-size, 20px);
+				color: #bbb;
+				@include vw(margin-left, 64px);
+				@include vw(padding-right, 28px);
+				&:before {
+					content: "";
+					position: absolute;
+					@include vw(top, 8px);
+					right: 0;
+					@include vw(width, 20px);
+					@include vw(height, 12px);
+					background: url("https://img.eduwill.net/eduwill/img/2021/J/main/210917/pc/icon_text.png") no-repeat;
+					background-size: 100%;
+				}
+			}
+		}
+		.tab-list {
+			.slick-slide {
+				@include vw(margin, 0 12px);
+			}
+			.slick-arrow {
+				position: absolute !important;
+			}
+			.slick-prev {
+				@include arrow(left, 40px, 40px, 2px, #222);
+				@include vw(left, -20px);
+				&:before {
+					left: 0
+				}
+			}
+			.slick-next {
+				@include arrow(right, 40px, 40px, 2px, #222);
+				right: 0;
+				&:before {
+					right: 0;
+				}
+			}
+		}
+		.key-contents{
+			margin-top: 0;
+			padding:0;
+			@include vw(padding, 0 40px);
+			.slick-slide{
+			}
+		}
+	}
+	&-paper{
+		padding:0;
+		background:#f2f2fa;
+	}
+
+	&-teacher{
+		display: block;
+		padding-top: 0;
+		padding-bottom: 0;
+		.grab{
+			.notice{
+				top:32%;
+				left:7%;
+			}
+		}
+	}
+	&-bestseller{
+		background:#f2f2fa;
+		padding-top:0;
+		&.renewal{
+			// .btn-text{
+			// 	background:none;
+			// 	top:257px;
+			// 	left:930px;
+			// }
+			.bestseller-gorup{
+				@include vw(padding-top, 30px);
+			}
+		}
+	}
+	&-center{
+		display: block;
+	}
+	&-differ{
+		display: block;
+		background:#f2f2fa;
+		padding-top:0;
+		&.renewal{
+			background-image:none;
+			.img-group{
+				position:relative;
+				.step{
+					position:absolute;left:0;top:0;opacity:0;
+					&-1{left:63px;top:124px;}
+					&-2{left:375px;top:94px;}
+					&-3{left:700px;top:94px;}
+					&-4{left:992px;top:0px;}
+				}
+			}
+		}
+	}
+
+}
+
+.effect-blink {
+    @include animation(effectBlink, 1s, $iteration: infinite){
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+}
+
+
+

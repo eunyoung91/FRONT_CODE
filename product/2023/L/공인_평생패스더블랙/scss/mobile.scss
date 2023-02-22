@@ -1,0 +1,1126 @@
+﻿@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "abstracts/variables";
+@import "module/motion";
+@import "module/popup";
+
+.product-eco{
+	overflow: hidden;
+	*, *:before, *:after{
+		font-family:$font-noto;
+		@include vw(letter-spacing, -1px);
+	}
+	.land-content,
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap{
+		position:relative;
+		width: 100%;
+		max-width: 720px;
+		margin:0 auto;
+		text-align:center;
+	}
+
+	.holder, .item { position: relative;}
+
+	.btn-text, .btn-grounds{
+		display:inline-block;
+		line-height:1;
+		font-weight:400;
+		@include vw(font-size, 20px);
+		color: rgba(0,0,0, .5);
+		span{
+			vertical-align: middle;
+			line-height: 1;
+			@include vw(padding-right, 16px);
+			@include arrow(right, 8px, 8px, 1px, rgba(0,0,0, .5));
+			&:before{right:0;}
+		}
+		&.color-fff {
+			color: rgba(255,255,255, .5);
+			span {
+				&:before {
+					border-color: rgba(255,255,255, .5);
+				}
+			}
+		}
+	}
+
+	.icon-pointer {
+		@include pointer(50%, 0, 57px, 65px, 12, bounce);
+	}
+
+	.notice-text {
+		@include vw(padding, 0 50px);
+		@include vw(font-size,  20px);
+		word-break: keep-all;
+		text-align: left;
+		color: #878787;
+		font-weight: 400;
+		line-height: 1.4;
+	}
+
+	.swiper-wrap {
+		@include vw(padding, 0 50px);
+	}
+
+	.swiper-default {
+		position:relative;
+		@include vw(padding-bottom, 46px);
+		.swiper-slide{
+			width: 92%;
+			@include vw(margin, 0 15px);
+		}
+
+		.swiper-pagination-progressbar{
+			top:auto;
+			bottom:0;
+			.swiper-pagination-progressbar-fill{
+				background-color:#ffde00;
+			}
+		}
+
+		.swiper-pagination-bullets {
+			.swiper-pagination-bullet {
+				@include vw(margin, 0 6px);
+				@include vw(width, 20px);
+				@include vw(height, 20px);
+				&.swiper-pagination-bullet-active {
+					background-color: #222;
+				}
+			}
+		}
+	}
+
+	.swiper-progress{
+		position:relative;
+		@include vw(padding-bottom, 46px);
+		.swiper-slide {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			opacity: .5;
+			&-active{
+				opacity: 1;
+			}
+		}
+		.swiper-slide img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.swiper-pagination-progressbar{
+			top:auto;
+			bottom:0;
+			.swiper-pagination-progressbar-fill{
+				background-color:#6e08d7;
+			}
+		}
+	}
+
+	.slick-arrow {
+		@extend %slick-arrow;
+		border-radius: 100%;
+		&.slick-prev {
+			@include slideArrow(left, 80px, 80px, 2px, #fff, rgba(0,0,0, .8));
+			left: 2%;
+		}
+		&.slick-next {
+			@include slideArrow(right, 80px, 80px, 2px, #fff, rgba(0,0,0, .8));
+			right: 2%;
+		}
+	}
+
+	.slick-dots {
+		@extend %slick-dots;
+		@include vw(margin-top, 30px);
+		li {
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			@include vw(margin, 0 6px);
+			@include vw(border-radius, 50px);
+			background-color:#636363;
+			&.slick-active {
+				background-color: #ffde00;
+			}
+		}
+	}
+
+	.slide-one {
+		@include vw(width, 620px);
+		margin: 0 auto;
+	}
+
+	
+	.slide-box {
+		position: relative;
+		.slider-nav {
+			@include vw(width, 620px);
+			@include vw(padding, 14px 0);
+			@include vw(border-radius, 100px);
+			margin: 0 auto;
+			text-align: center;
+			border-radius: 50px;
+			background: #ffde00;
+			@include boxSizing(border-box);
+			&.slick-slider .slick-track,
+			&.slick-slider .slick-list { left: 0 !important;}
+			.slick-slide {
+				position:relative;
+				width: auto !important;
+				@include vw(font-size, 24px);
+				@include vw(padding, 18px 30px);
+				@include vw(border-radius, 50px);
+				@include boxSizing(border-box);
+				font-weight: 700;
+				display: inline-block;
+				float: none;
+				cursor:pointer;
+				line-height: 1;
+				color: #878787;
+				background: #fff;
+				&.slick-current{
+					color: #fff;
+					background: #1b12ef;
+				}
+				+ .slick-slide {
+					@include vw(margin-left, 8px);
+				}
+			}
+		}
+		.slick-dots {
+			margin-top: 0;
+		}
+	}
+
+	.fix-bottom {
+		position: fixed;
+		bottom: 50px;
+		right: 0;
+		left: 0;
+		@include vw(height, 100px);
+		background: rgba(0,0,0, .9);
+		z-index: 201;
+		.wrap {
+			position: relative;
+			a {
+				display: block;
+				text-align: center;
+				strong {
+					@include arrow(right, 14px, 14px, 3px, #E3AA00);
+					font-weight: 700;
+					color: #FFBF00;
+					@include vw(padding-right, 30px);
+					@include vw(font-size, 36px);
+					@include vw(letter-spacing, -2px);
+					@include vw(line-height, 100px);
+					&:before {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.sector-visual {
+		background: #0c0c0c url('#{$img-path}/mobile/bg_visual.png') no-repeat 50% 0;
+		background-size: contain;
+		.wrap {
+			overflow: hidden;
+			@include vw(height, 1300px);
+			.motion {
+				position: absolute;
+				top:0;
+				left: 0;
+				right: 0;
+				z-index: 1;
+				&.visual-title-1 {
+					@include vw(top, 95px);
+				}
+				&.visual-title-2 {
+					z-index: 1;
+				}
+				&.visual-box {
+					z-index: 4;
+				}
+				&.visual-card {
+					z-index: 3;
+					opacity: 0;
+				}
+				&.visual-light {
+					z-index: 4;
+					opacity: 0;
+				}
+				&.visual-bi {
+					z-index: 3;
+				}
+			}
+		}
+	}
+
+	.sector-card {
+		background: #000;
+		.btn-text {
+			position: absolute;
+			@include vw(top, 792px);
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+	}
+
+	.sector-benefit{
+		background: #000;
+		.benefit-title {
+			@include vw(padding, 150px 0 110px);
+		}
+		.swiper-slide { position: relative;}
+		.btn-text {
+			position: absolute;
+			@include vw(top, 880px);
+			@include vw(left, 50px);
+			z-index: 1;
+		}
+	}
+
+	.sector-benefit-text {
+		background: url('#{$img-path}/mobile/bg_benefit_text.jpg') no-repeat 50% 0;
+		background-size: cover;
+		@include vw(padding, 105px 0 100px);
+		.motion-1,
+		.motion-2,
+		.motion-3 {
+			@include vw(margin-bottom, 85px);
+		}
+		.btn-text {
+			position: absolute;
+			@include vw(top, 1520px);
+			@include vw(left, 65px);
+			z-index: 1;
+		}
+	}
+	
+	.sector-black-price {
+		@include vw(padding, 130px 0 150px);
+		background: #000;
+		.price-group {
+			margin: 0 auto;
+			border: 1px solid #1e1e1e;
+			@include vw(width, 600px);
+			@include boxSizing(border-box);
+			+ .price-group { @include vw(margin-top, 60px);}
+			&.current {
+				border-style: solid;
+				border-color: #FFBF00;
+				@include vw(border-width, 6px);
+			}
+			.price-row {
+				@include vw(padding, 100px 30px 50px);
+				@include arrow(bottom, 15px, 15px, 3px, #fff);
+				@include boxSizing(border-box);
+				display: block !important;
+				text-align: left;
+				&:before {
+					@include vw(top, 120px);
+					@include vw(right, 50px);
+				}
+				.title-box {
+					color: #fff;
+					font-weight: 700;
+					@include vw(font-size, 48px);
+					line-height: 1.5;
+				}
+				.price-box {
+					@include vw(margin-top, 40px);
+					strong {
+						display: inline-block;
+						line-height: 1;
+						span {
+							display: inline-block;
+							@include vw(font-size, 40px);
+							font-weight: 400;
+							line-height: 1;
+						}
+						&.after-won {
+							@include vw(font-size, 80px);
+							@include vw(letter-spacing, -3px);
+							font-weight: 900;
+							color: #fff;
+							span { font-weight: 700;}
+						}
+						&.before-won {
+							@include vw(margin-left, 10px);
+							@include vw(font-size, 46px);
+							color: #7C7C7C;
+							font-weight: 700;
+							text-decoration: line-through;
+							span { @include vw(font-size, 24px); text-decoration: line-through;}
+						}
+					}
+				}
+			}
+
+			.price-benefit {
+				display: none;
+				text-align: left;
+				border-width: 0;
+				border-style: solid;
+				border-color: #1e1e1e;
+				@include vw(border-top-width, 6px);
+				.table-col {
+					.desc {
+						@include vw(padding, 24px 0 24px 28px);
+						@include vw(font-size, 28px);
+						color: #fff;
+						font-weight: 700;
+					}
+					+ .table-col {
+						border-top: 1px solid #1e1e1e;
+					}
+					.highlight { color: #FFBF00;}
+					ul {
+						@include vw(margin-top, 15px);
+						li {
+							position: relative;
+							@include vw(padding-left,  21px);
+							@include vw(font-size, 28px);
+							@include vw(font-size, 24px);
+							color: #9f9f9f;
+							font-weight: 500;
+							line-height: 1.4;
+							+ li { @include vw(margin-top, 8px);}
+							small {
+								@include vw(margin-left, 5px);
+							}
+							&:before {
+								content: '';
+								display: block;
+								position: absolute;
+								@include vw(top, 14px);
+								@include vw(left, 7px);
+								@include vw(width, 5px);
+								@include vw(height, 5px);
+								border-radius: 50%;
+								background: #9f9f9f;
+							}
+						}
+					}
+					&.bg-yellow {
+						.desc {
+							.highlight { color: #000;}
+						}
+						@include linear-gradient(to right, #FDD04B 0%, #FFBF00 100%);
+					}
+					&.black {
+						background: url('#{$img-path}/mobile/bg_black_table.png') 0 0 no-repeat;
+						background-size: cover;
+						.desc {
+							@include vw(padding, 35px 0 35px 28px);
+						}
+						.icon {
+							@include vw(margin, 0 0 10px);
+							@include vw(width, 152px);
+						}
+						.label-new {
+							position: relative;
+							vertical-align: top;
+							@include vw(margin-left, 5px);
+							@include vw(border-radius, 4px);
+							@include vw(padding, 4px 10px);
+							@include vw(font-size, 22px);
+							display: inline-block;
+							vertical-align: middle;
+							font-weight: 700;
+							color: #fff;
+							line-height: 1;
+							background: #FF5E18;
+						}
+						ul {
+							li {
+								@include vw(font-size, 28px);
+								font-weight: 700;
+								color: #FFBF00;
+								@include vw(letter-spacing, -2px);
+								&:before {
+									background-color: #FFBF00;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&.open {
+				.price-row {
+					@include arrow(top, 15px, 15px, 3px, #fff);
+					display: block !important;
+					&:before {
+						@include vw(top, 130px);
+						@include vw(right, 50px);
+					}
+				}
+				.price-benefit {
+					display: block;
+				}
+			}
+		}
+
+		.price-action {
+			border-width: 0;
+			border-style: solid;
+			border-color: #1e1e1e;
+			@include vw(border-top-width, 6px);
+			@include vw(padding, 50px 28px);
+			.form-control {
+				.fake-checkbox {
+					display:flex;
+					justify-content: center;
+					cursor:pointer;
+					input[type=checkbox]{
+						position:absolute; left:-1000em; display:inline-block; width:1px; height:1px; margin:-1px; opacity:0; text-indent:-1000em; overflow:hidden;
+						+span{
+							position:relative;
+							top:1px;
+							display:inline-block;
+							@include vw(width, 30px);
+							@include vw(height, 24px);
+							@include vw(border-radius, 4px);
+							cursor:pointer;
+							border:1px solid #BFBFBF;
+							background:transparent;
+							box-sizing:border-box;
+						}
+					}
+					
+					input[type=checkbox]:checked{
+						+span{
+							position:relative; background:transparent; border:1px solid #BFBFBF;
+							&:before{
+								content:""; 
+								display:inline-block; 
+								position:absolute; 
+								@include vw(top, -3px);
+								@include vw(left, 3px);
+								@include vw(width, 30px);
+								@include vw(height, 24px);
+								background:url('https://img.eduwill.net/eduwill/img/2021/_115/common/icon/icon_checkbox_check.svg') no-repeat center center;
+								background-size:cover;
+							}
+						}
+					}
+		
+					input[type=checkbox]:disabled{
+						+span.fake{
+							border: 1px solid #e0e0e0;
+							background: #f2f2f2;
+						}
+		
+						~span.label{
+							color: #bfbfbf;
+						}
+					}
+					.fake{
+						display: inline-block;
+						@include boxSizing(border-box);
+					}
+					.label{
+						display:inline-block;
+						@include boxSizing(border-box);
+						text-align: left;
+						font-family:$font-noto; 
+						word-break: keep-all;
+						@include vw(font-size, 22px);
+						@include vw(padding-left, 8px);
+						line-height:1.4;
+						color:#888;
+					}
+				}
+			}
+			.btn-apply {
+				@include vw(margin-top, 30px);
+				display: block;
+				width: 100%;
+				text-align: center;
+				@include vw(font-size, 36px);
+				@include vw(letter-spacing, -2px);
+				@include vw(height, 112px);
+				@include vw(line-height, 112px);
+				color: #000;
+				font-weight: 700;
+				background: #FFBF00;
+			}
+		}
+	}
+
+	.sector-price {
+		@include vw(padding, 130px 0 150px);
+		background: #000;
+		.black-sub-title {
+			text-align: left;
+			@include vw(margin-bottom, 65px);
+			@include vw(padding, 0 65px);
+			@include vw(font-size, 40px);
+			font-weight: 700;
+			color: #fff;
+			line-height: 1.5;
+			strong {
+				display: inline-block;
+				color: #FFBF00;
+			}
+		}
+		.price-table {
+			@include vw(padding, 0 65px);
+			@include vw(margin-bottom, 140px);
+			.table-row{
+				display: table;
+				width: 100%;
+				table-layout: fixed;
+				border-collapse: collapse;
+				
+				.table-col {
+					display: table-cell;
+					width: 50%;
+					@include vw(padding, 35px 0);
+					vertical-align: middle;
+					color: #fff;
+					text-align: center;
+					border-style: solid;
+					@include vw(border-width, 8px);
+					border-color: #141414;
+					border-top: 0;
+					&.normal { color: rgba(255,255,255, .4);}
+				}
+				&.first {
+					.table-col {
+						@include vw(font-size, 32px);
+						border-style: solid;
+						border-color: #141414;
+						@include vw(border-top-width, 8px);
+						@include vw(border-bottom-width, 1px);
+						font-weight: 700;
+						&.current {
+							border-color: #FFBF00;
+							border-bottom-color: #141414
+						}
+					}
+				}
+				&.black {
+					@include linear-gradient(to right, #3C3B3B 0%, #222 10%, #111 60%, #000 100%);
+					.table-col {
+						@include vw(font-size, 90px);
+						line-height: 1;
+						font-weight: 900;
+						vertical-align: middle;
+						&.current {
+							border-color: #FFBF00;
+						}
+					}
+				}
+			}
+		}
+
+		.price-group {
+			margin: 0 auto;
+			@include vw(width, 600px);
+			@include boxSizing(border-box);
+			border-style: solid;
+			border-color: #FFBF00;
+			@include vw(border-width, 6px);
+			.title-row {
+				@include vw(padding, 20px 25px);
+				@include boxSizing(border-box);
+				color: #fff;
+				font-weight: 700;
+				@include vw(font-size, 44px);
+				line-height: 1.4;
+				text-align: left;
+				img {
+					vertical-align: middle;
+					@include vw(width,102px);
+				}
+			}
+
+			.price-benefit {
+				text-align: left;
+				border-width: 0;
+				border-style: solid;
+				border-color: #1e1e1e;
+				@include vw(border-top-width, 6px);
+				.table-title {
+					position: relative;
+					@include vw(padding, 24px 0 24px 28px);
+					@include linear-gradient(to right, #FDD04B 0%, #FFBF00 40%, #FFBF00 100%);
+					strong {
+						color: #000;
+						font-weight: 900;
+						@include vw(font-size, 28px);
+						@include vw(letter-spacing, -1.5px);
+						vertical-align: middle;
+					}
+					.label-new {
+						position: relative;
+						vertical-align: top;
+						@include vw(margin-right, 5px);
+						@include vw(border-radius, 4px);
+						@include vw(padding, 8px 10px 7px);
+						@include vw(font-size, 22px);
+						display: inline-block;
+						vertical-align: middle;
+						font-weight: 700;
+						color: #fff;
+						line-height: 1;
+						background: #FF5E18;
+					}
+					&:after {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 99.9%;
+						@include vw(left, 25px);
+						@include vw(width, 40px);
+						@include vw(height, 19px);
+						background: url('#{$img-path}/mobile/bg_col_arrow_1.png') no-repeat 50% 0;
+						background-size: cover;
+					}
+				}
+				.table-col {
+					.desc {
+						@include vw(padding, 45px 25px 30px);
+						@include vw(font-size, 28px);
+						color: #fff;
+						font-weight: 700;
+						small {
+							display: block;
+							@include vw(font-size, 22px);
+							@include vw(margin-top, 6px);
+							word-break: keep-all;
+							font-weight: 400;
+							color: #909090;
+						}
+						p + p { @include vw(margin-top, 20px);}
+					}
+					.highlight { color: #FFBF00;}
+					ul {
+						@include vw(margin-top, 15px);
+						li {
+							position: relative;
+							@include vw(padding-left, 15px);
+							@include vw(font-size, 28px);
+							@include vw(letter-spacing, -1px);
+							color: #fff;
+							font-weight: 700;
+							line-height: 1.4;
+							+ li { @include vw(margin-top, 10px);}
+							small {
+								@include vw(margin-left, 5px);
+							}
+							.price-level {
+								color: #EAC082;
+								font-weight: 400;
+								@include vw(font-size, 20px);
+								@include vw(margin-left, 10px);
+							}
+							&:before {
+								content: '';
+								display: block;
+								position: absolute;
+								left: 0;
+								@include vw(top, 14px);
+								@include vw(width, 5px);
+								@include vw(height, 5px);
+								border-radius: 50%;
+								background: #fff;
+							}
+						}
+					}
+					&.black {
+						background: url('#{$img-path}/mobile/bg_black_table.png') 0 0 no-repeat;
+						background-size: cover;
+						.desc {
+							position: relative;
+							@include vw(padding, 35px 25px 80px 25px);
+						}
+						.icon {
+							position: absolute;
+							@include vw(margin, 0 0 10px);
+							@include vw(width, 102px);
+							@include vw(bottom, 25px);
+							@include vw(right, 25px);
+						}
+						
+						ul {
+							li {
+								@include vw(font-size, 28px);
+								font-weight: 700;
+								color: #FFBF00;
+								@include vw(letter-spacing, -2px);
+								&:before {
+									background-color: #FFBF00;
+								}
+							}
+						}
+					}
+				}
+
+				.table-foot {
+					@include linear-gradient(to right, #FDD04B 0%, #FFBF00 40%, #FFBF00 100%);
+					@include vw(padding, 28px 0);
+					.event-title {
+						position: relative;
+						background: #000;
+						line-height: 1.5;
+						color: #F6B801;
+						font-weight: 700;
+						@include vw(padding, 30px 25px);
+						@include vw(font-size, 28px);
+						@include vw(letter-spacing, -1.5px);
+						@include vw(border-radius, 6px);
+						@include boxSizing(border-box);
+						&:after {
+							content: '';
+							display: block;
+							position: absolute;
+							top: 99.9%;
+							@include vw(left, 25px);
+							@include vw(width, 42px);
+							@include vw(height, 21px);
+							background: url('#{$img-path}/mobile/bg_col_arrow_2.png') no-repeat 50% 0;
+							background-size: cover;
+						}
+					}
+
+					.desc {
+						@include vw(padding, 40px 25px);
+						strong {
+							color: #000;
+							font-weight: 700;
+							line-height: 1.5;
+							@include vw(font-size, 28px);
+							@include vw(letter-spacing, -1.5px);
+						}
+						ul {
+							@include vw(margin-top, 15px);
+							li {
+								position: relative;
+								@include vw(padding-left, 12px);
+								@include vw(font-size, 28px);
+								@include vw(letter-spacing, -2px);
+								color: #000;
+								font-weight: 400;
+								line-height: 1.4;
+								+ li { @include vw(margin-top, 10px);}
+								&:before {
+									content: '';
+									display: block;
+									position: absolute;
+									left: 0;
+									@include vw(top, 16px);
+									@include vw(width, 5px);
+									@include vw(height, 5px);
+									border-radius: 100%;
+									background: #000;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.price-action {
+			border-width: 0;
+			border-style: solid;
+			border-color: #1e1e1e;
+			@include vw(border-top-width, 6px);
+			@include vw(padding, 50px 28px);
+			.price-won {
+				.before-won {
+					@include vw(font-size, 35px);
+					text-decoration:line-through;
+					color: #555;
+					font-weight: 500;
+					em {
+						&:before {
+							content: '₩';
+						}
+					}
+				}
+				.after-won {
+					color: #fff;
+					font-weight: 900;
+					@include vw(font-size, 60px);
+					@include vw(letter-spacing, -3px);
+					&:before {
+						content: '₩';
+					}
+				}
+			}
+			.form-control {
+				.fake-checkbox {
+					display:flex;
+					justify-content: center;
+					cursor:pointer;
+					input[type=checkbox]{
+						position:absolute; left:-1000em; display:inline-block; width:1px; height:1px; margin:-1px; opacity:0; text-indent:-1000em; overflow:hidden;
+						+span{
+							position:relative;
+							top:1px;
+							display:inline-block;
+							@include vw(width, 30px);
+							@include vw(height, 24px);
+							@include vw(border-radius, 4px);
+							cursor:pointer;
+							border:1px solid #BFBFBF;
+							background:transparent;
+							box-sizing:border-box;
+						}
+					}
+					
+					input[type=checkbox]:checked{
+						+span{
+							position:relative; background:transparent; border:1px solid #BFBFBF;
+							&:before{
+								content:""; 
+								display:inline-block; 
+								position:absolute; 
+								@include vw(top, -3px);
+								@include vw(left, 3px);
+								@include vw(width, 30px);
+								@include vw(height, 24px);
+								background:url('https://img.eduwill.net/eduwill/img/2021/_115/common/icon/icon_checkbox_check.svg') no-repeat center center;
+								background-size:cover;
+							}
+						}
+					}
+		
+					input[type=checkbox]:disabled{
+						+span.fake{
+							border: 1px solid #e0e0e0;
+							background: #f2f2f2;
+						}
+		
+						~span.label{
+							color: #bfbfbf;
+						}
+					}
+					.fake{
+						display: inline-block;
+						@include boxSizing(border-box);
+					}
+					.label{
+						display:inline-block;
+						@include boxSizing(border-box);
+						text-align: left;
+						font-family:$font-noto; 
+						word-break: keep-all;
+						@include vw(font-size, 22px);
+						@include vw(padding-left, 8px);
+						line-height:1.4;
+						color:#888;
+					}
+				}
+			}
+			.btn-apply {
+				@include vw(margin-top, 30px);
+				display: block;
+				width: 100%;
+				text-align: center;
+				@include vw(font-size, 36px);
+				@include vw(height, 112px);
+				@include vw(line-height, 112px);
+				color: #000;
+				background: #FFBF00;
+				strong {
+					font-weight: 900;
+					@include vw(letter-spacing, -2px);
+				}
+			}
+		}
+	}
+
+	.sector-service {
+		background: url('#{$img-path}/mobile/bg_service.jpg') no-repeat 50% 0;
+		background-size: cover;
+		.tab-group {
+			margin:0 auto;
+			.tab-list {
+				@extend %clearfix;
+				z-index: 2;
+				li {
+					float: left;
+					@include vw(width, 240px);
+					@include vw(font-size, 28px);
+					@include vw(height, 70px);
+					@include vw(line-height, 70px);
+					font-weight: 400;
+					color: #4f4f4f;
+					line-height: 1.5;
+					text-align: center;
+					cursor: pointer;
+					border-bottom: 1px solid #575757;
+					@include boxSizing(border-box);
+					&.active {
+						color: #fff;
+						border-bottom: 1px solid #fff;
+					}
+				}
+			}
+			.tab-view {
+				position: relative;
+				z-index: 1;
+				overflow: hidden;
+				.btn-text {
+					position: absolute;
+					@include vw(top, 800px);
+					left: 0;
+					right: 0;
+					z-index: 1;
+				}
+			}
+		}
+	}
+
+	.toggle-box {
+		.toggle-action {
+			background: #000;
+			cursor: pointer;
+			.toggle-title {
+				position: relative;
+				@include arrow(bottom, 12px, 12px, 2px, #aaa);
+				display: block !important;
+				transition:all 0.5s ease;
+				@include boxSizing(border-box);
+				@include vw(padding, 35px 60px);
+				@include vw(font-size, 30px);
+				color: #CBCBCB;
+				text-align: left;
+				font-weight: 500;
+				line-height: 1.2;
+				border-bottom: 1px solid rgba(221,221,221, .2);
+				&:before {
+					@include vw(right, 60px);
+					@include vw(margin-top, -12px);
+				}
+			}
+			&.open {
+				.toggle-title {
+					@include arrow(top, 12px, 12px, 2px, #aaa);
+					&:before {
+						@include vw(right, 60px);
+					}
+				}
+			}
+		}
+
+		.toggle-contents {
+			transition:all 0.5s ease;
+			display: none;
+		}
+	}
+
+	.sector-teacher {
+		background: url('#{$img-path-2}/mobile/bg_teacher.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.btn-text {
+			position: absolute;
+			@include vw(top, 620px);
+			left: 50%;
+			@include translateX(-50%);
+			z-index: 1;
+		}
+	}
+
+	.sector-curriculum {
+		@include vw(padding-bottom, 130px);
+		.graph-wrap {
+			position: relative;
+			.motion-graph-end {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 5;
+				background: rgba(255,255,255, .6);
+				.circle {
+					display: block;
+					position: absolute;
+					@include vw(width, 419px);
+					@include vw(left, 127px);
+					top: 50%;
+					@include translateY(-50%);
+					z-index: 1;
+				}
+			}
+		}
+	}
+
+	.sector-book {
+		background: #f5f6fc;
+		.btn-text {
+			position: absolute;
+			@include vw(top, 635px);
+			left: 50%;
+			@include translateX(-50%);
+			z-index: 1;
+		}
+		.swiper-default {
+			.swiper-slide {
+				width: 100%;
+				@include vw(margin, 0 -15px);
+			}
+		}
+	}
+
+	.sector-manage {
+		@include vw(padding-bottom, 130px);
+		.slide-title {
+			@include vw(margin, 100px 0 42px);
+			@include vw(font-size, 36px);
+			@include vw(letter-spacing, -2px);
+			line-height: 1;
+			font-weight: 700;
+			color: #222;
+		}
+	}
+
+	.sector-us {
+		background: #f5f6fc;
+		@include vw(padding-bottom, 120px);
+		.slide-box {
+			.slider-nav {
+				@include vw(border-radius, 40px);
+				@include vw(margin-bottom, 40px);
+				.slick-slide {
+					@include vw(padding, 15px 18px);
+					@include vw(border-radius, 30px);
+					line-height: 1.4;
+					+ .slick-slide {
+						@include vw(margin-left, 7px);
+					}
+				}
+			}
+			.slider-for {
+				@include vw(width, 620px);
+				margin: 0 auto;
+			}
+			.slick-dots {
+				@include vw(margin-top, 30px);
+			}
+		}
+	}
+
+	.sector-best {
+		@include vw(padding-bottom, 80px);
+		background:#143d80 url('#{$img-path-2}/mobile/bg_best.jpg') no-repeat 50% 0;
+		background-size: cover;
+		.notice-text {
+			color: rgba(255,255,255, .7);
+		}
+	}
+
+}

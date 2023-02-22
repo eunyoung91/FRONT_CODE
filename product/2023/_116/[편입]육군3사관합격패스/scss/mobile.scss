@@ -1,0 +1,325 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/popup";
+.bottom_fix_btn {
+	display: none !important;
+}
+
+.product-eco {
+	overflow: hidden;
+	* {
+		line-height: normal;
+		font-family: $font-roboto;
+		font-size: inherit;
+		color: inherit;
+		letter-spacing: -1px;
+	}
+	.icon-pointer {
+		@include pointer(54%, 0px, 110px, 107px, 20, bounce);
+	}
+	text-align: center;
+	[class^="product-"],
+	.item {
+		position: relative;
+	}
+	.wrap,
+	.wrap-full {
+		max-width: 720px;
+	}
+
+	button {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: nowrap;
+		font-family: inherit;
+		text-decoration: none;
+		border: none;
+		background: transparent;
+		outline: 0;
+		cursor: pointer;
+	}
+	.only-pc {
+		display: none;
+	}
+	.only-mobile {
+		display: inline-block;
+		&br {
+			display: block;
+		}
+	}
+	.fix-bottom {
+		position: fixed;
+		bottom: 45px;
+		left: 0;
+		right: 0;
+		background-color: #000;
+		z-index: 100;
+	}
+	.btn-base {
+		display: inline-block;
+		@include vw(font-size, 22px);
+		color: #fff;
+		@include vw(padding, 12px 32px);
+		border: 1px solid #fff;
+		span {
+			position: relative;
+			display: block;
+			@include vw(padding-right, 20px);
+			@include arrow(right, 10px, 10px, 1px, #fff);
+			&:before {
+				right: 0;
+			}
+		}
+	}
+	.table-wrap {
+		@include vw(width, 640px);
+		margin: 0 auto;
+		border: 1px solid #333;
+		@include vw(border-radius, 48px);
+		@include boxShadow(0 12px 36px rgba(0, 0, 0, 0.1));
+		overflow: hidden;
+		table {
+			width: 100%;
+			background: #fff;
+		}
+		thead {
+			tr:last-child {
+				border-bottom: 1px solid #e7e7e7;
+			}
+			th {
+				background: #f1fefe;
+			}
+		}
+		tr {
+			border-bottom: 1px solid #e7e7e7;
+			&:last-child {
+				border-bottom: 0
+			}
+			th, td {
+				text-align: left;
+				@include vw(padding, 32px 12px);
+				@include vw(font-size, 26px);
+				font-weight: 700;
+				color: #333;
+				strong {
+					color: #0e79ee;
+				}
+			}
+			th:first-child, td:first-child {
+				text-align: right;
+				color: #666;
+			}
+		}
+	}
+	.sector {
+		&-title {
+			position: relative;
+			@include bg($url: "#{$img-path}/mobile/bg_title.jpg", $size: cover);
+			background-color: #412caf;
+			.wrap {
+				text-align: right;
+				@include vw(padding-bottom, 90px);
+			}
+			.title-contents {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				.content {
+					@include vw(width, 310px);
+					text-align: center;
+					color: #fff;
+					line-height: 1.2;
+					@include vw(margin-right, 20px);
+					@include vw(margin-bottom, 20px);
+					@include vw(padding, 20px 0);
+					border-radius: 12px;
+					background: #152632;
+					p {
+						@include vw(font-size, 24px);
+					}
+					span {
+						@include vw(font-size, 36px);
+						font-weight: 700;;
+					}
+					&:nth-child(2n){
+						margin-right: 0;
+					}
+					&.other {
+						@include vw(width, 640px);
+						margin-right: 0;
+						margin-bottom: 0;
+					}
+				}
+			}
+			.btn-base {
+				@include vw(margin-top, 20px);
+				@include vw(margin-right, 40px);
+				opacity: 0.4;
+			}
+		}
+		
+		&-program {
+			.wrap {
+				@include vw(padding-bottom, 140px);
+			}
+		}
+		&-reason {
+			background: #152632;
+			&.reason-1 {
+				background: #f1fefe;
+				.teacher {
+					a {
+						display: block;
+						@include vw(margin-top, -80px);
+					}
+				}
+			}
+			&.reason-2 {
+				background: #fff;
+			}
+			&.reason-3 {
+				background: #f6f6f7;
+				.action {
+					position: absolute;
+					@include vw(bottom, 206px);
+					left: 0;
+					right: 0;
+					@include vw(width, 480px);
+					margin: 0 auto;
+				}
+			}
+		}
+		&-curriculum {
+			.table-wrap {
+				.table-content {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					width: 100%;
+					a {
+						display: block;
+						@include vw(font-size, 28px);
+						font-weight: 700;
+						color: #fff;
+						@include vw(padding, 12px 48px);
+						@include vw(border-radius, 64px);
+						background: #0e79ee;
+						&.other {
+							background: #cb3705;
+						}
+					}
+					.price-wrap {
+						text-align: right;
+						.before-price {
+							@include vw(font-size, 22px);
+							font-weight: 700;
+							text-decoration: line-through;
+							color: #999;
+							em {
+								font-family: $font-roboto;
+								@include vw(font-size, 24px);
+								font-weight: 700;
+							}
+						}
+						.after-price {
+							@include vw(font-size, 36px);
+							font-weight: 700;
+							color: #333;
+							em {
+								font-family: $font-roboto;
+								@include vw(font-size, 44px);
+								font-weight: 700;
+							}
+						}
+					}
+				}
+				td:last-child {
+					@include vw(padding-right, 28px);
+				}
+			}
+
+			.table-plus {
+				position: relative;
+				display: flex;
+				@include vw(margin, 60px 40px 0);
+				@include vw(padding, 36px 0);
+				@include vw(border-radius, 64px);
+				background: #404040;
+				@include boxShadow(0 8px 8px rgba(0, 0, 0, 0.4));
+				&:before {
+					content: "";
+					position: absolute;
+					left: 0;
+					right: 0;
+					@include vw(top, -40px);
+					display: block;
+					@include vw(width, 100px);
+					@include vw(height, 100px);
+					margin: 0 auto;
+					@include bg($url: '#{$img-path}/pc/table_plus.png', $size: 100%);
+				}
+				.item {
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-direction: column;
+					width: 100%;
+					@include vw(height, 160px);
+					text-align: center;
+					color: #fff;
+					line-height: 1.2;
+					@include vw(padding, 0 24px);
+					@include boxSizing(border-box);
+					p {
+						font-family: $font-roboto;
+						@include vw(font-size, 26px);
+						font-weight: 700;
+					}
+					span {
+						@include vw(font-size, 22px);
+						font-weight: 400;
+					}
+					&:after {
+						content: "";
+						position: absolute;
+						right: 0;
+						width: 1px;
+						height: 100%;
+						background: rgba(255, 255, 255, 0.2);
+					}
+					&.price {
+						text-align: right;
+						align-items: flex-end;
+						p {
+							text-decoration: line-through;
+							span {
+								@include vw(font-size, 24px);
+								font-family: $font-roboto;
+								font-weight: 700;
+							}
+						}
+						strong {
+							line-height: 1;
+							@include vw(font-size, 72px);
+							color: #99f9f4;
+							span {
+								position: relative;
+								@include vw(top, 4px);
+								font-family: $font-roboto;
+								@include vw(font-size, 120px);
+								@include vw(line-height, 120px);
+								font-weight: 900;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

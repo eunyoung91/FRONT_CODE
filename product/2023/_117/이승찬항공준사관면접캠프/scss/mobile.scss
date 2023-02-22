@@ -1,0 +1,200 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	img { border: 0; vertical-align: top;}
+	[class^="sector-"] {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.holder { position: relative; }
+	.icon-pointer {
+		@include pointer(50%, 0, 98px, 95px, 20, bounce);
+	}
+
+	.slider{
+		.slick-slide{
+			opacity: 0.5;
+			&.slick-active{
+				opacity: 1;
+			}
+		}
+	}
+	.slick-arrow {
+		@extend %slick-arrow;
+		top: 50%;
+		border-radius: 50%;
+		left: auto;
+		z-index: 112;
+		&.slick-prev {
+			@include slideArrow(left, 82px, 82px, 2px, #212121, rgba(255,255,255, .7));
+			left: 1%;
+		}
+		&.slick-next {
+			@include slideArrow(right, 82px, 82px, 2px, #212121, rgba(255,255,255, .7));
+			left: auto;
+			right: 1%;
+		}
+	}
+
+	.slick-dots {
+		position: absolute;
+		bottom: 8%;
+		right: 0;
+		left: 0;
+		font-size: 0;
+		z-index: 1;
+		li {
+			display: inline-block;
+			@include vw(margin, 0 6px);
+			&.slick-active button {
+				background-color: #ffc20e;
+			}
+		}
+		button {
+			display: block;
+			@include vw(width, 20px);
+			@include vw(height, 20px);
+			color: transparent;
+			border: none;
+			border-radius: 50%;
+			background-color: #ddd;
+			outline: none;
+			cursor: pointer;
+		}
+	}
+	.slick-slide {
+		outline: none;
+		a { outline: none;}
+	}
+
+	.notice {
+		text-align: right;
+		font-weight: 400;
+		color: rgba(0,0,0, .4);
+		line-height: 1.5;
+		@include vw(font-size, 22px);
+		@include vw(letter-spacing, -1.5px);
+	}
+
+	.sector-title {
+		background: #283643 url('#{$img-path}/pc/bg_title.jpg') 50% 0 no-repeat;
+		.wrap {
+			overflow: hidden;
+		}
+		.helicopter {
+			position: absolute;
+			&-1 {
+				@include vw(width, 416px);
+				@include vw(top, 152px);
+				@include vw(right, -40px);
+			}
+			&-2 {
+				@include vw(width, 180px);
+				@include vw(top, 120px);
+				@include vw(right, -10px);
+			}
+		}
+	}
+
+	.sector-decision{
+		background: #fff;
+	}
+
+	.sector-band{
+		z-index: 5;
+		background: #3E6675;
+		.wrap {
+			&:after {
+				content: "";
+				position: absolute;
+				@include vw(bottom, -42px);
+				left: 0;
+				@include vw(width, 90px);
+				@include vw(height, 42px);
+				background: url('#{$img-path}/mobile/band_after.png') no-repeat;
+				background-size: 100%
+			}
+		}
+	}
+
+	.sector-review{
+		@include vw(padding-bottom, 90px);
+		background: #e5e1d9;
+		.slick-slide{
+			@include vw(width, 420px);
+			@include vw(height, 400px);
+		}
+	}
+
+	.sector-teacher{
+		background: #F8F8F8;
+		.slick-slide{
+			@include vw(width, 526px);
+			@include vw(height, 790px);
+			@include vw(margin, 0 12px);
+		}
+	}
+
+	.sector-lecture{
+		position: relative;
+		@include vw(padding-bottom, 100px);
+		background: #282828;
+		.lecture-con{
+			@include vw(width, 638px);
+			margin: 0 auto;
+		}
+		.action{
+			position: absolute;
+			@include vw(bottom, 70px);
+			left: 50%;
+			transform: translateX(-50%);
+			@include vw(width, 448px);
+			@include vw(height, 90px);
+		}
+	}
+	
+	.sector-map{
+		position: relative;
+		background: #e5e1d9;
+		.wrap {
+			@include vw(padding-bottom, 100px);
+		}
+		.map-box {
+			@include vw(margin, 0 40px);
+		}
+		.map-con{
+			margin: 0 auto;
+		}
+		.map-btn {
+			@include vw(margin, 0 40px);
+		}
+	}
+
+	.sector-banner{
+		background: #334052;
+	}
+}

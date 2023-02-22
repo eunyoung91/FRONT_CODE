@@ -1,0 +1,135 @@
+.dimmed {
+	display: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	background-color: transparent;
+	@include vw(width, 620px);
+	@include vw(height, 1065px);
+	left: 50%;
+	top: 6%;
+	width: 90%;
+	max-width: 720px;
+	margin: 0 auto;
+	z-index: 32;
+	@include translateX(-50%);
+	@include boxSizing(border-box);
+	@include breakpoint(desktop) {
+		@include vw(width, 800px);
+		max-width: 900px;
+		top: 6%;
+	}
+	* {
+		font-family: $font-noto;
+	}
+	.popup-close {
+		position: absolute;
+		top: 10px;
+		right: 0;
+		@include vw(width, 56px);
+		@include vw(height, 56px);
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			@include vw(width, 30px);
+			@include vw(height, 1px);
+			@include vw(margin-left, -15px);
+			background-color: #fff;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+
+	.popup-title {
+		margin: 0 auto;
+		padding: 3%;
+		font-weight: 800;
+		text-align: left;
+		box-sizing: border-box;
+		color: #fff;
+		letter-spacing: -1px;
+		line-height: 1.2;
+		background-color: transparent;
+		@include vw(width, 620px);
+		@include vw(font-size, 30px);
+		@include breakpoint(desktop) {
+			@include vw(width, 800px);
+		}
+		strong {
+			display: block;
+			letter-spacing: -2px;
+			font-weight: 700;
+			@media screen and (min-width: 720px) {
+				font-size: 32px;
+			}
+			@media screen and (max-width: 719px) {
+				font-size: 4.44444vw;
+			}
+			@media screen and (max-width: 720px) {
+				display: block;
+				letter-spacing: 0;
+			}
+			em {
+				display: block;
+				color: #ffd800;
+			}
+		}
+	}
+
+	.popup-cont {
+		padding: 3%;
+		@include vw(width, 620px);
+		box-sizing: border-box;
+		margin: 0 auto;
+		@include breakpoint(desktop) {
+			@include vw(width, 800px);
+		}
+		table {
+			@include breakpoint(desktop) {
+				@include vw(width, 800px);
+			}
+			background-color: #fff;
+			tr {
+				td {
+					font-family: $font-noto;
+					border-right: 1px solid #aaa;
+					border-bottom: 1px solid #aaa;
+					text-align: center;
+					@include vw(padding, 10px);
+					@include vw(font-size, 20px);
+					font-weight: 400;
+				}
+				&:last-child {
+					td {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+		thead {
+			td {
+				background-color: #ef2700;
+				color: #fff;
+				font-weight: 800;
+			}
+		}
+	}
+	
+}

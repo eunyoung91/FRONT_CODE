@@ -1,0 +1,228 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+/* 공통 */
+.product-eco {
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		margin: 0 auto;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			@include vw(right, -13px);
+			@include vw(bottom, -20px);
+			@include vw(width, 57px);
+			@include vw(height, 65px);
+			background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.5s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+}
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+	* {
+		font-family: $font-noto;
+	}
+
+	.fix-bottom {
+		z-index: 30;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.85);
+		.wrap {
+			max-width: 720px;
+			margin: 0 auto;
+		}
+	}
+	
+	.sector-title {
+		background: #e73b1e url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 0;
+		@include vw(background-size, 720px);
+	}
+
+	.sector-price {
+		@include vw(padding-bottom, 140px);
+		background: #fff;
+		.price-area2 {
+			text-align: center;
+			@include vw(margin, 0 40px);
+			@include vw(padding, 50px);
+			@include vw(border-radius, 30px);
+			background: #fff;
+			@include boxShadow(0 15px 30px rgba(0, 0, 0, 0.15));
+			.title-wrap {
+				.title-label {
+					display: inline-block;
+					@include vw(font-size, 24px);
+					font-weight: 700;
+					color: #fff;
+					@include vw(padding, 4px 12px);
+					@include vw(border-radius, 20px);
+					background: linear-gradient(to bottom, #ff9d5b 0%, #ff6141 100%);
+				}
+				p {
+					@include vw(font-size, 60px);
+					font-weight: 900;
+					color: #39120b;
+					@include vw(margin, 15px 0 30px);
+				}
+				ul {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					li {
+						position: relative;
+						@include vw(font-size, 26px);
+						line-height: 1.2;
+						color: #000;
+						font-weight: 500;
+						@include vw(padding, 0 30px);
+						&:before {
+							content: "";
+							position: absolute;
+							left: 0;
+							top: 50%;
+							width: 1px;
+							@include vw(height, 50px);
+							transform: translateY(-50%);
+							background: #d9d9d9;
+						}
+						&:first-child {
+							padding-left: 0;
+							&:before {
+								display: none;
+							}
+						}
+						&:last-child {
+							padding-right: 0;
+						}
+					}
+				}
+			}
+			.price-wrap {
+				.price {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					@include vw(margin, 40px 0);
+					letter-spacing: -1px;
+					.before-price {
+						@include vw(font-size, 30px);
+						font-weight: 900;
+						color: #999;
+						@include vw(margin-right, 48px);
+					}
+					.after-price {
+						@include vw(font-size, 60px);
+						font-weight: 900;
+						color: #eb2200;
+					}
+				}
+				
+				.action {
+					a {
+						display: block;
+						@include vw(font-size, 30px);
+						font-weight: 700;
+						color: #fff;
+						@include vw(padding, 30px 0);
+						@include vw(border-radius, 16px);
+						background: linear-gradient(to right, #f95600 0%, #eb2200 100%);
+						span {
+							position: relative;
+							display: inline-block;
+							@include vw(padding-right, 24px);
+							&:before {
+								@include arrow(right, 8px, 8px, 2px, #fff);
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sector-preview {
+		background: #fff;
+		.preview-wrap {
+			position: relative;
+			.video-wrap {
+				position: absolute;
+				@include vw(top, 181px);
+				left: 0;
+				right: 0;
+				@include vw(width, 540px);
+				@include vw(height, 302px);
+				margin: 0 auto;
+				@include vw(border-radius, 32px);
+				overflow: hidden;
+				.eduf-iframe-player{ 
+					z-index: 5;
+					position: relative;
+					cursor: pointer;
+				}
+				iframe {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+				}
+			}
+			.action {
+				position: absolute;
+				left: 0;
+				right: 0;
+				@include vw(bottom, 90px);
+				@include vw(width, 330px);
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.sector-start {
+		background: #ffeee9;
+	}
+	
+	.sector-trophy {
+		background: #fff;
+	}
+
+	.sector-test {
+		background: #fed444;
+	}
+	.product-sentence {
+		background: #ff794c;
+	} 
+}
+
+#footerFixedButtons {
+	display: none !important;
+}
