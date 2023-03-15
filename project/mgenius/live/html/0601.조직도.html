@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>지니어스 모바일</title>
+
+    <!-- favicon files -->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+    <link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+    <!-- css -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/mgenius.css?v=5be2d9ef1b640">
+
+    <!-- js -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';</script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+    <!-- Import datepicker -->    
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap.datepicker/js/1.9.0/bootstrap-datepicker.min.js"></script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap.datepicker/js/bootstrap-datepicker.kr.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap.datepicker/css/bootstrap-datepicker3.min.css">
+    <script src="../js/custom.js?v=5be2d9ef1b640"></script>
+
+    <!-- Import Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <!-- Import Mobiscroll -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/mgenius/dev/js/mobiscroll.javascript.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/mgenius/dev/css/mobiscroll.javascript.min.css" >
+
+    <script>
+        $(document).ready(function(){
+            $(".reply-list .action").prop('selectedIndex',-1);
+            $(".reply-list .action").change(function(){
+                var state = $(this).val();
+                if(state == "select-reply") {
+                    $(".reply-write .form-control").focus();
+                    $(this).prop('selectedIndex',-1);
+                } 
+            });            
+        });
+        $(window).load(function(){
+            //$(".modal-nav").modal("show");
+            // $(".sub-title").html("공지사항 상세");
+            //$(".bi a").html("<span>목록</span>")
+        })
+    </script>
+
+</head>
+<body class="wrap-sub">
+    
+    <div class="hd-wrap ">
+        <div class="hd-wrap-inner">
+            <div class="bi">
+                <a href="#"><i class="icon"></i></a>
+            </div>
+            <div class="sub-title">임직원 정보</div>
+            <div class="btn-nav">
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target=".modal-nav"><i class="icon icon-nav"></i></button>
+            </div> 
+            <div class="sub-tab sub-tab-3">
+                <ul>
+                    <li class="active"><a href="#organization-tab-1" data-toggle="tab">조직도</a></li>
+                    <li class=""><a href="#organization-tab-2" data-toggle="tab">가나다순</a></li>
+                    <li class=""><a href="#organization-tab-3" data-toggle="tab">검색</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div role="header" data-include="include/header_inc.html"></div><!-- include :: header -->
+
+    <div id="container" class="sub-organization">
+        <div class="tab-content">
+            <div class="tab-pane active" id="organization-tab-1">
+                <div class="group-tree">
+                    <ul class="group-tree-body">
+                        <li>
+                            <div class="tree-node tree-1 tree-expand">에듀윌(910)</div>
+                            <ul>
+                                <li>
+                                    <div class="tree-node tree-2 tree-person"><span class="member-state"><i class="state-1"></i></span>박명규 대표이사</div>
+                                </li>
+                                <li>
+                                    <div class="tree-node tree-2 tree-person"><span class="member-state"><i class="state-2"></i></span>남영택 COO</div>
+                                </li>
+                                <li>
+                                    <div class="tree-node tree-2 tree-expand">비서실(1)</div>
+                                    <ul>
+                                        <li>
+                                            <div class="tree-node tree-3 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="tree-node tree-2 tree-expand">CEO직속(3)</div>
+                                    <ul>
+                                        <li>
+                                            <div class="tree-node tree-3 tree-expand">법무실(3)</div>
+                                            <ul>
+                                                <li>
+                                                    <div class="tree-node tree-4 tree-expand">법무팀(3)</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-person"><span class="member-state"><i class="state-1"></i></span>김태희 매니저</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-expand">법무1파트(2)</div>
+                                                            <ul>
+                                                                <li>
+                                                                    <div class="tree-node tree-6 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="tree-node tree-6 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <div class="tree-node tree-3 tree-collapse">운영지원팀(10)</div>
+                                        </li>
+                                        <li>
+                                            <div class="tree-node tree-3 tree-collapse">영상개발실(10)</div>
+                                        </li>
+                                        <li>
+                                            <div class="tree-node tree-3 tree-collapse">감사팀(10)</div>
+                                        </li>
+                                        <li>
+                                            <div class="tree-node tree-3  tree-expand">제휴사업실(4)</div>
+                                            <ul>
+                                                <li>
+                                                    <div class="tree-node tree-4 tree-expand">제휴사업1팀(2)</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <div class="tree-node tree-4 tree-expand">제휴사업2팀(2)</div>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tree-node tree-5 tree-person"><span class="member-state"><i class="state-3"></i></span>김태희 매니저</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="tree-node tree-2 tree-collapse">고객서비스부분(82)</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-pane " id="organization-tab-2">
+                <div class="group-link">
+                    <span onclick="$(window).scrollTop(($('#text-target-1').offset().top)-96)">ㄱ</span>
+                    <span>•</span>
+                    <span onclick="$(window).scrollTop(($('#text-target-2').offset().top)-96)">ㄷ</span>
+                    <span>•</span>
+                    <span onclick="$(window).scrollTop(($('#text-target-3').offset().top)-96)">ㅁ</span>
+                    <span>•</span>
+                    <span>ㅂ</span>
+                    <span>•</span>
+                    <span>ㅇ</span>
+                    <span>•</span>
+                    <span>ㅈ</span>
+                    <span>•</span>
+                    <span>ㅎ</span>
+                </div>
+                <div class="group-list">
+                    <div class="initial-text" id="text-target-1">
+                        <span>ㄱ</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="initial-text">
+                        <span>ㄴ</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>나다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>나선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="initial-text" id="text-target-2">
+                        <span>ㄷ</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>다다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>다선형 매니저</div>
+                                <div class="team">IT부문 IT서비스본부 IT기술혁신실 솔루션개발팀</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="initial-text" id="text-target-3">
+                        <span>ㅁ</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>마다라 팀장</div>
+                                <div class="team">학원사업부문 노량진사업본부 학원서비스기획팀</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-pane " id="organization-tab-3">
+                <div class="search">
+                    <input type="text" class="form-control">
+                    <button type="button" class="btn btn-link btn-search"><i class="icon icon-search"></i></button>
+                    <button  type="button" class="btn btn-link btn-reset"><i class="icon icon-close-w"></i></button>
+                    <div class="search-result">총 <span>3건</span>이 조회됩니다.</div>
+                </div>
+                <div class="group-list">
+                    <ul>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-1"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-2"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg" onerror="this.src='//img.eduwill.net/resources/kpi/dev/images/genius/profile-none.svg'">
+                            </div>
+                            <div class="info">
+                                <div class="name"><span class="member-state"><i class="state-3"></i></span>강하다 매니저(hskim6)</div>
+                                <div class="team">신사업부문 국비교육원 성남센터</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div role="footer" data-include="include/footer_inc.html"></div><!-- include :: footer -->     
+
+
+</body>
+</html>

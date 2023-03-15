@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=yes, initial-scale=0.75, maximum-scale=1.0, minimum-scale=0.1, width=device-width">
+<title>에듀윌 : 죄송합니다. 요청하신 페이지를 찾을 수 없습니다.</title>
+
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon-16x16.png">
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon-16x16.png" type="image/x-icon">
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon-16x16.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="//img.eduwill.net/Img2/Common/favicon/favicon-152x152.png" sizes="180x180">
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon-152x152.png" sizes="192x192" type="image/png">
+	
+<script type="text/javascript" src="//img.eduwill.net/resources/dokhan/dev/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	var paramName = "returnurl=";							// 돌아갈 URL 파라미터명
+	var redirectUrl = "";
+
+	var currUrl = document.location.href;					// 현재 URL
+		currUrl = currUrl.toLowerCase();
+
+
+	if(currUrl.indexOf(paramName) > -1){					// 파라미터 존재여부 체크
+		var urlArray = currUrl.split(paramName);
+		if(urlArray.length >= 2){
+			redirectUrl = urlArray[1];						// 이동할 URL 추출
+		}
+	}
+
+	function gotoUrl(){
+		if(redirectUrl == ""){
+			redirectUrl = "https://www.eduwill.net";			// 이동할 URL이 존재하지 않을경우 기본으로 에듀윌 메인으로 이동
+		}
+
+		document.location.href = redirectUrl;
+	}
+</script>
+
+
+</head>
+<style type="text/css">
+html, body, html * { margin:0; padding:0; font-size:12px; font-family:맑은 고딕, 'Malgun gothic'; color:#000; letter-spacing:-1px; overflow-x:hidden; -webkit-text-size-adjust:none;}
+div.error { padding:50px 0; text-align:center;}
+h1 { margin-bottom:25px;}
+h1 img { width:60%; max-width:133px;}
+.error_title { padding:20px 0; font-size:18px; color:#222; font-weight:bold;}
+.error_txt { margin-bottom:30px; padding:30px 15px; font-size:14px; line-height:1.5; border-top:1px solid #ddd; border-bottom:1px solid #ddd;}
+.error_txt img { margin-bottom:15px;}
+.error a { display:inline-block; width:80%; max-width:232px; height:45px; text-decoration:none; background:#3d3d3d;}
+.error a span { line-height:45px; color:#fff; font-weight:bold; font-size:18px;}
+.error_foot { margin-top:50px; color:#999; font-size:11px; letter-spacing:0;}
+</style>
+<body>
+	<div class="error">
+		<h1><img src="//img.eduwill.net/Img2/Common/BI/type2/live/logo.svg" alt="" /></h1>
+		<p class="error_title">죄송합니다. 요청하신 페이지를 찾을 수 없습니다.</p>
+
+		<p class="error_txt">
+			<img src="//img.eduwill.net/resources/common/error/icon02.gif" alt="" /><br />
+			방문하려는 페이지의 주소가 잘못 입력되었거나,<br />
+			페이지의 주소가 변경 혹은 삭제되어<br />
+			요청하신 페이지를 찾을 수 없습니다.<br />
+			<br />
+			입력하신 주소가 정확한지 다시 한 번 확인해 주시기 바랍니다.<br />
+			<br />
+			감사합니다.
+		</p>
+
+		<a href="#" onclick="gotoUrl(); return false;"><span>지니어스 홈</span></a>
+
+		<p class="error_foot">Copyright ©에듀윌 All rights reserved.</p>
+	</div>
+</body>
+</html>

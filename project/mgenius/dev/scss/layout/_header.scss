@@ -1,0 +1,319 @@
+.hd-wrap {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 1001;
+    &-inner {
+        position: relative;
+        min-height: 48px;
+        overflow: hidden;
+        box-shadow: 0 1px 0 0 #0000001a;
+        background-color: $color-White;
+        .bi {
+            position: absolute; top: 12px; left: 12px;
+            .icon {
+                width: 24px; height: 24px;
+                @include background-name-ext-repeat-poistion('nav-home', svg, no-repeat, 0 0);
+            }
+            span {
+                @include font-size-color-weight($typo-size-14, $color-Medium, 600);
+                line-height: 24px;
+            }
+        }
+        .sub-title {
+            text-align: center;
+            @include font-init('EduwillPassBold');
+            @include font-size-color-weight($typo-size-16, $color-Dark, 400);
+            padding: 16px 0;
+        }
+        .sub-tab {
+            height: 48px;
+            padding: 6px 16px;
+            ul {
+                display: table;
+                width: 100%;
+                border-radius: 4px;
+                border: solid 1px #d8d8d8;
+                overflow: hidden;
+                li {
+                    display: table-cell;
+                    a {
+                        display: block;
+                        text-align: center;
+                        height: 36px;
+                        border-left: solid 1px #d8d8d8;
+                        background-color: #f4f4f4;
+                        @include font-size-color-weight($typo-size-14, $color-Medium-Light, 400);
+                        line-height: 21px;
+                        padding: 6px 0 9px;
+                    }
+                    &:first-child a {
+                        border-left: none;
+                    }
+                    &.active a {
+                        border-color: #eaeaf4;
+                        background-color: $color-White;
+                        color: $color-Black;
+                        font-weight: 700;
+                    }
+                }
+            }
+            &-3 ul li {
+                width: 33.3333%;
+            }
+        }
+        .btn-nav {
+            position: absolute; top: 12px; right: 12px;
+            font-size: 0;
+            .btn {
+                vertical-align: top; 
+                .icon {
+                }
+            }
+            span {
+                @include font-size-color-weight($typo-size-14, #365cff, 600);
+                line-height: 24px;
+            }
+        }
+        .nav-write {
+            margin-right: 12px;
+            width: 24px; height: 24px;
+            border: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            outline: none;
+            text-indent: -9999em;
+            @include background-name-ext-repeat-poistion('nav-write', svg, no-repeat, 0 0);
+            font-size: 14px;
+        }
+    }
+
+    &.sticky {
+        .hd-wrap-inner {
+            box-shadow: 0 3px 6px 0 rgba(10, 10, 10, 0.2);
+        }
+    }
+}
+#container {
+    padding-top: 48px;
+    padding-bottom: 104px;
+}
+body.wrap-main {
+    .hd-wrap {
+        position: absolute;
+       
+        &-inner {
+            background-color: transparent;
+            box-shadow: none;
+            .bi {
+                left: 4px;
+                .icon {
+                    width: 101px; height: 32px;
+                    @include background-name-ext-repeat-poistion('bi-genius-w', svg, no-repeat, 0 0);
+                    vertical-align: top;
+                }
+            }
+            .sub-title {
+                display: none;
+            }
+        }
+
+        &.sticky {
+            position: fixed;
+            -webkit-animation: slide-bottom 0.3s ease-in-out both;
+	        animation: slide-bottom 0.3s ease-in-out both;
+            .hd-wrap-inner {
+                box-shadow: 0 1px 4px 0 rgba(10, 10, 10, 0.2);
+                background-color: $color-White;
+                .bi {
+                    .icon {
+                        @include background-name-ext-repeat-poistion('bi-genius', svg, no-repeat, 0 0);
+                    }
+                }
+            }
+        }
+    }
+    #container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.modal-nav {
+    
+    &.modal.fade .modal-dialog {
+        margin: 0;
+        width: 300px;
+        float: right;
+        height: 100%;
+        -webkit-transform: translate(25%,0);
+        -ms-transform: translate(25%,0);
+        -o-transform: translate(25%,0);
+        transform: translate(25%,0);
+    }  
+    &.modal.in .modal-dialog {
+        -webkit-transform: translate(0,0);
+        -ms-transform: translate(0,0);
+        -o-transform: translate(0,0);
+        transform: translate(0,0);
+    }      
+    .modal-body {
+        background: #fff;
+        min-height: 100%;
+        padding: 0;
+    }
+    .close {
+        position: fixed;
+        top: 15px;
+        right: 318px;
+        opacity: 1;
+    }
+    .profile {
+        height: 147px;
+        @include background-name-ext-repeat-poistion('nav-bg', svg, no-repeat, 0 0);
+        background-size: cover;
+        padding: 40px 16px 0 92px;
+        position: relative;
+        .icon {
+            position: absolute; top: 40px; left: 16px;
+            width: 60px; height: 60px;
+            border-radius: 30px;
+            overflow: hidden;
+            img {
+                max-width: 100%;
+            }
+        }
+        .info {
+            .name {
+                @include font-size-color-weight($typo-size-18, $color-Dark, 700);
+                line-height: 21px;
+                padding-top: 9px;
+            }
+            .team {
+                @include font-size-color-weight($typo-size-13, $color-Black, 400);
+                line-height: 16px;
+                padding-top: 8px;
+            }
+        }
+    }
+    .util {
+        margin: 16px 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+        background-color: #fff9e6;
+        font-size: 0;
+        
+        .btn {
+            width: 50%; height: 44px;
+            text-decoration: none;
+            position: relative;
+            i {
+                vertical-align: top;
+                margin: 2px 5px 0 0;
+            }
+            span {
+                @include font-size-color-weight($typo-size-14, $color-Dark, 700);
+                line-height: 19px;
+            }
+            &:before {
+                @include contentReset(); 
+                width: 2px; height: 12px;
+                background-color: rgba(0, 0, 0, 0.1);
+                position: absolute; top: 50%; left: 0;
+                @include translateY(-50%);
+            }
+            &:first-child:before {
+                display: none;
+            }
+        }
+    }
+    .menu {
+        padding: 16px 24px;
+        
+        ul.d1 {
+            & > li {
+                border-bottom: solid 1px $color-Light-box-line;
+                & > a { 
+                    display: block;
+                    @include font-init('EduwillPassBold');
+                    @include font-size-color-weight($typo-size-18, $color-Black, 400);
+                    line-height: 60px;
+                    letter-spacing: 0;
+                    position: relative;
+                    &:after {
+                        @include contentReset();
+                        width: 21px; height: 21px;
+                        @include background-name-ext-repeat-poistion('icon-arrow-gray', svg, no-repeat, 0 0);
+                        @include rotate(90deg);
+                        position: absolute; top: 20px; right: 0;
+                    }
+                    &.nodepth:after {
+                        display: none;
+                    }
+                    &.open {
+                        & + ul.d2 {
+                            display: block;
+                        }
+                        &:after {
+                            @include rotate(0deg);
+                        }
+                    }
+                }
+            }
+        }
+        ul.d2 {
+            border-top: solid 1px $color-Light-box-line;
+            display: none;
+            overflow: hidden;
+            & > li {
+                & > a {
+                    display: block;
+                    padding-left: 20px;
+                    @include font-size-color-weight($typo-size-14, $color-Black, 400);
+                    line-height: 44px;
+                    &:focus,
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .logout {
+        padding: 16px 24px 32px;
+        .btn {
+            height: 32px;
+            border-radius: 3px;
+            border: solid 1px #010101;
+            background-color: $color-White;
+            @include font-size-color-weight($typo-size-12, $color-Dark, 600);
+        }
+    }
+}
+
+@-webkit-keyframes slide-bottom {
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+              opacity: 0;
+    }
+  }
+@keyframes slide-bottom {
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+              opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+              opacity: 0;
+    }
+  }
+  
