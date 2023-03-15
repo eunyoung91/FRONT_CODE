@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>에듀윌 그룹웨어(Genius)</title>
+
+	<!-- favicon files -->
+	<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+	<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+	<!-- css files -->
+	<!-- layout css -->
+	<link rel="stylesheet"
+		href="https://img.eduwill.net/resources/genius/dev/plugins/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/genius/dev/css/essentials.css" />
+	<link rel="stylesheet" href="css/genius.css" />
+
+
+	<!-- javascript files -->
+	<script type="text/javascript">
+		var plugin_path = '//img.eduwill.net/resources/genius/live/plugins/';
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/js/jquery.easyui.min.js" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+	<!-- validation -->
+	<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.form.min.js"
+		type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.validation.min.js"
+		type="text/javascript"></script>
+
+	<script src="//img.eduwill.net/resources/genius/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+	<!-- 토스트메시지 -->
+	<link href="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.css" rel="stylesheet"
+		type="text/css" />
+	<script src="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+	<!-- 컨펌모달 -->
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.css">
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+	<!-- print -->
+	<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/printThis/printThis.js">
+	</script>
+
+	<!-- editable -->
+	<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/bootstrap-editable.min.js">
+	</script>
+
+	<!-- Fullcalendar -->
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.css" />
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.print.css"
+		media="print" />
+	<script src="//img.eduwill.net/resources/genius/live/plugins/moment.min.js" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.js"
+		type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/lang-all.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+	<!-- CKEditor -->
+	<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js">
+	</script>
+
+	<script type="text/javascript">
+		function pagePrint() {
+			$('#pagePrint').printThis();
+		}
+
+		$(document).ready(function () {
+			/** Bootstrap Tooltip **/
+			$("[data-toggle=tooltip]").tooltip();
+		})
+	</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+	<!-- wrapper -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- hd-wrap -->
+		<section class="hd-wrap">
+			<div class="hd-wrap-inner">
+				<div class="logo">
+					<a href="">지니어스</a>
+				</div>
+				<div class="gnb">
+					<ul>
+						<li><a href="">전자결재</a></li>
+						<li><a href="">전사공지</a></li>
+						<li><a href="">업무요청</a></li>
+						<li><a href="">인사관리</a></li>
+						<li><a href="">지원관리</a></li>
+					</ul>
+				</div>
+				<div class="comp-right">
+
+					<div class="logout">
+						<button class="btn btn-g-link">로그아웃</button>
+					</div>
+					<div class="state">
+						<span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+						<!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+						<div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+							<div class="menu-tootip-inner">
+								<div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+								<div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+								<div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="organization">
+						<span><button class="btn btn-g-link btn-setting">관리자</button></span>
+						<span><button class="btn btn-g-link btn-person">조직도</button></span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="hd-wrap-expand" style="display: none;">
+			<div class="hd-wrap-expand-inner">
+				<div class="link">
+					<a herf="">결재문서 작성</a>
+					<a herf="">결재하기</a>
+					<a herf="">수신함</a>
+					<a herf="">매출/예산 계획 제출</a>
+				</div>
+				<div class="link">
+					<a herf="">공지사항</a>
+					<a herf="">에듀윌러 소식</a>
+					<a herf="">에듀윌 스타</a>
+					<a herf="">꿈의 직장</a>
+				</div>
+				<div class="link">
+					<a herf="">마케팅</a>
+					<a herf="">총무</a>
+					<a herf="">IT</a>
+					<a herf="">법무</a>
+				</div>
+				<div class="link">
+					<a herf="">인사정보</a>
+					<a herf="">평가</a>
+					<a herf="">교육</a>
+					<a herf="">자주 묻는 질문</a>
+				</div>
+				<div class="link">
+					<a herf="">힐링큐브</a>
+					<a herf="">E-스퀘어</a>
+					<a herf="">차량배차</a>
+					<a herf="">마음,쉼</a>
+				</div>
+			</div>
+		</div>
+		<!-- // hd-wrap -->
+
+		<!-- aside -->
+		<aside id="aside">
+			<div class="aside-loaction">
+				<strong>아이템별매출조회</strong>
+				<button class="btn-collapse">접기</button>
+			</div>
+			<nav id="sideNav">
+				<ul class="nav nav-list d1">
+					<li class="d1 active">
+						<a href="10.1.아이템별매출조회.아이템분류설정.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>아이템분류설정</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.2.아이템별매출조회.아이템별목표설정.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>아이템별 목표 설정</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.3.아이템별매출조회.실적입력및마감.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>실적입력 및 마감</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.4.아이템별매출조회.관리자실적입력및마감.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>관리자 실적입력</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.5.아이템별매출조회.목표및실적.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>목표 및 실적</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.6.아이템별매출조회.아이템별목표및실적.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>아이템별 목표 및 실적</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="10.7.아이템별매출조회.권한설정.html" class="d1">
+							<i class="main-icon fa fa-table"></i>
+							<span>권한설정</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<div id="expand-wrap" style="display: none;">
+			<button class="btn-expand">열기</button>
+		</div>
+		<!-- // aside -->
+
+		<!-- middle -->
+		<section id="middle">
+
+			<!-- content -->
+			<div id="content" class="padding-20">
+				<div class="container section-search-form section-search-form-bg">
+					<div class="middle-location">
+						<a href="/" class="home">홈</a>
+						<a href="#">아이템별 매출 조회</a>
+						<a href="#">아이템분류설정</a>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="panel">
+						<div class="panel-body">
+							<ul class="nav nav-tabs tab-style-1">
+								<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">사업단위별 관리
+										아이템</a></li>
+								<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">집계단위 수정</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<!-- tabs content -->
+								<div id="tab_1" class="tab-pane active">
+									<div class="row margin-top-40">
+										<div class="col-md-3">
+											<h5 class="bul-1">1. 사업단위 선택</h5>
+											<div class="table-responsive">
+												<table class="table table-col margin-bottom-20">
+													<colgroup>
+														<col style="width: 50px;">
+														<col style="width: auto;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th></th>
+															<th>사업단위</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-1"></td>
+															<td><label for="radio1-1">고객서비스부문</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-2"></td>
+															<td><label for="radio1-2">학원사업부문</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-3"></td>
+															<td><label for="radio1-3">출판사업부문</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-4"></td>
+															<td><label for="radio1-4">평생/사회교육원</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-5"></td>
+															<td><label for="radio1-5">국비사업</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio1-6"></td>
+															<td><label for="radio1-6">제휴사업</label></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<h5 class="bul-1">2. 아이템 선택</h5>
+											<div class="table-responsive">
+												<table class="table table-col margin-bottom-20">
+													<colgroup>
+														<col style="width: 50px;">
+														<col style="width: 50%;">
+														<col style="width: 50%;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th><input type="checkbox" name="checkAll" id="checkAll">
+															</th>
+															<th>아이템</th>
+															<th>집계단위</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="checkbox" name="check" id="check1"></td>
+															<td><label for="check1">7급공무원</label></td>
+															<td><label for="check1">일반공무원</label></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check2"></td>
+															<td><label for="check2">9급공무원</label></td>
+															<td><label for="check2">일반공무원</label></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check3"></td>
+															<td><label for="check3">군무원</label></td>
+															<td><label for="check3">일반공무원</label></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check4"></td>
+															<td><label for="check4">공무원영단어</label></td>
+															<td><label for="check4">일반공무원</label></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check5"></td>
+															<td><label for="check5">컴퓨터활용능력</label></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check6"></td>
+															<td><label for="check6">정보처리기사</label></td>
+															<td></td>
+														</tr>
+														<tr>
+															<td><input type="checkbox" name="check" id="check7"></td>
+															<td><label for="check7">자소서&면접</label></td>
+															<td></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="btnarea text-right">
+												<button type="button" class="btn btn-default">집계단위수정</button>
+												<button type="button"
+													class="btn btn-default margin-left-10">집계단위삭제</button>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<h5 class="bul-1">3. 사업단위 선택</h5>
+											<div class="table-responsive">
+												<table class="table table-col margin-bottom-20">
+													<colgroup>
+														<col style="width: 50px;">
+														<col style="width: auto;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th></th>
+															<th>사업단위</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-1"></td>
+															<td><label for="radio3-1">일반공무원</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-2"></td>
+															<td><label for="radio3-2">IT자격증</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-3"></td>
+															<td><label for="radio3-3">공인중개사</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-4"></td>
+															<td><label for="radio3-4">자격증</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-5"></td>
+															<td><label for="radio3-5">취업</label></td>
+														</tr>
+														<tr>
+															<td><input type="radio" name="radio" id="radio3-6"></td>
+															<td><label for="radio3-6">기타</label></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="btnarea text-right">
+												<button type="button" class="btn btn-dark">취소</button>
+												<button type="button" class="btn btn-success margin-left-10">저장</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="tab_2" class="tab-pane">
+									<div class="row margin-top-40">
+										<div class="col-md-6">
+											<div class="table-responsive">
+												<table class="table table-col margin-bottom-20">
+													<colgroup>
+														<col style="width: 50%;">
+														<col style="width: 50%;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th>집계단위 선택</th>
+															<th>편집</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>일반공무원</td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-dark">삭제</button>
+																<button type="button"
+																	class="btn btn-sm btn-danger">수정</button>
+															</td>
+														</tr>
+														<tr>
+															<td>IT자격증</td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-dark">삭제</button>
+																<button type="button"
+																	class="btn btn-sm btn-danger">수정</button>
+															</td>
+														</tr>
+														<tr>
+															<td><input type="text" class="form-control full"
+																	value="공인중개사"></td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-success">저장</button>
+															</td>
+														</tr>
+														<tr>
+															<td>자격증</td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-dark">삭제</button>
+																<button type="button"
+																	class="btn btn-sm btn-danger">수정</button>
+															</td>
+														</tr>
+														<tr>
+															<td>취업</td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-dark">삭제</button>
+																<button type="button"
+																	class="btn btn-sm btn-danger">수정</button>
+															</td>
+														</tr>
+														<tr>
+															<td>기타</td>
+															<td>
+																<button type="button"
+																	class="btn btn-sm btn-dark">삭제</button>
+																<button type="button"
+																	class="btn btn-sm btn-danger">수정</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-5">
+											<input type="text" class="form-control full" placeholder="내용을 입력해주세요.">
+										</div>
+										<div class="col-md-1 padding-left-0">
+											<button type="button" class="btn btn-dark full">신규등록</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+	</div>
+	<!--  //content -->
+	</section>
+	<!-- // middle -->
+	</div>
+	<!-- // wrapper -->
+
+</body>
+
+</html>

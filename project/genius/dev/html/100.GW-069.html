@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->	
+	<section id="middle">
+		
+		<div id="content" class="padding-20"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">평가</a>
+					<a href="#">목표수립</a>
+					<a href="#">역량목표</a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="/objective/competence">
+						<label for="toyear" class="width-100 text-center weight-800">연도</label>
+						<select name="toyear" id="toyear" class="form-control width-100">
+						<option value="2021">2021</option><option value="2019">2019</option><option value="2018">2018</option></select>
+						<select name="dept_idx" id="dept_idx" class="form-control">
+						<option value="239">플랫폼개발2팀</option></select>
+						<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+						
+					</form>
+				</div>
+			</div>
+			
+			<div class="section-manage row">
+				<div class="col-md-12 padding-0">
+					<div class="panel panel-default">
+						<div class="panel-body" id="divTabBody">
+		
+		
+		
+		
+		
+							<div class="tab-content">
+								<div id="ttab1l_nobg" class="tab-pane active">
+									<form name="frmObjective" id="frmObjective" method="post" action="">
+										<input type="hidden" name="ass_idx" value="">
+										<input type="hidden" name="toyear" value="2021">
+										<input type="hidden" name="dept_idx" value="239">
+										<input type="hidden" name="type_cd" value="SC003">
+										
+										<div class="table-responsive table-basic">
+											
+												<table cellpadding="0" cellspacing="0" class="table table-bordered table-row margin-bottom-20" summary="소속, 직책, 이름, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표" style="width: 600px; float: right; font-size: 13px;">
+													<caption>기본정보</caption>
+													<colgroup>
+														<col style="width: 20%;">
+														<col style="width: 30%;">
+														<col style="width: 20%;">
+														<col style="width: 30%;">
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">1차 평가</th>
+															<td class="1st-assessor"></td>
+															<th scope="row">2차 평가</th>
+															<td class="2nd-assessor"></td>
+														</tr>
+													</tbody>
+												</table>
+											
+											
+											<table class="table table-bordered table-row" summary="소속, 직책, 이름, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">						
+												<caption>기본정보</caption>
+												<colgroup>
+													<col style="width: 10%;">
+													<col style="width: 20%;">
+													<col style="width: 10%;">
+													<col style="width: 20%;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<th scope="row">소속</th>
+														<td class="team">플랫폼개발2팀</td>
+														<th scope="row">이름 / 직책</th>
+														<td class="rank">김현경 매니저</td>
+														<th scope="row">담당업무</th>
+														<td class="my-work">
+															<input type="text" class="text form-control full" placeholder="담당업무 입력" name="assignment" value="" maxlength="100">										
+														</td>
+													</tr>
+													
+												</tbody>
+											</table>
+										</div>
+							
+										<div class="table-responsive table-objective"><!-- table-objective -->
+											<table class="table table-bordered table-col" summary="구분, 역량, 정의로 구분되는 표">
+												<caption>역량목표 목록</caption>
+												<colgroup>
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: auto;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">구분</th>
+														<th scope="col">역량</th>
+														<th scope="col">정의</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+														
+														
+															<tr class="item-fixed">
+																<th scope="row" rowspan="3">
+																	<span data-toggle="tooltip" title="" data-original-title="전 직원이 갖추어야 할 공통 핵심 역량">
+																		전사공통 핵심역량 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+																	</span>
+																</th>
+																<td>
+																	실행력 
+																	<input type="hidden" name="competence" value="실행력">
+																	<input type="hidden" name="kpi_type_cd" value="SC001">
+																	<input type="hidden" name="seq" value="1">
+																</td>
+																<td class="text-left">즉시 한다, 반드시 한다, 될 때까지 한다. <input type="hidden" name="define" value="즉시 한다, 반드시 한다, 될 때까지 한다."> </td>
+															</tr>
+															<tr class="item-fixed">
+																<td>
+																	디테일 
+																	<input type="hidden" name="competence" value="디테일">
+																	<input type="hidden" name="kpi_type_cd" value="SC001">
+																	<input type="hidden" name="seq" value="2">
+																</td>
+																<td class="text-left">업무에 실수가 없고, 마지막 순간까지 최고의 완성도를 추구한다. <input type="hidden" name="define" value="업무에 실수가 없고, 마지막 순간까지 최고의 완성도를 추구한다."></td>
+															</tr>
+															<tr class="item-fixed">
+																<td>
+																	피드백 
+																	<input type="hidden" name="competence" value="피드백">
+																	<input type="hidden" name="kpi_type_cd" value="SC001">
+																	<input type="hidden" name="seq" value="3">
+																</td>
+																<td class="text-left">업무 진행 상황과 결과를 신속하고 정확하게 소통하고 공유한다. <input type="hidden" name="define" value="업무 진행 상황과 결과를 신속하고 정확하게 소통하고 공유한다."></td>
+															</tr>
+															<tr>
+																<th scope="row">
+																	<span data-toggle="tooltip" title="" data-original-title="소속 직책이 갖추어야 할 직책 역량">
+																		직책표준 역량 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+																	</span>
+																</th>
+																<td>
+																	<input type="hidden" name="kpi_type_cd" value="SC002">
+																	<input type="hidden" name="seq" value="4">
+																	<input type="text" class="text form-control half required" placeholder="" value="" name="competence" maxlength="100">
+																	<button type="button" class="btn btn-sm btn-success nomargin" name="btnGrade" data-seq="3">선택</button>
+																</td>
+																<td><input type="text" class="text form-control full required" placeholder="" value="" name="define" maxlength="250"></td>
+															</tr>
+															<tr>
+																<th scope="row">
+																	<span data-toggle="tooltip" title="" data-original-title="해당 직무에 갖추어야 할 직무 역량">
+																		직무 역량 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+																	</span>
+																</th>
+																<td>
+																	<input type="hidden" name="kpi_type_cd" value="">
+																	<input type="hidden" name="seq" value="5">
+																	<input type="text" class="text form-control half required" placeholder="" value="" name="competence" maxlength="100">
+																	<button type="button" class="btn btn-sm btn-success nomargin" name="btnIndi" data-seq="4">선택</button>										
+																</td>
+																<td><input type="text" class="text form-control full required" placeholder="" value="" name="define" maxlength="250"></td>
+															</tr>
+														
+													
+												</tbody>
+											</table>
+										</div>
+													
+										<div class="clearfix margin-top-50 text-center">
+											<button type="button" class="btn btn-lg width-120 btn-primary" id="btnSave">저장</button>
+											<button type="button" class="btn btn-lg width-150 btn-teal" id="btnPreview" data-view_count="0">미리보기/인쇄</button>						
+											<button type="button" class="btn btn-lg width-120 btn-danger" id="btnApply">제출</button>
+										</div>
+										
+										
+										
+									</form>
+								</div>	
+							</div>
+							
+							
+							<!-- Modal : myObjectivePreview -->
+							<div id="myObjectivePreview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+									</div>
+								</div>
+							</div>
+							<!-- // Modal -->
+							
+							
+							<script type="text/javascript">
+								var type_cd = "";
+								$([{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"책임감","DEFINE":"자신에게 주어진 과업과 역할을 충실히 수행하며, 사소한 내용까지도 치밀하게 처리한다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"판단력","DEFINE":"합리적인 사고에 의하여 일정한 논리나 기준에 따라 판정한다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"순발력","DEFINE":"예기치 못한 돌발적 상황이 발생할 경우 침착하고 신속하게 대응한다"},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"혁신마인드","DEFINE":"기존 방식 외 새로운 방법을 연구/모색하여 업무에 활용한다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"도전 마인드","DEFINE":"새롭고 어려운 목표에 끊임없이 도전하여 지속적 발전을 위해 노력한다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"적극성","DEFINE":"조직의 일원으로서 부서 내 업무에 적극 동참하고, 타인 및 타 팀과의 연관업무에도 적극 협력한다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"자기계발","DEFINE":"자신의 강점·약점을 잘 파악하여 보완하기 위해 자기계발 노력을 기울인다."},{"SUBCD":"SC003","RFVAL2":"열정","COMPETENCE":"업무 추진력","DEFINE":"적극적인 문제해결 노력을 통해서 주어진 업무를 실행한다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"협상력","DEFINE":"자신의 주장을 합리적으로 설득하여 양자가 이득이 될 수 있도록 합의를 도출해 낸다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"유연성","DEFINE":"환경의 변화를 쉽게 받아들이고 자신을 변화시킨다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"고객지향성","DEFINE":"자신이 관련하는 모든 업무를 고객의 입장에서  생각한다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"팀워크","DEFINE":"조직에 유익한 아이디어 및 정보를 공유하고 긴밀히 협력한다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"대인관계","DEFINE":"다른 사람들과 원만한 관계를 유지하고, 적절한 말과 행동 등으로 타인에게 믿음을 준다."},{"SUBCD":"SC004","RFVAL2":"공감","COMPETENCE":"갈등관리","DEFINE":"다자간의 긴장 관계를 완화하여 업무 진행이 지속적으로 이루어지게 한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"상품지식","DEFINE":"판매하는 상품에 대해 완벽한 이해를 하고 있다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"창의성","DEFINE":"여러 유형의 상황과 변화하는 환경에 대응함에 있어 새로운 접근방식을 추구하고 이를 업무에 적용한다. "},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"변화지향성","DEFINE":"변화의 필요성에 대한 인식을 바탕으로 부서(팀) 내의 변화를 자극하고 분위기를 쇄신한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"전략적사고","DEFINE":"시스템적인 관점에서 문제를 해결하며 조직의 입장에서 최적의 대안을 마련한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"정보수집력","DEFINE":"필요한 정보가 무엇인지 명확히 인식하고, 정보를 어디에서 어떻게 수집해야 할 지 알고 신속하게 획득한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"정확성","DEFINE":"업무를 처리함에 있어 일의 결과가 착오없이 명확하게 나타나도록 일의 끝맺음이  확실하다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"위기관리능력","DEFINE":"업무 중 예상하지 못한 환경변화와 돌발적 사태를 가정하여 사전에 대응방안을 수립할 수 있다. "},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"내부 자원관리","DEFINE":"회사운영에 필요한 인적, 물적(자재, 설비 등)자원을 명확하게 파악하고 이를 체계적으로 관리 · 운영한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"재무분석","DEFINE":"중요한 재무 정보를 활용하여 회사에 적합한 해결책을 선택하고 평가하며, 재무적 문제나 기회를 찾아낸다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"기획력","DEFINE":"목표달성 전략을 체계적으로 제시하고 구체적으로 추진전략을 기획한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"문제해결","DEFINE":"발생하는 문제에 대한 정확한 원인을 파악하고, 적절한 정보 및 경영자원을 활용하여 적기에 문제를 해결/처리한다."},{"SUBCD":"SC005","RFVAL2":"성과","COMPETENCE":"전문성","DEFINE":"해당분야에 있어서 새로운 지식 및 기술을 습득하고  경험을  풍부히 가진다."}]).each(function(i) {
+									var newRow = '';
+									var th = '';		
+									if(type_cd != this.SUBCD) {
+										th = '<th scope="row" rowspan="1">'+ this.RFVAL2 +'</th>';	
+										type_cd = this.SUBCD;
+									}
+									newRow += '	<tr class='+ this.SUBCD +'>' + th;
+									newRow += '		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio" /> '+ this.COMPETENCE +'</label></td>';
+									newRow += '		<td class="text-left">'+ this.DEFINE +' </td>';
+									newRow += '	</tr>';
+									
+									$("#tblIndicator tbody tr").last().after(newRow);
+									var rowspan = $("#tblIndicator tbody ." + this.SUBCD).length;
+									$("#tblIndicator tbody ." + this.SUBCD).first().find('th').prop("rowspan", rowspan);
+								});
+								
+								$(document).ready(function() {
+									// 아이템 선택 
+									$("input[name='rdoItem']").on("click", function() {
+										$("#tblIndicator tbody tr").removeClass("item-select");
+										$(this).parents('tr').addClass("item-select");
+									});
+									
+									// 모달호출
+									$("button[name='btnIndi']").on("click", function() {
+										$("#btnSelected").data("seq", $(this).data("seq"));
+										$("input[name='rdoItem']").prop("checked", false);
+										$("#tblIndicator tbody tr").removeClass("item-select");
+										$("#capabilitySelect").modal('show');
+									});
+									
+									// 선택버튼 클릭
+									$("#btnSelected").on("click", function() {
+										var seq = $(this).data("seq");
+										var competence = $.trim($("input[name='rdoItem']:checked").parents('tr').find('td').first().text());
+										var define = $("input[name='rdoItem']:checked").parents('tr').find('td').last().text();			
+										$("input[name='competence']").eq(seq).val(competence).trigger('change');
+										$("input[name='define']").eq(seq).val(define).trigger('change');
+										$("#capabilitySelect").modal('hide');
+									});
+									
+									// 모달호출
+									$("button[name='btnGrade']").on("click", function() {
+										$("#btnSelected2").data("seq", $(this).data("seq"));
+										$("input[name='rdoItem3']").prop("checked", false);
+										$("#tblIndicator2 tbody tr").removeClass("item-select");
+										$("#capabilitySelect2").modal('show');
+									});
+									
+									// 선택버튼 클릭
+									$("#btnSelected2").on("click", function() {
+										var seq = $(this).data("seq");
+										var competence = $.trim($("input[name='rdoItem2']:checked").parents('td').find('label').text());
+										var define = $("input[name='rdoItem2']:checked").parents('tr').find('td').last().text();			
+										$("input[name='competence']").eq(seq).val(competence).trigger('change');
+										$("input[name='define']").eq(seq).val(define).trigger('change');
+										$("#capabilitySelect2").modal('hide');
+									});
+								});
+							</script>
+							
+							<!-- Modal : capabilitySelect -->
+							<div id="capabilitySelect" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog" style="width: 1100px;">
+									<div class="modal-content">
+									
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h3 class="modal-title" id="myModalLabel">역량목표 - 직무수행 역량 선택</h3>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+										</div>
+							
+										<!-- Modal Body -->
+										<div class="modal-body">
+											<div class="section-objective margin-top-10"><!-- section-objective -->
+												<div class="table-responsive">
+													<table cellpadding="0" cellspacing="0" class="table table-bordered table-col table-mini" summary="구분, 역량, 정의로 구분되는 표" id="tblIndicator">
+														<caption>역량목표 목록</caption>
+														<colgroup>
+															<col style="width: 10%;">
+															<col style="width: 15%;">
+															<col style="width: auto;">
+														</colgroup>
+														<thead>
+															<tr>
+																<th scope="col">구분</th>
+																<th scope="col">항목</th>
+																<th scope="col">정의</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr></tr>	<tr class="SC003"><th scope="row" rowspan="8">열정</th>		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 책임감</label></td>		<td class="text-left">자신에게 주어진 과업과 역할을 충실히 수행하며, 사소한 내용까지도 치밀하게 처리한다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 판단력</label></td>		<td class="text-left">합리적인 사고에 의하여 일정한 논리나 기준에 따라 판정한다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 순발력</label></td>		<td class="text-left">예기치 못한 돌발적 상황이 발생할 경우 침착하고 신속하게 대응한다 </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 혁신마인드</label></td>		<td class="text-left">기존 방식 외 새로운 방법을 연구/모색하여 업무에 활용한다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 도전 마인드</label></td>		<td class="text-left">새롭고 어려운 목표에 끊임없이 도전하여 지속적 발전을 위해 노력한다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 적극성</label></td>		<td class="text-left">조직의 일원으로서 부서 내 업무에 적극 동참하고, 타인 및 타 팀과의 연관업무에도 적극 협력한다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 자기계발</label></td>		<td class="text-left">자신의 강점·약점을 잘 파악하여 보완하기 위해 자기계발 노력을 기울인다. </td>	</tr>	<tr class="SC003">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 업무 추진력</label></td>		<td class="text-left">적극적인 문제해결 노력을 통해서 주어진 업무를 실행한다. </td>	</tr>	<tr class="SC004"><th scope="row" rowspan="6">공감</th>		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 협상력</label></td>		<td class="text-left">자신의 주장을 합리적으로 설득하여 양자가 이득이 될 수 있도록 합의를 도출해 낸다. </td>	</tr>	<tr class="SC004">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 유연성</label></td>		<td class="text-left">환경의 변화를 쉽게 받아들이고 자신을 변화시킨다. </td>	</tr>	<tr class="SC004">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 고객지향성</label></td>		<td class="text-left">자신이 관련하는 모든 업무를 고객의 입장에서  생각한다. </td>	</tr>	<tr class="SC004">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 팀워크</label></td>		<td class="text-left">조직에 유익한 아이디어 및 정보를 공유하고 긴밀히 협력한다. </td>	</tr>	<tr class="SC004">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 대인관계</label></td>		<td class="text-left">다른 사람들과 원만한 관계를 유지하고, 적절한 말과 행동 등으로 타인에게 믿음을 준다. </td>	</tr>	<tr class="SC004">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 갈등관리</label></td>		<td class="text-left">다자간의 긴장 관계를 완화하여 업무 진행이 지속적으로 이루어지게 한다. </td>	</tr>	<tr class="SC005"><th scope="row" rowspan="12">성과</th>		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 상품지식</label></td>		<td class="text-left">판매하는 상품에 대해 완벽한 이해를 하고 있다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 창의성</label></td>		<td class="text-left">여러 유형의 상황과 변화하는 환경에 대응함에 있어 새로운 접근방식을 추구하고 이를 업무에 적용한다.  </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 변화지향성</label></td>		<td class="text-left">변화의 필요성에 대한 인식을 바탕으로 부서(팀) 내의 변화를 자극하고 분위기를 쇄신한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 전략적사고</label></td>		<td class="text-left">시스템적인 관점에서 문제를 해결하며 조직의 입장에서 최적의 대안을 마련한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 정보수집력</label></td>		<td class="text-left">필요한 정보가 무엇인지 명확히 인식하고, 정보를 어디에서 어떻게 수집해야 할 지 알고 신속하게 획득한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 정확성</label></td>		<td class="text-left">업무를 처리함에 있어 일의 결과가 착오없이 명확하게 나타나도록 일의 끝맺음이  확실하다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 위기관리능력</label></td>		<td class="text-left">업무 중 예상하지 못한 환경변화와 돌발적 사태를 가정하여 사전에 대응방안을 수립할 수 있다.  </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 내부 자원관리</label></td>		<td class="text-left">회사운영에 필요한 인적, 물적(자재, 설비 등)자원을 명확하게 파악하고 이를 체계적으로 관리 · 운영한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 재무분석</label></td>		<td class="text-left">중요한 재무 정보를 활용하여 회사에 적합한 해결책을 선택하고 평가하며, 재무적 문제나 기회를 찾아낸다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 기획력</label></td>		<td class="text-left">목표달성 전략을 체계적으로 제시하고 구체적으로 추진전략을 기획한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 문제해결</label></td>		<td class="text-left">발생하는 문제에 대한 정확한 원인을 파악하고, 적절한 정보 및 경영자원을 활용하여 적기에 문제를 해결/처리한다. </td>	</tr>	<tr class="SC005">		<td class="text-left"><label><input type="radio" name="rdoItem" class="radio"> 전문성</label></td>		<td class="text-left">해당분야에 있어서 새로운 지식 및 기술을 습득하고  경험을  풍부히 가진다. </td>	</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+							
+										<!-- Modal Footer -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-teal" data-dismiss="modal">취소</button>
+											<button type="button" class="btn btn-primary" id="btnSelected">선택</button>
+										</div>
+							
+									</div>
+								</div>
+							</div>
+							<!-- // Modal -->
+							
+							<!-- Modal : capabilitySelect -->
+							<div id="capabilitySelect2" class="modal modal-sm fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog" style="width: 1100px;">
+									<div class="modal-content">
+									
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h3 class="modal-title" id="myModalLabel">역량목표 - 직책표준 역량 선택</h3>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+										</div>
+							
+										<!-- Modal Body -->
+										<div class="modal-body">
+											<div class="section-objective margin-top-10"><!-- section-objective -->
+												<div class="table-responsive">
+													<table cellpadding="0" cellspacing="0" class="table table-bordered table-col table-mini" summary="구분, 역량, 정의로 구분되는 표" id="tblIndicator2">
+														<caption>역량목표 목록</caption>
+														<colgroup>
+															<col style="width: 20%;">
+															<col style="width: 15%;">
+															<col style="width: auto;">
+														</colgroup>
+														<thead>
+															<tr>
+																<th scope="col">구분</th>
+																<th scope="col">항목</th>
+																<th scope="col">정의</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr class="SC002">
+																<td rowspan="3"><strong>임원</strong><br>(직책자: COO/본부장,<br> 비직책자: 디렉터) </td>
+																<td class="text-left competence"><label><input type="radio" name="rdoItem2" class="radio"> 경영마인드</label></td>
+																<td class="text-left">조직의 목표를 달성하기 위해서 주인의식을 가진다.</td>
+															</tr>
+															<tr>
+																<td class="text-left "><label><input type="radio" name="rdoItem2" class="radio"> 조직관리</label></td>
+																<td class="text-left">회사의 영속적인 발전을 위하여 조직을 전략적으로 관리한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 성과주도</label></td>
+																<td class="text-left">경영자 마인드를 가지고 지속적인 성과를 창출하도록 방향을 제시하고 주도한다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>팀장</strong><br>(실장, 팀장, 원장, 부원장)</td>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 조직성과창출</label></td>
+																<td class="text-left">조직에 필요한 자원들을 전략적으로 활용하여 높은 수준의 조직 성과를 창출한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 혁신마인드</label></td>
+																<td class="text-left">기존 방식 외 새로운 방법을 연구/모색하여 업무에 활용한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 리더쉽</label></td>
+																<td class="text-left">조직의 구성원을 목표한 방향으로 이끌어가는 영향력을 발휘한다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>파트장 </strong></td>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 문제해결능력</label></td>
+																<td class="text-left">해결 가능한 대안을 모색하고 적시에 바람직한 의사 결정을 한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 전략적사고</label></td>
+																<td class="text-left">시스템적인 관점에서 문제를 해결하며 조직의 입장에서 최적의 대안을 마련한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 모범</label></td>
+																<td class="text-left">업무와 행동이 남보다 앞장서 주변 동료에게 모범이 된다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>팀원</strong><br>(매니저, PD)<br>*부파트장 팀원 해당</td>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 전문성</label></td>
+																<td class="text-left">담당 업무를 배우고 익혀 숙달하고 통달하고 있다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 주도성</label></td>
+																<td class="text-left">주어진 업무에 주도적으로 일을 수행한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left"><label><input type="radio" name="rdoItem2" class="radio"> 완결성</label></td>
+																<td class="text-left">담당 업무의 지식과 역량 측면에서 수준 이상의 전문적인 수행 능력을 보인다.</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+							
+										<!-- Modal Footer -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-teal" data-dismiss="modal">취소</button>
+											<button type="button" class="btn btn-primary" id="btnSelected2">선택</button>
+										</div>
+							
+									</div>
+								</div>
+							</div>
+							<!-- // Modal -->
+							
+							<div id="veiwDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h3 class="modal-title" id="myModalLabel">직책표준 역량</h3>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+										</div>
+										<!-- Modal Body -->
+										<div class="modal-body">
+											<div class="section-objective margin-top-10"><!-- section-objective -->
+												<p>에듀윌 전 임직원이 해당 직책에 반드시 지녀야 할 역량 입니다.</p>
+												<div class="table-responsive">
+													<table cellpadding="0" cellspacing="0" class="table table-bordered table-col table-mini" summary="구분, 직책, 직책정의, 필요역량으로 구분되는 표">
+														<caption>직책표준 역량 목록</caption>
+														<colgroup>
+															<col style="width: 10%;">
+															<col style="width: 22%;">
+															<col style="width: 15%;">
+															<col style="width: auto;">
+														</colgroup>
+														<thead>
+															<tr>
+																<th scope="col">구분</th>
+																<th scope="col">직책</th>
+																<th scope="col">필요 역량</th>
+																<th scope="col">정의</th>	
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<th rowspan="12">직책역량 </th>
+																<td rowspan="3"><strong>임원</strong><br>(직책자: COO/본부장,<br> 비직책자: 디렉터) </td>
+																<td class="text-left">경영마인드</td>
+																<td class="text-left">조직의 목표를 달성하기 위해서 주인의식을 가진다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">조직관리</td>
+																<td class="text-left">회사의 영속적인 발전을 위하여 조직을 전략적으로 관리한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">성과주도</td>
+																<td class="text-left">경영자 마인드를 가지고 지속적인 성과를 창출하도록 방향을 제시하고 주도한다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>팀장</strong><br>(실장, 팀장, 원장, 부원장)</td>
+																<td class="text-left">조직성과창출</td>
+																<td class="text-left">조직에 필요한 자원들을 전략적으로 활용하여 높은 수준의 조직 성과를 창출한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">혁신마인드</td>
+																<td class="text-left">기존 방식 외 새로운 방법을 연구/모색하여 업무에 활용한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">리더쉽</td>
+																<td class="text-left">조직의 구성원을 목표한 방향으로 이끌어가는 영향력을 발휘한다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>파트장 </strong></td>
+																<td class="text-left">문제해결능력</td>
+																<td class="text-left">해결 가능한 대안을 모색하고 적시에 바람직한 의사 결정을 한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">전략적사고</td>
+																<td class="text-left">시스템적인 관점에서 문제를 해결하며 조직의 입장에서 최적의 대안을 마련한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">모범</td>
+																<td class="text-left">업무와 행동이 남보다 앞장서 주변 동료에게 모범이 된다.</td>
+															</tr>
+															<tr>
+																<td rowspan="3"><strong>팀원</strong><br>(매니저, PD)<br>*부파트장 팀원 해당</td>
+																<td class="text-left">전문성</td>
+																<td class="text-left">담당 업무를 배우고 익혀 숙달하고 통달하고 있다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">주도성</td>
+																<td class="text-left">주어진 업무에 주도적으로 일을 수행한다.</td>
+															</tr>
+															<tr>
+																<td class="text-left">완결성</td>
+																<td class="text-left">담당 업무의 지식과 역량 측면에서 수준 이상의 전문적인 수행 능력을 보인다.</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div><!-- // section-objective -->
+										</div>
+							
+										<!-- Modal Footer -->
+										<div class="modal-footer">
+											<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="objectiveCopy" class="modal fade modal-sm modal-w-sm in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">업적 목표 복사하기</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form id="frmObjectiveCopy" name="frmObjectiveCopy" method="post" action="" novalidate="novalidate">
+							<div class="form-inline"> 
+								<select name="toyear" id="toyear" class="form-control width-100"></select>
+								<select name="dept_idx" id="dept_idx" class="form-control"></select>
+								<!-- <label class="checkbox"><input type="checkbox" id="type_cd" name="type_cd" value="SC001" /><i></i>상반기(1월~6월)</label>
+								<label class="checkbox"><input type="checkbox" id="type_cd" name="type_cd" value="SC002" /><i></i>연간(1월~12월</label> -->
+							</div>
+						</form>
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer clearfix">
+						<button type="button" class="btn btn-primary" id="btnSaveForCopy">복사</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var ajaxUtil = new AjaxUtil();
+			var callUrl = "";
+			var param = "";
+			
+			$(document).ready(function(){
+				// 이전 목표 복사하기
+				$("#objectiveCopy").on("shown.bs.modal", function(){
+					// 연도
+					var toyear = $("#frm1 #toyear :selected").val();
+					callUrl = "/common/ajaxToYearListForEmployee";
+					ajaxUtil.commonAjaxPost(callUrl, null, "#frmObjectiveCopy #toyear", toyear, null);
+					
+					//팀 조회
+					callUrl = "/objective/ajaxDeptListForPrevious";
+					param = { toyear : toyear , type_cd : "SC003"};
+					ajaxUtil.commonAjaxPost(callUrl, param, "#frmObjectiveCopy #dept_idx", "", null);
+				});
+				
+				//취소
+				$("#objectiveCopy").on("hide.bs.modal", function(){
+					$("#frmObjectiveCopy #toyear option").remove();
+					$("#frmObjectiveCopy #dept_idx option").remove();
+					$("#frmObjectiveCopy #type_cd").prop("checked", false);
+					$("#frmObjectiveCopy #type_cd").prop("disabled", false);
+				});
+				
+				//연도 체크박스 변경
+				$("#frmObjectiveCopy #toyear").on("change", function(){
+					var toyear = $(this).val();
+					callUrl = "/objective/ajaxDeptListForPrevious";
+					param = { toyear : toyear };
+					ajaxUtil.commonAjaxPost(callUrl, param, "#frmObjectiveCopy #dept_idx", "", "팀");
+				});
+				
+				// 복사
+				$("#btnSaveForCopy").on("click", function(){
+					bConfirm("목표 내용을 복사 하시겠습니까?").done(function(s) {
+						if(s) {
+							var dataArray = $("#frmObjectiveCopy").serializeArray();
+							
+							$.ajax({
+								type:"post"
+								,url:"/objective/ajaxCloneCompetenceForPrevious"
+								,data: dataArray
+								,dataType: "json"
+								,success: function(data) {
+									if(data.result == 1) {
+										fnc_toastMsgForResult("복사 되었습니다.");
+										
+										$("#objectiveCopy").modal("hide");
+										fnc_getTabBody();
+									} else {
+										fnc_toastMsgForWarning(data.resultMsg);
+									}
+								}
+								,error: function(responseJSON, status, err) {
+								}
+							});	
+						}
+					});
+					
+				});
+			});
+			
+			// 목표 정보 조회
+			function fnc_getObjectiveInfoForDept(){
+				var toyear = $("#frm1 #toyear :selected").val();
+				var dept_idx =  $("#frmObjectiveCopy #dept_idx :selected").val();
+				
+				param = { toyear : toyear, dept_idx : dept_idx, type_cd : "SC003" };
+				$.post("/objective/ajaxObjectiveInfoForDept", param, function(data) {
+					var isnth1 = data.ISNTH1;
+					var isnth2 = data.ISNTH2;
+					$("#frmObjectiveCopy #type_cd[value=SC001]").prop("checked", isnth1 == "Y" ? true : false);
+					$("#frmObjectiveCopy #type_cd[value=SC001]").prop("disabled", isnth1 == "Y" ? false : true);
+					$("#frmObjectiveCopy #type_cd[value=SC002]").prop("checked", isnth2 == "Y" ? true : false);
+					$("#frmObjectiveCopy #type_cd[value=SC002]").prop("disabled", isnth1 == "Y" ? false : true);
+				});
+			}
+		</script>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

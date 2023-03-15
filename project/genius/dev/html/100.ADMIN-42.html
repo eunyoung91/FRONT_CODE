@@ -1,0 +1,4951 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+
+		//가이드 클릭
+		$("#divInfo").on("click", function(){
+			var title = "※ 근무 스케줄 등록 가이드 보기 ▼"
+			if($("#divInfoContent").css("display") == "none") {
+				$("#divInfoContent").show();
+				title = "※ 근무 스케줄 등록 가이드 닫기 ▲"
+			} else {
+				$("#divInfoContent").hide();
+			}
+			$(this).find("span").text(title);
+		});
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+	<section class="hd-wrap">
+		<div class="hd-wrap-inner">
+			<div class="logo">
+				<a href="">지니어스</a>
+			</div>
+			<div class="gnb">
+				<ul>
+					<li><a href="">전자결재</a></li>
+					<li><a href="">전사공지</a></li>
+					<li><a href="">업무요청</a></li>
+					<li><a href="">인사관리</a></li>
+					<li><a href="">지원관리</a></li>
+				</ul>
+			</div>
+			<div class="comp-right">
+				
+				<div class="logout">
+					<button class="btn btn-g-link">로그아웃</button>
+				</div>
+				<div class="state">
+					<span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+					<!--
+					<span><i class="state-2"></i> 자리비움</span>
+					<span><i class="state-3"></i> 로그오프</span>
+					-->
+					<div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+						<div class="menu-tootip-inner">
+							<div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+							<div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+							<div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+						</div>
+					</div>
+				</div> 
+				<div class="organization">
+					<span><button class="btn btn-g-link btn-setting">관리자</button></span>
+					<span><button class="btn btn-g-link btn-person">조직도</button></span>
+				</div>               
+			</div>
+		</div>
+	</section>
+	<div class="hd-wrap-expand" style="display: none;">
+		<div class="hd-wrap-expand-inner">
+			<div class="link">
+				<a herf="">결재문서 작성</a>
+				<a herf="">결재하기</a>
+				<a herf="">수신함</a>
+				<a herf="">매출/예산 계획 제출</a>
+			</div>
+			<div class="link">
+				<a herf="">공지사항</a>
+				<a herf="">에듀윌러 소식</a>
+				<a herf="">에듀윌 스타</a>
+				<a herf="">꿈의 직장</a>
+			</div>
+			<div class="link">
+				<a herf="">마케팅</a>
+				<a herf="">총무</a>
+				<a herf="">IT</a>
+				<a herf="">법무</a>
+			</div>
+			<div class="link">
+				<a herf="">인사정보</a>
+				<a herf="">평가</a>
+				<a herf="">교육</a>
+				<a herf="">자주 묻는 질문</a>
+			</div>
+			<div class="link">
+				<a herf="">힐링큐브</a>
+				<a herf="">E-스퀘어</a>
+				<a herf="">차량배차</a>
+				<a herf="">마음,쉼</a>
+			</div>
+		</div>
+	</div>
+	<!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>메인 관리</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">공지사항 관리</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">배너 관리</a>
+						</li>
+						<li class="d2 active">
+							<a href="javascript:;" class="d2">일정 관리</a>
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		
+		<div id="content" class="padding-20">
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">공통</a>
+					<a href="#">메뉴 관리</a></a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="">
+						<div class="row">
+							<div class="col-xs-6">
+								<label for="" class="width-100 text-center weight-800">권한</label>
+								<select name="sAuth_cd" id="sAuth_cd" class="form-control" title="권한"><option value="">선택</option><option value="USER" data-rfval1="사용자">사용자</option><option value="CEO" data-rfval1="사용자">대표이사</option><option value="LEGAL" data-rfval1="사용자2">법무팀</option><option value="INSPECT" data-rfval1="사용자2">감사팀</option><option value="SYS" data-rfval1="사용자2">시스템팀</option><option value="GM" data-rfval1="사용자2">경영기획관리팀</option><option value="FINANCE" data-rfval1="사용자2">재무팀</option><option value="MANAGE" data-rfval1="사용자2">총무팀</option><option value="EDU" data-rfval1="관리자">교육관리</option><option value="ADMIN" data-rfval1="관리자">사이트관리(담당기획/개발)</option><option value="HR" data-rfval1="관리자">기본인사관리</option><option value="SSA" data-rfval1="관리자">인사관리(인턴/시용평가전용)</option><option value="SA" data-rfval1="관리자">인사관리(최고권한자)</option></select>
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+								<button type="button" class="btn btn-primary" id="btnSave">권한 저장</button>
+							</div>
+							<div class="col-xs-6 text-right">
+								<button type="button" class="btn btn-teal" id="btnSort">정렬수정</button>
+								<button type="button" class="btn btn-success" id="btnAdd">메뉴추가</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div class="tab-content padding-top-0">
+				<div class="container section-objective nopadding panel panel-light">
+					<div class="panel-body" id="divTabBody">
+		
+		
+		
+		
+		
+		
+		
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//전체선택
+				$("#allCheck").on("click", function(){
+					var b = $(this).is(":checked");
+					$("#frm2 input[name=idx]").prop("checked", b);
+				});
+				
+				//테이블 로우 폭 유지및 배경 색변경을 위함
+				var fixHelper = function(e, ui) {  
+					ui.children().each(function() {
+						$(this).width($(this).width());  
+						$(this).css("background-color", "#ccc");
+					});
+					return ui;
+				};
+				
+				//테이블 로우 배경 색 원복을 위함
+				var unFixHelper = function(ui) {
+					ui.children().each(function() {
+						var color = ($(this).closest("tr").data("level") == 0) ? "#e6f3ff" : "#fff";
+						$(this).css("background-color", "");
+						$(this).closest("tr").css("background-color", color);
+					});
+				};
+		
+				// 정렬
+				$("#sortTable > tbody").sortable({
+					helper : fixHelper,
+					stop: function(e, ui) {
+						unFixHelper(ui.item);
+						
+						var sortString = fnc_getSortString();
+						//fnc_saveSort(sortString);
+						$("#sortString").val(sortString);
+					}
+				}).disableSelection();
+				
+				//current Sort String
+				var currentSortString  = fnc_getSortString();
+				$("#currentSortString").val(currentSortString);
+			});
+			
+			function fnc_getSortString(){
+				var sortString = "";
+				$('input[name=sortSeq]').each( function(i) {
+					$(this).val(i+1);
+					var idx = $(this).siblings("input[name=sortIdx]").val();
+					if( i == 0 ) {
+						sortString += idx + "_" + $(this).val();
+					} else {
+						sortString += "," + idx + "_" + $(this).val();
+					}
+				});
+				return sortString;
+			}
+			
+			//정렬 저장
+			function fnc_saveSort(sortString){
+				var currentSortString = $("#currentSortString").val();
+				if(sortString != currentSortString) {
+					bConfirm("변경하시겠습니까?").done(function(s) {
+						if(s) {
+							$.ajax({
+								type : "post"
+								,async : false
+								,url : "/manage/menu/ajaxUpdateMngMenuSort"
+								,data : { sortString : sortString }
+								,dataType : "json"
+								,success : function(data) {
+									var result = data.result;
+									
+									if(result == 1){
+										fnc_toastMsgForResult("수정 되었습니다.");
+										//fnc_getTabBody();
+										/* $("span[id^=spanSeq]").each(function(i){
+											i++;
+											$(this).text(i);
+										}); */
+										$("#frm1").attr("action", "/manage/menu/mngMenu").submit();
+									} else {
+										fnc_toastMsgForWarning("실패 하였습니다.");
+										return false;
+									}
+								}
+								,error : function(data, status, err) {
+								}
+							});
+						}
+					});
+					
+				}
+			}
+		</script>
+		
+		
+		<div class="table-responsive">
+			<form id="frm2" name="frm2" method="post" action="">
+				<input type="hidden" id="auth_cd" name="auth_cd" value="">
+				<input type="hidden" id="currentSortString" name="currentSortString" value="90_1,91_2,180_3,92_4,93_5,94_6,95_7,96_8,97_9,98_10,99_11,155_12,175_13,168_14,123_15,125_16,124_17,126_18,179_19,181_20,38_21,41_22,187_23,68_24,69_25,70_26,71_27,72_28,73_29,42_30,151_31,152_32,161_33,173_34,83_35,79_36,81_37,85_38,86_39,87_40,88_41,80_42,43_43,44_44,45_45,211_46,46_47,47_48,74_49,49_50,50_51,51_52,75_53,76_54,77_55,78_56,89_57,82_58,1_59,2_60,154_61,3_62,4_63,5_64,6_65,7_66,8_67,9_68,10_69,11_70,12_71,13_72,14_73,15_74,16_75,17_76,18_77,19_78,20_79,21_80,22_81,23_82,24_83,25_84,26_85,136_86,27_87,28_88,29_89,30_90,31_91,32_92,33_93,34_94,36_95,37_96,137_97,39_98,54_99,127_100,67_101,55_102,56_103,138_104,139_105,140_106,141_107,186_108,142_109,143_110,144_111,57_112,58_113,35_114,59_115,60_116,145_117,146_118,147_119,207_120,132_121,195_122,196_123,197_124,133_125,134_126,135_127,208_128,209_129,182_130,176_131,177_132,163_133,167_134,164_135,178_136,190_137,185_138,191_139,192_140,198_141,199_142,200_143,201_144,202_145,203_146,204_147,206_148,205_149,40_150,148_151,53_152,66_153,64_154,100_155,101_156,102_157,156_158,149_159,153_160,162_161,174_162,65_163,84_164,150_165,61_166,62_167,165_168,63_169,188_170,189_171,193_172,194_173,210_174">
+				<input type="hidden" id="sortString" name="sortString" value="">
+				
+				<table id="sortTable" class="table table-bordered table-hover">
+					<caption>메뉴 목록</caption>
+					<colgroup>
+						<col style="width: 5%;">
+						<col style="width: 5%;">
+						<col style="width: 25%;">
+						<col style="width: 35%;">
+						<col style="width: 5%;">
+						<col style="width: 5%;">
+						<col style="width: 10%;">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col"><input type="checkbox" id="allCheck" name="allCheck" value="Y"></th>
+							<th scope="col">순서</th>
+							<th scope="col">메뉴명</th>
+							<th scope="col">경로</th>
+							<th scope="col">레벨</th>
+							<th scope="col">게시여부</th>
+							<th scope="col">관리</th>
+						</tr>
+					</thead>
+					<tbody class="ui-sortable">
+						
+							
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="90"></td>
+										<td>
+											<span id="spanSeq">1</span>
+											<input type="hidden" name="sortIdx" value="90">
+											<input type="hidden" name="sortSeq" value="1">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											꿈의직장 에듀윌
+										</td>
+										<td class="text-left">/board/BC001/index</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="90" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="90">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="90">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="91"></td>
+										<td>
+											<span id="spanSeq">2</span>
+											<input type="hidden" name="sortIdx" value="91">
+											<input type="hidden" name="sortSeq" value="2">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											Eduwill Way
+										</td>
+										<td class="text-left">/board/BC001/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="91" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="91">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="91">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="180"></td>
+										<td>
+											<span id="spanSeq">3</span>
+											<input type="hidden" name="sortIdx" value="180">
+											<input type="hidden" name="sortSeq" value="3">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											조직문화
+										</td>
+										<td class="text-left">/board/BC012/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="180" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="180">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="180">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="92"></td>
+										<td>
+											<span id="spanSeq">4</span>
+											<input type="hidden" name="sortIdx" value="92">
+											<input type="hidden" name="sortSeq" value="4">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											드림데이
+										</td>
+										<td class="text-left">/board/BC002/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="92" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="92">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="92">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="93"></td>
+										<td>
+											<span id="spanSeq">5</span>
+											<input type="hidden" name="sortIdx" value="93">
+											<input type="hidden" name="sortSeq" value="5">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌역
+										</td>
+										<td class="text-left">/board/BC003/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="93" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="93">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="93">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="94"></td>
+										<td>
+											<span id="spanSeq">6</span>
+											<input type="hidden" name="sortIdx" value="94">
+											<input type="hidden" name="sortSeq" value="6">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											힐링큐브&amp;수면실
+										</td>
+										<td class="text-left">/board/BC004/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="94" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="94">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="94">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="95"></td>
+										<td>
+											<span id="spanSeq">7</span>
+											<input type="hidden" name="sortIdx" value="95">
+											<input type="hidden" name="sortSeq" value="7">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											경조사 지원&amp;등록
+										</td>
+										<td class="text-left">/board/BC005/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="95" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="95">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="95">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="96"></td>
+										<td>
+											<span id="spanSeq">8</span>
+											<input type="hidden" name="sortIdx" value="96">
+											<input type="hidden" name="sortSeq" value="8">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											장기근속 포상
+										</td>
+										<td class="text-left">/board/BC006/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="96" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="96">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="96">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="97"></td>
+										<td>
+											<span id="spanSeq">9</span>
+											<input type="hidden" name="sortIdx" value="97">
+											<input type="hidden" name="sortSeq" value="9">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											복지포인트
+										</td>
+										<td class="text-left">/board/BC007/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="97" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="97">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="97">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="98"></td>
+										<td>
+											<span id="spanSeq">10</span>
+											<input type="hidden" name="sortIdx" value="98">
+											<input type="hidden" name="sortSeq" value="10">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											심리상담
+										</td>
+										<td class="text-left">/board/BC008/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="98" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="98">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="98">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="99"></td>
+										<td>
+											<span id="spanSeq">11</span>
+											<input type="hidden" name="sortIdx" value="99">
+											<input type="hidden" name="sortSeq" value="11">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											추가 복지제도
+										</td>
+										<td class="text-left">/board/BC009/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="99" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="99">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="99">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="155"></td>
+										<td>
+											<span id="spanSeq">12</span>
+											<input type="hidden" name="sortIdx" value="155">
+											<input type="hidden" name="sortSeq" value="12">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											사내인재추천
+										</td>
+										<td class="text-left">/board/BC010/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="155" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="155">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="155">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="175"></td>
+										<td>
+											<span id="spanSeq">13</span>
+											<input type="hidden" name="sortIdx" value="175">
+											<input type="hidden" name="sortSeq" value="13">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											연봉평가제도
+										</td>
+										<td class="text-left">/board/BC011/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="175" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="175">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="175">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="168"></td>
+										<td>
+											<span id="spanSeq">14</span>
+											<input type="hidden" name="sortIdx" value="168">
+											<input type="hidden" name="sortSeq" value="14">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌 사용설명서
+										</td>
+										<td class="text-left">https://docs.eduwill.net/x/a7Cg</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="168" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="168">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="168">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="123"></td>
+										<td>
+											<span id="spanSeq">15</span>
+											<input type="hidden" name="sortIdx" value="123">
+											<input type="hidden" name="sortSeq" value="15">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											전자결재
+										</td>
+										<td class="text-left">/apprv/apply/index</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="123" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="123">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="123">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="125"></td>
+										<td>
+											<span id="spanSeq">16</span>
+											<input type="hidden" name="sortIdx" value="125">
+											<input type="hidden" name="sortSeq" value="16">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											결재하기
+										</td>
+										<td class="text-left">/apprv/exec/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="125" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="125">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="125">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="124"></td>
+										<td>
+											<span id="spanSeq">17</span>
+											<input type="hidden" name="sortIdx" value="124">
+											<input type="hidden" name="sortSeq" value="17">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											결재문서 작성
+										</td>
+										<td class="text-left">/apprv/apply/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="124" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="124">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="124">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="126"></td>
+										<td>
+											<span id="spanSeq">18</span>
+											<input type="hidden" name="sortIdx" value="126">
+											<input type="hidden" name="sortSeq" value="18">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											수신함
+										</td>
+										<td class="text-left">/apprv/recept/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="126" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="126">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="126">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="179"></td>
+										<td>
+											<span id="spanSeq">19</span>
+											<input type="hidden" name="sortIdx" value="179">
+											<input type="hidden" name="sortSeq" value="19">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											참조문서함
+										</td>
+										<td class="text-left">/apprv/refer/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="179" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="179">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="179">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="181"></td>
+										<td>
+											<span id="spanSeq">20</span>
+											<input type="hidden" name="sortIdx" value="181">
+											<input type="hidden" name="sortSeq" value="20">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											지출결의서
+										</td>
+										<td class="text-left">/apprv/finance/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="181" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="181">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="181">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="38"></td>
+										<td>
+											<span id="spanSeq">21</span>
+											<input type="hidden" name="sortIdx" value="38">
+											<input type="hidden" name="sortSeq" value="21">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											인사관리
+										</td>
+										<td class="text-left">/attendance/index</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="38" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="38">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="38">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="41"></td>
+										<td>
+											<span id="spanSeq">22</span>
+											<input type="hidden" name="sortIdx" value="41">
+											<input type="hidden" name="sortSeq" value="22">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											내 인사정보
+										</td>
+										<td class="text-left">/hrcard/info</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="41" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="41">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="41">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="187"></td>
+										<td>
+											<span id="spanSeq">23</span>
+											<input type="hidden" name="sortIdx" value="187">
+											<input type="hidden" name="sortSeq" value="23">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											2020년 연말정산 문의
+										</td>
+										<td class="text-left">/qna/SC004/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="187" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="187">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="187">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="68"></td>
+										<td>
+											<span id="spanSeq">24</span>
+											<input type="hidden" name="sortIdx" value="68">
+											<input type="hidden" name="sortSeq" value="24">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											근태/휴가
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="68" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="68">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="68">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="69"></td>
+										<td>
+											<span id="spanSeq">25</span>
+											<input type="hidden" name="sortIdx" value="69">
+											<input type="hidden" name="sortSeq" value="25">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											내 근태관리
+										</td>
+										<td class="text-left">/attendance/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="69" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="69">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="69">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="70"></td>
+										<td>
+											<span id="spanSeq">26</span>
+											<input type="hidden" name="sortIdx" value="70">
+											<input type="hidden" name="sortSeq" value="26">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											내 연차현황
+										</td>
+										<td class="text-left">/anvact/mine/info</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="70" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="70">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="70">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="71"></td>
+										<td>
+											<span id="spanSeq">27</span>
+											<input type="hidden" name="sortIdx" value="71">
+											<input type="hidden" name="sortSeq" value="27">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											휴가신청
+										</td>
+										<td class="text-left">javascript:location.href='/apprv/apply/index';</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="71" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="71">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="71">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="72"></td>
+										<td>
+											<span id="spanSeq">28</span>
+											<input type="hidden" name="sortIdx" value="72">
+											<input type="hidden" name="sortSeq" value="28">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											휴가 결재하기
+										</td>
+										<td class="text-left">javascript:location.href='/approval/anvact/index';</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="72" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="72">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="72">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="73"></td>
+										<td>
+											<span id="spanSeq">29</span>
+											<input type="hidden" name="sortIdx" value="73">
+											<input type="hidden" name="sortSeq" value="29">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											휴가 수신함
+										</td>
+										<td class="text-left">javascript:location.href='/approval/dstrb/index';</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="73" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="73">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="73">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="42"></td>
+										<td>
+											<span id="spanSeq">30</span>
+											<input type="hidden" name="sortIdx" value="42">
+											<input type="hidden" name="sortSeq" value="30">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											근무 스케줄관리
+										</td>
+										<td class="text-left">/mngschedule/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="42" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="42">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="42">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="151"></td>
+										<td>
+											<span id="spanSeq">31</span>
+											<input type="hidden" name="sortIdx" value="151">
+											<input type="hidden" name="sortSeq" value="31">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											인사서비스
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="151" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="151">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="151">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="152"></td>
+										<td>
+											<span id="spanSeq">32</span>
+											<input type="hidden" name="sortIdx" value="152">
+											<input type="hidden" name="sortSeq" value="32">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											증명서 발급
+										</td>
+										<td class="text-left">/issue/info</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="152" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="152">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="152">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="161"></td>
+										<td>
+											<span id="spanSeq">33</span>
+											<input type="hidden" name="sortIdx" value="161">
+											<input type="hidden" name="sortSeq" value="33">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											급여명세서 조회
+										</td>
+										<td class="text-left">/payslip/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="161" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="161">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="161">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="173"></td>
+										<td>
+											<span id="spanSeq">34</span>
+											<input type="hidden" name="sortIdx" value="173">
+											<input type="hidden" name="sortSeq" value="34">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											건강보험피부양자 신청
+										</td>
+										<td class="text-left">/insur/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="173" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="173">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="173">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="83"></td>
+										<td>
+											<span id="spanSeq">35</span>
+											<input type="hidden" name="sortIdx" value="83">
+											<input type="hidden" name="sortSeq" value="35">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											2021년 연봉평가제도 문의
+										</td>
+										<td class="text-left">/qna/SC002/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="83" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="83">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="83">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="79"></td>
+										<td>
+											<span id="spanSeq">36</span>
+											<input type="hidden" name="sortIdx" value="79">
+											<input type="hidden" name="sortSeq" value="36">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											근태/휴가/조직 관리
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="79" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="79">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="79">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="81"></td>
+										<td>
+											<span id="spanSeq">37</span>
+											<input type="hidden" name="sortIdx" value="81">
+											<input type="hidden" name="sortSeq" value="37">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											근태관리
+										</td>
+										<td class="text-left">/mngattendance/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="81" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="81">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="81">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="85"></td>
+										<td>
+											<span id="spanSeq">38</span>
+											<input type="hidden" name="sortIdx" value="85">
+											<input type="hidden" name="sortSeq" value="38">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											연차현황 관리
+										</td>
+										<td class="text-left">/mnganvact/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="85" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="85">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="85">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="86"></td>
+										<td>
+											<span id="spanSeq">39</span>
+											<input type="hidden" name="sortIdx" value="86">
+											<input type="hidden" name="sortSeq" value="39">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											개인별 휴가 현황
+										</td>
+										<td class="text-left">/mngdayanvact/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="86" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="86">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="86">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="87"></td>
+										<td>
+											<span id="spanSeq">40</span>
+											<input type="hidden" name="sortIdx" value="87">
+											<input type="hidden" name="sortSeq" value="40">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											일별 휴가 현황
+										</td>
+										<td class="text-left">/mngempanvact/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="87" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="87">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="87">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="88"></td>
+										<td>
+											<span id="spanSeq">41</span>
+											<input type="hidden" name="sortIdx" value="88">
+											<input type="hidden" name="sortSeq" value="41">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											드림데이 현황
+										</td>
+										<td class="text-left">/mngdream/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="88" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="88">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="88">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="80"></td>
+										<td>
+											<span id="spanSeq">42</span>
+											<input type="hidden" name="sortIdx" value="80">
+											<input type="hidden" name="sortSeq" value="42">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인사정보 현황
+										</td>
+										<td class="text-left">/mnghrcard/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="80" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="80">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="80">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="43"></td>
+										<td>
+											<span id="spanSeq">43</span>
+											<input type="hidden" name="sortIdx" value="43">
+											<input type="hidden" name="sortSeq" value="43">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											인사 관리자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="43" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="43">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="43">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="44"></td>
+										<td>
+											<span id="spanSeq">44</span>
+											<input type="hidden" name="sortIdx" value="44">
+											<input type="hidden" name="sortSeq" value="44">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인사
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="44" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="44">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="44">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="45"></td>
+										<td>
+											<span id="spanSeq">45</span>
+											<input type="hidden" name="sortIdx" value="45">
+											<input type="hidden" name="sortSeq" value="45">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											조직도 관리
+										</td>
+										<td class="text-left">/admin/departmentManage</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="45" data-level="3" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="45">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="45">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="211"></td>
+										<td>
+											<span id="spanSeq">46</span>
+											<input type="hidden" name="sortIdx" value="211">
+											<input type="hidden" name="sortSeq" value="46">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											조직도 관리(new)
+										</td>
+										<td class="text-left">/manage/department/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="211" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="211">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="211">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="46"></td>
+										<td>
+											<span id="spanSeq">47</span>
+											<input type="hidden" name="sortIdx" value="46">
+											<input type="hidden" name="sortSeq" value="47">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											인사정보 관리
+										</td>
+										<td class="text-left">/manage/hrcard/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="46" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="46">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="46">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="47"></td>
+										<td>
+											<span id="spanSeq">48</span>
+											<input type="hidden" name="sortIdx" value="47">
+											<input type="hidden" name="sortSeq" value="48">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											근태
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="47" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="47">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="47">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="74"></td>
+										<td>
+											<span id="spanSeq">49</span>
+											<input type="hidden" name="sortIdx" value="74">
+											<input type="hidden" name="sortSeq" value="49">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											근태관리
+										</td>
+										<td class="text-left">/manage/attendance/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="74" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="74">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="74">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="49"></td>
+										<td>
+											<span id="spanSeq">50</span>
+											<input type="hidden" name="sortIdx" value="49">
+											<input type="hidden" name="sortSeq" value="50">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											근태 관리(종료)
+										</td>
+										<td class="text-left">/admin/employeeAttendanceManage</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="49" data-level="3" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="49">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="49">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="50"></td>
+										<td>
+											<span id="spanSeq">51</span>
+											<input type="hidden" name="sortIdx" value="50">
+											<input type="hidden" name="sortSeq" value="51">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											부서별 근태 현황(종료)
+										</td>
+										<td class="text-left">/admin/departmentAttendanceManage</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="50" data-level="3" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="50">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="50">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="51"></td>
+										<td>
+											<span id="spanSeq">52</span>
+											<input type="hidden" name="sortIdx" value="51">
+											<input type="hidden" name="sortSeq" value="52">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											개인별 근태 현황(종료)
+										</td>
+										<td class="text-left">/admin/personalAttendanceManage</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="51" data-level="3" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="51">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="51">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="75"></td>
+										<td>
+											<span id="spanSeq">53</span>
+											<input type="hidden" name="sortIdx" value="75">
+											<input type="hidden" name="sortSeq" value="53">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											휴가
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="75" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="75">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="75">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="76"></td>
+										<td>
+											<span id="spanSeq">54</span>
+											<input type="hidden" name="sortIdx" value="76">
+											<input type="hidden" name="sortSeq" value="54">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											연차현황 관리
+										</td>
+										<td class="text-left">/manage/anvact/mngAnvact</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="76" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="76">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="76">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="77"></td>
+										<td>
+											<span id="spanSeq">55</span>
+											<input type="hidden" name="sortIdx" value="77">
+											<input type="hidden" name="sortSeq" value="55">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											개인별 휴가 현황
+										</td>
+										<td class="text-left">/manage/anvact/mngEmpAnvact</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="77" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="77">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="77">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="78"></td>
+										<td>
+											<span id="spanSeq">56</span>
+											<input type="hidden" name="sortIdx" value="78">
+											<input type="hidden" name="sortSeq" value="56">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											일별 휴가 현황
+										</td>
+										<td class="text-left">/manage/anvact/mngDayAnvact</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="78" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="78">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="78">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="89"></td>
+										<td>
+											<span id="spanSeq">57</span>
+											<input type="hidden" name="sortIdx" value="89">
+											<input type="hidden" name="sortSeq" value="57">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											드림데이 사용현황
+										</td>
+										<td class="text-left">/manage/anvact/mngDream</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="89" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="89">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="89">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="82"></td>
+										<td>
+											<span id="spanSeq">58</span>
+											<input type="hidden" name="sortIdx" value="82">
+											<input type="hidden" name="sortSeq" value="58">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											연차촉진 대상자 관리
+										</td>
+										<td class="text-left">/manage/anvact/mngPromote</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="82" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="82">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="82">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="1"></td>
+										<td>
+											<span id="spanSeq">59</span>
+											<input type="hidden" name="sortIdx" value="1">
+											<input type="hidden" name="sortSeq" value="59">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가
+										</td>
+										<td class="text-left">/objective/achievement</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="1" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="1">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="1">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="2"></td>
+										<td>
+											<span id="spanSeq">60</span>
+											<input type="hidden" name="sortIdx" value="2">
+											<input type="hidden" name="sortSeq" value="60">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											멘토링 설문(멘토용)
+										</td>
+										<td class="text-left">/mentor/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="2" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="2">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="2">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="154"></td>
+										<td>
+											<span id="spanSeq">61</span>
+											<input type="hidden" name="sortIdx" value="154">
+											<input type="hidden" name="sortSeq" value="61">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											멘토링 설문(멘티용)
+										</td>
+										<td class="text-left">/mentee/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="154" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="154">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="154">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="3"></td>
+										<td>
+											<span id="spanSeq">62</span>
+											<input type="hidden" name="sortIdx" value="3">
+											<input type="hidden" name="sortSeq" value="62">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											인턴 업무실적표
+										</td>
+										<td class="text-left">/intern/selfass/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="3" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="3">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="3">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="4"></td>
+										<td>
+											<span id="spanSeq">63</span>
+											<input type="hidden" name="sortIdx" value="4">
+											<input type="hidden" name="sortSeq" value="63">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											신규입사자 설문
+										</td>
+										<td class="text-left">/intern/survey/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="4" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="4">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="4">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="5"></td>
+										<td>
+											<span id="spanSeq">64</span>
+											<input type="hidden" name="sortIdx" value="5">
+											<input type="hidden" name="sortSeq" value="64">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											목표수립
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="5" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="5">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="5">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="6"></td>
+										<td>
+											<span id="spanSeq">65</span>
+											<input type="hidden" name="sortIdx" value="6">
+											<input type="hidden" name="sortSeq" value="65">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											업적목표
+										</td>
+										<td class="text-left">/objective/achievement</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="6" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="6">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="6">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="7"></td>
+										<td>
+											<span id="spanSeq">66</span>
+											<input type="hidden" name="sortIdx" value="7">
+											<input type="hidden" name="sortSeq" value="66">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											역량목표
+										</td>
+										<td class="text-left">/objective/competence</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="7" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="7">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="7">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="8"></td>
+										<td>
+											<span id="spanSeq">67</span>
+											<input type="hidden" name="sortIdx" value="8">
+											<input type="hidden" name="sortSeq" value="67">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가서작성
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="8" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="8">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="8">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="9"></td>
+										<td>
+											<span id="spanSeq">68</span>
+											<input type="hidden" name="sortIdx" value="9">
+											<input type="hidden" name="sortSeq" value="68">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											업적평가
+										</td>
+										<td class="text-left">/selfass/achievement</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="9" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="9">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="9">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="10"></td>
+										<td>
+											<span id="spanSeq">69</span>
+											<input type="hidden" name="sortIdx" value="10">
+											<input type="hidden" name="sortSeq" value="69">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											역량평가
+										</td>
+										<td class="text-left">/selfass/competence</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="10" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="10">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="10">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="11"></td>
+										<td>
+											<span id="spanSeq">70</span>
+											<input type="hidden" name="sortIdx" value="11">
+											<input type="hidden" name="sortSeq" value="70">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가결과
+										</td>
+										<td class="text-left">/result/assessResult</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="11" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="11">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="11">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="12"></td>
+										<td>
+											<span id="spanSeq">71</span>
+											<input type="hidden" name="sortIdx" value="12">
+											<input type="hidden" name="sortSeq" value="71">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											Peer Review
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="12" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="12">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="12">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="13"></td>
+										<td>
+											<span id="spanSeq">72</span>
+											<input type="hidden" name="sortIdx" value="13">
+											<input type="hidden" name="sortSeq" value="72">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											Peer Review 작성
+										</td>
+										<td class="text-left">/peer/peerIndex</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="13" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="13">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="13">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="14"></td>
+										<td>
+											<span id="spanSeq">73</span>
+											<input type="hidden" name="sortIdx" value="14">
+											<input type="hidden" name="sortSeq" value="73">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											Peer Review 결과
+										</td>
+										<td class="text-left">/peer/peerResult</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="14" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="14">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="14">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="15"></td>
+										<td>
+											<span id="spanSeq">74</span>
+											<input type="hidden" name="sortIdx" value="15">
+											<input type="hidden" name="sortSeq" value="74">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="15" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="15">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="15">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="16"></td>
+										<td>
+											<span id="spanSeq">75</span>
+											<input type="hidden" name="sortIdx" value="16">
+											<input type="hidden" name="sortSeq" value="75">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											목표관리
+										</td>
+										<td class="text-left">/mngobjective/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="16" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="16">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="16">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="17"></td>
+										<td>
+											<span id="spanSeq">76</span>
+											<input type="hidden" name="sortIdx" value="17">
+											<input type="hidden" name="sortSeq" value="76">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											평가관리
+										</td>
+										<td class="text-left">/assessment/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="17" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="17">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="17">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="18"></td>
+										<td>
+											<span id="spanSeq">77</span>
+											<input type="hidden" name="sortIdx" value="18">
+											<input type="hidden" name="sortSeq" value="77">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											Peer Review 관리
+										</td>
+										<td class="text-left">/mngpeer/assreview/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="18" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="18">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="18">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="19"></td>
+										<td>
+											<span id="spanSeq">78</span>
+											<input type="hidden" name="sortIdx" value="19">
+											<input type="hidden" name="sortSeq" value="78">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인턴평가 관리
+										</td>
+										<td class="text-left">/intern/assessment/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="19" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="19">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="19">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="20"></td>
+										<td>
+											<span id="spanSeq">79</span>
+											<input type="hidden" name="sortIdx" value="20">
+											<input type="hidden" name="sortSeq" value="79">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											시용평가 관리
+										</td>
+										<td class="text-left">/trial/assessment/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="20" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="20">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="20">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="21"></td>
+										<td>
+											<span id="spanSeq">80</span>
+											<input type="hidden" name="sortIdx" value="21">
+											<input type="hidden" name="sortSeq" value="80">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가 관리자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="21" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="21">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="21">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="22"></td>
+										<td>
+											<span id="spanSeq">81</span>
+											<input type="hidden" name="sortIdx" value="22">
+											<input type="hidden" name="sortSeq" value="81">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											업적/역량
+										</td>
+										<td class="text-left"></td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="22" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="22">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="22">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="23"></td>
+										<td>
+											<span id="spanSeq">82</span>
+											<input type="hidden" name="sortIdx" value="23">
+											<input type="hidden" name="sortSeq" value="82">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											평가대상 관리
+										</td>
+										<td class="text-left">/manage/employee/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="23" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="23">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="23">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="24"></td>
+										<td>
+											<span id="spanSeq">83</span>
+											<input type="hidden" name="sortIdx" value="24">
+											<input type="hidden" name="sortSeq" value="83">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											평가목표 관리
+										</td>
+										<td class="text-left">/manage/objective/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="24" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="24">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="24">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="25"></td>
+										<td>
+											<span id="spanSeq">84</span>
+											<input type="hidden" name="sortIdx" value="25">
+											<input type="hidden" name="sortSeq" value="84">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											평가점수 관리
+										</td>
+										<td class="text-left">/manage/grade/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="25" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="25">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="25">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="26"></td>
+										<td>
+											<span id="spanSeq">85</span>
+											<input type="hidden" name="sortIdx" value="26">
+											<input type="hidden" name="sortSeq" value="85">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											평가시기 관리
+										</td>
+										<td class="text-left">/manage/schedule/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="26" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="26">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="26">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="136"></td>
+										<td>
+											<span id="spanSeq">86</span>
+											<input type="hidden" name="sortIdx" value="136">
+											<input type="hidden" name="sortSeq" value="86">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											자유의견 관리
+										</td>
+										<td class="text-left">/manage/opinion/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="136" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="136">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="136">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="27"></td>
+										<td>
+											<span id="spanSeq">87</span>
+											<input type="hidden" name="sortIdx" value="27">
+											<input type="hidden" name="sortSeq" value="87">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											Peer Review
+										</td>
+										<td class="text-left"></td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="27" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="27">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="27">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="28"></td>
+										<td>
+											<span id="spanSeq">88</span>
+											<input type="hidden" name="sortIdx" value="28">
+											<input type="hidden" name="sortSeq" value="88">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											결과 관리
+										</td>
+										<td class="text-left">/mngpeer/result/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="28" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="28">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="28">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="29"></td>
+										<td>
+											<span id="spanSeq">89</span>
+											<input type="hidden" name="sortIdx" value="29">
+											<input type="hidden" name="sortSeq" value="89">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											등록 관리
+										</td>
+										<td class="text-left">/mngpeer/review/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="29" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="29">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="29">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="30"></td>
+										<td>
+											<span id="spanSeq">90</span>
+											<input type="hidden" name="sortIdx" value="30">
+											<input type="hidden" name="sortSeq" value="90">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인턴/시용평가
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="30" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="30">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="30">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="31"></td>
+										<td>
+											<span id="spanSeq">91</span>
+											<input type="hidden" name="sortIdx" value="31">
+											<input type="hidden" name="sortSeq" value="91">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											평가대상 관리
+										</td>
+										<td class="text-left">/manage/intern/mngAssTarget</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="31" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="31">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="31">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="32"></td>
+										<td>
+											<span id="spanSeq">92</span>
+											<input type="hidden" name="sortIdx" value="32">
+											<input type="hidden" name="sortSeq" value="92">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											인턴평가 관리
+										</td>
+										<td class="text-left">/manage/intern/mngIntern</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="32" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="32">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="32">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="33"></td>
+										<td>
+											<span id="spanSeq">93</span>
+											<input type="hidden" name="sortIdx" value="33">
+											<input type="hidden" name="sortSeq" value="93">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											시용평가 관리
+										</td>
+										<td class="text-left">/manage/trial/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="33" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="33">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="33">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="34"></td>
+										<td>
+											<span id="spanSeq">94</span>
+											<input type="hidden" name="sortIdx" value="34">
+											<input type="hidden" name="sortSeq" value="94">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											인턴평가 PT자료
+										</td>
+										<td class="text-left">/manage/intern/mngPPTFile</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="34" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="34">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="34">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="36"></td>
+										<td>
+											<span id="spanSeq">95</span>
+											<input type="hidden" name="sortIdx" value="36">
+											<input type="hidden" name="sortSeq" value="95">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											평가관리자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="36" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="36">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="36">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="37"></td>
+										<td>
+											<span id="spanSeq">96</span>
+											<input type="hidden" name="sortIdx" value="37">
+											<input type="hidden" name="sortSeq" value="96">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											평가목표 관리
+										</td>
+										<td class="text-left">/manage/objective/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="37" data-level="2" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="37">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="37">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="137"></td>
+										<td>
+											<span id="spanSeq">97</span>
+											<input type="hidden" name="sortIdx" value="137">
+											<input type="hidden" name="sortSeq" value="97">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											자유의견 관리
+										</td>
+										<td class="text-left">/manage/opinion/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="137" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="137">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="137">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="39"></td>
+										<td>
+											<span id="spanSeq">98</span>
+											<input type="hidden" name="sortIdx" value="39">
+											<input type="hidden" name="sortSeq" value="98">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											교육
+										</td>
+										<td class="text-left">/education/index</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="39" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="39">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="39">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="54"></td>
+										<td>
+											<span id="spanSeq">99</span>
+											<input type="hidden" name="sortIdx" value="54">
+											<input type="hidden" name="sortSeq" value="99">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌 필독서
+										</td>
+										<td class="text-left">/edwbook/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="54" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="54">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="54">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="127"></td>
+										<td>
+											<span id="spanSeq">100</span>
+											<input type="hidden" name="sortIdx" value="127">
+											<input type="hidden" name="sortSeq" value="100">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌 필독서 관리
+										</td>
+										<td class="text-left">/mngedwbook/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="127" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="127">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="127">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="67"></td>
+										<td>
+											<span id="spanSeq">101</span>
+											<input type="hidden" name="sortIdx" value="67">
+											<input type="hidden" name="sortSeq" value="101">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											비즈킷 필수 시청리스트
+										</td>
+										<td class="text-left">/bizcuit/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="67" data-level="1" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="67">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="67">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="55"></td>
+										<td>
+											<span id="spanSeq">102</span>
+											<input type="hidden" name="sortIdx" value="55">
+											<input type="hidden" name="sortSeq" value="102">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											교육 신청
+										</td>
+										<td class="text-left">/education/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="55" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="55">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="55">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="56"></td>
+										<td>
+											<span id="spanSeq">103</span>
+											<input type="hidden" name="sortIdx" value="56">
+											<input type="hidden" name="sortSeq" value="103">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											OJT보고서
+										</td>
+										<td class="text-left">/ojt/write</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="56" data-level="1" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="56">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="56">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="138"></td>
+										<td>
+											<span id="spanSeq">104</span>
+											<input type="hidden" name="sortIdx" value="138">
+											<input type="hidden" name="sortSeq" value="104">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											독서경영
+										</td>
+										<td class="text-left">/bookmeet/bookmeet</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="138" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="138">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="138">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="139"></td>
+										<td>
+											<span id="spanSeq">105</span>
+											<input type="hidden" name="sortIdx" value="139">
+											<input type="hidden" name="sortSeq" value="105">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											북힐즈 도서 안내
+										</td>
+										<td class="text-left">/bookhills/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="139" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="139">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="139">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="140"></td>
+										<td>
+											<span id="spanSeq">106</span>
+											<input type="hidden" name="sortIdx" value="140">
+											<input type="hidden" name="sortSeq" value="106">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											독서모임
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="140" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="140">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="140">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="141"></td>
+										<td>
+											<span id="spanSeq">107</span>
+											<input type="hidden" name="sortIdx" value="141">
+											<input type="hidden" name="sortSeq" value="107">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											진행중인 독서모임
+										</td>
+										<td class="text-left">/bookmeet/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="141" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="141">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="141">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="useyn ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="186"></td>
+										<td>
+											<span id="spanSeq">108</span>
+											<input type="hidden" name="sortIdx" value="186">
+											<input type="hidden" name="sortSeq" value="108">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											독서메이트 구인
+										</td>
+										<td class="text-left">/bookmeet/bookrecruit/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="186" data-level="3" data-useyn="N">N</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="186">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="186">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="142"></td>
+										<td>
+											<span id="spanSeq">109</span>
+											<input type="hidden" name="sortIdx" value="142">
+											<input type="hidden" name="sortSeq" value="109">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											독서모임 신청하기
+										</td>
+										<td class="text-left">javascript:location.href='/apprv/apply/write?docCd=SC018'</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="142" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="142">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="142">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="143"></td>
+										<td>
+											<span id="spanSeq">110</span>
+											<input type="hidden" name="sortIdx" value="143">
+											<input type="hidden" name="sortSeq" value="110">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											결과보고 작성하기
+										</td>
+										<td class="text-left">/bookmeet/result/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="143" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="143">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="143">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="144"></td>
+										<td>
+											<span id="spanSeq">111</span>
+											<input type="hidden" name="sortIdx" value="144">
+											<input type="hidden" name="sortSeq" value="111">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											나의 독서모임 관리
+										</td>
+										<td class="text-left">/bookmeet/mine/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="144" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="144">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="144">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="57"></td>
+										<td>
+											<span id="spanSeq">112</span>
+											<input type="hidden" name="sortIdx" value="57">
+											<input type="hidden" name="sortSeq" value="112">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											교육 관리자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="57" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="57">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="57">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="58"></td>
+										<td>
+											<span id="spanSeq">113</span>
+											<input type="hidden" name="sortIdx" value="58">
+											<input type="hidden" name="sortSeq" value="113">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											교육
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="58" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="58">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="58">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="35"></td>
+										<td>
+											<span id="spanSeq">114</span>
+											<input type="hidden" name="sortIdx" value="35">
+											<input type="hidden" name="sortSeq" value="114">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											에듀윌 필독서 관리
+										</td>
+										<td class="text-left">/manage/edwbook/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="35" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="35">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="35">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="59"></td>
+										<td>
+											<span id="spanSeq">115</span>
+											<input type="hidden" name="sortIdx" value="59">
+											<input type="hidden" name="sortSeq" value="115">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											교육 관리
+										</td>
+										<td class="text-left">/manage/education/mngEducation</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="59" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="59">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="59">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="60"></td>
+										<td>
+											<span id="spanSeq">116</span>
+											<input type="hidden" name="sortIdx" value="60">
+											<input type="hidden" name="sortSeq" value="116">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											신규입사자 필독서&amp;설문
+										</td>
+										<td class="text-left">/manage/ojt/mngOjt</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="60" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="60">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="60">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="145"></td>
+										<td>
+											<span id="spanSeq">117</span>
+											<input type="hidden" name="sortIdx" value="145">
+											<input type="hidden" name="sortSeq" value="117">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											독서경영
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="145" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="145">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="145">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="146"></td>
+										<td>
+											<span id="spanSeq">118</span>
+											<input type="hidden" name="sortIdx" value="146">
+											<input type="hidden" name="sortSeq" value="118">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											북힐즈 도서 안내 관리
+										</td>
+										<td class="text-left">/manage/bookhills/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="146" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="146">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="146">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="147"></td>
+										<td>
+											<span id="spanSeq">119</span>
+											<input type="hidden" name="sortIdx" value="147">
+											<input type="hidden" name="sortSeq" value="119">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											독서모임 신청 관리
+										</td>
+										<td class="text-left">/manage/bookmeet/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="147" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="147">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="147">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="207"></td>
+										<td>
+											<span id="spanSeq">120</span>
+											<input type="hidden" name="sortIdx" value="207">
+											<input type="hidden" name="sortSeq" value="120">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											에인스 출결 등록
+										</td>
+										<td class="text-left">/eins/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="207" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="207">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="207">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="132"></td>
+										<td>
+											<span id="spanSeq">121</span>
+											<input type="hidden" name="sortIdx" value="132">
+											<input type="hidden" name="sortSeq" value="121">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											게시판
+										</td>
+										<td class="text-left">/cntrct/exmnt/index</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="132" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="132">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="132">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="195"></td>
+										<td>
+											<span id="spanSeq">122</span>
+											<input type="hidden" name="sortIdx" value="195">
+											<input type="hidden" name="sortSeq" value="122">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											임시저장된 글
+										</td>
+										<td class="text-left">/cmunty/temp/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="195" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="195">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="195">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="196"></td>
+										<td>
+											<span id="spanSeq">123</span>
+											<input type="hidden" name="sortIdx" value="196">
+											<input type="hidden" name="sortSeq" value="123">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											내 게시글
+										</td>
+										<td class="text-left">/cmunty/mine/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="196" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="196">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="196">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="197"></td>
+										<td>
+											<span id="spanSeq">124</span>
+											<input type="hidden" name="sortIdx" value="197">
+											<input type="hidden" name="sortSeq" value="124">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											알림
+										</td>
+										<td class="text-left">/alarm/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="197" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="197">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="197">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="133"></td>
+										<td>
+											<span id="spanSeq">125</span>
+											<input type="hidden" name="sortIdx" value="133">
+											<input type="hidden" name="sortSeq" value="125">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											계약관리
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="133" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="133">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="133">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="134"></td>
+										<td>
+											<span id="spanSeq">126</span>
+											<input type="hidden" name="sortIdx" value="134">
+											<input type="hidden" name="sortSeq" value="126">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											계약 검토요청
+										</td>
+										<td class="text-left">/cntrct/exmnt/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="134" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="134">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="134">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="135"></td>
+										<td>
+											<span id="spanSeq">127</span>
+											<input type="hidden" name="sortIdx" value="135">
+											<input type="hidden" name="sortSeq" value="127">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											계약서 관리
+										</td>
+										<td class="text-left">/cntrct/mngmt/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="135" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="135">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="135">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="208"></td>
+										<td>
+											<span id="spanSeq">128</span>
+											<input type="hidden" name="sortIdx" value="208">
+											<input type="hidden" name="sortSeq" value="128">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											공문/내용증명 검토요청
+										</td>
+										<td class="text-left">/officialdoc/exmnt/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="208" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="208">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="208">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="209"></td>
+										<td>
+											<span id="spanSeq">129</span>
+											<input type="hidden" name="sortIdx" value="209">
+											<input type="hidden" name="sortSeq" value="129">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											공문서 관리
+										</td>
+										<td class="text-left">/officialdoc/mngmt/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="209" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="209">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="209">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="182"></td>
+										<td>
+											<span id="spanSeq">130</span>
+											<input type="hidden" name="sortIdx" value="182">
+											<input type="hidden" name="sortSeq" value="130">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											표시광고검토요청
+										</td>
+										<td class="text-left">/advrts/master/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="182" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="182">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="182">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="176"></td>
+										<td>
+											<span id="spanSeq">131</span>
+											<input type="hidden" name="sortIdx" value="176">
+											<input type="hidden" name="sortSeq" value="131">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											매출/예산 계획 관리
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="176" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="176">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="176">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="177"></td>
+										<td>
+											<span id="spanSeq">132</span>
+											<input type="hidden" name="sortIdx" value="177">
+											<input type="hidden" name="sortSeq" value="132">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											매출/예산 계획 제출
+										</td>
+										<td class="text-left">/bplan/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="177" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="177">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="177">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="163"></td>
+										<td>
+											<span id="spanSeq">133</span>
+											<input type="hidden" name="sortIdx" value="163">
+											<input type="hidden" name="sortSeq" value="133">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											게시판 관리자
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="163" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="163">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="163">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="167"></td>
+										<td>
+											<span id="spanSeq">134</span>
+											<input type="hidden" name="sortIdx" value="167">
+											<input type="hidden" name="sortSeq" value="134">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											매출/예산 계획
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="167" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="167">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="167">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="164"></td>
+										<td>
+											<span id="spanSeq">135</span>
+											<input type="hidden" name="sortIdx" value="164">
+											<input type="hidden" name="sortSeq" value="135">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											제출연도/항목 관리
+										</td>
+										<td class="text-left">/manage/bplan/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="164" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="164">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="164">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="3">
+										<td><input type="checkbox" name="idx" value="178"></td>
+										<td>
+											<span id="spanSeq">136</span>
+											<input type="hidden" name="sortIdx" value="178">
+											<input type="hidden" name="sortSeq" value="136">
+										</td>
+										<td class="text-left">
+											
+												
+												<span style="white-space: pre;">		</span>ㄴ&nbsp;
+											
+											제출현황 관리
+										</td>
+										<td class="text-left">/manage/bplan_v2/index</td>
+										<td>3</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="178" data-level="3" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="178">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="178">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="190"></td>
+										<td>
+											<span id="spanSeq">137</span>
+											<input type="hidden" name="sortIdx" value="190">
+											<input type="hidden" name="sortSeq" value="137">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											공지사항
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="190" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="190">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="190">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="185"></td>
+										<td>
+											<span id="spanSeq">138</span>
+											<input type="hidden" name="sortIdx" value="185">
+											<input type="hidden" name="sortSeq" value="138">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											전체공지
+										</td>
+										<td class="text-left">/cmunty/board/sc001/all/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="185" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="185">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="185">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="191"></td>
+										<td>
+											<span id="spanSeq">139</span>
+											<input type="hidden" name="sortIdx" value="191">
+											<input type="hidden" name="sortSeq" value="139">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											경영
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc001/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="191" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="191">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="191">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="192"></td>
+										<td>
+											<span id="spanSeq">140</span>
+											<input type="hidden" name="sortIdx" value="192">
+											<input type="hidden" name="sortSeq" value="140">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인사
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc002/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="192" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="192">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="192">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="198"></td>
+										<td>
+											<span id="spanSeq">141</span>
+											<input type="hidden" name="sortIdx" value="198">
+											<input type="hidden" name="sortSeq" value="141">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											CM
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc003/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="198" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="198">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="198">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="199"></td>
+										<td>
+											<span id="spanSeq">142</span>
+											<input type="hidden" name="sortIdx" value="199">
+											<input type="hidden" name="sortSeq" value="142">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											고객
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc004/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="199" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="199">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="199">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="200"></td>
+										<td>
+											<span id="spanSeq">143</span>
+											<input type="hidden" name="sortIdx" value="200">
+											<input type="hidden" name="sortSeq" value="143">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											학원
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc005/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="200" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="200">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="200">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="201"></td>
+										<td>
+											<span id="spanSeq">144</span>
+											<input type="hidden" name="sortIdx" value="201">
+											<input type="hidden" name="sortSeq" value="144">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											마케팅
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc006/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="201" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="201">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="201">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="202"></td>
+										<td>
+											<span id="spanSeq">145</span>
+											<input type="hidden" name="sortIdx" value="202">
+											<input type="hidden" name="sortSeq" value="145">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											출판
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc007/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="202" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="202">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="202">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="203"></td>
+										<td>
+											<span id="spanSeq">146</span>
+											<input type="hidden" name="sortIdx" value="203">
+											<input type="hidden" name="sortSeq" value="146">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											IT
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc008/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="203" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="203">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="203">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="204"></td>
+										<td>
+											<span id="spanSeq">147</span>
+											<input type="hidden" name="sortIdx" value="204">
+											<input type="hidden" name="sortSeq" value="147">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											기타
+										</td>
+										<td class="text-left">/cmunty/board/sc001/sc009/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="204" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="204">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="204">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="206"></td>
+										<td>
+											<span id="spanSeq">148</span>
+											<input type="hidden" name="sortIdx" value="206">
+											<input type="hidden" name="sortSeq" value="148">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌 스타
+										</td>
+										<td class="text-left">/cmunty/board/sc003/null/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="206" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="206">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="206">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="205"></td>
+										<td>
+											<span id="spanSeq">149</span>
+											<input type="hidden" name="sortIdx" value="205">
+											<input type="hidden" name="sortSeq" value="149">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											에듀윌러 소식
+										</td>
+										<td class="text-left">/cmunty/board/sc002/null/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="205" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="205">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="205">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="level-0 ui-sortable-handle" data-level="0">
+										<td><input type="checkbox" name="idx" value="40"></td>
+										<td>
+											<span id="spanSeq">150</span>
+											<input type="hidden" name="sortIdx" value="40">
+											<input type="hidden" name="sortSeq" value="150">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											사이트 관리자
+										</td>
+										<td class="text-left">/manage/faq/mngFaq</td>
+										<td>0</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="40" data-level="0" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="40">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="40">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="148"></td>
+										<td>
+											<span id="spanSeq">151</span>
+											<input type="hidden" name="sortIdx" value="148">
+											<input type="hidden" name="sortSeq" value="151">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											공통
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="148" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="148">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="148">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="53"></td>
+										<td>
+											<span id="spanSeq">152</span>
+											<input type="hidden" name="sortIdx" value="53">
+											<input type="hidden" name="sortSeq" value="152">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											FAQ 관리
+										</td>
+										<td class="text-left">/manage/faq/mngFaq</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="53" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="53">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="53">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="66"></td>
+										<td>
+											<span id="spanSeq">153</span>
+											<input type="hidden" name="sortIdx" value="66">
+											<input type="hidden" name="sortSeq" value="153">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											단축 URL 관리
+										</td>
+										<td class="text-left">/manage/url/mngSUrl</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="66" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="66">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="66">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="64"></td>
+										<td>
+											<span id="spanSeq">154</span>
+											<input type="hidden" name="sortIdx" value="64">
+											<input type="hidden" name="sortSeq" value="154">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											메뉴관리
+										</td>
+										<td class="text-left">/manage/menu/mngMenu</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="64" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="64">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="64">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="100"></td>
+										<td>
+											<span id="spanSeq">155</span>
+											<input type="hidden" name="sortIdx" value="100">
+											<input type="hidden" name="sortSeq" value="155">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											꿈의직장 에듀윌
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="100" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="100">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="100">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="101"></td>
+										<td>
+											<span id="spanSeq">156</span>
+											<input type="hidden" name="sortIdx" value="101">
+											<input type="hidden" name="sortSeq" value="156">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											꿈의직장 에듀윌 관리
+										</td>
+										<td class="text-left">/board/admin/boardView</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="101" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="101">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="101">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="102"></td>
+										<td>
+											<span id="spanSeq">157</span>
+											<input type="hidden" name="sortIdx" value="102">
+											<input type="hidden" name="sortSeq" value="157">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											경조사 관리
+										</td>
+										<td class="text-left">/board/manage/feventAdminView</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="102" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="102">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="102">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="156"></td>
+										<td>
+											<span id="spanSeq">158</span>
+											<input type="hidden" name="sortIdx" value="156">
+											<input type="hidden" name="sortSeq" value="158">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인재 추천 관리
+										</td>
+										<td class="text-left">/manage/mnablty/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="156" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="156">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="156">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="149"></td>
+										<td>
+											<span id="spanSeq">159</span>
+											<input type="hidden" name="sortIdx" value="149">
+											<input type="hidden" name="sortSeq" value="159">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											인사관리
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="149" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="149">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="149">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="153"></td>
+										<td>
+											<span id="spanSeq">160</span>
+											<input type="hidden" name="sortIdx" value="153">
+											<input type="hidden" name="sortSeq" value="160">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											증명서 발급 관리
+										</td>
+										<td class="text-left">/issue/admin/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="153" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="153">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="153">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="162"></td>
+										<td>
+											<span id="spanSeq">161</span>
+											<input type="hidden" name="sortIdx" value="162">
+											<input type="hidden" name="sortSeq" value="161">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											급여명세서 관리
+										</td>
+										<td class="text-left">/manage/payslip/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="162" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="162">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="162">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="174"></td>
+										<td>
+											<span id="spanSeq">162</span>
+											<input type="hidden" name="sortIdx" value="174">
+											<input type="hidden" name="sortSeq" value="162">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											건강보험피부양자 신청 관리
+										</td>
+										<td class="text-left">/insur/admin/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="174" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="174">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="174">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="65"></td>
+										<td>
+											<span id="spanSeq">163</span>
+											<input type="hidden" name="sortIdx" value="65">
+											<input type="hidden" name="sortSeq" value="163">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											인사정보 내역 관리
+										</td>
+										<td class="text-left">/manage/hr/mngHRHistory</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="65" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="65">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="65">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="84"></td>
+										<td>
+											<span id="spanSeq">164</span>
+											<input type="hidden" name="sortIdx" value="84">
+											<input type="hidden" name="sortSeq" value="164">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											문의게시판 관리
+										</td>
+										<td class="text-left">/manage/qna/mngQna</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="84" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="84">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="84">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="150"></td>
+										<td>
+											<span id="spanSeq">165</span>
+											<input type="hidden" name="sortIdx" value="150">
+											<input type="hidden" name="sortSeq" value="165">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											교육
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="150" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="150">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="150">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="61"></td>
+										<td>
+											<span id="spanSeq">166</span>
+											<input type="hidden" name="sortIdx" value="61">
+											<input type="hidden" name="sortSeq" value="166">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											SMS/LMS발송 내역 관리
+										</td>
+										<td class="text-left">/manage/sms/mngSmsLog</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="61" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="61">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="61">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="62"></td>
+										<td>
+											<span id="spanSeq">167</span>
+											<input type="hidden" name="sortIdx" value="62">
+											<input type="hidden" name="sortSeq" value="167">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											관리자 로그
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="62" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="62">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="62">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="165"></td>
+										<td>
+											<span id="spanSeq">168</span>
+											<input type="hidden" name="sortIdx" value="165">
+											<input type="hidden" name="sortSeq" value="168">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											활동  이력 관리
+										</td>
+										<td class="text-left">/manage/activity/mngActivityLog</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="165" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="165">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="165">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="63"></td>
+										<td>
+											<span id="spanSeq">169</span>
+											<input type="hidden" name="sortIdx" value="63">
+											<input type="hidden" name="sortSeq" value="169">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											권한 이력 관리
+										</td>
+										<td class="text-left">/manage/auth/mngAuthLog</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="63" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="63">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="63">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="188"></td>
+										<td>
+											<span id="spanSeq">170</span>
+											<input type="hidden" name="sortIdx" value="188">
+											<input type="hidden" name="sortSeq" value="170">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											메인관리
+										</td>
+										<td class="text-left">javascript:;</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="188" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="188">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="188">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="189"></td>
+										<td>
+											<span id="spanSeq">171</span>
+											<input type="hidden" name="sortIdx" value="189">
+											<input type="hidden" name="sortSeq" value="171">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											공지사항 관리
+										</td>
+										<td class="text-left">/cmunty/admin/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="189" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="189">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="189">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="193"></td>
+										<td>
+											<span id="spanSeq">172</span>
+											<input type="hidden" name="sortIdx" value="193">
+											<input type="hidden" name="sortSeq" value="172">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											배너 관리
+										</td>
+										<td class="text-left">/bnr/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="193" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="193">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="193">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="2">
+										<td><input type="checkbox" name="idx" value="194"></td>
+										<td>
+											<span id="spanSeq">173</span>
+											<input type="hidden" name="sortIdx" value="194">
+											<input type="hidden" name="sortSeq" value="173">
+										</td>
+										<td class="text-left">
+											
+												<span style="white-space: pre;">	</span>ㄴ&nbsp;
+												
+											
+											일정 관리
+										</td>
+										<td class="text-left">/schdul/index</td>
+										<td>2</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="194" data-level="2" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="194">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="194">삭제</button>
+										</td>
+									</tr>
+								
+									
+									
+									<tr class="ui-sortable-handle" data-level="1">
+										<td><input type="checkbox" name="idx" value="210"></td>
+										<td>
+											<span id="spanSeq">174</span>
+											<input type="hidden" name="sortIdx" value="210">
+											<input type="hidden" name="sortSeq" value="174">
+										</td>
+										<td class="text-left">
+											
+												
+												
+											
+											데모
+										</td>
+										<td class="text-left">/demo/index</td>
+										<td>1</td>
+										<td><a id="btnUseyn" href="javascript:;" data-idx="210" data-level="1" data-useyn="Y">Y</a></td>
+										<td>
+											<button type="button" class="btn btn-xs btn-teal" name="btnUpdate" data-menu_idx="210">수정</button>
+											<button type="button" class="btn btn-xs btn-danger" name="btnRemove" data-menu_idx="210">삭제</button>
+										</td>
+									</tr>
+								
+							
+							
+						
+					</tbody>
+				</table>
+			</form>
+		</div>
+		
+		<style>
+		.useyn {background: #e2e3e4; color: #c7c6c6; }
+		.level-0 {background: #e6f3ff; font-weight: bold;}
+		</style></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal : 메뉴 등록-->
+		<div id="menuRegister" class="modal fade modal-w-md modal-schedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">
+							메뉴 등록
+						</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body" id="divModelBody">
+						<!-- from blankMngMenuInfo -->
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer clearfix">
+						<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">취소</button>
+						<button type="button" class="btn btn-primary" id="btnMenuSave">저장</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 메뉴 등록 -->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//저장
+				$("#btnMenuSave").on("click", function(){
+					if(fnc_isValidInput()){
+						fnc_save();
+					}
+				});
+				
+				//권한클릭이벤트
+				$(document).on("click", "#frm3 #auth_cd", function(){
+					if($(this).is(":checked")) {
+						$("#divAuth").removeClass("error");
+					}
+				});
+			});
+			
+			// 유효성 검사
+			function fnc_isValidInput(){
+				var b = false;
+				if($("#frm3").valid()){
+					b = true;
+					/* var cnt = 0;
+					$("#frm3 input[name=auth_cd]").each(function(){
+						if($(this).is(":checked")) {
+							cnt++;
+						}
+					});
+					
+					if(cnt == 0){
+						$("#divAuth").addClass("error");
+						b = false;
+					} */
+				}
+				
+				return b;
+			}
+			
+			//저장
+			function fnc_save(){
+				bConfirm("저장하시겠습니까?").done(function(s) {
+					if(s) {
+						var dataArray = $("#frm3").serializeArray();
+						
+						$.ajax({
+							type : "post"
+							,async : false
+							,url : "/manage/menu/ajaxSaveMngMenu"
+							,data : dataArray
+							,dataType : "json"
+							,success : function(data) {
+								var result = data.result;
+								
+								if(result == 1){
+									fnc_toastMsgForResult("저장 되었습니다.");
+									$("#menuRegister").modal("hide");
+									//fnc_getTabBody();
+									$("#frm1").attr("action", "/manage/menu/mngMenu").submit();
+								} else {
+									fnc_toastMsgForWarning("실패 하였습니다.");
+									return false;
+								}
+							}
+							,error : function(data, status, err) {
+							
+							} 
+						});
+					}
+					
+				});
+			}
+		</script>
+		
+		<style>
+		.error {border: #bf6464 2px dashed !important; background-color: #fdfbfb !important;}
+		</style>
+		
+	</section>
+	<!-- // middle -->
+
+</div><!-- // wrapper -->
+
+<!-- Modal : 전사 일정 등록 -->
+<div id="importToSchedule" class="modal fade modal-sm modal-schedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h3 class="modal-title" id="myModalLabel">
+					전사 일정 등록
+				</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<table class="tb-style1">
+					<colgroup><col width="150"><col width="*"></colgroup>
+					<tbody>
+						<tr>
+							<th>일정유형</th>
+							<td>
+								<label><input type="radio" name="radio" class="radio" /> 공휴일</label>
+								<label><input type="radio" name="radio" class="radio margin-left-20" /> 주요 일정</label>
+								<label><input type="radio" name="radio" class="radio margin-left-20" /> 시험 일정</label>
+								
+							</td>
+						</tr>
+						<tr>
+							<th>갤린더 노출 문구</th>
+							<td>
+								<input type="text" class="form-control fullwidth" placeholder="띄어쓰기 포함 10자까지 입력가능합니다.">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer clearfix">
+				<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">취소</button>
+				<button type="button" class="btn btn-primary">저장</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- // Modal -->
+
+</body>
+</html>

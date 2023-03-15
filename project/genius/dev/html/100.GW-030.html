@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">		
+		<div id="content" class="height-full"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">전사공지</a>
+					<a href="#">꿈의직장 에듀윌</a>
+					<a href="#">사내인재추천</a>
+				</div>
+			</div>
+
+			<div class="container nopadding panel-light">
+				<div class="panel-body borad-wrap">
+					<div class="borad-wrap-inner">
+						
+						<!-- 타이틀 이미지 -->
+							
+							
+								<div class="section-visual" style="background-image:url(//img.eduwill.net/Img2/people/board/BC010/20200624142250131.png);">
+									<div class="desc">에듀윌러가 검증한 우수인재 모여라!</div>
+									<div class="ttl">사내 인재 추천 제도</div>					
+								</div>
+							
+						
+						
+						<!-- 본문 내용 -->
+						<div class="sub-text">
+							<span style="color:#083a65;"><span style="font-size:26px;"><strong>우수인재 지금 바로 에듀윌에 추천하세요.&nbsp;</strong></span><br>
+		좋은 인재를 소개해준 모든 분들께 아낌없이 포상합니다.
+		
+		<br>
+		<span style="font-size:18px;"><strong>기준</strong></span><br>
+		<span style="font-size:16px;">모든 직무에 언제든 추천 가능</span><span style="font-size:14px;"> (단, 부서장은 채용의 주체이므로 타부서 추천에 한해 인재추천포상금 적용) &nbsp;</span></span>
+		<br>
+		<strong><span style="font-size:16px; color:#083a65;">&nbsp; &nbsp;1. </span></strong><span style="color:#083a65;"><span style="font-size:16px;"><strong>추천 대상</strong><br>
+		&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">• 에듀윌 핵심가치와 인재상에 부합하는 인재</span></span> <span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp; </span>
+		<span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">• 추천 분야에 성과와 역량을 인정받은 인재</span></span> &nbsp;<span style="font-size:16px;"> &nbsp; &nbsp; &nbsp;</span>
+		<span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">• 직책별 근속 기준을 충족하는 인재</span></span> <span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size:16px;">&nbsp; </span>
+		<span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">&nbsp; </span></span><span style="color:#083a65;"><span style="font-size:16px;">- 팀장 이상:&nbsp;최근&nbsp;10년 이내 반드시&nbsp;5년 이상 한 직장 근무 경력</span></span>
+		<span style="font-size:16px;">&nbsp; &nbsp;&nbsp; &nbsp;</span><span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">- 매니저:&nbsp;최근&nbsp;7년 이내 반드시&nbsp;3년 이상 한 직장 근무 경력</span></span>
+		<span style="font-size:16px;">&nbsp; &nbsp; &nbsp;</span><span style="font-size:16px;">&nbsp; &nbsp;&nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">- 고객센터/학원: 최근 5년 이내 반드시 2년 이상 한 직장 근무 경력</span></span>
+		<br>
+		<strong><span style="font-size:16px; color:#083a65;">&nbsp; &nbsp;2. </span></strong><span style="color:#083a65;"><span style="font-size:16px;"><strong>추천 방법<br>
+		&nbsp; </strong>&nbsp; &nbsp;</span></span> <span style="color:#083a65;"><span style="font-size:16px;">• 사내인재추천서 작성(필수)</span></span> <span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span>
+		<span style="color:#083a65;"><span style="font-size:16px;"><strong>&nbsp; </strong>&nbsp; &nbsp;</span></span> <span style="color:#083a65;"><span style="font-size:16px;">• 입사지원서 등록</span></span>
+		<span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">- 현재 채용사이트에 공고가 등록된 경우 사이트에 입사 지원</span><span style="font-size:14px;">&nbsp;(추천자 성명 반드시 작성)</span></span>
+		<span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">- 채용 중인 공고가 없는 경우 채용사이트 인재풀에 등록</span></span> <span style="font-size:16px;">&nbsp;</span>
+		<span style="color:#083a65;"><span style="font-size:16px;"><strong>&nbsp; </strong>&nbsp; &nbsp;</span></span> <span style="color:#083a65;"><span style="font-size:16px;">• 간단한 정보만 알아도 인재&nbsp;추천 가능</span><span style="font-size:14px;">(입사지원서 등록 없이 사내인재추천서만 작성</span></span>
+		<span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">- 전문분야,&nbsp;이름,&nbsp;연락처를 알고 있으면 추천 가능&nbsp;</span><span style="font-size:14px;">(알고 있는 정보에 따라 포상 지급 금액 상이) &nbsp; </span>
+		
+		
+		<span style="font-size:18px;"><strong>포상</strong></span><br>
+		<span style="font-size:16px;">&nbsp;추천한 인원이 입사 후&nbsp;6개월 이상 근무 시 포상&nbsp;</span><span style="font-size:14px;">(단,&nbsp;다른 경로를 통해 이미 지원한 이력이 있는 경우 제외)</span><br><span style="font-size:16px;">&nbsp;포상금 지급대상자 결정시점(매월말일자 기준) 현재 추천인/피추천인 모두 퇴사가 예정되어 있지 않아야 함</span></span>
+		<br>
+		<strong><span style="font-size:16px; color:#083a65;">&nbsp; &nbsp;1. </span></strong><span style="color:#083a65;"><span style="font-size:16px;"><strong>입사지원서를 등록한 경우</strong></span></span> <span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span>
+		<span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">• 매니저~파트장급 입사&nbsp;시&nbsp;100만원 &nbsp; &nbsp; </span></span> <span style="font-size:16px;">&nbsp; &nbsp; &nbsp;&nbsp;</span> <span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span>
+		<span style="color:#083a65;"><span style="font-size:16px;">&nbsp; &nbsp;</span></span> <span style="font-size:16px;">&nbsp; &nbsp;</span><span style="color:#083a65;"><span style="font-size:16px;">• 팀장급 이상&nbsp;입사 시&nbsp;200만원(신설)&nbsp;2020년&nbsp;5월&nbsp;4일 추천건부터&nbsp;적용 &nbsp; </span></span><br>
+		<strong><span style="font-size:16px; color:#083a65;">&nbsp; &nbsp;2. </span></strong><span style="color:#083a65;"><span style="font-size:16px;"><strong>전문분야,&nbsp;이름,&nbsp;연락처를 전달한 경우:&nbsp;</strong></span></span><span style="color:#083a65;"><span style="font-size:16px;">50만원</span></span><br>
+		<strong><span style="font-size:16px; color:#083a65;">&nbsp; &nbsp;3.&nbsp;</span></strong><span style="color:#083a65;"><span style="font-size:16px;"><strong>전문분야,&nbsp;이름을 전달한 경우: </strong>30만원</span><br>
+		<br>
+		<span style="font-size:18px;"><strong>기타</strong></span><br>
+		<span style="font-size:16px;">동일 후보자를 복수의 직원이 추천한 경우,&nbsp;먼저 접수한 인원을 우선한다.
+		※ 문의처: 채용팀 김진일 매니저, 김정원 매니저</span></span>
+						</div>
+						
+						<!-- 첨부파일 영역 -->
+						<div class="margin-bottom-40">	
+							
+								
+																
+								
+							
+						</div>
+						
+						<!-- 인재추천 영역 -->
+						<ul class="nav nav-tabs" id="ulTab" style="border-bottom-width: 1px; display: none;">
+							<li data-nth="0" class="active"><a href="javascript:void(0);" data-toggle="tab" aria-expanded="true">인재 추천 하기</a></li>
+							<li data-nth="1"><a href="javascript:void(0);" data-toggle="tab" aria-expanded="true">나의 추천현황</a></li>
+						</ul>
+						
+						<div class="tab-content">
+							<div id="tabA" class="tab-pane active"><!-- TAB 1 CONTENT -->
+								<div class="panel">
+									<div class="panel-body text-center" id="divTabBody1">
+										<button type="button" class="btn btn-danger" id="btnWrite">인재 추천서 작성하기</button>
+									</div>
+								</div>
+							</div>
+							<div id="tabB" class="tab-pane">
+								<div class="panel">
+									<div class="panel-body row margin-0 padding-left-0 padding-right-0">
+										<div class="manage-1 col-xs-4 padding-left-0 padding-right-0" id="divEmpList"></div>
+										<div class="manage-2 col-xs-8 padding-right-0" id="divTabBody2"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- // container -->
+			
+		
+		</div><!-- // content -->
+		
+		
+		<!-- Modal : 조직문화이미지1 -->
+		<div id="imgView1" class="modal fade imgView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<div class="imgbox">
+							<img src="//img.eduwill.net/resources/kpi/dev/images/people/img-culture-01.jpg" alt="" style="width: 1000px;">
+						</div>
+					</div>
+		
+				</div>
+			</div>
+		</div>
+		<!-- // Modal -->
+		
+		<!-- Modal : 조직문화이미지2 -->
+		<div id="imgView2" class="modal fade imgView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<div class="imgbox">
+							<img src="//img.eduwill.net/resources/kpi/dev/images/people/img-culture-02.png" alt="">
+						</div>
+					</div>
+		
+				</div>
+			</div>
+		</div>
+		<!-- // Modal -->
+		
+		<style>
+		.flowplayer {
+			background-image: url('//img.eduwill.net/resources/kpi/dev/images/poster_culture.png');
+		}
+		.video-title {
+			font-size: 15px;
+			font-weight: 600;
+			color : black;
+		}
+		</style> 
+		
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

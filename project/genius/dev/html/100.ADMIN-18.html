@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius page-goal-manage">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->		
+	
+	<section id="middle">
+		
+		<div id="content" class="padding-20"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리자</a>
+					<a href="#">업적/역량</a>
+					<a href="#">Peer Review 결과 관리</a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="/mngpeer/result/index">
+						<input type="hidden" name="dept_idx" id="dept_idx" value="">
+						
+						<label for="toyear" class="width-100 text-center weight-800">연도</label>
+						<select name="toyear" id="toyear" class="form-control width-100"><option value="2021">2021</option><option value="2019">2019</option><option value="2018">2018</option></select>
+						<label for="rev_idx" class="width-100 text-center weight-800">리뷰 제목</label>
+						<select name="rev_idx" id="rev_idx" class="form-control">undefined<option value="5">피어리뷰 테스트 게시글 생성-[복사]</option><option value="4">피어리뷰 테스트 게시글 생성</option><option value="3">테스트 -지혜생성</option></select>
+						<select class="form-control dept" id="dept_idx1" name="dept_idx1"><option value="">부서 선택</option><option value="213" data-rfval1="N">임원실</option><option value="54" data-rfval1="Y">CEO직속</option><option value="8" data-rfval1="Y">고객센터</option><option value="6" data-rfval1="Y">출판사업본부</option><option value="7" data-rfval1="Y">평생교육원</option><option value="11" data-rfval1="Y">학원총괄본부</option><option value="138" data-rfval1="Y">CM1본부</option><option value="231" data-rfval1="Y">CM2본부</option><option value="5" data-rfval1="Y">IT플랫폼본부</option><option value="169" data-rfval1="Y">IT서비스본부</option><option value="3" data-rfval1="Y">경영지원본부</option><option value="79" data-rfval1="Y">마케팅본부</option><option value="60" data-rfval1="N">사회공헌위원회</option><option value="211" data-rfval1="N">합격전략연구소</option></select>
+						<select class="form-control dept" id="dept_idx2" name="dept_idx2">
+							<option value="">실/팀 선택</option>
+						</select>
+						<select class="form-control dept" id="dept_idx3" name="dept_idx3">
+							<option value="">팀 선택</option>
+						</select>
+						<select class="form-control" id="grade_cd" name="grade_cd"><option value="">직책 선택</option><option value="28">회장</option><option value="29">대표이사</option><option value="44">소장</option><option value="46">총괄본부장</option><option value="10">본부장</option><option value="47">교육원장</option><option value="43">센터장</option><option value="45">지역본부장</option><option value="40">실장</option><option value="48">총괄팀장</option><option value="18">원장</option><option value="41">팀장</option><option value="22">파트장</option><option value="39">PD</option><option value="33">매니저</option><option value="24">인턴</option><option value="19">파견직</option><option value="20">아르바이트</option></select>
+						<input type="text" name="emp_name" id="emp_name" value="" placeholder="이름을 입력하세요" class="text form-control">
+						<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+					</form>
+					
+					<form name="frm2" id="frm2" method="post" action="">
+						<input type="hidden" name="toyear" id="toyear" value="2019">
+						<input type="hidden" name="dept_idx" id="dept_idx" value="57">
+						<input type="hidden" name="emp_id" id="emp_id" value="hkkim5">
+						<input type="hidden" name="rev_idx" id="rev_idx" value="5">
+					</form>
+				</div>
+			</div>
+
+			<div class="section-admin row">
+				<div class="col-md-2">
+					<div class="panel">
+						<div class="panel-body">
+							<div id="menuTree" class="menu-tree">
+								<ul>
+									<!-- ico step 
+										<i class="fa fa-file-o"><em class="sr-only"></em></i>
+										<i class="fa fa-file-o assessor-1st"><em class="sr-only"></em></i>
+										<i class="fa fa-file-o assessor-2nd"><em class="sr-only"></em></i>
+										<i class="fa fa-file-text-o"><em class="sr-only"></em></i> 
+									-->	
+								<li style="padding-left: 0px; padding-bottom: 1px;"><i class="fa fa-folder-open"></i> 플랫폼개발1팀</li>	<li style="padding-left: 0; padding-bottom: 1px;" id="empList_jhpark3">		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="jhpark3" data-dept_idx="57"><span class="user"><i class="fa fa-user"></i> 박지혜 팀장</span></a>		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="jhpark3" data-dept_idx="57" title="peer review"><i class="fa fa-file-o"><em class="sr-only">팀원평가</em></i></a>	</li>	<li style="padding-left: 0; padding-bottom: 1px;" id="empList_hkkim5">		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="hkkim5" data-dept_idx="57"><span class="user"><i class="fa fa-user"></i> 김현경 매니저</span></a>		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="hkkim5" data-dept_idx="57" title="peer review"><i class="fa fa-file-o"><em class="sr-only">팀원평가</em></i></a>	</li>	<li style="padding-left: 0; padding-bottom: 1px;" id="empList_mhyang" class="active">		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="mhyang" data-dept_idx="57"><span class="user"><i class="fa fa-user"></i> 양민희 매니저</span></a>		<a href="javascript:void(0);" data-toyear="2019" data-type_cd="SC001" data-emp_id="mhyang" data-dept_idx="57" title="peer review"><i class="fa fa-file-o"><em class="sr-only">팀원평가</em></i></a>	</li></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="panel">
+						<div class="panel-body">
+							<div class="section-title">
+								<h2>Peer Review</h2> (피어리뷰 테스트 게시글 생성-[복사])
+							</div>
+						
+							<div class="table-responsive table-basic">
+								<table class="table table-bordered table-row" summary="소속, 직책, 이름로 구분되는 표">
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 15%;">
+										<col style="width: 35%;">
+										<col style="width: 15%;">
+										<col style="width: 35%;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">소속</th>
+											<td class="team">플랫폼개발1팀</td>
+											<th scope="row">이름 / 직책</th>
+											<td class="rank">양민희 / 매니저</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						
+							<div class="table-responsive table-objective">
+								<form id="frm3" name="frm3" method="post">
+									<input type="hidden" id="toyear" name="toyear">
+									<input type="hidden" id="rev_idx" name="rev_idx">
+									<input type="hidden" id="dept_idx" name="dept_idx" value="57">
+									<input type="hidden" id="target_id" name="target_id" value="mhyang">
+									<input type="hidden" id="commCd" name="commCd" value="manager">
+									
+									<div class="section-title">
+										<h3 class="title">평가인원 : 2 명</h3>
+									</div>		
+									<table class="table table-bordered margin-top-10">
+										<colgroup>
+											<col width="30%">
+											<col width="30%">
+											<col width="20%">
+											<col width="20%">
+										</colgroup>
+										<thead>
+											<tr><th>평가 항목</th>
+											<th colspan="2">평가 내용</th>
+											<th>공개 여부</th>
+										</tr></thead>
+										<tbody>
+											
+												<input type="hidden" id="qust_no" name="qust_no" value="1">
+												
+												<tr>
+													<td>동료의 장점은?ㅇㄹㅇㄹㅇㄹㅇㄹㅇㄹㅇ</td>
+													<td class="text-left" style="word-break:break-all;">
+														
+															<li style="list-style:initial">좋음(0)</li>
+														
+															<li style="list-style:initial">보통(0)</li>
+														
+													</td>
+													
+														<td class="text-left">평균 : 0</td>
+													
+													<td>
+														<label for="s_1_1" class="radio margin-right-10"><input type="radio" id="s_1_1" name="s_1" value="Y" checked=""><i></i>공개</label>
+														<label for="s_1_2" class="radio margin-right-10"><input type="radio" id="s_1_2" name="s_1" value="N"><i></i>비공개</label>
+													</td>
+												</tr>
+											
+												<input type="hidden" id="qust_no" name="qust_no" value="2">
+												
+												<tr>
+													<td>ㅡㅜㅡㅜㅡㅜㅡ</td>
+													<td class="text-left" style="word-break:break-all;">
+														
+															<li style="list-style:initial">ㅜㅡㅜㅡㅜ(0)</li>
+														
+													</td>
+													
+														<td class="text-left">평균 : 0</td>
+													
+													<td>
+														<label for="s_2_1" class="radio margin-right-10"><input type="radio" id="s_2_1" name="s_2" value="Y" checked=""><i></i>공개</label>
+														<label for="s_2_2" class="radio margin-right-10"><input type="radio" id="s_2_2" name="s_2" value="N"><i></i>비공개</label>
+													</td>
+												</tr>
+											
+										</tbody>
+									</table>
+								</form>
+							</div>
+							
+							<div class="section-title">
+								<h3 class="title">종합의견</h3>
+							</div>
+							
+							<div class="table-responsive table-objective">
+								<form id="frmResult" name="frmResult" method="post">
+									<input type="hidden" id="idx" name="idx" value="">
+									<input type="hidden" id="emp_id" name="emp_id" value="">
+									<input type="hidden" id="totalPoint" name="totalPoint">
+									
+									<table class="table table-bordered margin-top-10">
+										<caption>comment 목록</caption>
+										<colgroup>
+											<col style="width: 15%;">
+											<col style="width: 15%;">
+											<col style="width: auto;">
+										</colgroup>
+										<thead>
+											<tr><th colspan="2">구분</th>
+											<th>의견</th>
+										</tr></thead>
+										<tbody>
+											<tr>
+												<td>1차평가</td>
+												<td>박지혜 팀장</td>
+												<td class="text-left" style="word-break:break-all;">-</td>
+											</tr>
+											<tr>
+												<td>2차평가</td>
+												<td>양민희 매니저</td>
+												<td class="text-left" style="word-break:break-all;">-</td>
+											</tr>
+											
+										</tbody>
+									</table>
+								</form>
+							</div>
+							
+							<div class="clearfix margin-top-50 text-center">
+								<button type="button" class="btn btn-lg width-120 btn-primary" id="btnSave">저장</button>
+								<button type="button" class="btn btn-lg width-150 btn-teal" id="btnPreview">미리보기/인쇄</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+			
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

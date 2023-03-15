@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/genius/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/genius/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/genius/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/genius/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/genius/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/genius/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+
+		$(".list-banner-body li").on("click", function (){
+			$(this).toggleClass("highlight").siblings("li").removeClass("highlight");
+		})
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>메인 관리</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">공지사항 관리</a>
+						</li>
+						<li class="d2 active">
+							<a href="javascript:;" class="d2">배너 관리</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">일정 관리</a>
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		<div id="content" class=""><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">메인 관리</a>
+					<a href="#">배너 관리</a>
+				</div>
+			</div>
+			<div class="container">
+				<div class="panel">
+					<div class="panel-body">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#tab_banner_1" data-toggle="tab" aria-expanded="true">메인 배너 관리</a></li>
+							<li class=""><a href="#tab_banner_2" data-toggle="tab" aria-expanded="true">소 배너 관리</a></li>
+						</ul>
+						<div class="tab-content"><!-- tabs content -->
+							<div id="tab_banner_1" class="tab-pane active"><!-- TAB 1 CONTENT -->
+								<div class="panel panel-light"><!-- container type A-->
+									<div class="panel-body ">
+										<div class="wrap wrap-banner">
+											<div class="col-xs-5">
+												<div class="tit-tab">배너 노출관리</div>
+												<div class="list-banner">
+													<ul class="list-banner-head">
+														<li>
+															<div class="item-1">순번</div>
+															<div class="item-2">TYPE</div>
+															<div class="item-3">배너번호</div>
+															<div class="item-4">배너명</div>
+														</li>
+													</ul>
+													<ul class="list-banner-body">
+														<li class="highlight">
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="" selected>1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">A</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">이달의 아이템</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="" selected>2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">A</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="" selected>3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개 그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-primary">수정</button>
+												</div>
+											</div>
+											<div class="col-xs-7">
+												<div class="tit-tab">배너 상세정보</div>
+												<div class="detail-banner">
+													<ul>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 배너유형</div>
+															<div class="wrap">
+																<label><input type="radio" name="radio-1" class="radio" checked /> TYPE A</label>
+																<label class="margin-left-40"><input type="radio" name="radio-1" class="radio" /> TYPE B</label>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 배너명</div>
+															<div class="wrap">
+																<input type="text" class="form-control half" placeholder="10자 글자수 제한 (중복 불가)" value="">
+																<div class="banner-num">B21011501</div>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 이미지</div>
+															<div class="wrap">
+																<div class="fancy-file-upload"><!-- file-upload -->
+																	<i class="fa fa-upload"></i>
+																	<input type="file" class="form-control" name="contact[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
+																	<input type="text" class="form-control" placeholder="no file selected" readonly="" />
+																	<span class="button">불러오기</span>
+																</div><!-- // file-upload -->
+															</div>
+														</li>
+														<li>
+															<div class="label-tit">이미지 URL</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="이미지 혹은 URL 택1" value="">
+															</div>
+														</li>
+														<li>
+															<div class="label-tit">랜딩 URL</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="URL 가이드" value="">
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-primary">등록</button>
+													<button type="button" class="btn btn-primary">수정</button>
+												</div>
+											</div>
+			
+											
+										</div>
+									</div>
+								</div>
+			
+								<div class="panel panel-light"><!-- container type B-->
+									<div class="panel-body ">
+										<div class="wrap wrap-banner">
+											<div class="col-xs-5">
+												<div class="tit-tab">배너 노출관리</div>
+												<div class="list-banner">
+													<ul class="list-banner-head">
+														<li>
+															<div class="item-1">순번</div>
+															<div class="item-2">TYPE</div>
+															<div class="item-3">배너번호</div>
+															<div class="item-4">배너명</div>
+														</li>
+													</ul>
+													<ul class="list-banner-body">
+														<li class="highlight">
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="" selected>1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">A</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">이달의 아이템</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="" selected>2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">A</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="" selected>3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개 그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2">B</div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-primary">수정</button>
+												</div>
+											</div>
+											<div class="col-xs-7">
+												<div class="tit-tab">배너 상세정보</div>
+												<div class="detail-banner">
+													<ul>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 배너유형</div>
+															<div class="wrap">
+																<label><input type="radio" name="radio-2" class="radio" /> TYPE A</label>
+																<label class="margin-left-40"><input type="radio" name="radio-2" class="radio" checked /> TYPE B</label>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 배너명</div>
+															<div class="wrap">
+																<input type="text" class="form-control half" placeholder="10자 글자수 제한 (중복 불가)" value="">
+																<div class="banner-num">B21011501</div>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 템플릿</div>
+															<div class="wrap">
+																<select class="form-control">
+																	<option value="">템플릿 적용</option>
+																</select>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 대 타이틀</span></div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="대 타이틀 (글자 수 제한)" value="">
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 소 타이틀</span></div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="소 타이틀 (글자 수 제한)" value="">
+															</div>
+														</li>
+														<li>
+															<div class="label-tit">랜딩 URL</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="URL 가이드" value="">
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-default" data-toggle="modal" data-target="#templatePreview">미리보기</button>
+													<button type="button" class="btn btn-primary">수정</button>
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="tab_banner_2" class="tab-pane"><!-- TAB 2 CONTENT -->
+								<div class="panel panel-light"><!-- container -->
+									<div class="panel-body ">
+										<div class="wrap wrap-banner">
+											<div class="col-xs-5">
+												<div class="tit-tab">배너 노출관리</div>
+												<div class="list-banner">
+													<ul class="list-banner-head">
+														<li>
+															<div class="item-1">순번</div>
+															<div class="item-2"></div>
+															<div class="item-3">배너번호</div>
+															<div class="item-4">배너명</div>
+														</li>
+													</ul>
+													<ul class="list-banner-body">
+														<li class="highlight">
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="" selected>1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2"></div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">이달의 아이템</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="" selected>2</option>
+																	<option value="">3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2"></div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="" selected>3</option>
+																	<option value="">-</option>
+																</select>
+															</div>
+															<div class="item-2"></div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">그룹웨어 소개 그룹웨어 소개</div>
+														</li>
+														<li>
+															<div class="item-1">
+																<select class="form-control form-num">
+																	<option value="">1</option>
+																	<option value="">2</option>
+																	<option value="">3</option>
+																	<option value="" selected>-</option>
+																</select>
+															</div>
+															<div class="item-2"></div>
+															<div class="item-3">B21011501</div>
+															<div class="item-4">에듀윌BI</div>
+														</li>
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-primary">수정</button>
+												</div>
+											</div>
+											<div class="col-xs-7">
+												<div class="tit-tab">배너 상세정보</div>
+												<div class="detail-banner">
+													<ul>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 배너명</div>
+															<div class="wrap">
+																<input type="text" class="form-control half" placeholder="10자 글자수 제한 (중복 불가)" value="">
+																<div class="banner-num">B21011501</div>
+															</div>
+														</li>
+														<li>
+															<div class="label-tit"><span class="text-red">*</span> 이미지</div>
+															<div class="wrap">
+																<div class="fancy-file-upload"><!-- file-upload -->
+																	<i class="fa fa-upload"></i>
+																	<input type="file" class="form-control" name="contact[attachment]" onchange="jQuery(this).next('input').val(this.value);" />
+																	<input type="text" class="form-control" placeholder="no file selected" readonly="" />
+																	<span class="button">불러오기</span>
+																</div><!-- // file-upload -->
+															</div>
+														</li>
+														<li>
+															<div class="label-tit">이미지 URL</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="이미지 혹은 URL 택1" value="">
+															</div>
+														</li>
+														<li>
+															<div class="label-tit">랜딩 URL</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="URL 가이드" value="">
+															</div>
+														</li> 
+														<li>
+															<div class="label-tit">배너 설명</div>
+															<div class="wrap">
+																<input type="text" class="form-control full" placeholder="소배너에만 적용 가능합니다." value="">
+															</div>
+														</li> 
+													</ul>
+												</div>
+												<div class="text-right margin-top-20">
+													<button type="button" class="btn btn-primary">등록</button>
+												</div>
+											</div>
+			
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			
+		</div><!-- // content -->
+	</section><!-- // middle -->
+</div><!-- // wrapper -->
+
+<!-- Modal : 배너 미리보기 -->
+<div id="templatePreview" class="modal fade modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h3 class="modal-title" id="myModalLabel">
+					배너 미리보기
+				</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<div class="templatePreview-box" >
+					<div class="img"><img src=""></div>
+					(텍스트형)
+					<div class="text">
+						<div class="img"><img src="//img.eduwill.net/resources/genius/dev/images/genius/BG_01.jpg"></div>
+						<dl>
+							<dt>에듀윌 업무통합 플랫폼 Genius </dt>
+							<dd>오픈 이벤트 1탄 "이런 내용을 공지로 올려주세요"</dd>
+						</dl>
+						<i class="dot"></i>
+					</div>
+					<br><br>
+					(이미지형)
+					<div class="text typeA">
+						<div class="img"><img src="//img.eduwill.net/Img2/globalMain/201215/img_award01.jpg"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer clearfix">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- // Modal -->
+
+<script>
+	$(document).ready(function(){
+		//$("#templatePreview").modal("show")
+	})
+</script>
+</body>
+</html>

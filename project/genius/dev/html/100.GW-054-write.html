@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+
+		<script type="text/javascript">
+			var ajaxUtil = new AjaxUtil();
+			var callUrl = "";
+			var param = "";
+			
+			$(document).ready(function() {
+				// 에디터 로드
+				if("" == "Y" || "" == null || "" == ""){
+					var CONTENTS = CKEDITOR.replace('sContent', GIFT_CKEDITOR_OPTION);
+				}
+				
+				//질문유형 셀렉트 완성
+				callUrl = "/common/ajaxCommonCodeList";
+				param = { mstcd : "MC037", rfcd1 : "SC002"};
+				var selected = ("" == null || "" == "" ) ? "SC001" : "";
+				ajaxUtil.commonAjaxPost(callUrl, param, "#cate_cd", selected, null);
+				
+				//툴팁효과
+				$("[data-toggle=tooltip]").tooltip();
+				
+				setTimeout(function(){
+					if($("#cate_cd option").eq(0).val() == "SC003") {
+						$("input[name=openyn][value=Y]").prop("disabled", true);
+						$("input[name=openyn][value=N]").prop("checked", true);
+					}
+				}, 300);
+				
+				//저장
+				$("#btnSave").on("click", function () {
+					fnc_save();
+				});
+				
+				//목록
+				$("#btnList").on("click", function () {
+					$("#frm2").submit();
+				});
+				
+				$("#frm1").validate({	
+					errorPlacement: function(error, element) {
+						// do nothing
+					},
+					highlight: function(element, errorClass, validClass) {
+						$(element).addClass('error').removeClass(validClass);
+					}
+				});
+		
+				//파일추가
+				$("#btnAddFile").on("click", function(){
+					var length = 0;
+					$(".file1").each(function(){
+						length++;
+					});
+					
+					if(length >= 2){
+						fnc_toastMsgForWarning("최대 2개까지 첨부 가능합니다.");
+						return false;
+					} else {
+						fnc_appendEleForFile();
+					}
+				});
+				
+				//파일삭제
+				$("button[id=btnRemoveFile]").on("click", function(){
+					var apprv_idx = $(this).data("apprv_idx");
+					var seq = $(this).data("seq");
+					var type_cd = $(this).data("type_cd");
+					
+					fnc_removeFile(apprv_idx, seq, type_cd, $(this));
+				});
+				
+				// 문의 삭제
+				$("#btnRemove").on("click", function (){
+					var q_idx = $("#frm1 #q_idx").val();
+					fnc_remove(q_idx);
+				});
+				
+				$("#cate_cd").on("change", function(){
+					if ($(this).val() == "SC003") {
+						$("input[name=openyn][value=Y]").prop("disabled", true);
+					} else {
+						$("input[name=openyn][value=Y]").prop("disabled", false);
+					}
+					$("input[name=openyn][value=N]").prop("checked", true);
+				});
+			});
+			
+			//파일 유효성 체크
+			function fnc_checkFile(fileEle) {
+				var fileId = $(fileEle).attr("id");
+				var fi = document.getElementById(fileId);
+				
+				if(fi.files.length > 0) {
+					//type 체크
+					var type = fi.files[0].type;
+					
+					var allowType = [
+						'image/jpeg', 'image/png', 'application/pdf',
+						'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+						'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',' application/vnd.ms-excel',
+						'application/zip', 'application/vnd.hancom.hwp', 'application/msword'
+					];
+					if(allowType.indexOf(type) == -1) {
+						fnc_toastMsgForWarning("파일은 JPG, PNG, PDF, ppt, pptx, 한글, 워드, 엑셀, zip 형식만 가능합니다.");
+						fi.value = "";
+						$("#"+fileId).closest("div").find(".upload-name").val("");
+						$("#"+fileId).closest("div").find("#filesize1").val("");
+						return false;
+					}
+					
+					//size 체크
+					var size = fi.files[0].size;
+					var allowSize = 15 * 1024 * 1024; //15MB
+					var totalSize = size;
+					$("input[id=filesize1]").each(function(){
+						totalSize += Number($(this).val());
+					});
+					if(allowSize < totalSize) {
+						fnc_toastMsgForWarning("파일 용량은 최대 15MB 입니다.");
+						fi.value = "";
+						$("#"+fileId).closest("div").find(".upload-name").val("");
+						$("#"+fileId).closest("div").find("#filesize1").val("");
+						return false;
+					}
+					
+					$("#"+fileId).closest("div").find(".upload-name").val(fi.files[0].name);	//파일명 출력
+					$("#"+fileId).closest("div").find("#filesize1").val(fi.files[0].size);	//파일사이즈
+				} else {
+					$("#"+fileId).closest("div").find(".upload-name").val("");
+					$("#"+fileId).closest("div").find("#filesize1").val("");
+				}
+				
+				return true;
+			}
+			
+			//유효성검사
+			function fnc_isValidInput() {
+				var b = false;
+				if($("#frm1").valid()) {
+					b = true;
+				} else {
+					$("#frm1 .error").eq(0).focus();
+					fnc_toastMsgForWarning("필수 입력 항목을 확인 해주세요.");
+					return false;
+				}
+				
+				if(b){
+					var content = CKEDITOR.instances['sContent'].getData();
+					
+					if(content == "") {
+						$("#frm1 #sContent").focus();
+						fnc_toastMsgForWarning($("#frm1 #sContent").data("msg"));
+						return false;
+					} else {
+						b = true;
+					}
+				}
+				
+				return b;
+			}
+			
+			//저장
+			function fnc_save() {
+				if(fnc_isValidInput()) {
+					bConfirm("저장 하시겠습니까?").done(function(s) {
+						if(s) {
+							var content = CKEDITOR.instances['sContent'].getData();
+							$("#frm1 #content").val(content);
+							
+							var frm1 = document.getElementById("frm1");
+							var dataArray = new FormData(frm1);
+							
+							$.ajax({
+								type:"post"
+								,url:"/qna/ajaxSaveQna"
+								,data: dataArray
+								,dataType: "json"
+								,enctype : 'multipart/form-data'
+								,processData : false
+								,contentType : false
+								,success: function(data) {
+									if(data.result == 1) {
+										fnc_toastMsgForResult("저장 되었습니다.");
+										
+										$("#frm2").submit();
+									} else {
+										fnc_toastMsgForWarning(data.resultMsg);
+									}
+								}
+								,error: function(responseJSON, status, err) {
+								}
+							});
+						}
+					});
+				}
+			}
+			
+			// 파일 element 추가
+			function fnc_appendEleForFile() {
+				var newElements = $("#divFile > .file1-input").first().clone();
+				$(newElements).find("input").each(function(){
+					$(this).val("")
+				});
+				$(newElements).find("#btnAddFile").hide();
+				$(newElements).find("#btnMinusFile").show();
+				var index = $(".file1-input").length+1;
+				$(newElements).find("#file1").attr("id", "file"+index);
+				
+				$("#divFile").append(newElements);
+			}
+			
+			// 파일 element 삭제
+			function fnc_removeEleForFile(btn){
+				$(btn).closest(".file1-input").remove();
+			}
+			
+			//자료다운로드
+			function fnc_fileDownload(seq, type_cd) {
+				bConfirm("첨부 파일을  다운로드 하시겠습니까?").done(function(s) {
+					if(s) {
+						$("#frmFileDL #seq").val(seq);
+						$("#frmFileDL #type_cd").val(type_cd);
+						$("#frmFileDL").attr("action", "/qna/fileDownload").submit();
+					}
+				});
+			}
+			
+			// 파일 삭제
+			function fnc_removeFile(q_idx, seq, type_cd, btn){
+				bConfirm("파일 삭제하시겠습니까?").done(function(s) {
+					if(s) {
+						$.ajax({
+							type:"post"
+							,url:"/qna/ajaxRemoveQnaFile"
+							,data: { q_idx : q_idx, seq : seq, type_cd : type_cd }
+							,dataType: "json"
+							,success: function(data) {
+								if(data.result == 1) {
+									fnc_toastMsgForResult("삭제 되었습니다.");
+									$(btn).closest("div").remove();
+								} else {
+									fnc_toastMsgForWarning(data.resultMsg);
+								}
+							}
+							,error: function(responseJSON, status, err) {
+							}
+						});
+					}
+				});
+			}
+			
+			// 삭제
+			function fnc_remove(q_idx){
+				bConfirm("삭제하시겠습니까?").done(function(s) {
+					if(s) {
+						$.ajax({
+							type:"post"
+							,url:"/qna/ajaxRemoveQna"
+							,data: { q_idx : q_idx }
+							,dataType: "json"
+							,success: function(data) {
+								if(data.result == 1) {
+									fnc_toastMsgForResult("삭제 되었습니다.");
+									$("#frm2").submit();
+								} else {
+									fnc_toastMsgForWarning(data.resultMsg);
+								}
+							}
+							,error: function(responseJSON, status, err) {
+							}
+						});
+					}
+				});
+			}
+		</script>
+		
+		<div id="content" class="padding-20">
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리</a>
+					<a href="#">2021년 연봉평가제도 문의</a>
+				</div>
+			</div>
+			
+			<div class="panel-body" id="divTabBody">
+				<div class="section-title">
+					<h3 class="title">1:1문의 등록 </h3>
+				</div>
+				
+				<div class="container section-must-read nopadding margin-top-20"><!-- section-must-read -->
+					<form id="frm1" name="frm1" method="post" novalidate="novalidate">
+						<input type="hidden" id="q_idx" name="q_idx" value="">
+						<input type="hidden" id="type_cd" name="type_cd" value="Q">
+						<input type="hidden" id="content" name="content" value="">
+						
+						<div class="table-responsive table-basic"><!-- table-basic -->
+							<table class="table table-bordered table-row">
+								<caption>기본정보</caption>
+								<colgroup>
+									<col style="width: 15%;">
+									<col style="width: 35%;">
+									<col style="width: 15%;">
+									<col style="width: 35%;">
+								</colgroup>
+								<tbody>
+									
+									<tr><!-- row -->
+										<th scope="row">질문유형 <span class="color-red">*</span></th>
+										<td class="name">
+											<select class="form-control width-200 required" name="cate_cd" id="cate_cd"><option value="SC002">연봉평가-전직원</option><option value="SC003">연봉평가-챌린지그룹</option></select>
+										</td>
+										<th scope="row">공개여부 <span class="color-red">*</span></th>
+										<td class="name">
+											
+												
+													<label class="radio"><input type="radio" class="radio required" id="openyn" name="openyn" value="Y"><i></i>공개</label>
+													<label class="radio"><input type="radio" class="radio required" id="openyn" name="openyn" value="N" checked=""><i></i>비공개</label>	
+												
+												
+											
+										</td>
+									</tr>
+									<tr><!-- row -->
+										<th scope="row">제목 <span class="color-red">*</span></th>
+										<td class="assessor-1st" colspan="3">
+											
+												
+													<input type="text" class="text form-control full required" name="title" id="title" value="" placeholder="띄어쓰기 포함 50자까지 등록가능합니다." autocomplete="off" maxlength="50">	
+												
+												
+											
+										</td>
+									</tr>
+									<tr><!-- row -->
+										<th scope="row">내용 <span class="color-red">*</span></th>
+										<td class="assessor-1st" colspan="3">
+											
+												
+													<textarea class="form-control" name="sContent" id="sContent" rows="10" data-msg="내용을 입력해주세요." style="visibility: hidden; display: none;"></textarea><div id="cke_sContent" class="cke_1 cke cke_reset cke_chrome cke_editor_sContent cke_ltr cke_browser_webkit" dir="ltr" lang="ko" role="application" aria-labelledby="cke_sContent_arialbl"><span id="cke_sContent_arialbl" class="cke_voice_label">리치 텍스트 편집기, sContent</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; user-select: none;"><span id="cke_12" class="cke_voice_label">에디터 툴바</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_12" onmousedown="return false;"><span id="cke_15" class="cke_toolbar" role="toolbar"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_16" class="cke_button cke_button__bold cke_button_off" href="javascript:void('굵게')" title="굵게 (컨트롤+B)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" aria-describedby="cke_16_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(2,event);" onfocus="return CKEDITOR.tools.callFunction(3,event);" onclick="CKEDITOR.tools.callFunction(4,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -24px;background-size:auto;">&nbsp;</span><span id="cke_16_label" class="cke_button_label cke_button__bold_label" aria-hidden="false">굵게</span><span id="cke_16_description" class="cke_button_label" aria-hidden="false">키보드 단축키 컨트롤+B</span></a><a id="cke_17" class="cke_button cke_button__italic cke_button_off" href="javascript:void('기울임꼴')" title="기울임꼴 (컨트롤+I)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_17_label" aria-describedby="cke_17_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(5,event);" onfocus="return CKEDITOR.tools.callFunction(6,event);" onclick="CKEDITOR.tools.callFunction(7,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -48px;background-size:auto;">&nbsp;</span><span id="cke_17_label" class="cke_button_label cke_button__italic_label" aria-hidden="false">기울임꼴</span><span id="cke_17_description" class="cke_button_label" aria-hidden="false">키보드 단축키 컨트롤+I</span></a><a id="cke_18" class="cke_button cke_button__underline cke_button_off" href="javascript:void('밑줄')" title="밑줄 (컨트롤+U)" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" aria-describedby="cke_18_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(8,event);" onfocus="return CKEDITOR.tools.callFunction(9,event);" onclick="CKEDITOR.tools.callFunction(10,this);return false;"><span class="cke_button_icon cke_button__underline_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -144px;background-size:auto;">&nbsp;</span><span id="cke_18_label" class="cke_button_label cke_button__underline_label" aria-hidden="false">밑줄</span><span id="cke_18_description" class="cke_button_label" aria-hidden="false">키보드 단축키 컨트롤+U</span></a><a id="cke_19" class="cke_button cke_button__strike cke_button_off" href="javascript:void('취소선')" title="취소선" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_19_label" aria-describedby="cke_19_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(11,event);" onfocus="return CKEDITOR.tools.callFunction(12,event);" onclick="CKEDITOR.tools.callFunction(13,this);return false;"><span class="cke_button_icon cke_button__strike_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -72px;background-size:auto;">&nbsp;</span><span id="cke_19_label" class="cke_button_label cke_button__strike_label" aria-hidden="false">취소선</span><span id="cke_19_description" class="cke_button_label" aria-hidden="false"></span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_20" class="cke_button cke_button__textcolor cke_button_off" href="javascript:void('글자 색상')" title="글자 색상" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_20_label" aria-describedby="cke_20_description" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(14,event);" onfocus="return CKEDITOR.tools.callFunction(15,event);" onclick="CKEDITOR.tools.callFunction(16,this);return false;"><span class="cke_button_icon cke_button__textcolor_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -408px;background-size:auto;">&nbsp;</span><span id="cke_20_label" class="cke_button_label cke_button__textcolor_label" aria-hidden="false">글자 색상</span><span id="cke_20_description" class="cke_button_label" aria-hidden="false"></span><span class="cke_button_arrow"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_21" class="cke_toolbar" role="toolbar"><span class="cke_toolbar_start"></span><span id="cke_13" class="cke_combo cke_combo__font cke_combo_off" role="presentation"><span id="cke_13_label" class="cke_combo_label">글꼴</span><a class="cke_combo_button" title="글꼴" tabindex="-1" href="javascript:void('글꼴')" hidefocus="true" role="button" aria-labelledby="cke_13_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(18,event,this);" onfocus="return CKEDITOR.tools.callFunction(19,event);" onclick="CKEDITOR.tools.callFunction(17,this);return false;"><span id="cke_13_text" class="cke_combo_text cke_combo_inlinelabel">글꼴</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_14" class="cke_combo cke_combo__fontsize cke_combo_off" role="presentation"><span id="cke_14_label" class="cke_combo_label">크기</span><a class="cke_combo_button" title="글자 크기" tabindex="-1" href="javascript:void('글자 크기')" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(21,event,this);" onfocus="return CKEDITOR.tools.callFunction(22,event);" onclick="CKEDITOR.tools.callFunction(20,this);return false;"><span id="cke_14_text" class="cke_combo_text cke_combo_inlinelabel">크기</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_22" class="cke_toolbar" role="toolbar"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_23" class="cke_button cke_button__table cke_button_off" href="javascript:void('표')" title="표" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_23_label" aria-describedby="cke_23_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(23,event);" onfocus="return CKEDITOR.tools.callFunction(24,event);" onclick="CKEDITOR.tools.callFunction(25,this);return false;"><span class="cke_button_icon cke_button__table_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -1920px;background-size:auto;">&nbsp;</span><span id="cke_23_label" class="cke_button_label cke_button__table_label" aria-hidden="false">표</span><span id="cke_23_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_24" class="cke_toolbar cke_toolbar_last" role="toolbar"><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_25" class="cke_button cke_button__source cke_button_off" href="javascript:void('소스')" title="소스" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_25_label" aria-describedby="cke_25_description" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(26,event);" onfocus="return CKEDITOR.tools.callFunction(27,event);" onclick="CKEDITOR.tools.callFunction(28,this);return false;"><span class="cke_button_icon cke_button__source_icon" style="background-image:url('https://img.eduwill.net/resources/kpi/dev/plugins/ckeditor/ckeditor_4.10.0_full/plugins/icons.png?t=I63C');background-position:0 -1848px;background-size:auto;">&nbsp;</span><span id="cke_25_label" class="cke_button_label cke_button__source_label" aria-hidden="false">소스</span><span id="cke_25_description" class="cke_button_label" aria-hidden="false"></span></a></span><span class="cke_toolbar_end"></span></span></span></span><div id="cke_1_contents" class="cke_contents cke_reset" role="presentation" style="height: 200px;"><span id="cke_30" class="cke_voice_label">도움이 필요하면 ALT 0 을 누르세요</span><iframe src="" frameborder="0" class="cke_wysiwyg_frame cke_reset" style="width: 100%; height: 100%;" title="리치 텍스트 편집기, sContent" aria-describedby="cke_30" tabindex="0" allowtransparency="true"></iframe></div><span id="cke_1_bottom" class="cke_bottom cke_reset_all" role="presentation" style="user-select: none;"><span id="cke_1_resizer" class="cke_resizer cke_resizer_vertical cke_resizer_ltr" title="크기 조절" onmousedown="CKEDITOR.tools.callFunction(0, event)">◢</span><span id="cke_1_path_label" class="cke_voice_label">요소 경로</span><span id="cke_1_path" class="cke_path" role="group" aria-labelledby="cke_1_path_label"><span class="cke_path_empty">&nbsp;</span></span></span></div></div>	
+												
+												
+											
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">
+											<span data-toggle="tooltip" title="" data-html="true" data-position="top" data-original-title="
+												<p style='text-align:left; margin: 0 !important;'>
+												파일 용량 및 형식 : 최대 15MB 이며,<br/>
+												파일은 JPG, PNG, PDF, ppt, pptx 형식만 가능합니다.</p>">
+												첨부파일 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+											</span>
+										</th>
+										<td class="name" colspan="3">
+											
+												<div class="margin-bottom-0 padding-20 border border-silver bg-white">
+													<div id="divFile" class="section-leave" style="width: 100%;">
+														<div class="fancy-file-upload file1 file1-input"><!-- file-upload -->
+															<i class="fa fa-upload"></i>
+															<input type="file" id="file1" class="form-control" name="file1" accept="image/jpeg, image/png, application/pdf,
+																	application/vnd.ms-powerpoint,
+																	application/vnd.openxmlformats-officedocument.presentationml.presentation,
+																	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel,
+																	application/zip, application/vnd.hancom.hwp, application/msword" onchange="fnc_checkFile($(this));">
+															<input type="text" class="form-control upload-name" id="filename1" placeholder="no file selected" readonly="">
+															<input type="hidden" id="filesize1" name="filesize1" value="">
+															
+															<span class="button width-120 text-center">파일찾기</span>
+															<button type="button" class="btn btn-teal btn-amount" id="btnAddFile">+</button>
+															<button type="button" class="btn btn-teal btn-amount" id="btnMinusFile" onclick="javascript:fnc_removeEleForFile($(this));" style="display: none;">-</button>
+														</div><!-- // file-upload -->
+													</div>
+												</div>
+											
+											<div>
+												
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!-- // table-basic -->
+						
+						
+				
+						<div class="clearfix margin-top-50 text-center">
+							<button type="button" class="btn btn-lg width-120 btn-teal" id="btnList">목록</button>
+							
+							
+								
+									<button type="button" class="btn btn-lg width-120 btn-primary" id="btnSave">저장</button>
+								
+								
+							
+						</div>
+					</form>
+				</div><!-- // section-must-read -->
+			</div>
+		</div>
+		
+		<!-- 목록 조회용 -->
+		<form name="frm2" id="frm2" method="post" action="/qna/SC002/index">
+			<input type="hidden" id="page" name="page" value="">
+			<input type="hidden" id="pageSize" name="pageSize" value="">
+			<input type="hidden" id="fromdt" name="fromdt" value="">
+			<input type="hidden" id="todt" name="todt" value="">
+			<input type="hidden" id="cate_cd" name="cate_cd" value="">
+			<input type="hidden" id="openyn" name="openyn" value="">
+			<input type="hidden" id="mineyn" name="mineyn" value="">
+			<input type="hidden" id="sValue" name="sValue" value="">
+		</form>
+		<!-- // 목록 조회용 -->
+		
+		<!-- 파일다운로드 -->
+		<form name="frmFileDL" id="frmFileDL" method="post" action="">
+			<input type="hidden" id="q_idx" name="q_idx" value="">
+			<input type="hidden" id="seq" name="seq" value="">
+			<input type="hidden" id="type_cd" name="type_cd" value="">
+		</form>
+		
+		<script type="text/javascript">
+			//CKEDITOR 옵션
+			var GIFT_CKEDITOR_OPTION = {
+					autoUpdateElement: true,
+					enterMode : CKEDITOR.ENTER_BR,
+					extraAllowedContent : 'div(*)',
+					font_defaultLabel : '맑은 고딕',
+					font_names : '맑은 고딕; 돋움; 바탕; 돋음; 궁서; Arial; Tahoma; Verdana',
+					toolbar:
+						[
+							['Bold','Italic','Underline','Strike','-','TextColor']
+							,['Font','FontSize']
+							, ['Table']
+							, ['Source']
+						]
+				};
+			//GIFT_CKEDITOR_OPTION.startupFocus = true; // focus 허용
+			GIFT_CKEDITOR_OPTION.allowedContent = true; // html 태그 허용
+		</script>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

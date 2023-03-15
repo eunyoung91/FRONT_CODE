@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+
+		//가이드 클릭
+		$("#divInfo").on("click", function(){
+			var title = "※ 근무 스케줄 등록 가이드 보기 ▼"
+			if($("#divInfoContent").css("display") == "none") {
+				$("#divInfoContent").show();
+				title = "※ 근무 스케줄 등록 가이드 닫기 ▲"
+			} else {
+				$("#divInfoContent").hide();
+			}
+			$(this).find("span").text(title);
+		});
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+	<section class="hd-wrap">
+		<div class="hd-wrap-inner">
+			<div class="logo">
+				<a href="">지니어스</a>
+			</div>
+			<div class="gnb">
+				<ul>
+					<li><a href="">전자결재</a></li>
+					<li><a href="">전사공지</a></li>
+					<li><a href="">업무요청</a></li>
+					<li><a href="">인사관리</a></li>
+					<li><a href="">지원관리</a></li>
+				</ul>
+			</div>
+			<div class="comp-right">
+				
+				<div class="logout">
+					<button class="btn btn-g-link">로그아웃</button>
+				</div>
+				<div class="state">
+					<span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+					<!--
+					<span><i class="state-2"></i> 자리비움</span>
+					<span><i class="state-3"></i> 로그오프</span>
+					-->
+					<div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+						<div class="menu-tootip-inner">
+							<div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+							<div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+							<div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+						</div>
+					</div>
+				</div> 
+				<div class="organization">
+					<span><button class="btn btn-g-link btn-setting">관리자</button></span>
+					<span><button class="btn btn-g-link btn-person">조직도</button></span>
+				</div>               
+			</div>
+		</div>
+	</section>
+	<div class="hd-wrap-expand" style="display: none;">
+		<div class="hd-wrap-expand-inner">
+			<div class="link">
+				<a herf="">결재문서 작성</a>
+				<a herf="">결재하기</a>
+				<a herf="">수신함</a>
+				<a herf="">매출/예산 계획 제출</a>
+			</div>
+			<div class="link">
+				<a herf="">공지사항</a>
+				<a herf="">에듀윌러 소식</a>
+				<a herf="">에듀윌 스타</a>
+				<a herf="">꿈의 직장</a>
+			</div>
+			<div class="link">
+				<a herf="">마케팅</a>
+				<a herf="">총무</a>
+				<a herf="">IT</a>
+				<a herf="">법무</a>
+			</div>
+			<div class="link">
+				<a herf="">인사정보</a>
+				<a herf="">평가</a>
+				<a herf="">교육</a>
+				<a herf="">자주 묻는 질문</a>
+			</div>
+			<div class="link">
+				<a herf="">힐링큐브</a>
+				<a herf="">E-스퀘어</a>
+				<a herf="">차량배차</a>
+				<a herf="">마음,쉼</a>
+			</div>
+		</div>
+	</div>
+	<!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>메인 관리</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">공지사항 관리</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">배너 관리</a>
+						</li>
+						<li class="d2 active">
+							<a href="javascript:;" class="d2">일정 관리</a>
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->	
+	
+	<section id="middle">
+		
+		<div id="content" class="padding-20">
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리</a>
+					<a href="#">인사정보 내역관리</a></a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="">
+						<input type="hidden" id="page" name="page" value="">
+						<input type="hidden" id="pageSize" name="pageSize" value="10">
+						<input type="hidden" name="dept_idx" id="dept_idx" value="">
+						
+						<label for="" class="width-100 text-center weight-800">변경일</label>
+						<input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" data-lang="en" data-rtl="false" name="regdt" id="regdt" autocomplete="off">
+					
+						<select class="form-control dept" id="dept_idx1" name="dept_idx1"><option value="">부서</option><option value="213" data-rfval1="N">임원실</option><option value="54" data-rfval1="Y">CEO직속</option><option value="8" data-rfval1="Y">고객센터</option><option value="6" data-rfval1="Y">출판사업본부</option><option value="7" data-rfval1="Y">평생교육원</option><option value="11" data-rfval1="Y">학원총괄본부</option><option value="138" data-rfval1="Y">CM1본부</option><option value="231" data-rfval1="Y">CM2본부</option><option value="5" data-rfval1="Y">IT플랫폼본부</option><option value="169" data-rfval1="Y">IT서비스본부</option><option value="3" data-rfval1="Y">경영지원본부</option><option value="79" data-rfval1="Y">마케팅본부</option><option value="60" data-rfval1="N">사회공헌위원회</option><option value="211" data-rfval1="N">합격전략연구소</option></select>
+						<select class="form-control dept" id="dept_idx2" name="dept_idx2">
+							<option value="">실/팀 선택</option>
+						</select>
+						<select class="form-control dept" id="dept_idx3" name="dept_idx3">
+							<option value="">팀/파트 선택</option>
+						</select>
+						<select class="form-control dept" id="dept_idx4" name="dept_idx4">
+							<option value="">파트 선택</option>
+						</select>
+						
+						<select class="form-control" id="sKey" name="sKey">
+							<option value="">변경항목</option>
+							<option value="email">메일주소</option>
+							<option value="tel">집전화번호</option>
+							<option value="phone">휴대전화번호</option>
+							<option value="real_addr">실제거주주소</option>
+							<option value="dlvry_addr">열정톡톡주소</option>
+						</select>
+						
+						<input type="text" class="form-control" id="name" name="name" value="">
+						
+						<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+					</form>
+				</div>
+			</div>
+			
+			<div class="tab-content padding-top-0">
+				<div class="container section-objective nopadding panel panel-light">
+					<div class="panel-body" id="divTabBody">
+		
+		
+		
+		
+		
+		
+		
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//전체선택
+				$("input[name=allCheck]").on("click", function(){
+					var b = $(this).is(":checked");
+					$("#frm2 input[name=idx]").prop("checked", b);
+				});
+			});
+		</script>
+		
+		<div class="container section-must-read">
+			<div class="clearfix margin-bottom-10">
+				<div class="pull-left">
+					처리 전: <strong class="size-25">22</strong>건
+				</div>
+				<div class="pull-right">
+					<button class="btn btn-sm btn-success" type="button" data-toggle="modal" data-target="#excelDownload" style="font-size: 13px;">변경 내용 엑셀다운로드</button>
+					<button type="button" class="btn btn-sm width-100 btn-primary" id="btnAllUpate">일괄수정</button>
+				</div>
+			</div>
+		
+			<form id="frm2" name="frm2" method="post">
+				<div class="table-responsive table-books margin-top-10">
+					<table id="tableDefault" class="table table-bordered table-hover" cellspacing="0" width="100%">
+						<colgroup>
+							<col style="width: 5%;">
+							<col style="width: 5%;">
+							<col style="width: 14%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 10%;">
+							<col style="width: 8%;">
+							<col style="width: 8%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col"><input type="checkbox" id="allCheck" name="allCheck" value="Y"></th>
+								<th scope="col">No.</th>
+								<th scope="col">변경일시</th>
+								<th scope="col">본부</th>
+								<th scope="col">실</th>
+								<th scope="col">팀</th>
+								<th scope="col">파트</th>
+								<th scope="col">이름</th>
+								<th scope="col">처리상태</th>
+								<th scope="col">변경내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+								
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="42"></td>
+											<td>31</td>
+											<td>2021-03-12 15:08:09</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>이경현</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="42">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="42">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="41"></td>
+											<td>30</td>
+											<td>2021-03-12 15:05:53</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>이경현</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="41">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="41">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="40"></td>
+											<td>29</td>
+											<td>2021-03-10 16:56:55</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>양민희</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="40">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="40">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="39"></td>
+											<td>28</td>
+											<td>2021-02-25 15:29:38</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>조한영</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="39">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="39">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="38"></td>
+											<td>27</td>
+											<td>2021-02-18 13:13:42</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>조한영</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="38">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="38">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="37"></td>
+											<td>26</td>
+											<td>2020-11-09 13:48:48</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼기획팀</td>
+											<td>-</td>
+											<td>임아름</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="37">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="37">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="36"></td>
+											<td>25</td>
+											<td>2020-11-04 14:56:32</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>양민희</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="36">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="36">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="35"></td>
+											<td>24</td>
+											<td>2020-11-02 15:04:01</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>양민희</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="35">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="35">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="34"></td>
+											<td>23</td>
+											<td>2020-11-02 15:03:52</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼개발2팀</td>
+											<td>-</td>
+											<td>양민희</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="34">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="34">변경내용</button></td>
+										</tr>
+									
+										<tr>
+											<td><input type="checkbox" id="idx" name="idx" value="33"></td>
+											<td>22</td>
+											<td>2020-09-29 13:58:49</td>
+											<td>IT플랫폼본부</td>
+											<td>-</td>
+											<td>플랫폼기획팀</td>
+											<td>-</td>
+											<td>임아름</td>
+											<td>
+												
+													
+														<button type="button" class="btn btn-xs btn-default" id="btnUpdate" data-idx="33">N</button>	
+													
+													
+												
+											</td>
+											<td><button type="button" class="btn btn-xs btn-teal" id="btnInfo" data-idx="33">변경내용</button></td>
+										</tr>
+									
+								
+								
+							
+						</tbody>
+					</table>
+				</div>
+			</form>
+			<div class="text-center">
+				<!-- 페이징 영역 -->
+				<ul class="pagination"><li class="active"><a>1</a></li><li><a href="javascript:fnc_movePage('2');">2</a></li><li><a href="javascript:fnc_movePage('3');">3</a></li><li><a href="javascript:fnc_movePage('4');">4</a></li></ul>
+			</div>	
+		</div></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal : 변경 내역-->
+		<div id="mngHRHistoryDetail" class="modal fade modal-sm modal-schedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">변경 내역</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body" id="divModelBody">
+						<!-- from blankMngHRHistoryInfo -->
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer clearfix">
+						<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">취소</button>
+						<!-- <button type="button" class="btn btn-primary" id="btnMenuSave">저장</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 엑셀다운로드 -->
+		<div id="excelDownload" class="modal modal-sm fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">
+							열정톡톡 수령정보 엑셀다운로드
+						</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form name="frmForExportToExcel" id="frmForExportToExcel" novalidate="novalidate">
+							<input type="hidden" name="prcsyn" value="N">
+							<p class="margin-top-0 margin-bottom-10">
+								<label class="width-120 weight-800">다운로드 사유</label><br>
+								정확한 다운로드 사유를 입력하세요.(공백제외 5글자 이상 입력)<br>
+								※ 사유 입력시 '....', '11111' 등 사유를 판단할 수 없는 경우 소명 요청을 할 수 있습니다.
+							</p>
+							<div class="section-form"><!-- section-form -->
+								<textarea name="remark" id="remark" class="form-control required" placeholder="엑셀 다운로드 사유를 입력하세요." data-msg="엑셀 다운로드 사유를 입력하세요."></textarea>
+							</div><!-- // section-form -->
+						</form>
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer clearfix">
+						<button type="button" class="btn btn-primary" id="btnExportToExcel">엑셀다운로드</button>
+						<!-- <button type="button" class="btn btn-teal" data-dismiss="modal">취소</button> -->
+					</div>
+		
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- // middle -->
+
+</div><!-- // wrapper -->
+
+<!-- Modal : 전사 일정 등록 -->
+<div id="importToSchedule" class="modal fade modal-sm modal-schedule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h3 class="modal-title" id="myModalLabel">
+					전사 일정 등록
+				</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<table class="tb-style1">
+					<colgroup><col width="150"><col width="*"></colgroup>
+					<tbody>
+						<tr>
+							<th>일정유형</th>
+							<td>
+								<label><input type="radio" name="radio" class="radio" /> 공휴일</label>
+								<label><input type="radio" name="radio" class="radio margin-left-20" /> 주요 일정</label>
+								<label><input type="radio" name="radio" class="radio margin-left-20" /> 시험 일정</label>
+								
+							</td>
+						</tr>
+						<tr>
+							<th>갤린더 노출 문구</th>
+							<td>
+								<input type="text" class="form-control fullwidth" placeholder="띄어쓰기 포함 10자까지 입력가능합니다.">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer clearfix">
+				<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">취소</button>
+				<button type="button" class="btn btn-primary">저장</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- // Modal -->
+
+</body>
+</html>

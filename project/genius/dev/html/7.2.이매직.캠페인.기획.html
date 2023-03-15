@@ -1,0 +1,2151 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>E-magic 2.0</title>
+
+	<!-- favicon files -->
+	<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+	<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+	<!-- css files -->
+	<!-- layout css -->
+	<link rel="stylesheet"
+		href="https://img.eduwill.net/resources/genius/dev/plugins/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/genius/dev/css/essentials.css" />
+	<link rel="stylesheet" href="css/genius.css" />
+
+
+	<!-- javascript files -->
+	<script type="text/javascript">
+		var plugin_path = '//img.eduwill.net/resources/genius/live/plugins/';
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/js/jquery.easyui.min.js" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+	<!-- validation -->
+	<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.form.min.js"
+		type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/form.validate/jquery.validation.min.js"
+		type="text/javascript"></script>
+
+	<script src="//img.eduwill.net/resources/genius/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+	<!-- 토스트메시지 -->
+	<link href="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.css" rel="stylesheet"
+		type="text/css" />
+	<script src="//img.eduwill.net/resources/genius/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+	<!-- 컨펌모달 -->
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.css">
+	<script src="//img.eduwill.net/resources/genius/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+	<!-- print -->
+	<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/printThis/printThis.js">
+	</script>
+
+	<!-- editable -->
+	<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/bootstrap-editable.min.js">
+	</script>
+
+	<!-- Fullcalendar -->
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.css" />
+	<link rel="stylesheet" href="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.print.css"
+		media="print" />
+	<script src="//img.eduwill.net/resources/genius/live/plugins/moment.min.js" type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/fullcalendar.min.js"
+		type="text/javascript"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/lang-all.js" type="text/javascript">
+	</script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+	<!-- CKEditor -->
+	<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+	<script src="//img.eduwill.net/resources/genius/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js">
+	</script>
+
+	<script type="text/javascript" src="//img.eduwill.net/resources/genius/live/plugins/timepicki/timepicki.min.js">
+	</script>
+
+	<script type="text/javascript">
+		function pagePrint() {
+			$('#pagePrint').printThis();
+		}
+
+		$(document).ready(function () {
+			/** Bootstrap Tooltip **/
+			$("[data-toggle=tooltip]").tooltip();
+
+			/* timepicki */
+			$(".timepicker").timepicki();
+		})
+	</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+	<!-- wrapper -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- hd-wrap -->
+		<section class="hd-wrap">
+			<div class="hd-wrap-inner">
+				<div class="logo">
+					<a href="">지니어스</a>
+				</div>
+				<div class="gnb">
+					<ul>
+						<li><a href="">전자결재</a></li>
+						<li><a href="">전사공지</a></li>
+						<li><a href="">업무요청</a></li>
+						<li><a href="">인사관리</a></li>
+						<li><a href="">지원관리</a></li>
+					</ul>
+				</div>
+				<div class="comp-right">
+
+					<div class="logout">
+						<button class="btn btn-g-link">로그아웃</button>
+					</div>
+					<div class="state">
+						<span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+						<!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+						<div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+							<div class="menu-tootip-inner">
+								<div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+								<div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+								<div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="organization">
+						<span><button class="btn btn-g-link btn-setting">관리자</button></span>
+						<span><button class="btn btn-g-link btn-person">조직도</button></span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="hd-wrap-expand" style="display: none;">
+			<div class="hd-wrap-expand-inner">
+				<div class="link">
+					<a herf="">결재문서 작성</a>
+					<a herf="">결재하기</a>
+					<a herf="">수신함</a>
+					<a herf="">매출/예산 계획 제출</a>
+				</div>
+				<div class="link">
+					<a herf="">공지사항</a>
+					<a herf="">에듀윌러 소식</a>
+					<a herf="">에듀윌 스타</a>
+					<a herf="">꿈의 직장</a>
+				</div>
+				<div class="link">
+					<a herf="">마케팅</a>
+					<a herf="">총무</a>
+					<a herf="">IT</a>
+					<a herf="">법무</a>
+				</div>
+				<div class="link">
+					<a herf="">인사정보</a>
+					<a herf="">평가</a>
+					<a herf="">교육</a>
+					<a herf="">자주 묻는 질문</a>
+				</div>
+				<div class="link">
+					<a herf="">힐링큐브</a>
+					<a herf="">E-스퀘어</a>
+					<a herf="">차량배차</a>
+					<a herf="">마음,쉼</a>
+				</div>
+			</div>
+		</div>
+		<!-- // hd-wrap -->
+
+		<!-- aside -->
+		<aside id="aside">
+			<div class="aside-loaction">
+				<strong>E-magic 2.0</strong></strong>
+				<button class="btn-collapse">접기</button>
+			</div>
+			<nav id="sideNav">
+				<ul class="nav nav-list d1">
+					<li class="d1 el_primary menu-open active">
+						<a href="javascript:;" class="d1">
+							<i class="main-icon fa fa-gears"></i>
+							<span>캠페인</span>
+						</a>
+						<ul class="d2">
+							<!-- 2depth -->
+							<li class="d2 active">
+								<a href="javascript:;" class="d2">캠페인 기획</a>
+							</li>
+							<li class="d2">
+								<a href="javascript:;" class="d2">캠페인 조회</a>
+							</li>
+						</ul>
+					</li>
+					<li class="d1">
+						<a href="javascript:;" class="d1">
+							<span>DB 관리</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="javascript:;" class="d1">
+							<span>운영 관리</span>
+						</a>
+					</li>
+					<li class="d1">
+						<a href="javascript:;" class="d1">
+							<span>(구) E-magic 들어가기</span>
+							<i class="fa fa-link"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+		<div id="expand-wrap" style="display: none;">
+			<button class="btn-expand">열기</button>
+		</div>
+		<!-- // aside -->
+
+		<!-- middle -->
+		<section id="middle">
+
+			<!-- content -->
+			<div id="content" class="padding-20">
+				<div class="container section-search-form section-search-form-bg">
+					<div class="middle-location">
+						<a href="/" class="home">홈</a>
+						<a href="#">E-magic 2.0</a>
+						<a href="#">캠페인</a>
+						<a href="#">캠페인 기획</a>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="panel">
+						<div class="panel-body">
+
+							<h4 class="bul-1 margin-top-0"><button class="collapse-heading" data-toggle="collapse"
+									href="#collapseItem1" aria-expanded="false" aria-controls="collapseItem1">기본
+									정보</button></h4>
+							<div class="collapse in" id="collapseItem1">
+								<div class="table-responsive table-basic">
+									<table class="table table-row">
+										<colgroup>
+											<col style="width: 15%;">
+											<col style="width: 35%;">
+											<col style="width: 15%;">
+											<col style="width: 35%;">
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>캠페인명</th>
+												<td colspan="3"><input type="text" class="form-control half"></td>
+											</tr>
+											<tr>
+												<th>캠페인 번호</th>
+												<td><input type="text" class="form-control full" value="C20210300009"
+														disabled></td>
+												<th>기획자</th>
+												<td><input type="text" class="form-control full" value="플랫폼기획팀 이수지 매니저"
+														disabled></td>
+											</tr>
+											<tr>
+												<th>발송일시</th>
+												<td>
+													<input type="text" name="fromdt" id="fromdt"
+														class="form-control width-120 datepicker"
+														data-format="yyyy-mm-dd" data-lang="en" data-rtl="false"
+														autocomplete="off" value="" placeholder="연도.월.일">
+													<input type="text" class="form-control timepicker" value="-- : --">
+												</td>
+												<th>캠페인 목적</th>
+												<td>
+													<select class="form-control full">
+														<option value="">선택</option>
+														<option value="">판매촉징</option>
+														<option value="">커뮤니케이션 강화</option>
+														<option value="">정보 알림</option>
+													</select>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<div class="btn_area">
+									<button type="button" class="btn btn-lg btn-primary">저장</button>
+								</div>
+							</div>
+
+							<h4 class="bul-1"><button class="collapse-heading" data-toggle="collapse"
+									href="#collapseItem3" aria-expanded="false" aria-controls="collapseItem3">켐페인
+									메세지</button></h4>
+							<div class="collapse in" id="collapseItem3">
+								<div class="text-right" style="height: 0;">
+									<button type="button" class="btn btn-default"
+										style="position: relative; margin-top: -80px;" data-toggle="modal"
+										data-target="#campContentModal">불러오기</button>
+								</div>
+
+								<div class="table-responsive table-basic">
+									<!-- table-basic -->
+									<table class="table table-bordered table-row margin-bottom-0">
+										<colgroup>
+											<col style="width: 15%;" />
+											<col style="width: 85%;" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>컨텐츠명</th>
+												<td>
+													<div class="form-group row">
+														<div class="col-sm-5">
+															<input type="text" class="form-control full clsDisabled"
+																name="" id="" value="">
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<th>발송타입</th>
+												<td>
+													<div class="form-group row">
+														<div class="col-sm-12">
+															<label class="checkbox">
+																<input type="checkbox" id="" name="" value="">
+																<i></i> 친구톡
+															</label>
+
+															<label class="checkbox">
+																<input type="checkbox" id="" name="" value="">
+																<i></i> LMS
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="" name="" value="">
+																<i></i> SMS
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="" name="" value="">
+																<i></i> 알림톡
+															</label>
+														</div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<th>발신 프로필</th>
+												<td>
+													<div class="form-group row">
+														<div class="col-sm-5">
+															<link rel="stylesheet" href="//img.eduwill.net/resources/ngene/live/vendors/chosen/chosen.css">
+															<select name="proflCd" id="proflCd" class="form-control full" style="display: none;">
+																<option value="">선택</option>
+																
+																	<option value="02" data-plusfriendid="@에듀윌고객센터">에듀윌 고객센터</option>
+																
+																	<option value="03" data-plusfriendid="@에듀윌">에듀윌 원격사회교육원</option>
+																
+																	<option value="04" data-plusfriendid="@에듀윌원격평생교육원">에듀윌 원격평생교육원</option>
+																
+																	<option value="05" data-plusfriendid="@에듀윌공인노량진">에듀윌 공인중개사 노량진학원</option>
+																
+																	<option value="06" data-plusfriendid="@에듀윌노원학원　">에듀윌 공인중개사 노원학원</option>
+																
+																	<option value="07" data-plusfriendid="@에듀윌종로공인중개사학원">에듀윌 공인중개사 종로학원</option>
+																
+															</select><div class="chosen-container chosen-container-single" title="" id="proflCd_chosen" style="width: 100%;"><a class="chosen-single">
+							  <span>에듀윌 공인중개사 노량진학원</span>
+							  <div><b></b></div>
+							</a>
+							<div class="chosen-drop">
+							  <div class="chosen-search">
+								<input class="chosen-search-input" type="text" autocomplete="off">
+							  </div>
+							  <ul class="chosen-results"><li class="active-result" data-option-array-index="0">선택</li><li class="active-result" data-option-array-index="1">에듀윌 고객센터</li><li class="active-result" data-option-array-index="2">에듀윌 원격사회교육원</li><li class="active-result" data-option-array-index="3">에듀윌 원격평생교육원</li><li class="active-result result-selected" data-option-array-index="4">에듀윌 공인중개사 노량진학원</li><li class="active-result" data-option-array-index="5">에듀윌 공인중개사 노원학원</li><li class="active-result" data-option-array-index="6">에듀윌 공인중개사 종로학원</li></ul>
+							</div></div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>템플릿</th>
+												<td>
+													<div class="form-group row">
+														<div class="col-sm-5">
+															<select name="" id="" class="form-control clsDisabled full">
+																<option value="">텍스트형</option>
+															</select>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>대체발송</th>
+												<td>
+													<div class="form-group row">
+														<div class="col-sm-5">
+															<select name="" id="" class="form-control clsDisabled full">
+																<option value="">미사용</option>
+															</select>
+														</div>
+														<div class="col-sm-7 padding-top-10">
+															※ 대체발송시에는 LMS, SMS발송만 가능하며 첨부된 이미지는 제외 후 텍스트만 발송됩니다.
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<th>발송내용</th>
+												<td>
+													<div class="massege-box-2">
+														<div class="push">
+															<div class="textarea row margin-bottom-40">
+																<div class="col-sm-5">
+																	<textarea class="form-control full"
+																		placeholder="발송내용"
+																		style="height: 130px"></textarea>
+																	<div class="row margin-top-10">
+																		<div class="col-sm-6">
+																			<button type="button"
+																				class="btn btn-default btn-sm">회원명</button>
+																		</div>
+																		<div class="col-sm-6 text-right">0 / 2000 byte
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+
+															<h6 class="margin-bottom-10">
+																버튼 삽입
+																<button type="button"
+																	class="btn btn-default btn-sm margin-left-10">버튼추가</button>
+															</h6>
+
+															<div class="table-responsive">
+																<table class="table table-col" cellpadding="0"
+																	cellspacing="0">
+																	<colgroup>
+																		<col style="width:50px">
+																		<col style="width:20%">
+																		<col style="width:40%">
+																		<col style="width:40%">
+																		<col style="width:50px">
+																	</colgroup>
+																	<thead>
+																		<tr>
+																			<th>NO</th>
+																			<th>버튼타입</th>
+																			<th>버튼명</th>
+																			<th>버튼링크</th>
+																			<th></th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<tr>
+																			<td class="text-center">1</td>
+																			<td>
+																				<select name="" id=""
+																					class="form-control clsDisabled full">
+																					<option value="">웹링크</option>
+																				</select>
+																			</td>
+																			<td>
+																				<input type="text"
+																					class="form-control full clsDisabled"
+																					placeholder="최대 14자" name="" id=""
+																					value="">
+																			</td>
+																			<td>
+																				<div><input type="text"
+																						class="form-control full clsDisabled"
+																						placeholder="Mobile" name=""
+																						id="" value=""></div>
+																				<div class="margin-top-3"><input
+																						type="text"
+																						class="form-control full clsDisabled"
+																						placeholder="PC" name="" id=""
+																						value=""></div>
+																			</td>
+																			<td class="text-center">
+																				<button type="button"
+																					class="btn btn-primary btn-xs text-center"><i
+																						class="fa fa-close nopadding"></i></button>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</div>
+
+															<h6 class="margin-bottom-10">
+																이미지 삽입
+															</h6>
+
+															<div class="fancy-file-upload file1 file1-input">
+																<i class="fa fa-upload"></i>
+																<input type="file" class="form-control" id="insurFile"
+																	name="insurFile">
+																<input type="text" class="form-control upload-name"
+																	id="filename" placeholder="no file selected"
+																	readonly="">
+																<input type="hidden" id="filesize" name="filesize"
+																	value="">
+																<span class="button width-120 text-center">파일찾기</span>
+															</div>
+
+															<div class="well">
+																- 이미지 파일은 JPG, JPEG, PNG만 가능합니다.<br>
+
+																- 기본 이미지형 <br>
+																&nbsp;&nbsp;권장 사이즈 : 720px X 720px (용량 최대 500KB)<br>
+																&nbsp;&nbsp;가로 500px 미만, 가로:세로 비율이 2:1 미만 또는 3:4 초과 시
+																업로드 불가<br>
+
+																- 와이드 이미지형<br>
+																&nbsp;&nbsp;권장사이즈 800px X 600px (용량 최대 2MB)
+															</div>
+
+															<div>
+																<label class="radio">
+																	<input type="radio" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 연결 URL 미사용
+																</label>
+															</div>
+															<div>
+																<label class="radio">
+																	<input type="radio" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 연결 URL 사용
+																</label>
+																<input type="text" class="form-control" name="" id=""
+																	style="width: 400px" value="">
+															</div>
+														</div>
+
+														<div class="view">
+															<div class="scroll">
+																<div class="top">
+																	<img
+																		src="//img.eduwill.net/resources/genius/dev/images/icon-profile.png">
+																	<span>(광고)에듀윌고객센터</span>
+																</div>
+																<div class="boxsing">
+																	<div class="img">
+																		<img
+																			src="//img.eduwill.net/resources/genius/dev/images/img-blank.png">
+																	</div>
+																	<div class="text">[에듀윌 배송 시작 안내]
+
+																		안녕하세요. ${name} 회원님!
+
+																		${name} 회원님께서 신청해주신 교재가 발송되었습니다.
+
+																		감사합니다.</div>
+																	<div class="btnarea">
+																		<a href="">버튼명</a>
+																		<a href="">버튼명</a>
+																		<a href="">버튼명</a>
+																		<a href="">버튼명</a>
+																		<a href="">버튼명</a>
+																	</div>
+																</div>
+																<div class="bt-text">수신거부 | 홈 > 채널차단</div>
+															</div>
+
+														</div>
+													</div>
+
+
+								</div>
+								</td>
+								</tr>
+								</tbody>
+								</table>
+							</div>
+
+						</div>
+
+						<div class="btn_area">
+							<button type="button" class="btn btn-lg btn-success">메세지 저장</button>
+						</div>
+
+
+						<h4 class="bul-1"><button class="collapse-heading" data-toggle="collapse" href="#collapseItem2"
+								aria-expanded="false" aria-controls="collapseItem2">타겟
+								설정</button></h4>
+						<div class="collapse in" id="collapseItem2">
+							<div class="row">
+								<div class="col-sm-6">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#tab_targer_1" data-toggle="tab"
+												aria-expanded="true">DB타겟</a></li>
+										<li class=""><a href="#tab_targer_2" data-toggle="tab" aria-expanded="true">파일
+												업로드</a></li>
+									</ul>
+								</div>
+								<div class="col-sm-6 text-right">
+									<button type="button" class="btn btn-success" style="margin-top: -10px;"
+										data-toggle="modal" data-target="#targetGroupModal">불러오기</button>
+								</div>
+							</div>
+
+							<div class="tab-content">
+								<!-- tabs content -->
+								<div id="tab_targer_1" class="tab-pane active">
+									<!-- TAB 1 CONTENT -->
+									<form action="">
+										<div class="table-responsive table-basic">
+											<!-- table-basic -->
+											<table class="table table-bordered table-row margin-bottom-0">
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 85%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>타겟그룹명 <span class="text-red">*</span></th>
+														<td>
+															<div class="form-group row">
+																<div class="col-sm-5">
+																	<input type="text"
+																		class="form-control full clsDisabled"
+																		name="targetName" id="targetName"
+																		value="캠페인명_target">
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>회원DB <span class="text-red">*</span></th>
+														<td>
+															<div class="form-group row margin-bottom-10">
+																<div class="col-sm-5">
+																	<select name="queryId" id="queryId"
+																		class="form-control clsDisabled full">
+																		<option value="">선택</option>
+																		<option value="3">회원프로파일(DEV) [이매직_DEV]
+																		</option>
+																		<option value="2">테스트 [에지인_STG]</option>
+																	</select>
+																</div>
+																<div class="col-sm-2">
+																	<div class="sum-load">
+
+																		<input type="text" class="form-control"
+																			id="queryCnt" name="queryCnt"
+																			readonly="readonly" value="">
+																		<span class="text">건</span>
+																	</div>
+																</div>
+																<div class="col-sm-4">
+																	<button class="btn btn-primary clsDisabled"
+																		type="button" onclick="addFilterLayer()">+
+																		조건추가</button>
+																</div>
+															</div>
+															<div class="condLayerRoot">
+
+																<div class="form-group row condLayer">
+
+																	<div class="col-sm-2">
+																		<select name="condId"
+																			class="form-control full selectCondList"
+																			disabled="">
+																			<option value="">필터선택</option>
+																			<option value="6">주소(시/도)</option>
+																			<option value="7">주소(시/군/구)</option>
+																			<option value="8">주소(읍/면/동)</option>
+																			<option value="9">마지막로그인일자</option>
+																			<option value="10">관심과정</option>
+																		</select>
+																	</div>
+																	<div class="col-sm-3">
+																		<input type="text"
+																			class="form-control full clsDisabled"
+																			name="condValuesExplain" readonly="readonly"
+																			onclick="callCondSettingModal(this);">
+																	</div>
+																	<div class="col-sm-0 spinnerLayer"
+																		style="display: none;">
+																		<div class="spinner-border spinner-border-sm"
+																			role="status"></div>
+																	</div>
+																	<div class="col-sm-2">
+																		<div class="sum-load">
+																			<span class="loader"></span>
+																			<input type="text" class="form-control"
+																				id="queryCnt" name="queryCnt"
+																				readonly="readonly" value="">
+																			<span class="text">건</span>
+																		</div>
+																	</div>
+
+																	<div class="col-sm-5">
+																		<button class="btn btn-danger filterDeleteBtn"
+																			type="button"
+																			onclick="deleteFilterLayer(this)">-</button>
+																	</div>
+																</div>
+																<div class="form-group row condLayer">
+																	<div class="col-sm-2">
+																		<select name="condId"
+																			class="form-control selectCondList">
+																			<option value="">주소(시/도)</option>
+																		</select>
+																	</div>
+																	<div class="col-sm-3">
+																		<input type="text"
+																			class="form-control full clsDisabled"
+																			name="condValuesExplain" readonly="readonly"
+																			onclick="callCondSettingModal(this);"
+																			data-toggle="modal"
+																			data-target="#valueSearchModal">
+																	</div>
+																	<div class="col-sm-0 spinnerLayer"
+																		style="display: none;">
+																		<div class="spinner-border spinner-border-sm"
+																			role="status"></div>
+																	</div>
+																	<div class="col-sm-2">
+																		<div class="sum-load">
+																			<span class="loader"></span>
+																			<input type="text" class="form-control"
+																				id="queryCnt" name="queryCnt"
+																				readonly="readonly" value="">
+																			<span class="text">건</span>
+																		</div>
+																	</div>
+																	<div class="col-sm-5">
+																		<button class="btn btn-danger filterDeleteBtn"
+																			type="button"
+																			onclick="deleteFilterLayer(this)">-</button>
+																	</div>
+																</div>
+																<div class="form-group row condLayer">
+																	<div class="col-sm-2">
+																		<select name="condId"
+																			class="form-control selectCondList">
+																			<option value="">최종로그인일자</option>
+																		</select>
+																	</div>
+																	<div class="col-sm-3">
+																		<input type="text"
+																			class="form-control full clsDisabled"
+																			name="condValuesExplain" readonly="readonly"
+																			onclick="callCondSettingModal(this);"
+																			data-toggle="modal"
+																			data-target="#dateSettingModal">
+																	</div>
+																	<div class="col-sm-0 spinnerLayer"
+																		style="display: none;">
+																		<div class="spinner-border spinner-border-sm"
+																			role="status"></div>
+																	</div>
+																	<div class="col-sm-2">
+																		<div class="sum-load">
+																			<span class="loader stop"></span>
+																			<input type="text" class="form-control"
+																				id="queryCnt" name="queryCnt"
+																				readonly="readonly" value="">
+																			<span class="text">건</span>
+																		</div>
+																	</div>
+																	<div class="col-sm-5">
+																		<button class="btn btn-danger filterDeleteBtn"
+																			type="button"
+																			onclick="deleteFilterLayer(this)">-</button>
+																	</div>
+																</div>
+															</div>
+
+														</td>
+													</tr>
+													<tr>
+														<th>제외조건 <span class="text-red">*</span></th>
+														<td>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> SMS 수신거부 제외
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> 불량번호 제외
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> 중복번호 제외
+															</label>
+															<div class="margin-top-10">
+																<label class="checkbox">
+																	<input type="checkbox" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 기존 발송 캠페인 대상군 제외
+																</label>
+																<input type="text" class="form-control"
+																	id="exceptSendIdText" readonly="readonly" value="">
+																<button type="button"
+																	class="btn btn-default  clsDisabled"
+																	onclick="campListModalShow()" data-toggle="modal"
+																	data-target="#campListModal">조회</button>
+															</div>
+															<div class="margin-top-10">
+																<label class="checkbox">
+																	<input type="checkbox" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 업로드 파일 대상군 제외
+																</label>
+																<button class="btn btn-default" type="button"
+																	onclick="location.href ='//s-pds.eduwill.net/ExcelSMS/emagicSmsFilterSample.xlsx';">
+																	엑셀 샘플 다운로드
+																</button>
+																<div id="divFile" class="section-leave margin-top-10"
+																	style="width: 100%;">
+																	<div class="fancy-file-upload file1 file1-input">
+																		<i class="fa fa-upload"></i>
+																		<input type="file" class="form-control"
+																			id="insurFile" name="insurFile">
+																		<input type="text"
+																			class="form-control upload-name"
+																			id="filename" placeholder="no file selected"
+																			readonly="">
+																		<input type="hidden" id="filesize"
+																			name="filesize" value="">
+
+																		<span
+																			class="button width-120 text-center">파일찾기</span>
+																	</div>
+																</div>
+																<div class="margin-top-10">
+																	<span class="el-file">
+																		<span>비즈플레이 사용 메뉴얼.pptx</span>
+																		<button class="btn-del">X</button>
+																	</span>
+																	<span class="el-file">
+																		<span>비즈플레이 설치방법.pptx</span>
+																		<button class="btn-del">X</button>
+																	</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+									</form>
+								</div>
+								<div id="tab_targer_2" class="tab-pane">
+									<!-- TAB 1 CONTENT -->
+									<form action="">
+										<div class="table-responsive table-basic">
+											<!-- table-basic -->
+											<table class="table table-bordered table-row margin-bottom-0">
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 85%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>타겟그룹명</th>
+														<td>
+															<div class="form-group row">
+																<div class="col-sm-5">
+																	<input type="text"
+																		class="form-control full clsDisabled"
+																		name="targetName" id="targetName"
+																		value="캠페인명_target">
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>대상자 수</th>
+														<td>
+															<div class="form-group row">
+																<div class="col-sm-2">
+																	<input type="text" class="form-control"
+																		style="width: 80%;" id="queryCnt"
+																		name="queryCnt" readonly="readonly" value="">
+																	<span>건</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>파일업로드</th>
+														<td>
+															<button class="btn btn-default" type="button"
+																onclick="location.href ='//s-pds.eduwill.net/ExcelSMS/emagicSmsFilterSample.xlsx';">
+																엑셀 샘플 다운로드
+															</button>
+															<div id="divFile" class="section-leave margin-top-10"
+																style="width: 100%;">
+																<div class="fancy-file-upload file1 file1-input">
+																	<i class="fa fa-upload"></i>
+																	<input type="file" class="form-control"
+																		id="insurFile" name="insurFile">
+																	<input type="text" class="form-control upload-name"
+																		id="filename" placeholder="no file selected"
+																		readonly="">
+																	<input type="hidden" id="filesize" name="filesize"
+																		value="">
+
+																	<span
+																		class="button width-120 text-center">파일찾기</span>
+																</div>
+															</div>
+															<div class="margin-top-10">
+																<span class="el-file">
+																	<span>비즈플레이 사용 메뉴얼.pptx</span>
+																	<button class="btn-del">X</button>
+																</span>
+																<span class="el-file">
+																	<span>비즈플레이 설치방법.pptx</span>
+																	<button class="btn-del">X</button>
+																</span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th>제외조건</th>
+														<td>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> SMS 수신거부 제외
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> 불량번호 제외
+															</label>
+															<label class="checkbox">
+																<input type="checkbox" id="mineyn" name="mineyn"
+																	value="Y">
+																<i></i> 중복번호 제외
+															</label>
+															<div class="margin-top-10">
+																<label class="checkbox">
+																	<input type="checkbox" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 기존 발송 캠페인 대상군 제외
+																</label>
+																<input type="text" class="form-control"
+																	id="exceptSendIdText" readonly="readonly" value="">
+																<button type="button"
+																	class="btn btn-default  clsDisabled"
+																	onclick="campListModalShow()" data-toggle="modal"
+																	data-target="#campListModal">조회</button>
+															</div>
+															<div class="margin-top-10">
+																<label class="checkbox">
+																	<input type="checkbox" id="mineyn" name="mineyn"
+																		value="Y">
+																	<i></i> 업로드 파일 대상군 제외
+																</label>
+																<button class="btn btn-default" type="button"
+																	onclick="location.href ='//s-pds.eduwill.net/ExcelSMS/emagicSmsFilterSample.xlsx';">
+																	엑셀 샘플 다운로드
+																</button>
+																<div id="divFile" class="section-leave margin-top-10"
+																	style="width: 100%;">
+																	<div class="fancy-file-upload file1 file1-input">
+																		<i class="fa fa-upload"></i>
+																		<input type="file" class="form-control"
+																			id="insurFile" name="insurFile">
+																		<input type="text"
+																			class="form-control upload-name"
+																			id="filename" placeholder="no file selected"
+																			readonly="">
+																		<input type="hidden" id="filesize"
+																			name="filesize" value="">
+
+																		<span
+																			class="button width-120 text-center">파일찾기</span>
+																	</div>
+																</div>
+																<div class="margin-top-10">
+																	<span class="el-file">
+																		<span>비즈플레이 사용 메뉴얼.pptx</span>
+																		<button class="btn-del">X</button>
+																	</span>
+																	<span class="el-file">
+																		<span>비즈플레이 설치방법.pptx</span>
+																		<button class="btn-del">X</button>
+																	</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+									</form>
+								</div>
+							</div>
+
+							<div class="well">
+
+								<button class="btn btn-success" type="button" onclick="targetSave()" id="targetBtn">타겟팅
+									시작</button>
+								<button class="btn btn-default  clsSaveBtn clsUpdateBtn" type="button"
+									onclick="targetInit()">초기화</button>
+
+								<span class="margin-left-30">상태 : <span id="targetStatusName">완료</span></span>
+								<span class="margin-left-30">전체 : <span id="targetTotalCnt">6900</span></span>
+								<span class="margin-left-30">제외 건수 : <a href="#/" onclick="campFilterModalShow('3')"
+										data-toggle="modal" data-target="#campFilterModal">6696</a></span>
+								<span class="margin-left-30">타겟 건수 : <a href="#/"
+										onclick="campResultModalShow(5, 'target')" data-toggle="modal"
+										data-target="#campResultModal">204</a></span>
+
+							</div>
+
+							<div class="btn_area">
+								<button type="button" class="btn btn-lg btn-primary">저장</button>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+
+	</div>
+	<!--  //content -->
+	</section>
+	<!-- // middle -->
+
+	<!-- Modal : 타겟그룹 리스트 -->
+	<div id="targetGroupModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						타겟그룹 리스트
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+								<select class="form-control width-140">
+									<option value="">타겟그룹명</option>
+									<option value="">캠페인명</option>
+									<option value="">휴대전화</option>
+								</select>
+
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive margin-top-10">
+						<table class="table table-col">
+							<colgroup>
+								<col width="15%">
+								<col width="15%">
+								<col width="15%">
+								<col width="15%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">타겟그룹명</th>
+									<th scope="col" class="text-center">캠페인명</th>
+									<th scope="col" class="text-center">등록자</th>
+									<th scope="col" class="text-center">등록일시</th>
+								</tr>
+							</thead>
+							<tbody id="targetGroupListBody">
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingCallTarget('22','10')"
+											class="text-info">4_target</a>
+									</td>
+									<td>4</td>
+									<td>플랫폼개발2팀 김현경</td>
+									<td>2021-04-01 14:32:44</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<!-- 페이징 영역 -->
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 캠페인 리스트 -->
+	<div id="campListModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						캠페인 리스트
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+								<select class="form-control width-140">
+									<option value="">캠페인명</option>
+									<option value="">등록자</option>
+								</select>
+
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive margin-top-10">
+						<table class="table table-col">
+							<colgroup>
+								<col width="20%">
+								<col width="10%">
+								<col width="15%">
+								<col width="15%">
+								<col width="15%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">캠페인명</th>
+									<th scope="col" class="text-center">채널</th>
+									<th scope="col" class="text-center">발송건수</th>
+									<th scope="col" class="text-center">성공건수</th>
+									<th scope="col" class="text-center">등록자</th>
+								</tr>
+							</thead>
+							<tbody id="targetGroupListBody">
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#/" onclick="settingId('8','[IT] 캠페인 테스트등록_20210331' )"
+											class="text-info">[IT] 캠페인 테스트등록_20210331</a>
+									</td>
+									<td>LMS</td>
+									<td>8</td>
+									<td>6</td>
+									<td>sjlee15</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<!-- 페이징 영역 -->
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 조건별 리스트 -->
+	<div id="valueSearchModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 500px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						추가
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive table-basic margin-top-10"
+						style="max-height: 400px; overflow-y: auto;">
+						<table class="table table-col margin-bottom-0">
+							<colgroup>
+								<col width="20%">
+								<col width="80%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">check</th>
+									<th scope="col"><span class="filterSelectName">주소(시/도)</span></th>
+								</tr>
+							</thead>
+							<tbody id="filterValueBody">
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">강원도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">경기도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">경상남도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">경상북도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">광주광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">대구광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">대전광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">부산광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">서울특별시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">세종특별자치시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">울산광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">인천광역시</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">전라남도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">전라북도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">제주특별자치도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">충청남도</td>
+								</tr>
+								<tr>
+									<td class="text-center">
+										<input type="checkbox" name="checkValues" class="checkValues" />
+									</td>
+									<td class="values">충청북도</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-primary">추가</button>
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 날짜 선택 -->
+	<div id="dateSettingModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 500px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						선택
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive table-basic margin-top-10">
+						<!-- table-basic -->
+						<table class="table table-bordered table-row">
+							<colgroup>
+								<col style="width: 20%;">
+								<col style="width: 80%;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>필터</th>
+									<td>
+										<input type="text" class="form-control full clsDisabled" name="targetName"
+											id="targetName" value="최종로그인일자" disabled>
+									</td>
+								</tr>
+								<tr>
+									<th>값</th>
+									<td>
+										<input type="text" name="fromdt" id="fromdt"
+											class="form-control width-120 datepicker" data-format="yyyy-mm-dd"
+											data-lang="en" data-rtl="false" autocomplete="off" value=""
+											placeholder="연도.월.일">
+										<span class="margin-left-10 margin-right-10">~</span>
+										<input type="text" name="todt" id="todt"
+											class="form-control width-120 datepicker" data-format="yyyy-mm-dd"
+											data-lang="en" data-rtl="false" autocomplete="off" value=""
+											placeholder="연도.월.일">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-primary">추가</button>
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 필터 리스트 -->
+	<div id="campFilterModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						필터 리스트
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+
+								<select class="form-control" style="width: 250px;">
+									<option value="">에러코드(전체)</option>
+									<option value="VE">불량번호 제외</option>
+									<option value="SE">시스템에러</option>
+									<option value="DE">중복번호 제외</option>
+									<option value="ME">SMS 수신거부 제외</option>
+									<option value="EE">기본 발송 캠페인 대상군 제외</option>
+									<option value="FE">업로드 파일 대상군 제외</option>
+								</select>
+
+								<select class="form-control width-140">
+									<option value="">아이디</option>
+									<option value="">휴대전화</option>
+								</select>
+
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive margin-top-10">
+						<table class="table table-col">
+							<colgroup>
+								<col width="25%">
+								<col width="25%">
+								<col width="50%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">아이디</th>
+									<th scope="col" class="text-center">휴대전화</th>
+									<th scope="col" class="text-center">에러</th>
+								</tr>
+							</thead>
+							<tbody id="campFilterBody">
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+								<tr>
+									<td>ex-********</td>
+									<td>0489999</td>
+									<td>불량번호 제외</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<!-- 페이징 영역 -->
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 타겟 리스트 -->
+	<div id="campResultModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						타겟 리스트
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+
+								<select class="form-control width-140">
+									<option value="">아이디</option>
+									<option value="">휴대전화</option>
+								</select>
+
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive margin-top-10">
+						<table class="table table-col">
+							<colgroup>
+								<col width="15%">
+								<col width="10%">
+								<col width="15%">
+								<col width="20%">
+								<col width="10%">
+								<col width="25%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">아이디</th>
+									<th scope="col" class="text-center">이름</th>
+									<th scope="col" class="text-center">휴대전화</th>
+									<th scope="col" class="text-center">발송일시</th>
+									<th scope="col" class="text-center">결과</th>
+									<th scope="col" class="text-center">실패상세</th>
+								</tr>
+							</thead>
+							<tbody id="campResultBody">
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+								<tr>
+									<td>gka*********</td>
+									<td>함**</td>
+									<td>010****0901</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+									<td class="text-center">-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<!-- 페이징 영역 -->
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 컨텐츠 리스트 -->
+	<div id="campContentModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						컨텐츠 리스트
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="container section-search-form">
+						<div class="wrap row">
+							<div class="col-xs-12">
+
+								<select class="form-control width-140">
+									<option value="">컨텐츠명</option>
+									<option value="">캠페인명</option>
+								</select>
+
+								<input type="text" id="sValue" name="sValue" class="text form-control width-300"
+									value="" placeholder="검색어를 입력하세요." autocomplete="off">
+								<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-responsive margin-top-10">
+						<table class="table table-col">
+							<colgroup>
+								<col width="15%">
+								<col width="15%">
+								<col width="15%">
+								<col width="15%">
+							</colgroup>
+							<thead class="table-active">
+								<tr>
+									<th scope="col" class="text-center">컨텐츠명</th>
+									<th scope="col" class="text-center">캠페인명</th>
+									<th scope="col" class="text-center">등록자</th>
+									<th scope="col" class="text-center">등록일시</th>
+								</tr>
+							</thead>
+							<tbody id="campContentListBody">
+								<tr>
+									<td><a href="#/" onclick="settingCallConent('3')">123333333</a></td>
+									<td>테스트333</td>
+									<td>플랫폼개발1팀 이기현</td>
+									<td>2021-04-02 09:36:45</td>
+								</tr>
+								<tr>
+									<td><a href="#/" onclick="settingCallConent('3')">123333333</a></td>
+									<td>테스트333</td>
+									<td>플랫폼개발1팀 이기현</td>
+									<td>2021-04-02 09:36:45</td>
+								</tr>
+								<tr>
+									<td><a href="#/" onclick="settingCallConent('3')">123333333</a></td>
+									<td>테스트333</td>
+									<td>플랫폼개발1팀 이기현</td>
+									<td>2021-04-02 09:36:45</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="text-center">
+						<!-- 페이징 영역 -->
+						<ul class="pagination">
+							<li>
+								<a href="#" aria-label="Previous">
+									<span aria-hidden="true">«</span>
+								</a>
+							</li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li>
+								<a href="#" aria-label="Next">
+									<span aria-hidden="true">»</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+	<!-- Modal : 테스트 발송 -->
+	<div id="campTestSendModal" class="modal fade modal-h-auto" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 900px;">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">
+						테스트 발송
+					</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-sm-5">
+							<div class="well" style="overflow-y: auto; height: 390px;">
+
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+								<input type="text" class="form-control full margin-bottom-10" placeholder="휴대전화번호"
+									name="userPhone" value="">
+							</div>
+						</div>
+						<div class="col-sm-1 text-center">
+							<button type="button" class="btn btn-primary padding-0" onclick="testSend();"
+								style="margin-top:170px; width: 40px;" title="테스트발송"><i
+									class="fa fa-arrow-right padding-right-0"></i></button>
+						</div>
+						<div class="col-sm-6">
+							<div class="table-responsive" style="overflow-y: auto; height: 390px;">
+								<table class="table table-col margin-bottom-0">
+									<colgroup>
+										<col width="50%">
+										<col width="50%">
+									</colgroup>
+									<thead class="table-active">
+										<tr>
+											<th scope="col">번호</th>
+											<th scope="col">상태</th>
+										</tr>
+									</thead>
+									<tbody id="campTestResultBody">
+										<tr>
+											<td colspan="2" class="text-center">데이터가 없습니다.</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Modal Footer -->
+				<div class="modal-footer clearfix">
+					<button type="button" class="btn btn-primary">새로고침</button>
+					<button type="button" class="btn btn-teal btn-cancel" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // Modal -->
+
+
+
+
+
+	<script>
+		$(document).ready(function () {
+			//$("#campTestSendModal").modal("show"); 
+		})
+	</script>
+
+
+
+
+
+
+	</div>
+	<!-- // wrapper -->
+
+</body>
+
+</html>
