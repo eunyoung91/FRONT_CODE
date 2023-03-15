@@ -1,0 +1,187 @@
+html {
+    font-size: 16px;
+}
+@media (max-width: 600px) { html {font-size: 16px} }
+@media (max-width: 575px) { html {font-size: 15.5px} }
+@media (max-width: 550px) { html {font-size: 15px} }
+@media (max-width: 525px) { html {font-size: 14.5px} }
+@media (max-width: 500px) { html {font-size: 14px} }
+@media (max-width: 475px) { html {font-size: 13.5px} }
+@media (max-width: 450px) { html {font-size: 13px} }
+@media (max-width: 425px) { html {font-size: 12.5px} }
+@media (max-width: 400px) { html {font-size: 12px} }
+@media (max-width: 375px) { html {font-size: 11.5px} }
+@media (max-width: 350px) { html {font-size: 11px} }
+
+//layout
+body {
+    overflow-x: hidden;
+    background: #f2f3f6;
+    @include mq(screen-mobile) {
+        background: $color-white;
+        letter-spacing: -0.3px;
+    }
+}
+
+@include mq(screen-pc) {
+    #container {
+        padding: 110px 20px 110px 20px;
+        @include clearfix();
+        @include mq(screen-tablet) {
+            //padding-right: 264px;
+        }
+        position: relative;
+        &.sub-fullpage {
+            padding-right: 20px !important
+        }
+    }
+    #contents {
+        float: left;
+        width: calc(100% - 264px);
+        @include mq(screen-tablet) {
+            width: calc(100% - 244px);
+        }
+    }
+    #aside {
+        float: right;
+        //position: absolute;
+        //right: 20px;
+        width: 250px;
+        @include mq(screen-tablet) {
+            width: 230px;
+        }
+    }  
+}
+@include mq(screen-pc-full) {
+    body {
+        min-width: 1280px;
+    }
+    #footer .inner {
+        width: 1280px !important;
+    }
+    #container {
+        width: 1280px;
+        margin: 0 auto;
+        @include clearfix();
+        padding: 110px 0 110px 0px;
+        &.sub-fullpage {
+            padding-right: 0 !important
+        }
+    }
+    #contents {
+    }
+    #aside {
+        //right: 0;
+    }
+}
+
+@include mq(screen-mobile) { 
+    #container {
+        width: 100%;
+        padding: 113px 20px 50px 20px;
+        min-height: auto !important;
+    }
+    #contents {
+        float: none;
+        width: 100%;
+    }
+    #aside {
+        //right: 0;
+    }
+    .table-hover>tbody>tr:hover {
+        background: transparent;
+    }
+}
+
+.row {
+    margin: 0;
+}
+.col-left {
+    float: left;
+}
+.col-right {
+    float: right;
+}
+.col-2 {
+    width: 50%;
+}
+.col-3 {
+    width: 33.33333%;
+}
+.col-4 {
+    width: 25%;
+}
+.col-5 {
+    width: 20%;
+}
+
+.align-left {
+    text-align: left !important;
+}
+.align-center {
+    text-align: center !important;
+}
+.align-right {
+    text-align: right !important;
+}
+
+textarea {
+    resize: none;
+}
+
+.screen-only-pcOnly {
+    @include mq(screen-pc) {
+        display: none;
+    }
+    @include mq(screen-pc-full) {
+        display: block;
+    }
+    @include mq(screen-tablet) {
+        display: none;
+    }
+    @include mq(screen-mobile) {
+        display: none;
+    }
+}
+.screen-only-pc {
+    @include mq(screen-pc) {
+        display: block;
+    }
+    @include mq(screen-pc-full) {
+        display: block;
+    }
+    @include mq(screen-tablet) {
+        display: block;
+    }
+    @include mq(screen-mobile) {
+        display: none;
+    }
+}
+.screen-only-tablet {
+    @include mq(screen-pc) {
+        display: none;
+    }
+    @include mq(screen-pc-full) {
+        display: none;
+    }
+    @include mq(screen-tablet) {
+        display: block;
+    }
+    @include mq(screen-mobile) {
+        display: none;
+    }
+}
+.screen-only-m {
+    @include mq(screen-pc) {
+        display: none;
+    }
+    @include mq(screen-pc-full) {
+        display: none;
+    }
+    @include mq(screen-tablet) {
+        display: none;
+    }
+    @include mq(screen-mobile) {
+        display: block;
+    }
+}
