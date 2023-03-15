@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="" />
+<meta name="paragraphription" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="../css/ibm.css">
+<!-- <link rel="stylesheet" href="https://img.eduwill.net/resources/ibm/front/dev/css/ibm.css"> -->
+<script src="https://img.eduwill.net/eduwill/dev/libs/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body style="overflow-x: hidden;">
+
+<div style="position: relative;">
+    <div id="ibmLayer7" class="ibm ibm-layer">
+        <div class="ibm-dim"></div>
+
+        <div class="ibm-wrap">
+            <div class="ibm-inner">
+                <div class="ibm-item"><!-- 배너 항목 -->
+                    <div class="ibm-wings"></div><!-- 배너 배경 -->
+                    <div class="ibm-banner"><!-- 실질적인 배너 -->
+                        <img src="//img.eduwill.net/resources/ibm/front/dev/img/pc/pc.gif" data-pc-src="//img.eduwill.net/resources/ibm/front/dev/img/pc/pc.gif" data-mobile-src="//pds.eduwill.net/ibm/banner/20221122184353.gif" alt="">
+                        <div class="ibm-links"><!-- 배너 링크 -->
+                            <a href="javascript:;" target="_blank"><span class="sr-only">링크 1</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ibm-action">
+                <a href="javascript:;" onClick="javascript:closeWeekDayAuto('ibmLayer7');" class="ibm-week-close"><span>일주일 보지 않기</span></a>
+                <a href="javascript:;" onClick="javascript:closeOneDayAuto('ibmLayer7');" class="ibm-today-close"><span>오늘 하루 보지 않기</span></a>
+                <a href="javascript:;" onClick="document.getElementById('ibmLayer7').style.display='none';" class="ibm-close"><span>닫기</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="//img.eduwill.net/resources/ibm/front/dev/img/main.png" alt="">
+
+<script src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+<script>
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+	var url = window.location.href;
+	var str = 'www.eduwill.net';
+	var checkUrl = url.indexOf(str);
+
+	$(function(){
+		ibmInit();
+	});
+
+	function ibmInit(){
+		checkResolution('.ibm');
+
+		ibmCustomizeText('.ibm-customize .ibm-text-list .ibm-text');
+		customizeSize('[data-resize="true"]');
+
+		ibmSlider('[data-ibm-slide="true"]');
+		// getTimer('.ibm-timer', 'May 31, 2023, 20:59');
+
+		$('.ibm-close').each(function(){
+			$(this).on('click', function(){
+				var _parentBanner = $(this).parents('.ibm'),
+					_idx = _parentBanner.index();
+					// console.log(_idx);
+
+				_parentBanner.hide();
+
+				if( _parentBanner.hasClass('ibm-layer') ){
+					_parentBanner.children().find('iframe, video').attr('src', '').hide();
+				}
+			});
+		});
+	}
+
+	// vw 계산식
+	function vwCalc($px){
+		return ((($px/((720 * .01) * 1)) * 1) + 'vw'); // 640
+	}
+
+	// ibm 슬라이드
+	function ibmSlider($slider){
+		var _slider = $($slider);
+		var _slideShow = 1; // 엔진에서 값 전달
+		var _slideScroll = 1; // 엔진에서 값 전달
+		var _imgWidth = _slider.children().find('img').width(); // 이미지 너비
+
+		// console.log( _imgWidth );
+
+		_slider.slick({
+			accessibility: false, // 접근성 tab 이동 활성화. 기본: false
+			adaptiveHeight: false, // 높이 자동 체크. 기본: false
+
+			// 자동 재생
+			autoplay: true, // 자동재생. 기본: false
+			autoplaySpeed: 4000, // 자동재생 속도. 기본: 3000ms(3초)
+
+			// 컨트롤러
+			arrows: true, // 좌우 화살표. 기본: true
+			asNavFor: null, // 슬라이더를 다른 슬라이더와 연계(class 또는 id). 기본: null
+			dots: true, // 점 표시. 기본: false
+			draggable: true, // 마우스 드래그 활성화. 기본: true
+
+			// centerMode
+			centerMode: false, // 중앙모드. 홀수 slidesToShow와 함께 사용(짝수도 됨). 기본: false
+			centerPadding: '50px', // 중앙모드일 때 측면 패딩(px 또는 %). 기본: '50px''
+
+			cssEase: 'ease', // CSS3 애니메이션 진행되는 방식 . 기본: 'ease'
+			fade: false, // 페이드 활성화. 기본: false
+			focusOnSelect: false, // 선택한 슬라이드 활성화(슬라이드가 다중일 때). 기본: false
+			easing: 'linear', // jQuery animate() easing. 기본: 'linear'
+			infinite: true, // 무한 롤링. 기본: true
+			initialSlide: 0, // 시작 슬라이드. 기본: 0
+
+			// lazyLoad 는 data-lazy와 같이 사용되어야 함. https://codeamend.com/blog/image-lazy-loading-using-slick-slider/
+			// lazyLoad: 'progressive', // 기본: 'ondemand'. progressive(이미지 차례로 로드) ondemand(즉시 이미지 로드) anticipated(좌/우 이미지 1개씩 로드)
+
+			slidesToShow: _slideShow, // 보여지는 슬라이드 갯수. 기본: 1
+			slidesToScroll: _slideScroll, // 넘겨지는 슬라이드 갯수. 기본: 1
+			variableWidth: false, // 가변 너비. _slideShow가 1일 때는 false
+
+			// custom indicator : thumbnail
+			dotsClass: 'slick-dots-thumb',
+			customPaging: function( slick, index ){
+				var targetImage = slick.$slides.eq(index).find('img').attr('src');
+				return '<img src=" ' + targetImage + ' "/>';
+			},
+
+			// custom indicator : text
+			// dotsClass: 'slick-dots-text',
+			// customPaging : function(slider, i) {
+			// 	var imgAlt = $(slider.$slides[i].innerHTML).find('img').attr('alt');
+			// 	return '<a class="pager-text"><span>'+imgAlt+'</span></a>';
+			// },
+		});
+
+		_slider.slick('resize');
+		_slider.slick('refresh');
+		_slider.on('load', function(event, slick){
+			_slider.slick('resize');
+			_slider.slick('refresh');
+		});
+	}
+
+	// ibm pc/mobile 체크
+	function checkResolution(e){
+		if( isMobile || !checkUrl ){
+			replaceImagePaths(e, 'pc', 'mobile');
+			replaceImageLinks(e, 'pc', 'mobile');
+			//console.log('mobile');
+		} else {
+			replaceImagePaths(e, 'mobile', 'pc');
+			replaceImageLinks(e, 'mobile', 'pc');
+			//console.log('pc');
+		}
+	}
+
+	// ibm 이미지 경로 변경
+	function replaceImagePaths(target, basic, change){
+		$(target + ' img').each(function(){
+			var pcSrc = $(this).data('pcSrc');
+			var mobileSrc = $(this).data('mobileSrc');
+			$(this).attr('src', change == 'pc' ? pcSrc : mobileSrc);
+		});
+	}
+
+	// ibm 링크
+	function replaceImageLinks(target, basic, change){
+		$(target + ' img').each(function(){
+			var pcLink = $(this).parent().data('pcLink');
+			var mobileLink = $(this).parent().data('mobileLink');
+			$(this).parent().attr('href', change == 'pc' ? pcLink : mobileLink);
+		});
+	}
+
+	// ibm 타이머
+	function getTimer($selector, $dateTime){
+		var selector = $selector;
+		var delay = 10;
+		var end = new Date($dateTime).getTime(); 
+		var _second = 1000;
+		var _minute = _second * 60;
+		var _hour = _minute * 60;
+		var _day = _hour * 24;
+	
+		function showSec() {
+			var now = new Date();
+			var distance = end - now;
+			if (distance < 0 ) {
+				$(selector).find('.day').text('0');
+				$(selector).find('.hour').text('00');
+				$(selector).find('.min').text('00');
+				$(selector).find('.sec').text('00');
+				$(selector).find('.msec').text('00');
+			} else {
+				var days = Math.floor(distance / _day);
+				var hours = Math.floor( (distance % _day ) / _hour );
+				var minutes = Math.floor( (distance % _hour) / _minute );
+				var seconds = Math.floor( (distance % _minute) / _second );
+				var mseconds =  '00';
+				try { mseconds = Math.floor( (distance % _minute) % 1000).toString().substring(0,2); } catch(e) {}
+
+				$(selector).find('.day').text((days.toString().length == 1) ? '0'+days : days);
+				$(selector).find('.hour').text((hours.toString().length == 1) ? '0'+hours : hours);
+				$(selector).find('.min').text((minutes.toString().length == 1) ? '0'+minutes : minutes);
+				$(selector).find('.sec').text((seconds.toString().length == 1) ? '0'+seconds : seconds);
+				$(selector).find('.msec').text(mseconds);
+
+				setTimeout(showSec, delay);
+			}
+		}
+
+		setTimeout(showSec, delay);
+	}
+
+	// ibm 시스템폰트
+	function ibmCustomizeText(selector){
+		var $selector = $(selector);
+
+		$selector.each(function(){
+			var _top = $(this).data('textY'),
+				_left = $(this).data('textX'),
+				_size = $(this).data('textSize'),
+				_img = $(this).parent().parent().siblings('img').get(0),
+				_link = $(this).parent().parent().siblings('.ibm-links').children('a'),
+				_imgWidth = _img.naturalWidth, // 이미지 기준 너비
+				_imgHeight = _img.naturalHeight, // 이미지 기준 높이
+				_linkLength = _link.length, // 링크 갯수
+				_topPercent = vwCalc(_top); // top 계산
+				_leftPercent = vwCalc(_left);  // left 계산
+			// console.log(_img, _imgWidth);
+
+			if( isMobile || !checkUrl ){
+				if( $(window).outerWidth() >= 720 ){ // 640
+					// 720 more
+					_top = _top;
+					_left = _left;
+					_size = _size;
+				} else {
+					//console.log('mobile');
+					_top = _topPercent;
+					_left = _leftPercent;
+					_size = vwCalc(_size);
+				}
+			} else {
+				// console.log('pc');
+				_top = _top;
+				_left = _left;
+				_size = _size;
+			}
+
+			$(this).css({
+				'top': _top,
+				'left': _left,
+				'fontSize': _size
+			});
+		});
+	}
+	
+	// ibm 사이즈
+	function customizeSize(selector){
+		var $selector = $(selector);
+
+		$selector.each(function(){
+			var _top = $(this).data('top'),
+				_right = $(this).data('right'),
+				_bottom = $(this).data('bottom'),
+				_left = $(this).data('left'),
+				_width = $(this).data('width'),
+				_height = $(this).data('height'),
+				_marginTop = $(this).data('marginTop'),
+				_marginRight = $(this).data('marginRight'),
+				_marginBottom = $(this).data('marginBottom'),
+				_marginLeft = $(this).data('marginLeft'),
+				_paddingTop = $(this).data('paddingTop'),
+				_paddingRight = $(this).data('paddingRight'),
+				_paddingBottom = $(this).data('paddingBottom'),
+				_paddingLeft = $(this).data('paddingLeft'),
+				_fontSize = $(this).data('fontSize');
+
+			if( isMobile ){
+				if( $(window).outerWidth() >= 720 ){ // 640
+					// console.log('mobile 720 more');
+					_top = _top;
+					_right = _right;
+					_bottom = _bottom;
+					_left = _left;
+					_width = _width;
+					_height = _height;
+					_marginTop = _marginTop;
+					_marginRight = _marginRight;
+					_marginBottom = _marginBottom;
+					_marginLeft = _marginLeft;
+					_paddingTop = _paddingTop;
+					_paddingRight = _paddingRight;
+					_paddingBottom = _paddingBottom;
+					_paddingLeft = _paddingLeft;
+					_fontSize = _fontSize;
+				} else {
+					// console.log('mobile');
+					_top = vwCalc(_top);
+					_right = vwCalc(_right);
+					_bottom = vwCalc(_bottom);
+					_left = vwCalc(_left);
+					_width = vwCalc(_width);
+					_height = vwCalc(_height);
+					_marginTop = vwCalc(_marginTop);
+					_marginRight = vwCalc(_marginRight);
+					_marginBottom = vwCalc(_marginBottom);
+					_marginLeft = vwCalc(_marginLeft);
+					_paddingTop = vwCalc(_paddingTop);
+					_paddingRight = vwCalc(_paddingRight);
+					_paddingBottom = vwCalc(_paddingBottom);
+					_paddingLeft = vwCalc(_paddingLeft);
+					_fontSize = vwCalc(_fontSize);
+				}
+			} else {
+				// console.log('pc');
+				_top = _top;
+				_right = _right;
+				_bottom = _bottom;
+				_left = _left;
+				_width = _width;
+				_height = _height;
+				_marginTop = _marginTop;
+				_marginRight = _marginRight;
+				_marginBottom = _marginBottom;
+				_marginLeft = _marginLeft;
+				_paddingTop = _paddingTop;
+				_paddingRight = _paddingRight;
+				_paddingBottom = _paddingBottom;
+				_paddingLeft = _paddingLeft;
+				_fontSize = _fontSize;
+			}
+
+			$(this).css({
+				'top': _top,
+				'right': _right,
+				'bottom': _bottom,
+				'left': _left,
+				'width': _width,
+				'height': _height,
+				'marginTop': _marginTop,
+				'marginRight': _marginRight,
+				'marginBottom': _marginBottom,
+				'marginLeft': _marginLeft,
+				'paddingTop': _paddingTop,
+				'paddingRight': _paddingRight,
+				'paddingBottom': _paddingBottom,
+				'paddingLeft': _paddingLeft,
+				'fontSize': _fontSize
+			});
+		});
+	}
+</script>
+</body>
+</html>
