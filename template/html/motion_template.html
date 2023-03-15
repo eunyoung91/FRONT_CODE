@@ -30,7 +30,7 @@
 <body>
 <div class="promotion"><!-- promotion -->
 
-	<!-- <div class="sector-title-1">
+	<div class="sector-title-1">
 		<div class="light1"><img src="https://img.eduwill.net/eduwill/img/2022/J/event/221201/light/light1.png" alt="" /></div>
 		<div class="light2"><img src="https://img.eduwill.net/eduwill/img/2022/J/event/221201/light/light2.png" alt="" /></div>
 		<div class="light3"><img src="https://img.eduwill.net/eduwill/img/2022/J/event/221201/light/light3.png" alt="" /></div>
@@ -53,37 +53,8 @@
 			<p><img src="https://img.eduwill.net/eduwill/img/2022/J/event/221201/pc/tween5.png" alt="에듀윌" /></p>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(function(){
-			onComplete1();
 
-			function onComplete1() {
-				TweenMax.fromTo($(".light1"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light4"), 5, { rotation: 20 }, { rotation: -20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light5"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light6"), 7, { rotation: 20 }, { rotation: -10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light7"), 5, { rotation: 10 }, { rotation: -10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light8"), 5, { rotation: -10 }, { rotation: 10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light10"), 5, { rotation: 30 }, { rotation: -30, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-				TweenMax.fromTo($(".light11"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
-
-				TweenMax.fromTo($(".blink1"), 0.35, { scale: 0.5 }, { scale: 1, delay: 0.5, repeat: -1, yoyo: true });
-				TweenMax.fromTo($(".blink2"), 0.35, { scale: 0.5 }, { scale: 1, delay: 0.8, repeat: -1, yoyo: true });
-
-				var _tweenMotion = $(".tween_box").children("p");
-				var _item;
-				_tweenMotion.each(function (i) {
-					_item = $(this).children("img");
-					TweenMax.set(_item, { scale: 1.2, opacity: 0 });
-					TweenMax.to(_item, 0.35, { opacity: 1, scale: 1, ease: Expo.eaesIn, delay: 0.18 * i });
-				});
-			}
-		});
-	</script> -->
-
-	<hr>
-
-    <!-- <div id="sectorTitle" class="sector-title-2">
+    <div class="sector-title-2">
         <div class="wrap">
             <div class="title">
 				<div class="motion title-1">
@@ -104,37 +75,7 @@
             </div>
         </div>
     </div>
-	<script type="text/javascript">
-		$(function(){
-			onComplete2();
-			function onComplete2() {
-				var promotionTitle = $('.sector-title-2');
-				TweenMax.fromTo( promotionTitle.find('.title-1'), .5, { opacity: 0 }, { opacity: 1, delay: 0.3, ease: Back.easeOut.config(1) });
-				TweenMax.fromTo( promotionTitle.find('.title-3'), .6, { opacity: 0, scale: 0.3 }, { opacity: 1,scale: 1, delay: 0.7, ease: Back.easeOut.config(2) });
-				TweenMax.fromTo( promotionTitle.find('.title-5'), .4, { opacity: 0,  x: -50 }, { opacity: 1, x: 0, delay: 1.2, ease: Circ.easeOut});
-				TweenMax.fromTo( promotionTitle.find('.title-2'), .8, { opacity: 0,  x: 150 }, { opacity: 1, x: 0, delay: 1.6, ease: Circ.easeOut});
-				TweenMax.fromTo( promotionTitle.find('.title-4'), .6, { opacity: 0,  scale: 0.3 }, {opacity: 1, scale: 1, delay: 2.0, ease: Circ.easeOut});
-				TweenMax.fromTo( promotionTitle.find('.action'), .6, { opacity: 0 }, {opacity: 1, delay: 2.0, ease: Circ.easeOut});
-				TweenMax.fromTo( promotionTitle.find('.date'), .6, { opacity: 0, y: 150 }, {opacity: 1,y:0, delay: 2.0, ease: Circ.easeOut});
-			}
-		});
-	</script> -->
 
-	<hr>
-
-    <div id="sectorTitle" class="sector-title-3">
-        <div class="wrap">
-
-        </div>
-    </div>
-	<script type="text/javascript">
-		$(function(){
-			onComplete3();
-			function onComplete3() {
-
-			}
-		});
-	</script>
 
 
 </div><!-- // promotion -->
@@ -146,7 +87,61 @@
 	var checkUrl = url.indexOf(str);
 
 	$(function () {
+		scrollEvent(null);
+        $(window).on("scroll", scrollEvent);
+
+        var _isScroll = false;
+
+		onComplete1();
+		function scrollEvent(st) {
+            var scrollTop = $(window).scrollTop();
+            var offsetTitle2 = $(".sector-title-2").offset().top;
+
+            if (scrollTop > offsetTitle2 - 200) {
+                if (_isScroll == true) return;
+				onComplete2(); 
+                _isScroll = true;
+            } else {
+                if (_isScroll == false) return;
+                _isScroll = false;
+            }
+        }
+
 	});
+
+	function onComplete1() {
+		TweenMax.fromTo($(".sector-title-1 .light1"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light4"), 5, { rotation: 20 }, { rotation: -20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light5"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light6"), 7, { rotation: 20 }, { rotation: -10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light7"), 5, { rotation: 10 }, { rotation: -10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light8"), 5, { rotation: -10 }, { rotation: 10, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light10"), 5, { rotation: 30 }, { rotation: -30, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+		TweenMax.fromTo($(".sector-title-1 .light11"), 5, { rotation: -20 }, { rotation: 20, repeat: -1, yoyo: true, transformOrigin: "center bottom", perspective: 400, ease: Power4.eaesOut });
+
+		TweenMax.fromTo($(".sector-title-1 .blink1"), 0.35, { scale: 0.5 }, { scale: 1, delay: 0.5, repeat: -1, yoyo: true });
+		TweenMax.fromTo($(".sector-title-1 .blink2"), 0.35, { scale: 0.5 }, { scale: 1, delay: 0.8, repeat: -1, yoyo: true });
+
+		var _tweenMotion = $(".sector-title-1 .tween_box").children("p");
+		var _item;
+		_tweenMotion.each(function (i) {
+			_item = $(this).children("img");
+			TweenMax.set(_item, { scale: 1.2, opacity: 0 });
+			TweenMax.to(_item, 0.35, { opacity: 1, scale: 1, ease: Expo.eaesIn, delay: 0.18 * i });
+		});
+	}
+
+	function onComplete2() {
+		var promotionTitle = $('.sector-title-2');
+		TweenMax.fromTo( promotionTitle.find('.title-1'), .5, { opacity: 0 }, { opacity: 1, delay: 0.3, ease: Back.easeOut.config(1) });
+		TweenMax.fromTo( promotionTitle.find('.title-3'), .6, { opacity: 0, scale: 0.3 }, { opacity: 1,scale: 1, delay: 0.7, ease: Back.easeOut.config(2) });
+		TweenMax.fromTo( promotionTitle.find('.title-5'), .4, { opacity: 0,  x: -50 }, { opacity: 1, x: 0, delay: 1.2, ease: Circ.easeOut});
+		TweenMax.fromTo( promotionTitle.find('.title-2'), .8, { opacity: 0,  x: 150 }, { opacity: 1, x: 0, delay: 1.6, ease: Circ.easeOut});
+		TweenMax.fromTo( promotionTitle.find('.title-4'), .6, { opacity: 0,  scale: 0.3 }, {opacity: 1, scale: 1, delay: 2.0, ease: Circ.easeOut});
+		TweenMax.fromTo( promotionTitle.find('.action'), .6, { opacity: 0 }, {opacity: 1, delay: 2.0, ease: Circ.easeOut});
+		TweenMax.fromTo( promotionTitle.find('.date'), .6, { opacity: 0, y: 150 }, {opacity: 1,y:0, delay: 2.0, ease: Circ.easeOut});
+	}
+
 
 </script>
 
