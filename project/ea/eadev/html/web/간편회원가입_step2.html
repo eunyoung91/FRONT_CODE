@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-language" content="kr" />
+	<title>회원가입</title>
+	<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/ea/eadev/css/common.css" />
+	<!-- <link rel="stylesheet" href="../css/join_simple.css"> -->
+	<script type="text/javascript" src="https://img.eduwill.net/resources/ea/eadev/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="https://img.eduwill.net/resources/ea/eadev/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// 관심과정 탭
+			$('.wish_tab li a').each(function (idx) {
+				$(this).click(function () {
+					var activeTab = $(this).attr('href');
+					$('.w_item_list').hide();
+					$(activeTab).show();
+					$('.wish_tab li').removeClass('on');
+					$(this).parent().addClass('on');
+					return false;
+				});
+			});
+
+			// 관심과정 > 관심직렬
+			$('.w_item_list li a').each(function () {
+				$(this).click(function () {
+					$('.w_item_list li').css("height", 40 + 'px');
+
+					if ($(this).parent().find('div').length > 0) {
+						$('.w_sub_select').slideUp(200);
+						$('.w_item_list ul li:nth-of-type(2n+0)').find('div').css("left", -$(this)
+							.parent().width() + 'px');
+						$('.w_item_list li').removeClass('on');
+						$(this).parent().next('li:nth-of-type(2n+0)').css("height", 118 + 'px');
+						$(this).parent().css("height", 118 + 'px');
+						$(this).parent().find('div').slideDown(300);
+						$(this).parent().find('div').css("width", $('.w_item_list').width() - 3);
+						$(this).parent().addClass('on');
+					} else {
+						$('.w_item_list li.on').css("height", 40 + 'px');
+						$('.w_sub_select').slideUp(200);
+						$('.w_item_list li').removeClass('on');
+						$(this).parent().addClass('on');
+					}
+					return false;
+
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap-login">
+
+		<header>
+			<h1>
+				<img src="//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg" alt="">
+			</h1>
+		</header>
+
+		<!-- CONTAINER -->
+		<div id="container">
+			<!-- CONTENT -->
+			<div id="content">
+
+				<div class="g_content join">
+
+					<div class="join_item">
+						<div class="simple-section">
+							<dl class="titlebox">
+								<dt>관심과정과 지역을 선택하세요.</dt>
+								<dd>관심과정과 관심지역을 등록하고,<br>
+									더 편리하게 에듀윌을 이용하세요 <strong>(선택사항)</strong></dd>
+							</dl>
+
+
+							<div class="member_info">
+								<div class="tbl_section">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<caption>부가정보 입력하기</caption>
+										<colgroup>
+											<col width="120px" />
+											<col width="*" />
+										</colgroup>
+										<tbody>
+
+											<tr class="botb">
+												<th scope="row">관심과정</th>
+												<td>
+													<div class="wish_tab">
+														<ul>
+															<li class="on"><a href="#g1">공무원</a></li>
+															<li><a href="#g2">자격증</a></li>
+															<li><a href="#g3">취업</a></li>
+															<li><a href="#g4">어학</a></li>
+														</ul>
+													</div>
+
+													<div class="wish_item_section">
+														<div id="g1" class="w_item_list" style="display:block;">
+															<ul>
+																<li><a href="#">9급공무원</a><em></em>
+																	<div class="w_sub_select">
+																		<select name="" id="">
+																			<option value="">depth3</option>
+																		</select>
+																	</div>
+																</li>
+																<li><a href="#">7급공무원</a><em></em>
+																	<div class="w_sub_select">
+																		<select name="" id="">
+																			<option value="">depth3</option>
+																		</select>
+																	</div>
+																</li>
+																<li><a href="#">경찰공무원</a><em></em>
+																	<div class="w_sub_select">
+																		<select name="" id="">
+																			<option value="">depth3</option>
+																		</select>
+																	</div>
+																</li>
+																<li><a href="#">소방공무원</a><em></em>
+																	<div class="w_sub_select">
+																		<select name="" id="">
+																			<option value="">depth3</option>
+																		</select>
+																	</div>
+																</li>
+																<li><a href="#">계리직공무원</a></li>
+															</ul>
+														</div>
+														<!-- // 공무원 -->
+
+														<div id="g2" class="w_item_list">
+															<ul>
+																<li><a href="#">도로교통사고감정사</a></li>
+																<li><a href="#">공인중개사</a></li>
+																<li><a href="#">주택관리사</a></li>
+																<li><a href="#">행정사</a></li>
+																<li><a href="#">직업상담사</a></li>
+																<li><a href="#">경비지도사</a></li>
+																<li><a href="#">사회복지사</a></li>
+																<li><a href="#">물류관리사</a></li>
+																<li><a href="#">재경관리사</a></li>
+																<li><a href="#">전기기사</a></li>
+																<li><a href="#">전산세무회계</a></li>
+																<li><a href="#">소방설비기사/관리사</a></li>
+																<li><a href="#">ERP정보관리사</a></li>
+																<li><a href="#">건축기사/토목기사</a></li>
+																<li><a href="#">AT</a></li>
+																<li><a href="#">검정고시</a></li>
+																<li><a href="#">유통관리사</a></li>
+																<li><a href="#">한자능력검정</a></li>
+																<li><a href="#">한경TESAT/매경TEST</a></li>
+																<li><a href="#">ToKL/KBS한국어</a></li>
+																<li><a href="#">조경기사</a></li>
+																<li><a href="#">농산물품질관리사</a></li>
+																<li><a href="#">전기기능사</a></li>
+																<li><a href="#">청소년상담사</a></li>
+																<li><a href="#">국제무역사/무역영어</a></li>
+																<li><a href="#">한식조리기능사</a></li>
+															</ul>
+														</div>
+														<!-- // 자격증 -->
+
+														<div id="g3" class="w_item_list">
+															<ul>
+																<li><a href="#">공기업/대기업</a></li>
+																<li><a href="#">취업부동산아카데미</a></li>
+															</ul>
+														</div>
+														<!-- // 공기업 -->
+
+														<div id="g4" class="w_item_list">
+															<ul>
+																<li><a href="#">토익</a></li>
+															</ul>
+														</div>
+														<!-- // 어학 -->
+													</div>
+													<!-- // wish_item_section -->
+
+												</td>
+											</tr>
+
+											<tr class="topb">
+												<th scope="row">주소</th>
+												<td>
+													<p style="margin:0 0 10px;">주소를 입력해두면 교재 및 이벤트 경품 수령 서비스를 편리하게 이용 할
+														수 있습니다.</p>
+													<div class="form_group" style="padding-bottom: 15px;">
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="width:300px;" /><a href="#"
+															class="g_btn_c" style="margin-left:10px;">우편번호검색</a>
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="margin-top:10px; width:447px;" />
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="margin-top:10px; width:447px;" />
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<div class="btn_group">
+								<a href="#" class="g_btn_a">확인</a>
+							</div>
+						</div>
+						<!-- //  simple-section-->
+					</div>
+					<!-- // join_item -->
+
+				</div>
+				<!-- // g_content -->
+			</div>
+			<!-- //CONTENT -->
+		</div>
+		<!-- //CONTAINER -->
+
+	</div>
+	<!-- // WRAP -->
+
+</body>
+
+</html>

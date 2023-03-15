@@ -1,0 +1,99 @@
+@mixin clearfix() {
+    *zoom: 1;
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin font-size-color-weight($s, $c, $w) {
+    font-size: $s;
+    color: $c;
+    font-weight: $w;
+}
+
+@mixin ellipsis() {
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden;
+}
+
+@mixin background-name-ext-repeat-poistion($n, $e, $r, $p) {
+    background-image: url("http://img.eduwill.net/resources/ejinn/images/" + $n + "." + $e);
+    background-repeat: $r;
+    background-position: $p; 
+}
+
+@mixin placeholder-color($c) {
+    &::placeholder {color: $c; }
+    &::-webkit-input-placeholder {color: $c; }
+    &::-moz-placeholder {color: $c; }
+    &:-ms-input-placeholder {color: $c; }
+    &:-moz-placeholder {color: $c; }
+}
+
+@mixin rotate($r) {
+    -webkit-transform: rotate($r);
+    -ms-transform: rotate($r);
+    transform: rotate($r);
+}
+
+@mixin translateY($y) {
+    -webkit-transform: translateY($y);
+    -ms-transform: translateY($y);
+    transform: translateY($y);
+}
+
+@mixin transition-all($t) {
+    -webkit-transition: all $t;
+    -o-transition: all $t;
+    transition: all $t;
+}
+
+@mixin mobile-width-vw-px($v, $p) {
+    width: $v;
+    max-width: $p;
+}
+
+@mixin mobile-height-vw-px($v, $p) {
+    height: $v;
+    max-height: $p;
+}
+
+
+@mixin mq($screen-width) {
+    @if $screen-width == 'screen-tablet'
+    {
+        @media screen and (min-width:769px) and (max-width:1279px) {
+            @content;
+        }
+    }
+
+    @else if $screen-width == 'screen-mobile'
+    {
+        @media screen and (max-width:768px)
+        {
+            @content;
+        }
+    }
+
+    @else if $screen-width == 'screen-pc'
+    {
+        @media screen and (min-width:1280px)
+        {
+            @content;
+        }
+    }
+
+    @else if $screen-width == 'screen-pcOnly'
+    {
+        @media screen and (min-width:769px)
+        {
+            @content;
+        }
+    }
+}
+
+
+

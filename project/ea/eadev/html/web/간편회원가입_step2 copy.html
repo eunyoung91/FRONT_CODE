@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<title>회원가입</title>
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/ea/eadev/css/common.css" />
+<link rel="stylesheet" href="../css/join_simple.css">
+<script type="text/javascript" src="https://img.eduwill.net/resources/ea/eadev/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ea/eadev/js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	// 관심과정 탭
+	$('.wish_tab li a').each(function(idx){
+			$(this).click(function(){
+				var activeTab = $(this).attr('href');
+				$('.w_item_list').hide();
+				$(activeTab).show();
+				$('.wish_tab li').removeClass('on');
+				$(this).parent().addClass('on');
+				return false;
+			});
+		});
+
+		// 관심과정 > 관심직렬
+		$('.w_item_list li a').each(function(){
+			$(this).click(function(){
+				$('.w_item_list li').css("height", 40+'px');
+			
+				if ( $(this).parent().find('div').length > 0 ) {
+					$('.w_sub_select').slideUp(200);
+					$('.w_item_list ul li:nth-of-type(2n+0)').find('div').css("left", - $(this).parent().width() + 'px');
+					$('.w_item_list li').removeClass('on');
+					$(this).parent().next('li:nth-of-type(2n+0)').css("height", 118+'px');
+					$(this).parent().css("height", 118+'px');
+					$(this).parent().find('div').slideDown(300);
+					$(this).parent().find('div').css("width", $('.w_item_list').width() -3);
+					$(this).parent().addClass('on');
+				} else {
+					$('.w_item_list li.on').css("height", 40+'px');
+					$('.w_sub_select').slideUp(200);
+					$('.w_item_list li').removeClass('on');
+					$(this).parent().addClass('on');
+				}
+				return false;
+
+			});
+		});
+});
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="h_wrap">
+			<h1><a href="http://www.eduwill.net"><img src="//img.eduwill.net/Img2/Common/BI/type2/live/logo.svg" style="width: 130px;" alt="에듀윌"></a></h1>
+			<div class="hd_spot">
+				<ul class="hd_gnb">
+					<li class="hd_item01"><a class="hd_item" href="#">로그인</a></li>
+					<li class="hd_item02"><a class="hd_item active" href="#">무료회원가입</a></li>
+					<li class="hd_item03"><a class="hd_item" href="#">아이디 / 비밀번호찾기</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- CONTAINER -->
+	<div id="container">
+		<!-- CONTENT -->
+		<div id="content">
+				
+			<div class="g_content join">
+				
+				<div class="join_item">
+					<div class="simple-section popup_interest">
+						<dl class="titlebox">
+							<dt>관심과정과 지역을 선택하세요.</dt>
+							<dd>관심과정과 관심지역을 등록하고,<br>
+								더 편리하게 에듀윌을 이용하세요</dd>
+						</dl>
+
+						<div class="wish_tab">
+							<ul>
+								<li class="on"><a href="#g1">공무원</a></li>
+								<li><a href="#g2">자격증</a></li>
+								<li><a href="#g3">취업</a></li>
+								<li><a href="#g4">어학</a></li>
+							</ul>
+						</div>
+		
+						<div class="wish_item_section">
+							<div id="g1" class="w_item_list" style="display:block;">
+								<ul>
+									<li><a href="#">9급공무원</a><em></em>
+										<div class="w_sub_select">
+											<select name="" id="">
+												<option value="">depth3</option>										
+											</select>
+										</div>
+									</li>
+									<li><a href="#">7급공무원</a><em></em>
+										<div class="w_sub_select">
+											<select name="" id="">
+												<option value="">depth3</option>										
+											</select>
+										</div>
+									</li>
+									<li><a href="#">경찰공무원</a><em></em>
+										<div class="w_sub_select">
+											<select name="" id="">
+												<option value="">depth3</option>										
+											</select>
+										</div>
+									</li>
+									<li><a href="#">소방공무원</a><em></em>
+										<div class="w_sub_select">
+											<select name="" id="">
+												<option value="">depth3</option>										
+											</select>
+										</div>
+									</li>
+									<li><a href="#">계리직공무원</a></li>
+								</ul>
+							</div>
+							<!-- // 공무원 -->
+		
+							<div id="g2" class="w_item_list">
+								<ul>
+									<li><a href="#">도로교통사고감정사</a></li>
+									<li><a href="#">공인중개사</a></li>
+									<li><a href="#">주택관리사</a></li>
+									<li><a href="#">행정사</a></li>
+									<li><a href="#">직업상담사</a></li>
+									<li><a href="#">경비지도사</a></li>
+									<li><a href="#">사회복지사</a></li>
+									<li><a href="#">물류관리사</a></li>
+									<li><a href="#">재경관리사</a></li>
+									<li><a href="#">전기기사</a></li>
+									<li><a href="#">전산세무회계</a></li>
+									<li><a href="#">소방설비기사/관리사</a></li>
+									<li><a href="#">ERP정보관리사</a></li>
+									<li><a href="#">건축기사/토목기사</a></li>
+									<li><a href="#">AT</a></li>
+									<li><a href="#">검정고시</a></li>
+									<li><a href="#">유통관리사</a></li>
+									<li><a href="#">한자능력검정</a></li>
+									<li><a href="#">한경TESAT/매경TEST</a></li>
+									<li><a href="#">ToKL/KBS한국어</a></li>
+									<li><a href="#">조경기사</a></li>
+									<li><a href="#">농산물품질관리사</a></li>
+									<li><a href="#">전기기능사</a></li>
+									<li><a href="#">청소년상담사</a></li>
+									<li><a href="#">국제무역사/무역영어</a></li>
+									<li><a href="#">한식조리기능사</a></li>
+								</ul>
+							</div>
+							<!-- // 자격증 -->
+		
+							<div id="g3" class="w_item_list">
+								<ul>
+									<li><a href="#">공기업/대기업</a></li>
+									<li><a href="#">취업부동산아카데미</a></li>
+								</ul>
+							</div>
+							<!-- // 공기업 -->
+		
+							<div id="g4" class="w_item_list">
+								<ul>
+									<li><a href="#">토익</a></li>
+								</ul>
+							</div>
+							<!-- // 어학 -->
+						</div>
+						<!-- // wish_item_section -->
+
+						<div class="member_info">
+							<div class="tbl_section">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<caption>부가정보 입력하기</caption>
+									<colgroup>
+										<col width="120px" />
+										<col width="*" />
+									</colgroup>
+									<tbody>
+										
+										<tr class="botb">
+											<th scope="row">관심과정</th>
+											<td style="padding:0;">
+												<div class="wish_radio" style="padding: 20px 0 20px 25px; margin-top: -15px">
+													<ul class="inp_radio">
+														<li>
+															<input type="radio" id="witem1" name="wishitem" />
+															<label for="witem1">공무원</label>
+														</li>
+														<li>
+															<input type="radio" id="witem2" name="wishitem" />
+															<label for="witem2">자격증</label>
+														</li>
+														<li>
+															<input type="radio" id="witem3" name="wishitem" />
+															<label for="witem3">취업</label>
+														</li>
+														<li>
+															<input type="radio" id="witem4" name="wishitem" />
+															<label for="witem4">어학</label>
+														</li>
+													</ul>
+												</div>
+
+												<!--  공무원선택시 -->
+												<div class="gov_item">
+													<ul class="inp_radio">
+														<li>
+															<input type="radio" id="gov1" name="govitem" />
+															<label for="gov1">9급</label>
+														</li>
+														<li>
+															<input type="radio" id="gov2" name="govitem" />
+															<label for="gov2">7급</label>
+														</li>
+														<li>
+															<input type="radio" id="gov3" name="govitem" />
+															<label for="gov3">경찰</label>
+														</li>
+														<li>
+															<input type="radio" id="gov4" name="govitem" />
+															<label for="gov4">계리직</label>
+														</li>
+														<li>
+															<input type="radio" id="gov5" name="govitem" />
+															<label for="gov5">공사공단</label>
+														</li>
+													</ul>
+												</div>
+												<!--  //공무원선택시 -->
+
+												<!--  자격증 -->
+												<div class="lic_item">
+													<ul class="inp_radio">
+														<li>
+															<input type="radio" id="license" name="licitem" />
+															<label for="license">공인중개사</label>
+														</li>
+														<li>
+															<input type="radio" id="jutek" name="licitem" />
+															<label for="jutek">주택관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="quark" name="licitem" />
+															<label for="quark">전기기사</label>
+														</li>
+														<li>
+															<input type="radio" id="energy" name="licitem" />
+															<label for="energy">전기기능사</label>
+														</li>
+														<li>
+															<input type="radio" id="fire1" name="licitem" />
+															<label for="fire1">소방설비기사</label>
+														</li>
+														<li>
+															<input type="radio" id="fire2" name="licitem" />
+															<label for="fire2">소방시설관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="blackgosi" name="licitem" />
+															<label for="blackgosi">검정고시</label>
+														</li>
+														<li>
+															<input type="radio" id="vacation" name="licitem" />
+															<label for="vocation">직업상담사</label>
+														</li>
+														<li>
+															<input type="radio" id="social" name="licitem" />
+															<label for="social">사회복지사</label>
+														</li>
+														<li>
+															<input type="radio" id="flow" name="licitem" />
+															<label for="flow">유통관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="mulyu" name="licitem" />
+															<label for="mulyu">물류관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="kyb" name="licitem" />
+															<label for="kyb">경비지도사</label>
+														</li>
+														<li>
+															<input type="radio" id="hangjung" name="licitem" />
+															<label for="hangjung">행정사</label>
+														</li>
+														<li>
+															<input type="radio" id="highteen" name="licitem" />
+															<label for="highteen">청소년상담사</label>
+														</li>
+														<li>
+															<input type="radio" id="build" name="licitem" />
+															<label for="build">건축기사/토목기사</label>
+														</li>
+														<li>
+															<input type="radio" id="garden" name="licitem" />
+															<label for="gargen">조경기사/산업기사/기능사</label>
+														</li>
+														<li>
+															<input type="radio" id="poomjil" name="licitem" />
+															<label for="poomjil">농산물품질관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="xat" name="licitem" />
+															<label for="xat">전산세무회계</label>
+														</li>
+														<li>
+															<input type="radio" id="uaccount" name="licitem" />
+															<label for="uaccount">재경관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="erp" name="licitem" />
+															<label for="erp">ERP정보관리사</label>
+														</li>
+														<li>
+															<input type="radio" id="tesat" name="licitem" />
+															<label for="tesat">한경TESAT/매경TEST</label>
+														</li>
+														<li>
+															<input type="radio" id="ito" name="licitem" />
+															<label for="ito">IT자격증</label>
+														</li>
+														<li>
+															<input type="radio" id="history" name="licitem" />
+															<label for="history">한국사능력검정</label>
+														</li>
+														<li>
+															<input type="radio" id="hanja" name="licitem" />
+															<label for="hanja">한자능력검정</label>
+														</li>
+														<li>
+															<input type="radio" id="doro" name="licitem" />
+															<label for="doro">도로교통사고감정사</label>
+														</li>
+														<li>
+															<input type="radio" id="tokl" name="licitem" />
+															<label for="tokl">ToKL/KBS한국어/글쓰기</label>
+														</li>
+														<li>
+															<input type="radio" id="ato" name="licitem" />
+															<label for="ato">AT자격시험</label>
+														</li>
+													</ul>
+												</div>
+												<!--  // 자격증 선택시 -->
+
+												<!-- 관심직렬 / 관심지역 -->
+												<div class="gov_item">
+													<div class="select01">
+														<label for="witems">관심직렬</label>
+														<select name="" id="witems" class="g_select">
+															<option value="">일반행정직</option>
+															<option value="">일반행정직</option>
+														</select>
+													</div>
+
+													<div class="select02">
+														<label for="wareas">관심지역</label>
+														<select name="" id="wareas" class="g_select">
+															<option value="">서울</option>
+															<option value="">경기</option>
+														</select>
+													</div>
+												</div>
+												<!-- // 관심직렬 / 관심지역 -->
+
+												<!--  어학선택시 -->
+												<div class="lang_item">
+													<ul class="inp_radio">
+														<li>
+															<input type="radio" id="lang1" name="langitem" />
+															<label for="lang1">토익</label>
+														</li>
+													</ul>
+												</div>
+												<!--  //어학선택시 -->
+											</td>
+										</tr>
+
+										<tr class="topb">
+											<th scope="row">주소</th>
+											<td>
+												<p style="margin:0 0 10px;">주소를 입력해두면 교재 및 이벤트 경품 수령 서비스를 편리하게 이용 할 수 있습니다.</p>
+												<div class="form_group" style="padding-bottom: 15px;">
+													<input type="text" id="join_id" name="" class="g_input" placeholder="" style="width:300px;" /><a href="#" class="g_btn_c" style="margin-left:10px;">우편번호검색</a>
+													<input type="text" id="join_id" name="" class="g_input" placeholder="" style="margin-top:10px; width:447px;" />
+													<input type="text" id="join_id" name="" class="g_input" placeholder="" style="margin-top:10px; width:447px;" />
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="btn_group">
+							<a href="#" class="g_btn_a">확인</a>
+						</div>
+
+						<div class="item-textbtn">
+							<a href="">건너뛰기</a>
+						</div>
+					</div>
+					<!-- //  simple-section-->
+				</div>
+				<!-- // join_item -->
+
+			</div>
+			<!-- // g_content -->
+		</div>
+		<!-- //CONTENT -->
+	</div>
+	<!-- //CONTAINER -->
+
+</div>
+<!-- // WRAP -->
+
+</body>
+</html>
