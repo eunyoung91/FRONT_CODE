@@ -1,0 +1,625 @@
+// inner
+.page-main .inner {
+	@extend %clearfix;
+	@include breakpoint(tablet) {
+		padding: 0 1rem;
+	}
+	@include breakpoint(desktop) {
+		padding: 0;
+	}
+}
+
+// pass-info
+.pass-info {
+	padding-top: 1.75rem;
+	padding-left: 1.25rem;
+	@extend %clearfix;
+	@include breakpoint(tablet) {
+		padding-top: 40px;
+		padding-left: 0;
+	}
+	.heading {
+		@include fontSize(20px);
+		@include breakpoint(tablet) {
+			float: left;
+		}
+	}
+	.d-day {
+		margin-top: 1.5625rem;
+		padding: .25rem 1.25rem .3125rem;
+		border-radius: 1.875rem 0 0 1.875rem;
+		background-color: $bg-color-white;
+		@include fontSize(18px);
+		@include boxShadow(0, 6px, 20px, 0, rgba(63, 65, 71, 0.1));
+		@include breakpoint(tablet) {
+			float: right;
+			min-width: 356px;
+			margin-top: 0;
+			padding: 0 13px;
+			border-radius: 26px;
+		}
+		.title {
+			margin-top: 2px;
+			color: $color-base;
+			@include fontSize(16px);
+		}
+		.date {
+			float: right;
+			margin-left: 2.5rem;
+			font-weight: bold;
+		}
+	}
+}
+
+// pass-rule
+.pass-rule {
+	margin-top: 1.875rem;
+	@extend %clearfix;
+	@include breakpoint(desktop) {
+		display: table;
+		table-layout: fixed;
+		height: 100%;
+		margin-top: 12px;
+	}
+	.wrap {
+		margin-top: 1rem;
+		@include breakpoint(desktop) {
+			display: table-cell;
+			vertical-align: top;
+			height: 100%;
+		}
+		.holder {
+			background-color: $bg-color-white;
+			@include boxShadow(0, 6px, 20px, 0, rgba(63, 65, 71, .2));
+			@include breakpoint(desktop) {
+				height: 100%;
+				border-radius: 3px;
+			}
+		}
+		&.rule-graph {
+			margin-top: 0;
+			.holder {
+				padding-bottom: 1.5625rem; 
+				@include breakpoint(desktop) {
+					overflow: hidden;
+				}
+			}
+			@include breakpoint(desktop) {
+				width: 30%;
+			}
+			.graph-title {
+				position: relative;
+				padding: .8125rem 1.25rem .875rem;
+				color: $color-white;
+				border-radius: 0 0 1.25rem 1.25rem;
+				background-color: $color-primary;
+				@include fontSize(16px);
+				&:after {
+					content: '';
+					bottom: -27px;
+					margin: 0 auto;
+					@include size(200px, 56px, resize);
+					@extend %tail;
+					background-image: url('#{$img-path}/contents/bg_title_tail.png');
+					@include breakpoint(desktop) {
+						background-image: url('#{$img-path}/contents/bg_title_tail_lg.png');
+					}
+				}
+				.heading {
+					color: $color-white;
+					@include fontSize(30px);
+				}
+			}
+			.graph-area {
+				position: relative;
+				width: 100%;
+				max-width: 320px;
+				height: 280px;
+				margin: 2.75rem auto 0;
+				padding: 0 1.25rem;
+				@include boxSizing(border-box);
+				#doughnutChart {
+					width: 100% !important;
+					height: 100% !important;
+				}
+				.grapth-info {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					display: none;
+					text-align: center;
+					@include translateXY(-50%, -50%);
+					p {
+						color: $color-base;
+						&.day {
+							color: $color-base-dark;
+							@include fontSize(40px);
+						}
+					}
+				}
+			}
+			.graph-legend {
+				margin: 1.25rem 1.25rem 0;
+				li {
+					display: inline-block;
+					width: 50%;
+					margin-top: 5px;
+					color: $color-base;
+					span {
+						display: inline-block;
+						@include size(24px, 24px, resize);
+						margin-right: .3125rem;
+						border-radius: 50%;
+					}
+				}
+			}
+			.tags {
+				margin-left: 1.25rem;
+				margin-right: 1.25rem;
+			}
+		}
+		&.rule-list {
+			@include breakpoint(desktop) {
+				width: 70%;
+				padding-left: 17px;
+				@include boxSizing(border-box);
+				.tags {
+					float: left;
+					width: 70%;
+				}
+			}
+			.article {
+				position: relative;
+				margin: 0 1.25rem;
+				padding: 1.875rem 0;
+				@extend %clearfix;
+				@include border('top', 1px, solid, $border-color-light);
+				@include breakpoint(tablet) {
+					margin: 0 34px;
+					padding: 22px 0;
+				}
+				&:first-child {
+					border-top-width: 0;
+				}
+			}
+			.paragraph {
+				.heading {
+					margin-top: .625rem;
+					letter-spacing: -.5px;
+					@include fontSize(30px);
+				}
+				.desc {
+					@include fontSize(16px);
+				}
+				@include breakpoint(tablet) {
+					float: left;
+					width: 70%;
+					margin-top: 8px;
+				}
+			}
+			.diagram {
+				margin-top: 1.875rem;
+				text-align: center;
+				.schedule-table {
+					width: 100%;
+					.frame {
+						font-size: 0;
+						border-radius: 3px;
+						background-color: $bg-color-1;
+						&.schedule-head {
+							padding: .125rem 1.25rem;
+						}
+						&.schedule-body {
+							margin-top: .125rem;
+							padding: .625rem 1.25rem .6875rem;
+							span {
+								font-size: 0;
+							}
+							@include breakpoint(tablet) {
+								padding: 4px 20px;
+							}
+						}
+					}
+					span {
+						display: inline-block;
+						width: calc(100%/7);
+						color: $color-base-medium;
+						@include fontSize(14px);
+						&.select {
+							em { display: inline-block; }
+						}
+						em {
+							display: none;
+							margin: .625rem 0;
+						}
+					}
+					.item {
+						&-1 {
+							em {
+								@include boxShadow(0, 0, 16px, 0, rgba(85, 169, 255, 0.7));
+								background-color: $schedule-color-1;
+							}
+						}
+						&-2 {
+							em {
+								@include boxShadow(0, 0, 16px, 0, rgba(237, 112, 102, 0.7));
+								background-color: $schedule-color-2;
+							}
+						}
+					}
+					em {
+						display: inline-block; 
+						border-radius: 50%;
+						@include size(24px, 24px, resize);
+					}
+				}
+				.schedule-info {
+					margin-top: 1.0625rem;
+					text-align: right;
+					color: $color-base-medium;
+					@include breakpoint(tablet) {
+						margin-top: 12px;
+					}
+					.item {
+						display: inline-block;
+						margin-left: .625rem;
+						@include breakpoint(tablet) {
+							@include fontSize(12px);
+						}
+					}
+					em {
+						vertical-align: -1px;
+						@include breakpoint(tablet) {
+							width: 6px;
+							height: 6px;
+							vertical-align: 1px;
+						}
+					}
+				}
+				@include breakpoint(tablet) {
+					float: right;
+					clear: right;
+					width: 30%;
+				}
+			}
+		}
+		.tags {
+			margin-top: 1.25rem;
+			word-wrap: break-word;
+			span {
+				display: inline-block;
+				margin-right: 5px;
+				color: $color-base;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+		.guide {
+			position: absolute;
+			top: 1.875rem;
+			right: 0;
+			.button {
+				width: auto;
+				min-width: auto;
+				padding: 2px 5px 2px 10px;
+				border-radius: 20px;
+				background: $bg-color-white;
+				@include border('all', 1px, solid, $border-color-light);
+				@include breakpoint(tablet) {
+					padding: 0 2px 0 5px;
+				}
+				span {
+					color: $color-base;
+					@include fontSize(12px);
+					&:after {
+						content: '?';
+						display: inline-block;
+						width: 18px;
+						height: 18px;
+						margin-left: 2px;
+						line-height: 18px;
+						font-family: verdana;
+						border-radius: 50%;
+						background-color: $bg-color-2;
+					}
+				}
+			}
+		}
+	}
+}
+
+// pass plan
+.pass-plan {
+	margin-top: .875rem;
+	padding: 2.3125rem 0;
+	background-color: $bg-color-white;
+	@extend .grid;
+	@include boxShadow(0, 6px, 20px, 0, rgba(63, 65, 71, .2));
+	@include breakpoint(tablet) {
+		border-radius: 3px;
+	}
+	.plan-info {
+		margin: 0 1.25rem;
+		@include breakpoint(tablet) {
+			width: 30%;
+			margin: 0;
+			padding-left: 26px;
+			@extend .col;
+		}
+		.heading {
+			margin-top: .625rem;
+			letter-spacing: -.5px;
+			@include fontSize(30px);
+		}
+		.desc {
+			@include fontSize(16px);
+		}
+	}
+	.plan-list {
+		margin-top: 2.1875rem;
+		@include breakpoint(tablet) {
+			width: 70%;
+			margin: 0;
+			@extend .col;
+		}
+		.article {
+			position: relative;
+			padding: 0 13.056% 1.875rem;
+			&:before {
+				content: '';
+				position: absolute;
+				top: -7px;
+				left: -3px;
+				width: 1rem;
+				height: 105%;
+				border-radius: 2rem;
+				@include border('all', 3px, solid, $color-white);
+			}
+			&:after {
+				clear: both;
+			}
+			&-1:before {
+				top: 0;
+				background-color: $label-color-1;
+			}
+			&-2:before { background-color: $label-color-2; }
+			&-3:before { background-color: $label-color-3; }
+			&-4:before { background-color: $label-color-4; }
+			&-5:before { background-color: $label-color-5; }
+			&-6:before { background-color: $label-color-6; }
+			&-7:before {
+				height: 100%;
+				background-color: $label-color-7;
+			}
+			@include breakpoint(tablet) {
+				padding-left: 40px;
+				padding-right: 26px;
+				&:first-child {
+					.core { border-top-width: 0; }
+				}
+			}
+		}
+		.core {
+			@extend .grid;
+			@include breakpoint(tablet) {
+				@include border('top', 1px, solid, $border-color-light);
+			}
+		}
+		.bundle {
+			@include breakpoint(tablet) {
+				@extend .col;
+			}
+		}
+		.heading {
+			padding-top: 1.2rem;
+			font-size: 1.875rem;
+		}
+		.period {
+			margin-top: 1rem;
+			font-size: .96875rem;
+		}
+		.desc {
+			margin-top: 1rem;
+			color: $color-base;
+		}
+		.action {
+			margin-top: 1.875rem;
+			@include breakpoint(tablet) {
+				position: absolute;
+				right: 24px;
+				bottom: 0;
+				@extend .col;
+			}
+			@include breakpoint(desktop) {
+				right: 40px;
+			}
+			.button {
+				display: block;
+				margin-top: .625rem;
+			}
+		}
+	}
+	.plan-action {
+		position: relative;
+		text-align: center;
+		@extend %clearfix;
+		clear: both;
+		@include breakpoint(tablet) {
+			min-height: 80px;
+		}
+		> div {
+			margin-top: 1.875rem;
+			&.retry {
+				@include breakpoint(tablet) {
+					position: absolute;
+					top: 50%;
+					right: 26px;
+					margin-top: 0;
+				}
+				a {
+					span {
+						color: $color-base-dark;
+					}
+					&:hover span {
+						color: $color-primary;
+					}
+				}
+				p {
+					margin-top: 12px;
+					color: $color-base;
+					@include fontSize(12px);
+				}
+			}
+		}
+	}
+}
+
+// pass banner
+.pass-banner {
+	margin-top: 1rem;
+	background-color: $bg-color-white; 
+	@include breakpoint(tablet) {
+		margin-top: 40px;
+	}
+	.banner {
+		a {
+			display: block;
+			padding: 1.25rem .9375rem;
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			background-size: auto 100%;
+			@include boxSizing(border-box);
+			@include breakpoint(tablet) {
+				padding: 34px 49px 35px;
+				font-size: 1.125rem;
+				background-size: auto;
+			}
+			.subject {
+				margin-top: 7px;
+				font-size: 1.25rem;
+				font-weight: 500;
+				@include breakpoint(tablet) {
+					margin-top: 3px;
+					font-size: 2.125rem;
+					letter-spacing: -1.6px;
+				}
+				strong {
+					display: inline-block;
+					width: 26px;
+					height: 26px;
+					line-height: 26px;
+					text-align: center;
+					vertical-align: 3px;
+					font-family: 'lato', verdana, 'Noto Sans KR';
+					font-weight: 400;
+					font-size: .6875rem;
+					color: $color-white;
+					letter-spacing: 0;
+					border-radius: 50%;
+					@include breakpoint(tablet) {
+						width: 46px;
+						height: 46px;
+						vertical-align: 6px;
+						line-height: 46px;
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+		&-1 {
+			a {
+				background-color: #e2e5ed;
+				background-image: url('#{$img-path}/banner/bg_always_sm.png');
+				@include breakpoint(tablet) {
+					background-image: url('#{$img-path}/banner/bg_always_lg.png');
+				}
+			}
+			.desc { color: rgba(0, 0, 0, .7); }
+			.subject {
+				color: #2b3143;
+				strong { background-color: #93a5b9; }
+			}
+		}
+	}
+	.bx-wrapper {
+		@include breakpoint(tablet) {
+			&:hover .bx-controls-direction {
+				display: block;
+				opacity: 1; 
+			}
+		}
+		.bx-controls-direction {
+			display: none;
+			@include breakpoint(tablet) {
+				opacity: 0;
+				@include transition(all, .3s, ease);
+				a {
+					width: 30px;
+					height: 50px;
+					z-index: map-get($z-index, pager);
+					background-color: rgba(0, 0, 0, .25);
+					&:after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 10px;
+						height: 10px;
+						margin-top: -5px;
+						border-top: 2px solid $color-white;
+						border-right: 2px solid $color-white;
+					}
+					&.bx-next {
+						right: 0;
+						&:after {
+							margin-left: -8px;
+							@include rotate(45deg);
+						}
+					}
+					&.bx-prev {
+						left: 0;
+						&:after {
+							margin-left: -4px;
+							@include rotate(-135deg);
+						}
+					}
+				}
+			}
+		}
+		.bx-pager {
+			top: 9px;
+			right: 9px;
+			width: auto;
+			padding-top: 0;
+			text-align: right;
+			font-size: 0;
+			@include breakpoint(tablet) {
+				top: 14px;
+			}
+			a {
+				width: 6px;
+				height: 6px;
+				margin-left: 4px;
+				border-radius: 6px;
+				background-color: #95a1ae;
+				@include transition(all, .3s, ease);
+				&:first-child { margin-left: 0; }
+				&:hover { background-color: $color-primary; }
+				&.active {
+					width: 15px;
+					background-color: $color-primary;
+				}
+				@include breakpoint(tablet) {
+					width: 12px;
+					height: 12px;
+					border-radius: 12px;
+					margin-left: 4px;
+					&.active {
+						width: 30px;
+					}
+				}
+			}
+		}
+	}
+}

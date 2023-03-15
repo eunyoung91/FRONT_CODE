@@ -1,0 +1,169 @@
+.btn {
+    border-radius: 0;
+}
+.btn-default-dark {
+    border-color: $color-point;
+    background-color: $color-point;
+    padding: 0 25px;
+    min-width: 100px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 0;
+    @include font-size-color-weight(14px, $color-white, 500);
+    @include buttonActionReset-color($color-white);
+   
+}
+.btn-default-gray {
+    border-color: #bbbfc5;
+    background-color: #bbbfc5;
+    padding: 0 25px;
+    min-width: 100px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 0;
+    @include font-size-color-weight(14px, $color-white, 500);
+    @include buttonActionReset-color($color-white);
+}
+.btn-default-white {
+    border-color: #c9c9c9;
+    border-radius: 3px;
+    background-color: $color-white;
+    padding: 0 13px;
+    height: 29px;
+    line-height: 27px;
+    text-align: center;
+    @include font-size-color-weight(13px, #111, 400);
+}
+.btn-comment span {
+    padding-left: 19px;
+    @include background-name-ext-repeat-poistion(icon_comment, png, no-repeat, 0 55%);
+    @include mq(screen-mobile) {
+        padding-left: 13px;
+        background-size: 10px 9px;
+    }
+}
+.btn-clipping span {
+    padding-left: 16px;
+    @include background-name-ext-repeat-poistion(icon_clipping, png, no-repeat, 0 50%);
+    @include mq(screen-mobile) {
+        padding-left: 13px;
+        background-size: 9px 10px;
+    }
+}
+.btn-urlcopy span {
+    padding-left: 17px;
+    @include background-name-ext-repeat-poistion(icon_urlcopy, png, no-repeat, 0 50%);
+    @include mq(screen-mobile) {
+        padding-left: 12px;
+        background-size: 8px 10px;
+    }
+}
+.btn-good span {
+    padding-left: 21px;
+    @include background-name-ext-repeat-poistion(icon_good, png, no-repeat, 0 50%);
+    @include mq(screen-mobile) {
+        background-size: 13px 10px;
+    }
+}
+.btn-choose span {
+    padding-left: 18px;
+    @include background-name-ext-repeat-poistion(icon_choose, png, no-repeat, 0 50%);
+    @include mq(screen-mobile) {
+        padding-left: 14px;
+        background-size: 10px;
+    }
+}
+.btn-del {
+    @include buttonReset();
+    @include irReset();
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    margin: 3px 0 0 3px;
+    @include background-name-ext-repeat-poistion(btn_delete_comment, png, no-repeat, 0 0);
+}
+
+.btn-select {
+    border-color: #d5d5d7;
+    border-radius: 0;
+    background-color: $color-white;
+    height: 25px;
+    line-height: 23px;
+    padding: 0 30px 0 6px;
+    text-align: left;
+    @include buttonActionReset();
+    @include font-size-color-weight(12px, $color-black-light, 400);
+    @include background-name-ext-repeat-poistion(bg_select, png, no-repeat, 90% 50%);
+    background-size: 9px 5px;
+    padding: 0 30px 0 10px;
+    
+    @include mq(screen-mobile) {
+        height: 32px;
+        line-height: 32px;
+        font-size: 13px;
+    }
+}
+
+.modal button.close,
+.wrap-popup button.close {
+    font-size: 0;
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+    @include iconpack();
+    background-position: -24px -72px;
+    float: none;
+    position: absolute;
+    top: 19px;
+    right: 15px;
+}
+
+.btn-more {
+    a {
+        display: inline-block;
+        text-decoration: none;
+        span {
+            position: relative;
+            @include font-size-color-weight(14px, #6b7483, 400);
+            &:after {
+                @include contentReset();
+                @include rotate(45deg);
+                border: solid 2px #6b7483;
+                border-width: 1px 1px 0 0;
+                width: 6px;
+                height: 6px;
+                position: absolute;
+                top: 50%;
+                right: -12px;
+                margin-top: -3px
+            }
+        }
+    }
+}
+
+.btn-arrow {
+    a {
+        display: inline-block;
+        padding:0 20px 12px 0;
+        line-height: 1;
+        @include font-size-color-weight(16px, $color-black, 500);
+        border-bottom: solid 2px $color-black;
+        position: relative;
+        &:after {
+            @include contentReset();
+            width: 2px;
+            height: 16px;
+            background-color: $color-black;
+            transform: rotate(-45deg);
+            position: absolute;
+            bottom: -4px;
+            right: 3px;
+        }
+        &.active, &:active {
+            box-shadow: none;
+        }
+    }
+    
+}

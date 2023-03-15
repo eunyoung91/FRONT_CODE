@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>러닝 큐브</title> 
+
+    <!-- favicon setting-->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="//img.eduwill.net/resources/kin/dev/html/link_icon_ios_114.png" />
+    <link rel="icon" type="image/png" href="//img.eduwill.net/resources/kin/dev/html/link_icon_and.png" sizes="192x192"/>
+    <link rel="shortcut icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+
+    <!-- css -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/web.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';</script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+
+    <!-- Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <!-- Import datepicker -->    
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap.datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap.datepicker/js/bootstrap-datepicker.kr.js"></script>
+    
+
+    <script src="../js/custom.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.datepicker').datepicker({
+                todayHighlight: true,
+                autoclose: true,
+                format: "yyyy.mm.dd",
+                language: "kr",
+                orientation: 'auto top'
+            }).on('changeDate', function() {
+                //
+                // code to submit form here
+                //
+                console.log("sdf")
+            });
+        })
+        $(window).load(function(){
+            $(".modal-reservation").modal("show");
+        })
+    </script>
+    
+    
+</head>
+
+<body>
+    <div role="header" data-include="include/header_inc.html"></div>
+
+    <div class="wrap">
+        <div class="wrap-inner">
+            <div class="tab-content">
+                <div class="tab-pane active" id="label-1">
+                    <div class="content-title">
+                        <span>이용시간</span>
+                    </div>
+                    <div class="board-table">
+                        <table>
+                            <colgroup>
+                                <col style="width:33%">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">평일</lable>
+                                        <div class="text">09:00 ~ 22:00</div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">주말</lable>
+                                        <div class="text">09:00 ~ 22:00</div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">공휴일</lable>
+                                        <div class="text">09:00 ~ 22:00</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-info">※ 러닝큐브 운영 상황에 따라 이용시간은 변경될 수 있습니다.</div>
+
+                    <div class="content-title">
+                        <span>제공 서비스</span>
+                    </div>
+                    <div class="service-list">
+                        <ul>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-1"></i></div>
+                                <div class="t1">자기주도학습<br>공간 제공 서비스</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-2"></i></div>
+                                <div class="t1">강사 특강 및<br>합격 설명회</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-3"></i></div>
+                                <div class="t1">예약완료 및<br>이용안내 문자알림</div>
+                                <div class="t2">※ 카카오톡 알림톡 승인 필수</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-4"></i></div>
+                                <div class="t1">인터넷 강의 및<br> 학습공간 체험</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-5"></i></div>
+                                <div class="t1">공인중개사 자격증 취득<br>학습 상담 서비스</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-6"></i></div>
+                                <div class="t1">에듀윌 베스트셀러<br>교재 체험</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-7"></i></div>
+                                <div class="t1">강의자료 출력<br>할인 10%</div>
+                            </li>
+                            <li>
+                                <div class="icon-box"><i class="icon icon-service-8"></i></div>
+                                <div class="t1 line-1">무선 Wi-Fi</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="content-title">
+                        <span>오시는 길</span>
+                    </div>
+                    <div class="board-table">
+                        <table>
+                            <colgroup>
+                                <col style="width:50%">
+                                <col style="width:50%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">주소</lable>
+                                        <div class="text">경기 김포시 사우동 929 중앙프라자 7층 에듀윌 러닝큐브</div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">전화</lable>
+                                        <div class="text">031-2650-3132</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <lable class="form-label">위치</lable>
+                                        <div class="text">사우역 3번 출구 앞</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="map">
+                                        <img src="//img.eduwill.net/resources/learningCube/images/map-1.png">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="content-title">
+                        <span>공간 소개</span>
+                    </div>
+                    <div class="board-gallery">
+                        <ul>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-01.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-02.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-03.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-04.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-05.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-06.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-07.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                            <li>
+                                <img src="//img.eduwill.net/resources/learningCube/images/sub-gallery-08.png">
+                                <div class="mask"><i class="icon icon-largeview"></i></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-pane" id="label-2">
+                    <div class="text-important">
+                        <div class="title"><i class="icon icon-important"></i>꼭 읽어주세요</div>
+                        <ul>
+                            <li class="color-red">예약 및 노쇼 원칙 표기 추가 (예약 및 취소는 전날까지 가능 / 노쇼 시 패널티 등)</li>
+                            <li>특정 좌석 예약은 불가하며 좌석 배정은 방문 시 안내를 받으실 수 있습니다.</li>
+                            <li>예약 확인 및 변경/취소는 '마이페이지' 메뉴에서 확인하실 수 있습니다.</li>
+                        </ul>
+                    </div>
+                    <div class="content-title">
+                        <span>예약하기</span>
+                    </div>
+                    <div class="board-form">
+                        <table>
+                            <colgroup>
+                                <col style="width:33%">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">이용 날짜</lable>
+                                        <div class="form-datepicker">
+                                            <input type="text" class="form-control datepicker" id="datepicker" placeholder="선택하세요">
+                                            <i class="icon icon-calendar"></i>                                          
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">시작 시간</lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                선택하세요
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>10:00</li>
+                                                <li>11:00</li>
+                                                <li>12:00</li>
+                                                <li>13:00</li>
+                                                <li>14:00</li>
+                                                <li>15:00</li>
+                                                <li>16:00</li>
+                                                <li>17:00</li>
+                                                <li>18:00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">이용 시간</lable></lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                선택하세요
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>1시간</li>
+                                                <li>2시간</li>
+                                                <li>3시간</li>
+                                                <li>4시간</li>
+                                                <li>5시간</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-btn">
+                        <button class="btn btn-lg btn-disabled">다음단계<i class="icon icon-arrow-btn-disabled"></i></button>
+                    </div>
+                    
+                    <br><br><br><br><br><br><br><br><br><br>
+
+                    <div class="content-title">
+                        <span>예약하기</span>
+                    </div>
+                    <div class="board-form">
+                        <table>
+                            <colgroup>
+                                <col style="width:33%">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">이용 날짜</lable>
+                                        <div class="form-datepicker">
+                                            <input type="text" class="form-control datepicker" id="datepicker" placeholder="선택하세요">
+                                            <i class="icon icon-calendar"></i>                                          
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">시작 시간</lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                10:00
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>10:00</li>
+                                                <li>11:00</li>
+                                                <li>12:00</li>
+                                                <li>13:00</li>
+                                                <li>14:00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">이용 시간</lable></lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                2시간
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>1시간</li>
+                                                <li>2시간</li>
+                                                <li>3시간</li>
+                                                <li>4시간</li>
+                                                <li>5시간</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-btn">
+                        <button class="btn btn-lg btn-dark">다음단계<i class="icon icon-arrow-btn"></i></button>
+                    </div>
+                </div>
+                <div class="tab-pane" id="label-3">
+                    <div class="text-important">
+                        <div class="title"><i class="icon icon-important"></i>꼭 읽어주세요</div>
+                        <ul>
+                            <li>방문을 원하시는 일자 및 시간, 체험목적을 선택해주세요. </li>
+                            <li>신청 시 승인완료 까지 신청일로 부터 약 1~2일(평일기준) 소요됩니다. </li>
+                            <li>신청 상태는 '마이페이지' 메뉴에서 확인하실 수 있습니다. </li>
+                            <li>신청일자에 이용이 불가한 경우 유선상 전화를 통해 일정이 조정될 수 있습니다.</li>
+                        </ul>
+                    </div>
+                    <div class="content-title">
+                        <span>신청하기</span>
+                    </div>
+                    <div class="board-form">
+                        <table>
+                            <colgroup>
+                                <col style="width:33%">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">신청일자</lable></lable>
+                                        <div class="form-datepicker">
+                                            <input type="text" class="form-control datepicker" id="datepicker" placeholder="선택하세요">
+                                            <i class="icon icon-calendar"></i>                                          
+                                        </div>
+                                        
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">시간 선택</lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                선택하세요
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>10:00 ~ 11:00</li>
+                                                <li>11:00 ~ 12:00</li>
+                                                <li>12:00 ~ 13:00</li>
+                                                <li>13:00 ~ 14:00</li>
+                                                <li>14:00 ~ 15:00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">체험목적</lable></lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                선택하세요
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu  dropdown-select-multi">
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-btn">
+                        <button class="btn btn-lg btn-disabled">다음단계<i class="icon icon-arrow-btn-disabled"></i></button>
+                    </div>
+
+                    <br><br><br><br><br><br><br><br><br><br>
+
+                    <div class="content-title">
+                        <span>신청하기</span>
+                    </div>
+                    <div class="board-form">
+                        <table>
+                            <colgroup>
+                                <col style="width:33%">
+                                <col style="width:33%">
+                                <col style="width:33%">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <lable class="form-label">신청일자</lable>
+                                        <div class="form-datepicker">
+                                            <input type="text" class="form-control datepicker" id="datepicker" placeholder="선택하세요">
+                                            <i class="icon icon-calendar"></i>                                          
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">시작 시간</lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                10:00 ~ 11:00
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-select">
+                                                <li>10:00 ~ 11:00</li>
+                                                <li>11:00 ~ 12:00</li>
+                                                <li>12:00 ~ 13:00</li>
+                                                <li>13:00 ~ 14:00</li>
+                                                <li>14:00 ~ 15:00</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <lable class="form-label">체험목적</lable></lable>
+                                        <div class="dropdown">
+                                            <button class="btn btn-arrow">
+                                                인터넷 강의 및 교재 체험
+                                                <i class="icon icon-arrow"></i>
+                                            </button>
+                                            <ul class="dropdown-menu  dropdown-select-multi">
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="checkbox">
+                                                        <input type="checkbox">
+                                                        <i></i> <span>checkbox</span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-btn">
+                        <button class="btn btn-lg btn-dark">다음단계<i class="icon icon-arrow-btn"></i></button>
+                    </div>
+                </div>
+                <div class="tab-pane" id="label-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div role="footer" data-include="include/footer_inc.html"></div>
+
+    <!-- 예약확인 -->
+    <div class="modal modal-lg v-center modal-reservation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="badge-star"><i class="icon icon-star-check"></i></div>
+                    <div class="reservation-text">아래의 정보로 신청을 진행합니다.</div>
+                    <div class="reservation-table reservation-table-mobile">
+                        <table>
+                            <colgroup>
+                                <col style="width: 90px;">
+                                <col style="width: auto;">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th>제목</th>
+                                <td id="lecTitle">2021년 공인중개사 합격을 위한 마무리 특강</td>
+                            </tr>
+                            <tr>
+                                <th>내용</th>
+                                <td id="lecContent"><p><strong>■ 특강 기간 : 2021년 9월 6일(월) ~ 10월 20일(수)</strong></p>
+    
+    <p><strong>■ 신청 인원 : 에듀윌 회원대상 <span style="color:#B22222">선착 순 접수 [25명]</span></strong></p>
+    
+    <p><strong>■ 신청 조건&nbsp;: 에듀윌 공인중개사 기본서 6과목과 부동산 세법 체계도 도서 보유고객</strong></p>
+    
+    <p><span style="color:#696969">&nbsp; ※ 교수님 강의 교안 자료는 무료로 제공됩니다.</span></p>
+    
+    <p>■ 특강 스케쥴</p>
+    
+    <p><img src="https://i.imgur.com/Y4URrNC.png"></p>
+    
+    <p>&nbsp;</p>
+    </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" aria-label="Close">취소</button>
+                    <button type="button" class="btn btn-dark">신청하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

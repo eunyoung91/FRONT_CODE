@@ -1,0 +1,1478 @@
+@charset "utf-8";
+@import url('//img.eduwill.net/resources/common/web/css/noto_webfont.css'); /* Notosans reference 100:Thin 300:Light 400:Regular 500:Medium 700:Bold 900:Black */
+
+/* reset */
+html {-webkit-text-size-adjust:100%; -moz-text-size-adjust:100%; -ms-text-size-adjust:100%;}
+body {overflow-x:hidden}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,img,div,i { margin:0; padding:0; word-wrap:break-word;}
+img,fieldset { border:0}
+ul,ol { list-style:none}
+input,select,textarea { vertical-align:middle; box-sizing: border-box; -webkit-box-sizing: border-box;}
+img {vertical-align:top}
+em,address,i { font-style:normal}
+table { border-collapse:separate; border-spacing:0px; empty-cells:show; table-layout:fixed}
+legend,caption { visibility:hidden; width:0; height:0; margin:0; padding:0; font-size:0; line-height:0}
+a {text-decoration:none;}
+
+/* common */
+select { -webkit-appearance: none; -moz-appearance: none; appearance: none; } 
+select::-ms-expand { display: none; }
+select {font-size:2.864vw; color:#666; font-weight:400; width: 35vw; height:9.115vw; line-height:9.115vw; padding-left:2.604vw; padding-right:15%; border: 0.26vw solid #d8d8d8; background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select.png) no-repeat 92% 50%; background-size:1.953vw 1.042vw;}
+select.full {width:100%}
+input[type="text"],
+input[type="file"] {font-size:2.864vw; color:#666; font-weight:400; width: 48vw; height:9.115vw; padding-left:2.604vw; border: 0.26vw solid #d8d8d8; background-color:#fff}
+input[type="text"].full {width:100%}
+input[type="text"].alignC {text-align:center; padding:0}
+
+.checks {position:relative; display:inline-block; height: 2.864vw;}
+.checks label {font-size:2.343vw; color:#000; font-weight:300; padding-left:4.166vw; line-height:2.864vw; vertical-align:top}
+.checks input[type="checkbox"] {position:absolute; top:0; left:0; opacity:0; filter:alpha(opacity=0);  width:2.864vw; height:2.864vw; vertical-align:middle; -webkit-appearance:none; cursor:pointer; background-color:#fff;}
+.checks input[type="checkbox"] + label {background:url(//img.eduwill.net/resources/land/dev/images/board/bg_checkbox.png) no-repeat 0 50%; background-size:2.864vw; padding-left:4.166vw; cursor:pointer;}
+.checks input[type="checkbox"] + label.hidden {display:inline-block; padding-left:0; width:2.864vw; text-indent:-9999em}
+.checks input[type="checkbox"]:checked + label {color:#000; background:url(//img.eduwill.net/resources/land/dev/images/board/bg_checkbox_on.png) no-repeat 0 50%; background-size:2.864vw;}
+
+.checks label {}
+.checks input[type="checkbox"] {position:inherit\9 !important; opacity:1\9 !important; filter:inherit\9 !important;}
+.checks input[type="checkbox"] + label {background:none\9 !important; padding-left:10px\9 !important}
+.checks input[type="checkbox"]:checked + label {background:none\9 !important}
+
+.radios {position:relative; display:inline-block; height:16px;}
+.radios label {font-size:18px; color:#bbbbbb; font-weight:400; padding-left:22px; line-height:16px; font-weight:700}
+.radios input[type="radio"] {position:absolute; top:0; left:0; opacity:0; filter:alpha(opacity=0); width:16px; height:16px; vertical-align:middle; -webkit-appearance:none; cursor:pointer; background-color:#fff;}
+.radios input[type="radio"] + label {background:url(//img.eduwill.net/resources/myroom/library/images/bg_radio.png) no-repeat 0 50%; padding-left:22px; cursor:pointer;}
+.radios input[type="radio"]:checked + label {color:#5babb6; background:url(//img.eduwill.net/resources/myroom/library/images/bg_radio_on.png) no-repeat 0 50%;}
+
+.radios label {}
+.radios input[type="radio"] {position:inherit\9 !important; opacity:1\9 !important; filter:inherit\9 !important;}
+.radios input[type="radio"] + label {background:none\9 !important; padding-left:10px\9 !important}
+.radios input[type="radio"]:checked + label {background:none\9 !important}
+
+.files {font-size:0}
+.files input[type="file"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.files label {display:inline-block; box-sizing: border-box; -webkit-box-sizing: border-box; overflow:hidden; text-align:center; background:#eee; color:#000; font-weight:400; border:none; height:5.208vw; line-height:5.208vw; font-size:1.953vw; padding:0; width:15%; vertical-align:middle; margin-left:1%}
+.files .upload-name {height:5.208vw; line-height:5.208vw; font-size:1.953vw; border:solid 1px #d8d8d8; width:67%; }
+.files .button.type_a {height:5.208vw; line-height:5.208vw; font-size:1.953vw; border:solid 1px #d8d8d8; padding:0; width:15%; vertical-align:middle; margin-left:1%}
+
+.ellipsis {text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.clip {text-overflow:clip; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.pointer {cursor:pointer}
+.fL {float:left;}
+.fR {float:right;}
+.clear {box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1;}
+.clear:after {content:""; display:block; clear:both}
+.f0 {font-size:0}
+.bul_arrow:after {content:''; display:inline-block; width: 1rem; height: 1rem; border-top: 1px solid #000; border-right: 1px solid #000; -webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.bul_arrow:hover:after {-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);transform: rotate(-45deg);}
+.grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+.grid:before,
+.grid:after { content: ''; display: table; }
+.grid:after { clear: both; }
+.grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+.grid .col_1_1 { width: 100%; float: none; }
+.grid .col_1_2 { width: 50%; }
+.grid .col_1_3 { width: 33.33333333%; width: calc(100% / 3); }
+.grid .col_2_3 { width: 66.66666667%; }
+.grid .col_1_4 { width: 25%; }
+.grid .col_1_5 { width: 20%; }
+.layerWrap {z-index:1002; top:0; box-sizing: border-box; -webkit-box-sizing: border-box;}
+.layerDim {position:fixed; top:0; left:0; width:100%; height:100%; z-index:1000; background:#000; opacity:0.6; filter:alpha(opacity=60); min-width:50%; min-height:50%;}
+.layerInner {position:relative; z-index:1001; background:#fff; width:100%; height:100%;}
+.layerClose {position:relative; z-index:1001; cursor:pointer}
+.button {display:inline-block; box-sizing: border-box; -webkit-box-sizing: border-box; vertical-align:top; overflow:hidden; text-align:center;}
+.button {padding:0 7.8125vw; height: 9.115vw; line-height: 9.115vw; font-size:2.864vw; font-weight:700; background:#fff; border:solid 0.13vw #b4b4b4; color:#666}
+.button.full {width:100%}
+.button.type_a {background:#fff; color:#666; font-weight:400; border:solid 0.13vw #b4b4b4}
+.button.type_b {background:#3131da; color:#fff; border:none}
+.boxing {box-sizing: border-box; -webkit-box-sizing: border-box; position:relative;}
+
+/* header */
+#header {position:relative;}
+#header .logo {font-size:0; line-height:1; vertical-align:top; padding:5.859vw 0 0 5.21vw; height:18.229vw; box-sizing: border-box; -webkit-box-sizing: border-box;}
+#header .logo img {width:17.578vw;}
+#header .logo em {font-size:4.817vw; color:#666; font-weight:400; display:inline-block; padding:0 0 0 1.432vw}
+#header .logo i {font-size:4.817vw; color:#000; font-weight:700; display:inline-block; padding:0 0 0 1.172vw}
+#header .login_box {position:absolute; text-align:center;}
+#header .login_box a {display:inline-block; vertical-align:top}
+#header .login_box.login {top:6.901vw; right:6.901vw;}
+#header .login_box.login a {font-size:0; width:5.469vw; height:4.948vw; background:url(//img.eduwill.net/resources/land/dev/images/common/icon_logout.png) no-repeat 0 0; background-size:100%;}
+#header .login_box.logout {top:6.12vw; right:5.338vw;}
+#header .login_box.logout a {font-size:0; width:6.51vw; height:6.51vw; background:url(//img.eduwill.net/resources/land/dev/images/common/icon_login.png) no-repeat 0 0; background-size:100%;}
+#header .cert_btn {position:absolute; top:14.359vw; right:2.901vw; height:4vw;}
+#header .cert_btn .button {width:13vw; padding:0; border:none; border-radius:1vw 1vw 0 0; background:#3131da; height:4vw; line-height:4vw; font-size:1.8vw; color:#fff;}
+#header .cert_btn span.button {border:solid 1px #b4b4b4; border-bottom:none; background:#fff; color:#666;}
+
+#gnb {border-top:solid 1px #ddd;}
+#gnb ul.depth1 {border-bottom:solid 1px #666666; padding:0 5.21vw}
+#gnb ul.depth1 {box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+#gnb ul.depth1:after {content:""; display:block; clear:both}
+#gnb ul.depth1 li {float: left; box-sizing: border-box; -webkit-box-sizing: border-box; width: 33.33333333%; text-align:center;}
+#gnb ul.depth1 li a {font-size: 3.776vw; color:#000; font-weight:700; display:inline-block; line-height:11.198vw}
+#gnb ul.depth2 {padding:0; display:table; width:100%; border-bottom:solid 1px #ddd}
+#gnb ul.depth2 li {display:table-cell; text-align:center; line-height: 8.203vw; position:relative;}
+#gnb ul.depth2 li:after {content:''; display:block; width:0.130vw; height:2.604vw; background:#e0e0e0; position:absolute; top:50%; left:0; margin-top:-1.302vw}
+#gnb ul.depth2 li:first-child:after {display:none}
+#gnb ul.depth2 li a {font-size:3.125vw; color:#8a8a8a; font-weight:300;}
+#gnb ul.depth2 li.current a {color:#000000; font-weight:500}
+#gnb ul.depth2.s_munu1 li {width:33.3%}
+#gnb ul.depth2.s_munu2 li {width:50%}
+
+/* main */
+#page-main .visual {position:relative; background:#000;}
+#page-main .visual .inner {position:relative; z-index:2}
+#page-main .visual .inner img {width:100%}
+#page-main .visual {/*background:url(//img.eduwill.net/resources/land/dev/images/main/bg_title_768.png) no-repeat 50% 0; background-size:cover;*/}
+#page-main .visual .visual-bg {position:absolute; top:0; left:0; z-index:1; width:100%; height:100%;}
+#page-main .visual .visual-bg li.bg1 {width:100%; height:76.172vw; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_1.png) no-repeat 50% 0; background-size:cover;}
+#page-main .visual .visual-bg li.bg2 {width:100%; height:76.172vw; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_2.png) no-repeat 50% 0; background-size:cover;}
+#page-main .visual .visual-bg li.bg3 {width:100%; height:76.172vw; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_3.png) no-repeat 50% 0; background-size:cover;}
+#page-main .visual .ir-768 {display:block}
+#page-main .visual .ir-pc {display:none}
+#page-main .visual .link {font-size:0; text-align:center; position:absolute; top:49.349vw; left:0; width:100%;}
+#page-main .visual .link a {display:inline-block; width:40.494vw; height:10.156vw; line-height:10.156vw; border-radius:100px}
+#page-main .visual .link a em {font-size:3.646vw; font-weight:700; color:#fff; display:inline-block; letter-spacing:-1px}
+#page-main .visual .link a.l_1 {background:#6a6a6d;}
+#page-main .visual .link a.l_1 em {padding-left:4.947vw; background:url(//img.eduwill.net/resources/land/dev/images/main/icon_search.png) no-repeat 0 50%; background-size:2.734vw 2.865vw;}
+#page-main .visual .link a.l_2 {background:#3131da; margin-left:2.083vw}
+#page-main .visual .link a.l_2 em {padding-left:4.557vw; background:url(//img.eduwill.net/resources/land/dev/images/main/icon_location.png) no-repeat 0 50%; background-size:2.344vw 3.255vw;}
+#page-main .visual .link i {font-size:2.604vw; font-weight:300; color:#fff; display:block; padding-top: 4.166vw; line-height:1}
+#page-main .timeline {background:#040412; height:8.984375vw; overflow:hidden; position:relative; z-index:3}
+#page-main .timeline .bx-wrapper {}
+#page-main .timeline ul li {text-align:center; height:8.984375vw;}
+#page-main .timeline ul li span {display:inline-block; padding-left:3.516vw; font-size:2.864vw; font-weight:300; color:#fff; line-height:9.114vw; background:url(//img.eduwill.net/resources/land/dev/images/main/icon_location.png) no-repeat 0 50%; background-size:1.823vw 2.214vw; max-width:80%; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+#page-main .timeline ul li span em {font-weight:500}
+#page-main .timeline .link {display:none}
+#page-main .board {padding:8.333vw 5.21vw 0;}
+#page-main .board h2 {font-size:4.557vw; position:relative; border-bottom:solid 2px #333333; line-height:1; padding-bottom:2.343vw}
+#page-main .board h2 .btn_more {position:absolute; top:-1.822vw; right:0;}
+#page-main .board h2 .btn_more img {width: 6.12vw}
+#page-main .board ul {}
+#page-main .board ul li {line-height: 10.8072vw; border-bottom: solid 1px #ddd; position:relative;}
+#page-main .board ul li span {font-size:3.385vw; font-weight:400; color:#666; line-height:1.1; vertical-align:middle; display: inline-block; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; overflow: hidden; max-width:75%}
+#page-main .board ul li a {font-size:3.385vw; font-weight:400; color:#666; }
+#page-main .board ul li i {display: inline-block; }
+#page-main .board ul li i img {vertical-align:middle; width:2.343vw;}
+#page-main .board ul li em {font-size:2.604vw; font-weight:300; color:#aaa; position:absolute; top:0; right:0}
+#page-main .moreitem {padding:10.417vw 5.21vw}
+#page-main .moreitem dl {margin-top:6.5104vw; position:relative; min-height:24.74vw; padding-left:48.958vw}
+#page-main .moreitem dl:first-child {margin-top:0}
+#page-main .moreitem dl dt {font-size:5.208vw; font-weight:700; color:#000; line-height:1; letter-spacing: -2px;}
+#page-main .moreitem dl dd.photo {width:44.662vw; position:absolute; bottom:0; left:0;}
+#page-main .moreitem dl dd.photo img {display:none; width:100%; border:solid 1px #cccccc;}
+#page-main .moreitem dl dd.photo img.ir-768 {display:inline}
+#page-main .moreitem dl dd.txt {font-size:2.60vw; color:#888; font-weight:300; line-height:3.646vw; padding-top: 2.864vw; letter-spacing:-2px}
+#page-main .moreitem dl dd.txt.tr-640 {display:none}
+#page-main .moreitem dl dd.btn {position:absolute; bottom:0;}
+#page-main .moreitem dl dd.btn a {border:solid 1px #ddd; background:#eee; width: 19.14vw; height: 6.64vw; text-align: center; padding:0}
+#page-main .moreitem dl dd.btn a span {font-size:2.865vw; color:#3131da; font-weight:500; padding-left:4.297vw; display:inline-block; line-height: 6.38vw; vertical-align:top; background:url(//img.eduwill.net/resources/land/dev/images/main/bul_plus.png) no-repeat 0 50%; background-size:2.474vw;}
+#page-main .banner,
+#page-main .section2 {position:relative; top:-9999em; height:0; width:0; overflow:hidden;}
+
+/* 에공회소개 */
+#page-intro .visual {width:100%; height:105.599vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/title_intro.png) repeat-x 50% 0; background-size:cover; font-size:0}
+#page-intro .title {width:100%; height:40.886vw; background:#f2f7ff url(//img.eduwill.net/resources/land/dev/images/sub/stitle_intro.png) no-repeat 50% 0; background-size:cover; font-size:0;}
+#page-intro .photo {background:#f2f7ff}
+#page-intro .photo dl {}
+#page-intro .photo dl {padding:7.656vw 5.21vw 7.969vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 0; background-size:6px 1px;}
+#page-intro .photo dl {box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1;}
+#page-intro .photo dl:after {content:""; display:block; clear:both}
+#page-intro .photo dl:first-child {padding-top:0; background:none}
+#page-intro .photo dl dt {position:relative; font-size:3.906vw; color:#333; font-weight:300; line-height:4.818vw; padding:1.5625vw 0 3.255vw}
+#page-intro .photo dl dt strong {display:inline-block; font-weight:700;}
+#page-intro .photo dl dt .desc {font-size:2.344vw; color:#888; font-weight:300; line-height:3.255vw; padding-top:1.953vw;}
+#page-intro .photo dl dt:before {content:""; display:block; width:3.646vw; height:0.39vw; position:absolute; top:0; left:0; background:#3131da; border-radius:0.39vw;}
+#page-intro .photo dl dd {float:left; width:49%; height:22.657vw; overflow:hidden}
+#page-intro .photo dl dt + dd {margin-right:2%}
+#page-intro .photo dl dd.photo01 img {width:51.776vw; margin:-1.849vw 0 0 -1.255vw}
+#page-intro .photo dl dd.photo02 img {width:59.291vw; margin:-8.2vw 0 0 -4.255vw}
+#page-intro .photo dl dd.photo03 img {width:50.948vw; margin:-2vw 0 0 -3vw}
+#page-intro .photo dl dd.photo04 img {width:47.083vw; margin:-1.9vw 0 0 -2vw}
+#page-intro .photo dl dd.photo05 img {width:54.666vw; margin:-5vw 0 0 -7vw}
+#page-intro .photo dl dd.photo06 img {width:47.875vw; margin:-2.5vw 0 0 -2vw}
+#page-intro .photo dl dd.photo07 img {width:44.213vw; margin:-6.2vw 0 0 0vw}
+#page-intro .photo dl dd.photo08 img {width:44.8987vw; margin:-3.2vw 0 0 -0.5vw}
+#page-intro .photo dl dd.photo09 img {width:54.031vw; margin:-8vw 0 0 -5vw}
+#page-intro .photo dl dd.photo10 img {width:40.254vw; margin:-3.675vw 0 0 -0.5vw}
+#page-intro .photo dl.type2 dt { padding-bottom:2%}
+#page-intro .photo dl.type2 dt + dd {margin-right:2%}
+#page-intro .photo dl.type2 dt strong {display:inline-block;}
+#page-intro .photo dl.type2 dt div.desc {display:block}
+#page-intro .photo dl.type2 dt div.desc.ir-640 {display:none}
+#page-intro .channel {padding:9.375vw 5.21vw 7.969vw;}
+#page-intro .channel .tit {font-size:3.125vw; color:#333; font-weight:300; line-height:1; padding-bottom:2.34375vw}
+#page-intro .channel .tit strong {font-weight:700}
+#page-intro .channel ul {}
+#page-intro .channel ul li {width:25%; border:solid 1px #ddd; border-left:none; height:21.485vw; display:table; }
+#page-intro .channel ul li:first-child {border-left:solid 1px #ddd;}
+#page-intro .channel ul li a {display:table-cell; width:100%; height:21.485vw; padding-top:8.463vw; box-sizing: border-box; -webkit-box-sizing: border-box; vertical-align:middle; text-align:center; font-size:2.604vw; color:#333; font-weight:300; line-height:3.125vw}
+#page-intro .channel ul li a strong {font-weight:500}
+#page-intro .channel ul li.cn1 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe01.png) no-repeat 50% 3.906vw; background-size: 6.38vw;}
+#page-intro .channel ul li.cn2 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe02.png) no-repeat 50% 3.906vw; background-size: 6.38vw;}
+#page-intro .channel ul li.cn3 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe05.png) no-repeat 50% 3.906vw; background-size: 6.38vw;}
+#page-intro .channel ul li.cn4 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe04.png) no-repeat 50% 3.906vw; background-size: 6.38vw;}
+
+/* sub */
+.visual_sub { text-align:center; padding:6.51vw 0 6.25vw; position:relative; display:none}
+.visual_sub span {font-size:7.031vw; font-weight:700; color:#fff; display:inline-block; line-height:1;}
+.visual_sub:after {content:""; display:block; width:0.13vw; height:8.593vw; position:absolute; bottom:-4.2965vw; left:50%; background:#000; opacity:0.3}
+.visual_sub.s01 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_01_768.png) no-repeat 50% 0; background-size:cover;}
+.visual_sub.s02 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_02_768.png) no-repeat 50% 0; background-size:cover;}
+.visual_sub.s03 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_03_768.png) no-repeat 50% 0; background-size:cover;}
+.visual_sub.s04 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_04_768.png) no-repeat 50% 0; background-size:cover;}
+
+.visual_sub.s02 {}
+.visual_sub.s02 span {font-size:7.8125vw; letter-spacing:3px}
+.visual_sub.s02 .link a {display:inline-block; vertical-align:top; margin-top:5.599vw; font-size:0}
+.visual_sub.s02 .link a.l_1 {width:57.682vw; height:11.198vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_officeCheck_768.png) no-repeat 50% 0; background-size:100%;}
+.visual_sub.s02 .link a.l_2 {width:44.661vw; height:11.198vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_officeAmend_768.png) no-repeat 50% 0; background-size:100%;}
+.visual_sub.s02:after {display:none}
+
+
+/* board */
+#page-board .grp:first-child {padding-top:0 !important}
+	/* title */
+#page-board .tit {position:relative; text-align:center; margin:11.458vw 0 6.51vw}
+#page-board .tit:before {content:""; display:block; width:4.166vw; height:0.781vw; position:absolute; top:-2.604vw; left:50%; background:#3131da; border-radius:0.39vw; margin-left:-2.083vw}
+#page-board .tit span {font-size:5.859vw; color:#000; font-weight:700; display:inline-block; line-height:1;}
+#page-board .tit em {font-size:2.343vw; color:#666; font-weight:500; display:block; padding-top:2.604vw}
+	/* search */
+#page-board .searchform {padding:0 5.21vw 3.776vw;}
+#page-board .searchform select { border-radius: 4.558vw; background-position:88% 50%; padding-right:22%; padding-left:5.338vw; border-color:#aaa}
+#page-board .searchform input[type="text"] {border-radius: 4.558vw; padding-right:11vw; padding-left:5.338vw; border-color:#aaa; background:url(//img.eduwill.net/resources/land/dev/images/board/bg_search.png) no-repeat 90% 50%; background-size:3.255vw 3.516vw;}
+#page-board .searchform .fR {position:relative;}
+#page-board .searchform .fR .button {position:absolute; top:0; right:0; font-size:0; border:none; height:9.115vw; width:11vw; background:none; padding:0}
+	/* list */
+#page-board .listform  {padding-bottom:5.21vw}
+#page-board .listform .t-pc {display:none}
+#page-board .listform .t-mobile {display:table}
+#page-board .listform table {width:100%; border-top:solid 0.521vw #333;}
+#page-board .listform table th {font-size:2.864vw; color:#333; font-weight:500; text-align:center; background:#fbfcfd; line-height:10.026vw; border-bottom:solid 0.13vw #ccc}
+#page-board .listform table td {font-size:2.604vw; color:#777; font-weight:400; text-align:center; background:#fff; line-height:1.4; padding:3.906vw 0; border-top:solid 0.13vw #ebebeb; cursor:pointer}
+#page-board .listform table tr:first-child td {border-top:none}
+#page-board .listform table tr:last-child td {border-bottom:solid 0.13vw #333}
+#page-board .listform table td.ask,
+#page-board .listform table td.answer {text-align:left;}
+#page-board .listform table td.ask .txt,
+#page-board .listform table td.answer .txt {font-size:3.385vw; color:#333; font-weight:500; vertical-align:middle; display:inline-block; max-width:67%; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+#page-board .listform table td.answer .txt {color:#333399; padding-left:2.994vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_ripple_768.png) no-repeat 0 50%; background-size:1.432vw 1.823vw;}
+#page-board .listform table td.answer .rpNum {color:#333399;}
+#page-board .listform table td.answer {padding-left:35%;}
+#page-board .listform table td.answer .txt {max-width:53%}
+#page-board .listform table td.answer.depth {padding-left:0;}
+#page-board .listform table td.answer.depth1 {padding-left:0;}
+#page-board .listform table td.answer.depth2 {padding-left:5%;}
+#page-board .listform table td.answer.depth3 {padding-left:10%}
+#page-board .listform table td.answer.depth4 {padding-left:15%}
+#page-board .listform table td.answer.depth5 {padding-left:20%}
+#page-board .listform table td.answer.depth6 {padding-left:25%; }
+#page-board .listform table td.answer.depth6 .txt {max-width:65%}
+#page-board .listform table td.answer.depth7 {padding-left:30%}
+#page-board .listform table td.answer.depth7 .txt {max-width:60%}
+#page-board .listform table td.answer.depth8 {padding-left:35%}
+#page-board .listform table td.answer.depth8 .txt {max-width:53%}
+#page-board .listform table tr.important td {background:#eaf0ff}
+#page-board .listform table td.gubun {padding:0 2vw; word-wrap: break-word; word-break: keep-all;}
+#page-board .listform table td .box1 {display:inline-block; vertical-align:middle; font-size:2.604vw; color:#fff; font-weight:500; height:3.516vw; line-height:3.776vw; background:#f64055; padding:0 1.172vw; margin-right:0.651vw}
+#page-board .listform table td .txt2 {display:inline-block; min-width:11.718vw}
+#page-board .listform table td .txt3 {}
+#page-board .listform table td .rpNum {font-size:3.385vw; color:#333; font-weight:500; vertical-align:middle; margin-right:0.5208vw}
+#page-board .listform table td .i-new {display:inline-block; font-size:0; width:2.604vw; height:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_new_768.png) no-repeat 50% 0; background-size:100%; vertical-align:middle; margin-top:0.4vw}
+#page-board .listform table td .i-file {display:inline-block; font-size:0; width:1.953vw; height:2.474vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_file_768.png) no-repeat 50% 0; background-size:100%; vertical-align:middle; margin-top:0.4vw}
+#page-board .listform table td .grp {padding-top:0.911vw}
+#page-board .listform .btnArea {padding:3.776vw 6.51vw 0;}
+#page-board .listform .btnArea .button {height:13.02vw; line-height:13.02vw; font-size:3.906vw;}
+.paging {text-align:center; font-size:0; padding-top:5.729vw}
+.paging a {font-size:2.083vw; color:#777; font-weight:700; /*font-family:'Verdana';*/ vertical-align:top; line-height:6.51vw; padding:0 2vw}
+.paging a.currunt {color:#3131da}
+.paging a.on {color:#3131da}
+.paging a.btn {display:inline-block; margin:0 0.52vw; font-size:0; padding:0}
+.paging a.btn img {width:6.51vw; height:6.51vw; }
+
+	/* write */
+#page-board .writeform {padding-bottom:5.21vw}
+#page-board .writeform .checkArea {height:2.864vw; text-align:right; padding:0 5.208vw 1.302vw 0}
+#page-board .writeform table {width:100%; border-top:solid 0.521vw #333;}
+#page-board .writeform table th {background:#fbfcfd; text-align:left; padding:5.208vw}
+#page-board .writeform table th .grp {padding-top:1.302vw}
+#page-board .writeform table th select {width:40%}
+#page-board .writeform table th .input1 {width:40%}
+#page-board .writeform table th .input2 {width:59%; margin-left:1%}
+#page-board .writeform table td {border-top:solid 0.13vw #ebebeb; padding:3.906vw 5.208vw}
+#page-board .writeform table tr:last-child td {border-bottom:solid 0.13vw #333}
+#page-board .writeform table td.edit {padding:3.906vw 5.208vw}
+#page-board .writeform table td.edit .ir-p {display:none; width:100%;}
+#page-board .writeform table td.edit .ir-m {display:block; width:100%;}
+#page-board .writeform table td.file em {display:block; font-size:2.343vw; color:#333399; font-weight:700; line-height:1; margin-bottom:1.302vw; padding-left:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_down_768.png) no-repeat 0 50%; background-size:1.823vw 2.083vw;}
+#page-board .writeform table td.file .fileform input[type='text']{height:5.208vw; line-height:5.208vw;}
+#page-board .writeform table td.file ul {padding-top:2.604vw}
+#page-board .writeform table td.file ul li {margin-top:0.5vw}
+#page-board .writeform table td.file ul li:first-child {margin-top:0}
+#page-board .writeform table td.file ul li span {font-size:2.343vw; color:#000; font-weight:400; }
+#page-board .writeform table td.file ul li .del {font-size:2.343vw; color:#3131da; font-weight:400; margin:0 0 0 0.3vw; }
+#page-board .writeform .pickArea {padding:3.906vw 5.208vw 0; display:none}
+#page-board .writeform .pickArea select {width:36.458vw}
+#page-board .writeform .pickArea .desc {display:inline-block; font-size:2.343vw; color:#777; font-weight:400; line-height:1.4; vertical-align:middle; padding-left:2.343vw; }
+#page-board .writeform .btnArea {padding:4.427vw 5.208vw 0; text-align:right} 
+	/* view */
+#page-board .viewform {padding-bottom:5.21vw} 
+#page-board .viewform .copyArea {text-align:right; padding:0 5.208vw 1.302vw 0}
+#page-board .viewform .copyArea .button {width:12.5vw; height: 4.818vw; line-height: 4.818vw; font-size:2.083vw; border:solid 0.13vw #dddddd; background:#eee; text-align:center; padding:0}
+#page-board .viewform table {width:100%; border-top:solid 0.521vw #333;}
+#page-board .viewform table th {background:#fbfcfd; text-align:left; padding:3.3vw 5.208vw; font-size:3.385vw; font-weight:500;}
+#page-board .viewform table th .gubun {color:#333399; position:relative; padding-right:2.083vw; margin-right:1.432vw}
+#page-board .viewform table th .gubun:after {content:""; display:block; width:0.26vw; height:3.776vw; position:absolute; top:50%; right:0; margin-top:-1.7vw; background:#d8d8d8;}
+#page-board .viewform table th .subj {color:#000}
+#page-board .viewform table tr:last-child td {border-bottom:solid 0.13vw #333}
+#page-board .viewform table td {border-top:solid 0.13vw #ebebeb; padding:1.96vw 5.208vw; font-size:2.343vw; color:#555; font-weight:300; }
+#page-board .viewform table td .user {font-weight:400; margin-right:3.255vw}
+#page-board .viewform table td.text {line-height:5.208vw; font-size: 2.864vw; color:#333; padding:5.208vw;}
+#page-board .viewform table td.text img {max-width:100%; height:auto !important}
+#page-board .viewform table td.file em {display:block; font-size:2.343vw; color:#333399; font-weight:700; line-height:1; margin-bottom:1.302vw; padding-left:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_down_768.png) no-repeat 0 50%; background-size:1.823vw 2.083vw;}
+#page-board .viewform table td.file li {margin-top:0.5vw; font-size: 2.343vw; color: #000; font-weight: 400;}
+#page-board .viewform table td.file li:first-child {margin-top:0}
+#page-board .viewform table td.file li a {font-size: 2.343vw; color: #000; font-weight: 400;}
+#page-board .viewform .btnArea1 {padding:4.036vw 5.208vw}
+#page-board .viewform .pickArea {padding:4.036vw 0 0 5.208vw; }
+#page-board .viewform .pickArea .col {font-size:2.864vw; font-weight:500; line-height:5.599vw}
+#page-board .viewform .pickArea .good {color:#f55763; padding-left:6.901vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_good.png) no-repeat 0 50%; background-size:5.599vw; cursor:pointer}
+#page-board .viewform .pickArea .good.check {color:#555; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_good_check.png) no-repeat 0 50%; background-size:5.599vw; cursor:inherit}
+#page-board .viewform .pickArea .ripple {color:#555; padding-left:6.901vw; margin-left:2.994vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_ripple2.png) no-repeat 0 50%; background-size:5.599vw; }
+#page-board .viewform .pickArea .count {font-size:2.344vw; color:#777; margin-left:4.557vw}
+#page-board .viewform .rippleArea {background:#f8f8f8; padding:0 5.208vw;}
+#page-board .viewform .rippleArea .replybox {border-top:solid 0.13vw #ccc;}
+#page-board .viewform .rippleArea .replybox:first-child {border-top:none; padding-top:0;}
+#page-board .viewform .rippleArea .cont {padding:3.645vw 0; position:relative;}
+#page-board .viewform .rippleArea .cont .user {font-size:2.343vw; color:#333; font-weight:500; padding-right:0.651vw; vertical-align:middle; }
+#page-board .viewform .rippleArea .cont .date {font-size:2.343vw; color:#777; font-weight:400; vertical-align:middle; }
+#page-board .viewform .rippleArea .cont .btn {margin-left:2.473vw}
+#page-board .viewform .rippleArea .cont .btn a {font-size:0; display:inline-block; vertical-align:middle; width:9.896vw; height:4.167vw; background:url(//img.eduwill.net/resources/land/dev/images/board/btn_ripple.png) no-repeat 0 50%; background-size:100%}
+#page-board .viewform .rippleArea .cont .text {display:block; font-size:2.604vw; color:#555; font-weight:400; padding-top:0.651vw}
+#page-board .viewform .rippleArea .cont .btn2 {position:absolute; top:2.604vw; right:0; } 
+#page-board .viewform .rippleArea .cont .btn2 a {display:inline-block; font-size:2.343vw; color:#777; font-weight:400; line-height:1; position:relative; padding-left:1.2vw; margin-left:0.7812vw}
+#page-board .viewform .rippleArea .cont .btn2 a:before {content:""; display:block; width:1px; height:2.343vw; background:#777; position:absolute; top:0; left:0;}
+#page-board .viewform .rippleArea .cont .btn2 a:first-child:before {display:none; padding:0; margin:0}
+#page-board .viewform .rippleArea .writeform {border-top:solid 0.13vw #ebebeb; padding:3.645vw 0; font-size:0}
+#page-board .viewform .rippleArea .writeform textarea {border:solid 0.13vw #c0c0c0; height:10.807vw; width:84%; font-size:2.604vw; color:#555; font-weight:400;}
+#page-board .viewform .rippleArea .writeform .button {height:10.807vw; line-height:10.807vw; width:15%; margin-left:1%; padding:0; font-size:2.604vw; font-weight:400}
+#page-board .viewform .rippleArea .cont.comment {border-top:solid 0.13vw #ebebeb; padding:3.645vw 0 3.645vw 6.51vw; line-height:5.208vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_rippleCom.png) no-repeat 4.036vw 5.3vw; background-size:1.3vw; position:relative;}
+#page-board .viewform .rippleArea .cont.comment .text {padding-top:0}
+#page-board .viewform .rippleArea .writeform.comment {padding-left:3.515vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_rippleCom.png) no-repeat 0 3.645vw; background-size:1.3vw}
+#page-board .viewform .btnArea2 {padding: 3.906vw 5.208vw 0}
+#page-board .viewform .btnArea2 .type_a {width:19.53vw; padding:0;}
+#page-board .viewform .btnArea2 a .i-up {padding-left:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_arrowUp.png) no-repeat 0 50%; background-size:1.693vw 1.0416vw}
+#page-board .viewform .btnArea2 a .i-down {padding-left:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_arrowDown.png) no-repeat 0 50%; background-size:1.693vw 1.0416vw}
+
+	/* faq */
+#page-board .faqform  {padding-bottom:5.21vw}
+#page-board .faqform table {width:100%; border-top:solid 0.521vw #333;}
+#page-board .faqform table td {background:#fff;}
+#page-board .faqform table .ask {display:table-row}
+#page-board .faqform table .ask td {padding:4.166vw 5.21vw; border-bottom:solid 1px #bbb;}
+#page-board .faqform table .ask td .txt {font-size:3.385vw; color:#000; font-weight:700; line-height:4.427vw; display:block; padding-left:6.119vw; padding-right:5.119vw;  background:url(//img.eduwill.net/resources/land/dev/images/board/icon_faq.png) no-repeat 0 0; background-size:4.427vw; position:relative;}
+#page-board .faqform table .ask td .txt:after {content:""; display:block; position:absolute; top:1.432vw; right:0; width:2.865vw; height:1.693vw; background:url(//img.eduwill.net/resources/land/dev/images/board/bul_faq.png) no-repeat 0 0; background-size:100%}
+#page-board .faqform table .ask.open {}
+#page-board .faqform table .ask.open td {background:#fbfcfd; border-bottom:none; border-bottom:solid 1px #ddd;}
+#page-board .faqform table .ask.open .txt:after {display:none}
+#page-board .faqform table .answer td {vertical-align:top;}
+#page-board .faqform table .answer td div {display:none}
+#page-board .faqform table .answer td .txt {  padding:4.427vw 5.21vw; font-size:2.604vw; color:#000; font-weight:300; line-height:4.427vw;}
+#page-board .faqform table .answer.open td {border-bottom:solid 1px #bbb;}
+#page-board .faqform .btnArea {padding-top:3.906vw; text-align:center}
+
+
+
+/* 사무소검색 */
+#page-office {}
+#page-office .search_address {}
+#page-office .search_address {box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1;}
+#page-office .search_address:after {content:""; display:block; clear:both}
+#page-office .search_address .sel {float:left; width:33.3333%}
+#page-office .search_address .sel select {width:100%; border:none; border-left:solid 0.13vw #dcdcdc; border-bottom:solid 1px #dcdcdc; background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select2.png) no-repeat 88% 50%; background-size: 1.432vw 0.781vw; font-size:2.604vw; color:#888; font-weight:400; padding-right:18%}
+#page-office .search_address .sel.depth1 select {border-left:none}
+#page-office .search_address .sel.depth3 select {background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select3.png) no-repeat 88% 50%; background-size: 1.432vw 0.781vw; }
+#page-office .search_address .txt {border-bottom:solid 1px #999; clear:both; position:relative;}
+#page-office .search_address .txt input[type='text'] {border:none; height:9.114vw; line-height:9.114vw; font-size:2.604vw; color:#888; font-weight:400; width:100%; background:#eee url(//img.eduwill.net/resources/land/dev/images/board/bg_search2.png) no-repeat 96.5% 50%; background-size: 2.995vw 3.255vw; padding-right:9%}
+#page-office .search_address .txt .layerWrap {width:100%; top:9.114vw; left:0}
+#page-office .search_address .txt .layerWrap ul {overflow-y:auto; max-height:44.6vw}
+#page-office .search_address .txt .layerWrap ul li {border-top:solid 0.13vw #ddd}
+#page-office .search_address .txt .layerWrap ul li:first-child {border-top:none}
+#page-office .search_address .txt .layerWrap ul li a {display:block; padding:2.5vw 2.604vw; font-size:2.604vw; color:#333; font-weight:400;}
+#page-office .search_address .txt .layerWrap ul li a span {color:#888}
+#page-office .search_address .txt .layerWrap .closeArea {background:#666; text-align:right; padding:2.214vw 2.864vw}
+#page-office .search_address .txt .layerWrap .closeArea .layerClose {font-size:2.734vw; color:#fff; font-weight:400; padding-left:2.604vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_closeLayer.png) no-repeat 0 50%; background-size: 1.693vw;}
+
+#page-office .officeMap .map {border-bottom:solid 0.13vw #ccc; width:100%; height:73vw; overflow:hidden}
+#page-office .officeMap .map .img_sample {width:100%; height:100%;}
+#page-office .officeMap .pointBox {border:solid 1px #666; background:#fff; width:40.755vw}
+#page-office .officeMap .pointBox .inn {padding:2.604vw; position:relative;}
+#page-office .officeMap .pointBox .inn * {white-space:initial;}
+#page-office .officeMap .pointBox .photo {width:7.553vw; height:8.856vw; background:#ddd url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 0; background-size:cover; overflow:hidden; border:solid 1px #dfdfdf; position:absolute; top:2.604vw; left:2.604vw;}
+#page-office .officeMap .pointBox .photo img {width:100%}
+#page-office .officeMap .pointBox .name {padding-left:9.505vw; font-size:2.4vw; color:#333; font-weight:700; min-height:5.208vw; line-height:1.2; letter-spacing:-1px}
+#page-office .officeMap .pointBox .member {padding-left:9.506vw; min-height:3.907vw; font-size:1.1vw; font-weight:400; color:#010101}
+#page-office .officeMap .pointBox .member i {padding-left:2.604vw; font-weight:700; position:relative;}
+#page-office .officeMap .pointBox .member i:before {content:""; display:block; position:absolute; top:50%; left:0; width: 1.953vw; height:2.214vw; margin-top:-0.9vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_member.png) no-repeat 0 0; background-size:100%}
+#page-office .officeMap .pointBox .addr {font-size:2.083vw; color:#666; font-weight:400; line-height:3.255vw; padding:2.213vw 0; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 0; background-size:0.781vw 1px; margin-top: 2.473vw;}
+#page-office .officeMap .pointBox .btn a {height: 5.208vw; line-height: 5.208vw; font-size:2.083vw; font-weight:400; padding:0  2.994vw}
+#page-office .officeMap .tit.mobile {display:block;}
+#page-office .officeMap .tit.pc {display:none;}
+#page-office .officeMap .tit {font-size:3.125vw; color:#333; font-weight:300; padding:2.93vw 5.208vw; border-bottom:solid 0.13vw #666;}
+#page-office .officeMap .tit i {font-weight:500; margin-right:10px}
+#page-office .officeMap .lst {background:#f6f6f6; padding-bottom:5.21vw; /*height:111.5vw; overflow-y:auto*/}
+#page-office .officeMap .lst ul {}
+#page-office .officeMap .lst ul li {border-bottom:solid 1px #ddd; padding: 3.906vw 5.208vw; position:relative; box-sizing: border-box; -webkit-box-sizing: border-box; cursor:pointer; text-align: left;}
+#page-office .officeMap .lst ul li .name {padding:0 0 1.5625vw 3.906vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 100%; background-size:0.781vw 1px; font-size:3.906vw; color:#000; font-weight:700; position:relative}
+#page-office .officeMap .lst ul li .name:before {content:""; display:block; position:absolute; top:1.4vw; left:0; width: 2.474vw; height:2.865vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_map.png) no-repeat 0 0; background-size:100%}
+#page-office .officeMap .lst ul li .photo {width:15.625vw; height:18.23vw; background:#ddd url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 0; background-size:cover; overflow:hidden; position:absolute; top:3.125vw; left:0;}
+#page-office .officeMap .lst ul li .photo img {width:100%}
+#page-office .officeMap .lst ul li .member {padding-left:2.474vw; position:absolute; top:-6vw; right:0; font-size:2.344vw; color:#333; font-weight:400}
+#page-office .officeMap .lst ul li .member:before {content:""; display:block; position:absolute; top:50%; left:0; width: 1.953vw; height:2.214vw; margin-top:-0.9vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_member.png) no-repeat 0 0; background-size:100%}
+#page-office .officeMap .lst ul li .number {font-size:3.646vw; color:#3131da; font-weight:700; padding-top:1vw}
+#page-office .officeMap .lst ul li .number span {font-size:2.865vw; color:#888; font-weight:700; line-height:4.557vw; position:relative; padding-left: 3.646vw}
+#page-office .officeMap .lst ul li .number span:before {content:""; display:block; position:absolute; top:0.8vw; left:0; width:3.125vw; height:3.125vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_call.png) no-repeat 0 0; background-size:100%}
+#page-office .officeMap .lst ul li .number .button {width:14.323vw; height:4.557vw; line-height:4.557vw; font-size:2.865vw; color:#fff; font-weight:400; background:#3131da; border:none; padding:0; vertical-align:middle; margin-left:0.651vw}
+#page-office .officeMap .lst ul li .addr {font-size:2.865vw; color:#333; font-weight:400; line-height:4.1667vw; padding-top:1.5vw}
+#page-office .officeMap .lst ul li .grp {position:relative; padding:3.125vw 0 0 19.531vw; min-height:18.229vw;}
+#page-office .officeMap .lst ul li.current {background:#fff; border:solid 0.39vw #3131da}
+
+	/* layer :: 동문회원 인증하기 */
+#memberCert {padding:5.208vw; width:100%;}
+#memberCert .layerInner {background:#eee; padding:9.114vw 9.114vw 10.416vw 9.114vw; width:auto;}
+#memberCert .layerInner .title {font-size:4.427vw; font-weight:700; line-height:1; letter-spacing:-2px; border-bottom:solid 0.39vw #666; text-align:center; padding-bottom:2.734vw}
+#memberCert .layerInner .desc {font-size:3.385vw; font-weight:300; line-height:1; color:#3131da; text-align:center; padding:3.711vw 0; }
+#memberCert .layerInner .info {background:#fff; padding:3.776vw; padding-left:23.177vw; border:solid 1px #ddd; position:relative; }
+#memberCert .layerInner .info .photo {position:absolute; top:3.776vw; left:3.776vw; width:15.625vw; height:18.23vw; overflow:hidden; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 50%; background-size:100%;}
+#memberCert .layerInner .info .photo img {width:100%;}
+#memberCert .layerInner .info ul {}
+#memberCert .layerInner .info ul li {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 0; background-size:0.781vw 1px; font-size:2.864vw; color:#010101; font-weight:500; line-height:1; padding:1.89vw 0}
+#memberCert .layerInner .info ul li:first-child {background:none; padding-top:0.586vw}
+#memberCert .layerInner .info ul li i {font-weight:300; display:inline-block; width:7.292vw}
+#memberCert .layerInner .btn {padding-top:3.906vw; font-size:0;}
+#memberCert .layerInner .btn a {text-align:center; height:14.973vw; width:48%; padding:0}
+#memberCert .layerInner .btn a.b1 {border:none; background:#3131da}
+#memberCert .layerInner .btn a.b1 i {color:#c1c1ed;}
+#memberCert .layerInner .btn a.b2 {border-color:#ccc; background:#333; margin-left:4%}
+#memberCert .layerInner .btn a.b2 i {color:#c2c2c2;}
+#memberCert .layerInner .btn a span {display:block; font-size:3.906vw; font-weight:700; line-height:1; color:#fff; padding-top: 3.776vw}
+#memberCert .layerInner .btn a i {display:block; font-size:2.604vw; font-weight:300; line-height:1; padding-top:1.042vw}
+
+	/* layer :: 동문회원 인증하기 - 등록 */
+#memberCertApply {padding:5.208vw; width:100%;}
+#memberCertApply .layerInner {background:#eee; padding:9.114vw 9.114vw 10.416vw 9.114vw; width:auto;}
+#memberCertApply .layerInner .title {font-size:4.427vw; font-weight:700; line-height:1; letter-spacing:-2px; border-bottom:solid 0.39vw #666; text-align:center; padding-bottom:2.734vw}
+#memberCertApply .layerInner .user {padding:7.161vw 0 4.817vw}
+#memberCertApply .layerInner .user dl {position:relative; padding-left:19.27vw;}
+#memberCertApply .layerInner .user dl dt {position:absolute; top:50%; left:7.291vw; line-height:1; font-size:3.90625vw; font-weight:700; color:#3131da; letter-spacing:0.5vw; margin-top:-1.953vw}
+#memberCertApply .layerInner .user dl dd {font-size:2.864vw; font-weight:500; color:#010101; border-left:solid 1px #c5c5c5; padding-top:1.302vw}
+#memberCertApply .layerInner .user dl dt + dd {padding-top:0}
+#memberCertApply .layerInner .user dl dd span {font-weight:300; line-height:3.776vw; display:inline-block; width:9.895vw; text-align:right; padding-right:1.5625vw}
+#memberCertApply .layerInner .info {background:#fff; border:solid 1px #ddd; height:23.697vw}
+#memberCertApply .layerInner .info textarea {border:none; width:100%; height:100%; padding:2.994vw; font-size:2.343vw; color:#666; font-weight:400}
+#memberCertApply .layerInner .btn {padding-top:3.906vw; font-size:0;}
+#memberCertApply .layerInner .btn a {text-align:center; height: 10.416vw; line-height: 10.416vw; width:48%; padding:0}
+#memberCertApply .layerInner .btn a.b1 {border:none; background:#3131da}
+#memberCertApply .layerInner .btn a.b2 {border:none; background:#666; margin-left:4%}
+#memberCertApply .layerInner .btn a span {display:block; font-size:2.864vw; font-weight:700; color:#fff;}
+
+/* layer :: 동문회원 인증하기 - 등록 */
+#memberCertComplete {padding:5.208vw; width:100%;}
+#memberCertComplete .layerInner {background:#eee; padding:9.114vw 9.114vw 10.416vw 9.114vw; width:auto;}
+#memberCertComplete .layerInner .title {font-size:4.427vw; font-weight:700; line-height:1; letter-spacing:-2px; border-bottom:solid 0.39vw #666; text-align:center; padding-bottom:2.734vw}
+#memberCertComplete .layerInner .info {background:#fff; border:solid 1px #ddd; padding:5.859vw 0; text-align:center; margin-top:3.906vw}
+#memberCertComplete .layerInner .info .t1 {font-size:6.51vw; color:#3131da; font-weight:700; line-height:1}
+#memberCertComplete .layerInner .info .t2 {font-size:2.604vw; color:#333; font-weight:400; line-height:3.906vw; padding-top:3.255vw}
+#memberCertComplete .layerInner .info .t2 strong {font-weight:700}
+#memberCertComplete .layerInner .desc {text-align:center; padding:4.557vw 0; font-size:2.604vw; color:#010101; font-weight:400; line-height:1}
+#memberCertComplete .layerInner .btn {text-align:center;}
+#memberCertComplete .layerInner .btn2 {position:absolute; bottom:4.557vw; right:4.557vw; font-size:2.083vw; color:#666; font-weight:400; line-height:1; text-decoration:underline}
+
+	/* layer :: 사무실 등록하기 */
+#memberApply {padding:18.24345vw 5.208vw; width:100%;}
+#memberApply .layerInner {background:#fff; padding:8.463vw 6.51vw 6.51vw; width:auto;}
+#memberApply .layerInner .title {font-size:5.208vw; font-weight:700; line-height:1; letter-spacing:-2px; border-bottom:solid 0.39vw #666; text-align:center; padding-bottom:3.646vw}
+#memberApply .layerInner .write table {width:100%}
+#memberApply .layerInner .write table th {font-size:2.864vw; font-weight:700; line-height:3.515vw; text-align:left; border-bottom:solid 1px #999}
+#memberApply .layerInner .write table th span {font-weight:300}
+#memberApply .layerInner .write table td {font-size:2.864vw; font-weight:700; line-height:3.515vw; text-align:left; border-bottom:solid 1px #999; padding:2.604vw 0}
+#memberApply .layerInner .write table td .txt1 {font-size: 2.343vw; color:#888; font-weight:500; padding-top:1vw}
+#memberApply .layerInner .write table td input[type='text'] {border:solid 1px #ccc; height:5.859vw; line-height:5.859vw; font-size:2.604vw; color:#333; font-weight:400}
+#memberApply .layerInner .write table td select {border:solid 1px #ccc; height:5.859vw; line-height:5.859vw; padding-right:7%; background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select5.png) no-repeat 88% 52%; background-size:1.172vw 0.651vw; font-size:2.604vw; color:#333; font-weight:400}
+#memberApply .layerInner .write table td .bar {display:inline-block; vertical-align:middle; font-size:2.083vw; color:#999; width:4%; font-weight:300; text-align:center}
+#memberApply .layerInner .write table td .grp {padding-top:1.302vw}
+#memberApply .layerInner .write table td .grp:first-child {padding-top:0}
+#memberApply .layerInner .write table td.photo .button {width:19.532vw; height:23.4375vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_photoApply.png) no-repeat 0 50%; background-size:100%; padding:0; border:0; font-size:0}
+#memberApply .layerInner .write table td.photo .filebox { display:block;  overflow:hidden; width:15.625vw; height:21.484vw; background: url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 0; background-size:15.625vw 18.23vw; position:relative; }
+#memberApply .layerInner .write table td.photo .filebox input[type="file"] { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip:rect(0,0,0,0);}
+#memberApply .layerInner .write table td.photo .filebox label { display:block; cursor:pointer; width:15.625vw; height: 5.85vw; line-height: 5.85vw; color:#fff; font-size:2.604vw; font-weight:400; background:#777; text-align:center; position:absolute; bottom:0; left:0}
+#memberApply .layerInner .write table td.photo .filebox .upload-name { display: inline-block;  display:none; position:absolute; top:0; left:0; }
+#memberApply .layerInner .write table td.photo .filebox .upload-display {width: 15.625vw; height: 18.23vw; background:#fff; display:table;}
+#memberApply .layerInner .write table td.photo .filebox .upload-display img {width:100%; display:table-cell; vertical-align:middle}
+#memberApply .layerInner .write table td.photo .filebox .upload-thumb-wrap {display:table-cell; width:100%; height:100%; vertical-align:middle;}
+#memberApply .layerInner .write table td.officeName input[type='text'] {width:85%}
+#memberApply .layerInner .write table td.tel {font-size:0}
+#memberApply .layerInner .write table td.tel select {width:25%}
+#memberApply .layerInner .write table td.tel input[type='text'] {width:26%; padding:0; text-align:center }
+#memberApply .layerInner .write table td.gubun label {font-weight:400; margin-right:7.8125vw}
+#memberApply .layerInner .write table td.gubun input {vertical-align:middle; margin:-0.5vw 1.302vw 0 0}
+#memberApply .layerInner .write table td.addr .button {border:none; padding:0 3.776vw; height:5.859vw; line-height:5.859vw; background:#666; color:#fff; font-size:2.604vw; font-weight:400; margin-left:1.302vw}
+#memberApply .layerInner .write table td.addr .input_1 {width:45%}
+#memberApply .layerInner .write table td.addr .input_2 {width:100%}
+#memberApply .layerInner .write table td.addr .input_3 {width:100%; background:#eee}
+#memberApply .layerInner .write table td.intro textarea {width:100%; height:13.02vw; padding:1vw 2.604vw; font-size:2.604vw; color:#333; font-weight:400}
+#memberApply .layerInner .write table td.site {position:relative;}
+#memberApply .layerInner .write table td.site .grp {position:relative; font-size:0}
+#memberApply .layerInner .write table td.site select {width:40%; vertical-align:top;}
+#memberApply .layerInner .write table td.site input {width:44%; margin-left:0.78125vw}
+#memberApply .layerInner .write table td.site .btn_add {position:absolute; top:0; right:0; font-size:0; width:5.729vw; height:5.729vw; background:#fff url(//img.eduwill.net/resources/land/dev/images/sub/btn_siteadd.png) no-repeat 0 0; background-size:100%;}
+#memberApply .layerInner .write table td.site .btn_del {position:absolute; top:2.6vw; right:0; font-size:0; width:7.161vw; height:3.125vw; background:#fff url(//img.eduwill.net/resources/land/dev/images/sub/btn_sitedel.png) no-repeat 0 0; background-size:100%;}
+
+#memberApply .layerInner .agreeCk {text-align:center; padding-top:3.906vw; line-height:1}
+#memberApply .layerInner .agreeCk input {vertical-align:middle; margin:0.5vw 0.5vw 0 0; -ms-transform: scale(.7); /* IE */-moz-transform: scale(.7); /* FF */-webkit-transform: scale(.7); /* Safari and Chrome */-o-transform: scale(.7); /* Opera */}
+#memberApply .layerInner .agreeCk label {vertical-align:middle; font-size:2.083vw; font-weight:700; color:#333}
+#memberApply .layerInner .agreeCk label a { color:#111; font-weight:500}
+#memberApply .layerInner .agreeCk .txt {background: #f3f3f3;padding: 3vw; margin-top: 3vw; text-align: left;}
+#memberApply .layerInner .agreeCk .txt strong {font-size: 2.343vw; font-weight:400; color:#666; display:block; padding-bottom:1.3vw}
+#memberApply .layerInner .agreeCk .txt li {font-size: 1.822vw; color:#888; display:inline}
+#memberApply .layerInner .agreeCk .txt li:first-child {margin-top:0}
+#memberApply .layerInner .agreeCk .txt p {font-size: 1.822vw; margin-top:1vw;  color:#888;}
+
+#memberApply .layerInner .agreeCk .txt2 {padding:0 10%;}
+#memberApply .layerInner .agreeCk .txt2 table {width:100%; border:solid 1px #666; margin:2vw 0}
+#memberApply .layerInner .agreeCk .txt2 table th {font-size:1.822vw; font-weight:400; color:#333; background:#eee; text-align:center; padding:1vw 0; border:solid 1px #b9b9b9; border-top:none; border-right:none}
+#memberApply .layerInner .agreeCk .txt2 table th:first-child {border-left:none}
+#memberApply .layerInner .agreeCk .txt2 table td {font-size:1.822vw; font-weight:300; color:#333; background:#fff; text-align:center; padding:1vw 0; border-left:solid 1px #b9b9b9;}
+#memberApply .layerInner .agreeCk .txt2 table td:first-child {border-left:none}
+#memberApply .layerInner .agreeCk .txt2 p {font-size: 1.2vw; color:#888;}
+
+#memberApply .layerInner .btn {padding-top:2.51vw; font-size:0;}
+#memberApply .layerInner .btn a {text-align:center; height:10.416vw; line-height:10.416vw; font-size:2.864vw; color:#fff; width:49%; padding:0; border:none;}
+#memberApply .layerInner .btn a.b1 {background:#3131da}
+#memberApply .layerInner .btn a.b2 {background:#666; margin-left:2%}
+
+	/* layer :: 사무실 보기 */
+#memberView {padding:18.24345vw 5.208vw; width:100%;}
+#memberView .layerInner {background:#fff; padding:8.463vw 6.51vw 6.51vw; width:auto;}
+#memberView .layerInner .title {font-size:3.906vw; font-weight:700; line-height:1; border-bottom:solid 0.39vw #666; text-align:center; padding-bottom:3.906vw}
+#memberView .layerInner .view table {width:100%; border-bottom:solid 1px #666666}
+#memberView .layerInner .view table col.w1 {width:39%}
+#memberView .layerInner .view table col.w2 {}
+#memberView .layerInner .view table td {padding:2.604vw 3.515vw; text-align:left; border-top:solid 1px #ddd}
+#memberView .layerInner .view table tr:first-child td {border-top:none}
+#memberView .layerInner .view table td.bg1 {background:#eee; vertical-align:top; padding:6.51vw 0; text-align:center;}
+#memberView .layerInner .view table td .stit {display:none;}
+#memberView .layerInner .view table td .photo {width:18.2292vw; height:20.8334vw; background:#ddd url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 0; background-size:cover; overflow:hidden; margin:0 auto}
+#memberView .layerInner .view table td .photo img {width:100%;}
+#memberView .layerInner .view table td .userName {font-size:2.864vw; color:#333; font-weight:700; text-align:center; padding-top:0.651vw}
+#memberView .layerInner .view table td.tel {font-size:2.864vw; color:#3131da; font-weight:700;}
+#memberView .layerInner .view table td.intro {font-size:2.604vw; color:#666; font-weight:300; line-height:3.906vw}
+#memberView .layerInner .view table td.addr {font-size:2.864vw; color:#333; font-weight:500; line-height:3.906vw}
+#memberView .layerInner .view table td.site {}
+#memberView .layerInner .view table td.site .grp {font-size:2.604vw; color:#333; font-weight:300; line-height:4.037vw; padding-left:5.208vw; margin-top:0.651vw}
+#memberView .layerInner .view table td.site .grp a {font-size:2.604vw; color:#333; font-weight:300;}
+#memberView .layerInner .view table td.site .grp:first-child {margin-top:0}
+#memberView .layerInner .view table td.site .grp.sns01 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns01.png) no-repeat 0 0; background-size:4.037vw;}
+#memberView .layerInner .view table td.site .grp.sns02 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns02.png) no-repeat 0 0; background-size:4.037vw;}
+#memberView .layerInner .view table td.site .grp.sns03 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns03.png) no-repeat 0 0; background-size:4.037vw;}
+#memberView .layerInner .btn {padding-top:4.818vw; font-size:0; text-align:center}
+#memberView .layerInner .btn a {text-align:center; padding:0 14.583vw; height:10.416vw; line-height:10.416vw; font-size:2.864vw;}
+
+
+
+
+
+
+@media screen and (max-width: 640px) {
+	#page-main .moreitem dl { min-height: 37.187vw; padding-left:58.906vw}
+	#page-main .moreitem dl dt {position:absolute; top:0; left:0;}
+	#page-main .moreitem dl dd.photo {width:53.906vw;}
+	#page-main .moreitem dl dd.txt {font-size:3.437vw; line-height:4.6875vw; padding-top:8vw; display:none}
+	#page-main .moreitem dl dd.txt.tr-640 {display:block}
+	#page-intro .photo dl dd {float:none; width:100%; height:28.75vw;}
+	#page-intro .photo dl dt + dd {margin-right:0; margin-bottom:2px}
+	#page-intro .photo dl dd.photo01 img {width:90.855vw; margin:-4.259vw 0 0 -1.122vw}
+	#page-intro .photo dl dd.photo02 img {width:100vw; margin:-17.2vw 0 0 -6.255vw}
+	#page-intro .photo dl dd.photo03 img {width:92.844vw; margin:-10vw 0 0 -1vw}
+	#page-intro .photo dl dd.photo04 img {width:89.688vw; margin:-2.9vw 0 0 0}
+	#page-intro .photo dl dd.photo05 img {width:90vw;	  margin:-11vw 0 0 0}
+	#page-intro .photo dl dd.photo06 img {width:92.25vw;  margin:-7.5vw 0 0 -2vw}
+	#page-intro .photo dl dd.photo07 img {width:89.531vw; margin:-15.2vw 0 0 0vw}
+	#page-intro .photo dl dd.photo08 img {width:91.656vw; margin:-9.2vw 0 0 -1vw}
+	#page-intro .photo dl dd.photo09 img {width:92.813vw; margin:-12vw 0 0 -3vw}
+	#page-intro .photo dl dd.photo10 img {width:89.125vw; margin:-9.849vw 0 0 0}
+	#page-intro .photo dl.type2 dt {float:left; width:100%; padding-bottom:2%;}
+	#page-intro .photo dl.type2 dt + dd {margin-right:0; margin-left:0;}
+	#page-intro .photo dl.type2 dt strong {display:inline-block;}
+	#page-intro .photo dl.type2 dt div.desc {display:none}
+	#page-intro .photo dl.type2 dt div.desc.ir-640 {display:block;}
+	#page-intro .photo dl.type2 dd {float:left; width:100%; height:48.6875vw}
+
+	#page-board .writeform .pickArea select {width:43.75vw}
+	#page-board .writeform .pickArea .desc {width: 42vw; word-wrap: break-word; word-break: keep-all;}
+
+	#layer {width:92% !important; left:2.5% !important;}
+
+}
+
+@media screen and (min-width: 641px) and (max-width: 768px) {
+}
+
+@media screen and (min-width: 769px) {
+	select {font-size:14px; width:149px; height:40px; line-height:40px; padding-left:20px; border: 1px solid #d8d8d8; padding-right:40px; background:url(//img.eduwill.net/resources/land/dev/images/board/bg_select.png) no-repeat 95% 50%; background-size:11px 6px;}
+	input[type="text"] {font-size:14px; width:345px; height:40px; padding-left:20px; border: 1px solid #d8d8d8; }
+
+	.checks {height: 15px;}
+	.checks label {font-size:13px; font-weight:400; padding-left:21px; line-height:15px; vertical-align:top}
+	.checks input[type="checkbox"] {width:15px; height:15px;}
+	.checks input[type="checkbox"] + label {background:url(//img.eduwill.net/resources/land/dev/images/board/bg_checkbox.png) no-repeat 0 50%; background-size:15px; padding-left:21px;}
+	.checks input[type="checkbox"] + label.hidden {width:15px;}
+	.checks input[type="checkbox"]:checked + label {background:url(//img.eduwill.net/resources/land/dev/images/board/bg_checkbox_on.png) no-repeat 0 50%; background-size:15px;}
+
+	.checks label {}
+	.checks input[type="checkbox"] {position:inherit\9 !important; opacity:1\9 !important; filter:inherit\9 !important;}
+	.checks input[type="checkbox"] + label {background:none\9 !important; padding-left:10px\9 !important}
+	.checks input[type="checkbox"]:checked + label {background:none\9 !important}
+
+	.radios {position:relative; display:inline-block; height:16px;}
+	.radios label {font-size:18px; color:#bbbbbb; font-weight:400; padding-left:22px; line-height:16px; font-weight:700}
+	.radios input[type="radio"] {position:absolute; top:0; left:0; opacity:0; filter:alpha(opacity=0); width:16px; height:16px; vertical-align:middle; -webkit-appearance:none; cursor:pointer; background-color:#fff;}
+	.radios input[type="radio"] + label {background:url(//img.eduwill.net/resources/myroom/library/images/bg_radio.png) no-repeat 0 50%; padding-left:22px; cursor:pointer;}
+	.radios input[type="radio"]:checked + label {color:#5babb6; background:url(//img.eduwill.net/resources/myroom/library/images/bg_radio_on.png) no-repeat 0 50%;}
+
+	.radios label {}
+	.radios input[type="radio"] {position:inherit\9 !important; opacity:1\9 !important; filter:inherit\9 !important;}
+	.radios input[type="radio"] + label {background:none\9 !important; padding-left:10px\9 !important}
+	.radios input[type="radio"]:checked + label {background:none\9 !important}
+
+	.button {padding:0 50px; width:auto; height: 50px; line-height: 50px; font-size:16px; font-weight:400; background:#fff; border:solid 1px #b4b4b4; color:#666}
+	.button.small {height:28px; line-height:28px; font-size:13px; padding:0 22px}
+	.button.borderN {border:none;}
+	.button.type_a {background:#fff; color:#666; font-weight:400; border:solid 1px #b4b4b4}
+	.button.type_a:hover {background:#f3f3f3}
+	.button.type_b {background:#3131da; color:#fff}
+	.button.type_c {background:#eee; color:#000;}
+	
+	.files label {height:28px; line-height:28px; font-size:13px;}
+	.files .upload-name {height:28px; line-height:28px; font-size:13px;}
+	.files .button.type_a {height:28px; line-height:28px; font-size:13px;}
+
+
+	/* header */
+	#header {}
+	#header .inner {}
+	#header .logo {padding:14px 0 16px 15px; height:auto;}
+	#header .logo a {display:inline; width:160px}
+	#header .logo img {width:66px;}
+	#header .logo em {font-size:17px; color:#666; padding:0 0 0 6px}
+	#header .logo i {font-size:30px; color:#000; padding:7px 0 0 20px; display:block; width:160px;}
+	#header .login_box {margin-right:15px}
+	#header .login_box.login {top:42px; right:0;}
+	#header .login_box.login a {font-size:14px; color:#999; font-weight:400; width:auto; height:15px; line-height:15px; padding-right:25px; background:url(//img.eduwill.net/resources/land/dev/images/common/icon_logout.png) no-repeat 100% 50%; background-size:15px;}
+	#header .login_box.login a i {color:#444;}
+	#header .login_box.logout {top:34px; right:0;}
+	#header .login_box.logout a {font-size:14px; color:#666; font-weight:400; width:auto; height:30px; line-height:30px; padding-left:41px; background:url(//img.eduwill.net/resources/land/dev/images/common/icon_login.png) no-repeat 0 50%; background-size:30px;}
+
+	#header .cert_btn {position:absolute; top:66px; right:15px; height:24px}
+	#header .cert_btn .button {width:80px; padding:0; border:none; border-radius:4px 4px 0 0; background:#3131da; height:24px; line-height:24px; font-size:12px;}
+	#header .cert_btn a.button i {padding-right:12px; background:url(//img.eduwill.net/resources/land/dev/images/common/bul_arrow.png) no-repeat 100% 50%;}
+
+
+	#gnb {border-top:solid 1px #666; position:relative;}
+	#gnb ul.depth1 {width:600px; position:absolute; top:-49px; left:50%; padding:0; margin:0 0 0 -300px; border-bottom:none}
+	#gnb ul.depth1 li {line-height:1}
+	#gnb ul.depth1 li a {font-size:20px; line-height:1; vertical-align:top; position:relative}
+	#gnb ul.depth1 a:after { content: ''; display:block; width:100%; height:3px; position:absolute; bottom:-29px; left:0; background:#3131da; width:0; margin-left:50%}
+	#gnb ul.depth1 a:after { -webkit-transition: ease all .2s; -o-transition: ease all .2s; transition: ease all .2s; }
+	#gnb ul.depth1 a:hover {color:#3131da;}
+	#gnb ul.depth1 a:hover:after { width:100%; left:-50%; }
+	#gnb ul.depth1 li.current a {color:#3131da;}
+	#gnb ul.depth1 li.current a:after { width:100%;  left:-50%;}
+	#gnb ul.depth2 {max-width:800px; margin:0 auto; border-bottom:none}
+	#gnb ul.depth2 li {line-height: 50px;}
+	#gnb ul.depth2 li:after {width:1px; height:13px; margin-top:-6px}
+	#gnb ul.depth2 li a {font-size:16px;}
+	#gnb ul.depth2 li.current a {padding-right:17px; background:url(//img.eduwill.net/resources/land/dev/images/common/bul_gnb.png) no-repeat 100% 55%;}
+	
+	/* main */
+	#page-main .visual {/*background:url(//img.eduwill.net/resources/land/dev/images/main/bg_title.png) repeat-x 50% 0; background-size:inherit;*/ height:594px;}
+
+	#page-main .visual .visual-bg {}
+	#page-main .visual .visual-bg li.bg1 {width:100%; height:594px; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_1.png) repeat-x 50% 0; background-size:cover;}
+	#page-main .visual .visual-bg li.bg2 {width:100%; height:594px; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_2.png) repeat-x 50% 0; background-size:cover;}
+	#page-main .visual .visual-bg li.bg3 {width:100%; height:594px; background:url(//img.eduwill.net/resources/land/dev/images/main/bg_3.png) repeat-x 50% 0; background-size:cover;}
+
+	#page-main .visual .inner {}
+	#page-main .visual .ir-768 {display:none}
+	#page-main .visual .ir-pc {display:block; text-align:center}
+	#page-main .visual .ir-pc img {width:auto}
+	#page-main .visual .link {height:71px; top:372px; left:50%; width:576px; margin-left:-288px}
+	#page-main .visual .link a {width:283px; height:100%; line-height:70px;}
+	#page-main .visual .link a em {font-size:22px}
+	#page-main .visual .link a.l_1 {margin-right:0}
+	#page-main .visual .link a.l_1 img {width:18px; top:25px}
+	#page-main .visual .link a.l_1 em {padding-left:30px; background-size:18px 19px}
+	#page-main .visual .link a.l_2 {margin-left:10px;}
+	#page-main .visual .link a.l_2 img {width:17px; top:25px}
+	#page-main .visual .link a.l_2 em {padding-left:33px; background-size:17px 20px}
+	#page-main .visual .link i {font-size:13px; font-weight:400; line-height:18px; position:relative; padding:0 0 0 16px; text-align:left; width:180px; float:right; padding-right:40px; margin-top:12px}
+	#page-main .visual .link i span {position:absolute; top:0; left:0;}
+	#page-main .timeline {height:50px; overflow:hidden; }
+	#page-main .timeline {background-color: rgba(0, 0, 0, .6);  border-bottom:solid 1px #999; margin-top:-50px}
+	#page-main .timeline .inner {position:relative}
+	#page-main .timeline .bx-wrapper {width:83.5%; margin:0 !important }
+	#page-main .timeline ul li {text-align:center}
+	#page-main .timeline ul li span {font-size:15px; font-weight:400; line-height:49px; padding-left:18px; background-size:10px 12px}
+	#page-main .timeline ul li span em {font-weight:700}
+	#page-main .timeline .link {display:block; width:16.5%; height:100%; line-height:50px; background:#313131; text-align:center; position:absolute; top:0; right:0}
+	#page-main .timeline .link span {font-size:15px; font-weight:400; color:#fff; background:url(//img.eduwill.net/resources/land/dev/images/main/bul_arrow1.png) no-repeat 100% 50%; padding-right:13%}
+	#page-main .section1 {padding:60px 15px; background:#fff; min-height:250px}
+	#page-main .section1 .inner {position:relative;}
+	#page-main .section1 .board_box {box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; margin-right:336px}
+	#page-main .section1 .board_box:before,
+	#page-main .section1 .board_box:after { content: ''; display: table; clear: both;}
+	#page-main .section1 .board_box .board {float: left; width:50%; box-sizing: border-box; -webkit-box-sizing: border-box; padding:0 3% 0 0}
+	#page-main .section1 .board_box .board h2 {font-size:21px; padding-bottom:9px; margin-bottom:3px}
+	#page-main .section1 .board_box .board h2 .btn_more {top:0; right:0}
+	#page-main .section1 .board_box .board h2 .btn_more img {width:22px}
+	#page-main .section1 .board_box .board ul {}
+	#page-main .section1 .board_box .board ul li {line-height: 42px;}
+	#page-main .section1 .board_box .board ul li span,
+	#page-main .section1 .board_box .board ul li span a {font-size:14px; max-width:55%}
+	#page-main .section1 .board_box .board ul li i {width: auto;}
+	#page-main .section1 .board_box .board ul li i img {width:11px;}
+	#page-main .section1 .board_box .board ul li em {font-size:13px;}
+	#page-main .section1 .banner {position:absolute; top:0; right:0; width: 336px; height:auto; overflow:inherit}
+	#page-main .section1 .banner .bx-wrapper .bx-pager {padding-top: 0; text-align: right; font-size: 0; top:13px; right:13px; width:auto}
+	#page-main .section1 .banner .bx-wrapper .bx-pager.bx-default-pager a { width: 8px; height: 8px; margin: 0 4px; background: #999;}
+	#page-main .section1 .banner .bx-wrapper .bx-pager.bx-default-pager a:hover,
+	#page-main .section1 .banner .bx-wrapper .bx-pager.bx-default-pager a.active { background: #fff;}
+	#page-main .section2 {background:#e8ecf8; padding:49px 0 46px; top:0; height:auto; width:auto; overflow:inherit}
+	#page-main .review {}
+	#page-main .review .tit {text-align:center; padding-bottom:33px;}
+	#page-main .review li {width:33.3%}
+	#page-main .review li div {position:relative; padding-left:100px; min-height:90px;}
+	#page-main .review li div span {position:absolute; top:0; left:0;}
+	#page-main .review li div span img {width:90px}
+	#page-main .review li div em {display:block; font-size:13px; font-weight:400; color:#444; line-height:20px; padding-top:5px; min-height:65px; letter-spacing:-1px}
+	#page-main .review li div i {display:block; font-size:12px; font-weight:400; color:#888; padding-top:4px}
+	#page-main .review .bx-wrapper {padding:0 0 0 5%}
+	#page-main .review .bx-wrapper .bx-controls-direction a {width:11px; height:17px; margin-top:0; top:38px}
+	#page-main .review .bx-wrapper .bx-controls-direction a.bx-prev {left:15px; background:url(//img.eduwill.net/resources/land/dev/images/main/btn_review_prev.png) no-repeat 0 0;}
+	#page-main .review .bx-wrapper .bx-controls-direction a.bx-next {right:15px; background:url(//img.eduwill.net/resources/land/dev/images/main/btn_review_next.png) no-repeat 0 0;}
+	#page-main .section3 {background:#fff; padding:60px 15px;}
+	#page-main .moreitem {}
+	#page-main .moreitem dl {margin-top:0; position:relative; min-height:none; padding-left:0; float: left; box-sizing: border-box; -webkit-box-sizing: border-box;  width: calc(92% / 3); width: 30.666%; border:solid 1px #dddddd; margin-left:4%; padding-top:17.247vw; text-align:center;}
+	#page-main .moreitem dl:first-child {margin-top:0; margin-left:0}
+	#page-main .moreitem dl dt {font-size:24px; line-height:1}
+	#page-main .moreitem dl dd.photo {width:100%; padding:1.743vw; top:0; bottom:inherit; left:0; box-sizing: border-box; -webkit-box-sizing: border-box;}
+	#page-main .moreitem dl dd.photo img {display:inline; width:100%; border:none;}
+	#page-main .moreitem dl dd.photo img.ir-768 {display:none}
+	#page-main .moreitem dl dd.txt {font-size:13px; line-height:21px; padding-top:10px; letter-spacing:-1px}
+	#page-main .moreitem dl dd.btn {width:100%; position:inherit; bottom:inherit; padding:17px 0 24px}
+	#page-main .moreitem dl dd.btn a {border:none; background:none; width: auto; height:auto; text-align: center;}
+	#page-main .moreitem dl dd.btn a span {font-size:14.15px; padding-left:19px; line-height: inherit; vertical-align:top; background:url(//img.eduwill.net/resources/land/dev/images/main/bul_plus.png) no-repeat 0 50%; background-size:12px;}
+
+	/* sub */
+	.visual_sub { padding:50px 0 54px; position:relative; display:block;}
+	.visual_sub span {font-size:45px;}
+	.visual_sub:after {width:1px; height:66px; bottom:-33px;}
+	.visual_sub.s01 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_01.png) repeat-x 50% 0; background-size:initial;}
+	.visual_sub.s02 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_02.png) repeat-x 50% 0; background-size:initial;}
+	.visual_sub.s03 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_03.png) repeat-x 50% 0; background-size:initial;}
+	.visual_sub.s04 {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_sub_04.png) repeat-x 50% 0; background-size:initial;}
+
+	.visual_sub.s02 {height:170px; padding-bottom:0; display:block}
+	.visual_sub.s02 span {font-size:45px; }
+	.visual_sub.s02 .link a {margin-top:20px;}
+	.visual_sub.s02 .link a.l_1 {width:226px; height:57px; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_officeCheck.png) no-repeat 50% 0; background-size:100%;}
+	.visual_sub.s02 .link a.l_2 {width:226px; height:57px; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_officeAmend.png) no-repeat 50% 0; background-size:100%;}
+
+	/* 에공회소개 */
+	#page-intro .visual {width:100%; height:777px; background:url(//img.eduwill.net/resources/land/dev/images/sub/title_intro_pc.png) no-repeat 32% 0; background-size:auto;}
+	#page-intro .title {max-width:779px; height:307px; margin:0 auto; background:#fff url(//img.eduwill.net/resources/land/dev/images/sub/stitle_intro_pc.png) no-repeat 50% 0; background-size:100%; font-size:0}
+	#page-intro .photo {background:#fff}
+	#page-intro .photo .inner {}
+	#page-intro .photo dl {padding:49px 15px 51px; padding-left:313px; position:relative}
+	#page-intro .photo dl dt {font-size:30px; line-height:38px; padding:12px 0 0 0; float:none; width:298px; letter-spacing:-1px; position:absolute; top:49px; left:15px;}
+	#page-intro .photo dl dt strong {display:block}
+	#page-intro .photo dl dt .desc {font-size:16px; line-height:25px; padding-top:10px;}
+	#page-intro .photo dl dt:before {width:28px; height:3px; border-radius:3px;}
+	#page-intro .photo dl dd {width:49%; height:174px; }
+	#page-intro .photo dl dd img {position:relative; left:50%}
+	#page-intro .photo dl dd.photo01 img {width:390px; margin:-15px 0 0 -191px}
+	#page-intro .photo dl dd.photo02 img {width:420px; margin:-35px 0 0 -199px}
+	#page-intro .photo dl dd.photo03 img {width:380px; margin:-25px 0 0 -188px}
+	#page-intro .photo dl dd.photo04 img {width:402px; margin:-25px 0 0 -213px}
+	#page-intro .photo dl dd.photo05 img {width:420px; margin:-31px 0 0 -211px}
+	#page-intro .photo dl dd.photo06 img {width:391px; margin:-28px 0 0 -200px}
+	#page-intro .photo dl dd.photo07 img {width:401px; margin:-55px 0 0 -200px}
+	#page-intro .photo dl dd.photo08 img {width:370px; margin:-32px 0 0 -191px}
+	#page-intro .photo dl dd.photo09 img {width:439px; margin:-49px 0 0 -213px}
+	#page-intro .photo dl dd.photo10 img {width:389px; margin:-27px 0 0 -191px}
+	#page-intro .photo dl.type2 dt {float:none; width:298px;}
+	#page-intro .photo dl.type2 dd { height:234px;}
+	#page-intro .photo dl.type2 dt + dd { margin-left:0; margin-right:2%;}
+	#page-intro .photo dl.type2 dt div.desc {display:block}
+	#page-intro .photo dl.type2 dt div.desc.ir-640 {display:none}
+
+
+	#page-intro .channel {padding:40px 15px 51px;}
+	#page-intro .channel .inner {position:relative;}
+	#page-intro .channel .tit {font-size:25px; line-height:34px; padding-bottom:0; position:absolute; top:0; left:0; border:solid 1px #ddd; border-right:none; width:297px; height:145px; text-align:center; display:table}
+	#page-intro .channel .tit span {display:table-cell; height:145px; vertical-align:middle}
+	#page-intro .channel .tit strong {display:block;}
+	#page-intro .channel ul {padding-left:298px;}
+	#page-intro .channel ul li {width:25%; border:solid 1px #ddd; border-left:none; height:145px; display:table; }
+	#page-intro .channel ul li:first-child {border-left:solid 1px #ddd;}
+	#page-intro .channel ul li a {height:145px; padding-top:87px; font-size:15px; line-height:18px}
+	#page-intro .channel ul li.cn1 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe01_pc.png) no-repeat 50% 30px; background-size: 49px;}
+	#page-intro .channel ul li.cn2 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe02_pc.png) no-repeat 50% 30px; background-size: 49px;}
+	#page-intro .channel ul li.cn3 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe05_pc.png) no-repeat 50% 30px; background-size: 49px;}
+	#page-intro .channel ul li.cn4 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_channe04_pc.png) no-repeat 50% 30px; background-size: 49px;}
+	#page-intro .channel ul li:hover {background-color:#eaeaea !important;}
+
+
+
+	/* board */
+	#page-board .tit {margin:90px 0 48px}
+	#page-board .tit:before {width:26px; height:3px; top:-20px; border-radius:1px; margin-left:-13px}
+	#page-board .tit span {font-size:32px;}
+	#page-board .tit em {font-size:14px; padding-top:15px}
+		/* list */ 
+	#page-board .searchform {padding:0 15px 20px;}	
+	#page-board .searchform select {padding-left:20px; width:180px}
+	#page-board .searchform input[type="text"] {padding-left:20px; padding-right:45px; border-radius: 20px; background:url(//img.eduwill.net/resources/land/dev/images/board/bg_search.png) no-repeat 95% 50%; background-size:16px 16px;}
+	#page-board .searchform .fR .button {height:40px; width:45px;}
+	#page-board .listform {padding:0 15px 60px;}
+	#page-board .listform .t-pc {display:table}
+	#page-board .listform .t-mobile {display:none}
+	#page-board .listform table {border-top:solid 3px #333;}
+	#page-board .listform table th {font-size:16px; line-height:66px; border-bottom:solid 1px #ccc}
+	#page-board .listform table td {font-size:14px; line-height:1.4; padding:10px 0; border-top:solid 1px #ebebeb}
+	#page-board .listform table td.gubun {padding:0}
+	#page-board .listform table tr:last-child td {border-bottom:solid 1px #333}
+	#page-board .listform table td.ask .txt,
+	#page-board .listform table td.answer .txt {font-size:16px; max-width:58%;}
+	#page-board .listform table td.answer .txt {color:#333399; padding-left:20px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_ripple.png) no-repeat 0 50%; background-size:auto;}
+	#page-board .listform table td .box1 {font-size:14px; height:22px; line-height:22px; background:#ff5542; padding:0 11px; margin-right:0}
+	#page-board .listform table td .rpNum {font-size:16px; margin-right:15px}
+	#page-board .listform table td .i-new {width:11px; height:11px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_new.png) no-repeat 50% 0; background-size:100%; margin-top:3px}
+	#page-board .listform table td .i-file {width:11px; height:13px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_file.png) no-repeat 50% 0; background-size:100%; margin-top:3px; margin-right:3px}
+
+	#page-board .listform table td.answer {padding-left:14%}
+	#page-board .listform table td.answer .txt {max-width:18%}
+	#page-board .listform table td.answer.depth1 {padding-left:0}
+	#page-board .listform table td.answer.depth1 .txt {max-width:56%}
+	#page-board .listform table td.answer.depth2 {padding-left:2%}
+	#page-board .listform table td.answer.depth2 .txt {max-width:54%}
+	#page-board .listform table td.answer.depth3 {padding-left:4%}
+	#page-board .listform table td.answer.depth3 .txt {max-width:50%}
+	#page-board .listform table td.answer.depth4 {padding-left:6%}
+	#page-board .listform table td.answer.depth4 .txt {max-width:46%}
+	#page-board .listform table td.answer.depth5 {padding-left:8%}
+	#page-board .listform table td.answer.depth5 .txt {max-width:40%}
+	#page-board .listform table td.answer.depth6 {padding-left:10%}
+	#page-board .listform table td.answer.depth6 .txt {max-width:36%}
+	#page-board .listform table td.answer.depth7 {padding-left:12%}
+	#page-board .listform table td.answer.depth7 .txt {max-width:28%}
+	#page-board .listform table td.answer.depth8 {padding-left:14%}
+	#page-board .listform table td.answer.depth8 .txt {max-width:18%}
+
+	.paging {padding-top:30px}
+	.paging a {font-size:12px; line-height:35px; font-weight:400; padding:0 10px}
+	.paging a.btn {margin:0 5px;}
+	.paging a.btn img {width:35px; height:35px; }
+	#page-board .listform .btnArea {padding:0; position:relative;}	
+	#page-board .listform .btnArea .button {position:absolute; top:-40px; right:0; height: 50px; line-height: 50px; font-size:16px; font-weight:400; width:auto; padding:0 40px}
+	
+		/* write */ 
+	#page-board .writeform {padding:0 15px 60px;}
+	#page-board .writeform .checkArea {height:15px; padding:0 0 11px 0}
+	#page-board .writeform table td.edit .ir-p {display:block; width:100%;}
+	#page-board .writeform table td.edit .ir-m {display:none; width:100%;}
+	#page-board .writeform table {border-top:solid 3px #333;}
+	#page-board .writeform table th {padding:19px 30px}
+	#page-board .writeform table th .grp {padding-top:10px}
+	#page-board .writeform table th select {width:180px}
+	#page-board .writeform table td {border-top:solid 1px #ebebeb; padding:30px}
+	#page-board .writeform table tr:last-child td {border-bottom:solid 1px #333}
+	#page-board .writeform table td.edit {padding:30px}
+	#page-board .writeform table td.file .fileform {font-size:0}
+	#page-board .writeform table td.file em {font-size:13px; margin-bottom:9px; padding-left:19px; font-weight:500; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_down.png) no-repeat 0 50%; background-size:auto}
+	#page-board .writeform table td.file .fileform input[type='text']{height:28px; line-height:28px; width:68%}
+	#page-board .writeform table td.file .fileform .button {display:inline-block; width:15.3%; margin-left: 0.7%;}
+	#page-board .writeform table td.file ul {padding-top:18px}
+	#page-board .writeform table td.file ul li {margin-top:6px}
+	#page-board .writeform table td.file ul li span {font-size:13px; }
+	#page-board .writeform table td.file ul li .del {font-size:13px; margin:0 0 0 3px; }
+	#page-board .writeform .pickArea {padding:30px 0 0}
+	#page-board .writeform .pickArea select {width:180px}
+	#page-board .writeform .pickArea .desc {font-size:13px; padding-left:14px; }
+	#page-board .writeform .btnArea {position:relative; padding:30px 0 0 0; text-align:right}
+	#page-board .writeform .btnArea div {}
+
+		/* view */
+	#page-board .viewform {padding:0 15px 60px;} 
+	#page-board .viewform .copyArea {padding:0 0 5px 0}
+	#page-board .viewform .copyArea .button {width:70px; height:25px; line-height:25px; font-size:12px; border:solid 1px #dddddd;}
+	#page-board .viewform table {border-top:solid 3px #333;}
+	#page-board .viewform table th {padding:23px 30px; font-size:21px; font-weight:700;}
+	#page-board .viewform table th .gubun {padding-right:20px; margin-right:18px}
+	#page-board .viewform table th .gubun:after {width:2px; height:20px; margin-top:-10px;}
+	#page-board .viewform table tr:last-child td {border-bottom:solid 1px #333}
+	#page-board .viewform table td {border-top:solid 1px #ebebeb; padding:13px 30px; font-size:14px; font-weight:400; }
+	#page-board .viewform table td .user {margin-right:35px}
+	#page-board .viewform table td.text {line-height:30px; font-size: 16px; padding:30px;}
+	#page-board .viewform table td.file em {font-size:13px; margin-bottom:9px; padding-left:19px; font-weight:500; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_down.png) no-repeat 0 50%; background-size:auto}
+	#page-board .viewform table td.file li {margin-top:6px; font-size: 13px;}
+	#page-board .viewform table td.file li a { font-size: 13px;}
+	#page-board .viewform .btnArea1 {padding:20px 0 48px}
+	#page-board .viewform .btnArea1 .button {width:74px; height:35px; line-height:35px; padding:0; font-size:14px; font-weight:400}
+	#page-board .viewform .pickArea {padding:20px 0 0 0; }
+	#page-board .viewform .pickArea .col {font-size:18px; line-height:35px; font-weight:400}
+	#page-board .viewform .pickArea .good {padding-left:47px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_good.png) no-repeat 0 50%; background-size:35px; }
+	#page-board .viewform .pickArea .good.check {background:url(//img.eduwill.net/resources/land/dev/images/board/icon_good_check.png) no-repeat 0 50%; background-size:35px}
+	#page-board .viewform .pickArea .ripple {padding-left:47px; margin-left:17px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_ripple2.png) no-repeat 0 50%; background-size:35px; }
+	#page-board .viewform .pickArea .count {font-size:14px; color:#555; margin-left:29px}
+	#page-board .viewform .rippleArea {padding:0 30px;}
+	#page-board .viewform .rippleArea .replybox {border-top:solid 1px #ccc;}
+	#page-board .viewform .rippleArea .cont {padding:22px 0;}
+	#page-board .viewform .rippleArea .cont .user {font-size:14px; font-weight:700; padding-right:8px; }
+	#page-board .viewform .rippleArea .cont .date {font-size:14px; font-weight:300;}
+	#page-board .viewform .rippleArea .cont .btn {margin-left:10px}
+	#page-board .viewform .rippleArea .cont .btn a {width:46px; height:22px; background:url(//img.eduwill.net/resources/land/dev/images/board/btn_ripple_pc.png) no-repeat 0 50%; background-size:100%}
+	#page-board .viewform .rippleArea .cont .text {font-size:14px; padding-top:10px}
+	#page-board .viewform .rippleArea .cont .btn2 {top:15px; } 
+	#page-board .viewform .rippleArea .cont .btn2 a {font-size:12px; padding-left:6px; margin-left:3px}
+	#page-board .viewform .rippleArea .cont .btn2 a:before {height:12px; top:1px}
+	#page-board .viewform .rippleArea .writeform {border-top:solid 1px #ebebeb; padding:22px 0;}
+	#page-board .viewform .rippleArea .writeform textarea {border:solid 1px #c0c0c0; height:73px; width:86%; font-size:14px;}
+	#page-board .viewform .rippleArea .writeform .button {height:73px; line-height:73px; width:13%; margin-left:1%; font-size:14px;}
+	#page-board .viewform .rippleArea .cont.comment {border-top:solid 1px #ebebeb; padding:15px 0 15px 30px; line-height:20px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_rippleCom_pc.png) no-repeat 14px 20px; background-size:auto;}
+	#page-board .viewform .rippleArea .cont.comment .text {padding-top:0}
+	#page-board .viewform .rippleArea .writeform.comment {padding-left:30px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_rippleCom_pc.png) no-repeat 0 22px; background-size:auto}
+	#page-board .viewform .btnArea2 {padding: 30px 0 0; text-align:right;}
+	#page-board .viewform .btnArea2 .fL,
+	#page-board .viewform .btnArea2 .fR {float:none; display:inline}
+	#page-board .viewform .btnArea2 a.button {width:130px; padding:0;}
+	#page-board .viewform .btnArea2 a .i-up {padding-left:22px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_arrowUp.png) no-repeat 0 50%; background-size:13px 8px}
+	#page-board .viewform .btnArea2 a .i-down {padding-left:22px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_arrowDown.png) no-repeat 0 50%; background-size:13px 8px}
+
+		/* faq */
+	#page-board .faqform {padding:0 15px 60px;}
+	#page-board .faqform table {border-top:solid 3px #333;}
+	#page-board .faqform table .ask td {padding:30px; cursor:pointer}	
+	#page-board .faqform table .ask td .txt {font-size:21px; line-height:28px; padding-left:39px; padding-right:39px; background:url(//img.eduwill.net/resources/land/dev/images/board/icon_faq_pc.png) no-repeat 0 0; background-size:28px;}
+	#page-board .faqform table .ask td .txt:after {content:""; display:block; position:absolute; top:9px; right:0; width:22px; height:13px; background:url(//img.eduwill.net/resources/land/dev/images/board/bul_faq_pc.png) no-repeat 0 0; background-size:100%}
+	#page-board .faqform table .ask td:hover {background:#fbfcfd;}
+	#page-board .faqform table .answer td .txt {padding:44px 70px; font-size:16px; line-height:30px;}
+	#page-board .faqform .btnArea {padding-top:30px}
+
+	/* 사무소검색 */
+	#page-office {}
+	#page-office .search_address {border-bottom:solid 1px #ddd; position:relative;}
+	#page-office .search_address:before {display:none}
+	#page-office .search_address .sel {float:left; width:16.6%}
+	#page-office .search_address .sel select {border-left:solid 1px #dcdcdc; border-bottom:none; background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select2.png) no-repeat 88% 50%; background-size: 11px 6px; font-size:16px; height:50px; line-height:50px}
+	#page-office .search_address .sel.depth1 select {border-left:solid 1px #dcdcdc;}
+	#page-office .search_address .sel.depth3 select {background-size: 11px 6px;}
+	#page-office .search_address .txt {float:left; width:50.2%; border-bottom:none; clear:none}
+	#page-office .search_address .txt input[type='text'] {height:50px; line-height:50px; font-size:14px; background:#eee url(//img.eduwill.net/resources/land/dev/images/board/bg_search2_pc.png) no-repeat 96.5% 50%; background-size: auto; padding-right:9%}
+	#page-office .search_address .txt .layerWrap {width:100%; position:absolute; top:50px; left:0}
+	#page-office .search_address .txt .layerWrap ul {max-height:245px}
+	#page-office .search_address .txt .layerWrap ul {border:solid 1px #9d9d9d; border-bottom:none}
+	#page-office .search_address .txt .layerWrap ul li {border-top:solid 1px #ddd}
+	#page-office .search_address .txt .layerWrap ul li:first-child {border-top:none}
+	#page-office .search_address .txt .layerWrap ul li a { padding:14px 20px; font-size:14px;}
+	#page-office .search_address .txt .layerWrap .closeArea {padding:20px 22px}
+	#page-office .search_address .txt .layerWrap .closeArea .layerClose {font-size:16px; padding-left:20px; background:url(//img.eduwill.net/resources/land/dev/images/sub/btn_closeLayer.png) no-repeat 0 50%; background-size: 13px;}
+
+	#page-office .officeMap .tit.mobile {display:none;}
+	#page-office .officeMap .tit.pc {display:block;}
+	#page-office .officeMap .tit {font-size:20px; padding:14px 20px; border-bottom:solid 1px #999;}
+	#page-office .officeMap .tit i {font-weight:700}
+	#page-office .officeMap .boxing {padding-right:343px;}
+	#page-office .officeMap .map {border-bottom:none; width:100%; height:870px;}
+	#page-office .officeMap .map .img_sample {width:auto; height:auto;}
+	#page-office .officeMap .pointBox { background:#fff; width:320px}
+	#page-office .officeMap .pointBox .inn {padding:18px;}
+	#page-office .officeMap .pointBox .photo {width:58px; height:68px; position:absolute; top:18px; left:18px;}
+	#page-office .officeMap .pointBox .name {padding-left:76px; font-size:18px; min-height:40px; letter-spacing:-1px; line-height:1.4}
+	#page-office .officeMap .pointBox .member {padding-left:76px; min-height:30px; font-size:12px;}
+	#page-office .officeMap .pointBox .member i {padding-left:16px;}
+	#page-office .officeMap .pointBox .member i:before {top:50%; left:0; width:11px; height:13px; margin-top:-5px; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_member.png) no-repeat 0 0; background-size:100%}
+	#page-office .officeMap .pointBox .addr {font-size:13px; line-height:20px; padding:10px 0; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 0; background-size:6px 1px; margin-top: 9px}
+	#page-office .officeMap .pointBox .btn a {height: 30px; line-height: 30px; font-size:13px; padding:0 19px}
+
+
+
+	#page-office .officeMap .lst {padding-bottom:0; position:absolute !important; top:0; right:0; width:342px; height:870px; border-left:solid 1px #999; overflow:hidden; overflow-y:auto}
+	#page-office .officeMap .lst ul {}
+	#page-office .officeMap .lst ul li {padding: 15px 25px;}
+	#page-office .officeMap .lst ul li .name {padding:0 0 6px 23px; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 100%; background-size: 6px 1px; font-size:20px; letter-spacing:-1px}
+	#page-office .officeMap .lst ul li .name:before {top:8px; left:0px; width: 15px; height:17px; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_map.png) no-repeat 0 0; background-size:100%}
+	#page-office .officeMap .lst ul li .photo {width:58px; height:68px; border:solid 1px #ddd; position:absolute; top:20px; left:16px;}
+	#page-office .officeMap .lst ul li .member {padding-left:19px; position:inherit; top:0; right:0; font-size:16px; min-height:23px; line-height:23px;}
+	#page-office .officeMap .lst ul li .member:before {top:50%; left:0; width:11px; height:13px; margin-top:-5px; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_member.png) no-repeat 0 0; background-size:100%}
+	#page-office .officeMap .lst ul li .member i {font-weight:700}
+	#page-office .officeMap .lst ul li .number {font-size:22px; padding-top:0; height:47px; line-height:47px;}
+	#page-office .officeMap .lst ul li .number span {font-size:13px; font-weight:400; line-height:24px; padding-left:0; display:block;}
+	#page-office .officeMap .lst ul li .number span:before {content:""; display:none; position:absolute; top:0.8vw; left:0; width:3.125vw; height:3.125vw; background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_call.png) no-repeat 0 0; background-size:100%}
+	#page-office .officeMap .lst ul li .number .button {width:75px; height:23px; line-height:23px; font-size:12px; margin-left:0; vertical-align:top}
+	#page-office .officeMap .lst ul li .number .button i {position:relative; padding-right:12px; background:url(//img.eduwill.net/resources/land/dev/images/common/bul_arrow.png) no-repeat 100% 50%;}
+	#page-office .officeMap .lst ul li .addr {font-size:14px; line-height:20px; padding-top:10px; margin-left:-75px;}
+	#page-office .officeMap .lst ul li .grp {position:relative; padding:20px 0 0 92px; min-height:60px;}
+	#page-office .officeMap .lst ul li.current {background:#fff; border:solid 3px #3131da; padding: 12px 22px 13px;}
+	#page-office .officeMap .lst ul li.current:hover {background:#fff; border:solid 3px #3131da;}
+	#page-office .officeMap .lst ul li:hover {background:#f4f4f4; border:solid 3px #ddd; padding: 12px 22px 13px;}
+	#page-office .officeMap .lst .paging {padding-bottom:30px; }
+
+	/* layer :: 동문회원 인증하기 */
+	#memberCert {padding:50px 0; width:575px; margin-left:-287px; left:50%;}
+	#memberCert .layerInner {padding:45px 40px 40px;}
+	#memberCert .layerInner .title {font-size:30px; border-bottom:solid 3px #666; padding-bottom:20px; letter-spacing:-1px}
+	#memberCert .layerInner .desc {font-size:22px; font-weight:700; padding:26px 0; }
+	#memberCert .layerInner .info {padding:30px; padding-left:157px; }
+	#memberCert .layerInner .info .photo {position:absolute; top:30px; left:30px; width:100px; height:120px; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 50%; background-size:100%;}
+	#memberCert .layerInner .info ul li {background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_dashed.png) repeat-x 0 0; background-size:6px 1px; font-size:20px; font-weight:700; padding:10px 0}
+	#memberCert .layerInner .info ul li:first-child {padding-top:10px}
+	#memberCert .layerInner .info ul li i {width:62px}
+	#memberCert .layerInner .btn {padding-top:16px;}
+	#memberCert .layerInner .btn a {height:85px; width:49%; }
+	#memberCert .layerInner .btn a.b2 {margin-left:2%}
+	#memberCert .layerInner .btn a span {font-size:28px;padding-top: 19px}
+	#memberCert .layerInner .btn a i {font-size:16px; font-weight:500; padding-top: 4px}
+
+		/* layer :: 동문회원 인증하기 - 등록 */
+	#memberCertApply {padding:50px 0; width:575px; margin-left:-287px; left:50%;}
+	#memberCertApply .layerInner {padding:45px 40px 40px;}
+	#memberCertApply .layerInner .title {font-size:30px; border-bottom:solid 3px #666; padding-bottom:20px; letter-spacing:-1px}
+	#memberCertApply .layerInner .user {padding:50px 0 29px}
+	#memberCertApply .layerInner .user dl {padding-left:115px;}
+	#memberCertApply .layerInner .user dl dt {left:0; width:115px; text-align:center; padding:0; font-size:24px; letter-spacing:3px; margin-top:-12px}
+	#memberCertApply .layerInner .user dl dd {font-size:20px; padding-top:14px}
+	#memberCertApply .layerInner .user dl dt + dd {padding-top:0}
+	#memberCertApply .layerInner .user dl dd span {font-weight:300; line-height:1; width:70px; padding-right:12px}
+	#memberCertApply .layerInner .info {height:130px}
+	#memberCertApply .layerInner .info textarea {padding:18px; font-size:16px; line-height:24px;}
+	#memberCertApply .layerInner .btn {padding-top:30px; }
+	#memberCertApply .layerInner .btn a {height: 60px; line-height: 60px;}
+	#memberCertApply .layerInner .btn a span {font-size:16px}
+
+	/* layer :: 동문회원 인증하기 - 완료 */
+	#memberCertComplete {padding:50px 0; width:575px; margin-left:-287px; left:50%;}
+	#memberCertComplete .layerInner {background:#eee; padding:45px 40px 70px 40px; width:auto;}
+	#memberCertComplete .layerInner .title {font-size:30px; border-bottom:solid 3px #666; padding-bottom:20px; letter-spacing:-1px}
+	#memberCertComplete .layerInner .info {padding:40px 0; margin-top:20px}
+	#memberCertComplete .layerInner .info .t1 {font-size:45px;}
+	#memberCertComplete .layerInner .info .t2 {font-size:16px; line-height:25px; padding-top:15px}
+	#memberCertComplete .layerInner .desc {padding:30px 0; font-size:18px;}
+	#memberCertComplete .layerInner .btn2 {bottom:28px; right:40px; font-size:13px;}
+
+
+	/* layer :: 사무실 등록하기 */
+	#memberApply {padding:91px 0 0 0; width:743px; left:50%; margin-left:-371.5px}
+	#memberApply .layerInner {padding:65px 57px 60px;}
+	#memberApply .layerInner .title {font-size:36px; letter-spacing:-2px; border-bottom:solid 3px #666; padding-bottom:29px}
+	#memberApply .layerInner .write table th {font-size:16px; line-height:24px; padding-left:18px}
+	#memberApply .layerInner .write table td {font-size:16px; line-height:24px;  padding:20px 0}
+	#memberApply .layerInner .write table td .txt1 {font-size: 14px; padding-top:3px}
+	#memberApply .layerInner .write table td input[type='text'] {height:45px; line-height:45px; font-size:16px;}
+	#memberApply .layerInner .write table td select {height:45px; line-height:45px; padding-right:7%; background:#fff url(//img.eduwill.net/resources/land/dev/images/board/bg_select5.png) no-repeat 88% 52%; background-size:9px 5px; font-size:16px;}
+	#memberApply .layerInner .write table td .bar {font-size:16px;}
+	#memberApply .layerInner .write table td .grp {padding-top:10px}
+	#memberApply .layerInner .write table td .grp:first-child {padding-top:0}
+	#memberApply .layerInner .write table td.userName span {font-weight:300}
+	#memberApply .layerInner .write table td.photo .button {width:100px; height:120px; background:url(//img.eduwill.net/resources/land/dev/images/sub/bg_photoApply.png) no-repeat 0 50%; background-size:100%;}
+	#memberApply .layerInner .write table td.photo .filebox { width:100px; height:145px; background: url(//img.eduwill.net/resources/land/dev/images/sub/bg_photo.png) no-repeat 0 0; background-size:100px 120px;}
+	#memberApply .layerInner .write table td.photo .filebox label {width:100px; height:25px; line-height:25px; font-size:14px;}
+	#memberApply .layerInner .write table td.photo .filebox .upload-display {width:100px; height: 120px;}
+	#memberApply .layerInner .write table td.gubun label {margin-right:50px}
+	#memberApply .layerInner .write table td.gubun input {margin:-3px 15px 0 0}
+	#memberApply .layerInner .write table td.addr .button {padding:0 30px; height:45px; line-height:45px; font-size:14px; margin-left:10px}
+	#memberApply .layerInner .write table td.intro textarea {width:100%; height:95px; padding:1%; font-size:16px;}
+	#memberApply .layerInner .write table td.site input {margin-left:6px}
+	#memberApply .layerInner .write table td.site .btn_add {width:57px; height:24px; top:9px; background:#fff url(//img.eduwill.net/resources/land/dev/images/sub/btn_siteadd_pc.png) no-repeat 0 0; background-size:auto;}
+	#memberApply .layerInner .write table td.site .btn_del {width:57px; height:24px; top:19px; background:#fff url(//img.eduwill.net/resources/land/dev/images/sub/btn_sitedel_pc.png) no-repeat 0 0; background-size:auto;}
+	#memberApply .layerInner .agreeCk {padding-top:20px;}
+	#memberApply .layerInner .agreeCk input {margin:2px 5px 0 0; -ms-transform: scale(1); /* IE */-moz-transform: scale(1); /* FF */-webkit-transform: scale(1); /* Safari and Chrome */-o-transform: scale(1); /* Opera */}
+
+	#memberApply .layerInner .agreeCk label {font-size:14px; font-weight:400;}
+	#memberApply .layerInner .agreeCk .txt {padding: 20px; margin:20px auto 0}
+	#memberApply .layerInner .agreeCk .txt strong {font-size: 13px; padding-bottom:8px}
+	#memberApply .layerInner .agreeCk .txt li {font-size: 12px; margin-top:5px;}
+	#memberApply .layerInner .agreeCk .txt p {font-size: 12px; margin-top:5px; }
+
+
+	#memberApply .layerInner .agreeCk .txt2 table {margin:15px 0}
+	#memberApply .layerInner .agreeCk .txt2 table th {font-size:12px; padding:5px 0;}
+	#memberApply .layerInner .agreeCk .txt2 table td {font-size:12px; padding:5px 0;}
+	#memberApply .layerInner .agreeCk .txt2 p {font-size: 12px; color:#888;}
+
+
+
+	#memberApply .layerInner .btn {padding-top:20px; text-align:center}
+	#memberApply .layerInner .btn a {height:60px; line-height:60px; font-size:16px; font-weight:700; width:27%}
+	
+	/* layer :: 사무실 보기 */
+	#memberView {padding:50px 0; width:743px; left:50%; margin-left:-371.5px}
+	#memberView .layerInner {background:#fff; padding:70px 54px;}
+	#memberView .layerInner .title {font-size:36px; border-bottom:solid 3px #666; padding-bottom:29px}	
+	#memberView .layerInner .view table col.w1 {width:141px}
+	#memberView .layerInner .view table col.w2 {}
+	#memberView .layerInner .view table td {padding:20px; padding-left:138px; position:relative;}
+	#memberView .layerInner .view table td.bg1 { padding:10px 0;}
+	#memberView .layerInner .view table td .stit {display:block; width:138px; text-align:center; position:absolute; top:50%; left:0; font-size:16px; color:#333; font-weight:700; line-height:24px; margin-top:-12px}
+	#memberView .layerInner .view table td .photo {width:121px; height:144px;}
+	#memberView .layerInner .view table td .userName {font-size:16px; padding-top:15px}
+	#memberView .layerInner .view table td .userName span {font-weight:300;}
+	#memberView .layerInner .view table td.tel {font-size:18px;}
+	#memberView .layerInner .view table td.intro {font-size:14px; font-weight:400; line-height:25px}
+	#memberView .layerInner .view table td.addr {font-size:16px; font-weight:400; line-height:27px}
+	#memberView .layerInner .view table td.site {}
+	#memberView .layerInner .view table td.site .grp {font-size:14px; font-weight:400; line-height:22px; padding-left:32px; margin-top:4px}
+	#memberView .layerInner .view table td.site .grp a {font-size:14px; font-weight:400;}
+	#memberView .layerInner .view table td.site .grp:first-child {margin-top:0}
+	#memberView .layerInner .view table td.site .grp.sns01 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns01_pc.png) no-repeat 0 0; background-size:22px;}
+	#memberView .layerInner .view table td.site .grp.sns02 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns02_pc.png) no-repeat 0 0; background-size:22px;}
+	#memberView .layerInner .view table td.site .grp.sns03 {background:url(//img.eduwill.net/resources/land/dev/images/sub/icon_sns03_pc.png) no-repeat 0 0; background-size:22px;}
+	#memberView .layerInner .btn {padding-top:30px;}
+	#memberView .layerInner .btn a {text-align:center; padding:0 70px; height:60px; line-height:60px; font-size:16px; font-weight:700}
+
+
+
+
+
+
+
+}
+
+@media screen and (min-width: 1091px) {
+	.inner {width:1090px; margin:0 auto; position:relative;}
+
+	#header .logo  {padding-left:0}
+	
+	#page-main .section1 .board_box .board ul li span {max-width:75%}
+	#page-main .review li div {padding-left:123px; min-height:109px}
+	#page-main .review li div em {font-size:16px; line-height:24px; padding-top:8px; min-height:75px}
+	#page-main .review li div i {font-size:13px;padding-top:8px}
+	#page-main .review li div span img {width:109px}
+	#page-main .review .bx-wrapper {padding:0 0 0 5%}
+	#page-main .review .bx-wrapper .bx-controls-direction a {top:48px}
+	#page-main .moreitem dl {padding-top:188px; min-height: 335px;}
+	#page-main .moreitem dl dt {font-size:28px}
+	#page-main .moreitem dl dd.photo {padding:19px}
+	#page-main .moreitem dl dd.txt {letter-spacing:0; font-size:14px}
+
+	/* 에공회소개 */
+	#page-intro .visual {background:#303139 url(//img.eduwill.net/resources/land/dev/images/sub/title_intro_pc.png) no-repeat 50% 0; background-size:auto;}
+	#page-intro .photo dl {padding:49px 0 51px 313px;}
+	#page-intro .photo dl dt {left:0}
+	#page-intro .channel {padding:40px 0 51px;}
+	#page-intro .channel .tit {width:312px}
+	#page-intro .channel ul {padding-left:313px} 
+
+
+	#page-board .searchform {padding:0 0 20px}
+	#page-board .listform {padding:0 0 60px}
+
+	#page-board .listform table td.ask .txt {max-width:84%} 
+	/*#page-board .listform table td.answer .txt {max-width:84%}*/
+
+
+	#page-board .listform table td.answer {padding-left:35%}
+	#page-board .listform table td.answer .txt {max-width:10%}
+	#page-board .listform table td.answer.depth1 {padding-left:0}
+	#page-board .listform table td.answer.depth1 .txt {max-width:71%}
+	#page-board .listform table td.answer.depth2 {padding-left:5%}
+	#page-board .listform table td.answer.depth2 .txt {max-width:68%}
+	#page-board .listform table td.answer.depth3 {padding-left:10%}
+	#page-board .listform table td.answer.depth3 .txt {max-width:64%}
+	#page-board .listform table td.answer.depth4 {padding-left:15%}
+	#page-board .listform table td.answer.depth4 .txt {max-width:59%}
+	#page-board .listform table td.answer.depth5 {padding-left:20%}
+	#page-board .listform table td.answer.depth5 .txt {max-width:53%}
+	#page-board .listform table td.answer.depth6 {padding-left:25%}
+	#page-board .listform table td.answer.depth6 .txt {max-width:44%}
+	#page-board .listform table td.answer.depth7 {padding-left:30%}
+	#page-board .listform table td.answer.depth7 .txt {max-width:31%}
+	#page-board .listform table td.answer.depth8 {padding-left:35%}
+	#page-board .listform table td.answer.depth8 .txt {max-width:10%}
+
+
+	#page-board .listform .btnArea .button.write {padding:0 60px}
+	#page-board .writeform {padding:0 0 60px}	
+	#page-board .writeform table td.file .fileform input[type='text']{width:78%}
+	#page-board .writeform table td.file .fileform .button {width:10.3%;}
+	#page-board .faqform {padding:0 0 60px}
+
+	#page-office .search_address:before {content:""; display:block; width:100%; height:50px; position:absolute; top:0; left:50%; background:#eee; z-index:-1}
+
+}
+
+
+/* 221214 */
+/* 모바일에서 페이징 깨지는 이슈 */ 
+.paging a{
+	border: 0 !important;
+    display: inline-block !important;
+    width: auto !important;
+}
+
+/* 서브메뉴 추가 */
+.sub_menu { display:flex; justify-content: center; align-items: center; gap:1.040vw;}
+.sub_menu { margin-top:8.973vw;margin-bottom:6.242vw;}
+.sub_menu li a{ line-height:1;display:block; font-size:3vw; background:#fff;color:#ddd;font-weight:700;border:1px solid #ccc;border-radius:2.081vw;padding:1.691vw 2.341vw;}
+.sub_menu li.active a { background:#3131DA; color:#fff; border:none;}
+@media screen and (min-width: 769px) {
+	.sub_menu { gap:8px;}
+	.sub_menu { margin-top: 69px;margin-bottom: 48px;}
+	.sub_menu li a{  font-size: 18px; border-radius:16px;padding:13px 18px;}
+}
+
+/* 채용정보 메뉴 추가 */
+#page-board .company_list {
+	border-top:2px solid #000;
+	border-bottom:1px solid #000;
+	padding:20px 0 0 0;
+}
+#page-board .company_list ul{
+	display: flex;
+	flex-wrap:wrap;
+	gap:2%;
+}
+#page-board .company_list ul li{
+	width:100%;
+	background: #FFFFFF;
+	border: 1px solid #E4E4E4;
+	display: flex;
+	margin-bottom: 20px;
+	font-size:2.604vw;
+	font-weight: bold;
+}
+#page-board .company_list ul li .thumb{
+	width:50%;
+	padding:1%;
+}
+#page-board .company_list ul li .thumb img{
+	width:100%;
+}
+#page-board .company_list ul li .info{
+	padding:2%;
+}
+#page-board .company_list ul li .info .name{
+	height:60%;
+	text-align: left;
+	display: block;
+}
+#page-board .company_list ul li .info a{
+	display: inline-block;
+}
+#page-board .noti{
+	color:#000;
+	text-align: left;
+	margin-bottom: 20px;
+	font-size:2.604vw;
+}
+
+@media screen and (min-width: 769px) {
+	#page-board .company_list ul{
+		display: flex;
+		flex-wrap:wrap;
+		gap:2%;
+		box-sizing:border-box;
+	}
+	#page-board .company_list ul li{
+		width:49%;
+		font-size:18px;
+	}
+	#page-board .noti{ 
+		font-size:16px;
+	}
+}
+
+/* 동문회운영팀 소개 페이지 추가 */
+#page-introduce .inner {
+	max-width: 1200px;
+	width: 100%;
+}
+
+#page-introduce .visual {
+	background: url("https://img.eduwill.net/resources/land/dev/images/network/main/pc/bg_introduce_visual.jpg") no-repeat;
+}
+
+#page-introduce .visual .inner {
+	position: relative;
+	display: flex;
+	padding: 80px 0;
+}
+
+#page-introduce .visual .visual-content-title h3 {
+	font-size: 52px;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+#page-introduce .visual .visual-content-text {
+	margin-top: 40px;
+}
+
+#page-introduce .visual .visual-content-text p {
+	font-size: 18px;
+	font-weight: 400;
+	color: #666;
+}
+
+#page-introduce .visual .visual-img {
+	margin-top: 16px;
+	margin-left: 80px;
+}
+
+#page-introduce .introduce-content-wrap {
+	padding: 80px 0 120px;
+	background: url("https://img.eduwill.net/resources/land/dev/images/network/main/pc/bg_introduce_content.png") no-repeat;
+}
+
+#page-introduce .introduce-content-wrap .introduce-content {
+	position: relative;
+	display: flex;
+}
+
+#page-introduce .introduce-content-wrap .content01 .introduce-content-img {
+	margin-left: 40px;
+}
+
+#page-introduce .introduce-content-wrap .content02 {
+	flex-direction: row-reverse;
+	margin-top: 88px;
+}
+
+#page-introduce .introduce-content-wrap .content02 .introduce-content-text {
+	z-index: 5;
+	position: relative;
+	left: -24px;
+	margin-top: 120px;
+}
+
+#page-introduce .introduce-content-wrap .introduce-content-text h3 {
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 16px;
+}
+
+#page-introduce .introduce-content-wrap .introduce-content-text p {
+	font-size: 18px;
+	color: #666;
+}
+
+@media screen and (max-width: 1200px) {
+	#page-introduce .inner {
+		padding: 0 50px;
+		box-sizing: border-box;
+	}
+
+	#page-introduce .visual .inner {
+		padding: 40px 50px;
+	}
+
+	#page-introduce .visual .visual-content-title h3 {
+		font-size: 36px;
+		line-height: 1.2;
+	}
+
+	#page-introduce .visual .visual-content-text {
+		margin-top: 20px;
+	}
+
+	#page-introduce .visual .visual-content-text p {
+		font-size: 16px;
+	}
+
+	#page-introduce .visual .visual-img {
+		min-width: 300px;
+		margin-left: 40px;
+	}
+
+	#page-introduce .visual .visual-img img {
+		width: 100%;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-text h3 {
+		font-size: 24px;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-text p {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	#page-introduce .inner {
+		padding: 0 6.944vw
+	}
+
+	#page-introduce .visual {
+		background-position: bottom;
+	}
+
+	#page-introduce .visual .inner {
+		flex-direction: column;
+		padding: 5.556vw 6.944vw;
+	}
+
+	#page-introduce .visual .visual-content-title h3 {
+		font-size: 4.167vw;
+	}
+
+	#page-introduce .visual .visual-content-text p {
+		font-size: 3.333vw;
+	}
+
+	#page-introduce .visual .visual-img {
+		min-width: 0;
+		margin-left: 0;
+		margin-top: 4.167vw;
+	}
+
+	#page-introduce .introduce-content-wrap {
+		padding: 5.556vw 0;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content {
+		flex-direction: column-reverse;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-img {
+		max-width: 50vw;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-img img {
+		width: 100%;
+	}
+
+	#page-introduce .introduce-content-wrap .content01 .introduce-content-img {
+		margin-left: auto;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-text {
+		margin-top: 3.333vw;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-text h3 {
+		font-size: 3.889vw;
+		margin-bottom: 2.222vw;
+	}
+
+	#page-introduce .introduce-content-wrap .introduce-content-text p {
+		font-size: 3.333vw;
+	}
+
+	#page-introduce .introduce-content-wrap .content02 {
+		margin-top: 8.333vw;
+	}
+
+	#page-introduce .introduce-content-wrap .content02 .introduce-content-text {
+		margin-top: 3.333vw;
+		left: 0;
+	}
+}

@@ -1,0 +1,279 @@
+.hd-wrap {  
+    position: fixed; top: 0; left: 0;
+    width: 100%;
+    z-index: 1000;  
+    &, * {
+        @include transition-all(.3s);
+    }
+    &-inner {
+        width: 1440px;
+        height: 80px;
+        padding: 0 60px; 
+        margin: 0 auto;
+        position: relative;
+    } 
+    .logo {
+        padding-top: 22px;
+        * {
+            vertical-align: top;
+        }
+        em {
+            display: inline-block;
+            padding: 6px 0 0 14px;
+            @include font-init('EduwillPassBold');
+            @include font-size-color-weight($typo-size-22, $color-Black, 700);
+            line-height: 27px;
+        }
+    }
+    .col-right {
+        position: absolute; top: 50%; right: 60px;
+        @include translateY(-50%);  
+    } 
+    .gnb {
+        @include clearfix();
+        float: left;
+        li {
+            float: left;
+            margin-right: 50px;
+            a {
+                display: block;
+                @include font-size-color-weight($typo-size-17, $color-Black, 400);
+                line-height: 30px;
+                text-decoration: none;
+                @include transition-all(.3s);
+                &:hover {
+                    @include transition-all(.3s);
+                    color: $color-Accent-1;
+                }
+            }
+        }
+    }
+    .name {
+        float: left;
+        opacity: 0.5;
+        a {
+            display: inline-block;
+            min-width: 76px; height: 30px;
+            border: solid 1px $color-Black;
+            border-radius: 16px;
+            text-align: center;
+            @include font-size-color-weight($typo-size-14, $color-Black, 400);
+            line-height: 28px;
+            padding: 0 13px;
+            background-color: transparent;
+            text-decoration: none;
+            .icon {
+                vertical-align: middle;
+                margin-left: 13px;
+            }
+        }
+    }
+    &.sticky-fix {
+        background: $color-White !important;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+}
+.modal-mobileNav {
+    .modal-dialog {
+        margin: 0;
+        width: 85%;
+        float: right;
+        height: 100%;
+    }
+    .modal-content {
+        height: 100%;
+        border-radius: 0;
+        border: none;
+    }
+    .modal-header {
+        height: 54px;
+        background-color: $color-Bg-Disabled;
+        padding: 12px 24px;
+        .name {
+            opacity: 0.5;
+            a {
+                display: inline-block;
+                min-width: 76px; height: 30px;
+                border: solid 1px $color-Black;
+                border-radius: 16px;
+                text-align: center;
+                @include font-size-color-weight($typo-size-14, $color-Black, 400);
+                line-height: 28px;
+                padding: 0 13px;
+                background-color: transparent;
+                text-decoration: none;
+                .icon {
+                    vertical-align: middle;
+                    margin-left: 13px;
+                }
+            }
+        }
+    }
+    .modal-body {
+        height: calc(100% - 54px);
+        overflow-y: auto;
+        width: 100%;
+        padding: 0;
+        ul {
+            li {
+                padding: 0 24px;
+                a {
+                    display: block;
+                    height: 60px;
+                    @include font-size-color-weight($typo-size-18, $color-Black, 700);
+                    line-height: 60px;
+                    border-bottom: solid 1px $color-Bg-Disabled;
+                    text-decoration: none;
+                    position: relative;
+                    &:after {
+                        @include contentReset();
+                        width: 14px; height: 8px;
+                        @include background-name-ext-repeat-poistion('icon/icon-arrow', svg, no-repeat, 0 0);                        
+                        position: absolute; top: 50%; right: 2px;
+                        transform: rotate(-90deg) translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+}
+@include mq(screen-pc) {
+    .hd-wrap {
+        .mobile-nav {
+            display: none;
+        }
+    }
+}
+@include mq(screen-tablet) {
+    .hd-wrap {
+        &-inner {
+            width: 100%;
+        }
+        
+    }
+}
+@include mq(screen-mobile) {
+    .hd-wrap {
+        &-inner {
+            width: 100%;
+            height: 54px;
+            padding: 0 16px;
+        }
+        .logo {
+            padding-top: 13px;
+            .icon-bi {
+                width: 68px; height: 29px;
+            }
+            em {
+                font-size: $typo-size-16;
+                padding: 1px 0 0 7px;
+            }
+        }
+        .col-right {
+            display: none;
+        }
+        .mobile-nav {
+            display: block;
+            .btn-menu {
+                width: 54px; height: 54px;
+                position: absolute; top: 0; right: 0;
+            }
+        }
+    }
+    
+}
+
+.wrap-main {    
+    .hd-wrap {
+        
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        &-inner {
+            height: 92px;
+        }
+        .logo {
+            .icon-bi {
+                background: url("//img.eduwill.net/Img2/Common/BI/type3/dev/logo.svg") 0px 50% no-repeat;
+            }
+            em {
+                color: $color-White;
+            }
+        }
+        .gnb {
+            li {
+                a {
+                    color: $color-White;
+                    &:hover {
+                        color: $color-Accent-1;
+                    }
+                }
+            }
+        }
+        .name {
+            float: left;
+            opacity: 1;
+            a {
+                border-color: $color-White;
+                color: $color-White;
+                .icon {
+                    @include background-name-ext-repeat-poistion('icon/icon-logout-w', svg, no-repeat, 0 0);
+                }
+            }
+        }
+        &.sticky-fix {
+            .hd-wrap-inner {
+                height: 80px; 
+            }
+            .logo {
+                .icon-bi {
+                    background: url("//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg") 0px 50% no-repeat;
+                }
+                em {
+                    color: $color-Black;
+                }
+            }
+            .gnb {
+                li {
+                    a {
+                        color: $color-Black;
+                        &:hover {
+                            color: $color-Accent-1;
+                        }
+                    }
+                }
+            }
+            .name {
+                float: left;
+                opacity: 0.5;
+                a {
+                    border-color: $color-Black;
+                    color: $color-Black;
+                    .icon {
+                        @include background-name-ext-repeat-poistion('icon/icon-logout', svg, no-repeat, 0 0);
+                    }
+                }
+            }
+        }
+    }
+}
+@include mq(screen-mobile) {
+    .wrap-main { 
+        .hd-wrap {
+            &-inner {
+                height: 54px;
+            }
+            .mobile-nav .btn-menu .icon {
+                @include background-name-ext-repeat-poistion('icon/icon-menu-w', svg, no-repeat, 0 0);
+            }
+            &.sticky-fix {
+                .hd-wrap-inner {
+                    height: 54px; 
+                }
+                .mobile-nav .btn-menu .icon {
+                    @include background-name-ext-repeat-poistion('icon/icon-menu', svg, no-repeat, 0 0);
+                }   
+            }
+        }
+    }
+    
+}
+

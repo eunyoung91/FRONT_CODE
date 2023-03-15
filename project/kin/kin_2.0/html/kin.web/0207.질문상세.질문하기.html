@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>에지인 2.0</title>
+
+    <!-- favicon setting-->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="//img.eduwill.net/resources/kin/dev/html/link_icon_ios_114.png" />
+    <link rel="icon" type="image/png" href="//img.eduwill.net/resources/kin/dev/html/link_icon_and.png" sizes="192x192"/>
+    <link rel="shortcut icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+
+    <!-- css -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/web.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';</script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <!-- Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+        });
+        $(window).load(function(){
+            //$("#modal-quiz").modal("show");
+            
+        })
+    </script>
+
+</head>
+<body>
+    <div role="header" data-include="include/header_inc.html"></div><!-- include :: header -->   
+
+    <div id="container" role="sub">
+
+        <div class="wrap board-question">
+            <div class="wrap-inner">
+                <div class="section-title">
+                    질문하기
+                </div>
+                <div class="form-write">
+                    <div class="q-title">
+                        <input type="text" class="form-control" placeholder="제목을 입력해 주세요.">
+                    </div>
+                    <div class="editor">
+                        <!-- 에디터영역 -->
+                        <div><img src="https://img.eduwill.net/resources/kin/dev/images/sample_editor.png" style="vertical-align: top; width: 100%;"></div>
+                        <div class="tooltip-in"> 
+                            <dl>
+                                <dt>질문하기 도움말</dt>
+                                <dd class="txt1">질문작성 TIP</dd>
+                                <dd class="txt2">질문 내용이 길 경우 읽기 쉽도록 <br>단락을 구분합니다.</dd>
+                                <dd class="txt2">질문이 여러가지 일 때는 질문1. <br>질문2. 질문3... 과 같이 작성하며 <br>마지막에 질문을 요약합니다.</dd>
+                                <dd class="txt1">유의사항</dd>
+                                <dd class="txt2">답변이 등록되면 질문은 수정 및 삭제가 불가합니다. </dd>
+                                <dd class="txt2">개인정보(실명, 소속, 연락처 등)가 포함되는 질문은 관리자에 의해 삭제되니 유의해 주세요.</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="text-info">
+                        ※ 등록하신 질문/답변은 에듀윌이 운영하는 서비스에 노출될 수 있습니다.
+                    </div>
+                </div>
+                <div class="content-title">
+                    추가정보
+                </div>
+                <div class="input-set">
+                    <div class="item item-1">
+                        <div class="text-label">태그등록</div>
+                        <div class="input-box input-icon-group">  
+                            <input type="text" class="form-control input-icon-right" placeholder="태그입력 (최대 10개)">
+                            <button class="input-button"><i class="icon icon-plus"></i></button>
+                        </div>
+                        <ul class="item-list-tag">
+                            <li>
+                                <span class="txt">Tag 1</span>
+                                <button class="btn btn-link btn-delete">닫기</button>
+                            </li>
+                            <li>
+                                <span class="txt">Tag 2</span>
+                                <button class="btn btn-link btn-delete">닫기</button>
+                            </li>
+                            <li>
+                                <span class="txt">Tag 3</span>
+                                <button class="btn btn-link btn-delete">닫기</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item item-2">
+                        <div class="text-label">질문유형</div>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-default" type="button" id="dropdownItem-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                일반질문<i class="icon icon-arrow-down"></i>
+                            </button>
+                            <div class="dropdown-menu drop-down-box" aria-labelledby="dropdownItem-1">
+                                <ul class="dropdown-menu-item">
+                                    <li><a href="#">일반질문 1</a></li>
+                                    <li><a href="#">일반질문 2</a></li>
+                                    <li><a href="#">일반질문 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-default" type="button" id="dropdownItem-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                학습질문<i class="icon icon-arrow-down"></i>
+                            </button>
+                            <div class="dropdown-menu drop-down-box" aria-labelledby="dropdownItem-2">
+                                <ul class="dropdown-menu-item">
+                                    <li><a href="#">학습질문 1</a></li>
+                                    <li><a href="#">학습질문 2</a></li>
+                                    <li><a href="#">학습질문 3</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="item-question">
+                            학습질문 > 부동산학개론
+                        </div>
+                    </div>
+                    <div class="item item-3">
+                        <div class="text-label">질문유형</div>
+                        <div class="text-type">일반질문</div>
+                        <div class="custom-control-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-1" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-1"><span>9급</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-2" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-2"><span>계리직</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-3" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-3"><span>경찰</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-4" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-4"><span>7급</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-5" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-5"><span>소방</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-6" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-6"><span>군무원</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-7" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-7"><span>기타직렬</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-8" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-8"><span>고민거리</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio1-9" name="customRadio">
+                                <label class="custom-control-label" for="customRadio1-9"><span>강의/교재</span></label>
+                            </div>
+
+                        </div>
+                        <div class="text-type">학습질문</div>
+                        <div class="custom-control-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-1" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-1"><span>국어</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-2" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-2"><span>영어</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-3" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-3"><span>한국사</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-4" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-4"><span>행정법/학</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-5" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-5"><span>컴퓨터일반</span></span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-6" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-6"><span>소방/경찰과목</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-7" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-7"><span>우편 및 금융상식</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-8" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-8"><span>기타과목</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-9" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-9"><span>자유질문</span></label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="radio" class="custom-control-input" id="customRadio2-10" name="customRadio">
+                                <label class="custom-control-label" for="customRadio2-10"><span>공부일기 인증</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item item-4">
+                        <div class="text-label">추가내공</div>
+                        <ul class="custom-tabs custom-tabs-fills border">
+                            <li class=""><a href="#label-3" data-toggle="tab" aria-expanded="true">사용안함</a></li>
+                            <li class="active"><a href="#label-4" data-toggle="tab" aria-expanded="false">사용함</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="label-3"></div>
+                            <div class="tab-pane active" id="label-4">
+                                <div class="item-grade">
+                                    <div class="grade">보유내공: 36,000</div>
+                                    <div class="input">
+                                        <input class="form-control" value="0">
+                                        <span>점</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item item-5">
+                        <div class="text-label">아이디(별명)</div>
+                        <ul class="custom-tabs custom-tabs-fills border">
+                            <li class="active"><a href="#label-5" data-toggle="tab" aria-expanded="true">공개</a></li>
+                            <li class=""><a href="#label-6" data-toggle="tab" aria-expanded="false">비공개</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="label-5">
+                                <div class="board-answer-item">
+                                    <div class="item-summary">
+                                        <div class="profile">
+                                            <img src="//img.eduwill.net/resources/kin/dev/images/k/icon_grade_HR.png" alt="영웅">
+                                        </div>
+                                        <div class="subject"><span class="accent-1">임민은</span>님의 답변입니다.</div>
+                                        <div class="info">
+                                            <span>영웅</span>
+                                            <span>채택</span>
+                                            <span>2021-03-21 21:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="label-6">
+                                <div class="board-answer-item">
+                                    <div class="item-summary">
+                                        <div class="profile">
+                                            <img src="//img.eduwill.net/resources/kin/dev/images/k/icon_grade_HR.png" alt="영웅">
+                                        </div>
+                                        <div class="subject">비공개</div>
+                                        <div class="info">
+                                            <span>영웅</span>
+                                            <span>2021-03-21 21:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tooltip-in">
+                        <dl>
+                            <dt>추가정보 설정하기</dt>
+                            <dd class="txt1">태그등록</dd>
+                            <dd class="txt2">질문에 관심있는 에듀윌지식인에게 잘 검색 될 수 있도록 태그를 입력해주세요.</dd>
+                            <dd class="txt1">질문유형</dd>
+                            <dd class="txt2">빠르고 정확한 답변을 받기 위해 <br>질문에 적합한 질문 유형을 <br>필수 선택해주세요.</dd>
+                            <dd class="txt1">추가내공</dd>
+                            <dd class="txt2">사용한 내공은 채택된 답변자에게 <br>드리며 최대 500점(10점 단위) <br>추가 가능합니다.</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="area-btn">
+                    <button type="button" class="btn btn-sm btn-default">작성취소</button>
+                    <button type="button" class="btn btn-sm btn-primary">질문등록</button>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <div role="footer" data-include="include/footer_inc.html"></div><!-- include :: footer -->    
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+.btn {
+    outline: none;
+    line-height: 1;
+    
+    &:hover {
+        @include transition-all(.3s);
+    }
+    & {
+        height: 48px;        
+        font-size: $typo-size-16;
+    }
+    &-lg {
+        height: 52px;        
+        border-radius: 8px;
+        font-size: $typo-size-16;
+    }
+    &-sm {
+        height: 40px;        
+        border-radius: 4px;
+        font-size: $typo-size-15;
+    }
+    &-xs {
+        height: 32px;
+        border-radius: 4px;
+        font-size: $typo-size-13;
+    }
+
+    &-white {
+        background-color: $color-White;
+        border-color: $color-White;
+        color: $color-Dark;
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover {
+            background-color: $color-Bg-Disabled;
+            border-color: $color-Bg-Disabled;
+        }
+    }
+
+    &-danger {
+        background-color: $color-Red;
+        border-color: $color-Red;
+        color: $color-White;
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover {
+            background-color: $color-Red;
+            border-color: $color-Red;
+        }
+    }
+
+    &-dark {
+        background-color: $color-White;
+        border-color: $color-Dark;
+        color: $color-Dark;
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover {
+            background-color: $color-Bg-Disabled;
+        }
+    }
+
+    &-primary{
+        background-color: $color-Accent-1;
+        border: none;
+        color: $color-White;
+        &:hover,
+        &:focus,
+        &.active.focus, 
+        &.active:focus,     
+        &:active,
+        &:active:hover,
+        &:active.focus, 
+        &:active:focus, 
+        &:active:hover {
+            background-color: $color-Accent-1-hover;
+        }
+    }
+
+    &-default {
+        background-color: $color-White;
+        border-color: $color-Light-box-line;
+        color: $color-Dark;
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover {
+            background-color: $color-Bg-Disabled;
+            border-color: $color-Light-box-line;  
+        }
+    }
+    &-disabled {
+        color: $color-Medium-Light;
+        cursor: not-allowed;
+        &:hover,
+        &:focus,
+        &:active,
+        &:active:hover {
+            color: $color-Medium-Light;
+        }
+        &-1 {
+            background-color: $color-Bg-Disabled;
+            border: none;
+        }
+        &-2 {
+            background-color: $color-White;
+            border-color: $color-Light-box-line;
+        }
+    }
+
+    &-icon {
+        padding: 0 16px 0 14px;
+        .icon {
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 0.9234em; min-height: 0.9234em;
+            margin-right: 8px;
+            background-size: contain;
+        }
+
+        .count {
+            color: $color-Accent-1;
+        }
+
+        &.btn-square {
+            padding: 0;
+            background-color: transparent;
+            &:hover {
+                background-color: $color-Bg-square;
+                .icon-more {
+                    @include background-name-ext-repeat-poistion('icon/icon-more-hover', svg, no-repeat, 0 0);
+                }
+                .icon-check {
+                    @include background-name-ext-repeat-poistion('icon/icon-check-hover', svg, no-repeat, 0 0);
+                }
+                .icon-trash {
+                    @include background-name-ext-repeat-poistion('icon/icon-trash-hover', svg, no-repeat, 0 0);
+                }
+                .icon-modify {
+                    @include background-name-ext-repeat-poistion('icon/icon-modify-hover', svg, no-repeat, 0 0);
+                }
+            }
+            width: 48px;
+            &.btn-xs {
+                width: 32px;
+            }
+            &.btn-sm {
+                width: 40px;
+            }
+            &.btn-lg {
+                width: 54px;
+            }
+            .icon {
+                margin-right: 0;
+            }
+        }
+
+    }
+
+    &-link {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        height: auto;
+        
+    }
+    &.active.focus, 
+    &.active:focus, 
+    &.focus, 
+    &:active.focus, 
+    &:active:focus, 
+    &:focus {
+        outline: none;
+    }
+    &-fills {
+        border-radius: 26px;
+    }
+}

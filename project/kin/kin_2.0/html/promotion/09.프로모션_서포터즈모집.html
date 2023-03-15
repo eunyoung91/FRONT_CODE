@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>에지인</title>
+
+    <!-- favicon setting-->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="//img.eduwill.net/resources/kin/dev/html/link_icon_ios_114.png" />
+    <link rel="icon" type="image/png" href="//img.eduwill.net/resources/kin/dev/html/link_icon_and.png" sizes="192x192"/>
+    <link rel="shortcut icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+
+    <!-- CORE CSS -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- FONT CSS-->
+    <link href="https://img.eduwill.net/resources/common/web/css/webfont.css" rel="stylesheet" type="text/css">
+
+    <!-- COSTOM CSS-->
+    <link href="https://img.eduwill.net/resources/kin/live/html/css/custom.min.css?v=5be2d9ef1b640" rel="stylesheet" type="text/css">
+
+    
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    
+    <!-- jquery -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';</script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+    <!-- Import Swiper -->
+    <script src="https://img.eduwill.net/resources/brand/dev/js/swiper/swiper.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/brand/dev/js/swiper/swiper.min.css">
+    <!-- Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <script src="//img.eduwill.net/resources/kin/live/html/js/jQuery.headroom.js"></script>
+    <script src="https://img.eduwill.net/resources/kin/live/html/js/custom.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // toggle img
+            $('.toggle-img').on('mouseenter mouseleave', function(e){
+                var $this = $(this);
+                $this.attr('src', function(index, attr){
+                    if(attr.match('_on')) {
+                        return attr.replace('_on.png', "_off.png");
+                    } else {
+                        return attr.replace('_off.png', "_on.png");
+                    }
+                })
+            })
+
+            //animation
+            var motionPointer = new TweenMax.to('.pointer', 0.5, {y: -10, repeat:-1, yoyo:true, ease: Power1.easeOut})
+            
+            $(window).scroll(function(){
+            })
+            // 2.0 공통 css load
+            function detectMobileDevice(agent) {
+                const mobileRegex = [
+                    /Android/i,
+                    /iPhone/i,
+                    /iPad/i,
+                    /iPod/i,
+                    /BlackBerry/i,
+                    /Windows Phone/i
+                ]
+
+                return mobileRegex.some(mobile => agent.match(mobile))
+            }
+
+            const isMobile = detectMobileDevice(window.navigator.userAgent)
+            
+            if (isMobile) {
+                var cssUrl = "../css/common-m2.0.css";                
+            } else {
+                var cssUrl = "../css/common2.0.css";
+            }
+            var head = document.getElementsByTagName("head")[0];
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = cssUrl;                
+            document.head.appendChild(link);
+            
+        });
+    </script>
+</head>
+
+<body class="wrap-promotion">
+    <div role="header" data-include="../kin.before/include/header_inc.html"></div><!-- include :: header -->
+    
+    <section id="container">
+        <link href="https://img.eduwill.net/resources/kin/live/html/css/promotion.css" rel="stylesheet" type="text/css">
+
+        <div id="promotion-supporters-at" class="gov-200324"><!-- 프로모션 고유 id -->
+            <div class="section section1"> 
+                <div class="type-ir title"></div>
+            </div>
+
+            <div class="section section2">
+                <div class="inner-p">
+                    <div class="row">
+                        <div class="box">
+                            <dl>
+                                <dt>01 모집기간 및 방법</dt>
+                                <dd>
+                                    <ul class="list">
+                                        <li>기사자격증 지식을 갖고 있는 분이라면 언제든지 환영합니다.
+                                            <div class="desc">
+                                                모집기간 : 상시모집<br>
+                                                모집방법 : 홈페이지 지원<br>
+                                                <span class="c-1">※ 하단의 [ 서포터즈 지원하기 > ] 버튼을 클릭해주세요.</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="box">
+                            <dl>
+                                <dt>02 지원자격</dt>
+                                <dd>
+                                    <ul class="list">
+                                        <li>에듀윌 지식인에서 <span class="c-2">답변글 10개 이상 등록</span>한 회원</li>
+                                        <li>당연히 에듀윌 회원 <span class="c-1">(무료회원도 가능)</span></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="box">
+                            <dl>
+                                <dt>03 우대조건</dt>
+                                <dd>
+                                    <ul class="list">
+                                        <li>기사자격증 지식과 합격 노하우를 수험생들에게 알려주고자 하는 열정이 있으신 분</li>
+                                        <li>수험생들의 고민을 진심으로 들어주고 공감할 수 있는 인성을 갖추신 분</li>
+                                        <li>취업 경험과 이직 준비, 현업에서의 노하우등 실무적인 부분도 공유할 수 있는 오픈 마인드로 활동하실 분</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="box">
+                            <dl>
+                                <dt>04 서포터즈 활동미션</dt>
+                                <dd>
+                                    <ul class="list">
+                                        <li>답변 등록을 통해 수험생의 고민을 들어주고 기사자격증 지식과 합격 노하우 나누기
+                                            <div class="btnarea">
+                                                <a href="" class="btn">답변하기 가이드</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="btnarea2">
+                        <a href="">서포터즈 지원하기
+                            <span class="icon-hand"><span><img src="//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png"></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section3">
+                <div class="inner-p">
+                    <div class="row">
+                        <div class="box">
+                            <dl>
+                                <dt>05 우수서포터즈 혜택</dt>
+                                <dd class="full">
+                                    <div class="missionarea">
+                                        <div class="scr-m"><img src="//img.eduwill.net/resources/kin/dev/images/promotion/supporters_at/gov_200324/m/mission.png" alt=""></div>
+                                        <div class="scr-pc"><img src="//img.eduwill.net/resources/kin/dev/images/promotion/supporters_at/gov_200324/pc/mission.png" alt=""></div>
+                                    </div>
+                                </dd>
+                                <dd>
+                                    <div class="text">푸짐한 경품</div>
+                                    <ul class="list">
+                                        <li>
+                                            답변왕 이벤트 : 답변활동하고 상품권과 간식을 받아보세요
+                                            <div class="space">혜택지급 : 매주, 매월 랭킹 산정하여 경품 지급</div>
+                                            <div class="btnarea">
+                                                <a href="" class="btn">답변왕 이벤트 바로가기</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            내공 자판기 : 활동을 통해 획득한 내공을 선물로 교환해보세요
+                                            <div class="space">혜택지급 : 매주 교환한 상품 지급</div>
+                                            <div class="btnarea">
+                                                <a href="" class="btn">내공자판기 바로가기</a>
+                                            </div>
+                                        </li>                                    
+                                    </ul>
+
+                                    <div class="text">우수 마스터즈 혜택</div>
+                                    <ul class="list">
+                                        <li>어워드 시상 : 2022년 1월 중 홈페이지를 통해 발표 <span class="c-1">(2021년 4분기)</span></li>
+                                        <li>대상자 : <span class="c-2">우수 활동자 총 7명</span> 선정</li>
+                                        <li>기준 : 답변수, 채택수, 답변 내용 <span class="c-1">(활동기간 : 2021년 10/1~12/31)</span><br><span class="c-1">* 붙여넣기 답변 및 채택 강요의 글은 선정시 포함되지 않습니다.</span></li>
+                                        <li>백화점 상품권 5만원권등
+                                            <div class="btnarea" style="display: none;">
+                                                <a href="#" class="btn" data-toggle="modal" data-target="#modal-choice">우수 마스터즈 선정기준 살펴보기</a>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                    <div class="productarea" style="display: none;">
+                                        <div class="scr-m"><img src="//img.eduwill.net/resources/kin/dev/images/promotion/supporters_at/gov_200324/m/product.png" alt=""></div>
+                                        <div class="scr-pc"><img src="//img.eduwill.net/resources/kin/dev/images/promotion/supporters_at/gov_200324/pc/product.png" alt=""></div>
+                                    </div>
+
+                                    <!-- <div class="text">매월 미션완수자 혜택</div>
+                                    <ul class="list">
+                                        <li>시상 : 매월 초, 홈페이지를 통해 발표</li>
+                                        <li>기준 : 답변 미션(매주 15개 이상 답변) 성공자 중 5명 추첨</li>
+                                        <li>혜택 : 내공 10,000</li>
+                                    </ul> -->
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section section4">
+                <div class="inner-p">
+                    <dl>
+                        <dt>유의<br class="screen-only-pc">사항</dt>					
+                        <dd>서포터즈 관련 안내/공지는 메일,내소식,문자 등을 통해 전달할 예정입니다.</dd>
+                        <dd>활동이 없거나 부정한 방법으로 활동 할 경우 관리자에 의해 자격이 해지될 수 있습니다.</dd>
+                        <dd>경품은 내부 사정에 따라 사전 고지 없이 동등한 가치를 지닌 다른 상품으로 대체될 수 있음.</dd>
+                        <dd>경품은 회원정보 내 정보로 발송되니 회원정보(전화번호)를 꼭 확인해주세요.
+                            <div class="btnarea">
+                                <a href="//ea.eduwill.net/user/modifypwd.action?systemCd=KIN&amp;redirectUrl=//king.eduwill.net/promo/supporters4" target="_blank" class="btn">회원정보 수정</a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- 가이드팝업 : 관심질문설정 -->
+            <div id="modal-choice" class="modal modal-choice" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="modal-header">
+                            우수 마스터즈 선정기준
+                        </div>
+                        <div class="modal-body">
+                            <table class="tb">
+                                <colgroup>
+                                    <col width="55%">
+                                    <col width="45%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>대상자 선정조건</th>
+                                        <th>혜택</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="t1">최우수 지식마스터즈</div>
+                                            <div class="t2">
+                                                모든 미션(인터뷰,설문포함)을<br> 
+                                                가장 우수하게 이행한 회원 중<br>
+                                                합격생/수험생 각각 1명 선정
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t1">총 2명</div>
+                                            <div class="t2">라미 룩스 각인 만년필, 백화점 상품원 5만원권</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="t1">우수 지식마스터즈</div>
+                                            <div class="t2">
+                                                모든 미션(인터뷰,설문포함)을<br> 
+                                                우수하게 이행한 회원 중<br>
+                                                합격생/수험생 각각 2명 선정
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t1">총 4명</div>
+                                            <div class="t2">고속무선충전 우드 LED탁상 시계, 백화점 상품원 3만원권</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="t1">인터뷰 우수자</div>
+                                            <div class="t2">
+                                                인터뷰 내용이 우수한<br> 
+                                                회원 중 선정
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t1">총 2명</div>
+                                            <div class="t2">백화점 상품원 3만원권</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="t1">설문 우수자</div>
+                                            <div class="t2">
+                                                설문 내용이 우수한<br>
+                                                회원 중 선정
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="t1">총 2명</div>
+                                            <div class="t2">백화점 상품원 3만원권</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- //container -->
+
+    <div role="footer" data-include="../kin.before/include/footer_inc.html"></div><!-- include :: footer -->
+</body>
+
+</html>

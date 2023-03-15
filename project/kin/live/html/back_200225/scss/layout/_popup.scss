@@ -1,0 +1,557 @@
+//bootstrap modal reset
+.modal {
+    padding-left: 0 !important;
+    .modal-dialog {
+        .modal-content  {
+            padding: 0;
+            text-align: inherit;
+        }
+        &.modal-sm {
+            .modal-content {
+                padding: 20px;
+            }
+        }
+    }
+}
+@include mq(screen-mobile) {
+    .modal-dialog { 
+        margin: 0;
+    }
+}
+
+//popup
+.wrap-popup {
+    min-width: auto;
+    background: #fff;
+}
+.inner-popup {
+    padding: 30px;
+    text-align: left;
+    @include mq(screen-mobile) { 
+        padding: 20px 15px;
+    }
+    .title {
+        padding-bottom: 30px;
+        h1 {
+            @include font-size-color-weight(22px, $color-black, 500);
+        }
+        span {
+            display: block;
+            padding-top: 20px;
+            @include font-size-color-weight(16px, #b8b8b8, 400);
+            line-height: 18px;
+        }
+    }
+    .table {
+        border: solid 1px $color-gray-light;
+        tbody tr th {
+            background-color: $color-white;
+            border-bottom: solid 1px $color-gray-light;
+            @include font-size-color-weight(14px, $color-black-light, 500);
+            padding: 16px 0 0 30px;
+            text-align: left;
+            .indicator {
+                color: #ffc000;
+                padding-right: 6px;
+                margin-left: -15px;
+                position: relative;
+                top: 2px;
+            }
+        }
+        tbody tr td {
+            border-bottom: solid 1px $color-gray-light;
+            @include font-size-color-weight(14px, #666, 400);
+            height: 55px;
+            padding: 12px 40px 12px 0;
+            text-align: left;
+            @include mq(screen-mobile-sm) {
+                padding-right: 12px;
+            }
+            &.bg1 {
+                background: #fafafa;
+            }
+            label {
+                @include font-size-color-weight(13px, $color-black-light, 400);
+                margin-right: 20px;
+                padding: 7px 0;
+            }
+            input[type="radio"] {
+                vertical-align: top;
+                margin: 3px 5px 0 0;
+            }
+            input[type="checkbox"] {
+                vertical-align: top;
+                margin: 1px 7px 0 0;
+            }
+            input[type="text"].form-control {
+                border-color: #cdcdcd;
+                border-radius: 0;
+                height: 30px;
+                @include font-size-color-weight(13px, $color-black-light, 400);
+                @include placeholder-color(#cdcdcd);
+            }
+            textarea.form-control {
+                border-color: #cdcdcd;
+                border-radius: 0;
+                height: 136px;
+                @include font-size-color-weight(13px, $color-black-light, 400);
+                @include placeholder-color(#cdcdcd);
+            }
+            .input-group {
+                &-btn .btn {
+                    border-radius: 0;
+                    height: 30px;
+                    border-color: #cbcbcb;
+                    background-color: $color-white;
+                    @include font-size-color-weight(12px, $color-black-light, 500);
+                }
+            }
+        }
+    }
+    .area-btn {
+        margin-top: 20px;
+        text-align: center;
+        a {
+            margin-left: 4px;
+            padding: 0 20px;
+            height: 38px;
+            line-height: 36px;
+            font-size: 14px;
+        }
+    }
+    .tab-link {
+        margin-bottom: 30px;
+        @include tab();
+        li {
+            border: solid 1px #ebeef3;
+            border-bottom-color: #6f6f6f;
+            &:first-child {
+                border-left: solid 1px #ebeef3;
+                border-bottom: solid 1px #6f6f6f;
+            }
+            &.active {
+                border-color: #6f6f6f;
+                border-bottom-color: #fff;
+            }
+            a {
+                height: 40px;
+                line-height: 40px;
+                @include font-size-color-weight(14px, #b8bfce, 400);
+                u {
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+    .wordlist {
+        border: solid 1px $color-gray-light;
+        padding: 25px 20px;
+        background-color: #fafafa;
+        @include clearfix();
+        @include mq(screen-mobile-sm) {
+            padding: 15px 20px;
+        }
+        li {
+            @include font-size-color-weight(14px, $color-blue, 400);
+            float: left;
+            margin-right: 34px;
+            padding: 5px 0;
+            line-height: 1.5;
+            .delete {
+                @include buttonReset();
+                @include irReset();
+                width: 10px;
+                height: 10px;
+                @include background-name-ext-repeat-poistion(btn_close, png, no-repeat, 0 0);
+                background-size: 100%;
+                margin: 3px 0 0 8px;
+            }
+        }
+    }
+}
+
+//popup - 고객의견
+.popup-customer {
+    .checks {
+        margin-top: 20px;
+        input[type="checkbox"] + label {
+            font-size: 14px;
+        }
+        .btn-agree {
+            @include font-size-color-weight(12px, $color-blue, 400);
+            display: inline-block;
+            margin-top: 7px;
+            margin-left: 25px;
+        }
+    }
+}
+
+//popup - 관심질문설정
+.popup-interest {
+    .tab-pane {
+        min-height: 350px;
+    }
+    .text1 {
+        padding-bottom: 7px;
+        span {
+            @include font-size-color-weight(14px, #666, 400);
+        }
+        u {
+            @include font-size-color-weight(14px, $color-blue, 400);
+        }
+        .btn-delete {
+            @include buttonReset();
+            @include font-size-color-weight(12px, #999, 400);
+            margin-left: 10px;
+        }
+    }
+    .text2 {
+        padding-top: 30px;
+        padding-bottom: 7px;
+        span {
+            @include font-size-color-weight(13px, #999, 400);
+        }
+    }
+    @include mq(screen-mobile) { 
+        .tab-link {
+            display: none;
+        }
+        .table {
+            colgroup {
+                display: none;
+            }
+            tbody tr th {
+                display: block;
+                width: 100%;
+                padding-left: 20px;
+                border: none;
+            }
+            tbody tr td {
+                display: block;
+                width: 100%;
+                padding: 5px 20px 16px;
+                border: none;
+                height: auto;
+            }
+        }
+    }
+}
+
+//popup - 게시물신고
+.popup-report {
+    .subject {
+        border: solid 1px $color-gray-light;
+        background-color: #fafafa;
+        padding: 20px 20px 20px 130px;
+        position: relative;
+        dt {
+            @include font-size-color-weight(14px, $color-black-light, 400);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        dd.t1 {
+            @include font-size-color-weight(14px, $color-black-light, 400);
+        }
+        dd.t2 {
+            @include font-size-color-weight(12px, #999, 400);
+            padding-top: 5px;
+            em {
+                color: $color-blue;
+            }
+        }
+        @include mq(screen-mobile) {
+            padding-left: 20px;
+            dt {
+                position: static;
+                padding-bottom:8px;
+            }
+        }
+    }
+    .text {
+        padding: 30px 0 20px;
+        line-height: 1.4;
+        strong {
+            @include font-size-color-weight(18px, $color-black-light, 400);
+            display: block;
+            padding-bottom: 5px;
+        }
+        span {
+            @include font-size-color-weight(13px, $color-black-light, 400);
+            margin-right: 10px;
+        }
+        .btn {
+            @include buttonReset();
+            @include font-size-color-weight(12px, $color-blue, 400);
+            margin-top: 1px;
+        }
+    }
+    .table {
+        tr.item-q {
+            td {
+                text-align: left;
+                padding: 12px 20px;
+                position: relative;
+                .btn-close {
+                    @include buttonReset();
+                    @include irReset();
+                    width: 14px;
+                    height: 7px;
+                    position: absolute;
+                    top: 50%;
+                    right: 30px;
+                    margin-top: -3px;
+                    @include background-name-ext-repeat-poistion(icon_toggle_down, png, no-repeat, 0 0);
+                    background-size: 100%;
+                    @include mq(screen-mobile-sm) {
+                        right: 15px;
+                    }
+                }
+            }
+            &.in .btn-close {
+                @include background-name-ext-repeat-poistion(icon_toggle_up, png, no-repeat, 0 0);
+            }
+        }
+        tr.item-a {
+            display: none;
+            &.in {
+                display: table-row;
+            }
+            td {
+                background-color: #fafafa;
+                padding: 15px 40px;
+                @include font-size-color-weight(13px, #666, 400);
+                line-height: 22px;
+            }
+        }
+    }
+    .info {
+        margin-top: 20px;
+        background-color: #eff2f7;
+        padding: 20px 20px 20px 150px;
+        position: relative;
+        dt {
+            @include font-size-color-weight(14px, #ff6c50, 400);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        dd{
+            @include font-size-color-weight(13px, $color-gray, 400);
+            line-height: 20px;
+        }
+        @include mq(screen-mobile) {
+            padding-left: 20px;
+            dt {
+                position: static;
+                padding-bottom:8px;
+            }
+        }
+    }
+}
+
+//popup - 내소식
+.popup-news {
+    padding: 0 0 20px;
+    background-color: #f3f4f7;
+    min-height: 100vh;
+    .close {
+        top: 15px !important;
+        right: 15px !important;
+    }
+    .title {
+        padding: 15px 50px 10px 15px;
+        background-color: $color-white;
+        @include clearfix();
+        h1 {
+            font-size: 18px;
+            display: inline-block;
+        }
+        span {
+            display: inline-block;
+            @include font-size-color-weight(13px, #666, 400);
+            padding: 0 0 0 10px;
+        }
+        
+        .col-left {
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+        .col-right button {
+            margin-left: 2px;
+            padding: 0 13px;
+            height: 29px;
+            line-height: 27px;
+            font-size: 13px;
+            &.btn-reset {
+                @include irReset();
+                @include background-name-ext-repeat-poistion(icon_reset, png, no-repeat, 50% 50%);
+                padding: 0;
+                width: 29px;
+            }
+        }
+        @include mq(screen-mobile) { 
+            .col-left,
+            .col-right {
+                float: none;
+            }
+        }
+    }
+    .contents {
+        .list {
+            padding: 15px 15px 10px 15px;
+            margin-bottom: 15px;
+            //max-height: 574px;
+            //overflow-y: auto;
+            @include mq(screen-mobile) { 
+                max-height: none;
+            }
+            li {
+                background-color: #ebedf1;
+                border: solid 1px #ebedf1;
+                border-radius: 5px;
+                padding: 15px 20px;
+                margin-top: 7px;
+                position: relative;
+                &:first-child {
+                    margin-top: 0;
+                }
+                .text1 {
+                    @include font-size-color-weight(15px, #757a8b, 400);
+                    line-height: 1.3;
+                }
+                .text2 {
+                    @include font-size-color-weight(15px, #757a8b, 400);
+                    padding-top: 8px;
+                }
+                .text3 {
+                    @include font-size-color-weight(12px, #989dab, 400);
+                    position: absolute;
+                    bottom:16px;
+                    right: 36px;
+                    @include mq(screen-mobile) { 
+                        position: static;
+                        padding-top: 10px;
+                    }
+                }
+                .btn-delete {
+                    @include buttonReset();
+                    @include irReset();
+                    font-size: 0;
+                    opacity: 1;
+                    width: 9px;
+                    height: 9px;
+                    @include background-name-ext-repeat-poistion(btn_close, png, no-repeat, 0 0);
+                    background-size: 100%;
+                    float: none;
+                    position: absolute;
+                    bottom: 17px;
+                    right: 18px;
+                }
+                &.in {
+                    border-color: #c7cbd8;
+                    background-color: $color-white;
+                    .text1 {
+                        color: #111;
+                        u {
+                            color: #999;
+                        }
+                    }
+                    .text2 {
+                        color: #999;
+                        u {
+                            color: $color-blue;
+                        }
+                    }
+                }
+                .link-text {
+                    @include font-size-color-weight(14px, $color-text2 , 400);
+                    text-decoration: none;
+                    .t1 {
+                        color: $color-black;
+                        display: block;
+                        @include ellipsis();
+                        margin-bottom: 8px;
+                        & + br {
+                            display: none;
+                        }
+                    }
+                    .t2 {
+                        color: $color-point;
+                        font {
+                            color: $color-point !important;
+                        }
+                    }
+                    .t3 {
+                        
+                    }
+                    .t4 {
+                        color: $color-point;
+                        font {
+                            color: $color-point !important;
+                        }
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .area-btn {
+            text-align: center;
+            margin: 0;
+            .btn-more {
+                height: 36px;
+                line-height: 34px;
+                font-size: 15px;
+                padding: 0 30px;
+            }
+        }
+    }
+
+}
+
+.footer-qust {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;    
+    height: 0;
+    &-btn {
+        position: absolute;
+        left: 313px;
+        top: 20px;
+        @include font-size-color-weight(14px, #000, 400);
+        
+        position: relative;
+        &:focus, &:hover {
+            text-decoration: none;
+            color: #000;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            display: block;
+            width: 1px;
+            height: 10px;
+            margin-top: -6px;
+            background-color: #c7c7c7;
+        }
+    }
+    @media screen and (min-width: 1100px) {
+        width: 1100px;
+        a {
+            left: 347px;
+        }
+    }
+    @media screen and (min-width: 1280px) {
+        width: 1280px;
+        a {
+            left: 294px;
+        }
+    }
+    @include mq(screen-mobile) { 
+        &-btn {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>에지인 2.0</title>
+
+    <!-- favicon setting-->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="//img.eduwill.net/resources/kin/dev/html/link_icon_ios_114.png" />
+    <link rel="icon" type="image/png" href="//img.eduwill.net/resources/kin/dev/html/link_icon_and.png" sizes="192x192"/>
+    <link rel="shortcut icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+
+    <!-- css -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/web.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';</script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+    <script src="../js/custom.js"></script>
+
+    <!-- Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".item-utility-list button").on("click", function(){
+
+                $(this).addClass("active").siblings("button").removeClass("active")
+                var dataType = $(this).data("list");
+                if(dataType == "card") {
+                    $(".item-list-card").show().siblings("ul").hide()
+                } else if(dataType == "simple") {
+                    $(".item-list-simple").show().siblings("ul").hide()
+                }
+            })
+        });
+        $(window).load(function(){
+            //$("#modal-quiz").modal("show");
+            
+        })
+    </script>
+
+</head>
+<body>
+    <div role="header" data-include="include/header_inc.html"></div><!-- include :: header -->   
+
+    <div id="container" role="sub">
+        <div class="wrap">
+            <div class="wrap-inner">
+                <div class="col-left">
+                    <div class="section-title">
+                        지식톡톡
+                    </div>
+                    <div class="board-list-nav">
+                        <ul class="d1">
+                            <li class="d1">
+                                <a href="#">전체질문</a>
+                            </li>
+                            <li class="d1">
+                                <a href="#">일반질문</a>
+                                <ul class="d2">
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                    <li class="d2"><a href="#">TEXT</a></li>
+                                </ul>
+                            </li>
+                            <li class="d1 on">
+                                <a href="#">실전톡톡</a>
+                                <ul class="d2">
+                                    <li class="d2 on"><a href="#">추가 자격증 취득</a></li>
+                                    <li class="d2"><a href="#">취업/진로</a></li>
+                                    <li class="d2"><a href="#">실무</a></li>
+                                    <li class="d2"><a href="#">자유수다</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-right">
+                    <div class="item-talk">
+                        <a href=""><img src="//img.eduwill.net/resources/kin/kin_2.0/images/banner/banner-talk.png"></a>
+                    </div>
+                    <div class="board-list-item">
+                        <div class="item-utility">
+                            <div class="item-utility-list">
+                                <button class="btn btn-link btn-list-card active" data-list="card"></button>
+                                <button class="btn btn-link btn-list-simple" data-list="simple"></button>
+                            </div>
+                            <div class="item-utility-select">
+                                <select class="form-control">
+                                    <option>10개씩 보기</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="item-solt">
+                            <button class="btn btn-link active">최신순</button> 
+                            <button class="btn btn-link">답변적은순</button>
+                            <button class="btn btn-link">내공높은순</button>
+                        </div>
+
+                        <div class="item-list">
+                            <ul class="item-list-card">
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                    </div>
+                                    <div class="text">
+                                        <a href="#">9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이 너무 오래 걸려서 걱정이 많네요. 국어 한국사에서 시간 줄여서 영어에 써야 한다는데 저는 영어 만큼은 아니더라도 국어도 시간이 부족합니다 그래서 한국사랑 전공 2과목에서 시간을 줄어야 하는데  전기이론하고 전기기기를 몇분</a>
+                                    </div>                                    
+                                    <div class="item-list-tag">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">9급</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">전기 문제풀이방법</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">시험방법</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="utility utility-1">
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-answer-text"></i>답변 <em class="count">10</em></button>
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-comment-b"></i>댓글 99+</button>
+                                        <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#collapseShare1"><i class="icon icon-sharing"></i>공유</button>
+                                        <div class="share-box collapse" id="collapseShare1" >
+                                            <div class="box">
+                                                <p>지식인 글을 SNS에 공유해보세요</p>
+                                                <ul>
+                                                    <li><a href="#" onclick="fnSnsShare('facebook'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_facebook.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('kakao_talk'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaotalk.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('kakao_story'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaostory.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('twitter'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_twitter.png"></a></li>
+                                                    <li>
+                                                        <a href="#" onclick="fnSnsShare('url_copy'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_url.png"></a>
+                                                        <div id="divCurUrl" class="alert divCurUrl" style="display: none;">
+                                                            <button type="button" class="close" onclick="$(this).parent().hide();"><span>닫기</span></button>
+                                                            <p class="text-center">주소가 복사되었습니다.<br>원하는 곳에<br>붙여넣기 (Ctrl + V) 해 주세요.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-scrap-disabled"></i>스크랩</i></button>
+                                    </div>
+                                    <div class="utility utility-2">
+                                        <div class="grade">
+                                            <i class="icon icon-grade"></i><i class="icon icon-grade"></i><i class="icon icon-grade"></i>
+                                            <span>500</span>
+                                        </div>
+                                        <button type="button" class="btn btn-xs btn-icon btn-square btn-more" id="dropdownUtility-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon icon-more"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownUtility-1">
+                                            <ul>
+                                                <li><a href="#">수정</a></li>
+                                                <li><a href="#">삭제</a></li>
+                                                <li><a href="#">질문마감</a></li>
+                                                <li><a href="#">신고</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <span class="dark">비공개</span>
+                                        <span>2시간 전</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                    </div>
+                                    <div class="text">
+                                        <a href="#">9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이 너무 오래 걸려서 걱정이 많네요. 국어 한국사에서 시간 줄여서 영어에 써야 한다는데 저는 영어 만큼은 아니더라도 국어도 시간이 부족합니다 그래서 한국사랑 전공 2과목에서 시간을 줄어야 하는데  전기이론하고 전기기기를 몇분</a>
+                                    </div>                                    
+                                    <div class="item-list-tag">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">9급</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">전기 문제풀이방법</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="tag">#</span>
+                                                    <span class="txt">시험방법</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="utility utility-1">
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-answer-text"></i>답변 <em class="count">10</em></button>
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-comment-b"></i>댓글 99+</button>
+                                        <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#collapseShare2"><i class="icon icon-sharing"></i>공유</button>
+                                        <div class="share-box collapse" id="collapseShare2" >
+                                            <div class="box">
+                                                <p>지식인 글을 SNS에 공유해보세요</p>
+                                                <ul>
+                                                    <li><a href="#" onclick="fnSnsShare('facebook'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_facebook.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('kakao_talk'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaotalk.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('kakao_story'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaostory.png"></a></li>
+                                                    <li><a href="#" onclick="fnSnsShare('twitter'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_twitter.png"></a></li>
+                                                    <li>
+                                                        <a href="#" onclick="fnSnsShare('url_copy'); return false;"><img src="//img.eduwill.net/resources/kin/dev/images/icon/icon_url.png"></a>
+                                                        <div id="divCurUrl" class="alert divCurUrl" style="display: none;">
+                                                            <button type="button" class="close" onclick="$(this).parent().hide();"><span>닫기</span></button>
+                                                            <p class="text-center">주소가 복사되었습니다.<br>원하는 곳에<br>붙여넣기 (Ctrl + V) 해 주세요.</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-xs btn-default"><i class="icon icon-scrap"></i>스크랩</i></button>                                        
+                                    </div>
+                                    <div class="utility utility-2">
+                                        <div class="grade">
+                                            <i class="icon icon-grade"></i><i class="icon icon-grade"></i><i class="icon icon-grade"></i>
+                                            <span>500</span>
+                                        </div>
+                                        <button type="button" class="btn btn-xs btn-icon btn-square btn-more" id="dropdownUtility-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon icon-more"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownUtility-2">
+                                            <ul>
+                                                <li><a href="#">수정</a></li>
+                                                <li><a href="#">삭제</a></li>
+                                                <li><a href="#">질문마감</a></li>
+                                                <li><a href="#">신고</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <span class="dark">비공개</span>
+                                        <span>2시간 전</span>
+                                    </div>
+                                    
+                                </li>
+                            </ul>
+                            <ul class="item-list-simple" style="display: none;">
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                    <div class="utility utility-2">
+                                        <div class="grade">
+                                            <i class="icon icon-grade"></i><i class="icon icon-grade"></i><i class="icon icon-grade"></i>
+                                            <span>500</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                    <div class="utility utility-2">
+                                        <div class="grade">
+                                            <i class="icon icon-grade"></i><i class="icon icon-grade"></i><i class="icon icon-grade"></i>
+                                            <span>500</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                    <div class="utility utility-2">
+                                        <div class="grade">
+                                            <i class="icon icon-grade"></i><i class="icon icon-grade"></i><i class="icon icon-grade"></i>
+                                            <span>500</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="subject">
+                                        <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요 전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                                        <span class="answer"><i class="icon icon-answer-text-light"></i>10</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="item-pagination">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">«</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">»</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div role="footer" data-include="include/footer_inc.html"></div><!-- include :: footer -->    
+
+</body>
+</html>
