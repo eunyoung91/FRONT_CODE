@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<title>도서주문 관리 시스템</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content=""/>
+
+		<link rel="shortcut icon" href="//img.eduwill.net/resources/kpi/live/images/favicon.ico" type="image/x-icon">
+
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic">
+		<link rel="stylesheet" type="text/css" href="../css/font.css">
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/table-style.css" />
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"> 
+
+		<script src="../js/jquery2.0.3.min.js"></script>
+		<script src="../js/modernizr.js"></script>
+		<script src="../js/jquery.cookie.js"></script>
+		<script src="../js/screenfull.js"></script>
+		
+
+</head>
+<body class="dashboard-page">
+
+	<section class="wrapper scrollable">
+
+		<!-- title-bar -->
+		<section class="title-bar">
+			<div class="logo">
+				<h1>
+					<a href="index.html">
+						<img src="//img.eduwill.net/resources/common/web/images/gnb/logo.png" alt="" />
+						<span>도서주문 관리 시스템</span>
+					</a>
+				</h1>
+			</div>
+
+			<div class="header-right">				
+				<a data-toggle="collapse" href="#collapseSidemenu" class="btn-collapse">영풍문고(본점) / 논현동 <i class="fa fa-chevron-circle-down"></i></a> 
+				<div class="collapse list-collapse" id="collapseSidemenu">
+					<ul>
+						<li><a href="0001.로그인.html">로그아웃</a></li>
+						<li><a href="0003.비밀번호변경.html">비밀번호 변경</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- //title-bar -->
+
+		<section class="menu-bar">
+			<a href="#" class="btn-mobileNav" onclick="$('.menu-bar').toggleClass('open')"><span></span></a>
+			<ul>
+				<li class="active"><a href="0301.주문등록.html">주문등록</a></li>
+				<li class=""><a href="0401.반품요청등록.html">반품요청등록</a></li>
+				<li class=""><a href="0201.주문반품요청현황.html">주문/반품 요청 현황</a></li>				
+				<li class=""><a href="0501.주문반품요청상세현황.html">주문/반품요청 상세현황</a></li>
+				<li class=""><a href="0601.거래원장.매출처.html">거래원장(매출처)</a></li>
+				<li class=""><a href="0701.거래원장.유통지점.html">거래원장(유통지점)</a></li>
+				<li class=""><a href="0101.공지사항_list.html">공지사항</a></li>
+			</ul>
+		</section>
+
+		<!-- main-grid -->
+		<div class="main-grid">
+			<div class="agile-grids">	
+				<div class="">
+					<div class="row">
+						<div class="col-lg-6 form-search form-inline">
+							<h4 class="weight-700">나의 주문신청 품목</h4>
+						</div>
+						<div class="col-lg-6 form-search form-inline">
+							<div class="text-right w-full"><button class="btn btn-primary">신규 주문등록</button></div>
+						</div>
+					</div>
+				</div>				
+
+				<div class="form-search form-inline">
+					<span>요청일자</span>
+					<div class="datebox">
+						<input class="datepicker" disabled value="2020-06-09">
+					</div>
+
+					<span>주문번호</span>
+					<input type="text" required="" class="width-200 text-center" disabled value="23202">
+				</div>
+
+				<div class="table-layout">
+					<table>
+						<thead>
+							<tr class="sm">
+								<th colspan="10"></th>
+								<th colspan="2" class="y">승인</th>
+								<th colspan="2"></th>
+							</tr>
+							<tr>
+								<th>No</th>
+								<th>도서코드</th>
+								<th>품명</th>
+								<th>ISBN</th>
+								<th>도서상태</th>
+								<th>정가</th>
+								<th>공급율(%)</th>
+								<th>수량</th>
+								<th>금액</th>
+								<th>증정요청</th>
+								<th>수량</th>
+								<th>금액</th>
+								<th>승인상태</th>
+								<th>비고</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-cell-header="No">25</td>
+								<td data-cell-header="도서코드">1121312</td>
+								<td data-cell-header="품명" class="text-left">2020 에듀윌 공인중개사 1차 기본서</td>
+								<td data-cell-header="ISBN">123145252525</td>
+								<td data-cell-header="도서상태">정상거래</td>
+								<td data-cell-header="정가" class="text-right">10,000</td>
+								<td data-cell-header="공급율(%)">40%</td>
+								<td data-cell-header="수량">1</td>
+								<td data-cell-header="금액" class="text-right">10,000</td>
+								<td data-cell-header="증정요청"><input type="checkbox"></td>
+								<td data-cell-header="수량" data-cell-depth="(승인)" class="cell-depth">1</td>
+								<td data-cell-header="금액" class="text-right">10,000</td>
+								<td data-cell-header="승인상태">승인</td>
+								<td data-cell-header="비고"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="text-center size-20 margin-top-30">
+					<span>총 주문 수량 : 6</span>
+					<span class="margin-left-50">총 주문금액: 60,000</span>
+				</div>
+
+				<div class="text-right margin-top-30">
+					<button class="btn btn-success" onclick=" location.href='0201.주문반품요청현황.html' ">
+						<i class="fa fa-list" aria-hidden="true"></i> 목록
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- //main-grid -->
+
+		<!-- footer -->
+		<div class="footer">
+			<p>Copyright © (주)에듀윌 Corp. All rights reserved.</p>
+		</div>
+		<!-- //footer -->
+
+	</section>
+	<!-- //wrapper -->
+
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/proton.js"></script>
+	<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script>
+		$.fn.datepicker.dates['kr'] = {
+			days: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+			daysShort: ["일", "월", "화", "수", "목", "금", "토"],
+			daysMin: ["일", "월", "화", "수", "목", "금", "토"],
+			months: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+			monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+			today: "오늘",
+			clear: "Clear",
+			format: "yyyy-mm-dd",
+			titleFormat: "yyyy년 MM월", 
+			weekStart: 0
+		};
+
+		$(document).ready(function () {
+			$('.datepicker').datepicker({
+				language: "kr"
+				, autoclose: true
+			});	
+		});	
+	</script>
+</body>
+</html>

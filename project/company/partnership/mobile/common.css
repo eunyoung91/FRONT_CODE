@@ -1,0 +1,3420 @@
+@charset "UTF-8";
+/**************************************************
+ * BASE | FONT
+ **************************************************/
+/* @font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 400;
+    src: url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff2") format("woff2"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff") format("woff"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 500;
+    src: url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Medium.woff2") format("woff2"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Medium.woff") format("woff"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Spoqa Han Sans Neo";
+    font-weight: 700;
+    src: url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff2") format("woff2"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff") format("woff"), url("./../font/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Eduwill Pass";
+    font-weight: 400;
+    src: url("./../font/EduwillPass/EduwillPass-Regular.woff") format("woff"), url("./../font/EduwillPass/EduwillPass-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Eduwill Pass";
+    font-weight: 700;
+    src: url("./../font/EduwillPass/EduwillPass-Bold.woff") format("woff"), url("./../font/EduwillPass/EduwillPass-Bold.ttf") format("truetype");
+} */
+
+/**************************************************
+ * BASE | RESET
+ **************************************************/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    color: #222;
+    font-family: Spoqa Han Sans, Apple SD Gothic Neo, '돋움', Dotum, Verdana, Arial, sans-serif;
+    line-height: 1.5;
+    letter-spacing: -.5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+b {
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+}
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+dl, dd {
+    margin: 0;
+}
+
+button, input, select, textarea {
+    border-radius: 0;
+    color: inherit;
+    font: inherit;
+}
+
+textarea {
+    overflow: auto;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th, td {
+    padding: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+legend {
+    padding: 0;
+}
+
+pre {
+    margin: 0;
+    font: inherit;
+}
+
+/**************************************************
+ * COMPONENT | BTN
+ **************************************************/
+.lg-btn {
+    display: inline-flex;
+    align-items: center;
+    height: 70px;
+    padding: 0 24px;
+    border: 1px solid #222;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color .3s ease,
+ background-color .3s ease,
+ color .3s ease;
+}
+
+.lg-btn i {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 0;
+}
+
+.lg-btn i svg path {
+    transition: fill .3s ease;
+}
+
+.lg-btn[disabled] {
+    border-color: #eee;
+    background-color: #eee;
+    color: #888;
+    cursor: default;
+}
+
+.lg-btn[disabled] i svg path {
+    fill: #bbb;
+}
+
+/**************************************************
+ * COMPONENT | FORM
+ **************************************************/
+.form-text,
+.form-textarea,
+.form-select {
+    border-radius: 6px;
+    border: 1px solid #eee;
+    background-color: #fffdf5;
+    color: #333;
+    font-size: 14px;
+    vertical-align: top;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    transition: border-color .3s ease,
+ background-color .3s ease;
+}
+
+.form-text:focus,
+.form-textarea:focus,
+.form-select:focus {
+    border-color: #222;
+    background-color: #fff;
+}
+
+.form-text[disabled],
+.form-textarea[disabled],
+.form-select[disabled] {
+    color: #bbb;
+}
+
+.form-text::-webkit-input-placeholder,
+.form-textarea::-webkit-input-placeholder {
+    color: #bbb;
+}
+
+.form-text::-moz-placeholder,
+.form-textarea::-moz-placeholder {
+    color: #bbb;
+}
+
+.form-text:-ms-input-placeholder,
+.form-textarea:-ms-input-placeholder {
+    color: #bbb;
+}
+
+.form-text:-moz-placeholder,
+.form-textarea:-moz-placeholder {
+    color: #bbb;
+}
+
+.form-text {
+    display: inline-block;
+    height: 40px;
+    padding: 0 16px;
+}
+
+.form-text::-ms-clear {
+    display: none;
+}
+
+.form-text::-ms-reveal {
+    display: none;
+}
+
+.form-text::-webkit-search-decoration, .form-text::-webkit-search-cancel-button, .form-text::-webkit-search-results-button, .form-text::-webkit-search-results-decoration {
+    display: none;
+}
+
+.form-textarea {
+    display: block;
+    overflow-y: auto;
+    width: 100%;
+    padding: 16px 16px;
+    line-height: 1.5;
+    resize: none;
+}
+
+.form-select {
+    display: inline-block;
+    height: 40px;
+    padding: 0 calc(16px + 14px + 16px) 0 16px;
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/form_select_chevron.svg);
+    background-repeat: no-repeat;
+    background-position: top 50% right 12px;
+}
+
+.form-select::-ms-expand {
+    display: none;
+}
+
+.form-checkbox,
+.form-radio {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form-checkbox input,
+.form-radio input {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: none;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+}
+
+.form-checkbox input + span,
+.form-radio input + span {
+    display: block;
+    position: relative;
+    padding-left: calc(24px + 2px);
+    color: #333;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.form-checkbox input + span:before,
+.form-radio input + span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: auto 24px;
+}
+
+.form-checkbox input:checked + span:before,
+.form-radio input:checked + span:before {
+    background-position: -24px 0;
+}
+
+.form-checkbox input[disabled] + span:before,
+.form-radio input[disabled] + span:before {
+    background-position: -48px 0;
+}
+
+.form-checkbox input:checked[disabled] + span:before,
+.form-radio input:checked[disabled] + span:before {
+    background-position: -72px 0;
+}
+
+.form-checkbox input + span:before {
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/form_checkbox.svg);
+}
+
+.form-radio input + span:before {
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/form_radio.svg);
+}
+
+.form-group > ul > li {
+    margin-top: 8px;
+}
+
+.form-group > ul > li:first-child {
+    margin-top: 0;
+}
+
+.form-group > .form-checkbox + .form-checkbox,
+.form-group > .form-radio + .form-radio {
+    margin-left: 48px;
+}
+
+.form-file {
+    display: inline-block;
+    position: relative;
+    padding-right: 40px;
+    vertical-align: top;
+}
+
+.form-file .form-filename {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 6px 0 0 6px;
+    border: solid #eee;
+    border-width: 1px 0 1px 1px;
+    background-color: #fffdf5;
+}
+
+.form-file .form-filename > span {
+    display: inline-block;
+    overflow: hidden;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.form-file .form-btn {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 0 6px 6px 0;
+    border: 1px solid #eee;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 18px 18px;
+    background-color: #fff;
+    white-space: nowrap;
+    text-indent: 100%;
+    cursor: pointer;
+}
+
+.form-file .form-trigger {
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/form_file_add.svg);
+}
+
+.form-file .form-trigger input {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: none;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+}
+
+.form-file .form-clear {
+    display: none;
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/form_file_clear.svg);
+}
+
+.form-file.changed .form-trigger {
+    display: none;
+}
+
+.form-file.changed .form-clear {
+    display: block;
+}
+
+/**************************************************
+ * COMPONENT | MODAL
+ **************************************************/
+.modal {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0; */
+    z-index: 1020;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0); */
+    transition: visibility .6s linear,
+ background-color .6s ease;
+}
+
+.modal_container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 32px 24px;
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity .6s ease,
+ transform .6s ease; */
+}
+
+.modal_content {
+    /* overflow-y: auto; */
+    width: 100%;
+    /* max-width: 728px;
+    max-height: 100%; */
+    background-color: #fff;
+}
+
+.modal_header {
+    position: relative;
+    padding: 20px 60px 4px 24px;
+}
+
+.modal_header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal_header .modal-close {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_close.svg) no-repeat 50% 50%/32px 32px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.modal_body {
+    padding: 24px 24px;
+}
+
+.modal_footer {
+    padding: 16px 24px 24px;
+}
+
+.modal_footer .btn-area {
+    display: flex;
+}
+
+.modal_footer .btn-area .lg-btn {
+    width: 100%;
+}
+
+.modal.visible {
+    visibility: visible;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+}
+
+.modal.visible .modal_container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/**************************************************
+ * COMPONENT | TABLE
+ **************************************************/
+.table table {
+    width: 100%;
+    border: solid #dcd8c0;
+    border-width: 1px 0;
+}
+
+.table table th,
+.table table td {
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table table thead th {
+    border-bottom: 1px solid #dcd8c0;
+    background-color: #fcf9ea;
+}
+
+.table table tbody td {
+    background-color: #fff;
+    color: #888;
+}
+
+.table.responsive {
+    overflow-x: auto;
+}
+
+.table.responsive table {
+    table-layout: auto;
+    white-space: nowrap;
+}
+
+.table + p {
+    margin-top: 16px;
+}
+
+/**************************************************
+ * COMPONENT | PAGINATION
+ **************************************************/
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination .extend,
+.pagination .page {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.pagination .extend {
+    overflow: hidden;
+    background-image: url(https://company.eduwill.net/assets/mobile/img/common/pagination.svg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: auto 40px;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.pagination .extend.prev {
+    margin-right: 14px;
+    background-position-x: 0;
+}
+
+.pagination .extend.next {
+    margin-left: 14px;
+    background-position-x: -40px;
+}
+
+.pagination span.extend {
+    opacity: .38;
+}
+
+.pagination .page {
+    margin: 0 2px;
+    padding-bottom: 2px;
+    color: #ccc;
+    font-size: 18px;
+}
+
+.pagination .page.current {
+    border-radius: 50%;
+    background-color: #fcc300;
+    color: inherit;
+    font-weight: 700;
+}
+
+/**************************************************
+ * COMPONENT | POPUP
+ **************************************************/
+.popup {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1010;
+    width: calc(100% - 76px);
+    max-width: 728px;
+    border-radius: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+    transform: translate(-50%, -50%);
+}
+
+.popup_slider {
+    position: relative;
+}
+
+.popup_slider img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.popup_nav > button {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    padding: 0;
+    border: none;
+    white-space: nowrap;
+    text-indent: 100%;
+    cursor: pointer;
+}
+
+.popup_nav .prev {
+    left: 0;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/popup_btn_prev.png) no-repeat 50% 50%/40px 40px transparent;
+}
+
+.popup_nav .next {
+    right: 0;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/popup_btn_next.png) no-repeat 50% 50%/40px 40px transparent;
+}
+
+.popup_counter {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    z-index: 1;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 13px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transform: translateX(-50%);
+}
+
+.popup_counter > span {
+    font-size: 14px;
+}
+
+.popup_counter .current {
+    font-weight: 700;
+}
+
+.popup_counter .bar {
+    width: 1px;
+    height: 10px;
+    margin: 0 6px;
+    background-color: #fff;
+}
+
+.popup_footer {
+    display: flex;
+}
+
+.popup_footer button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    padding: 0 0 1px 0;
+    border: none;
+    background-color: #fff;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.popup_footer button:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 16px;
+    margin-top: -8px;
+    background-color: #eee;
+}
+
+.popup_footer button:first-child:before {
+    display: none;
+}
+
+.popup_footer .popup-close-today {
+    color: #888;
+}
+
+/**************************************************
+ * LAYOUT | HEADER
+ **************************************************/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #fff;
+}
+
+.header_inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding: 0 20px;
+}
+
+.header h1 a {
+    display: block;
+    transform-origin: 0 0;
+    transition: transform 1s cubic-bezier(0.76, 0, 0.36, 1);
+}
+
+.header .phrase {
+    margin-left: 8px;
+    transition: opacity .3s ease .9s;
+}
+
+.header .phrase img {
+    display: block;
+    width: auto;
+    height: 24px;
+}
+
+.header .aside-open {
+    display: inline-block;
+    overflow: hidden;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: -6px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_hamburger.svg) no-repeat 50% 50%/32px 32px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.header.large-logo h1 a {
+    transform: translateY(96px) scale(4.1944);
+    pointer-events: none;
+}
+
+.header.large-logo .phrase {
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.sub-header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 64px;
+    padding: 0 20px;
+    background-color: #fff;
+}
+
+.sub-header .back {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    left: 14px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_back.svg) no-repeat 50% 50%/32px 32px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.sub-header ~ .main .contents_body {
+    padding-top: 40px;
+}
+
+/**************************************************
+ * LAYOUT | ASIDE
+ **************************************************/
+.aside {
+    visibility: hidden;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    transition: visibility .6s linear,
+ background-color .6s ease;
+}
+
+.aside_container {
+    position: absolute;
+    top: 0;
+    right: -312px;
+    width: 312px;
+    height: 100%;
+    background-color: #fff;
+    transition: right 0.6s cubic-bezier(0.76, 0, 0.36, 1);
+}
+
+.aside_header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 0 24px;
+    border-bottom: 1px solid #eee;
+}
+
+.aside_header .logo {
+    font-size: 0;
+}
+
+.aside_header .aside-close {
+    display: inline-block;
+    overflow: hidden;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    margin-right: -6px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_close.svg) no-repeat 50% 50%/32px 32px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.aside_body {
+    overflow-y: auto;
+    height: calc(100% - 65px - 67px);
+    padding: 27px 0 28px;
+}
+
+.aside_footer {
+    display: flex;
+    border-top: 3px solid #eee;
+}
+
+.aside_footer .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding: 0 24px;
+    color: #888;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.aside_footer .link.out:after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/aside_out_link.svg) no-repeat 0 0/100% 100%;
+}
+
+.aside_footer .link + .link {
+    border-left: 1px solid #eee;
+}
+
+.gnb {
+    width: 100%;
+}
+
+.gnb > ul > li > .link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 64px;
+    padding: 0 56px 0 24px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.gnb > ul > li > .link.has:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/gnb_chevron.svg) no-repeat 0 0/auto 24px;
+}
+
+.gnb > ul > li > .link.expand:after {
+    background-position: -24px 0;
+}
+
+.gnb_sub {
+    padding-left: 48px;
+}
+
+.gnb_sub > li > .link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+}
+
+.gnb_sub > li > .link.out:after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/gnb_out_link.svg) no-repeat 0 0/16px 16px;
+}
+
+.gnb_sub > li > .link.active {
+    color: #fcc300;
+    font-weight: 700;
+}
+
+.gnb_sub > li > .link.active:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 12px;
+    height: 2px;
+    margin-top: -1px;
+    background-color: #fcc300;
+    transform: translateX(-12px);
+    pointer-events: none;
+}
+
+.aside-visible .aside {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.aside-visible .aside_container {
+    right: 0;
+}
+
+/**************************************************
+ * LAYOUT | MAIN
+ **************************************************/
+.main {
+    width: 100%;
+    padding-top: 64px;
+}
+
+.contents {
+    width: 100%;
+}
+
+.contents_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    padding: 0 20px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.contents_header .hgroup {
+    text-align: center;
+}
+
+.contents_header .hgroup h2 {
+    color: #fcc300;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -.7px;
+}
+
+.contents_header .hgroup strong {
+    display: block;
+    margin-top: 8px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: -.4px;
+}
+
+.contents_header .hgroup p {
+    margin-top: 8px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.contents_header .hgroup h2 + p {
+    margin-top: 16px;
+}
+
+.contents_header .hgroup .btn-area {
+    display: flex;
+    margin-top: 56px;
+}
+
+.contents_header .hgroup .btn-area .link {
+    display: inline-flex;
+    align-items: center;
+    width: 158px;
+    height: 60px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    background-color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.contents_header .hgroup .btn-area .link i {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 0;
+}
+
+.contents_header .hgroup .btn-area .link + .link {
+    margin-left: 8px;
+}
+
+.contents .visual-header {
+    height: 410px;
+}
+
+.contents .visual-header .hgroup p {
+    margin-top: 24px;
+}
+
+.contents .visual-header .hgroup p.base { line-height: 1.3; font-size: 12px; font-weight: 300; opacity: .6; }
+
+.contents_tab {
+    display: flex;
+}
+
+.contents_tab a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #444;
+}
+
+.contents_tab a.active {
+    background-color: #fcc300;
+    color: #222;
+    font-weight: 700;
+}
+
+.contents_tab a + a {
+    border-left: 1px solid #616161;
+}
+
+.contents_tab a.active + a {
+    border-left: none;
+}
+
+.contents_tab-swiper {
+    position: relative;
+    padding: 24px 20px 19px;
+}
+
+.contents_tab-swiper:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: #eee;
+}
+
+.contents_tab-swiper ul > li {
+    width: auto;
+}
+
+.contents_tab-swiper a {
+    display: block;
+    color: #888;
+    font-size: 14px;
+}
+
+.contents_tab-swiper a.active {
+    position: relative;
+    color: #fcc300;
+}
+
+.contents_tab-swiper a.active:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fcc300;
+}
+
+.contents_body {
+    padding: 48px 20px 80px;
+}
+
+.contents_body > .hgroup {
+    margin-bottom: 40px;
+}
+
+.contents_body > .hgroup h2 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.contents_body > .hgroup strong {
+    display: block;
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+}
+
+.contents_body > .hgroup p {
+    margin-top: 12px;
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -.4px;
+}
+
+.contents_body .fluid {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.contents_body .table.responsive {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.contents_body .section.fluid.pull-down {
+    width: auto;
+    margin-bottom: -80px;
+    padding: 56px 20px;
+}
+
+.contents_body .section-group {
+    margin-top: -48px;
+    margin-bottom: -80px;
+}
+
+/**************************************************
+ * LAYOUT | FOOTER
+ **************************************************/
+.footer {
+    width: 100%;
+    background-color: #222;
+    color: #888;
+}
+
+.footer .menu {
+    overflow: hidden;
+}
+
+.footer .menu > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -20px 0 0 -25px;
+}
+
+.footer .menu > ul > li {
+    margin-top: 18px;
+    font-size: 0;
+}
+
+.footer .menu > ul > li:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin: 0 12px;
+    background-color: #444;
+    vertical-align: -2px;
+}
+
+.footer .menu > ul > li b {
+    color: #fcc300;
+    font-weight: inherit;
+}
+
+.footer .menu a {
+    color: #aaa;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.footer_top {
+    padding: 19px 20px 18px;
+    border-bottom: 1px solid #444;
+}
+
+.footer_inner {
+    padding: 32px 20px 24px;
+}
+
+.footer_inner .company-info > strong {
+    display: block;
+}
+
+.footer_inner .company-info > strong:before {
+    content: "";
+    display: inline-block;
+    width: 97px;
+    height: 32px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/logo_footer.svg) no-repeat 0 0/100% 100%;
+    vertical-align: -4px;
+}
+
+.footer_inner .company-info > strong span {
+    margin-left: 9px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer_inner .company-info p {
+    margin-top: 12px;
+    font-size: 0;
+}
+
+.footer_inner .company-info p .row {
+    display: block;
+}
+
+.footer_inner .company-info p .row > span {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.footer_inner .company-info p .row > span:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    margin: 0 8px;
+    background-color: #444;
+}
+
+.footer_inner .company-info p .row > span:first-child:before {
+    display: none;
+}
+
+.footer_inner .company-info p .row .link {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    margin-left: 8px;
+    border: 1px solid #888;
+    padding: 0 6px;
+    font-size: 10px;
+}
+
+.footer_inner .company-info p .row + .row {
+    margin-top: 4px;
+}
+
+.footer_inner .sns {
+    margin-top: 24px;
+}
+
+.footer_inner .sns > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -20px 0 0 -20px;
+}
+
+.footer_inner .sns > ul > li {
+    margin: 20px 0 0 20px;
+}
+
+.footer_inner .sns img {
+    display: block;
+}
+
+.footer_bottom {
+    padding: 32px 20px 56px;
+    border-top: 1px solid #444;
+}
+
+.footer_bottom .copyright {
+    margin-top: 26px;
+    font-size: 12px;
+}
+
+.top-btn {
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    padding: 18px 0 0;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/top_btn_arrow.png) no-repeat top 8px left 50% rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+    color: #888;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: visibility .3s ease, opacity .3s ease;
+}
+
+.top-btn.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/**************************************************
+ * LAYOUT | SECTION
+ **************************************************/
+.section {
+    width: 100%;
+}
+
+.section h3 {
+    margin-bottom: 16px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.section > p {
+    font-size: 18px;
+    line-height: 26px;
+}
+
+.section p.grey {
+    color: #888;
+}
+
+.section .visual-top {
+    margin-bottom: 24px;
+}
+
+.section .visual-top img {
+    vertical-align: top;
+}
+
+.section .figure img {
+    vertical-align: top;
+}
+
+.section p + .figure {
+    margin-top: 24px;
+}
+
+.section .sub h4 {
+    margin-bottom: 16px;
+    color: #fcc300;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.section p + .sub,
+.section .figure + .sub,
+.section .sub + .sub {
+    margin-top: 40px;
+}
+
+.section .map-area + .sub {
+    margin-top: 24px;
+}
+
+.section .figure + h3 {
+    margin-top: 40px;
+}
+
+.section .map-area .map {
+    width: 100%;
+    height: 175px;
+    background-color: #f9f9f9;
+}
+
+.section p + .map-area {
+    margin-top: 24px;
+}
+
+.section + .section {
+    margin-top: 80px;
+}
+
+.section-group {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+.section-group .section {
+    padding: 48px 20px;
+}
+
+.section-group .section + .section {
+    margin-top: 0;
+}
+
+/**************************************************
+ * LAYOUT | BOARD
+ **************************************************/
+/* BOARD LIST */
+.board-list .search-form {
+    position: relative;
+    margin-bottom: 48px;
+    border-bottom: 2px solid #fcc300;
+}
+
+.board-list .search-form input {
+    display: block;
+    width: 100%;
+    height: 52px;
+    padding-right: 40px;
+    border: none;
+    font-size: 16px;
+}
+
+.board-list .search-form input::-webkit-input-placeholder {
+    color: #888;
+}
+
+.board-list .search-form input::-moz-placeholder {
+    color: #888;
+}
+
+.board-list .search-form input:-ms-input-placeholder {
+    color: #888;
+}
+
+.board-list .search-form input:-moz-placeholder {
+    color: #888;
+}
+
+.board-list .search-form button {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: -14px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_search.svg) no-repeat 50% 50%/24px 24px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.board-list .result {
+    padding: 72px 0;
+}
+
+.board-list .result p {
+    color: #555;
+    font-size: 16px;
+    text-align: center;
+}
+
+.board-list .pagination {
+    margin-top: 48px;
+}
+
+/* BOARD */
+.board {
+    width: 100%;
+}
+
+.board_header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.board_meta {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #222;
+}
+
+.board_meta > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.board_meta > ul > li {
+    color: #888;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -.4px;
+}
+
+.board_meta > ul > li:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    margin: 0 8px;
+    background-color: #ccc;
+    vertical-align: -1px;
+}
+
+.board_meta > ul > li:first-child:before {
+    display: none;
+}
+
+.board_body {
+    padding: 24px 0 48px;
+}
+
+.board_nav {
+    padding: 8px 0;
+    border-top: 1px solid #eee;
+}
+
+.board_nav a {
+    display: flex;
+    padding: 8px 0;
+}
+
+.board_nav a > span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 17px;
+    background-color: #feedb2;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.board_nav a > strong {
+    display: inline-block;
+    overflow: hidden;
+    width: calc(100% - 76px);
+    padding-left: 8px;
+    font-size: 14px;
+    line-height: 34px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.board_footer {
+    padding-top: 48px;
+    border-top: 1px solid #eee;
+}
+
+.board_footer .btn-area {
+    display: flex;
+    justify-content: center;
+}
+
+.board_footer .btn-area a {
+    display: inline-flex;
+    align-items: center;
+    width: 182px;
+    height: 50px;
+    padding: 0 12px;
+    border: 1px solid #222;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.board_footer .btn-area a:after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: 0;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/ico_list.svg) no-repeat 0 0/100% 100%;
+}
+
+.site {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+/* UTILITY */
+.bg-primary {
+    background-color: #fcc300;
+}
+
+.bg-grey {
+    background-color: #f9f9f9;
+}
+
+.bg-light-yellow {
+    background-color: #fff9e7;
+}
+
+/* LINK BOX */
+.link-box {
+    display: block;
+    min-height: 76px;
+    padding: 18px 52px 18px 16px;
+    border-radius: 12px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/link_ico_grey.svg) no-repeat top 18px right 16px/20px 20px #eee;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* LINK BOX LIST */
+.link-box-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.link-box-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px 0 0 -8px;
+}
+
+.link-box-list > ul > li {
+    width: calc(50% - 8px);
+    margin: 8px 0 0 8px;
+}
+
+p + .link-box-list {
+    margin-top: 24px;
+}
+
+/* LINK BAR */
+.link-bar {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    padding: 0 52px 0 16px;
+    border-radius: 12px;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/link_ico_grey.svg) no-repeat top 50% right 16px/20px 20px #eee;
+    font-size: 14px;
+}
+
+.desc-card-list + .link-bar {
+    margin-top: 24px;
+}
+
+.map-area + .link-bar {
+    margin-top: 24px;
+}
+
+.teacher-list + .link-bar {
+    margin-top: 24px;
+}
+
+p + .link-bar {
+    margin-top: 24px;
+}
+
+.contact-bar + .link-bar {
+    margin-top: 24px;
+}
+
+.desc-card-list + .sub {
+    margin-top: 40px;
+}
+
+.course-step + .link-bar {
+    margin-top: 24px;
+}
+
+/* LINK BAR LIST */
+.link-bar-list > ul > li {
+    margin-top: 8px;
+}
+
+.link-bar-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.figure + .link-bar-list {
+    margin-top: 16px;
+}
+
+/* CONTACT BAR */
+.contact-bar {
+    display: flex;
+}
+
+.contact-bar .link {
+    display: inline-flex;
+    align-items: center;
+    width: calc(100% - (8px + 56px));
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background-color: #fff9e7;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.contact-bar .link:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/contact-bar_ico.svg) no-repeat 0 0;
+}
+
+.contact-bar a.link {
+    padding-right: 52px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/link_ico_yellow.svg) no-repeat top 50% right 16px/20px 20px #fff9e7;
+}
+
+.contact-bar a.link:before {
+    background: url(https://company.eduwill.net/assets/mobile/img/common/contact-bar_ico_marker.svg) no-repeat 0 0;
+}
+
+.contact-bar a[href^="tel"] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 56px;
+    height: 56px;
+    margin-left: auto;
+    margin-right: 0;
+    border-radius: 12px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/contact-bar_phone.svg) no-repeat 50% 50%/24px 24px #fcc300;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+/* CONTACT BAR LIST */
+.contact-bar-list > ul > li {
+    margin-top: 8px;
+}
+
+.contact-bar-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+/* TOOLTIP */
+.tooltip {
+    position: relative;
+    z-index: 1;
+}
+
+.tooltip button {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 16px;
+    border: none;
+    background-color: #fcc300;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color .3s ease;
+}
+
+.tooltip button:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/tooltip_ico.svg) no-repeat 0 0/100% 100%;
+    transform: translateY(-1px);
+}
+
+.tooltip .balloon {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 272px;
+    padding: 16px 16px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: visibility .3s linear,
+ opacity .3s ease,
+ transform .3s ease;
+}
+
+.tooltip .balloon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #fff;
+    border-right: 12px solid transparent;
+}
+
+.tooltip .balloon > strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.tooltip .balloon p {
+    margin-top: 12px;
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.tooltip button.active {
+    background-color: #ce9f00;
+}
+
+.tooltip button.active + .balloon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* DESC CARD LIST */
+.desc-card-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.desc-card-list > ul > li {
+    margin-top: 16px;
+}
+
+.desc-card-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.desc-card-list .item {
+    position: relative;
+}
+
+.desc-card-list .item .img {
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+}
+
+.desc-card-list .item .img:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.desc-card-list .item .img img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.desc-card-list .item .text {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 24px;
+    border-radius: 16px 16px 0 0;
+    background-color: rgba(34, 34, 34, 0.6);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    color: #fff;
+}
+
+.desc-card-list .item .text > span {
+    display: block;
+    font-size: 16px;
+}
+
+.desc-card-list .item .text > strong {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.desc-card-list .item .text > span + strong {
+    margin-top: 16px;
+    min-height: 60px;
+}
+
+.desc-card-list .item .text > strong + span {
+    margin-top: 16px;
+}
+
+.desc-card-list .item .text > strong:only-child {
+    margin: 8px 0;
+}
+
+.desc-card-list .item .tooltip {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+}
+
+p + .desc-card-list {
+    margin-top: 24px;
+}
+
+.link-bar + .desc-card-list {
+    margin-top: 24px;
+}
+
+.desc-card-list + .figure {
+    margin-top: 40px;
+}
+
+/* SUB CARD LIST */
+.sub-card-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.sub-card-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px 0 0 -16px;
+}
+
+.sub-card-list > ul > li {
+    width: calc(50% - 16px);
+    margin: 16px 0 0 16px;
+}
+
+.sub-card-list .item {
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+}
+
+.sub-card-list .item .img {
+    position: relative;
+}
+
+.sub-card-list .item .img:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.sub-card-list .item .img img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sub-card-list .item .text {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #fff;
+}
+
+.sub-card-list .item .text > strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.sub-card-list .item .text > span {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.desc-card-list + .sub-card-list {
+    margin-top: 40px;
+}
+
+p + .sub-card-list {
+    margin-top: 24px;
+}
+
+/* CHECK LIST */
+.check-list {
+    overflow: hidden;
+    width: 100%;
+}
+
+.check-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -8px 0 0 -8px;
+}
+
+.check-list > ul > li {
+    width: calc(100% - 8px);
+    margin: 8px 0 0 8px;
+}
+
+.check-list .item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 8px;
+    background-color: #e8f7e8;
+    color: #1a8d59;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.check-list .item:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/check_ico.svg) no-repeat 0 0/20px 20px;
+    transform: translateY(-1px);
+}
+
+.check-list.col-2 > ul > li {
+    width: calc(50% - 8px);
+}
+
+p + .check-list {
+    margin-top: 24px;
+}
+
+/* REVIEW LIST */
+.review-list {
+    overflow: hidden;
+}
+
+.review-list > ul > li {
+    margin-top: 16px;
+}
+
+.review-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.review-list .item {
+    padding: 24px 24px;
+    background-color: #fff9e7;
+}
+
+.review-list .item .bar {
+    display: flex;
+    align-items: center;
+}
+
+.review-list .item .bar .profile {
+    display: inline-block;
+    width: 72px;
+    height: auto;
+}
+
+.review-list .item .bar .profile img {
+    vertical-align: top;
+}
+
+.review-list .item .bar .meta {
+    width: calc(100% - 72px);
+    padding-left: 12px;
+}
+
+.review-list .item .bar .meta > span {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.review-list .item .bar .meta > span + span {
+    margin-top: 6px;
+}
+
+.review-list .item p {
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+p + .review-list {
+    margin-top: 16px;
+}
+
+/* PHOTO SLIDER */
+.photo-slider img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.photo-slider .swiper-container {
+    padding-bottom: 22px;
+}
+
+.photo-slider .swiper-pagination {
+    bottom: 0;
+    font-size: 0;
+}
+
+.photo-slider .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background-color: #ddd;
+    opacity: 1;
+}
+
+.photo-slider .swiper-pagination-bullet-active {
+    background-color: #fcc300;
+}
+
+.desc-card-list + .photo-slider {
+    margin-top: 40px;
+}
+
+.photo-slider + .link-bar {
+    margin-top: 24px;
+}
+
+/* COURSE STEP */
+.course-step > ol > li {
+    margin-top: 12px;
+}
+
+.course-step > ol > li:first-child {
+    margin-top: 0;
+}
+
+.course-step > ol > li .bar {
+    display: flex;
+}
+
+.course-step > ol > li .bar > span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: #333;
+    color: #fcc300;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.course-step > ol > li .bar > strong {
+    display: inline-block;
+    width: calc(100% - 80px);
+    padding: 6px 0 6px 16px;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 32px;
+    letter-spacing: -.6px;
+}
+
+.course-step > ol > li > ul {
+    margin-top: 2px;
+    padding-bottom: 4px;
+    padding-left: 96px;
+}
+
+.course-step > ol > li > ul > li {
+    position: relative;
+    padding-left: 16px;
+    color: #888;
+    font-size: 16px;
+}
+
+.course-step > ol > li > ul > li:before {
+    content: "•";
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.course-step > ol > li > ul > li > span {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+p + .course-step {
+    margin-top: 40px;
+}
+
+.figure + .course-step {
+    margin-top: 24px;
+}
+
+/* POINT BAR */
+.point-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 68px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background-color: #fff9e7;
+}
+
+.point-bar > span {
+    color: #555;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.point-bar i {
+    margin-right: 8px;
+    font-size: 0;
+}
+
+/* POINT BAR LIST */
+.point-bar-list > ul > li {
+    margin-top: 8px;
+}
+
+.point-bar-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+/* BAR LIST */
+.bar-list > ul > li {
+    margin-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.bar-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.bar-list .item > strong {
+    display: block;
+    color: #fcc300;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.bar-list .item > ul {
+    margin-top: 8px;
+}
+
+.bar-list .item > ul > li {
+    position: relative;
+    padding-left: 16px;
+    color: #888;
+    font-size: 16px;
+}
+
+.bar-list .item > ul > li:before {
+    content: "•";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bar-list .item .link-bar {
+    margin-top: 16px;
+}
+
+.point-list + .bar-list {
+    margin-top: 40px;
+}
+
+/* POINT LIST */
+.point-list > ul > li {
+    margin-top: 16px;
+}
+
+.point-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.point-list .item {
+    position: relative;
+    padding: 24px 24px;
+    border-radius: 16px;
+    background-color: #fff9e7;
+}
+
+.point-list .item > strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.point-list .item > span {
+    display: block;
+    margin-top: 4px;
+    padding-bottom: 56px;
+    color: #555;
+    font-size: 16px;
+}
+
+.point-list .item i {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    font-size: 0;
+}
+
+.point-list .item > strong + i {
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.point-list .item .tooltip {
+    margin-top: -32px;
+}
+
+.point-list.sm .item {
+    padding: 24px 72px 24px 24px;
+}
+
+.point-list.sm .item > strong {
+    padding: 8px 0;
+}
+
+.point-list.center .item {
+    padding: 24px 72px 24px 24px;
+}
+
+.point-list.center .item span {
+    padding-bottom: 0;
+}
+
+.point-list.center .item i {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+p + .point-list {
+    margin-top: 24px;
+}
+
+/* FIGURE LIST */
+.figure-list > ul > li {
+    margin-top: 8px;
+}
+
+.figure-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.figure-list img {
+    vertical-align: top;
+}
+
+p + .figure-list {
+    margin-top: 24px;
+}
+
+/* ACADEMY LIST */
+.academy-list > ul > li {
+    margin-top: 40px;
+}
+
+.academy-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.academy-list .contact-bar + .check-list {
+    margin-top: 16px;
+}
+
+/* TEACHER LIST */
+.teacher-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px 0 0 -16px;
+}
+
+.teacher-list > ul > li {
+    width: calc(50% - 16px);
+    margin: 16px 0 0 16px;
+}
+
+.teacher-list .item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    isolation: isolate;
+}
+
+.teacher-list .item:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.teacher-list .item img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.teacher-list .item .text {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 12px;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.teacher-list .item .text > strong {
+    margin-left: 4px;
+    font-weight: 700;
+}
+
+p + .teacher-list {
+    margin-top: 24px;
+}
+
+/* TRANSPORT */
+.link-bar + .sub {
+    margin-top: 40px;
+}
+
+.transport dl dt {
+    color: #888;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.transport dl dd {
+    margin-top: 4px;
+    color: #888;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.transport dl + dl {
+    margin-top: 16px;
+}
+
+/* DROPDOWN */
+.dropdown {
+    display: inline-block;
+    min-width: 182px;
+}
+
+.dropdown select {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 0 42px 0 12px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/dropdown_chevron.svg) no-repeat top 50% right 12px/18px 18px #fff;
+    font-size: 16px;
+    font-weight: 700;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.dropdown select::-ms-expand {
+    display: none;
+}
+
+.dropdown + .video-player {
+    margin-top: 24px;
+}
+
+/* LARGE DROPDOWN */
+.lg-dropdown {
+    display: block;
+}
+
+.lg-dropdown select {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    padding: 0 72px 0 24px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/lg-dropdown_chevron.svg) no-repeat top 50% right 12px/24px 24px #fff;
+    font-size: 18px;
+    font-weight: 700;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.lg-dropdown select::-ms-expand {
+    display: none;
+}
+
+/* MODAL VIEWER */
+.modal-viewer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: visibility .6s linear,
+ background-color .6s ease;
+}
+
+.modal-viewer_container {
+    width: 100%;
+    max-width: 728px;
+    padding: 56px 24px 42px;
+    background-color: #fff;
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity .6s ease,
+ transform .6s ease;
+}
+
+.modal-viewer h2 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.modal-viewer .meta {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #222;
+}
+
+.modal-viewer .meta > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.modal-viewer .meta > ul > li {
+    color: #888;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.modal-viewer .meta > ul > li:before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 2px;
+    margin: 0 8px;
+    background-color: #eee;
+}
+
+.modal-viewer .meta > ul > li:first-child:before {
+    display: none;
+}
+
+.modal-viewer .viewer {
+    margin-top: 24px;
+}
+
+.modal-viewer .viewer img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+}
+
+.modal-viewer .viewer video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.modal-viewer .close {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/btn_close.svg) no-repeat 50% 50%/32px 32px transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.modal-viewer.visible {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-viewer.visible .modal-viewer_container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ADV LIST */
+.adv-list > ul > li {
+    margin-top: 48px;
+}
+
+.adv-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.adv-list .item {
+    display: block;
+}
+
+.adv-list .item .thumb {
+    position: relative;
+    background-color: #f9f9f9;
+}
+
+.adv-list .item .thumb:before {
+    content: "";
+    display: block;
+    padding-bottom: 72.9166%;
+}
+
+.adv-list .item .thumb img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.adv-list .item .text {
+    margin-top: 24px;
+}
+
+.adv-list .item .text .meta {
+    margin-bottom: 8px;
+    font-size: 0;
+}
+
+.adv-list .item .text .meta > span {
+    color: #888;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.adv-list .item .text .title {
+    display: block;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.adv-list .item .text .title i {
+    color: #fcc300;
+    font-style: normal;
+    text-decoration: underline;
+}
+
+/* ADV GROUP */
+.adv-group .category {
+    display: block;
+    margin-bottom: 24px;
+    color: #fcc300;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+}
+
+.adv-group .category:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/pr_center/adv_category_ico.png) no-repeat 0 0/100% 100%;
+    vertical-align: -8px;
+}
+
+.dropdown + .adv-group {
+    margin-top: 48px;
+}
+
+.adv-group + .adv-group {
+    margin-top: 48px;
+}
+
+/* CONSULT LIST */
+.consult-list > ul > li {
+    margin-top: 16px;
+}
+
+.consult-list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.consult-list .item {
+    overflow: hidden;
+    border-radius: 16px;
+    isolation: isolate;
+}
+
+.consult-list .item .info {
+    padding: 32px 32px;
+    background-color: #fff;
+}
+
+.consult-list .item .info > strong {
+    display: block;
+    color: #888;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.consult-list .item .info a[href^="tel"] {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.consult-list .item .info a[href^="mailto"] {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+.consult-list .item > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    background-color: #222;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.consult-list .item > a:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/service/consult_ico.svg) no-repeat 0 0/100% 100%;
+}
+
+p + .consult-list {
+    margin-top: 24px;
+}
+
+/* FORM */
+.form .fieldset .legend {
+    margin-bottom: 16px;
+    color: #888;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form .fieldset .field .label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.form .fieldset .field .label .required {
+    color: #e01e36;
+}
+
+.form .fieldset .field .guide {
+    margin-top: 4px;
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.form .fieldset .field + .field {
+    margin-top: 16px;
+}
+
+.form .fieldset + .fieldset {
+    margin-top: 40px;
+}
+
+.form .agree dl {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.form .agree dl dt {
+    font-weight: 700;
+}
+
+.form .agree dl dd {
+    position: relative;
+    margin-top: 4px;
+    padding-left: 16px;
+}
+
+.form .agree dl dd:before {
+    content: "-";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.form .agree dl dt ~ dt {
+    margin-top: 8px;
+}
+
+.form .agree .form-group {
+    margin-top: 16px;
+}
+
+/* STORE LIST */
+.store-list {
+    overflow: hidden;
+}
+
+.store-list > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px 0 0 -16px;
+}
+
+.store-list > ul > li {
+    width: calc(50% - 16px);
+    margin: 16px 0 0 16px;
+}
+
+.store-list .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 84px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.store-list .item img {
+    width: 140px;
+    height: auto;
+}
+
+p + .store-list {
+    margin-top: 16px;
+}
+
+/* CONTACT EMAIL */
+.contact-email {
+    display: inline-block;
+    color: #888;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    vertical-align: top;
+}
+
+.contact-email:before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/contact-email_ico.png) no-repeat 0 0/32px 32px;
+    vertical-align: -10px;
+}
+
+.contact-bar + .contact-email {
+    margin-top: 16px;
+}
+
+/* PROCEDURE */
+.procedure > ul > li {
+    margin-top: 24px;
+}
+
+.procedure > ul > li:first-child {
+    margin-top: 0;
+}
+
+.procedure .item .bar {
+    display: flex;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #fcc300;
+}
+
+.procedure .item .bar .num {
+    display: inline-block;
+    color: #fcc300;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.procedure .item .bar i {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0;
+    font-size: 0;
+}
+
+.procedure .item > strong {
+    display: block;
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.procedure .item > ul {
+    margin-top: 4px;
+}
+
+.procedure .item > ul > li {
+    position: relative;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.procedure .item > ul > li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #fcc300;
+}
+
+p + .procedure {
+    margin-top: 30px;
+}
+
+/* SITEMAP */
+.sitemap .list > ul > li {
+    margin-top: 40px;
+}
+
+.sitemap .list > ul > li:first-child {
+    margin-top: 0;
+}
+
+.sitemap .list > ul > li > .link {
+    display: block;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #fcc300;
+    color: #555;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.sitemap .list_sub {
+    overflow: hidden;
+}
+
+.sitemap .list_sub > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 -8px;
+}
+
+.sitemap .list_sub > ul > li {
+    width: calc(50% - 16px);
+    margin: 0 0 0 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.sitemap .list_sub > ul > li > .link {
+    display: block;
+    padding: 16px 0;
+    color: #888;
+    font-size: 16px;
+}
+
+.sitemap .list_sub > ul > li > .link.out:after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/aside_out_link.svg) no-repeat 0 0/100% 100%;
+    vertical-align: -2px;
+}
+
+/* TERMS EMAIL */
+.terms-email {
+    padding-bottom: 16px;
+}
+
+.terms-email img {
+    display: block;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.terms-email p {
+    margin-top: 32px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -.44px;
+}
+
+.terms-email .date {
+    display: block;
+    margin-top: 8px;
+    color: #888;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/**************************************************
+ * terms | privacy.html, terms.html
+ **************************************************/
+.section.terms {
+    padding: 56px 20px 80px;
+}
+
+.section.terms .group.terms {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.section.terms .group.terms + .terms + .terms {
+    margin-bottom: 80px;
+}
+
+.section.terms .group.terms + .terms + .terms + .terms {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 80px;
+}
+
+.section.terms .group.terms + .terms + .terms + .terms:last-child {
+    margin-bottom: 0;
+}
+
+.section.terms .group.terms h3 {
+    margin-bottom: 16px;
+    color: #222;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: -.5px;
+}
+
+.section.terms .group.terms h4 {
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -.5px;
+}
+
+.section.terms .group.terms h5 {
+    margin-bottom: 19px;
+    color: #222;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -.5px;
+}
+
+.section.terms .group.terms strong {
+    display: block;
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.39px;
+}
+
+.section.terms .group.terms .form-select {
+    margin-top: 80px;
+    width: 100%;
+}
+
+.section.terms .group.terms p {
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.39px;
+}
+
+.section.terms .group.terms ol.em li {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.44px;
+    font-weight: 700;
+    padding-left: 0;
+}
+
+.section.terms .group.terms ol.detail .tit + .tit {
+    margin-top: 16px;
+}
+
+.section.terms .group.terms ol.detail li {
+    margin-top: 0;
+    padding-left: 0;
+}
+
+.section.terms .group.terms ol.detail li p {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.section.terms .group.terms ol.detail li::before {
+    content: '';
+    font-size: 18px;
+}
+
+.section.terms .group.terms ol.detail li > ol {
+    margin: 0 0 0 28px;
+}
+
+.section.terms .group.terms ol.detail dl.lump dt {
+    margin: 0 0 0 13px;
+}
+
+.section.terms .group.terms ol.detail dl dt {
+    margin: 8px 0 0 13px;
+}
+
+.section.terms .group.terms ol.detail dl dt:first-child {
+    margin-top: 0;
+}
+
+.section.terms .group.terms ol.detail dl dd {
+    margin-left: 28px;
+}
+
+.section.terms .group.terms ol.detail .no-gap li {
+    margin: 0;
+}
+
+.section.terms .group.terms ol.detail .no-space {
+    margin: 0 0 0 13px;
+}
+
+.section.terms .group.terms ol.basic > li {
+    padding: 0;
+    margin: 0;
+}
+
+.section.terms .group.terms ol.basic > li > ol {
+    margin-top: 8px;
+}
+
+.section.terms .group.terms ol.basic > li > ol > li {
+    margin-top: 4px;
+}
+
+.section.terms .group.terms ol.basic > li > ol > li > ol > li {
+    margin-top: 0;
+}
+
+.section.terms .group.terms ol li {
+    position: relative;
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.44px;
+    padding-left: 23px;
+}
+
+.section.terms .group.terms ol li + li {
+    margin-top: 8px;
+}
+
+.section.terms .group.terms ol li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    color: #888;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+}
+
+.section.terms .group.terms ol li.li1::before {
+    content: '1. ';
+}
+
+.section.terms .group.terms ol li.li2::before {
+    content: '2. ';
+}
+
+.section.terms .group.terms ol li.li3::before {
+    content: '3. ';
+}
+
+.section.terms .group.terms ol li.li4::before {
+    content: '4. ';
+}
+
+.section.terms .group.terms ol li.li5::before {
+    content: '5. ';
+}
+
+.section.terms .group.terms .table {
+    margin-top: 24px;
+}
+
+.section.terms .group.terms .table .rows {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.section.terms .group.whole {
+    padding-bottom: 0;
+    margin: 80px 0 0 0;
+    border-bottom: none;
+}
+
+.section.terms .group.whole h5 {
+    margin: 40px 0 8px;
+    color: #555;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: -.5px;
+}
+
+.section.terms .group.whole h5:first-child {
+    margin-top: 0;
+}
+
+/* PHOTO SLIDER VIEWER */
+.modal-psv {
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1020;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: visibility .6s linear,
+ opacity .6s ease;
+}
+
+.modal-psv_viewer {
+    overflow: hidden;
+}
+
+.modal-psv_viewer img {
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+
+.modal-psv_nav {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 94px;
+    padding: 0 48px;
+}
+
+.modal-psv_nav button {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+    padding: 0;
+    border: none;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+.modal-psv_nav .prev {
+    left: 0;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/psv_btn_prev.png) no-repeat 50% 50%/24px 24px transparent;
+}
+
+.modal-psv_nav .next {
+    right: 0;
+    background: url(https://company.eduwill.net/assets/mobile/img/common/psv_btn_next.png) no-repeat 50% 50%/24px 24px transparent;
+}
+
+.modal-psv_nav .text {
+    width: 100%;
+}
+
+.modal-psv_nav .text .swiper-container {
+    height: 100%;
+}
+
+.modal-psv_nav .text .swiper-slide {
+    display: flex;
+    align-items: center;
+}
+
+.modal-psv_nav .text p {
+    overflow: hidden;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.modal-psv.visible {
+    visibility: visible;
+    opacity: 1;
+}

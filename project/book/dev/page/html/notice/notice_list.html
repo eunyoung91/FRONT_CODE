@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- IE7 호환성보기 강제해제 -->
+<title>1:1문의 &gt; 고객의 소리 &gt; 에듀윌</title>
+<link rel="stylesheet" type="text/css" href="../../css/board.css" />
+<link rel="stylesheet" type="text/css" href="../../css/mobile.css" />
+
+<script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/jquery.selectric.min.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+</head>
+
+<body>
+<div id="wrap">
+	<!-- header -->
+	<div id="header">
+		<!-- top -->
+		<style>
+			.layer_history		{ position:absolute; top:58px; width:230px; height:auto; z-index:10; display: none }
+			.layer_history .layer_head	{ }
+			.layer_history .layer_body	{ width:230px; padding:2px 0 0 0; background:#fff repeat-y left top; }
+			.layer_history .layer_wrap	{ width:210px; margin:0 0 0 8px; overflow-y:auto; overflow-x:hidden; }
+		</style>
+		<!-- live / live -->
+		<div class="h_wrap">
+			<div class="h_top">
+				<a class="h_logo" href="http://www.eduwill.net/"><img src="//img.eduwill.net/Img2/Common/CI/logo_100x29.png" alt="에듀윌"></a>
+				<a class="h_home" href="http://book.eduwill.net/main.action">도서몰</a>
+			</div>
+			<form name="bookSearch" action="/goods/search.action" id="bookSearch" >
+				<div class="h_search">
+					<span><input type="text" id="SearchWord" name="searchKeyword" value="" title="검색어"></span>
+					<a href="#" onclick="javascript:searchWordHint.search(); return false;" title="검색"><span class="hidden">검색</span></a>
+				</div>
+			</form>
+			<div class="h_banner">
+				<a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102"><img src="https://img.eduwill.net/pds/books/web/content/top_banner01.gif" alt="월간시사상식 정기구독 이벤트" /></a>
+			</div>
+			<!-- // h_wrap -->
+		</div>
+		<div class="h_btn">
+			<a href="" class="btn1">메뉴버튼</a>
+			<a href="" class="btn2">로그인버튼</a>
+			<a href="" class="btn3">도서소개버튼</a>
+		</div>
+		<!-- 사이트맵 -->
+		<div class="sitemap">
+			<div class="s_inner">
+				<h2>사이트맵</h2>
+				<div class="s_item">
+					<dl>
+						<dt>이벤트</dt>
+						<dd><a href="/event/list.action">이벤트 안내</a></dd>
+						<dd><a href="/pds/promoList.action">이벤트 자료집</a></dd>
+					</dl>
+					<dl>
+						<dt>시사상식</dt>
+						<dd><a href="/subscription/list.action?ClassCode=100107102">정기구독신청</a></dd>
+						<dd><a href="/subscription/expire.action">만료일 조회</a></dd>
+						<dd><a href="/subscription/delivery.action">배송지변경</a></dd>
+					</dl>
+					<dl>
+						<dt>동영상강의실</dt>
+						<dd><a href="/pds/movieList.action">동영상강의실</a></dd>
+					</dl>
+					<dl>
+						<dt>도서자료실</dt>
+						<dd>
+							<span><a href="/pds/optList.action">부가학습자료</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/mp3List.action">MP3자료실</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/tbList.action">정오표</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/programInfo.action">필수프로그램</a></span>
+						</dd>
+					</dl>
+					<dl>
+						<dt>공지 및 안내</dt>
+						<dd><a href="/board/noticeList.action">공지사항</a></dd>
+						<dd><a href="/board/faqList.action">자주하는 질문</a></dd>
+					</dl>
+					<dl>
+						<dt>고객의 소리</dt>
+						<dd><a href="/customer/qnaWrite.action">1:1 문의/제안하기</a></dd>
+					</dl>
+				</div>
+				<div class="s_close"><a href="#"><img src="https://img.eduwill.net/books/web/common/btn_close_layer02.gif" alt="닫기"></a></div>
+			</div>
+		</div>
+		<!-- // 사이트맵 -->
+		<!-- slider -->
+		<div class="h_login">
+			<div class="s_inner">
+				<div class="login_box">
+					<!-- 로그인 후 -->
+					<div class="form_group">
+						<!-- <a href="https://ea.eduwill.net/login/login.action?systemCd=book&amp;redirectUrl=http%3A%2F%2Fbook.eduwill.net%2Fmain.action" class="g_btn_a">로그인</a>
+						<a href="javascript:fn_goJoin();" class="g_btn_b">회원가입</a> -->
+						<a href="https://ea.eduwill.net/login/logout.action?systemCd=book&redirectUrl=http%3A%2F%2Fbook.eduwill.net" class="g_btn_c">로그아웃</a>
+						<a href="https://ea.eduwill.net/user/modifypwd.action?systemCd=book&redirectUrl=http%3A%2F%2Fbook.eduwill.net" class="g_btn_b">회원정보수정</a>
+					</div>
+					<div class="member_btn">
+						<a href="http://book.eduwill.net/mypage/orderList.action" class="g_btn_d">마이페이지</a>
+						<a href="http://book.eduwill.net/basket/index.action" class="g_btn_d">장바구니</a>
+						<a href="http://book.eduwill.net/mypage/orderList.action?m=d1&c=d1d1" class="g_btn_d">주문배송조회</a>
+					</div>
+				</div>
+				<div class="s_close"><a href="#"><span>닫기</span></a></div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- CONTAINER -->
+	<div id="container">
+		<!-- gnb -->
+		<div class="gnb">
+			<div class="gnb_pc">
+				<ul class="gnb_label">
+					<li>
+						<a href="http://book.eduwill.net/event/list.action" id="#gnb_01">이벤트</a> <img src="https://img.eduwill.net/pds/books/web/main/icon_n.png" />
+						<div class="s_menu">
+							<ul>
+								<li><a href="#">이벤트 안내</a></li>
+								<li><a href="#">이벤트 자료집</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102" id="#gnb_02">시사상식</a>
+						<div class="s_menu">
+							<ul>
+								<li><a href="#">정기구독신청</a></li>
+								<li><a href="#">만료일 조회</a></li>
+								<li><a href="#">배송지 변경</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="http://book.eduwill.net/pds/movieList.action" id="#gnb_03">동영상강의실</a>
+						<div class="s_menu">
+							<ul>
+								<li><a href="#">동영상강의실</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="http://book.eduwill.net/pds/optList.action" id="#gnb_04">도서자료실</a>
+						<div class="s_menu">
+							<ul>
+								<li><a href="#">부가학습자료</a></li>
+								<li><a href="#">MP3 자료실 </a></li>
+								<li><a href="#">정오표</a></li>
+								<li><a href="#">필수 프로그램 </a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="active">
+						<a href="http://book.eduwill.net/board/noticeList.action" id="#gnb_05">공지사항</a>
+						<div class="s_menu">
+							<ul>
+								<li><a href="#">공지사항</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="endline">
+						<a href="http://book.eduwill.net/customer/qnaWrite.action" id="#gnb_06">문의하기</a>
+						<div class="s_menu">
+							<ul>
+								<li><a href="http://book.eduwill.net/board/noticeList.action">FAQ</a></li>
+								<li><a href="http://book.eduwill.net/board/noticeList.action">교재(내용,출간)</a></li>
+								<li><a href="http://book.eduwill.net/board/noticeList.action">학습자료,무료강의</a></li>
+								<li><a href="http://book.eduwill.net/board/noticeList.action">주문 및 배송(파손등)</a></li>
+								<li><a href="http://book.eduwill.net/board/noticeList.action">문의내역</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="btn_wrap">
+				<a href="#" class="btn btn_prev">></a>
+				<a href="#" class="btn btn_next">></a>
+			</div>
+			<div class="gnb_mobile gnb_scroll">
+				<ul class="gnb_label">
+					<li><a href="http://book.eduwill.net/event/list.action" id="#gnb_01">이벤트</a> <img src="https://img.eduwill.net/pds/books/web/main/icon_n.png" /></li>
+					<li><a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102" id="#gnb_02">시사상식</a></li>
+					<li><a href="http://book.eduwill.net/pds/movieList.action" id="#gnb_03" class="linktype">동영상강의실</a></li>
+					<li><a href="http://book.eduwill.net/pds/optList.action" id="#gnb_04">도서자료실</a></li>
+					<li><a href="http://book.eduwill.net/board/noticeList.action" id="#gnb_05" class="linktype">공지사항</a></li>
+					<li class="endline"><a href="http://book.eduwill.net/customer/qnaWrite.action" id="#gnb_06">문의하기</a></li>
+				</ul>
+			</div>
+			<div class="sub_wrap">
+				<div id="gnb_01" class="sub_menu sub_menu04">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/event/list.action">이벤트 안내</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/promoList.action">이벤트 자료집</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_02" class="sub_menu sub_menu03">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102">정기구독신청</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/expire.action">만료일 조회</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/delivery.action">배송지변경</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_03" class="sub_menu sub_menu02">
+					<ul>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/movieList.action">동영상강의실</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_04" class="sub_menu sub_menu05">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/optList.action">부가학습자료</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/mp3List.action">MP3자료실</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/tbList.action">정오표</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/programInfo.action">필수프로그램</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_05" class="sub_menu sub_menu01">
+					<ul>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">공지사항</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_06" class="sub_menu sub_menu06">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">FAQ</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">교재(내용,출간)</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">학습자료,무료강의</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">주문 및 배송(파손등)</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">문의내역</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<a class="close_layer" href="#"><span class="hidden">닫기</span></a>
+			</div>
+			<div class="btn_lnb">
+				<a href="">도서리스트</a>
+			</div>
+		</div>
+		<!-- //gnb -->
+
+		<!-- CONTENT -->
+		<div id="content">
+				<div class="lnb">
+					<ul>
+					<li>
+							<dl>
+							<dt>공인/주택</dt>
+							<dd><a class="active" href="#">공인중개사</a></dd>
+							<dd><a href="#">주택관리사</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>공무원</dt>
+							<dd><a href="#">7·9급 공무원</a></dd>
+							<dd><a href="#">경찰 공무원</a></dd>
+							<dd><a href="#">군무원/부사관</a></dd>
+							<dd><a href="#">영단어</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>검정고시</dt>
+							<dd><a href="#">고졸검정고시</a></dd>
+							<dd><a href="#">중졸검정고시</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>직무적성/취업도서</dt>
+							<dd><a href="#">기업직무적성검사</a></dd>
+							<dd><a href="#">기타취업도서</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>상식</dt>
+							<dd><a href="#">일반상식</a></dd>
+							<dd><a href="#">월간 시사상식</a></dd>
+							<dd><a href="#">월간 시사상식 정기구독</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>자격증</dt>
+							<dd><a href="#">한국사능력검정시험</a></dd>
+							<dd><a href="#">전산세무회계</a></dd>
+							<dd><a href="#">행정사</a></dd>
+							<dd><a href="#">직업상담사</a> <img src="http://img.eduwill.net/books/web/common/icon_lnb_ebs.png" alt="ebs 로고" /></dd>
+							<dd><a href="#">사회복지사</a></dd>
+							<dd><a href="#">경비지도사</a></dd>
+							<dd><a href="#">유통관리사</a></dd>
+							<dd><a href="#">전기기사/산업기사</a></dd>
+							<dd><a href="#">ERP정보관리사</a></dd>
+							<dd><a href="#">도로교통사고감정사</a></dd>
+							<dd><a href="#">한자능력검정시험</a></dd>
+							<dd><a href="#">KBS한국어능력시험</a></dd>
+							<dd><a href="#">TOKL국어능력인증시험</a></dd>
+							<dd><a href="#">TOPIK한국어능력시험</a></dd>
+							<dd><a href="#">실용글쓰기/국어어휘어법</a></dd>
+							<dd><a href="#">제과제빵기능사</a></dd>
+							<dd><a href="#">피부미용사</a></dd>
+							<dd><a href="#">네일아트</a></dd>
+							<dd><a href="#">바리스타</a></dd>
+							<dd><a href="#">운전면허시험</a></dd>
+							</dl>
+					</li>
+					<li>
+							<dl>
+							<dt>HR</dt>
+							<dd><a href="#">인재경영</a></dd>
+							</dl>
+					</li>
+					</ul>
+					<div class="s_close"><a href="#"><img src="https://img.eduwill.net/books/web/common/btn_close_layer02.gif" alt="닫기"></a></div>
+				</div>
+				<div class="con_wrap">
+
+						<div class="g_content notice_comm"><!-- notice_comm 클래스추가 : 페이지별로 컨텐츠관련 클래스추가 -->
+								<ul class="g_location">
+									<li><a class="g_home" href="#none"><span>Home</span></a></li>
+									<li><a href="#none"><span>공지 및 안내</span></a></li>
+									<li><strong>공지사항</strong></li>
+								</ul>
+
+								<h3 class="g_title">공지사항</h3>
+
+								<div class="notice_item">
+									<div class="list_section">
+										<table width="100%" class="g_tbl_col type2" cellpadding="0" cellspacing="0" summary="번호, 제목, 파일, 등록일, 조회 항목으로 구성된 표 입니다.">
+										<caption>공지사항 리스트</caption>
+										<colgroup>
+											<col width="12%" />
+											<col width="*" />
+											<col width="10%" />
+											<col width="15%" />
+											<col width="12%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">번호</th>
+												<th scope="col">제목</th>
+												<th scope="col">파일</th>
+												<th scope="col">등록일</th>
+												<th scope="col">조회</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="top">
+												<td><img src="http://img.eduwill.net/books/web/common/bu_notice.gif" alt="공지" /></td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr class="top">
+												<td><img src="http://img.eduwill.net/books/web/common/bu_notice.gif" alt="공지" /></td>
+												<td class="left_td"><a href="#">[6월 문화이벤트] '그녀를 믿지마세요' – 당첨자 발표</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr class="top">
+												<td><img src="http://img.eduwill.net/books/web/common/bu_notice.gif" alt="공지" /></td>
+												<td class="left_td"><a href="#">[6월 문화이벤트] '그녀를 믿지마세요' – 당첨자 발표</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>7</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>6</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>5</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>4</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+											<tr>
+												<td>1</td>
+												<td class="left_td"><a href="#">배송 휴무 안내</a></td>
+												<td><img src="http://img.eduwill.net/books/web/common/ico_file.png" alt="첨부파일" /></td>
+												<td>2014 - 10 - 20</td>
+												<td>1240</td>
+											</tr>
+										</tbody>
+										</table>
+
+										<div class="search_box">
+											<label for="s_gubun" class="hidden">검색구분 선택</label>
+											<select name="search_gubun" id="s_gubun" class="selectType" style="width:70px;" title="검색구분을 선택하세요.">
+												<option value="">전체</option>
+												<option value="">제목</option>
+											</select>
+											<input type="text" id="s_text" name="search_text" title="검색어를 입력하세요." class="g_input" />
+											<a href="#" class="g_btn_xs"><span>검색</span></a>
+										</div>
+
+										<div class="g_page_2">
+											<a href="#" class="direction nav_first" title="처음으로"><span class="hidden">처음으로</span></a>
+											<a href="#" class="direction nav_prev" title="이전"><span class="hidden">이전</span></a>
+											<a href="#">1</a>
+											<a href="#">2</a>
+											<a href="#">3</a>
+											<a href="#">4</a>
+											<strong class="font_s01">5</strong>
+											<a href="#">6</a>
+											<a href="#">7</a>
+											<a href="#">8</a>
+											<a href="#">9</a>
+											<a href="#" class="direction nav_next" title="다음"><span class="hidden">다음</span></a>
+											<a href="#" class="direction nav_last" title="마지막으로"><span class="hidden">마지막으로</span></a>
+										</div>
+									</div>
+									<!-- // list_section -->
+
+								</div>
+								<!-- // mypage_item -->
+								
+						</div>
+						<!-- // g_content -->
+
+				</div>
+				<div class="side_menu">
+						<ul>
+						<li class="s_menu01"><a href="#"><span class="hidden">기프티콘/쿠폰인증</span></a></li>
+						<li class="s_menu02"><a href="#"><span class="hidden">장바구니</span></a></li>
+						<li class="s_menu03"><a href="#"><span class="hidden">오늘 본 도서</span></a></li>
+						<li class="s_menu04"><a href="#"><span class="hidden">일일시사 무료구독</span></a></li>
+						<li class="s_menu05"><a href="#"><span class="hidden">교재 뒷이야기</span></a></li>
+						</ul>
+				</div>
+		</div>
+		<!-- //CONTENT -->
+	</div>
+	<!-- //CONTAINER -->
+</div>
+
+</body>
+</html>

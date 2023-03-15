@@ -1,0 +1,786 @@
+<!DOCTYPE html>	
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!-- IE7 호환성보기 강제해제 -->
+<title>에듀윌 도서몰</title>
+<link rel="stylesheet" type="text/css" href="http://book.eduwill.net/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="http://book.eduwill.net/css/nanumgothic.css" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../../css/mobile.css" />
+<script type="text/javascript" src="http://book.eduwill.net/js_new/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript" src="http://book.eduwill.net/js_new/jquery-ui.js"></script>
+<script type="text/javascript" src="https://wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript" src="http://book.eduwill.net/js_new/jquery.dd.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<!-- header -->
+	<div id="header">
+		<!-- top -->
+		<style>
+			.layer_history		{ position:absolute; top:58px; width:230px; height:auto; z-index:10; display: none }
+			.layer_history .layer_head	{ }
+			.layer_history .layer_body	{ width:230px; padding:2px 0 0 0; background:#fff repeat-y left top; }
+			.layer_history .layer_wrap	{ width:210px; margin:0 0 0 8px; overflow-y:auto; overflow-x:hidden; }
+		</style>
+		<!-- live / live -->
+		<div class="h_wrap">
+			<div class="h_top">
+				<a class="h_logo" href="http://www.eduwill.net/"><img src="https://img.eduwill.net/Img2/Common/CI/logo_100x29.png" alt="에듀윌"></a>
+				<a class="h_home" href="http://book.eduwill.net/main.action">도서몰</a>
+			</div>
+			<form name="bookSearch" action="/goods/search.action" id="bookSearch" >
+				<div class="h_search">
+					<span><input type="text" id="SearchWord" name="searchKeyword" value="" title="검색어"></span>
+					<a href="#" onclick="javascript:searchWordHint.search(); return false;" title="검색"><span class="hidden">검색</span></a>
+				</div>
+			</form>
+			<div class="h_banner">
+				<a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102"><img src="https://img.eduwill.net/pds/books/web/content/top_banner01.gif" alt="월간시사상식 정기구독 이벤트" /></a>
+			</div>
+			<!-- // h_wrap -->
+		</div>
+		<div class="h_btn">
+			<a href="" class="btn2">로그인버튼</a>
+		</div>
+		<!-- 사이트맵 -->
+		<div class="sitemap">
+			<div class="s_inner">
+				<h2>사이트맵</h2>
+				<div class="s_item">
+					<dl>
+						<dt>이벤트</dt>
+						<dd><a href="/event/list.action">이벤트 안내</a></dd>
+						<dd><a href="/pds/promoList.action">이벤트 자료집</a></dd>
+					</dl>
+					<dl>
+						<dt>시사상식</dt>
+						<dd><a href="/subscription/list.action?ClassCode=100107102">정기구독신청</a></dd>
+						<dd><a href="/subscription/expire.action">만료일 조회</a></dd>
+						<dd><a href="/subscription/delivery.action">배송지변경</a></dd>
+					</dl>
+					<dl>
+						<dt>동영상강의실</dt>
+						<dd><a href="/pds/movieList.action">동영상강의실</a></dd>
+					</dl>
+					<dl>
+						<dt>도서자료실</dt>
+						<dd>
+							<span><a href="/pds/optList.action">부가학습자료</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/mp3List.action">MP3자료실</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/tbList.action">정오표</a></span>
+						</dd>
+						<dd>
+							<span><a href="/pds/programInfo.action">필수프로그램</a></span>
+						</dd>
+					</dl>
+					<dl>
+						<dt>공지 및 안내</dt>
+						<dd><a href="/board/noticeList.action">공지사항</a></dd>
+						<dd><a href="/board/faqList.action">자주하는 질문</a></dd>
+					</dl>
+					<dl>
+						<dt>고객의 소리</dt>
+						<dd><a href="/customer/qnaWrite.action">1:1 문의/제안하기</a></dd>
+					</dl>
+				</div>
+				<div class="s_close"><a href="#"><img src="https://img.eduwill.net/books/web/common/btn_close_layer02.gif" alt="닫기"></a></div>
+			</div>
+		</div>
+		<!-- // 사이트맵 -->
+		<!-- slider -->
+		<div class="h_login">
+			<div class="s_inner">
+				<div class="login_box">
+					<!-- 로그인 후 -->
+					<div class="form_group">
+						<!-- <a href="https://ea.eduwill.net/login/login.action?systemCd=book&amp;redirectUrl=http%3A%2F%2Fbook.eduwill.net%2Fmain.action" class="g_btn_a">로그인</a>
+						<a href="javascript:fn_goJoin();" class="g_btn_b">회원가입</a> -->
+						<a href="https://ea.eduwill.net/login/logout.action?systemCd=book&redirectUrl=http%3A%2F%2Fbook.eduwill.net" class="g_btn_c">로그아웃</a>
+						<a href="https://ea.eduwill.net/user/modifypwd.action?systemCd=book&redirectUrl=http%3A%2F%2Fbook.eduwill.net" class="g_btn_b">회원정보수정</a>
+					</div>
+					<div class="member_btn">
+						<a href="http://book.eduwill.net/mypage/orderList.action" class="g_btn_d">마이페이지</a>
+						<a href="http://book.eduwill.net/basket/index.action" class="g_btn_d">장바구니</a>
+						<a href="http://book.eduwill.net/mypage/orderList.action?m=d1&c=d1d1" class="g_btn_d">주문배송조회</a>
+					</div>
+				</div>
+				<div class="s_close"><a href="#"><span>닫기</span></a></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- CONTAINER -->
+	<div id="container">
+		<!-- gnb -->
+		<div class="gnb">
+			<div class="gnb_pc">
+				<ul class="gnb_label">
+					<li><a href="http://book.eduwill.net/event/list.action" id="#gnb_01">이벤트</a> <img src="https://img.eduwill.net/pds/books/web/main/icon_n.png" /></li>
+					<li><a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102" id="#gnb_02">시사상식</a></li>
+					<li><a href="http://book.eduwill.net/pds/movieList.action" id="#gnb_03">동영상강의실</a></li>
+					<li><a href="http://book.eduwill.net/pds/optList.action" id="#gnb_04">도서자료실</a></li>
+					<li><a href="http://book.eduwill.net/board/noticeList.action" id="#gnb_05">공지 및 안내</a></li>
+					<li class="endline"><a href="http://book.eduwill.net/customer/qnaWrite.action" id="#gnb_06">고객의 소리</a></li>
+				</ul>
+			</div>
+			<div class="btn_wrap">
+				<a href="#" class="btn btn_prev">></a>
+				<a href="#" class="btn btn_next">></a>
+			</div>
+			<div class="gnb_mobile gnb_scroll">
+				<ul class="gnb_label">
+					<li><a href="http://book.eduwill.net/event/list.action" id="#gnb_01">이벤트</a> <img src="https://img.eduwill.net/pds/books/web/main/icon_n.png" /></li>
+					<li><a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102" id="#gnb_02">시사상식</a></li>
+					<li><a href="http://book.eduwill.net/pds/movieList.action" id="#gnb_03" class="linktype">동영상강의실</a></li>
+					<li><a href="http://book.eduwill.net/pds/optList.action" id="#gnb_04">도서자료실</a></li>
+					<li><a href="http://book.eduwill.net/board/noticeList.action" id="#gnb_05">공지 및 안내</a></li>
+					<li class="endline"><a href="http://book.eduwill.net/customer/qnaWrite.action" id="#gnb_06" class="linktype">고객의 소리</a></li>
+				</ul>
+			</div>
+			<div class="sub_wrap">
+				<div id="gnb_01" class="sub_menu sub_menu04">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/event/list.action">이벤트 안내</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/promoList.action">이벤트 자료집</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_02" class="sub_menu sub_menu03">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/list.action?ClassCode=100107102">정기구독신청</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/expire.action">만료일 조회</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/subscription/delivery.action">배송지변경</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_03" class="sub_menu sub_menu02">
+					<ul>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/movieList.action">동영상강의실</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_04" class="sub_menu sub_menu05">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/optList.action">부가학습자료</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/mp3List.action">MP3자료실</a></dt>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/tbList.action">정오표</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/pds/programInfo.action">필수프로그램</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_05" class="sub_menu sub_menu01">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/noticeList.action">공지사항</a></dt>
+							</dl>
+						</li>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/board/faqList.action">자주하는 질문</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div id="gnb_06" class="sub_menu sub_menu06">
+					<ul>
+						<li class="endline">
+							<dl>
+								<dt><a href="http://book.eduwill.net/customer/qnaWrite.action">1:1 문의/제안하기</a></dt>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<a class="close_layer" href="#"><span class="hidden">닫기</span></a>
+			</div>
+			<div class="btn_lnb">
+				<a href="">도서리스트</a>
+			</div>
+		</div>
+		<!-- //gnb -->
+
+		<!-- CONTENT -->
+		<div id="content">
+			<!-- lnb -->
+			<div class="lnb">
+				<ul>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100100">공인중개사</a></dt>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100101">주택관리사</a></dt>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100102">공무원</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100102105">7급·9급 공무원</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100102102">경찰 공무원</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100102107">공무원영단어</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100112">한국사능력검정시험</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100112100">고급</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100112101">중급</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100112102">초급</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100108">기업별 직무적성검사</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100108105">20대기업 통합편</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108100">삼성 GSAT</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108101">농협 NHAT</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108102">CJ 인적성</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108103">LG 인적성</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108104">현대차 HMAT</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100108106">SKCT</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100111">NCS</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100111100">기본서</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100111101">자소서&면접</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100111102">모의고사</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100107">상식</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100107100">일반상식</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100107101">월간 시사상식</a></dd>
+							<dd><a href="/subscription/list.action?ClassCode=100107102" data-type="goods" data-classcode="100107102">★ 월간 시사상식 정기구독</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100103">자격증</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100103116">전산세무회계</a><img src="https://img.eduwill.net/pds/books/web/common/icon_lnb_ebs.png" alt="ebs 로고" /></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103119">ERP 정보관리사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103123">AT자격시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103102">직업상담사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103103">사회복지사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103110">경비지도사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103112">전기기사/산업기사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103105">제과제빵기능사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103113">한자시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103118">TOKL국어능력인증시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103117">KBS한국어능력시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103122">TOPIK 토픽</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103121">한국실용글쓰기검정시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103124">국제무역사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103126">무역영어</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103127">관광통역안내사</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103115">운전면허시험</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100103120">미용사(네일)</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100109">경제/경영</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100109101">매경TEST</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100109102">TESAT</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100114">조리기능사</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100114100">필기</a><img src="https://img.eduwill.net/pds/books/web/common/icon_lnb_ebs.png" alt="ebs 로고" /></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100114101">실기</a><img src="https://img.eduwill.net/pds/books/web/common/icon_lnb_ebs.png" alt="ebs 로고" /></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100113">부사관/ROTC</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100113100">육군부사관</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100113101">해군부사관</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100113103">공군부사관</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100113102">ROTC·학사장교</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100104">검정고시</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100104100">고졸검정고시</a></dd>
+							<dd><a href="#" data-type="goods" data-classcode="100104101">중졸검정고시</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#" data-type="goods" data-classcode="100110">문학/에세이</a></dt>
+							<dd><a href="#" data-type="goods" data-classcode="100110100">서경석에세이</a></dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<!-- //lnb -->
+			<!-- 도서 리스트내용 -->
+			<script type="text/javascript" src="http://book.eduwill.net/js_new/goods.js"></script>
+			<form name="bookFrm" id="bookFrm">
+				<input type="hidden" id="sFlag" name="sFlag" value="dir" />
+				<input type="hidden" id="goodsId" name="goodsId">
+				<input type="hidden" name="ClassCode" id="ClassCode" value="100102105" />
+				<input type="hidden" name="SubClassCode" id="SubClassCode"  value="" />
+				<input type="hidden" name="searchKeyword" id="searchKeyword" value="">
+				<input type="hidden" name="search" id="search" value="">
+				<input type="hidden" name="searchO" id="searchO" value="">
+				<div class="con_wrap">
+					<!-- 도서 상세내용 -->
+					<div class="g_content book_view">
+						<div class="slide-best">
+							<video class="slide-video" poster="" autoplay="" muted="" loop="">
+								<source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210223/video_book.mp4" type="video/mp4">
+							</video>
+							<!-- <div class="slide-wrap">
+								<a href="https://event.eduwill.net/Event/2020/Z/Branding_201204" target="_blank">
+									<span class="sr-only">취업 대세의 2021 합격노하우 공개</span>
+								</a>
+							</div>
+							<img src="https://img.eduwill.net/eduwill/img/2021/Q/banner/210126/pc/slide_public.png" alt=""> -->
+						</div>
+
+						<!-- book_view 클래스추가 : 페이지별로 컨텐츠관련 클래스추가 -->
+						<ul class="g_location">
+							<li><a class="g_home" href="#none"><span>Home</span></a></li>
+							<li><a href="#none"><span>공무원</span></a></li>
+							<li><a href="/goods/list.action?SubClassCode=100102105	" data-subclasscode="100102105	"><span>7급·9급 공무원</span></a></li>
+						</ul>
+						<!-- 2017-09-22 add -->
+						<div class="title_wrap">
+							<dl class="book_title">
+								<dt>2018 7개년 기출팩PACK 9급 공무원 기출문제집 공통과목 국어·영어·한국사 (최신개정판)</dt>
+								<dd>
+									<span>송운학,성정혜,신형철</span>
+									<span>2017.09.21</span>
+									<span>828쪽</span>
+									<span class="endline">ISBN - 9791159494802</span>
+								</dd>
+							</dl>
+
+							<!-- 2018-05-23 -->
+							<div class="badge_list">
+								<div class="list"><!-- list -->
+									<span class="badge yes24"><em>인터넷서점 yes24 1위</em></span>
+									<div class="info">
+										<p>
+											YES24 공인중개사 부문 16-11~18.04 월별베스트 1위
+										</p>
+									</div>
+								</div>
+								<!--
+								<div class="list">
+									<span class="badge new"><em>NEW</em></span>
+								</div>
+								-->
+							</div>
+							<!-- // 2018-05-23 -->
+
+						</div>
+						<!-- // 2017-09-22 add -->
+						<div class="book_detail">
+							<div class="book_img">
+								<div class="thum_book">
+									<img src="https://book.eduwill.net/pds/books/BOOKIMAGE/0100001710_1.jpg" width="240px" height="324" alt="">
+								</div>
+								<p style="text-align: center">
+									<a class="img_preview" href="#none" onclick="goods.getPreview('/ebook/ibooks/0100001710/book.html?goods_id=');"><span>미리보기</span></a>
+								</p>
+							</div>
+							<div class="book_text">
+								<ul>
+									<li class="text_price"><span class="text_label">정가 </span>27,000원</li>
+									<li class="text_sale"><span class="text_label">할인가 </span><strong>24,300</strong><em>원</em>(10% 할인)</li>
+									<li class="text_card">
+										<span class="text_label">카드 혜택 </span>
+										<p>
+											<span>5만원 이상 구매 시 6개월  이상 무이자 할부</span>
+											<span>
+											<a href="#" onclick="cardInfo('20170831134156903.jpg','599','935');">자세히 보기</a>
+											</span>
+										</p>
+									</li>
+									<li class="text_ship"><span class="text_label">배송비 </span>2,500원 (30,000원 이상 구매 시 배송비 무료)</li>
+									<li class="text_num">
+										<span class="text_label">수량</span>
+										<span class="g_count">
+										<input type="text" name="" id="quantity_0100001710" value="1" class="input_text">
+										<a class="num_plus" href="#none"><span class="hidden">올림</span></a>
+										<a class="num_minus" href="#none"><span class="hidden">내림</span></a>
+										</span>
+									</li>
+								</ul>
+								<div class="book_btn">
+									<a class="g_btn_large btn_buy" href="#" onclick="directBuy('0100001710	');"><span>바로 구매하기</span>
+										<span class="icon-hand type1"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png"></span>
+									</a>
+									<a class="g_btn_large btn_cart" href="#" onclick="insertBasket('0100001710	');"><span>장바구니 담기</span></a>
+									<a class="g_btn_large btn_goods" href="#" onclick="insertFavoriteGoods('0100001710	');"><span>관심상품 담기</span></a>									
+								</div>
+								<div class="book_btn">
+									<a class="g_btn_large btn_buy btn_full" href="#" onclick="directBuy('0100001710	');" title="온라인서점(YES 24) 구매페이지로 이동"><span>바로 구매하기</span>
+										<span class="icon-hand type2"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png"></span>
+									</a>
+									<div class="text_desc">온라인서점(YES 24) 구매페이지로 이동</div>
+								</div>
+								<div class="book_btn">
+									<a class="g_btn_large btn_buy_yellow btn_full" href="#" onclick="directBuy('0100001710	');" title="온라인서점(YES 24) 구매페이지로 이동"><span>바로 구매하기</span>
+										<span class="icon-hand type2"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png"></span>
+									</a>
+									<div class="text_desc">온라인서점(YES 24) 구매페이지로 이동</div>
+								</div>
+							</div>
+						</div>
+						<div class="book_item book_item01">
+								<a name="book_item01"></a>
+								<ul class="g_tab_a">
+								<li class="active"><a href="#book_item01">교재 자료</a></li>
+								<li><a href="#book_item02">교재 소개</a></li>
+								<li><a href="#book_item03">북 티저</a></li>
+								<li><a href="#book_item04">목차</a></li>
+								<li><a href="#book_item05">배송안내</a></li>
+								<li class="endline"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+								
+								<div class="item_body">
+										<p class="ib_title">부가학습자료</p>
+										<table cellspacing="0" class="tbl_col">
+										<caption>부가학습자료</caption>
+										<colgroup>
+										<col width="50">
+										<col width="*">
+										<col width="60">
+										</colgroup>
+										<thead>
+										<tr>
+										<th scope="col"><input name="" type="checkbox" value="" id="" class="input_check"></th>
+										<th scope="col">제목</th>
+										<th scope="col">파일</th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
+										<td><input name="" type="checkbox" value="" id="" class="input_check"></td>
+										<td class="ib_name">2014 EBS 에듀윌 전산세무 2급 – 정오표(1쇄)</td>
+										<td class="ib_download"><a href="#none"><span class="hidden">파일 다운로드</span></a></td>
+										</tr>
+										<tr>
+										<td><input name="" type="checkbox" value="" id="" class="input_check"></td>
+										<td class="ib_name">무궁화꽃이피었습니다무궁화꽃이피었습니다무궁화꽃이피었습니다무궁화꽃이피었습니다무궁화꽃이피었습니다무궁화꽃이피었습니다</td>
+										<td class="ib_download"><a href="#none"><span class="hidden">파일 다운로드</span></a></td>
+										</tr>
+										<tr>
+										<td><input name="" type="checkbox" value="" id="" class="input_check"></td>
+										<td class="ib_name">2014 EBS 에듀윌 전산세무 2급 – 정오표(1쇄)</td>
+										<td class="ib_download"><a href="#none"><span class="hidden">파일 다운로드</span></a></td>
+										</tr>
+										</tbody>
+										</table>
+										<div class="ib_button">
+												<a class="down_select" href="#none"><span>선택파일 다운받기</span></a>
+												<a class="down_all" href="#none"><span>전체 다운받기</span></a>
+										</div>
+								</div>
+
+						</div>
+
+						<div class="book_item book_item02">
+								<a name="book_item02"></a>
+								<ul class="g_tab_a">
+								<li><a href="#book_item01">교재 자료</a></li>
+								<li class="active"><a href="#book_item02">교재 소개</a></li>
+								<li><a href="#book_item03">북 티저</a></li>
+								<li><a href="#book_item04">목차</a></li>
+								<li><a href="#book_item05">배송안내</a></li>
+								<li class="endline"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+
+								<div class="item_body">
+										<div class="g_editor">
+										<!-- 교재 소개 -->
+											<span style="color:#000000;"><strong><span style="color:#ff0000"><img alt="" src="//pds.eduwill.net/Books/editorImage/2019공인중개사 2차 기본서(부동산공시법)(9791159498893)_20181219153334.jpg" style="width: 700px; height: 9512px;"><br>
+											<br>
+											■</span>&nbsp;</strong><strong>책 소개</strong><br>
+											<br>
+											<strong>합격을 위한 기본이론의 모든 것!</strong><br>
+											<strong>공인중개사 합격의 바이블!</strong><br>
+											이 책은 공인중개사 시험을 준비하는 수험생이라면 꼭 봐야 하는, 공인중개사 대비 교재의 바이블입니다. 시험에 출제되는 모든 이론을 처음 공부하는 수험생도 이해하기 쉽도록 정리하고, 기출 표기 및 기출&amp;예상문제를 통해 즉시, 완벽하게, 흡수할 수 있도록 구성하였습니다. 10개년 기출 빅데이터 분석을 바탕으로 이론을 체계적이고 효율적으로 학습할 수 있도록 한, 공인중개사 대비 교재의 시작이자 끝이라고 할 수 있습니다.<br>
+											또한 부록으로 부동산공시법 조문집을 수록하여 출제범위에 해당하는 관련 법조문을 바로 확인할 수 있도록 하였습니다.<br>
+											&nbsp;<br>
+											<strong>2</strong><strong>년 연속 합격자 수 최고기록 공식인증!</strong><br>
+											<strong>가장 많은 합격자를 만든 책입니다.</strong><br>
+											단일 교육기관 2016, 2017 공인중개사 한 회차 최다 합격자 배출 공식 인증(공식인증기관 ‘한국기록원’)<br>
+											국내 최대 규모의 합격자 모임 매년 개최<br>
+											공인중개사 전문 교육기관 선호도, 인지도 1위(한국리서치 ‘교육기관 브랜드 인지도 조사’ / 2015년 8월)<br>
+											YES24 공인중개사 부문 2016~2018년 25개월 연속 판매 1위(2016년 12~2018년 12월 기준)<br>
+											&nbsp;<br>
+											<br clear="all">
+											<strong><span style="color:#ff0000">■&nbsp;</span></strong><strong>이 책의 구성</strong><br>
+											<br>
+											<strong>1. </strong><strong>부동산공시법 10개년 기출 빅데이터</strong><br>
+											- PART별 출제비중 : 제29회~제20회 기출분석을 통한 PART별 출제비중 확인!<br>
+											- CHAPTER별 출제비중 : 각 PART 내 CHAPTER별 출제비중을 한눈에 파악!<br>
+											- 10개년 기출분석표(문항 수&amp;출제키워드) : 제29회~제20회 기출까지 10개년 출제빈도 분석표를 통한 단원별 출제비중과 출제키워드 점검!<br>
+											- 기출 빅데이터 분석에 따른 공략 Point : 공략하여야 할 주요 CHAPTER와 CHAPTER별 BEST 출제키워드를 확인하여 학습 강약 조절!<br>
+											&nbsp;<br>
+											<strong>2. </strong><strong>기출지문으로 출제 포인트 예측</strong><br>
+											- 빈출지문은 또 출제됩니다. 빈출지문 익히기 : 빈출지문을 읽으며 단원 마무리!<br>
+											- 빈칸 뚫어 한번 더! 빈출지문 (빈출키워드) 채워넣기: 빈칸 채우기 문제를 풀며 자연스럽게 빈출지문 회독!<br>
+											&nbsp;<br>
+											<strong>3. </strong><strong>이해를 UP! 시키는 핵심이론 정리 및 문제 수록</strong><br>
+											- 단원 미리보기 : 각 단원을 시작하기에 앞서 CHAPTER별 핵심내용을 수록하여 효율적으로 이론에 접근!<br>
+											- OX확인문제, 기출&amp;예상문제 : 이론에 대한 이해도를 높이고, 문제해결능력을 키울 수 있도록 보조단에는 OX확인문제, 해당 내용 아래에는 기출&amp;예상문제를 수록!<br>
+											- 용어해설/추가/정리/암기 : 보조단의 내용을 *(용어해설), 추가(보충설명), 정리(본문내용 정리), 암기(암기법이나 암기할 내용)로 구분하여 정리!<br>
+											&nbsp;<br>
+											<strong>4. </strong><strong>합격부록 2</strong><br>
+											1. 제29회 기출&amp;해설 : 최신 기출로 출제경향 파악!<br>
+											2. 부동산공시법 조문집 : 12문제 이상은 조문에서 출제된다! 오직 공시법을 위한 조문집<br>
+											&nbsp;</span><br>
+											&nbsp;</div>
+								</div>
+						</div>
+
+						<div class="book_item book_item03">
+								<a name="book_item03"></a>
+								<ul class="g_tab_a">
+								<li><a href="#book_item01">교재 자료</a></li>
+								<li><a href="#book_item02">교재 소개</a></li>
+								<li class="active"><a href="#book_item03">북 티저</a></li>
+								<li><a href="#book_item04">목차</a></li>
+								<li><a href="#book_item05">배송안내</a></li>
+								<li class="endline"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+
+								<div class="item_body">
+										<a href="#"><img src="http://img.eduwill.net/books/web/temp/@btn_book_teaser.jpg" alt="" /></a>
+								</div>
+						</div>
+
+						<div class="book_item book_item04">
+								<a name="book_item04"></a>
+								<ul class="g_tab_a">
+								<li><a href="#book_item01">교재 자료</a></li>
+								<li><a href="#book_item02">교재 소개</a></li>
+								<li><a href="#book_item03">북 티저</a></li>
+								<li class="active"><a href="#book_item04">목차</a></li>
+								<li><a href="#book_item05">배송안내</a></li>
+								<li class="endline"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+
+								<div class="item_body">
+										<div class="g_editor">
+										<!-- 목차 -->
+											2015 에듀윌 주택관리사 1차 기본서 세트는 처음 시험을 준비하는 수험생부터 합격을 목전에 두고 있는 수험생들까지 반드시 알아야 할 기본이론을 체계적으로 담았습니다. 
+											<div class="b_more">
+												<a href="#" class="btn_more"><span>더보기</span></a>
+											</div>
+										</div>
+								</div>
+						</div>
+
+						<div class="book_item book_item05">
+								<a name="book_item05"></a>
+								<ul class="g_tab_a">
+								<li><a href="#book_item01">교재 자료</a></li>
+								<li><a href="#book_item02">교재 소개</a></li>
+								<li><a href="#book_item03">북 티저</a></li>
+								<li><a href="#book_item04">목차</a></li>
+								<li class="active"><a href="#book_item05">배송안내</a></li>
+								<li class="endline"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+
+								<div class="item_body">
+										<div class="ib_delivery">
+												<span>주문하는 도서는 대금결제가 완료된 후 재고량을 보유하고 있을 시 택배로 즉시 발송되며, 발송 후 1~2일 내에 받아 보실 수 있습니다.</span>
+												<span>단, 주문서의 품절이나 기타 사유로 배송이 늦어질 경우 메일이나 전화로 사유를 알려 드립니다.</span>
+												<p>오후 3시 이전 주문 건은 당일 배송, 그 이후 주문 건은 익일 배송됩니다.</p>
+										</div>
+								</div>
+						</div>
+
+						<div class="book_item book_item06">
+								<a name="book_item06"></a>
+								<ul class="g_tab_a">
+								<li><a href="#book_item01">교재 자료</a></li>
+								<li><a href="#book_item02">교재 소개</a></li>
+								<li><a href="#book_item03">북 티저</a></li>
+								<li><a href="#book_item04">목차</a></li>
+								<li><a href="#book_item05">배송안내</a></li>
+								<li class="endline active"><a href="#book_item06">교환 및 반품</a></li>
+								</ul>
+
+								<div class="item_body">
+										<dl class="ib_notice">
+										<dt>교환 및 반품 정보</dt>
+										<dd>
+												<span>총 합산 금액이 30,000원 이상일 경우에는 배송료가 무료이며, 30,000원 미만은 2,500원이 합산되어 부과 됩니다.</span>
+												<span>단, 제주도는 별도의 항공료 5,000원이 추가 됩니다.</span>
+										</dd>
+										<dt>교환 및 반품 주소</dt>
+										<dd>
+												<span>도서는 받으신 후 14일 이내에 교환/반품/환불이 가능하며, 저희 에듀윌로 보내주시면 됩니다.</span>
+												<span>고객님의 변심으로 인한 교환/환불 시에는 왕복 배송비 5,000원을 부담하셔야 하며, 잘못 된 배송이나 파본 시에는 전액을 저희 에듀윌에서 부담 합니다.</span>
+										</dd>
+										</dl>
+										<div class="ib_button">
+												<a href="#none"><span>교환/반품 문의</span></a>
+										</div>
+								</div>
+						</div>
+
+						<div class="center_align">
+							<a href="/goods/list.action?SubClassCode=100100106   " class="g_btn_large_a"><span>목록보기</span></a>
+						</div>
+
+						<!-- 이 분야 인기도서 추가 -->
+						<div class="book_item book_item07">
+							<div class="books_list">
+								<h3 class="g_h3_tit">이 분야 <strong>인기도서</strong></h3>
+								<ul class="list">
+									<li>
+										<dl>
+											<dt><a href="#"><img src="https://img.eduwill.net/pds/books/web/temp/ing_image03.gif" alt="준비중" /></a>
+												<img src="https://img.eduwill.net/pds/books/web/common/icon_new.png" alt="new" class="new" />
+											</dt>
+											<dd>
+												<p class="title">한국사능력검정<br />고급 기출문제집<br />고급 기출문<br />고급 기출문</p>
+												<p class="price"><strong>16,400</strong>원</p>
+												<p class="discount">10%</p>
+											</dd>
+										</dl>
+									</li>
+							
+									<li>
+										<dl>
+											<dt><a href="#"><img src="https://img.eduwill.net/pds/books/web/temp/@thumb_book_list.jpg" alt="" /></a>
+												<img src="https://img.eduwill.net/pds/books/web/common/icon_new.png" alt="new" class="new" />
+											</dt>
+											<dd>
+												<p class="title">한국사능력검정<br />고급 기출문제<br />고급 기출문제집</p>
+												<p class="price"><strong>16,400</strong>원</p>
+												<p class="discount">10%</p>
+											</dd>
+										</dl>
+									</li>
+							
+									<li>
+										<dl>
+											<dt><a href="#"><img src="https://img.eduwill.net/pds/books/web/temp/@thumb_book_list.jpg" alt="" /></a></dt>
+											<dd>
+												<p class="title">한국사능력검정<br />고급 기출문제집</p>
+												<p class="price"><strong>16,400</strong>원</p>
+												<p class="discount">10%</p>
+											</dd>
+										</dl>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- // 이 분야 인기도서 추가 -->
+					</div>
+					<!-- //도서 상세내용 -->
+				</div>
+			</form>
+			<!-- sideMenu -->
+				<div class="side_menu">
+					<ul>
+						<li class="s_menu01" >
+							<a href="http://book.eduwill.net/pds/tbList.action" target="_self">
+								<img src="https://img.eduwill.net/pds/books/web/common/quick_ban01.png" alt="정오표" />
+							</a>
+						</li>
+						<li class="s_menu02" >
+							<a href="http://book.eduwill.net/pds/mp3List.action" target="_self">
+								<img src="https://img.eduwill.net/pds/books/web/common/quick_ban02.png" alt="MP3 다운로드" />
+							</a>
+						</li>
+						<li class="s_menu03">
+							<a href="http://book.eduwill.net/mypage/orderList.action?m=d1&c=d1d1" target="_self">
+								<img src="https://img.eduwill.net/pds/books/web/common/quick_ban03.png" alt="배송조회" />
+							</a>
+						</li>
+						<li class="s_menu04">
+							<a href="javascript:;">
+								<img src="https://img.eduwill.net/pds/books/web/common/quick_ban_notice.png" alt="2018조리기능사 출제기준 변경 안내 자세히보기" />
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- //sideMenu -->
+		</div>
+		<!-- //CONTENT -->
+	</div>
+	<!-- //CONTAINER -->
+
+	<div class="fix-apply" id="fixApply" style="display: none;">
+		<div class="wrap">
+			<a class="page_move" href="#"><span>구매하기</span></a>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function (){
+			var minScroll = $('.book_item02').offset().top;
+			$(window).scroll(function(){
+				if($(window).scrollTop() > minScroll) {
+					$('#fixApply').fadeIn('fast');
+				} else {
+					$('#fixApply').fadeOut('fast');
+				}
+			})
+			
+		})
+	</script>
+</div>
+</body>
+</html>
