@@ -1,0 +1,354 @@
+@charset "utf-8";
+
+/* layout */
+#wrap { border-top: 2px solid #3d4354; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#content { min-height: 100vh; overflow: hidden; }
+.container { position: relative; width: 100%; margin: 0 auto; }
+.container .wrap { width: auto; max-width: 900px; margin: 0 25px 60px; }
+
+/* footer */
+#footer { padding-bottom: 0; background-color: transparent; }
+.copyright { padding: 11px 0; text-align: center; font-size: 11px; color: #999; letter-spacing: 0; border-top: 1px solid #e2e2e2; background-color: #f2f2f2; }
+
+/* section_head */
+.section_head { position: relative; height: 45px; line-height: 45px; border-bottom: 1px solid #e2e2e2; }
+.section_head .wrap { margin: 0; *zoom: 1; }
+.section_head .wrap:before,
+.section_head .wrap:after { content: ''; display: table; }
+.section_head .wrap:after { clear: both; }
+.section_head h1.title { float: left; font-size: 16px; font-weight: 700; color: #505764; }
+.section_head .logo { float: left;  width: 70px; height: 45px; margin: 0 5px; background-image: url('//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg'); background-repeat: no-repeat; background-position: left center; background-size: 100% auto; }
+.section_head .close_quiz { display: block; position: absolute; top: 0; right: 0; width: 45px; height: 45px; }
+.section_head .close_quiz:before,
+.section_head .close_quiz:after { content: ''; position: absolute; top: 50%; right: 50%; display: block; width: 20px; height: 1px; margin-right: -10px; background-color: #909090; }
+.section_head .close_quiz:before { -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+.section_head .close_quiz:after { -webkit-transform: rotate(-135deg); -ms-transform: rotate(-135deg); transform: rotate(-135deg); }
+
+/* table_col */
+.table_col { width: 100%; margin-top: 10px; font-weight: 500; }
+.table_col .col { width: auto; }
+.table_col th,
+.table_col td { padding: 12px 4px; text-align: center; font-size: 14px; color: #444; word-break: keep-all; word-break: break-word; border-bottom: 1px solid #e2e2e2; }
+.table_col th { line-height: 1.15; font-size: 14px; font-weight: 500; color: #333; border-top: 1px solid #737782; background-color: #f2f3f7; }
+.table_col tbody th { border-left: 1px solid #e2e2e2; background-color: #f5f5f5; }
+.table_col tbody tr:first-child th:first-child,
+.table_col tbody th.classify_1st { border-left-width: 0; }
+.table_col th span { display: block; }
+.table_col .total td { font-weight: 700; color: #333; background-color: #f2f3f7; }
+.table_col tfoot th,
+.table_col tfoot td { color: #fff; border-top-width: 0; border-bottom-width: 0; background-color: #6e768a; }
+.table_col td.grade,
+.table_col td.average,
+.table_col td.total, 
+.table_col td.ranking,
+.table_col td.score,
+.table_col td.right,
+.table_col td.percentage,
+.table_col td.persons,
+.table_col td.rate,
+.table_col td.maginotline { font-family: verdana; }
+.table_col .pass,
+.table_col tbody td.right strong { color: #3666de; }
+.table_col .fail { color: #d54747; }
+
+/* tooltip */
+[data-toggle='tooltip'] { display: none; }
+
+/* section_analysis */
+.section_analysis { padding-bottom: 57px; }
+.section_analysis .wrap { margin: 0; }
+.section_analysis h2.title { padding: 0 15px; text-align: center; font-size: 15px; font-weight: 400; color: #666; }
+.section_analysis h2.title span { display: block; line-height: 1.2; font-size: 22px; font-weight: 700; color: #000; }
+.section_analysis .result { position: relative; padding: 0 15px; }
+.section_analysis .title + .result { padding-bottom: 40px; border-bottom: 1px solid #ccc; }
+.section_analysis .result + .result { border-top: 5px solid #e5e5e5; }
+.section_analysis .is_today .table_col th { color: #fff; border-bottom-color: #6e768a; background-color: #6e768a; }
+
+.section_analysis .title_wrap { margin-top: 25px; }
+.section_analysis .title_wrap .col { width: 50%; text-align: right; }
+.section_analysis .title_wrap .title { text-align: left; font-size: 18px; font-weight: 500; color: #222; }
+.section_analysis .title_wrap h4.title { position: relative; padding-left: 8px; }
+.section_analysis .title_wrap h4.title:before { content: ''; position: absolute; top: 50%; left: 0; display: block; width: 2.5px; height: 14px; margin-top: -7px; background-color: #6e768a; }
+.section_analysis .title_wrap .date { display: inline-block; padding-left: 22px; font-family: verdana; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_calendar_sm.png'); background-repeat: no-repeat; background-position: left center; background-size: 18px; }
+.section_analysis .title_wrap .total {}
+.section_analysis .title_wrap .total strong { font-weight: 700; color: #333; }
+.section_analysis .item .title_wrap .title h3 { font-size: 18px; }
+.section_analysis .item .title_wrap .title h4 { font-size: 14px; }
+
+.section_analysis .by_period .title_wrap .col { float: none; clear: both; width: 100%; text-align: center; }
+.section_analysis .by_period .title_wrap .title { font-size: 22px; }
+.section_analysis .by_period .title_wrap .date { padding-left: 0; font-size: 15px; color: #666; background: none; }
+.section_analysis .by_period .item .title_wrap .col { float: left; clear: inherit; width: 65%; text-align: right; }
+.section_analysis .by_period .item .title_wrap .title { width: 35%; text-align: left; }
+.section_analysis .by_period .item .holder { position: relative; }
+
+.section_analysis .action { margin: 12px 0 0 -1.7%; }
+.section_analysis .action .col { width: 33.33%; width: calc(100% / 3); padding-left: 1.7%; }
+.section_analysis .action .button { width: 100%; border-radius: 0; }
+.section_analysis .action .button.info { background-color: #f5f5f5; }
+.section_analysis .action .button.info span { color: #666; }
+
+.section_analysis .form_wrap { margin-top: 10px; }
+.section_analysis .chart_wrap { position: relative; width: 100%; margin-top: 10px; padding: 3px; border: 5px solid #e2e2e2; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.section_analysis .chart_wrap canvas { width: 100%; padding: 0 5px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.section_analysis .chart_wrap .core { margin: 0 auto; }
+
+.section_analysis .notice { margin-top: 10px; text-align: right; color: #888; }
+.section_analysis .notice + .notice { margin-top: 0; }
+.section_analysis .title_wrap .notice { margin-top: -15px; }
+
+/* section_analysis for mock */
+.section_analysis .is_exam_score > .title_wrap { margin-top: 0; }
+.section_analysis .is_exam_score .title_wrap .desc { text-align: center; font-size: 16px; font-weight: 500; color: #222; }
+.section_analysis .is_exam_score .condition { position: relative; display: table; width: 100%; margin-top: 10px; font-size: 14px; }
+.section_analysis .is_exam_score .condition p { display: table-cell; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.section_analysis .is_exam_score .condition .subject { width: auto; padding: 0 5px 0 15px; font-weight: 700; letter-spacing: -1.5px; white-space: nowrap; background-repeat: no-repeat; background-position: left 3px; background-size: auto 13px; }
+.section_analysis .is_exam_score .condition.is_fail .subject { color: #d54747; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_fail_sm.png'); }
+.section_analysis .is_exam_score .condition.is_pass .subject { color: #3666de; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_pass_sm.png'); }
+.section_analysis .is_exam_score .condition + .chart_wrap { margin-top: 15px; }
+.section_analysis .by_subject_score .form_wrap { margin-top: 30px; }
+.section_analysis .by_subject_score .form_wrap select { height: 35px; line-height: 33px; font-size: 15px; font-weight: 700; color: #222; border-color: #888; }
+.section_analysis .table_scope tbody th,
+.section_analysis .table_scope tbody td { font-size: 12px; }
+.section_analysis .table_scope tbody td { font-weight: 500; }
+
+.section_analysis .is_point .holder { margin-top: 10px; border-top: 1.5px solid #737782; border-bottom: 1px solid #e2e2e2; }
+.section_analysis .is_point .core { padding: 14px 8px; font-size: 13.5px; line-height: 1.6; word-break: break-word; }
+.section_analysis .is_point .core strong { font-weight: 700; color: #111; }
+.section_analysis .is_point .core u { text-decoration: none; border-bottom: 1px solid #666; }
+
+/* section_subject_select */
+.section_subject_select { text-align: center; }
+.section_subject_select h2.title { margin-top: 35px; font-size: 22px; }
+.section_subject_select h3.title { margin-top: 0; padding: 7px 20px 8px; line-height: 1.4; font-size: 14px; font-weight: 500; color: #fff; border-radius: 5px; background-color: #6e768a; }
+.section_subject_select h4.title { margin-top: 20px; font-size: 15px; color: #222; }
+.section_subject_select .desc { font-size: 15px; }
+.section_subject_select .holder { margin-top: 25px; }
+.section_subject_select .holder + .holder { margin-top: 50px; }
+.section_subject_select .item { text-align: left; border-bottom: 1px solid #e2e2e2; }
+.section_subject_select .item .grid { margin-top: 10px; padding: 0 15px; border-top: 2px solid #737782; }
+.section_subject_select .item .col { width: 100%; }
+.section_subject_select .item .no_data { margin-top: 10px; border-top: 2px solid #737782; }
+.section_subject_select .item .no_data p { padding: 30px 0; font-weight: 500; color: #666; letter-spacing: -1px; }
+.section_subject_select .action { margin-top: 25px; }
+.section_subject_select .action .button { width: 120px; }
+
+.section_subject_select .fake_checkbox { position: relative; display: block; }
+.section_subject_select .checkbox { position: absolute; top: -1px; left: -1px; width: 0; height: 0; visibility: hidden; }
+.section_subject_select .label_check { display: block; padding: 6px 0 6px 27px; font-size: 14px; font-weight: 500; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_check_sm.jpg'); background-repeat: no-repeat; background-position: left center; background-size: auto 17px; cursor: pointer; }
+.section_subject_select .checkbox:checked + .label_check { background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_checked_sm.jpg'); }
+
+.section_subject_select .item.is_required .col { width: 50%; }
+.section_subject_select .item.is_required .label_check { cursor: default; pointer-events: none; }
+.section_subject_select .item.is_required .checkbox:checked + .label_check { color: #666; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_disabled_sm.jpg'); }
+.section_subject_select .item.is_option .checkbox:checked + .label_check { font-weight: 700; color: #7d8dbb; }
+
+/* no_data */
+.no_data {}
+.no_data p { padding: 50px 0; text-align: center; font-size: 12px; color: #888; background-color: #fff; }
+
+/* is_combine */
+.is_combine #content { min-height: auto; }
+.is_combine .section_analysis { padding-bottom: 0; } 
+.is_combine .section_analysis .title + .result { border-bottom-width: 0; }
+
+/************************************************** PC : 640px ******/
+/* and (min-height: 550px) */
+@media only screen and (min-width: 640px) {
+
+	/* layout */
+	html, body { font-size: 20px; }
+	#wrap { border-top-width: 5px; }
+	.container .wrap { margin: 0 30px 100px; }
+
+	/* footer */
+	#footer {}
+	.copyright { padding: 30px 0; font-size: 14px; }
+
+	/* button */
+	.button { border-radius: 4px; }
+	.button span { font-size: 15px; }
+
+	/* contents */
+	.section_head { height: 63px; line-height: 63px; border-bottom-width: 2px; }
+	.section_head .wrap { margin: 0 30px; }
+	.section_head h1.title { font-size: 20px; }
+	.section_head .logo { width: 90px; height: 63px; background-image: url('//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg'); }
+	.section_head .close_quiz { display: none; }
+
+	/* table_col */
+	.table_col { margin-top: 10px; }
+	.table_col th,
+	.table_col td { padding: 15px 0; font-size: 14px; }
+	.table_col th { font-size: 16px; }
+	.table_col th .holder { position: relative; }
+	.table_col [data-toggle='tooltip'] { position: absolute; top: 50%; right: 0; }
+	.table_col th:last-child [data-toggle='tooltip'] { right: 5%; }
+
+	/* tooltip */
+	[data-toggle='tooltip'] { display: inline-block; width: 20px; height: 20px; margin-top: -10px; line-height: 20px; border-radius: 50%; background-color: #9399a7; }
+	[data-toggle='tooltip'] span { font-weight: 700; color: #fff; }
+
+	.tooltip { position: absolute; top: 30px; left: 50%; z-index: 1; display: none; min-width: 300px; margin-left: -150px; border: 1px solid #ddd; border-radius: 5px; background-color: #fff; -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, .15); -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, .15); box-shadow: 0 2px 0 0 rgba(0, 0, 0, .15); }
+	.tooltip:before { content: ''; position: absolute; top: -6px; left: 50%; display: block; width: 10px; height: 10px; margin-left: -5px; border-top: 1px solid #ddd; border-right: 1px solid #ddd; background-color: #fff; transform: rotate(-45deg); }
+	.table_col th:last-child .tooltip { left: auto; right: -7px; }
+	.table_col th:last-child .tooltip:before { left: auto; right: 3.5%; }
+	.tooltip .tooltip_inner { padding: 18px 10px; line-height: 1.4; font-size: 15px; font-weight: 400; color: #888; }
+	.tooltip.in { display: block; }
+
+	/* section_analysis */
+	.section_analysis { padding-bottom: 80px; }
+	.section_analysis .wrap { margin: 0; }
+	.section_analysis h2.title { padding: 0 30px; font-size: 18px; }
+	.section_analysis h2.title span { padding-top: 3px; font-size: 26px; }
+	.section_analysis .title + .result { padding-bottom: 60px; }
+
+	.section_analysis .is_exam_score .title_wrap .desc { padding-top: 10px; font-size: 18px; }
+	.section_analysis .is_exam_score .condition { font-size: 15px; }
+	.section_analysis .is_exam_score .condition .subject { padding-left: 25px; background-size: 21px; }
+	.section_analysis .is_exam_score .condition.is_fail .subject { background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_fail_lg.png'); }
+	.section_analysis .is_exam_score .condition.is_pass .subject { background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_pass_lg.png'); }
+	.section_analysis .table_scope tbody th,
+	.section_analysis .table_scope tbody td { font-size: 14px; }
+
+	.section_analysis .result { padding: 0 30px; }
+	.section_analysis .is_today { padding-bottom: 80px; border-bottom-width: 2px; }
+	.section_analysis .by_period { border-top-width: 10px; }
+
+	.section_analysis .by_period .title_wrap { margin-top: 50px; }
+	.section_analysis .by_subject_score .title_wrap { margin-top: 50px; }
+	.section_analysis .by_subject_score .is_analysis .title_wrap { margin-top: 30px; }
+	.section_analysis .by_subject_score .is_distribution .title_wrap { margin-top: 30px; }
+	.section_analysis .title_wrap .title { font-size: 18px; }
+	.section_analysis .title_wrap .date { padding-left: 30px; background-image: url('//img.eduwill.net/resources/qs/live/images/contents/icon_calendar_lg.png'); background-size: 22px; }
+	.section_analysis .title_wrap .total { padding-top: 5px; font-size: 14px; }
+
+	.section_analysis .by_period .title_wrap .title { font-size: 24px; }
+	.section_analysis .by_period .title_wrap .date { font-size: 18px; }
+
+	.section_analysis .action { margin: 24px 0 0 -1.7%; }
+	.section_analysis .action .col { padding-left: 1.7%; }
+
+	.section_analysis .title_wrap h3.title { font-size: 20px; font-weight: 700; }
+	.section_analysis .item .title_wrap .title h3 { font-size: 20px; }
+	.section_analysis .form_wrap { margin-top: 20px; }
+	.section_analysis .form_wrap .select { height: 44px; line-height: 42px; font-size: 15px; }
+
+	.section_analysis .title_wrap h4.title { padding-left: 14px; }
+	.section_analysis .title_wrap h4.title:before { width: 4px; height: 18px; margin-top: -9px; }
+	.section_analysis .is_point .holder { margin-top: 20px; border-top-width: 2px; border-bottom-width: 2px; }
+	.section_analysis .is_point .core { padding: 23px 20px; line-height: 1.75; font-size: 16px; }
+
+	.section_analysis .notice { margin-top: 20px; font-size: 14px; }
+	.section_analysis .title_wrap .notice { margin-top: -20px; }
+
+	/* section_subject_select */
+	.section_subject_select { letter-spacing: -2px; }
+	.section_subject_select h2.title { margin-top: 58px; font-size: 30px; }
+	.section_subject_select h3.title { padding: 14px 0 15px; font-size: 24px; border-radius: 10px; }
+	.section_subject_select h4.title { margin-top: 37px; font-size: 20px; }
+	.section_subject_select .desc { font-size: 20px; }
+	.section_subject_select .holder { margin-top: 45px; }
+	.section_subject_select .holder + .holder { margin-top: 100px; }
+	.section_subject_select .item { padding-bottom: 17px; border-bottom-width: 2px; }
+	.section_subject_select .item .grid { margin-top: 14px; padding: 17px 30px 0; border-top-width: 2px; }
+	.section_subject_select .item .no_data { padding-top: 17px; }
+	.section_subject_select .action { margin-top: 50px; }
+	.section_subject_select .action .button { width: 240px; padding: 7px 10px 8px; }
+	.section_subject_select .action .button span { font-size: 24px; }
+
+	.section_subject_select .fake_checkbox { padding-left: 0; }
+	.section_subject_select .label_check { padding: 10.5px 0 10.5px 40px; font-size: 20px; background-size: auto 24px; }
+
+	/* no_data */
+	.no_data p { padding: 100px 0; font-size: 14px; }
+
+}
+
+
+/************************************************** PC : 900px(full) **/
+/* and (min-height: 700px) */ 
+@media only screen and (min-width: 911px) {
+
+	/* layout */
+	body { background-color: #f8f8f8; }
+	body.is_select { height: 100vh; }
+	.is_select #wrap { height: 100%; }
+	#wrap { width: 900px; margin: 0 auto; -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, .2); box-shadow: 0 0 30px rgba(0, 0, 0, .2); }
+	.container .wrap { margin: 0 40px 100px; }
+
+	/* table_col */
+	.table_col { margin-top: 17px; }
+	.table_col th,
+	.table_col td { padding: 20px 0; font-size: 18px; }
+	.table_col th { font-size: 20px; }
+
+	/* tooltip */
+	[data-toggle='tooltip'] { width: 26px; height: 26px; margin-top: -13px; line-height: 26px; }
+	.tooltip { top: 40px; }
+
+	/* section_analysis */
+	.section_analysis .wrap { margin: 0; }
+	.section_analysis h2.title { margin-top: 60px; font-size: 26px; }
+	.section_analysis h2.title span { font-size: 38px; }
+
+	.section_analysis .is_exam_score .title_wrap .desc { padding-top: 10px; font-size: 22px; }
+	.section_analysis .is_exam_score .condition { font-size: 18px; }
+	.section_analysis .table_scope tbody th,
+	.section_analysis .table_scope tbody td { font-size: 16px; }
+
+	.section_analysis .result { padding: 0 40px; }
+	.section_analysis .is_today { padding-bottom: 80px; border-bottom-width: 2px; }
+	.section_analysis .by_period { border-top-width: 10px; }
+
+	.section_analysis .title_wrap { margin-top: 39px; }
+	.section_analysis .title_wrap h3.title { font-size: 24px; }
+	.section_analysis .title_wrap .title { font-size: 20px; }
+	.section_analysis .title_wrap .total { padding-top: 5px; font-size: 18px; }
+
+	.section_analysis .by_period .title_wrap { margin-top: 60px; }
+	.section_analysis .by_period .title_wrap .title { font-size: 30px; }
+	.section_analysis .by_period .title_wrap .date { margin-top: 3px; font-size: 22px; }
+
+	.section_analysis .action { margin: 31px 0 0 -1.7%; }
+	.section_analysis .action .col { padding-left: 1.7%; }
+	.section_analysis .action .button { padding: 19px 10px; }
+	.section_analysis .action .button span { font-size: 22px; }
+
+	.section_analysis .item .title_wrap h3 { font-size: 28px; }
+	.section_analysis .item .title_wrap { margin-top: 40px; }
+	.section_analysis .form_wrap .select { height: 58px; line-height: 56px; font-size: 18px; }
+	.section_analysis .by_subject_score .form_wrap select { height: 52px; line-height: 50px; padding-left: 15px; font-size: 18px; }
+
+	.section_analysis .chart_wrap { padding: 6px; }
+	.section_analysis .by_subject_score .is_analysis .chart_wrap .core { width: 500px; height: 500px; text-align: center; margin: 0 auto; }
+	.section_analysis .by_subject_score .is_analysis .chart_wrap canvas { display: inline-block; width: 100% !important; height: 100% !important; padding: 0; }
+
+	.section_analysis .notice { margin-top: 20px; font-size: 18px; }
+	.section_analysis .is_last .notice { font-size: 16px; }
+	.section_analysis .title_wrap .notice { margin-top: -25px; }
+
+	/* section_subject_select */
+	.section_subject_select h2.title { margin-top: 60px; font-size: 40px; }
+	.section_subject_select h3.title { padding: 18px 0 20px; font-size: 22px; border-radius: 10px; }
+	.section_subject_select h4.title { margin-top: 33px; font-size: 26px; }
+	.section_subject_select .desc { font-size: 26px; }
+	.section_subject_select .holder { margin-top: 55px; }
+	.section_subject_select .holder + .holder { margin-top: 100px; }
+	.section_subject_select .item { padding-bottom: 12.5px; }
+	.section_subject_select .item .grid { margin-top: 15px; padding: 12px 25px 0; }
+	.section_subject_select .item .col { width: 50%; }
+	.section_subject_select .label_check { background-size: auto; }
+	.section_subject_select .action { margin-top: 60px; }
+	.section_subject_select .action .button { width: 220px; padding: 14px 10px; }
+	.section_subject_select .action .button span { font-size: 22px; }
+
+	.section_subject_select .label_check { padding: 13px 0 12px 46px; font-size: 22px; background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_check_lg.jpg'); }
+	.section_subject_select .checkbox:checked + .label_check { background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_checked_lg.jpg'); }
+
+	.section_subject_select .item.is_required .checkbox:checked + .label_check { background-image: url('//img.eduwill.net/resources/qs/dev/images/contents/icon_disabled_lg.jpg'); }
+
+	/* no_data */
+	.no_data p { padding: 200px 0; font-size: 18px; }
+
+}

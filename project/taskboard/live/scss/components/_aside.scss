@@ -1,0 +1,215 @@
+.body-genius #aside {
+    top: 72px;
+    height: calc(100vh - 72px);
+    overflow: inherit;
+    width: 280px;
+    background-color: #1e1e1e;
+    &:before {
+        @include contentReset();
+        width: 42px; height: 42px;
+        @include background-name-ext-repeat-poistion('genius/combined-shape', svg, no-repeat, 0 0);
+        position: absolute; top: 0; right: -42px;
+    }
+
+    nav {
+        overflow-y: auto;
+        height: calc(100vh - 162px);
+
+        ul li.menu-open > a, 
+        ul li.always-open > a, 
+        ul li.active > a {
+            background-color: #333 !important;
+        }
+        ul>li:hover>a, 
+        ul>li.active:hover>a, 
+        ul>li.active>a {
+            background-color: #333 !important;
+        }
+
+        // 1depth
+        ul {
+            border-top: none;
+            border-bottom: none;
+            margin-bottom: 0 !important;
+            li {
+                a {
+                    background-color: #1e1e1e;
+                    border-top: solid 1px rgba(1, 1, 1, 0.3);
+                    border-bottom: none;
+                    padding: 11px 44px 11px 40px !important;
+                    @include font-size-color-weight(14px, #fff, 500);
+                    line-height: 20px;
+                    height: 44px;
+                    i.main-icon {
+                        display: none;
+                    }
+                    &.d1 {
+                        &:before {
+                            @include contentReset();
+                            width: 4px; height: 4px;
+                            background-color: #fff;
+                            position: absolute; top: 50%; left: 26px;
+                            @include translateY(-50%);
+                        }
+                        &:hover {
+                            color: #ffbf00 !important;
+                            &:before {
+                                background-color: #ffbf00;
+                            }
+                        }
+                    }
+                    &:after {
+                        display: none;
+                    }
+                }
+                &.d1.active > a {
+                    background-color: #ffbf00 !important;
+                    color: #000 !important;
+                    &:before {
+                        background-color: #000;
+                    }
+                }
+                &.d1.active.el_sub > a {
+                    background-color: #333 !important;
+                    color: #fff !important;
+                    &:before {
+                        background-color: #fff;
+                    }
+                }
+                &.el_sub {
+                    & > a {
+                        &:after {
+                            @include contentReset();
+                            @include background-name-ext-repeat-poistion('genius/arrow-xs-down-w', svg, no-repeat, 0 0);
+                            width: 14px; height: 8px;
+                            position: absolute; top: 50%; right: 22px;
+                            transform: translateY(-50%);
+                        }
+                        &:hover:after {
+                            @include background-name-ext-repeat-poistion('genius/arrow-xs-down-y', svg, no-repeat, 0 0);
+                        }
+                    }
+                    &.menu-open > a {
+                        &:after {
+                            transform: translateY(-50%) rotate(180deg);
+                        }
+                        &:hover:after {
+                            @include background-name-ext-repeat-poistion('genius/arrow-xs-down-y', svg, no-repeat, 0 0);
+                        }
+                    }
+    
+                }
+                // 2depth
+                ul {
+                    background-color: #333;
+                    &:before {
+                        display: none;
+                    }
+                    li {
+                        padding-left: 0;
+                        &:before {
+                            display: none;
+                        }
+                        a {
+                            height: 44px !important;
+                            line-height: 22px !important;
+                        }
+                        & > span {
+                            background-color: #333;
+                            border-top: solid 1px rgba(1, 1, 1, 0.3);
+                            border-bottom: none;
+                            padding: 11px 44px 11px 40px !important;
+                            @include font-size-color-weight(14px, #fff, 500);
+                            line-height: 22px;
+                            height: 44px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        &.active > a {
+                            border-top-color: rgba(1, 1, 1, 0.3);
+                            background-color: #ffbf00 !important;
+                            color: #000 !important;
+                            &:before {
+                                @include background-name-ext-repeat-poistion('genius/icon-and-b', svg, no-repeat, 0 0);
+                            }
+                            &:hover {
+                                background-color: #ffbf00 !important;
+                            }
+                        }
+                        // 3depth
+                        ul {
+                            margin-left: 0;
+                            padding-left: 0;
+                            li {
+                                padding-left: 0;
+                                a {
+                                    padding-left: 54px !important;
+                                    position: relative;
+                                    &:before {
+                                        @include contentReset();
+                                        @include background-name-ext-repeat-poistion('genius/icon-and-w', svg, no-repeat, 0 0);
+                                        width: 7px; height: 5px;
+                                        position: absolute; top: 50%; left: 43px;
+                                        transform: translateY(-50%);
+                                    }
+                                }
+                                &.active a {
+                                    border-top-color: rgba(1, 1, 1, 0.3);
+                                    background-color: #ffbf00 !important;
+                                    color: #000 !important;
+                                    &:before {
+                                        @include background-name-ext-repeat-poistion('genius/icon-and-b', svg, no-repeat, 0 0);
+                                    }
+                                    &:hover {
+                                        background-color: #ffbf00 !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .aside-loaction {
+        height: 90px;
+        background-color: #1e1e1e;
+        padding: 32px 0 0 26px;
+        position: relative;
+        strong {
+            display: block;
+            font-family: 'EduwillPassBold';
+            @include font-size-color-weight(24px, #fff, 700); 
+            line-height: 26px;
+        } 
+        .btn-collapse {
+            font-size: 0;
+            width: 20px; height: 20px;
+            @include background-name-ext-repeat-poistion('genius/icon-short', svg, no-repeat, 50% 50%);
+            background-size: 20px;
+            position: absolute; top: 37px; right: 20px;
+        }
+    }
+}
+
+#expand-wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    top: 72px;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 19px;
+    background-color: #1e1e1e;
+    .btn-expand {
+        font-size: 0;
+        width: 19px; height: 15px;
+        @include background-name-ext-repeat-poistion('genius/icon-more', svg, no-repeat, 50% 50%);
+        background-size: 3px 15px;
+        position: absolute; top: 37px; left: 0;
+    }
+}

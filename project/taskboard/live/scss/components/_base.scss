@@ -1,0 +1,58 @@
+/* custom scrollbar */
+html { 
+	scrollbar-arrow-color: #efefef;
+	scrollbar-Track-Color: #efefef;
+	scrollbar-base-color: #c1c9d2;
+	scrollbar-Face-Color: #c1c9d2;
+	scrollbar-3dLight-Color: #c1c9d2;
+	scrollbar-DarkShadow-Color: #c1c9d2;
+	scrollbar-Highlight-Color: #c1c9d2;
+	scrollbar-Shadow-Color: #c1c9d2;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment { display: block; width: 0; height: 0; background-color: #999; }
+::-webkit-scrollbar-track { background-color: #e9e9e9; border-radius: 4px;}
+::-webkit-scrollbar-thumb {border-radius: 4px;  background-color: #999; }
+
+/* common */
+*,
+ol,
+ul,
+li { margin: 0; padding: 0; list-style: none;  -webkit-box-sizing: border-box; box-sizing: border-box;}
+form { margin: 0; padding: 0; }
+legend,
+caption { visibility: hidden; width: 0; height: 0; line-height: 0; margin: 0; padding: 0; font-size: 0; }
+
+/* Notosans (본고딕) */
+@import url('//img.eduwill.net/resources/common/web/css/webfont.css'); /* 400/500/700 */
+body {
+    letter-spacing: -0.5px;
+    font-family: 'Roboto', "Noto Sans KR", sans-serif, '맑은고딕','Malgun Gothic','돋움', Dotum, '굴림', Gulim, Tahoma, sans-serif, verdana, AppleGothic;
+}
+
+/* layout */
+#middle {
+    height: 100vh; 
+    padding-top: 50px; 
+    overflow-y: auto;
+    padding-top: 0;
+    margin-top: 72px;
+    margin-left: 280px;
+    height: calc(100vh - 72px);
+    &.collapsed {
+        margin-left: 19px;
+    }
+}
+#content { 
+    position: relative; 
+    padding: 16px 32px;
+    .panel-body {
+        padding: 32px 0;
+    }
+}
+.container {
+    width: 100%;
+}
