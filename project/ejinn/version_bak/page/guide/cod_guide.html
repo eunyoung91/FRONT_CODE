@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="kr" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="kr" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="kr">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="No-Cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Document</title>
+
+    <script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../../js/ui.front.js"></script>
+
+    <link rel="stylesheet" href="../../css/guide.css">
+</head>
+
+<body>
+    <div id="guide">
+        <div id="guide-sub">
+            <div id="guide-header">
+                <h1>
+                    <a href="http://www.eduwill.net/" target="_blank">
+                        <img src="http://img.eduwill.net/resources/common/web/images/gnb/logo3.png" alt="에듀윌">
+                    </a>
+                    <a href="../../index.html">
+                        <span>퍼블리싱 가이드</span>
+                    </a>
+                </h1>
+                <div class="subject-name">
+                    (에지인 웹사이트 프로젝트)
+                </div>
+            </div>
+            <div id="guide-gnb">
+                <a href="status.html">
+                    <i class="material-icons">list_alt</i>Status</a>
+                <a href="info.html">
+                    <i class="material-icons">info</i>Info</a>
+                <a href="cod_guide.html" class="current">
+                    <i class="material-icons">code</i>Code Guide</a>
+            </div>
+        </div>
+        <div id="guide-code" class="container">
+            <dl class="wrap" id="code0">
+                <dt>
+                    <i class="material-icons">add</i> Responsive code
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>@include mq(screen-pc)</xmp>
+                    <xmp>@include mq(screen-tablet)</xmp>
+                    <xmp>@include mq(screen-mobile)</xmp>
+                </dd>
+                <dd class="view">
+                    <div>
+                        예제
+                        <br> body {
+                        <br> &nbsp;&nbsp;&nbsp;@include mq(screen-pc) {
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;min-width: px;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;}
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;@include mq(screen-tablet) {
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;min-width: px;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;}
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;@include mq(screen-mobile) {
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;min-width: px;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;}
+                        <br> }
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="wrap" id="code1">
+                <dt>
+                    <i class="material-icons">add</i> color
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>.selector { color: $color-white; background-color: $color-black }</xmp>
+                </dd>
+                <dd class="view">
+                    <div class="colorBox">
+                        <span class="color-white"></span>
+                        <span class="color-black"></span>
+                        <span class="color-blue"></span>
+                        <span class="color-yellow"></span>
+                        <span class="color-darkyellow"></span>
+                        <span class="color-gray"></span>
+                        <span class="color-darkGray"></span>
+                        <span class="color-lightGray"></span>
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description
+                        <br>
+                        <br> color variables
+                        <br> $color-white: #fff;
+                        <br> $color-black: #000;
+                        <br> $color-blue: #4c57e6;
+                        <br> $color-yellow: #ffe139;
+                        <br> $color-darkyellow: #ddbf1a;
+                        <br> $color-gray: #dadada;
+                        <br> $color-darkGray: #9aa1ab;
+                        <br> $color-lightGray: #dee3eb;
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="wrap" id="code2">
+                <dt>
+                    <i class="material-icons">add</i> font
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>@include font-size-color-weight(.7rem, $color-black, 400);</xmp>
+                </dd>
+                <dd class="view">
+                    <div class="fontBox">
+                        폰트설정 mixin
+                        <br> @mixin font-size-color-weight($s, $c, $w) {
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;font-size: $s;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;color: $c;
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;font-weight: $w;
+                        <br> }
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description
+                        <br>
+                        <br> 기본폰트 Notosans
+                        <br> reference ==== 100:Thin, 300:Light, 400:Regular, 500:Medium, 700:Bold, 900:Black
+                        <br> @import url('//img.eduwill.net/resources/common/web/css/noto_webfont.css');
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="wrap" id="code3">
+                <dt>
+                    <i class="material-icons">add</i> bullet - icon
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>
+                        <i class="material-icons">arrow_drop_up</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">arrow_drop_down</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">arrow_left</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">arrow_right</i>
+                    </xmp>
+                    <br>
+                    <xmp>
+                        <i class="material-icons">keyboard_arrow_up</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">keyboard_arrow_left</i>
+                    </xmp>
+                    <xmp>
+                        <i class="material-icons">keyboard_arrow_right</i>
+                    </xmp>
+                    <br>
+                    <xmp>
+                            <i class="material-icons">check</i>
+                    </xmp>
+                </dd>
+                <dd class="view">
+                    <div class="bulletBox icon">
+                        <i class="material-icons">arrow_drop_up</i>
+                        <i class="material-icons">arrow_drop_down</i>
+                        <i class="material-icons">arrow_left</i>
+                        <i class="material-icons">arrow_right</i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="material-icons">keyboard_arrow_up</i>
+                        <i class="material-icons">keyboard_arrow_down</i>
+                        <i class="material-icons">keyboard_arrow_left</i>
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <i class="material-icons">check</i>
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description
+                        <br>
+                        <br>Icon font
+                        <br>https://material.io/tools/icons/?style=baseline
+                        <br>@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="wrap" id="code4">
+                <dt>
+                    <i class="material-icons">add</i> bullet - list
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>
+                        <ul class="bl-list type1"></ul>
+                    </xmp>
+                    <xmp>
+                        <ul class="bl-list type2"></ul>
+                    </xmp>
+                </dd>
+                <dd class="view">
+                    <div class="bulletBox text">
+                        <ul class="bl-list type1">
+                            <li>질문1</li>
+                            <li>질문2</li>
+                            <li>질문3</li>
+                        </ul>
+                        <br>
+                        <ul class="bl-list type2">
+                            <li>[공지] 공지사항</li>
+                            <li>[안내] 안내사항</li>
+                        </ul>
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="wrap" id="code5">
+                <dt>
+                    <i class="material-icons">add</i> 버튼
+                    <a href="#" class="code-select">소스선택</a>
+                </dt>
+                <dd class="code">
+                    <xmp>
+                        <a href="#" class="button">버튼</a>
+                    </xmp>
+                </dd>
+                <dd class="view">
+                    <div class="buttonBox">
+                        <a href="#" class="button btn-q-big"><span>질문하기</span></a>
+                        <a href="#" class="button btn-q">질문하기</a>
+                        <a href="#" class="button btn-q sc">질문하기</a>
+                        <a href="#" class="button btn-a">답변하기</a>
+                        <a href="#" class="button btn-a sc">답변하기</a>
+                        <a href="#" class="button btn-sbox">로그아웃</a>
+                    </div>
+                    <div class="desc">
+                        <i class="material-icons">description</i> Description</div>
+                    
+                </dd>
+            </dl>
+        </div>
+    </div>
+</body>
+
+</html>
