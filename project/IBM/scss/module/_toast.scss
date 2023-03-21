@@ -1,4 +1,4 @@
-.ibm-toast {
+.ibm.ibm-toast {
     position: fixed;
     z-index: map-get($z-index, toast);
     &.rightTop { top: 0; right: 0; }
@@ -22,8 +22,8 @@
             }
         }
         .slick-dots {
-            top: 5%;
-            right: 3%;
+            @include vw(top, 10px);
+            @include vw(right, 10px);
             bottom: auto;
             left: auto;
             margin-left: 0;
@@ -43,6 +43,8 @@
             margin: 0 auto;
         }
     }
+
+	// 링크
     .ibm-action {
         a {
             padding: 8px 0 9px;
@@ -61,4 +63,32 @@
             span { border-left: 1px solid #ededed; }
         }
     }
+
+	// 손가락
+	.ibm-pointer {
+		@include vw(width, 30px);
+	}
+
+	// 타이머
+	.ibm-deadline {
+		text-align: center;
+		p {
+			@include vw(font-size, 20px);
+			@include breakpoint(custom){
+				@include vw(font-size, 20px);
+			}
+			@include breakpoint(desktop){
+				font-size: 20px;
+			}
+			span em {
+				@include vw(font-size, 26px);
+				@include breakpoint(custom){
+					@include vw(font-size, 26px);
+				}
+				@include breakpoint(desktop){
+					font-size: 26px;
+				}
+			}
+		}
+	}
 }

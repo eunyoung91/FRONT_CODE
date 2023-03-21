@@ -1,4 +1,4 @@
-.ibm-layer {
+.ibm.ibm-layer {
 	position: fixed;
 	z-index: map-get($z-index, layer);
 	.ibm-dim { display: block; }
@@ -10,28 +10,18 @@
 		right: 0;
 		left: 0;
 		width: auto;
-		@include vw(max-width, 640px);
+		max-width: 720px;
 		max-height: calc(100vw - 50px); // 상하 간격 제외
 		margin: 0 auto;
 		@include transform(translateY(-50%) perspective(1px) translate3d(0, 0, 0));
 		-webkit-font-smoothing: antialiased;
 		-webkit-backface-visibility: hidden;
 		backface-visibility: hidden;
-		// @include breakpoint(minMobile){
-		//     right: 0;
-		//     left: 0;
-		// }
-		@include breakpoint(galaxyfold){
-			max-height: none;
-			// width: 70%;
-			.ibm-banner {
-				max-height: none;
-				overflow: visible;
-			}
+		@media (max-height: 740px) and (orientation: landscape) {
+			@include vw(top, 50px);
+			@include vw(bottom, 10px);
+			@include transform(translateX(0) translateY(0%) perspective(1px) translate3d(0, 0, 0));
 		}
-		// @include breakpoint(tablet){
-		// 	max-width: 640px;
-		// }
 		@include breakpoint(desktop){
 			right: auto;
 			left: 50%;
@@ -39,30 +29,58 @@
 			max-width: none;
 			white-space: nowrap;
 			@include transform(translateX(-50%) translateY(-50%) perspective(1px) translate3d(0, 0, 0));
+			@include rwdHeight(768px){
+				@include vw(top, 50px);
+				@include vw(bottom, 10px);
+				@include transform(translateX(-50%) translateY(0%) perspective(1px) translate3d(0, 0, 0));
+			}
+		}
+		// 분할배너
+		&.ibm-split {
+			max-width: fit-content;
+			.ibm-banner {
+				width: auto;
+			}
+			.ibm-inner {
+				width: auto;
+				.ibm-item {
+					display: inline-block;
+					padding: 0;
+					@extend %variable;
+					@include breakpoint(desktop){
+						width: auto;
+					}
+				}
+			}
 		}
 	}
 	.ibm-inner {
+		height: 100%;
+		overflow: auto;
+		.slick-list {
+			overflow-y: auto;
+		}
 		.slick-arrow {
 			&.slick-prev {
 				left: 0;
-				@include slideArrow(left, 50px, 50px, 2px, #fff);
-				&::before {
-					@include boxShadow(inset 2px -2px 0 0 rgba($color: #000, $alpha: .7));
-				}
+				@include slideArrow(left, 50px, 50px, 2px, rgba(0,0,0,.6));
+				// &::before {
+				// 	@include boxShadow(inset 2px -2px 0 0 rgba($color: #000, $alpha: .7));
+				// }
 			}
 			&.slick-next {
 				right: 0;
-				@include slideArrow(right, 50px, 50px, 2px, #fff);
-				&::before {
-					@include boxShadow(inset -2px 2px 0 0 rgba($color: #000, $alpha: .7));
-				}
+				@include slideArrow(right, 50px, 50px, 2px, rgba(0,0,0,.6));
+				// &::before {
+				// 	@include boxShadow(inset -2px 2px 0 0 rgba($color: #000, $alpha: .7));
+				// }
 			}
 		}
 	}
-	.ibm-banner {
-		max-height: calc(100vw - 100px); // 상하 간격과 닫기 영역 높이 제외
-		overflow: auto;
-	}
+	// .ibm-banner {
+		// max-height: calc(100vw - 50px); // 상하 간격과 닫기 영역 높이 제외
+		// overflow: auto;
+	// }
 	.ibm-item,
 	.ibm-banner,
 	img {

@@ -1,4 +1,4 @@
-.ibm-floating {
+.ibm.ibm-floating {
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -24,28 +24,35 @@
 			width: 20px;
 			height: 20px;
 			&.slick-prev {
-				@include slideArrow(left, 20px, 20px, 1.5px, #fff);
+				@include slideArrow(left, 20px, 20px, 1.5px, #000);
 				left: -20px;
-				&::before {
-					@include boxShadow(inset 1.5px -1.5px 0 0 rgba($color: #000, $alpha: .7));
-				}
+				// &::before {
+				// 	@include boxShadow(inset 1.5px -1.5px 0 0 rgba($color: #000, $alpha: .7));
+				// }
 			}
 			&.slick-next {
-				@include slideArrow(right, 20px, 20px, 1.5px, #fff);
+				@include slideArrow(right, 20px, 20px, 1.5px, #000);
 				right: -20px;
-				&::before {
-					@include boxShadow(inset -1.5px 1.5px 0 0 rgba($color: #000, $alpha: .7));
-				}
+				// &::before {
+				// 	@include boxShadow(inset -1.5px 1.5px 0 0 rgba($color: #000, $alpha: .7));
+				// }
 			}
 		}
 	}
 	.ibm-inner,
 	.ibm-item img { display: block; }
 	.ibm-item {
-		margin-top: 0;
+		margin-top: 10px;
 		text-align: inherit;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
-	.ibm-item img { max-width: none; }
+	.ibm-item img {
+		@include breakpoint(desktop){
+			max-width: none;
+		}
+	}
 	.ibm-inner .ibm-item { overflow: visible; }
 	.ibm-banner {
 		@include breakpoint(desktop){
@@ -53,6 +60,8 @@
 			margin: 0 auto;
 		}
 	}
+
+	// 타이머
 	.ibm-deadline {
 		position: relative;
 		width: 134px;
@@ -106,6 +115,8 @@
 			}
 		}
 	}
+
+	// 링크
 	.ibm-action {
 		margin-top: 10px;
 		text-align: center;
@@ -124,6 +135,13 @@
 			}
 		}
 	}
+
+	// 손가락
+	.ibm-pointer {
+		@include vw(width, 30px);
+	}
+
+	// 닫기
 	.ibm-close {
 		// @include close(30px, 30px, 2px, #000);
 		@include close(26px, 26px, 2px, #000);
