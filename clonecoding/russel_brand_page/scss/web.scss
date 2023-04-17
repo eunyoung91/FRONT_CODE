@@ -8,7 +8,10 @@
 .brand-wrap {
     position: relative;
     z-index:2;
-
+    .header,.visual,#section01, #section02{
+        display: none; 
+        opacity: 0;
+    }
     .header{
         height:200px;
         background-color: #cbcaca;
@@ -232,6 +235,7 @@
                 }
             }
         }
+        
         //시작
         #section01{
             .inner{
@@ -292,12 +296,25 @@
                 &.number-box{
                     &.on{
                         opacity: 1;
-                        .number li:nth-child(1) span {top:-3em;}
-                        .number li:nth-child(2) strong:nth-of-type(1) span {
-                            top:-3em;animation-delay: .2s
+                        .number{
+                            li{
+                                &:nth-child(1) span {
+                                    top:-3em;
+                                    outline:1px solid red;
+                                }
+                            }
                         }
-                        .number li:nth-child(3) span {top:-3em;animation-delay: .5s}
-                        .number li:nth-child(4) span {top:-3em;animation-delay: .6s}
+                        .number li:nth-child(2) strong:nth-of-type(1) span {
+                            top:-3em;
+                            animation-delay: .2s;
+                            outline:1px solid blue;
+                        }
+                        .number li:nth-child(3) span {
+                            top:-3em;animation-delay: .5s;
+                        }
+                        .number li:nth-child(4) span {
+                            top:-3em;animation-delay: .6s;
+                        }
                         .number li:nth-child(5) strong:nth-of-type(1) span {top:-5em;animation-delay: .7s;}
                         .number li:nth-child(5) strong:nth-of-type(2) span {top:-7em;animation-delay: .8s;}
                         .number li:nth-child(6) strong:nth-of-type(1) span {top:-3em;animation-delay: 1s;}
@@ -440,6 +457,14 @@
                 }
             }
         }
+
+        @keyframes spinit {
+            0% {top: 0em;}
+            50% {top: -5em;}
+            100% {top: -9em;}
+        }
+
+        
     }
 }
 
@@ -569,11 +594,6 @@
     100%{opacity: 1;transform: translateX(0%);}
 }
 
-@keyframes spinit {
-    0% {top: 0em;}
-    50% {top: -5em;}
-    100% {top: -9em;}
-}
 
 /*
     brand.css 끝
