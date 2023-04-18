@@ -1,0 +1,417 @@
+@charset "utf-8";
+
+/* common */
+body { min-height: 100vh; background-color: #fff; }
+body.bg_gray { background-color: #f8f8f8; }
+
+#wrap { position: relative; right: 0; overflow-x: hidden; }
+#container { position: relative; width: 100%; }
+#content { position: relative; }
+
+.item_section, .book_section, .teacher_section, .exam_section, .reference_section, .public_section { position: relative; background-color: #f8f8f8; *zoom: 1; }
+.item_section:before, .item_section:after, .book_section:before, .book_section:after, .teacher_section:before, .teacher_section:after, .exam_section:before, .exam_section:after, .reference_section:before, .reference_section:after, .public_section:before, .public_section:after { content: ''; display: table; }
+.item_section:after, .book_section:after, .teacher_section:after, .exam_section:after, .reference_section:after, .public_section:after { clear: both; }
+
+.product .container,
+.product_contents .container,
+.item_contents .container,
+.event_contents .container,
+.product-eco .container { margin-top: 0; border-bottom: 0; }
+
+.page_head { min-height: 20px; padding: 10px 0; text-align: center; }
+.section { padding: 15px 16px 35px; font-size: .875rem; border-bottom: 1px solid #eaeaf4; background-color: #fff; }
+
+/* topBanner */
+#topBanner { position:relative; width:100%; height:45px; overflow:hidden;}
+.ban_area { width:100%; text-align:center; background:url('//img.eduwill.net/Img2/mobile2/brand_new/common/bg_top_banner.gif') 0 0 repeat-x; background-size:6px 45px;}
+
+/* header */
+#header,
+.header { position: relative; z-index: 100; width: 100%; min-width: 100%; border-bottom: 1px solid #eaeaf4; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .upper,
+.header .upper { position: relative; height: 48px; text-align: center; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .upper a,
+.header .upper a {display: inline-block; height: 48px; background-repeat: no-repeat; background-position: center center; }
+#header .upper h1,
+.header .upper h1 { display: block; padding: 0 48px; text-align: center; font-size: 0; }
+#header .upper .logo,
+.header .upper .logo {width: 68px; background-image: url('//img.eduwill.net/Img2/Common/BI/type2/live/logo.svg');background-size: 100% 28px; }
+
+#header .upper .item,
+.header .upper .item {height: auto; padding: 10px 0 11px; vertical-align: top;  font-size: 1.125rem;color:#222;font-family:"EduwillPassBold", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif; }
+.header .upper .item span { display: inline-block;}
+.header .upper .item .flag.flag-live {display: inline-block;width: 34px;height: 14px;margin-left: 3px;vertical-align: 11px;font-size: 0;text-indent: -9999px;background-image: url('https://img.eduwill.net/eduwill/img/2022/GP/main/220131/icon_gnb_live.png');background-size: cover;}
+
+#header .upper .linebreak,
+.header .upper .linebreak{font-size: 0.925rem;line-height:1.2;padding: 9px 0 12px;}
+#header .upper .dokhan,
+.header .upper .dokhan {padding: 8px 0 9px; }
+#header .upper .dokhan span,
+.header .upper .dokhan span {display:block;font-size: 14px;line-height:1.2;}
+
+#header .upper .item .flag-direct,
+.header .upper .item .flag-direct{
+  display: inline-block;
+  width: auto;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1;
+  font-family: "EduwillBetaRegular", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  font-size: 0.75rem;
+  color: #000;
+  text-indent: 0;
+  background: none;
+}
+@media only screen and (max-width: 320px) {
+	#header .upper .item,
+	.header .upper .item { margin-left: 0; }
+}
+
+#header .action a,
+.header .action a { position: absolute; top: 0; display: block; width: 48px; background-size: 24px; }
+#header .upper .btn_category,
+.header .upper .btn_category { left: 0; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_menu.png'); }
+#header .upper .btn_mypage,
+.header .upper .btn_mypage { right: 0; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_mypage.png'); }
+#header .upper .btn_alarm,
+.header .upper .btn_alarm { right: 40px; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_bell.png'); }
+#header .upper .btn_alarm em,
+.header .upper .btn_alarm em { position: absolute; top: 8px; right: 8px; display: inline-block; width: 16px; max-height: 16px; padding: 1px 0 2px; text-align: center; font-size: .625rem; color: #fff; border-radius: 50px; background-color: #f63b28; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .upper .btn_join,
+.header .upper .btn_join { right: 48px; width: auto; }
+#header .upper .btn_join:after,
+.header .upper .btn_join:after { content: ''; position: absolute; top: 50%; right: 0; width: 1px; height: 14px; margin-top: -7px; background-color: #eaeaf4; }
+#header .upper .btn_join span,
+.header .upper .btn_join span { display: block; padding: 13px 16px; font-weight: bold; }
+
+#header .upper ~ .lower,
+.header .upper ~ .lower,
+#header .upper + .lower,
+.header .upper + .lower { border-top: 1px solid #eaeaf4; }
+#header .upper + .lower.scrollfix-top,
+.header .upper + .lower.scrollfix-top { border-top-width: 0; }
+/*
+#header .upper + .lower.gnb,
+.header .upper + .lower.gnb,
+*/
+#header .gnb,
+.header .gnb { text-align: center; background-color: #fff; }
+#header .gnb ul,
+.header .gnb ul { display: table; width: 100%; height: 48px; margin: 0 auto; padding: 0 8px; vertical-align: top; -webkit-box-sizing: border-box; box-sizing: border-box; *zoom: 1;     white-space: nowrap;}
+#header .gnb.scroll ul::-webkit-scrollbar,
+.header .gnb.scroll ul::-webkit-scrollbar { display: none; }
+#header .gnb ul:before,
+.header .gnb ul:before,
+#header .gnb ul:after,
+.header .gnb ul:after { content: ''; display: table; }
+#header .gnb ul:after,
+.header .gnb ul:after { clear: both; }
+#header .gnb li,
+.header .gnb li { position: relative; float: none; display: table-cell; height: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .gnb li a,
+.header .gnb li a { display: block; height: 100%; padding: 0 10px; color: #999; }
+@media only screen and (max-width: 320px) {
+	#header .gnb li a,
+	.header .gnb li a { padding: 0 9px; }
+}
+#header .gnb li span,
+.header .gnb li span { position: relative; display: inline-block; height: 100%; padding: 13px 3px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .gnb a.active,
+.header .gnb a.active { font-weight: bold; color: #333334; }
+#header .gnb a.active span:after,
+.header .gnb a.active span:after { content: ''; position: absolute; bottom: -1px; left: 0; display: block; width: 100%; height: 2px; background-color: #333334; }
+#header .gnb li.offline a span,
+.header .gnb li.offline a span { padding-right: 17px; background: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_offline.png') no-repeat right 45%; background-size: 14px; }
+#header .sub_menu,
+.header .sub_menu { position: relative; display: none; text-align: left; border-top: 1px solid #eaeaf4; }
+#header .sub_menu a.active span:after,
+.header .sub_menu a.active span:after { display: none; }
+#header .sub_menu.unfold,
+.header .sub_menu.unfold { display: block; }
+
+@media only screen and (max-width: 767px) {
+	#header .gnb.scroll,
+	.header .gnb.scroll {position:relative; overflow:hidden;}
+	#header .gnb.scroll:after,
+	.header .gnb.scroll:after,
+	#header .sub_menu:after,
+	.header .sub_menu:after {content:''; display:inline-block; width: 26px; height: 48px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0.86) 53%, #ffffff); position: absolute; top: 0; right: 0; }
+	#header .gnb.scroll ul,
+	.header .gnb.scroll ul {  overflow: hidden; white-space: nowrap; overflow-x: auto; display:block; }
+	#header .gnb.scroll li,
+	.header .gnb.scroll li { display:inline-block; }
+	#header .gnb.scroll li:last-child,
+	.header .gnb.scroll li:last-child {padding-right: 10px}
+	#header .gnb.scroll li a,
+	.header .gnb.scroll li a {padding: 0 8px;}
+	#header .gnb.scroll li span,
+	.header .gnb.scroll li span { height: 47px; }
+}
+
+#header .shortcut a,
+.header .shortcut a { display: inline-block; font-weight: bold; }
+#header .shortcut .my_lecture,
+.header .shortcut .my_lecture { width: 40%; }
+#header .shortcut.mypage .my_lecture,
+.header .shortcut.mypage .my_lecture { width: 72%; }
+#header .shortcut .my_lecture a,
+.header .shortcut .my_lecture a { display: block; width: 100%; padding-left: 40px; text-align: left; font-size: 0; background: url('//img.eduwill.net/Img2/mobile2/brand_new/common/icon_my_lecture.png') no-repeat 12px; background-size: 28px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .shortcut .my_lecture span,
+.header .shortcut .my_lecture span { display: inline-block; max-width: 90%; padding: 12px 24px 12px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 1rem; background: url('//img.eduwill.netmobile2/brand_new/common/icon_arrow_circle.png') no-repeat 99.5% center; background-size: 16px; }
+#header .shortcut .menu,
+.header .shortcut .menu { float: right; font-size: 0; }
+#header .shortcut .menu a,
+.header .shortcut .menu a { position: relative; padding: 13px 13px 14px; font-size: .875rem; }
+#header .shortcut .menu a:before,
+.header .shortcut .menu a:before { content: ''; position: absolute; top: 50%; left: 0; display: block; width: 0; height: 14px; margin-top: -7px; border-left: 1px solid #eaeaf4; }
+#header .shortcut .menu a:first-child:before,
+.header .shortcut .menu a:first-child:before { display: none; }
+
+#header .page_title,
+.header .page_title { position: relative; text-align: left; height: 48px; background-color: #fff; }
+#header .page_title h2,
+.header .page_title h2 { max-width: 100%; padding: 12px 48px; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; font-size: 1rem; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .page_title .action a,
+.header .page_title .action a { position: absolute; top: 0; display: block; width: 48px; height: 48px; background-repeat: no-repeat; background-position: center center; background-size: 24px; }
+#header .page_title .btn_back,
+.header .page_title .btn_back { left: 0; background: none; }
+#header .page_title .btn_back:before,
+.header .page_title .btn_back:before,
+#header .page_title .btn_back:after,
+.header .page_title .btn_back:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; }
+#header .page_title .btn_back:before,
+.header #header .page_title .btn_back:before { width: 10px; height: 10px; margin: -5px 0 0 -8px; border-left: 1px solid #444e61; border-bottom: 1px solid #444e61; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+#header .page_title .btn_back:after,
+.header .page_title .btn_back:after { margin-left: -10px; width: 20px; height: 1px; background-color: #444e61; }
+#header .page_title .btn_share,
+.header .page_title .btn_share { right: 0; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/content/icon_share.png'); }
+#header .page_title .btn_close,
+.header .page_title .btn_close { right: 0; }
+#header .page_title .btn_close:before,
+.header .page_title .btn_close:before,
+#header .page_title .btn_close:after,
+.header .page_title .btn_close:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 24px; height: 1px; margin-left: -12px; background-color: #444e61; }
+#header .page_title .btn_close:before,
+.header .page_title .btn_close:before { -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+#header .page_title .btn_close:after,
+.header .page_title .btn_close:after { -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+/* title */
+#content .title { position: relative; padding: 11px 0 12px; text-align: center; border-bottom: 1px solid #eaeaf4; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#content .title h2 { font-size: 1rem; }
+#content .title h2 ol > li { display: inline-block; padding-right: 20px;margin-right: 4px; background: url('//img.eduwill.net/Img2/mobile2/brand_new/content/ico_step.png') no-repeat right center; background-size: 13px; }
+#content .title h2 ol > li.current { color: #f26522; }
+#content .title h2 ol > li:last-child { background-image: none; padding-right: 0; margin-right: 0; }
+
+/* category */
+.touchScrollMenu-open { overflow: hidden; }
+.touchScrollMenu-open #wrap { height: 100vh; overflow: hidden; }
+.touchScrollMenu-backdrop { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 250; overflow: hidden; background-color: rgba(0, 0, 0, .5); }
+.touchScrollMenu-layout { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 300; overflow: hidden; } /* 스크롤영역 설정 */
+
+.category { position: relative; z-index: 1; display: none; width: 100%; min-width: 280px; margin-left: -100%; overflow: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.category_head { position: absolute; top: 0; left: 0; right: 0; z-index: 1; width: 100%; height: 45px; background-color: #525252; }
+.category_head .logo { position: relative; display: inline-block; margin-left:10px;width: 68.5px; height: 44px; background: url('https://img.eduwill.net/Img2/Common/BI/type3/dev/logo.svg') no-repeat left center; background-size: 100% auto; }
+.category_head .logo a { display: block; width: 100%; height: 100%; }
+
+.category_body { position: relative; height: 100%; padding-top: 45px; overflow: hidden; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.category_body .col { position: relative; height: 100%; overflow-y: auto; }
+.category_body .menu_wrap { width: 25.9375%; background-color: #f5f7f9; }
+.category_body .item_wrap { width: 74.0625%; background-color: #fff; }
+
+.category_body h3.title { margin-top: 32px; }
+.category_body h3.title span { font-weight: 600; color: #000; }
+.category_body h3.title + ul { margin-top: 10px; }
+.category_body h4.title { margin-top: 37px; padding: 0 0 13px 10px; border-bottom: 1px solid #eaeaf4; }
+.category_body h3.title + h4.title { margin-top: 23px; }
+.category_body .menu_list { padding-bottom: 100px; }
+.category_body .menu_list li { border-bottom: 1px solid #eaeaf4; }
+.category_body .menu_list a { display: block; padding: 10px 0 13px; text-align: center; color: #888; }
+.category_body .menu_list span { position: relative; display: block; padding-top: 43px; }
+.category_body .menu_list span:before { content: ''; position: absolute; top: 0; left: 50%; width: 43px; height: 43px; margin-left: -21.5px; background-repeat: no-repeat; background-position: center top; background-size: 43px; }
+.category_body .menu_list .nth_child_all span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_all.png'); }
+.category_body .menu_list .nth_child_1 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_1.png'); }
+.category_body .menu_list .nth_child_2 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_2.png'); }
+.category_body .menu_list .nth_child_3 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_3.png'); }
+.category_body .menu_list .nth_child_4 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_4.png'); }
+.category_body .menu_list .nth_child_5 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_5.png'); }
+.category_body .menu_list .nth_child_6 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_6.png'); }
+.category_body .menu_list .nth_child_7 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_7.png'); }
+.category_body .menu_list .nth_child_3 span,
+.category_body .menu_list .nth_child_8 span { font-size: .875rem; letter-spacing: -.7px; }
+.category_body .menu_list .nth_child_8 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_8.png'); }
+.category_body .menu_list .nth_child_9 span:before { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/category_9.png'); }
+@media only screen and (max-width: 320px) {
+	.category_body .menu_list .nth_child_3 span,
+	.category_body .menu_list .nth_child_8 span { font-size: .8125rem; letter-spacing: -1.5px; }
+}
+.category_body .menu_list .active a { color: #000; background-color: #fff; }
+.category_body .menu_list .active span:before { background-position: center bottom; }
+.category_body .category_list { position: relative; padding-bottom: 100px; }
+.category_body .category_list .item { display: none; margin-left: 15px; }
+.category_body .category_list ul { margin-top: 10px; border-bottom: 1px solid #eaeaf4; }
+.category_body .category_list li { border-top: 1px solid #eaeaf4; }
+.category_body .category_list li:first-child { border-top-width: 0; }
+.category_body .category_list a { position: relative; display: block; padding: 13px 0 13px 10px; color: #222; }
+.category_body .category_list a img { vertical-align: middle; }
+.category_body .category_list .label { vertical-align: -2px; border: none;}
+
+.category_body .category_list .item.nth_child_2 ul { margin-left: 16px; }
+.category_body .category_list .item.nth_child_2 li { position: relative; }
+.category_body .category_list .item.nth_child_2 a { padding-left: 8px; color: #6f6f6f; }
+.category_body .category_list .item.nth_child_2 a:before { content: ''; position: absolute; top: 50%; left: 0; width: 2px; height: 2px; margin-top: -1px; border-radius: 50%; background-color: #6f6f6f; }
+
+.category_body .category_list .academy .toggler:after { content: ''; position: absolute; top: 50%; right: 17px; display: block; width: 8px; height: 8px; margin-top: -8px; border-bottom: 1px solid #222; border-right: 1px solid #222; }
+.category_body .category_list .academy .toggler:after { -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); -webkit-transition: transform .3s; -o-transition: transform .3s; -webkit-transition: -webkit-transform .3s; transition: -webkit-transform .3s; transition: transform .3s; transition: transform .3s, -webkit-transform .3s; }
+.category_body .category_list .academy ul { display: none; margin-top: 0; padding-left: 15px; overflow: hidden; border-bottom-width: 0; border-top: 1px solid #eaeaf4; }
+.category_body .category_list .academy ul li { border-top: 1px solid #eaeaf4; }
+.category_body .category_list .academy ul li:first-child { border-top-width: 0; }
+.category_body .category_list .academy ul a { color: #6f6f6f; }
+.category_body .category_list .academy ul a:before { content: ''; position: absolute; top: 50%; left: 0; width: 2px; height: 2px; margin-top: -1px; border-radius: 50%; background-color: #6f6f6f; }
+
+.category_body .category_list .academy .open .toggler:after,
+.category_body .category_list .academy .in .toggler:after { margin-top: -2px; -webkit-transform: rotate(-135deg); -ms-transform: rotate(-135deg); transform: rotate(-135deg); }
+.category_body .category_list .academy .open ul,
+.category_body .category_list .academy .in ul { display: block; }
+
+.category_body .active .item,
+.category_body .item.active { display: block; }
+
+.category .close_category { position: absolute; top: 10px; right: 0; cursor: pointer; }
+.category .close_category { position: absolute; top: 0; right: 0; z-index: 10; display: block; width: 45px; height: 45px; }
+.category .close_category:before,
+.category .close_category:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 20px; height: 1px; margin-left: -10px; background-color: #fff; }
+.category .close_category:before { -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.category .close_category:after { -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+
+/* mypage */
+#wrap.fixed { position: fixed !important; left: 0; height: 100vh; overflow-y: hidden;  z-index: 10;}
+.dim,
+.dim2 { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 100; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .7); }
+
+#mypage a,
+#mypage div,
+#mypage span,
+#mypage .list dt { font-family: 'Helvetica Neue', 'Apple SD Gothic Neo', HelveticaNeue-Light, AppleSDGothicNeo-Light, sans-serif; font-size: 1rem; }
+#mypage { display: none; position: fixed; top: 0; right: 0; z-index: 300; width: 100%; height: 100%; }
+#mypage .wrap { position: absolute; right: -100%; z-index: 300; width: 100%; height: 100%; overflow-y: scroll; background-color: #f8f8f8; }
+#mypage .top { background-color: #525252; }
+#mypage .state { padding: 0 43px 0 15px; }
+#mypage .state.is_login { padding-bottom: 8px; }
+#mypage .state a { position: relative; display: block; padding-left: 25px; color: #fff; background-repeat: no-repeat; background-position: left center; background-size: 18px; }
+#mypage .state a span { display: inline-block; padding: 5px 0 6px; }
+#mypage .state .user { padding-top: 23px; color: rgba(255, 255, 255, .55); }
+#mypage .state .join { height: 43px; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_join.png'); }
+#mypage .interest { height: 33px; background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_home.png'); }
+#mypage .interest span { display: inline-block; vertical-align: middle; }
+#mypage .interest span:after { content: ''; display: inline-block; width: 5px; height: 5px; margin-left: 5px; vertical-align: middle; border-top: 1px solid #fff; border-right: 1px solid #fff; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+
+#mypage .state.is_login + .top_quick { padding-top: 0; }
+#mypage .top_quick { padding-top: 43px; }
+#mypage .top_quick .col { width: calc(100%/3); width: 33.33%; border-top: 1px solid #5b5b5b; }
+#mypage .top_quick a { display: block; padding: 20px 15px 15px; text-align: center; }
+#mypage .top_quick span { display: inline-block; padding-top: 33px; color: #fff; background-repeat: no-repeat; background-position: center top; background-size: auto 21px; }
+#mypage .top_quick .join span { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_user_join.png'); }
+#mypage .top_quick .cart span { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_cart.png'); }
+#mypage .top_quick .myroom span { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_myroom.png'); }
+#mypage .top_quick .login span { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_login.png'); }
+#mypage .top_quick .logout span { background-image: url('//img.eduwill.net/Img2/mobile2/brand_new/common/2018/icon_logout.png'); }
+
+#mypage .list dt { padding: 9px 15px 8px; font-weight: bold; color: #888; }
+#mypage .list dd { background-color: #fff; }
+#mypage .list li { border-top: 1px solid #e4e4e4; }
+#mypage .list li:first-child { border-top-width: 0; }
+#mypage .list a { display: block; padding: 11px 15px; color: #222; }
+
+#mypage .app_banner { margin-top: 20px; }
+#mypage .app_banner img { width: 100%; }
+
+#mypage .close_mypage { position: absolute; top: 0; right: 0; z-index: 10; display: block; width: 43px; height: 43px; }
+#mypage .close_mypage:before,
+#mypage .close_mypage:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 20px; height: 1px; margin-left: -10px; background-color: #fff; }
+#mypage .close_mypage:before { -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+#mypage .close_mypage:after { -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+
+/* pop : 배송지 선택팝업창. 추후 삭제필요 */
+.pophead { position:relative; height: 50px; text-align:center; border-bottom: 1px solid #eaeaf4; background-color: #fff; -webkit-box-sizing:border-box; box-sizing:border-box; }
+.pophead h1 { padding: 11px 16px 12px; text-align: left; font-size: 1rem; }
+.pophead .close { position: absolute; top: 0; right: 0; z-index: 10; width: 45px; }
+.delivery_pop .form_group .zipcode a { position:absolute; right: 5px; top: 5px; width:74px; padding: 4px 0 5px; text-align:center; border:1px solid #b2b2b2; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.delivery_pop .form_group .address { margin-top: -1px; }
+.delivery_pop .form_group .select .mobile01 select,
+.delivery_pop .form_group .select .mobile02 input,
+.delivery_pop .form_group input { width: 100%; }
+
+.global_tab { position:relative; height:45px; border-bottom:1px solid #d4d4d4; background:#fff; -webkit-box-shadow:1px 1px 5px 1px #d9d9d9; box-shadow:1px 1px 5px 1px #d9d9d9;}
+.global_tab ul { overflow:hidden;}
+.global_tab li { float:left; width:19%; height:45px; text-align:center;}
+.global_tab li:last-child { width:23%;}
+.global_tab li a { display:block; width:100%; height:45px; color:#999; font-weight:400; -webkit-box-sizing:border-box; box-sizing:border-box; border-bottom:2px solid #fff;}
+.global_tab li.on a { border-color:#ff641b; color:#ff641b;}
+.global_tab.three li { width:33.3%;}
+.global_tab.three li:last-child { width:33.4%;}
+.g_menu_section { background:#e5e5e5;}
+.g_menu_list { display:none;}
+.g_menu_list .normal_list { overflow:hidden; background:#fff;}
+.g_menu_list .normal_list li { float:left; width:50%; height:41px; -webkit-box-sizing:border-box; box-sizing:border-box; border-bottom:1px solid #e7e7e7; border-right:1px solid #e7e7e7; background:#fff;}
+.g_menu_list .normal_list li:nth-of-type(2n+0) { border-right:0 none;}
+.g_menu_list .normal_list li a { display:block; width:100%; height:100%; padding:0 20px 0 25px; color:#666; -webkit-box-sizing:border-box; box-sizing:border-box;}
+.g_menu_list .square_list { padding:10px;}
+.g_menu_list .square_list li { margin-bottom:5px; background:#fff; border-radius:5px;}
+
+.g_menu_list .square_list li dl { padding:15px 17px;}
+.g_menu_list .square_list li dl dt { padding-bottom:14px; text-align:center; color:#444; font-weight:500; border-bottom:1px dotted #d5d5d5;}
+.g_menu_list .square_list li dl dd { padding-top:2px; overflow:hidden; -webkit-box-sizing:border-box; box-sizing:border-box;}
+.g_menu_list .square_list li dl dd a { display:block; float:left; margin-top:13px; margin-right:6.5%; width:20%; height:55px; text-align:center; border-radius:5px; background:#fff; -webkit-box-sizing:border-box; box-sizing:border-box;}
+.g_menu_list .square_list li dl dd a:nth-of-type(4n+0) { margin-right:0;}
+.g_menu_list .square_list li dl dd a span { display:block; height:27px; border-radius:5px 5px 0 0; border:1px solid #d5d5d5; border-bottom:0 none; -webkit-box-sizing:border-box; box-sizing:border-box;}
+.g_menu_list .square_list li dl dd a span.areat2 { height:28px; color:#fff; border-radius:0 0 5px 5px; background:#999; border-color:#999;}
+
+/* 이벤트 임시 학원타이틀용 - 200609 추가*/
+#header .academy-name{position:absolute;left:10%;top:-50px;max-width: 67%;height: auto;margin-left: 8px;padding: 10px 0 11px;vertical-align: top;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-size: 1.125rem;font-weight:bold;}
+
+#header .academy-gnb{ border-bottom:1px solid #eaeaf4;}
+#header .academy-gnb ul{ padding:0 8px;}
+#header .academy-gnb li a{ padding:0;}
+#header .academy-gnb li span{ padding:12px 0;}
+
+#header .sub_gnb,
+.header .sub_gnb { text-align: center; border-top: 1px solid #eaeaf4; background:#fff; }
+#header .sub_gnb ul,
+.header .sub_gnb ul { display: table; width: 100%; height: 48px; margin: 0 auto; padding: 0 8px; vertical-align: top; -webkit-box-sizing: border-box; box-sizing: border-box; *zoom: 1; }
+#header .sub_gnb.scroll ul::-webkit-scrollbar,
+.header .sub_gnb.scroll ul::-webkit-scrollbar { display: none; }
+#header .sub_gnb ul:before,
+#header .sub_gnb ul:after,
+.header .sub_gnb ul:before,
+.header .sub_gnb ul:after { content: ''; display: table; }
+#header .sub_gnb ul:after,
+.header .sub_gnb ul:after { clear: both; }
+#header .sub_gnb li,
+.header .sub_gnb li { position: relative; float: none; display: table-cell; height: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .sub_gnb li a,
+.header .sub_gnb li a { display: block; height: 100%; padding: 0 10px; color: #999; }
+#header .sub_gnb li span,
+.header .sub_gnb li span { position: relative; display: inline-block; height: 100%; padding: 9px 0; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#header .sub_gnb a.active,
+.header .sub_gnb a.active { font-weight: bold; color: #333334; }
+/* .header .sub_gnb.scrollfix-subtitute { display: none; } */
+@media only screen and (max-width: 767px) {
+	#header .sub_gnb.scroll,
+	.header .sub_gnb.scroll { position:relative; overflow:hidden;}
+	#header .sub_gnb.scroll:after,
+	.header .sub_gnb.scroll:after { content:''; display:inline-block; width: 26px; height: 48px;background-image: linear-gradient(to right, rgba(255, 255, 255, 0.19), rgba(255, 255, 255, 0.86) 53%, #ffffff); position: absolute; top: 0; right: 0;}
+	#header .sub_gnb.scroll ul,
+	.header .sub_gnb.scroll ul {  overflow: hidden; white-space: nowrap; overflow-x: auto; display:block; }
+	#header .sub_gnb.scroll li,
+	.header .sub_gnb.scroll li { display:inline-block; }
+	#header .sub_gnb.scroll li a,
+	.header .sub_gnb.scroll li a { padding: 0 10px;}
+	#header .sub_gnb.scroll li span,
+	.header .sub_gnb.scroll li span {height: 47px; }
+}
+
+/* 학원 메인 개편 header-bottom 임시 숨김 처리 */
+.page_location.ac_public .header-bottom { display: none; }

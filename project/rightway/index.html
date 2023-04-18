@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>바른길</title>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/web.css">
+</head>
+
+<body class="body-main">
+
+    <div id="wrapper">
+
+        <!-- header -->
+        <!-- 
+        <div class="header-wrap">
+            <div class="header-logo"><a href="">PROJECT</a></div>
+            <div class="header-menu-wrap">
+                <div class="header-wrap">
+                    <div class="header-wrap-inner">
+                        <div class="gnb">
+                            <ul>
+                                <li><a href="">전자결재</a></li>
+                                <li><a href="">전사공지</a></li>
+                                <li><a href="">업무요청</a></li>
+                                <li><a href="">인사관리</a></li>
+                                <li><a href="">지원관리</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-wrap-expand" style="display: none;">
+                    <div class="header-wrap-expand-inner">
+                        <div class="link">
+                            <a herf="">결재문서 작성</a>
+                            <a herf="">결재하기</a>
+                            <a herf="">수신함</a>
+                            <a herf="">매출/예산 계획 제출</a>
+                        </div>
+                        <div class="link">
+                            <a herf="">공지사항</a>
+                            <a herf="">에듀윌러 소식</a>
+                            <a herf="">에듀윌 스타</a>
+                            <a herf="">꿈의 직장</a>
+                        </div>
+                        <div class="link">
+                            <a herf="">마케팅</a>
+                            <a herf="">총무</a>
+                            <a herf="">IT</a>
+                            <a herf="">법무</a>
+                        </div>
+                        <div class="link">
+                            <a herf="">인사정보</a>
+                            <a herf="">평가</a>
+                            <a herf="">교육</a>
+                            <a herf="">자주 묻는 질문</a>
+                        </div>
+                        <div class="link">
+                            <a herf="">힐링큐브</a>
+                            <a herf="">E-스퀘어</a>
+                            <a herf="">차량배차</a>
+                            <a herf="">마음,쉼</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         -->
+        <!-- // header -->
+        
+        <div class="visual-wrap">
+            <div class="visual-wrap-inner">
+
+                <div class="visual-slider">
+                    <div data-title="title1" data-thumb="http://cdn.bulbagarden.net/upload/e/ec/001MS.png"><img src="https://cdn.pixabay.com/photo/2020/09/19/19/37/landscape-5585247_960_720.jpg"></div>
+                    <div data-title="title2" data-thumb="http://cdn.bulbagarden.net/upload/b/bb/004MS.png"><img src="https://cdn.pixabay.com/photo/2021/10/25/07/39/cow-6740121_960_720.jpg"></div>
+                    <div data-title="title3" data-thumb="http://cdn.bulbagarden.net/upload/9/92/007MS.png"><img src="https://cdn.pixabay.com/photo/2013/04/03/21/25/flower-100263_960_720.jpg"></div>
+                    <div data-title="title4" data-thumb="http://cdn.bulbagarden.net/upload/0/0f/025MS.png"><img src="https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg"></div>
+                    <div data-title="title5" data-thumb="http://cdn.bulbagarden.net/upload/d/de/133MS.png"><img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/slick.min.js"></script>
+<script type="text/javascript" src="js/TweenMax.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    
+        //header-wrap
+        $(".header-wrap .gnb").on("mouseenter", function(){
+            $(".header-wrap-expand").fadeIn(100);
+        });
+        $(".header-wrap-expand").on("mouseleave", function(){
+            $(".header-wrap-expand").fadeOut(100);
+        });
+
+        //visual-wrap
+        $(".visual-slider").slick({
+            dots: true,
+            arrows: false,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            speed: 1000,
+            customPaging : function(slider, i) {
+                var title = $(slider.$slides[i].innerHTML).find('div[data-title]').data('title');
+                return '<a class="pager__item"> '+title+' </a>';
+            },
+        });
+
+
+	});
+
+	// function onComplete(){
+	// 	var $sectionTop = $('.section-top');
+	// 	TweenMax.fromTo( $sectionTop.find('.tween-1'), .6, { opacity: 0, y: '-100px' }, { opacity: 1, y: 0, delay: .3, ease: Back.easeOut});
+	// 	TweenMax.fromTo( $sectionTop.find('.tween-2'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .6, ease: Power3.easeOut });
+	// 	TweenMax.fromTo( $sectionTop.find('.tween-3'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .9, ease: Power3.easeOut });
+	// 	TweenMax.fromTo( $sectionTop.find('.tween-4'), .6, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, delay: 1.3, ease: Back.easeInOut });
+	// }
+
+	function popupOpen($dimName, $idName){
+		var dimName = $dimName;
+		var $popupLayer = $("#"+$idName);
+		$(dimName).show();
+		$popupLayer.show();
+		popupPosition($popupLayer);
+		openScalePopup($popupLayer);
+	}
+
+	function popupClose($dimName, $idName){
+		var dimName = $dimName;
+		var $popupLayer = $("#"+$idName);
+		$(dimName).hide();
+		$popupLayer.hide();
+	}
+	
+	function popupPosition($popupLayer) {
+		$popupLayer.css({
+			top:"50%",
+			position:"fixed",
+			marginTop:-($popupLayer.height()/2),
+		});
+	}
+	
+	function openScalePopup($popupLayer){
+		TweenMax.killTweensOf( $popupLayer );
+		TweenMax.set( $popupLayer, { scale : 0.5, opacity:0});
+		TweenMax.to( $popupLayer, 0.4, { scale: 1, opacity:1, ease:Expo.easeInOut });
+	}
+</script>
+
+
+</body>
+</html>
