@@ -1,3 +1,8 @@
+@charset "utf-8";
+
+// webfont 
+@import url('https://campus.megastudy.net/library/css/stylesheets/NotoSansKR-Hestia.css');
+
 // Core variables and mixins
 @import "abstracts/variables";
 @import "abstracts/mixins";
@@ -19,107 +24,103 @@ body{
     background-color: #fff;
     letter-spacing: -0.5px;
     word-break: break-all;
+    font-family: 'Noto Sans KR';
     img{
         vertical-align: top;
     }
-}
-
-.wrap{
-    width:1200px;
-    margin:0 auto;
-}
-/* header */
-.header-wrap{
-    position: relative;
-    .header-logo {
-        width:100%;
-        position: relative;
-        text-align: center;
-        padding:20px 0;
-        a {
-            color:#000;
-            display: block;
-            width: 100%; 
-        }
+    .wrap{
+        width:1200px;
+        margin:0 auto;
     }
-    .header-menu-wrap{
+    
+    .section-header{
         position: relative;
-        text-align: center;
-        .header-wrap {
-            border-bottom: solid 1px #e9e9e9;
-            background-color: #fff;
-            position: static;
-            top: 0;
-            left: 0;
-            z-index: 102;
-            width: 100%;
+        .header-logo {
+            width:100%;
+            position: relative;
+            text-align: center;
             padding:20px 0;
-            background:#eee;
-            &-inner {
-                @extend %clearfix;
-                position: relative;
+            a {
+                color:#000;
+                display: block;
+                width: 100%; 
             }
-            .gnb {
-                ul {
+        }
+        .header-menu-wrap{
+            position: relative;
+            text-align: center;
+            .header-wrap {
+                border-bottom: solid 1px #e9e9e9;
+                background-color: #fff;
+                position: static;
+                top: 0;
+                left: 0;
+                z-index: 102;
+                width: 100%;
+                padding:20px 0;
+                background:#eee;
+                &-inner {
+                    @extend %clearfix;
+                    position: relative;
+                }
+                .gnb {
+                    ul {
+                        @extend %flexCenter;
+                        li {
+                            width: 180px;
+                            text-align: center;
+                            a {
+                                display: inline-block;
+                                font-weight: normal;
+                                &:hover{
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .header-wrap-expand{
+                position: absolute; 
+                top:62px; 
+                left: 0;
+                width: 100%;
+                z-index: 102;
+                background: #fff;
+                box-shadow: 0 11px 10px 0 rgba(0, 0, 0, 0.14);
+                &-inner {
+                    @extend %clearfix;
                     @extend %flexCenter;
-                    li {
+                    .link {
                         width: 180px;
                         text-align: center;
+                        position: relative;
+                        &:before {
+                            width: 0; height: 2px;
+                            background-color: #010101;
+                            position: absolute; top: -22px; left: 0;
+                        }
+                        &:hover:before {
+                           width: 100%;
+                           @include transition(all, .3s, ease-in);
+                        }
                         a {
-                            display: inline-block;
-                            font-weight: normal;
-                            &:hover{
-                                font-weight: bold;
+                            display: block;
+                            &:first-child {
+                                margin-top: 0;
+                            }
+                            &:hover {
+                                background-color: rgba(255, 191, 0, 0.2);
+                                color: #010101;
                             }
                         }
                     }
                 }
             }
         }
-        .header-wrap-expand{
-            position: absolute; 
-            top:62px; 
-            left: 0;
-            width: 100%;
-            z-index: 102;
-            background: #fff;
-            box-shadow: 0 11px 10px 0 rgba(0, 0, 0, 0.14);
-            &-inner {
-                @extend %clearfix;
-                @extend %flexCenter;
-                .link {
-                    width: 180px;
-                    text-align: center;
-                    position: relative;
-                    &:before {
-                        width: 0; height: 2px;
-                        background-color: #010101;
-                        position: absolute; top: -22px; left: 0;
-                    }
-                    &:hover:before {
-                       width: 100%;
-                       @include transition(all, .3s, ease-in);
-                    }
-                    a {
-                        display: block;
-                        &:first-child {
-                            margin-top: 0;
-                        }
-                        &:hover {
-                            background-color: rgba(255, 191, 0, 0.2);
-                            color: #010101;
-                        }
-                    }
-                }
-            }
-        }
     }
-}
-/* // header */
-
-/* main */
-.body-main{
-    .visual-wrap{
+    
+    .section-visual{
         .visual-slider {
             width: 100%;
             height:100%;
@@ -129,7 +130,8 @@ body{
         }
         .slick-slide {
             text-align: center;
-            height:100px;
+            height:1500px;
+            background-color: lightsteelblue;
             img { 
                 display: inline-block;
                 width:100%;
@@ -161,90 +163,5 @@ body{
                   }
             }
         }
-
-        // .slick-arrow{
-		// 	position: absolute;
-		// 	top: 50%;
-		// 	z-index: 10;
-		// 	content: '';
-		// 	padding: 0;
-		// 	margin:0;
-		// 	border: none;
-		// 	background: none;
-		// 	outline: none;
-		// 	text-indent: -9999px;
-		// 	display: block;
-		// 	border-width: 0;
-		// 	border-style: solid;
-        //     cursor: pointer;
-		// 	width:48px;height:48px;border-radius:50%;
-		// 	background-color:#fff;
-		// 	margin-top:-24px;
-		// 	border: 1px solid #E4E4E4;
-		// 	box-sizing: border-box;
-		// 	box-shadow: 0px 12px 14px -3px rgba(0, 0, 0, 0.08);		
-
-        //     &.slick-prev{
-        //         left: 50%;
-		// 		margin-left:-570px;
-
-		// 		&:after{
-		// 			@include arrow(left, 11px, 11px, 2px, #000);
-		// 			left:50%;margin-left:-2.5px;
-		// 		}
-
-        //     }
-        //     &.slick-next{
-        //         right: 50%;
-		// 		margin-right:-575px;
-
-		// 		&:after{
-		// 			@include arrow(right, 11px, 11px, 2px, #000);
-		// 			left:50%;margin-left:-8.5px;
-			
-		// 		}
-        //     }
-
-		// 	&:hover{
-		// 		border: 1px solid #000;
-		// 		background-color:#000;
-		// 		&.slick-prev, &.slick-next{
-		// 			&:after{border-color:#fff;}
-		// 		}
-		// 	}
-        // }
-        // .slick-arrow {
-        //     @extend %slick-arrow;
-        //     border-radius: 100%;
-        //     &.slick-prev {
-        //         @include slideArrow(left, 80px, 80px, 2px, #fff, rgba(0,0,0, .8));
-        //         left: 2%;
-        //     }
-        //     &.slick-next {
-        //         @include slideArrow(right, 80px, 80px, 2px, #fff, rgba(0,0,0, .8));
-        //         right: 2%;
-        //     }
-        // }
-    
-        // .slick-dots {
-        //     @extend %slick-dots;
-        //     @include vw(margin-top, 30px);
-        //     li {
-        //         @include vw(width, 20px);
-        //         @include vw(height, 20px);
-        //         @include vw(margin, 0 6px);
-        //         @include vw(border-radius, 50px);
-        //         background-color:#636363;
-        //         &.slick-active {
-        //             background-color: #7c01fa;
-        //         }
-        //     }
-        // }
-
-
-
-
-
     }
 }
-/* // main */

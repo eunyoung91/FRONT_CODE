@@ -11,13 +11,13 @@
     <link rel="stylesheet" type="text/css" href="css/web.css">
 </head>
 
-<body class="body-main">
+<body class="body-main" style="height:50000px;">
 
     <div id="wrapper">
 
         <!-- header -->
-        <!-- 
-        <div class="header-wrap">
+
+        <div class="container section-header">
             <div class="header-logo"><a href="">PROJECT</a></div>
             <div class="header-menu-wrap">
                 <div class="header-wrap">
@@ -69,47 +69,52 @@
                 </div>
             </div>
         </div>
-         -->
+
         <!-- // header -->
         
         <!-- visual -->
-        <!--         
-        <div class="visual-wrap">
+   
+        <div class="container section-visual">
             <div class="wrap">
 
-                <div class="visual-slider">
+                <div class="main-visual-slider">
                     <div data-title="1" data-thumb="">
-                        <img src="https://cdn.pixabay.com/photo/2020/09/19/19/37/landscape-5585247_960_720.jpg">
+                        <img src="" alt="slide">
                     </div>
                     <div data-title="2" data-thumb="">
-                        <img src="https://cdn.pixabay.com/photo/2021/10/25/07/39/cow-6740121_960_720.jpg">
+                        <img src="" alt="slide">
                     </div>
                     <div data-title="3" data-thumb="">
-                        <img src="https://cdn.pixabay.com/photo/2013/04/03/21/25/flower-100263_960_720.jpg">
+                        <img src="" alt="slide">
                     </div>
                     <div data-title="4" data-thumb="">
-                        <img src="https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg">
+                        <img src="" alt="slide">
                     </div>
                     <div data-title="5" data-thumb="">
-                        <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg">
+                        <img src="" alt="slide">
                     </div>
                 </div>
-
-
             </div>
         </div> 
-        -->
+  
         <!-- visual -->
         
-        <div class="info-wrap">
+        <div class="container section-">
             <div class="wrap">
-
+                <img src="" alt="">
             </div>
         </div>
 
-        <div class="state-wrap">
+        <div class="container section-countup">
             <div class="wrap">
-                
+                <img src="" alt="">
+
+                <div class="count-box">
+                    <div class="count1"><span class="count" data-count="1235">0</span>명</div>
+                    <div class="count2"><span class="count" data-count="86">0</span>명</div>
+                    <div class="count3"><span class="count" data-count="441">0</span>명</div>
+                </div>
+
             </div>
         </div>
 
@@ -121,21 +126,46 @@
 <script type="text/javascript" src="js/TweenMax.min.js"></script>
 
 <script type="text/javascript">
-	$(document).ready(function(){
-    
-        //header-wrap
+	$(function(){
+		frontInit();
+	});
+
+    function frontInit(){
+        create();
+        addEvent();
+        slideEvent();
+	}
+
+    function create() {
+    }
+
+    $(window).on('scroll', function(){
+        var wt = $(window).scrollTop();
+        var section = $('.container');
+        section.each(function(i){
+            if( wt >= section.eq(i).offset().top - 0){
+                $(this).addClass('active');
+                countUp(null);
+                $(window).on('scroll', countUp);
+            } else {
+                $(this).removeClass('active');
+            }
+        });
+    });
+
+    function addEvent(){
         $(".header-wrap .gnb").on("mouseenter", function(){
             $(".header-wrap-expand").fadeIn(100);
         });
         $(".header-wrap-expand").on("mouseleave", function(){
             $(".header-wrap-expand").fadeOut(100);
         });
-
-        //visual-wrap
-        $(".visual-slider").slick({
+    }
+	
+    function slideEvent(){
+        $(".main-visual-slider").slick({
             dots: true,
             arrows: false,
-            // infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
@@ -146,47 +176,128 @@
                 return '<a> '+title+' </a>';
             },
         });
-	});
+    }
 
-	// function onComplete(){
-	// 	var $sectionTop = $('.section-top');
-	// 	TweenMax.fromTo( $sectionTop.find('.tween-1'), .6, { opacity: 0, y: '-100px' }, { opacity: 1, y: 0, delay: .3, ease: Back.easeOut});
-	// 	TweenMax.fromTo( $sectionTop.find('.tween-2'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .6, ease: Power3.easeOut });
-	// 	TweenMax.fromTo( $sectionTop.find('.tween-3'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .9, ease: Power3.easeOut });
-	// 	TweenMax.fromTo( $sectionTop.find('.tween-4'), .6, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, delay: 1.3, ease: Back.easeInOut });
-	// }
+    function countUp($e){
+        $('.state-wrap .count').each(function(i){
+            var _value = $(this).data('count');
+            var scoreDisplay = this;
+            var _count = { score: 0 };
 
-	function popupOpen($dimName, $idName){
-		var dimName = $dimName;
-		var $popupLayer = $("#"+$idName);
-		$(dimName).show();
-		$popupLayer.show();
-		popupPosition($popupLayer);
-		openScalePopup($popupLayer);
+            var _tween = new TimelineMax();
+            _tween.to(_count, 2, {
+                score: _value,
+                roundProps: 'score',
+                ease: Circ.easeOut,
+                onUpdate: function(){
+                    scoreDisplay.innerHTML = setComma(Math.floor( _count.score ));
+                }
+            });
+        });
+    }
+
+	function setComma(num){
+		var len, point, str;
+		num = num + "";
+		point = num.length % 3 ;
+		len = num.length;
+		str = num.substring(0, point);
+		while (point < len) {
+			if (str != "") str += ",";
+			str += num.substring(point, point + 3);
+			point += 3;
+		}
+		return str;
 	}
 
-	function popupClose($dimName, $idName){
-		var dimName = $dimName;
-		var $popupLayer = $("#"+$idName);
-		$(dimName).hide();
-		$popupLayer.hide();
-	}
-	
-	function popupPosition($popupLayer) {
-		$popupLayer.css({
-			top:"50%",
-			position:"fixed",
-			marginTop:-($popupLayer.height()/2),
-		});
-	}
-	
-	function openScalePopup($popupLayer){
-		TweenMax.killTweensOf( $popupLayer );
-		TweenMax.set( $popupLayer, { scale : 0.5, opacity:0});
-		TweenMax.to( $popupLayer, 0.4, { scale: 1, opacity:1, ease:Expo.easeInOut });
-	}
+
 </script>
 
 
 </body>
 </html>
+
+
+<!-- 
+// $(window).on('scroll', function(){
+// 	var wt = $(window).scrollTop();
+// 	var section = $('.container');
+// 	section.each(function(i){
+// 		if( wt >= section.eq(i).offset().top - 500){
+// 			$(this).addClass('active');
+// 			countUp(null);
+// 			_window.on('scroll', countUp);
+// 		} else {
+// 			$(this).removeClass('active');
+// 		}
+// 	});
+// });
+
+
+// function countTo(){
+// 	var _score = { value:0 };
+// 	var _totalCount = $(".totalcount");
+// 	var _value = 100;
+// 	TweenMax.to( _score, 1.5, { value:_value, ease:Circ.easeOut,
+// 		onUpdate:function(){
+// 			_totalCount.text( Math.floor( _score.value ));
+// 		},
+// 		onComplete:function(){
+// 				TweenMax.fromTo($(".sparkle"), 0.35, {opacity:0, scale:0},{ opacity:1, scale:0.5, delay:0.5, ease:Power0.easeOut,	onComplete:function(){
+// 					TweenMax.fromTo( $(".sparkle"), 0.35,{scale: 0.5}, {scale: 1, repeat: -1, yoyo:true});
+// 				}
+// 			});	
+// 		}
+// 	});
+// }
+// $(document).ready(function(){
+
+// });
+function onComplete(){
+    var $sectionTop = $('.section-top');
+    TweenMax.fromTo( $sectionTop.find('.tween-1'), .6, { opacity: 0, y: '-100px' }, { opacity: 1, y: 0, delay: .3, ease: Back.easeOut});
+    TweenMax.fromTo( $sectionTop.find('.tween-2'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .6, ease: Power3.easeOut });
+    TweenMax.fromTo( $sectionTop.find('.tween-3'), .6, { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, delay: .9, ease: Power3.easeOut });
+    TweenMax.fromTo( $sectionTop.find('.tween-4'), .6, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, delay: 1.3, ease: Back.easeInOut });
+}
+
+function popupOpen($dimName, $idName){
+    var dimName = $dimName;
+    var $popupLayer = $("#"+$idName);
+    $(dimName).show();
+    $popupLayer.show();
+    popupPosition($popupLayer);
+    openScalePopup($popupLayer);
+}
+
+function popupClose($dimName, $idName){
+    var dimName = $dimName;
+    var $popupLayer = $("#"+$idName);
+    $(dimName).hide();
+    $popupLayer.hide();
+}
+
+function popupPosition($popupLayer) {
+    $popupLayer.css({
+        top:"50%",
+        position:"fixed",
+        marginTop:-($popupLayer.height()/2),
+    });
+}
+
+function openScalePopup($popupLayer){
+    TweenMax.killTweensOf( $popupLayer );
+    TweenMax.set( $popupLayer, { scale : 0.5, opacity:0});
+    TweenMax.to( $popupLayer, 0.4, { scale: 1, opacity:1, ease:Expo.easeInOut });
+}
+
+function scrollListener() {
+    var sT = _w.scrollTop();
+    if(sT > $(".state-wrap").offset().top-($(".header-wrap").height())){
+        if( !isFlag ){
+            countTo();
+            isFlag = true;
+        }
+    }
+}
+-->
