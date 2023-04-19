@@ -72,21 +72,46 @@
          -->
         <!-- // header -->
         
+        <!-- visual -->
+        <!--         
         <div class="visual-wrap">
-            <div class="visual-wrap-inner">
+            <div class="wrap">
 
                 <div class="visual-slider">
-                    <div data-title="title1" data-thumb="http://cdn.bulbagarden.net/upload/e/ec/001MS.png"><img src="https://cdn.pixabay.com/photo/2020/09/19/19/37/landscape-5585247_960_720.jpg"></div>
-                    <div data-title="title2" data-thumb="http://cdn.bulbagarden.net/upload/b/bb/004MS.png"><img src="https://cdn.pixabay.com/photo/2021/10/25/07/39/cow-6740121_960_720.jpg"></div>
-                    <div data-title="title3" data-thumb="http://cdn.bulbagarden.net/upload/9/92/007MS.png"><img src="https://cdn.pixabay.com/photo/2013/04/03/21/25/flower-100263_960_720.jpg"></div>
-                    <div data-title="title4" data-thumb="http://cdn.bulbagarden.net/upload/0/0f/025MS.png"><img src="https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg"></div>
-                    <div data-title="title5" data-thumb="http://cdn.bulbagarden.net/upload/d/de/133MS.png"><img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg"></div>
+                    <div data-title="1" data-thumb="">
+                        <img src="https://cdn.pixabay.com/photo/2020/09/19/19/37/landscape-5585247_960_720.jpg">
+                    </div>
+                    <div data-title="2" data-thumb="">
+                        <img src="https://cdn.pixabay.com/photo/2021/10/25/07/39/cow-6740121_960_720.jpg">
+                    </div>
+                    <div data-title="3" data-thumb="">
+                        <img src="https://cdn.pixabay.com/photo/2013/04/03/21/25/flower-100263_960_720.jpg">
+                    </div>
+                    <div data-title="4" data-thumb="">
+                        <img src="https://cdn.pixabay.com/photo/2012/03/01/00/55/flowers-19830_960_720.jpg">
+                    </div>
+                    <div data-title="5" data-thumb="">
+                        <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_960_720.jpg">
+                    </div>
                 </div>
 
 
             </div>
+        </div> 
+        -->
+        <!-- visual -->
+        
+        <div class="info-wrap">
+            <div class="wrap">
+
+            </div>
         </div>
 
+        <div class="state-wrap">
+            <div class="wrap">
+                
+            </div>
+        </div>
 
     </div>
 
@@ -110,7 +135,7 @@
         $(".visual-slider").slick({
             dots: true,
             arrows: false,
-            infinite: false,
+            // infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
@@ -118,11 +143,9 @@
             speed: 1000,
             customPaging : function(slider, i) {
                 var title = $(slider.$slides[i].innerHTML).find('div[data-title]').data('title');
-                return '<a class="pager__item"> '+title+' </a>';
+                return '<a> '+title+' </a>';
             },
         });
-
-
 	});
 
 	// function onComplete(){
