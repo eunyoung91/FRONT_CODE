@@ -146,6 +146,8 @@ jQuery(function($){
 		}
 	});
 
+
+	$document.on('click touch', '.toggler')
 	// Top button scroll event
 	$('.bottom_fix_btn .top').hide();
 	$window.scroll( function(){
