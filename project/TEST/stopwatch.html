@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<title>Home</title>
+
+<style>
+body{
+	background-color:#151845;
+	padding:0;
+	margin:0;
+}
+.stopwatch{
+	height:200px;
+	width:200px;
+	border:18px solid #fafcf7;
+	position: absolute;
+	margin:auto;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	border-radius:50%;
+}
+.button1{
+	background-color:#fafcf7;
+	height:12px;
+	width:28px;
+	position:absolute;
+	left: 85px;
+	top:-45px;
+}
+.button1::before{
+	content:"";
+	position: absolute;
+	height:24px;
+	width:50px;
+	background-color:#fafcf7;
+	bottom:12px;
+	left:-11px;
+}
+.button2{
+	background-color:#fafcf7;
+	height:18px;
+	width:28px;
+	position: absolute;
+	left:196px;
+	bottom:186px;
+	bottom:186px;
+	transform: rotate(45deg);
+}
+.time{
+	background-color:#fafcf7;
+	height:85px;
+	width:85px;
+	border-radius:0 170px 0 0;
+	position: absolute;
+}
+.t1{
+	right:15px;
+	top:15px;
+	animation-name: time1;
+}
+.t2{
+	right:15px;
+	bottom:15px;
+	transform: rotate(90deg);
+	animation-name: time2;
+}
+.t3{
+	left:15px;
+	bottom:15px;
+	transform: rotate(180deg);
+	animation-name: time3;
+}
+.t4{
+	left:15px;
+	top:15px;
+	transform: rotate(270deg);
+	animation-name: time4;
+}
+.t1,.t2,.t3,.t4{
+	animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation-duration: 2s;
+	animation-delay: 1s;
+	animation-iteration-count: infinite;
+	/* animation-iteration-count: once; */
+	animation-fill-mode: forwards;
+}
+
+@keyframes time1{
+	19%{
+		opacity: 0;
+	}
+	20%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes time2{
+	39%{
+		opacity: 0;
+	}
+	40%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes time3{
+	59%{
+		opacity: 0;
+	}
+	60%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes time4{
+	79%{
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+</style>
+</head>
+<body>
+
+<div class="stopwatch">
+	<div class="button1"></div>
+	<div class="button2"></div>
+	
+	<div class="time t1">1</div>
+	<div class="time t2">2</div>
+	<div class="time t3">3</div>
+	<div class="time t4">4</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Pacifico);
+		html {
+			width: 100%;
+			height: 100%;
+			padding: 5% 0;
+			background: linear-gradient(#e4f2e7, #FFF);
+		}
+		#clock {
+			box-sizing: border-box;
+			width: 225px;
+			height: 225px;
+			border: 10px solid #B0DAB9;
+			border-radius: 50%;
+			margin: 0 auto;
+			transform: rotate(-90deg);
+		}
+		#clock:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background: black;
+			border: 12px solid #B0DAB9;
+			border-radius: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#hours, #minutes, #seconds {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		#hours:after, #hours:after, #hours:after, #minutes:after, #minutes:after, #minutes:after, #seconds:after, #seconds:after, #seconds:after {
+			content: "";
+			display: block;
+			margin: 50% 50%;
+			width: 50%;
+			transform-origin: left top;
+			-webkit-animation: clock linear;
+			animation: clock linear;
+			animation-fill-mode:forwards;
+		}
+
+		/* #hours:after {
+			width: 30%;
+			outline: 8px solid #B0DAB9;
+			-webkit-animation-duration: 86400s;
+					animation-duration: 86400s;
+		} */
+
+		#minutes:after {
+			width: 40%;
+			outline: 4px solid #B0DAB9;
+			-webkit-animation-duration: 3s;
+					animation-duration: 3ss;
+		}
+
+		/* #seconds:after {
+			width: 48%;
+			outline: 2px solid #B0DAB9;
+			-webkit-animation-duration: 60s;
+					animation-duration: 60s;
+		} */
+
+		@-webkit-keyframes clock {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(180deg);
+			}
+		}
+
+		@keyframes clock {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(180deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div id="clock">
+		<!-- <div id="hours"></div> -->
+		<div id="minutes"></div>
+		<!-- <div id="seconds"></div> -->
+	  </div>
+	  
+	  <!-- <h1>Pure CSS Animated Clock</h1> -->
+</body>
+</html>
