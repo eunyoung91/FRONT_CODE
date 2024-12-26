@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Component Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <style>
+    .blue-btn {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 버튼 스타일을 동적으로 전달 -->
+    <my-button :button-style="'blue-btn'" label="Blue Button"></my-button>
+  </div>
+
+  <script>
+	Vue.component('my-button', {
+		props: ['label', 'button-style'],  // button-style이라는 prop을 받음
+		template: `
+		<button :class="buttonStyle" @click="handleClick">
+			{{ label }}
+		</button>
+		`,
+		methods: {
+			handleClick() { alert('Button clicked: ' + this.label);}
+		}
+	});
+
+	new Vue({
+		el: '#app'
+	});
+  </script>
+
+
+
+</body>
+</html>
+
+
+
+<!-- 
+Vue.component('',{...}) 는 새로운 컴포넌트를 정의하는 코드입니다.
+여기서는 my-button 이라는 이름의 컴포넌트를 만들었고, 그 안에 button 태그를 렌더링하는 template을 정의했습니다.
+
+new Vue({ el: '#app'})는 애플리케이션을 시작하고, #app 요소 안에 my-button 컴포넌트를 렌더링합니다.
+
+컴포넌트의 주요 특징
+
+탬플릿 : 컴포넌트의 HTML 구조를 정의합니다.
+스크립트 : 컴포넌트의 로직을 정의합니다. 예를 들어, 데이터 메서드 등을 정의할 수 있습니다.
+스타일 : 컴포넌트에 관련된 CSS를 작성할 수 있습니다.
+
+컴포넌트의 재사용성 
+
+
+
+-->

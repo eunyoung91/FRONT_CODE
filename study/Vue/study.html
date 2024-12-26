@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<style>
+	.red-btn {
+		background-color: red;
+		color: white;
+	}
+	.green-btn {
+		background-color: green;
+		color: white;
+	}
+	.blue-btn {
+		background-color: blue;
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<my-button :button-style="'red-btn'" label="Red Button"></my-button>
+
+		<my-button :button-style="'green-btn'" label="Green Button"></my-button>
+
+		<my-button :button-style="'blue-btn'" label="Blue Button"></my-button>
+	</div>
+
+	<script>
+		Vue.component('my-button',{
+			props: ['label', 'button-style'],
+			template: '<button :class="buttonStyle">{{ label }}</button>'
+		});
+
+		new Vue({
+			el: '#app'
+		});
+	</script>
+</body>
+</html>
