@@ -1,0 +1,698 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+.grid {
+  *zoom: 1;
+}
+.grid:before, .grid:after {
+  content: "";
+  display: table;
+}
+.grid:after {
+  clear: both;
+}
+
+.hidden,
+.sr_only,
+.sr-only {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0;
+  height: 0;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.grid {
+  position: relative;
+  box-sizing: border-box;
+}
+.grid .col {
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+}
+
+/* 하단 불필요한 영역 제거 */
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+html body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+html body.hid {
+  overflow: hidden;
+}
+html body .container {
+  box-sizing: border-box;
+  color: #1D1D1D;
+  line-height: normal;
+}
+html body .container.pad_no {
+  padding-bottom: 0;
+}
+html body .container .default-title {
+  font-family: "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
+}
+html body .container .teacherWrap_2024 {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-style: normal;
+}
+html body .container .teacherWrap_2024 em {
+  font-style: normal;
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher {
+  position: absolute;
+  top: 14.06vw;
+  z-index: 1;
+  background-color: #f8f9fa;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border-bottom: 1px solid #DCDCDC;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher.fixed {
+  position: fixed;
+  top: 0;
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: nowrap;
+  gap: 6.875vw;
+  padding: 0 3.75vw;
+  margin: 0;
+  list-style: none;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+    gap: 44px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+    padding: 0 24px;
+  }
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+  position: relative;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  color: #333;
+  display: inline-block;
+  padding: 4.53125vw 0 4.375vw 0;
+  font-size: 4.0625vw;
+  letter-spacing: -0.26px;
+  font-weight: 400;
+  font-family: "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
+  transition: color 0.3s ease;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+    padding: 29px 0 28px 0;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+    font-size: 26px;
+  }
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on {
+  color: #2F4698;
+  font-weight: 700;
+  position: relative;
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 0.625vw;
+  background: #2F4698;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+    height: 4px;
+  }
+}
+html body .container .teacherWrap_2024 .teacher_top .tab_teacher::-webkit-scrollbar {
+  display: none;
+}
+html body .container .teacherWrap_2024 .dvLecListWrap {
+  margin-top: 19.375vw;
+  padding-bottom: 6.25vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap {
+    margin-top: 124px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap {
+    padding-bottom: 40px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+  font-family: "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
+  margin: 0;
+  color: #333;
+  font-size: 4.6875vw;
+  font-weight: 700;
+  letter-spacing: -0.52px;
+  margin-top: 6.25vw;
+  margin-bottom: 2.34375vw;
+  padding: 0 3.75vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+    margin-top: 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+    padding: 0 24px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+  position: relative;
+  overflow: hidden;
+  padding: 0 3.75vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+    padding: 0 24px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0 2%;
+  row-gap: 2.03125vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+    row-gap: 13px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background-color: #F1F2F3;
+  width: 32%;
+  height: 41.875vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+    height: 268px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+  position: absolute;
+  bottom: 0;
+  left: 2.109375vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+    left: 13.5px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+    left: 0;
+    right: 0;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+  width: 37.1875vw;
+  width: 37.1875vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+    width: 238px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+    width: 238px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info {
+  position: absolute;
+  top: 9.9%;
+  left: 9.9%;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  text-align: left;
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+  display: inline-block;
+  text-align: left;
+  color: #333;
+  font-weight: 400;
+  font-size: 3.4375vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+    font-size: 22px;
+  }
+}
+html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+  display: block;
+  font-weight: 700;
+  font-size: 4.6875vw;
+  margin-bottom: 0.3125vw;
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+    margin-bottom: 2px;
+  }
+}
+html body .ly {
+  transition: opacity 0.3s ease-in-out;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+html body .ly .lyinner {
+  position: relative;
+  min-height: 100%;
+  background: #ffffff;
+  background-size: cover;
+  box-sizing: border-box;
+}
+html body .ly .lyinner .info_visual {
+  position: relative;
+  background: #E1EFFC;
+  height: 56.25vw;
+  overflow: hidden;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual {
+    height: 360px;
+  }
+}
+html body .ly .lyinner .info_visual:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  width: 59.21875vw;
+  height: 38.75vw;
+  border-radius: 25vw 0vw 0vw 0vw;
+  background: linear-gradient(15deg, rgba(214, 231, 248, 0) -55.23%, #D0E4F7 83.07%);
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual:after {
+    width: 379px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual:after {
+    height: 248px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual:after {
+    border-radius: 160px 0px 0px 0px;
+  }
+}
+html body .ly .lyinner .info_visual .photo {
+  position: absolute;
+  z-index: 3;
+  top: 12.5vw;
+  left: 50.9375vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .photo {
+    top: 80px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .photo {
+    left: 326px;
+  }
+}
+html body .ly .lyinner .info_visual .photo img {
+  width: 57.8125vw;
+  width: 57.8125vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .photo img {
+    width: 370px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .photo img {
+    width: 370px;
+  }
+}
+html body .ly .lyinner .info_visual .info {
+  position: absolute;
+  text-align: left;
+  top: 12.5vw;
+  left: 5.9375vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info {
+    top: 80px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info {
+    left: 38px;
+  }
+}
+html body .ly .lyinner .info_visual .info .subject {
+  display: block;
+  color: #555;
+  font-size: 4.375vw;
+  font-weight: 400;
+  margin-bottom: 1.5625vw;
+  letter-spacing: -0.42px;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .subject {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .subject {
+    margin-bottom: 10px;
+  }
+}
+html body .ly .lyinner .info_visual .info .subject .sub_subject {
+  display: inline-block;
+  color: #2F4698;
+  font-size: 3.75vw;
+  font-weight: 400;
+  letter-spacing: -0.42px;
+  padding-left: 1.25vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .subject .sub_subject {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .subject .sub_subject {
+    padding-left: 8px;
+  }
+}
+html body .ly .lyinner .info_visual .info .name {
+  display: inline-block;
+  text-align: left;
+  font-weight: 400;
+  font-size: 5.625vw;
+  color: #333;
+  letter-spacing: -0.23px;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .name {
+    font-size: 36px;
+  }
+}
+html body .ly .lyinner .info_visual .info .name strong {
+  display: inline-block;
+  font-weight: 700;
+  color: #1D1D1D;
+  font-size: 7.1875vw;
+  letter-spacing: -0.9px;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_visual .info .name strong {
+    font-size: 46px;
+  }
+}
+html body .ly .lyinner .info_desc {
+  padding: 0 6.25vw;
+  padding-bottom: 6.25vw;
+  line-height: 160%;
+  color: #333;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc {
+    padding: 0 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc {
+    padding-bottom: 40px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type {
+  text-align: left;
+}
+html body .ly .lyinner .info_desc .list_type .tit {
+  border-color: #2F4698;
+  border-style: solid;
+  border-width: 0.3125vw;
+  border-radius: 1562.34375vw;
+  padding: 0.9375vw 2.5vw;
+  color: #2F4698;
+  font-size: 4.6875vw;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  margin-top: 6.25vw;
+  margin-bottom: 2.5vw;
+  display: inline-block;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    border-width: 2px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    border-radius: 9999px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    padding: 6px 16px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    margin-top: 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .tit {
+    margin-bottom: 16px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type .list_type_main {
+  font-size: 4.375vw;
+  font-weight: 400;
+  line-height: 160%;
+  font-size: 4.375vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_main {
+    font-size: 28px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_main {
+    font-size: 28px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+  margin: 0 0 0 0;
+  position: relative;
+  padding-left: 2.5vw;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+    padding-left: 16px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type .list_type_main > p:after {
+  content: "-";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+  display: block;
+  position: relative;
+  font-size: 4.375vw;
+  font-weight: 700;
+  line-height: 160%;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+    font-size: 28px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+  position: relative;
+  margin-bottom: 0.3125vw;
+  padding-left: 2.5vw;
+  color: #333;
+  font-size: 4.375vw;
+  font-weight: 400;
+  line-height: 160%;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+    margin-bottom: 2px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+    padding-left: 16px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+    font-size: 28px;
+  }
+}
+html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+  content: "";
+  position: absolute;
+  top: 2.96875vw;
+  left: 0;
+  width: 0.9375vw;
+  height: 0.9375vw;
+  border-radius: 0.9375vw;
+  background: #333;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+    top: 19px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+    width: 6px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+    height: 6px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+    border-radius: 6px;
+  }
+}
+html body .ly .ly-close {
+  display: inline-block;
+  position: absolute;
+  top: 6.25vw;
+  right: 6.25vw;
+  width: 6.25vw;
+  height: 6.25vw;
+  padding: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M4 5.3335L34 36.0002" stroke="%23333333" stroke-width="4" stroke-linecap="round"/><path d="M34.666 5.33362L4.66601 36.0003" stroke="%23333333" stroke-width="4" stroke-linecap="round"/></svg>') 50% 50% no-repeat;
+  background-size: contain;
+  z-index: 100;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -999em;
+}
+@media screen and (min-width: 680px) {
+  html body .ly .ly-close {
+    top: 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .ly-close {
+    right: 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .ly-close {
+    width: 40px;
+  }
+}
+@media screen and (min-width: 680px) {
+  html body .ly .ly-close {
+    height: 40px;
+  }
+}
+html body #footer {
+  padding-top: 0;
+  padding: 5% 0;
+  font-size: 4.0625vw;
+}
+@media screen and (min-width: 680px) {
+  html body #footer {
+    font-size: 26px;
+  }
+}/*# sourceMappingURL=teacher_2024.css.map */
