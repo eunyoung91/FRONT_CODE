@@ -1,0 +1,266 @@
+#footer {
+    letter-spacing: 0;
+    background-color: #222;
+    padding-bottom: 50px;
+
+    &, a {
+        color: rgba(255, 255, 255, .5);
+    }   
+
+    .upper {
+        text-align: center;
+        background-color: $color-black;
+        @include clearfix();
+
+        .grid {
+            float: left;
+            width: 77%;
+            padding-left: 15px;
+            .col {
+                &:first-child a {
+                    padding-left: 0;
+                    &:before {
+                        display: none;
+                    }
+                }
+
+                a {
+                    position: relative;
+                    display: block;
+                    padding: 15px;
+                    font-size: 13px;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        display: block;
+                        width: 1px;
+                        height: 10px;
+                        margin-top: -5px;
+                        background-color: rgba(255, 255, 255, 0.5);
+                        @include mq(screen-mobile) { 
+                            display: none;
+                        }
+                    }
+                    @include mq(screen-mobile) { 
+                        padding: 15px 8px;
+                    }
+                }
+            }
+            
+        }
+
+        .top {
+            float: right;
+            width: 73px;
+            padding-right: 15px;
+            @include mq(screen-mobile) { 
+                width: 60px;
+            }
+            a {
+                display: block;
+                padding: 15px 0;
+                font-family: verdana;
+                font-size: 12px;
+                color: #9a9a9a;
+                border-left: 1px solid #333;
+                border-right: 1px solid #333;
+
+                span:after {
+                    content: '';
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    margin-left: 5px;
+                    border-top: 1px solid #9a9a9a;
+                    border-right: 1px solid #9a9a9a;
+                    @include rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .downer {
+        @include clearfix();
+        position: relative;
+        font-size: 13px;
+
+        .action {
+            float: right;
+            width: 42%;
+            padding: 20px 15px 0 0;
+            text-align: right;
+            box-sizing: border-box;
+            @include mq(screen-mobile) { 
+                float: none;
+                width: 100%;
+                padding: 15px 15px 0;
+                text-align: left;
+            }
+
+            .col {
+                line-height: 1;
+                font-size: 0;
+                float: none;
+                display: inline-block;
+                width: 40px;
+                margin-right: 9px;
+                vertical-align: top;
+                @include mq(screen-mobile) { 
+                    float: left;
+                }
+                a {
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid #555;
+                    border-radius: 50%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: auto;
+                    -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                }
+                &.facebook a {
+                    background-image: url(http://img.eduwill.net/resources/land/dev/images/common/icon_facebook_lg.png);
+                }
+                &.blog a {
+                    background-image: url(http://img.eduwill.net/resources/land/dev/images/common/icon_blog_lg.png);
+                }
+                &.site {
+                    width: 200px;
+                    margin-right: 0;
+                    text-align: left;
+                    position: relative;
+                    @include mq(screen-mobile) { 
+                        float: right;
+                        width: 65.5%;
+                    }
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 40px;
+                        border: 1px solid #555;
+                        border-radius: 0;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: auto;
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        color: rgba(255, 255, 255, .5);
+                        padding: 12px 0;
+                        font-size: 13px;
+
+                        span {
+                            display: block;
+                            position: relative;
+                            margin: 0 20px;
+                            &:after {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                top: 50%;
+                                right: 0;
+                                width: 6px;
+                                height: 6px;
+                                margin-top: -3px;
+                                border-top: 1px solid #555;
+                                border-right: 1px solid #555;
+                                @include rotate(45deg);
+                                @include transition-all(.3s);
+                            }
+                        }
+                    }
+                    .list {
+                        position: absolute;
+                        bottom: 40px;
+                        left: 0;
+                        right: 0;
+                        z-index: 1;
+                        height: 0;
+                        overflow: hidden;
+                        opacity: 0;
+                        @include transition-all(.3s);
+                        ul {
+                            margin: 0;
+                            padding: 10px;
+                            background-color: #222;
+                            @include translateY(100px);
+                            @include transition-all(.3s);
+                            a {
+                                border-width: 0;
+                                border-radius: 0;
+                                background-color: #222;
+                                height: auto;
+                                padding: 12px 10px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    &.in {
+                        a {
+                            span:after { 
+                                @include rotate(-45deg);
+                            }
+                        }
+                        .list { 
+                            height: auto; 
+                            opacity: 1; 
+                            ul { 
+                                @include translateY(0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .core {
+            line-height: 2.4;
+            font-size: 13px;
+            float: left;
+            width: 50%;
+            margin-top: 25px;
+            text-align: left;
+            padding:0 15px;
+            box-sizing: border-box;
+            @include mq(screen-mobile) { 
+                float: none;
+                width: 100%;
+                margin-top: 20px;
+                text-align: center;
+            }
+
+            li {
+                padding-left: 25px;
+                background-repeat: no-repeat;
+                background-position: left center;
+                background-size: auto;
+                line-height: 2;
+                @include mq(screen-mobile) { 
+                    padding-left: 0;
+                    line-height: 1.4;
+                    background: none !important;
+                    margin-top: 5px;
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                &.location {
+                    background-image: url(//img.eduwill.net/resources/land/dev/images/common/icon_location.png);
+                }
+                &.tel {
+                    background-image: url(//img.eduwill.net/resources/land/dev/images/common/icon_tel.png);
+                }
+            }
+            .copyright {
+                font-size: 12px;
+                @include mq(screen-mobile) { 
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

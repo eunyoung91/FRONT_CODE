@@ -1,0 +1,837 @@
+@charset "utf-8";
+/* Notosans (본고딕) */
+@import url('//img.eduwill.net/resources/common/web/css/noto_webfont.css'); /* 400/500/700 */
+@import url('//img.eduwill.net/resources/myroom/library/css/Nwagon.css');
+
+
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select,img,div { margin:0; padding:0; font-size:13px; color:#333; letter-spacing:0; word-wrap:break-word;}
+img,fieldset { border:0}
+ul,ol { list-style:none}
+input,select { vertical-align:middle}
+img {vertical-align:top}
+em,address { font-style:normal}
+table { border-collapse:collapse; border-spacing:0px; empty-cells:show; table-layout:fixed}
+legend,caption { visibility:hidden; width:0; height:0; margin:0; padding:0; font-size:0; line-height:0}
+a {text-decoration:none;}
+
+/* common */
+.ellipsis {text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.clip {text-overflow:clip; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+h2.tit {height:56px; line-height:63px; font-size:16px; color:#333; font-weight:500; padding-left:13px; letter-spacing:-1px;background:url(https://img.eduwill.net/resources/myroom/library/images/h2_bullet.gif) no-repeat 2px 25px;}
+
+.tabBtn:after {content:""; display:block; clear:both}
+.tabBtn.default div {cursor:pointer; float:left; width:50%; height:54px; position:relative;}
+.tabBtn.default div span {display:block; text-align:center; height:52px; background:#f5f7f9; border:solid 1px #eaeaea; border-bottom:solid 1px #4a5470; margin-left:-1px; font-size:15px; color:#666; font-weight:500; line-height:52px;}
+.tabBtn.default div.active span {background:#fff; border-color:#4a5470; border-bottom-color:#fff; color:#333; line-height:60px;}
+.tabBtn.default div.nextTab span {border-left-color:#4a5470}
+.tabBtn.default div:first-child span {margin-left:0}
+
+.tabBtn.default.depth1 div {width:100%}
+.tabBtn.default.depth1 div:first-child  {width:100%}
+.tabBtn.default.depth1 div.active span {background:#f5f7f9; border:solid 1px #eaeaea; border-bottom:solid 1px #4a5470; color:#666;}
+
+.tabBtn.default.depth2 div {width:50%}
+.tabBtn.default.depth2 div:first-child  {width:50%}
+
+.tabBtn.default.depth3 div {width:33%}
+.tabBtn.default.depth3 div:first-child  {width:34%}
+
+.tabBtn.default.depth4 div {width:25%}
+.tabBtn.default.depth4 div:first-child  {width:25%}
+
+.tabBtn.default.depth5 div {width:20%}
+.tabBtn.default.depth5 div:first-child  {width:20%}
+
+.tabBtn.default.depth6 div {width:17%}
+.tabBtn.default.depth6 div:first-child  {width:15%}
+
+.tabBtn.default.depth7 div {width:14%}
+.tabBtn.default.depth7 div:first-child  {width:16%}
+
+.tabBtn.default.depth8 div {width:12%}
+.tabBtn.default.depth8 div:first-child  {width:16%}
+
+.tabBtn#yearFilterZone {margin-bottom:15px}
+
+.tbStyle2 {width:100%;}
+.tbStyle2 th {font-size:15px; color:#666; font-weight:400; text-align:center; border:solid 1px #eaeaea; background:#f5f7f9; padding:10px 0}
+.tbStyle2 td {font-size:14px; color:#666; font-weight:400; text-align:center; border:solid 1px #eaeaea; background:#ffffff; padding:15px 0}
+.tbStyle2 td.alignL {text-align:left; padding-left:20px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.tbStyle2 td .t1 {font-size:13px; color:#4d4d4d; font-weight:300; padding-top:5px}
+
+.tbStyle2 td.seekArea {padding:10px; text-align:left;}
+.tbStyle2 td.seekArea .seekSbj {font-size:15px; color:#666; font-weight:400; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.tbStyle2 td.seekArea .seek {position:relative; width:100%; height:6px; background:#f4f4f4; margin-top:9px;}
+.tbStyle2 td.seekArea .seek div.bar {position:absolute; top:0; left:0; height:6px; background:#ff5000}
+.tbStyle2 td.seekArea .seek div.mark span {position:absolute; top:-6px; left:0; margin-left:-3px; display:block; width:6px; height:4px; background:#ff5000; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_seekMark.png) no-repeat 0 0;}
+.tbStyle2 td.seekArea .seekData {margin-top:2px}
+.tbStyle2 td.seekArea .seekData:after {content:""; display:block; clear:both}
+.tbStyle2 td.seekArea .seekData .sd1 {float:left; font-size:13px; color:#ff5000; font-weight:400;}
+.tbStyle2 td.seekArea .seekData .sd2 {float:right; font-size:13px; color:#666; font-weight:400;}
+
+.tbStyle2 td .btnArea {font-size:0; margin-top:4px; position:relative;}
+.tbStyle2 td .btnArea:first-child {margin-top:0}
+.tbStyle2 td .btnArea a {display:inline-block; height:28px; line-height:28px; border:solid 1px #eaeaea; font-size:13px; color:#666; font-weight:400; text-align:center; margin-left:5px}
+.tbStyle2 td .btnArea a:first-child {margin-left:0}
+.tbStyle2 td .btnArea a.b1 {background:url(https://img.eduwill.net/resources/myroom/library/images/btn_bg.gif) bottom repeat-x; border:solid 1px #ff5000; color:#ff5000}
+.tbStyle2 td .btnArea a.b1.sm{width:70px;}
+.tbStyle2 td .btnArea a.b1.lg{width:100px;}
+.tbStyle2 td .btnArea a.b1:hover {background: #ff4f4f; color:#fff;}
+.tbStyle2 td .btnArea a.b2 {background:url(https://img.eduwill.net/resources/myroom/library/images/btn_bg.gif) bottom repeat-x; width:70px; border:solid 1px #b9b9b9; color:#333;}
+.tbStyle2 td .btnArea a.b2:hover {border:solid 1px #666;}
+.tbStyle2 td .btnArea .layerDokhanInfo {display:none; position:absolute; top:-91px; left:50%; margin-left:-103px; width:206px; height:75px; padding-top:13px; background:url(https://img.eduwill.net/resources/myroom/library/images/bg_layerBox.png) no-repeat 0 0; font-size:13px; color:#333; font-weight:400; text-align:center; line-height:18px;}
+.tbStyle2 td .btnArea .layerDokhanInfo span {color:#ff5000}
+
+/* layout*/
+body {min-width:1240px; overflow-x:auto}
+#header {background:#3f63bf; height:71px}
+#header .inner {width:1540px; margin:0 auto; position:relative;}
+#header .inner:after {content:""; display:block; clear:both}
+#header .logo {float:left; margin-top:18px; font-size:0}
+#header .logo .sLogo {margin-left:12px;}
+#header .util {position:absolute; top:0; right:0; height:71px}
+#header .util:after {content:""; display:block; clear:both}
+#header .util .logout {float:left; margin:23px 24px 0 0;}
+#header .util .logout a {display:inline-block; height:24px; line-height:26px; border:solid 1px #1e429d; background:#3255ae; padding:0 12px; font-family:Dotum, '돋움'; font-size:11px; color:#c3d1f4;}
+#header .util #gnb {float:left;}
+#header .util #gnb li {float:left;}
+#header .util #gnb li a {display:inline-block; height:70px; line-height:70px; border-right:solid 1px #3757a8; padding:0 20px; font-size:14px; color:#fff; letter-spacing:-1px; font-weight:500;}
+#header .util #gnb li a:hover {background-color:#3050a0}
+#header .util #gnb li.home a {padding-left:40px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_home.png) no-repeat 17px 50%;}
+#header .util #gnb li.home a:hover {background-color:#3050a0}
+#header .util .section_link, 
+#header .util .category_list dd { zoom: 1; }
+#header .util .section_link::before, 
+#header .util .section_link::after, 
+#header .util .category_list dd::before, 
+#header .util .category_list dd::after { content: ""; display: table; }
+#header .util .section_link::after, 
+#header .util .category_list dd::after { clear: both; }
+
+#header .util .section_link {float:left; font-size:0; margin:23px 5px 0 0; position: relative; z-index: 1; text-align: left; }
+#header .util .section_link > * { line-height: 1.2; font-size: 12px; }
+#header .util .section_link * {font-family: '맑은 고딕', Malgun Gothic, '돋움', Dotum, '굴림', Gulim, sans-serif; }
+#header .util .section_link .item {float:left; margin-left:5px; }
+#header .util .section_link .item.is_academy .category_list { right: 0; }
+#header .util .section_link a.action {display:inline-block; height:24px; line-height:25px; border:solid 1px #1e429d; background:#3255ae; padding:0 8px 0 10px;}
+#header .util .section_link a.action span {background:#3255ae url(https://img.eduwill.net/resources/myroom/library/images/bg_topLink.png) no-repeat 100% 50%; padding-right:17px; font-family:Dotum, '돋움'; font-size:11px; color:#c3d1f4;}
+#header .util .section_link .item .core { display: none; }
+#header .util .section_link .item.in .core { display: block; }
+
+
+
+/* layer */
+#header .util .category_list { position: absolute; top: 32px; right: 87px; z-index: 9999; width: 397px; overflow: hidden; border: 1px solid #c5c5c5; background-color: #fff; }
+#header .util .category_list dl { padding: 8px; }
+#header .util .category_list dt { display: block; width: 100%; padding: 3px 10px 5px; line-height: 1.2; font-size: 14px; font-weight: bold; color: #848484; border-radius: 2px; border: 1px solid #c5c5c5; background-color: #f9f9fa; box-sizing: border-box; -webkit-box-sizing: border-box; }
+#header .util .category_list dd { margin: 10px 0; line-height: 1.2; }
+#header .util .category_list li { float: left; width: 32%; height: 24px; line-height: 24px; letter-spacing: -1px; }
+#header .util .category_list li:nth-of-type(3n), 
+#header .util .category_list li:nth-child(3n){ width: 36%; }
+#header .util .category_list li:only-child { width: auto; }
+#header .util .category_list li a { position: relative; display: block; padding-left: 15px; font-size: 12px; color: #848484; background: url('/Img2/common/icon_dot.png') no-repeat left center; }
+#header .util .category_list li .icon_new { vertical-align: bottom; }
+#header .util .category_list li a:hover { color: #f26521; }
+
+#header .util .category_list .icon_new { display: inline-block; width: 18px; height: 18px; line-height: 18px; background: url('/Img2/common/ew/img_new_14px.gif') no-repeat 0 0; }
+#header .util .category_list .icon_new em { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+#header .util .category_list .layer_close { text-align: right; }
+#header .util .category_list .layer_close .action { font-size: 12px; color: #848484; border: none; padding: 0; background: none;}
+#header .util .category_list .layer_close .action span { display: block; padding-right: 31px; background: url('/Img2/common/icon_close.png') no-repeat right center; color: #848484; font-family: '맑은 고딕', Malgun Gothic, '돋움', Dotum, '굴림', Gulim, sans-serif;}
+
+
+
+#container {width:1540px; background:#fff; margin:0 auto; padding:30px 0 150px;}
+#container:after {content:""; display:block; clear:both}
+#lnb {float:left; width:200px;}
+
+
+#content.mainWrap {float:left; width:1040px;}
+#content.mainWrap .inner {padding-right:20px}
+
+#content {float:left; width:1340px;}
+#content .inner {padding-right:0px; position:relative;}
+
+
+#aside {float:left; width:300px}
+#footer * {font-family:'돋움', Dotum}
+
+/* lnb */
+#lnb ul {width:180px;}
+#lnb .step1 {display:block; border-top:solid 1px #eaeaea; height:44px; line-height:44px; padding-left:10px; font-size:15px; color:#333; letter-spacing:-1px; font-weight:500; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+#lnb .myroom a.step1 {height:54px; line-height:54px; font-size:18px; background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb01.png) no-repeat 159px 50%; color:#3f63bf}
+#lnb a.step1:hover {background: url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb01.png) no-repeat 159px 50%;}
+#lnb .myroom a.step1:hover {background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb01.png) no-repeat 159px 50%; color:#3f63bf}
+#lnb li ul {padding:0 0 16px 10px; margin-top:-8px;}
+#lnb li ul li {line-height:1.2; margin-top:8px; /*background:url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb03.png) no-repeat 0 50%; padding-left:9px;*/}
+#lnb li ul li:fisrt-child {margin-top:0}
+#lnb li ul a {font-size:14px; color:#5d5d5d; font-weight:300; letter-spacing:-1px; display:inline-block; max-width:125px; padding-right:2px; position:relative; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+#lnb li ul a:hover {color:#3f63bf; font-weight:500;}
+#lnb li.info ul li {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb04.png) no-repeat 0 50%; padding-left:9px;}
+#lnb li ul .ico {font-size:12px; color:#ff5000; vertical-align:top; margin-left:10px; position:relative; top:1px;}
+
+#lnb li.other .step1 {cursor:pointer; background:url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb02.png) no-repeat 159px 50%;}
+#lnb .bannerArea {margin-top:5px;}
+
+/* aside */
+#aside .ddayArea {min-height:56px; position:relative;}
+#aside .ddayArea dl {position:relative; padding-top:19px; height:37px; border-bottom:solid 1px #4a5470; cursor:pointer;  margin-bottom:10px}
+#aside .ddayArea dl dt {position:absolute; top:22px; left:0;}
+#aside .ddayArea dl dt strong {}
+#aside .ddayArea dl dd {padding-left:13px;}
+#aside .ddayArea dl dd {}
+#aside .ddayArea dl dd.ddaySlide {height:20px; overflow:hidden; background:url(https://img.eduwill.net/resources/myroom/library/images/bul_dday_down.png) no-repeat 100% 50%;}
+#aside .ddayArea dl dd.ddaySlide .text {font-size:16px; color:#333; font-weight:500; line-height:20px; display:block; width:200px;}
+#aside .ddayArea dl dd.ddaySlide .text a {color:#333; }
+#aside .ddayArea dl dd.ddaySlide .dday {position:absolute; top:0; right:21px; font-family:'Verdana'; font-size:18px; color:#3f63bf; font-weight:500; line-height:20px;}
+#aside .ddayArea dl.open dd.ddaySlide {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_dday_up.png) no-repeat 100% 50%;}
+#aside .ddayArea .ddayAdd {position:absolute; top:50px; left:0; width:100%; padding-top:10px; z-index:10}
+#aside .ddayArea .ddayAdd ul {border:solid 1px #dce1eb; background:#f5f7f9; padding:0 8px}
+#aside .ddayArea .ddayAdd ul li {border-top:solid 1px #dce1eb; padding:13px 0 12px 8px; position:relative;}
+#aside .ddayArea .ddayAdd ul li:first-child {border-top:none;}
+#aside .ddayArea .ddayAdd ul li .text {display:block; font-size:13px; color:#333; font-weight:500; line-height:20px; margin-right:68px;}
+#aside .ddayArea .ddayAdd ul li .text a {color:#333; }
+#aside .ddayArea .ddayAdd ul li .dday {position:absolute; top:50%; margin-top:-10px; right:12px; font-family:'Verdana'; font-size:18px; color:#3f63bf; font-weight:500; line-height:20px;}
+#aside .ddayArea .ddayAdd ul li .date {display:block; font-size:13px; color:#999; font-weight:500; line-height:20px}
+#aside .bannerArea {padding-bottom:20px; width:300px; overflow:hidden}
+#aside .bannerArea li {margin-top:10px;}
+#aside .bannerArea li:first-child {margin-top:0}
+#aside .asideTab {margin-bottom:20px;}
+#aside .asideTab .tabBtn:after {content:""; display:block; clear:both}
+#aside .asideTab .tabBtn div {cursor:pointer; float:left; width:50%; height:52px; position:relative;}
+#aside .asideTab .tabBtn div span {text-align:left; padding-left:14px}
+#aside .asideTab .tabBtn div a.more {position:absolute; top:22px; right:10px; display:block; text-indent:-9999em; width:11px; height:11px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_plus_off.png) no-repeat 0 0;}
+#aside .asideTab .tabBtn div.active a.more {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_plus_on.png) no-repeat 0 0;}
+#aside .asideTab .tabCont ul {border:solid 1px #eaeaea; border-top:none; padding:10px 14px}
+#aside .asideTab .tabCont ul li {border-top:solid 1px #eaeaea; padding:11px 0 10px 13px; background:url(https://img.eduwill.net/resources/myroom/library/images/bul_listType01.png) no-repeat 4px 50%; position:relative;}
+#aside .asideTab .tabCont ul li:first-child {border-top:none}
+#aside .asideTab .tabCont ul li .ellipsis {margin-right:55px;}
+#aside .asideTab .tabCont ul li .txt1 {font-size:13px; color:#333; font-weight:400; line-height:24px; margin-right:4px; display:inline-block; width:72px; text-overflow:ellipsis; white-space:nowrap; word-wrap: normal; overflow: hidden; vertical-align: middle;}
+#aside .asideTab .tabCont ul li .txt1.type1 {letter-spacing:-1px}
+#aside .asideTab .tabCont ul li .txt2 {font-size:13px; color:#999; font-weight:400; line-height:24px;}
+#aside .asideTab .tabCont ul li:hover .txt2 {color:#333}
+#aside .asideTab .tabCont ul li .txt3 {position:absolute; top:11px; right:5px; display:inline-block; border:solid 1px #eaeaea; border-radius:2px; font-size:12px; color:#ff5000; font-weight:400; line-height:22px; padding:0 10px}
+#aside .asideTab .tabCont ul li .txt3.type2 {color:#999}
+#aside .asideTab .noticeTab ul li .ellipsis {margin-right:0;}
+#aside .asideTab .tabCont .nodate {border:solid 1px #eaeaea; border-top:none; text-align:center; height:66px; line-height:66px; font-size:13px; color:#999; font-weight:400; }
+
+.statusArea {margin-bottom:18px;}
+.statusArea > table {border:solid 2px #dcdcdc;}
+.statusArea table {width:100%; text-align:center}
+.statusArea table th {border:solid 1px #dcdcdc; /*border-top:solid 1px #4a5470;*/ height:52px; font-size:15px; color:#634c40; font-weight:400; background:#f5f5f5;}
+.statusArea table td {border:solid 1px #dcdcdc}
+.statusArea table td.stg1 .t1 {height:26px; overflow:hidden; }
+.statusArea table td.stg1 .t1 span {font-family:'Verdana'; font-size:22px; color:#ff5000; font-weight:700; line-height:26px; display:block; position:relative;}
+.statusArea table td.stg1 .t2 {font-family:'Verdana'; font-size:13px; color:#666; font-weight:500; margin-top:6px}
+.statusArea table td.stg3 .t1 {font-size:13px; color:#242323; font-weight:500; line-height:20px;}
+.statusArea table td.stg3 .t2 {font-size:15px; color:#242323; font-weight:500; line-height:20px;}
+.statusArea table td.stg3 {padding:0 15px}
+.statusArea table td.stg3 .t3 {position:relative; margin-top:6px; line-height:26px; border-top:solid 1px #eaeaea; padding-top:2px}
+.statusArea table td.stg3 .t3 em {font-size:13px; color:#666; font-weight:400; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_rank.png) no-repeat 0 50%; padding-left:14px; vertical-align:middle}
+.statusArea table td.stg3 .t3 div.oneSlider {display:inline-block; height:16px; line-height:16px; overflow:hidden; vertical-align:middle; margin-left:5px;}
+.statusArea table td.stg3 .t3 div.oneSlider span {font-family:'Verdana'; font-size:16px; color:#ff5000; font-weight:700; position:relative;}
+.statusArea table td.stg3 .t3 div.time {font-family:'돋움', Dotum; font-size:11px; color:#999; /*margin-top:-9px;*/ line-height:15px}
+
+.statusArea table td .weekly th.today {background:#4a5470; color:#FFF}
+.statusArea table td .weekly th {border:solid 1px #dcdcdc; border-width: 0 0 1px 1px; background:#f5f7f9; height:50px; font-size:15px; color:#666; font-weight:400;}
+.statusArea table td .weekly td {border:solid 1px #dcdcdc; border-width: 0 0 0 1px;height:62px}
+.statusArea table td .weekly td img {vertical-align:middle}
+.statusArea table td .weekly tr th:first-child {border-left:none}
+.statusArea table td .weekly tr td:first-child {border-left:none}
+
+.boardArea {/*margin-bottom:20px;*/}
+.boardArea:after {content:""; display:block; clear:both}
+.boardArea .left {float:left; width:48%; position:relative; border-bottom: 1px solid #dcdcdc; min-height:219px;}
+.boardArea > h2 {height:52px;}
+.boardArea .right {float:right; width:48%; position:relative; border-bottom: 1px solid #dcdcdc; min-height:219px;}
+.boardArea .tit {border-bottom:solid 1px #dcdcdc; margin-bottom:10px;}
+.boardArea .more {position:absolute; top:26px; right:10px; display:inline-block; text-indent:-9999em; width:41px; height:10px; background:url(https://img.eduwill.net/resources/myroom/library/images/btn_boardMore.png) no-repeat 0 0;}
+.boardArea .nodate {text-align:center; height:129px; line-height:140px; font-size:13px; color:#999; padding:0 0 20px 0}
+.boardArea ul li {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_listType01.png) no-repeat 2px 11px; padding-left:10px; margin-top:5px; position:relative; padding-right:45px}
+.boardArea ul li:first-child {margin-top:0}
+.boardArea ul li:last-child {margin-bottom:10px}
+.boardArea ul li a {font-size:13px; color:#666; font-weight:400; }
+.boardArea ul li a .txt1 {font-size:13px; color:#333; font-weight:400; line-height:24px; margin-right:4px;}
+.boardArea ul li a .txt1.type1 {letter-spacing:-1px}
+.boardArea ul li a .txt2 {font-size:13px; color:#999; font-weight:400; line-height:24px;}
+.boardArea ul li:hover a .txt2 {color:#333}
+.boardArea ul li a .txt3 {position:absolute; top:0; right:5px; display:inline-block; border:solid 1px #eaeaea; border-radius:2px; font-size:12px; color:#ff5000; font-weight:400; line-height:22px; padding:0 10px}
+.boardArea ul li a .txt3.type2 {color:#999}
+.boardArea ul li a:hover {text-decoration:underline;}
+
+
+.lectureArea {margin-bottom:20px; position:relative;}
+.lectureArea .sel_sbj {position:absolute; top:13px; right:0}
+.lectureArea .sel_sbj.slideAc {right:58px;}
+.lectureArea dl {position:relative; border:solid 1px #eaeaea; margin-top:9px; padding:14px 16px 14px 65px; cursor:pointer; background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_play_off.png) no-repeat 14px 50%; }
+.lectureArea dl.hover {background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/icon_play_on.png) no-repeat 14px 50%;}
+.lectureArea dl:after {content:""; display:block; clear:both} 
+.lectureArea dl:first-child {margin-top:0}
+.lectureArea dl .seek {width:100%; height:3px; background:#dce1eb; position:absolute; bottom:-1px; left:-1px; padding-right:2px;}
+.lectureArea dl .seek div {position:absolute; top:0; left:0; height:3px; background:#ff5000;}
+.lectureArea dl .subj {font-size:15px; color:#333; font-weight:400; line-height:24px; margin-right:200px;}
+.lectureArea dl .info {position:absolute; top:14px; right:16px; font-size:13px; color:#999; font-weight:400; line-height:24px;}
+.lectureArea dl .info .text {}
+.lectureArea dl .info .time {display:inline-block; width:70px; text-align:right}
+.lectureArea dl .mask {position:absolute; top:-1px; left:-1px; padding:0 2px 2px 0; width:100%; height:100%; background:rgba( 234, 234, 234, 0.5 );}
+.lectureArea dl .mask span {display:inline-block; position:absolute; top:50%; left:50%; margin-top:-14px; margin-left:-57px; font-size:15px; color:#333; font-weight:400; line-height:28px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_pause.png) no-repeat 0 50%; padding-left:41px;}
+.lectureArea dl.stop {cursor:default; background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/icon_play_stop.png) no-repeat 14px 50%;}
+.lectureArea dl.stop .seek div {background:#b5b5b5}
+.lectureRoll .bx-wrapper {position:inherit; height:243px}
+.lectureRoll .bx-wrapper .bx-controls-direction a {width:22px; height:24px; border:solid 1px #e5e8ef; top:13px; margin-top:0;}
+.lectureRoll .bx-wrapper .bx-controls-direction a.bx-prev {background:#fff url(https://img.eduwill.net/resources/myroom/library/images/btn_lecturePrev.png) no-repeat 0 0; left:inherit; right:23px;}
+.lectureRoll .bx-wrapper .bx-controls-direction a.bx-next {background:#fff url(https://img.eduwill.net/resources/myroom/library/images/btn_lectureNext.png) no-repeat 0 0; right:0;}
+
+
+.applyArea {margin-top:0; position:relative}
+.applyArea .applyTxt {position:relative; padding:25px 250px 26px 10px; border-top:solid 2px #4a5470}
+.applyArea .applyTxt .name {font-size:23px; color:#3f63bf; font-weight:500; letter-spacing:-1px;}
+.applyArea .applyTxt .date {font-size:15px; color:#333; font-weight:400; position:absolute; top:33px; right:0;}
+.applyArea .applyBtn {position:absolute; top:13px; right:0; font-size:0}
+.applyArea .applyBtn:after {content:""; display:block; clear:both} 
+.applyArea .applyBtn .left {float:left;}
+.applyArea .applyBtn .left a {margin-left:0} 
+.applyArea .applyBtn .right {float:right;}
+.applyArea .applyBtn.type1 {position:inherit; top:0; padding:32px 0 12px 0px;}
+.applyArea .applyBtn a {display:inline-block; height:28px; line-height:27px; padding:0 12px; text-align:center; border:solid 1px #c7c7c7; margin-left:5px; background-color:#f8f8f8}
+.applyArea .applyBtn a span {font-size:14px; color:#7d7877; font-weight:400;}
+.applyArea .applyBtn a.open {background:#f5f7f9}
+.applyArea .applyBtn a:hover {border:1px solid #888;}
+
+.applyArea .filter {padding:0 28% 15px 0; border-bottom:solid 1px #dcdcdc; margin-bottom:15px;}
+.applyArea .filter .filterLayer .filterBox {margin-left:0;}
+.applyArea .filter.type2 {border-bottom:none; margin-bottom:0; padding:0}
+.applyArea .filter.type2 .applySetBtn {position:relative;}
+.applyArea .filter.type2 .applySetBtn:after {content:""; display:block; clear:both} 
+.applyArea .filter.type2 .applySetBtn a {border:solid 1px #ddd; border-radius:5px; height:77px;}
+.applyArea .filter.type2 .applySetBtn a strong {font-size:18px; color:#888; font-weight:400; display:block; padding-top:14px;}
+.applyArea .filter.type2 .applySetBtn a span {font-size:12px; color:#888; font-weight:400; display:block;}
+.applyArea .filter.type2 .applySetBtn a.b1 {float:left; width:68%; background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_filter1_off.png) no-repeat 26px 50%;}
+.applyArea .filter.type2 .applySetBtn a.b1.i_check_on {background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_filter1_on.png) no-repeat 26px 50%;}
+.applyArea .filter.type2 .applySetBtn a.b1.i_check_on .t1,.applyArea .filter.type2 .applySetBtn a.b2.i_check_on .t1 {color:#3f63bf; font-weight:500;}
+.applyArea .filter.type2 .applySetBtn a.b1 .t1 {padding-left:75px}
+.applyArea .filter.type2 .applySetBtn a.b1 .t2 {padding-left:75px;}
+.applyArea .filter.type2 .applySetBtn a.b1:hover {border-color:#3f63bf}
+.applyArea .filter.type2 .applySetBtn a.b2 {float:right; width:30%; background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_filter2_off.png) no-repeat 24px 50%;}
+.applyArea .filter.type2 .applySetBtn a.b2.i_check_on {background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_filter2_on.png) no-repeat 24px 50%;}
+.applyArea .filter.type2 .applySetBtn a.b2 .t1 {padding-left:70px}
+.applyArea .filter.type2 .applySetBtn a.b2 .t2 {padding-left:70px}
+.applyArea .filter.type2 .applySetBtn a.b2:hover {border-color:#3f63bf; background:#fff url(https://img.eduwill.net/resources/myroom/library/images/icon_filter2_on.png) no-repeat 24px 50%;}
+.applyArea .filter.type2 .btnSetting {position:absolute; top:22px; right:32%; margin-right:20px; cursor:pointer; background:#4a5470; height:35px; line-height:35px; padding:0 18px; border-radius:5px;}
+.applyArea .filter.type2 .btnSetting span {padding-left:22px; background:url(https://img.eduwill.net/resources/myroom/library/images/bg_btnSet.png) no-repeat 0 50%; font-size:15px; color:#fff}
+.applyArea .filter.type2 .filterLayer  {top:88px}
+
+.filter {position:relative; }
+.filter:after {content:""; display:block; clear:both}  
+.filter .btnLayer#filterLecture_btn {border:solid 1px #3f63bf; color:#3f63bf; background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/bg_filter_down_blue.png) no-repeat 100% 50%;}
+.filter .btnLayer#filterLecture_btn.open {background:#f8f8f8 url(https://img.eduwill.net/resources/myroom/library/images/bg_filter_up_blue.png) no-repeat 100% 50%;}
+.filter .btnLayer {display:block; border:solid 1px #c7c7c7;  width:280px; height:38px; text-indent:20px; font-size:15px; color:#666; font-weight:400; line-height:38px; background:#f5f7f9 url(https://img.eduwill.net/resources/myroom/library/images/bg_filter_down.png) no-repeat 100% 50%; cursor:pointer}
+.filter .btnLayer.open {background:#f8f8f8 url(https://img.eduwill.net/resources/myroom/library/images/bg_filter_up.png) no-repeat 100% 50%;}
+.filter .filterLayer {position:absolute; top:55px; left:0; width:100%; background:#f8f8f8; z-index:10 }
+.filter .filterLayer .filterBox {padding:16px 18px 25px; border:solid 1px #c7c7c7; }
+.filter .filterLayer .filterBox dl {padding-bottom:7px; border-top:solid 1px #eaeaea; padding-top:14px}
+.filter .filterLayer .filterBox dl:first-child {border-top:none; padding-top:0}
+.filter .filterLayer .filterBox dl dt {font-size:15px; color:#333; font-weight:500; /*background:url(https://img.eduwill.net/resources/myroom/library/images/bul_listType01.png) no-repeat 4px 50%; padding-left:15px;*/}
+.filter .filterLayer .filterBox dl dd {padding-top:13px;}
+.filter .filterLayer .filterBox dl dd:after {content:""; display:block; clear:both} 
+.filter .filterLayer .filterBox dl dd .checks {float:left; width:19%; padding-right:1%; padding-bottom:10px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.filter .filterLayer .filterBox .btnArea {text-align:center; padding-top:10px}
+.filter .filterLayer .filterBox .btnArea a {display:inline-block; height:40px; line-height:40px; font-size:15px; color:#666; font-weight:500; text-align:center; margin-left:5px; width:120px}
+.filter .filterLayer .filterBox a:first-child {margin-left:0}
+.filter .filterLayer .filterBox a.b1 {background:#eaeaea; color:#666}
+.filter .filterLayer .filterBox a.b2 {background:#ff5000; color:#fff}
+
+.applyArea .filter .solt {position:absolute; top:10px; right:10px}
+.applyArea .filter .solt a {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_check_off.png) no-repeat 0 50%; padding-left:15px; margin-left:26px;}
+.applyArea .filter .solt a span {font-size:13px; color:#959595; font-weight:400;}
+.applyArea .filter .solt a.on {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_check_on.png) no-repeat 0 50%;}
+.applyArea .filter .solt a.on span {color:#666}
+
+.applyArea .filter .sel_sbj {font-size:0}
+.applyArea .filter .sel_sbj select {}
+.applyArea .filter .sel_sbj .sel1 {height:38px; margin-right:1%}
+.applyArea .filter .sel_sbj .sel2 {height:38px; width:auto;}
+.applyArea .filter .sel_sbj a {font-size:15px; color:#666; font-weight:400; line-height:28px;}
+.applyArea .filter .sel_sbj li:hover a {color:#000;}
+
+.applyArea .filter .sel_sbj.type1 {float:left; position:relative;}
+.applyArea .filter .sel_sbj.type1 .btnLayer {width:100px;}
+.applyArea .filter .sel_sbj.type1 .filterLayer {width:102px; top:46px;}
+.applyArea .filter .sel_sbj.type1 .filterLayer .filterBox {padding:10px 10px 10px 20px}
+
+.applyArea .filter .sel_sbj.type2 {float:left; margin-left:10px; position:relative;}
+.applyArea .filter .sel_sbj.type2 div.area1 {float:left; width:15%;}
+.applyArea .filter .sel_sbj.type2 div.area2 {float:left; width:85%;}
+.applyArea .filter .sel_sbj.type2 div.area2 div{width:90%; text-indent:12px;}
+
+.applyArea .filter .sel_sbj.type2 .btnLayer {width:460px}
+.applyArea .filter .sel_sbj.type2 .filterLayer {top:46px;}
+.applyArea .filter .sel_sbj.type2 .filterLayer .filterBox {padding:10px 10px 10px 20px; max-height:300px; overflow-y:auto}
+
+.applyArea .applyIng .tabBtn {height:54px; background:#fff url(https://img.eduwill.net/resources/myroom/library/images/bg_applyIng.png) repeat-x 0 100%;}
+.applyArea .applyIng .tabBtn div {float:left; width:21%; text-align:center; margin-left:5%; cursor:pointer}
+.applyArea .applyIng .tabBtn div:first-child {margin-left:0; width:22%;}
+.applyArea .applyIng .tabBtn div span {font-size:15px; color:#666; font-weight:400; line-height:54px;}
+.applyArea .applyIng .tabBtn div:hover {height:52px; border-bottom:solid 2px #333;}
+.applyArea .applyIng .tabBtn div:hover span {color:#333;}
+.applyArea .applyIng .tabBtn div.active {height:52px; border-bottom:solid 2px #333;}
+.applyArea .applyIng .tabBtn div.active span {color:#333;}
+.applyArea .applyIng .tabBtn div.t_btn1 {width:22%; margin-left:0;}
+.applyArea .applyIng .tabBtn div.t_btn1 span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply01_off.png) no-repeat 0 50%; padding-left:23px;}
+.applyArea .applyIng .tabBtn div.t_btn1:hover span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply01_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn1.active span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply01_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn2 {width:21%;}
+.applyArea .applyIng .tabBtn div.t_btn2 span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply02_off.png) no-repeat 0 50%; padding-left:24px;}
+.applyArea .applyIng .tabBtn div.t_btn2:hover span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply02_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn2.active span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply02_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn3 {width:26%;}
+.applyArea .applyIng .tabBtn div.t_btn3 span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply03_off.png) no-repeat 0 50%; padding-left:27px;}
+.applyArea .applyIng .tabBtn div.t_btn3:hover span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply03_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn3.active span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply03_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn4 {width:16%;}
+.applyArea .applyIng .tabBtn div.t_btn4 span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply04_off.png) no-repeat 0 50%; padding-left:18px;}
+.applyArea .applyIng .tabBtn div.t_btn4:hover span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply04_on.png) no-repeat 0 50%;}
+.applyArea .applyIng .tabBtn div.t_btn4.active span {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_apply04_on.png) no-repeat 0 50%;}
+
+.applyArea .applyIng {/*padding:0 16px;*/}
+.applyArea .tbStyle {width:100%; line-height:18px; margin-top:10px; border-bottom: solid 1px #dcdcdc;}
+.applyArea #recentLectureZone .tbStyle {border-bottom:none}
+.applyArea .tbStyle td {border-bottom:solid 1px #eaeaea; padding:15px 0 15px 15px;}
+#recentLectureZone > td {padding:15px 0 0 0;}
+.applyArea .tbStyle td.alignL {text-align:left;}
+.applyArea .tbStyle td.alignC {text-align:center; padding:14px 0}
+.applyArea .tbStyle td.alignR {text-align:right; padding-left:0; padding-bottom:15px;}
+.applyArea .tbStyle td.vertiB {vertical-align:bottom}
+.applyArea .tbStyle td.nodata {font-size:15px; color:#999; font-weight:400; text-align:center; padding:34px 0 44px 0}
+.applyArea .tbStyle td.pdlNone {padding-left:0}
+.applyArea .tbStyle .noLine td {border-bottom:none; padding-bottom:0;}
+/*
+.applyArea .tbStyle .noLine td.firstTxt {text-align:center; border-top:solid 1px #dcdcdc; padding:0} 
+.applyArea .tbStyle .noLine:first-child td.firstTxt {border-top:none}
+*/
+
+.applyArea .tbStyle td .leftLine {border-left:solid 1px #e7ebee; padding-left:14px;}
+.applyArea .tbStyle td .fs14 {font-size:15px;}
+.applyArea .tbStyle td .fs18 {font-size:18px;}
+.applyArea .tbStyle td .fwL {font-weight:300}
+.applyArea .tbStyle td .fwM {font-weight:500}
+.applyArea .tbStyle td .fwB {font-weight:700}
+.applyArea .tbStyle td .t1 {font-size:17px; color:#333; font-weight:500;}
+.applyArea .tbStyle td .t2 {font-size:13px; color:#999; font-weight:300;}
+.applyArea .tbStyle td .t2 .bar {font-size:10px; position:relative; top:-2px; margin:0 3px}
+.applyArea .tbStyle td .t3 {font-size:18px; color:#ff5000; font-weight:600;}
+.applyArea .tbStyle td .t4 {font-size:13px; color:#666; font-weight:400; position:relative;}
+.applyArea .tbStyle td .t4 .bar {color:#999; font-size:10px; position:relative; top:-2px; margin:0 3px}
+.applyArea .tbStyle td .t5 {font-size:13px; color:#a0a0a0; font-weight:300;}
+.applyA2017-08-14rea .tbStyle td .t6 {font-size:15px; color:#333; font-weight:400;}
+.applyArea .tbStyle td .pt7 {padding-top:4px; font-size:15px; position:relative; top:0px;}
+.applyArea .tbStyle td .pt7.hover2 {color:#ff5000}
+.applyArea .tbStyle td .pt7.hover1:hover {color:#ff5000}
+.applyArea .tbStyle td .pt15 {padding-top:7px;}
+.applyArea .tbStyle td .co1 {color:#ff5000}
+.applyArea .tbStyle td .co2 {font-size:#333}
+.applyArea .tbStyle td .pt5 {padding-top:5px}
+.applyArea .tbStyle td .i-star {cursor:pointer; margin-right:3px; display:inline-block; width:16px; height:15px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_star_on.png) no-repeat 0 0; position:relative; top:2px}
+.applyArea .tbStyle td .i-star.off {background:url(https://img.eduwill.net/resources/myroom/library/images/icon_star_off2.png) no-repeat 0 0;}
+.applyArea .tbStyle td .i-bookmark {cursor:pointer; margin-right:4px; display:inline-block; width:14px; height:16px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_bookmark_on.png) no-repeat 0 0; position:relative; top:3px}
+.applyArea .tbStyle td .i-free {text-indent:-9999em; display:inline-block; width:37px; height:15px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_free.png) no-repeat 0 0; vertical-align:middle; position:relative; top:-1px; margin-left:8px;}
+.applyArea .tbStyle td .i-event {text-indent:-9999em; display:inline-block; width:37px; height:15px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_event.png) no-repeat 0 0; vertical-align:middle; position:relative; top:-1px; margin-left:8px;}
+.applyArea .tbStyle td .bul1 {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_blueBox.png) no-repeat 0 50%; padding-left:17px}
+
+.applyArea .tbStyle td.seekArea {padding-top:0}
+.applyArea .tbStyle td .seek {position:relative; width:100%; height:6px; background:#f4f4f4; margin-top:10px;}
+.applyArea .tbStyle td .seek div {position:absolute; top:0; left:0; height:6px; background:#ff5000}
+.applyArea .tbStyle td .seekData {margin-top:9px}
+.applyArea .tbStyle td .seekData:after {content:""; display:block; clear:both}
+.applyArea .tbStyle td .seekData .sd1 {float:left; font-size:15px; color:#999; font-weight:400;}
+.applyArea .tbStyle td .seekData .sd1 em {color:#333}
+.applyArea .tbStyle td .seekData .sd2 {float:right; font-size:15px; color:#ff5000; font-weight:500;}
+
+.applyArea .tbStyle td .stateTxt {}
+.applyArea .tbStyle td .stateTxt span {font-size:15px; color:#333; font-weight:400; margin-left:16px;}
+.applyArea .tbStyle td .stateTxt span em {color:#ff5000}
+
+.applyArea .tbStyle td .btnArea {font-size:0; margin-top:6px; text-align:right;}
+.applyArea .tbStyle td .btnArea:first-child {margin-top:0}
+.applyArea .tbStyle td .btnArea a {display:inline-block; height:32px; line-height:32px; border:solid 1px #cccfd4; font-size:15px; color:#666; font-weight:400; text-align:center; margin-left:5px}
+.applyArea .tbStyle td .btnArea a:first-child {margin-left:0}
+.applyArea .tbStyle td .btnArea a.b1 {width:118px;}
+.applyArea .tbStyle td .btnArea a.b2 {width:118px; background:#ff5000; border-color:#ff5000; color:#fff;}
+.applyArea .tbStyle td .btnArea a.b3 {width:118px; height:28px; line-height:28px; font-size:13px}
+.applyArea .tbStyle td .btnArea a.b4 {width:68px; height:28px; line-height:28px; font-size:13px; color:#ff5000;}
+.applyArea .tbStyle td .btnArea a.b5 {width:123px; color:#ff5000; border:1px solid #ff5000; margin-right:10px}
+.applyArea .tbStyle td .btnArea a.b5:hover { background:#ff5000; border-color:#ff5000; color:#fff;}
+.applyArea .tbStyle td .btnArea a.b5.hover2 { background:#ff5000; border-color:#ff5000; color:#fff; }
+.applyArea .tbStyle td .btnArea a.b5.hover2 span {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_btn1_on.png) no-repeat 100% 50%;}
+
+.applyArea .tbStyle td .btnArea a.b5 span {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_btn1.png) no-repeat 100% 50%; padding-right:13px}
+.applyArea .tbStyle td .btnArea a.b5:hover span {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_btn1_on.png) no-repeat 100% 50%;}
+.applyArea .tbStyle td .btnArea a.b5.off {color:#999; border:solid 1px #cccfd4;}
+.applyArea .tbStyle td .btnArea a.b5.off span {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_btn2.png) no-repeat 100% 50%;}
+.applyArea .tbStyle td .btnArea a.b5.off:hover {background-color: #fff;}
+.applyArea .tbStyle td .btnArea a.b9 {width:118px; color:#ff5000; font-size:13px; font-weight:500; height:28px; line-height:28px; background-color:#FFF;}
+.applyArea .tbStyle td .btnArea a.b9.on {border:solid 1px #ff5000}
+.applyArea .tbStyle td .btnArea a.b9 span {display:inline; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_btn9.png) no-repeat 0 50%; padding:0 0 0 28px; width:118px; color:#ff5000; font-size:13px; font-weight:500; height:28px; line-height:28px;}
+.applyArea .tbStyle td .btnArea a.b10 {width:118px; color:#666; font-size:13px; font-weight:500; height:28px; line-height:28px; background-color:#FFF;}
+.applyArea .tbStyle td .btnArea a.b10 span {display:inline; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_btn10.png) no-repeat 0 50%; padding:0 0 0 25px; width:118px; color:#666; font-size:13px; font-weight:500; height:28px; line-height:28px;}
+
+.applyArea .tbStyle .setArea td {padding:9px 16px;}
+.applyArea .tbStyle .setArea td .count {font-size:13px; color:#999; font-weight:400;}
+.applyArea .tbStyle .setArea td .count em {color:#333; font-weight:500; margin-left:5px;}
+.applyArea .tbStyle .setArea td .btnArea a {font-size:11px; color:#999; height:18px; line-height:20px; border-radius:2px; padding:0 9px; letter-spacing:-1px;}
+.applyArea .tbStyle .setArea td .btnArea a span {font-family:'돋움', Dotum;}
+.applyArea .tbStyle .setArea td .btnArea a.b7 {}
+.applyArea .tbStyle .setArea td .btnArea a.b8 {color:#ff5000}
+
+.applyArea .tbStyle td .resultEnjoy {position:absolute; top:-40px; left:-56px; width:133px; height:41px; }
+.applyArea .tbStyle td .resultEnjoy span {display:inline-block; width:133px; height:54px; text-indent:-9999em;}
+.applyArea .tbStyle td .resultEnjoy span.i-enjoyAdd {background:url(https://img.eduwill.net/resources/myroom/library/images/enjoy_add.png) no-repeat 0 0;}
+.applyArea .tbStyle td .resultEnjoy span.i-enjoyDel {background:url(https://img.eduwill.net/resources/myroom/library/images/enjoy_del.png) no-repeat 0 0;}
+
+/* 커리큘럼 tb */
+.applyArea .tbStyle.crriculum {}
+.applyArea .tbStyle.crriculum td {padding:22px 0}
+.applyArea .tbStyle.crriculum td.ccTit {padding:50px 0 12px 0; border-bottom:1px solid #afafaf;}
+
+.applyArea .tbStyle.crriculum td div.seekArea {position:relative;}
+.applyArea .tbStyle.crriculum td div.seekArea .seekData {position:absolute; top:0; right:0; margin:0}
+.applyArea .tbStyle.crriculum td div.seekArea .ellipsis {padding-right:150px}
+.applyArea .tbStyle.crriculum td div.seekArea .sd1 {float:none;}
+.applyArea .tbStyle.crriculum td div.seekArea .sd2 {float:none; display:inline-block; width:45px; text-align:right;}
+
+
+
+.applyArea .tbStyle.crriculum td.nodata {padding:45px 0}
+
+
+#content .applyArea .newlyList {padding-top:0;}
+.applyArea .newlyList .top {height:39px; line-height:39px; background:#f5f7f9; /*border:solid 1px #ccc; border-bottom:none; border-top:none;*/ position:relative;}
+.applyArea .newlyList .top span {font-size:15px; color:#333; font-weight:400; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_newly.png) no-repeat 0 50%; padding-left:28px; margin-left:23px;}
+.applyArea .newlyList .top .more {position:absolute; top:17px; right:24px; display:inline-block; text-indent:-9999em; width:41px; height:10px; background:url(https://img.eduwill.net/resources/myroom/library/images/btn_boardMore.png) no-repeat 0 0;}
+.applyArea .newlyList .box {padding:15px 0 15px 25px; /*border-bottom:solid 1px #dcdcdc;*/}
+.applyArea .newlyList .box .tbStyle {margin-top:0}
+.applyArea .newlyList .box .tbStyle td {border-bottom:none; border-top:solid 1px #eaeaea; padding:12px 0}
+.applyArea .newlyList .box .tbStyle tr:first-child td {border-top:none}
+
+.applyArea .tbStyle td .chart {width:60px; height:60px; overflow:hidden; position:relative; margin-left:5px;}
+.applyArea .tbStyle td .chart .fields {display:none; visibility:hidden; position:absolute; top:-9999em}
+.applyArea .tbStyle td .chart .accessibility {display:none; visibility:hidden; position:absolute; top:-9999em}
+.applyArea .tbStyle td .chart .tooltip {display:none; visibility:hidden; position:absolute; top:-9999em}
+.applyArea .tbStyle td .chart .fields_area {display:none; visibility:hidden; position:absolute; top:-9999em} 
+.applyArea .tbStyle td .chart .per {font-size:13px; color:#333; text-align:center; font-family:'Verdana'; font-weight:bold; display:block; width:60px; height:14px; line-height:14px; position:absolute; top:50%; left:0; margin-top:-7px;}
+.applyArea .tbStyle td .chart .ct {height:60px; overflow:hidden}
+
+
+/* form Common */
+.checks {position:relative; display:inline-block; height:20px;}
+.checks label {font-size:14px; color:#666; font-weight:400; padding-left:27px; line-height:20px;}
+.checks input[type="checkbox"] {position:absolute; top:0; left:0; opacity:0; filter:alpha(opacity=0);  width:20px; height:20px; vertical-align:middle; -webkit-appearance:none; cursor:pointer; background-color:#fff;}
+.checks input[type="checkbox"] + label {background:url(https://img.eduwill.net/resources/myroom/library/images/bg_checkbox.png) no-repeat 0 50%; padding-left:27px; cursor:pointer;}
+.checks input[type="checkbox"]:checked + label {color:#ff5000; background:url(https://img.eduwill.net/resources/myroom/library/images/bg_checkbox_on.png) no-repeat 0 50%;}
+.sel_sbj select {min-width:100px; height:26px; border:solid 1px #e5e8ef; font-size:13px; color:#77787a; font-weight:400;}
+
+/*
+.sel_sbj select {-webkit-appearance:none; -moz-appearance:none; appearance:none; min-width:150px; height:26px; border:solid 1px #e5e8ef; font-size:13px; color:#77787a; font-weight:400; padding:0 31px 0 8px; background:url(https://img.eduwill.net/resources/myroom/library/images/bg_lectureSel.png) no-repeat 100% 50%;}
+.sel_sbj select::-ms-expand {display:none;}
+*/
+
+
+input[type="text"] {border:solid 1px #eaeaea; height:28px; line-height:28px; text-indent:10px; font-size:13px; color:#666; font-weight:400;}
+textarea {border:solid 1px #eaeaea; line-height:28px; font-size:13px; color:#666; font-weight:400; width:96%; padding:2%}
+.searchForm {font-size:0; text-align:right}
+.searchForm * {vertical-align:middle; margin-left:10px}
+.searchForm .sel_sbj select {height:30px;}
+.searchForm a.btn {display:inline-block; height:30px; line-height:30px; background:#666666; font-size:13px; color:#fff; font-weight:400; text-align:center; margin-left:10px; width:70px; text-align:center;}
+
+.layerWrap .btnArea {margin-top:10px; text-align:center}
+.layerWrap .btnArea.btnFull span {width:100%; padding:0}
+.layerWrap .btnArea span {display:inline-block; cursor:pointer; text-align:center; padding:0 85px; height:50px; line-height:50px; line-height:50px; font-size:18px; color:#fff; font-weight:500;}
+.layerWrap .btnArea.b1 span {background:#ff5000}
+.layerWrap .btnArea.b1 span em {color:#ffff00}
+
+
+/* layer */
+.layerDim {position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:0.6; filter:alpha(opacity=60); z-index:1002;}
+#content .layerWrap .inner {padding-right:0; }
+.layerWrap {position:fixed; top:0; left:50%; bottom:0; z-index:1003; width:60%; height:100%; min-width:700px; /*max-width:750px;*/ border:solid 1px #4a5470; background:#fff}
+.layerWrap .inner {width:100%; position:relative; padding-right:0; background:#fff;}
+
+#infoPauseLayer.layerWrap {height:auto; top:100px; bottom:auto;  min-width:inherit; }
+#infoContinueLayer.layerWrap {height:auto; top:100px; bottom:auto;  min-width:inherit; }
+#noticeLayer .noticeList {overflow-y:auto; padding-right:10px;}
+#noticeLayer.layerWrap {width:55%; max-width:850px;}
+#scheduleLayer .schedule .box {overflow-y:auto; padding-right:10px;}
+#questionLayer .questionList {overflow-y:auto; padding-right:10px;}
+#bookmarkLayer .bookmarkList .box {overflow-y:auto; padding-right:10px;}
+#mp3DownLayer .mp3DownTb {overflow-y:auto; padding-right:10px;}
+#newlyListLayer.layerWrap {width:55%; max-width:750px;}
+#newlyListLayer .box {overflow-y:auto; padding-right:10px;}
+
+.layerWrap .top {background:#f5f7f9; padding:15px 29px 18px}
+.layerWrap .top .t1 {font-size:16px; color:#333; font-weight:400; padding-bottom:2px;}
+.layerWrap .top .t2 {font-size:18px; color:#333; font-weight:500; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.layerWrap .top .t2 .desc {font-size:14px; color:#666; font-weight:400; margin-left:10px}
+.layerWrap .top .closeBtn {position:absolute; top:17px; right:19px}
+.layerWrap .top .closeBtn a {font-size:16px; color:#4a5470; font-weight:400; padding-right:23px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_layerclose.png) no-repeat 100% 60%;}
+.layerWrap .cont {padding:20px 28px 69px; background:url(https://img.eduwill.net/resources/myroom/library/images/logo_layer.png) no-repeat 100% 100%; padding-left:27px;}
+
+.layerWrap .btnSolt {font-size:0; border-bottom:solid 1px #eaeaea; padding-bottom:10px; margin:-10px 0}
+.layerWrap .btnSolt:after {content:""; display:block; clear:both} 
+.layerWrap .btnSolt .left {float:left; font-size:0}
+.layerWrap .btnSolt .right {float:right; font-size:0}
+.layerWrap .btnSolt a {display:inline-block; height:28px; line-height:28px; padding:0 16px; text-align:center; border:solid 1px #e5e8ef;}
+.layerWrap .btnSolt a span {font-size:13px; color:#666; font-weight:400;}
+.layerWrap .btnSolt a.b1.on {background:#666; border-color:#666 }
+.layerWrap .btnSolt a.b1.on span {color:#fff}
+.layerWrap .btnSolt a.b2 {background:#f5f7f9}
+.layerWrap .btnSolt .right a {margin-left:10px}
+
+.layerWrap#noticeLayer .searchForm {margin-bottom:20px;}
+.layerWrap .noticeList li {border-bottom:solid 1px #eaeaea;}
+.layerWrap .noticeList li:first-child {border-top:solid 1px #eaeaea;}
+.layerWrap .noticeList li .default {padding:0 10px; height:42px; line-height:41px; position:relative; cursor:pointer;}
+.layerWrap .noticeList li .default:hover .subj {text-decoration:underline}
+.layerWrap .noticeList li .default .i-star {margin-right:6px; display:inline-block; vertical-align:middle; width:16px; height:15px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_star_on.png) no-repeat 0 0; position:relative; top:0}
+.layerWrap .noticeList li .default .i-new {margin-left:4px; display:inline-block; vertical-align:middle; width:9px; height:9px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_new.png) no-repeat 0 0; position:relative; top:-2px}
+.layerWrap .noticeList li .default .subj {font-size:15px; color:#666; font-weight:400; vertical-align:middle; display:inline-block; max-width:430px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.layerWrap .noticeList li .default .subj.imp {font-size:15px; color:#ff7c40; font-weight:500;}
+.layerWrap .noticeList li .default .date {position:absolute; top:0; right:10px; font-size:13px; color:#ccc; font-weight:300;}
+.layerWrap .noticeList li .default .i-file {margin-left:6px; display:inline-block; width:17px; height:15px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_file.png) no-repeat 0 0; position:relative; top:3px}
+.layerWrap .noticeList li .default.on {background: #4a5470;}
+.layerWrap .noticeList li .default.on .subj {color: #FFF;}
+.layerWrap .noticeList li .default.on .date {color: #FFF;}
+.layerWrap .noticeList li .detail {display:none}
+.layerWrap .noticeList li .detail .file {font-size:13px; color:#666; font-weight:400; line-height:24px; border-top:solid 1px #eaeaea; padding:6px 8px;}
+.layerWrap .noticeList li .detail .file .bar {font-size:10px; position:relative; top:-2px; margin:0 3px;}
+.layerWrap .noticeList li .detail .txt {font-size:13px; color:#666; font-weight:400; line-height:24px; background:#f5f7f9; border-top:solid 1px #eaeaea; padding:20px}
+.layerWrap .listMore {margin-top:20px; cursor:pointer; border:solid 1px #eaeaea; background:#f5f7f9; height:39px; line-height:39px; text-align:center; } 
+.layerWrap .listMore span {font-size:16px; color:#666; font-weight:500; padding-right:24px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_plus_on.png) no-repeat 100% 60%;}
+.layerWrap .noticeList .noData {padding: 30px 0; text-align: center; font-size: 15px; color: #999; font-weight: 400;}
+
+
+.layerWrap .schedule .filter {margin-left:12%; margin-right:10px}
+.layerWrap .schedule .filter .btnLayer {position:absolute; top:0; right:0; width:198px; height:28px; line-height:28px; text-indent:14px; font-size:13px; z-index:100}
+.layerWrap .schedule .filter .filterLayer {top:40px}
+.layerWrap .schedule .set {border-bottom:solid 1px #eaeaea; padding-bottom:13px; margin-bottom:20px; margin-right:10px; position:relative;}
+.layerWrap .schedule .set .month {font-size:0}
+.layerWrap .schedule .set .month span {vertical-align:middle}
+.layerWrap .schedule .set .month .date {font-size:18px; color:#333; font-weight:500; margin-right:15px;}
+.layerWrap .schedule .set .month .btnPrev {display:inline-block; cursor:pointer; text-indent:-9999em; width:26px; height:26px; background:url(https://img.eduwill.net/resources/myroom/library/images/btn_monthprev.png) no-repeat 0 0;}
+.layerWrap .schedule .set .month .btnNext {display:inline-block; cursor:pointer; text-indent:-9999em; width:25px; height:26px; background:url(https://img.eduwill.net/resources/myroom/library/images/btn_monthNext.png) no-repeat 0 0;}
+.layerWrap .schedule .set .subject {font-size:15px; color:#333; font-weight:400; padding-top:18px}
+.layerWrap .schedule .set .selectType {position:absolute; top:41px; right:0; font-size:0 }
+.layerWrap .schedule .set .selectType a {display:inline-block; height:30px; line-height:30px; text-align:center; padding:0 14px; background:#eaeaea}
+.layerWrap .schedule .set .selectType a span {color:#333; font-size:13px; font-weight:400;}
+.layerWrap .schedule .set .selectType a:hover {background:#ddd}
+.layerWrap .schedule .set .selectType a.on {background:#3f63bf}
+.layerWrap .schedule .set .selectType a.on span {color:#fff}
+.layerWrap .schedule .set .selectType a.b1 span {background:url(https://img.eduwill.net/resources/myroom/library/images/bg_scheduleBtn1_off.png) no-repeat 0 50%; padding-left:28px;}
+.layerWrap .schedule .set .selectType a.b2 span {background:url(https://img.eduwill.net/resources/myroom/library/images/bg_scheduleBtn2_off.png) no-repeat 0 50%; padding-left:22px;}
+.layerWrap .schedule .set .selectType a.b1.on span{background: url(https://img.eduwill.net/resources/myroom/library/images/bg_scheduleBtn1_on.png) no-repeat 0 50%; padding-left:28px;}
+.layerWrap .schedule .set .selectType a.b2.on span{background: url(https://img.eduwill.net/resources/myroom/library/images/bg_scheduleBtn2_on.png) no-repeat 0 50%; padding-left:22px;}
+.layerWrap .schedule .box {}
+.layerWrap .schedule .calendar {width:100%;}
+.layerWrap .schedule .calendar th {border:solid 1px #e2e2e2; border-bottom:none; height:34px; text-align:left; padding:0 10px; background:#f5f7f9; font-size:13px; color:#666; font-weight:400;}
+.layerWrap .schedule .calendar td {border:solid 1px #e2e2e2; height:108px; text-align:left; padding:0 10px; vertical-align:top; cursor:pointer}
+.layerWrap .schedule .calendar td .mask {display:none; position:absolute; top:-1px; left:-1px; padding:0 0 0 0; border:solid 1px #cccccc; background:#f5f7f9; width:100%; height:100%;}
+.layerWrap .schedule .calendar td .t1 {height:34px; line-height:37px; position:relative;}
+.layerWrap .schedule .calendar td .t1 .date {font-size:13px; color:#666; font-weight:400;}
+.layerWrap .schedule .calendar td .t1 .sum {position:absolute; top:0; right:0; font-size:13px; color:#333; font-weight:500;}
+.layerWrap .schedule .calendar td .sList {}
+.layerWrap .schedule .calendar td .sList span {display:block; font-size:13px; color:#666; font-weight:400; line-height:18px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.layerWrap .schedule .calendar td .more {font-size:13px; color:#666; font-weight:400; line-height:7px;}
+.layerWrap .schedule .calendar td:hover {background:#f5f7f9}
+.layerWrap .schedule .calendar td:hover .t1 .date {font-weight:500; color:#3f63bf }
+.layerWrap .schedule .calendar td:hover .t1 .sum {font-weight:500; color:#3f63bf }
+.layerWrap .schedule .calendar td.open {background:#f5f7f9}
+.layerWrap .schedule .calendar td.open .t1 .date {font-weight:500; color:#3f63bf }
+.layerWrap .schedule .calendar td.open .t1 .sum {font-weight:500; color:#3f63bf }
+.layerWrap .schedule .calendar th:first-child {color:#ff0000}
+.layerWrap .schedule .calendar td:first-child .t1 .date {color:#ff0000}
+.layerWrap .schedule .calendar .detail {display:none}
+.layerWrap .schedule .calendar .detail td {border-width:1px 0; background:#f5f7f9; padding:14px 22px 15px;}
+.layerWrap .schedule .calendar .detail td dt {font-size:15px; color:#3f63bf; font-weight:500; margin-bottom:-9px;}
+.layerWrap .schedule .calendar .detail td dd {font-size:13px; color:#666; font-weight:400; line-height:18px; padding-top:15px}
+.layerWrap .schedule .calendar .detail td dd strong {font-size:13px; color:#333; font-weight:500;}
+.layerWrap .schedule .list {width:100%;}
+.layerWrap .schedule .list th {border:solid 1px #e2e2e2; background:#f8f8f8; font-size:13px; color:#333; font-weight:400; padding:7px 0; text-align:center;}
+.layerWrap .schedule .list td {border:solid 1px #e2e2e2; background:#fff; font-size:15px; color:#333; font-weight:400; padding:15px 0; text-align:center;}
+.layerWrap .schedule .list td.date {background:#f8f8f8; color:#3f63bf}
+.layerWrap .schedule .list td.day {background:#f8f8f8; }
+.layerWrap .schedule .list td.alignL {text-align:left; padding:10px 25px}
+
+.layerWrap .schedule .noti {font-size:13px; color:#666; font-weight:400; line-height:18px; padding-top:15px; padding-top:15px;}
+
+.layerWrap .questionList {}
+.layerWrap .questionList .listMore {margin-top:10px}
+.layerWrap .questionList .noData {padding:30px 0; text-align:center; font-size:15px; color:#999; font-weight:400; }
+.layerWrap .questionList li {margin-top:17px}
+.layerWrap .questionList li:first-child {margin-top:0}
+.layerWrap .questionList li .list {position:relative; margin-top:25px; border:1px solid #d1d1d1; padding:18px 30px 30px 30px;}
+.layerWrap .questionList li .list:first-child {margin-top:0}
+.layerWrap .questionList li .list dt {line-height:23px; padding-bottom:10px; border-bottom:solid 1px #e8e8e8; }
+.layerWrap .questionList li .list dt span {vertical-align:middle;}
+.layerWrap .questionList li .list dt .tit {font-size:15px; color:#333; font-weight:500; line-height: 28px; display:block; padding-right:250px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.layerWrap .questionList li .list dt .bar {font-size:10px; color:#666; margin:0 5px; position:relative; top:-1px;}
+.layerWrap .questionList li .list dt .subj {font-size:13px; color:#666; font-weight:400;}
+.layerWrap .questionList li .list dt .subj:first-child {color:#3f63bf }
+.layerWrap .questionList li .list dd.date {position:absolute; top:36px; right:32px; line-height:41px; font-size:13px; color:#999; font-weight:400;}
+.layerWrap .questionList li .list dd.text {font-size:13px; color:#666; font-weight:400; line-height:23px; padding-top:12px; }
+.layerWrap .questionList li .list div.btn {display:inline-block; font-size:0;}
+.layerWrap .questionList li .list div.btn a {display:inline-block; margin-left:6px; width:38px; text-align:center; height:22px; line-height:22px; border:solid 1px #e5e8ef; border-radius:2px; cursor:pointer}
+.layerWrap .questionList li .list div.btn a span {font-size:12px; color:#666; font-weight:400; }
+.layerWrap .questionList li .list div.btn a:hover {background:#eaeaea}
+
+.layerWrap .questionList li .question {position:relative; margin-top:15px; border:solid 1px #d1d1d1; border-width:0px 1px 1px 1px; background:#f5f7f9; margin-top:-1px}
+.layerWrap .questionList li .question dt {line-height:38px; padding:0 170px 0 22px; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; overflow:hidden;}
+.layerWrap .questionList li .question dt .tit {font-size:15px; color:#3f63bf; font-weight:500; padding-left:26px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_question.png) no-repeat 12px 50%;}
+.layerWrap .questionList li .question dt .bar {font-size:11px; color:#666; margin:0 3px; position:relative; top:-2px;}
+.layerWrap .questionList li .question dt .subj {font-size:15px; color:#3f63bf; /*font-weight:500;*/}
+.layerWrap .questionList li .question dt .i-new {margin-left:4px; display:inline-block; width:9px; height:9px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_new.png) no-repeat 0 0; }
+.layerWrap .questionList li .question dt .btn {cursor:pointer; position:absolute; top:0; right:20px; font-size:13px; color:#666; font-weight:400; line-height:38px; padding-right:20px; background:url(https://img.eduwill.net/resources/myroom/library/images/bul_dday_down.png) no-repeat 100% 50%;}
+.layerWrap .questionList li .question dt .btn.open {background:url(https://img.eduwill.net/resources/myroom/library/images/bul_dday_up.png) no-repeat 100% 50%;}
+.layerWrap .questionList li .question dd.detail {padding:2px 20px 12px 12px; display:none}
+.layerWrap .questionList li .question dd.detail span {display:block;}
+.layerWrap .questionList li .question dd.detail .text {font-size:13px; color:#666; font-weight:400; line-height:23px; padding:0 20px 0 20px;}
+.layerWrap .questionList li .question dd.detail .date {text-align:right; font-size:13px; color:#999; font-weight:400; margin-top:5px}
+
+.layerWrap .bookmarkList .tbStyle {margin-top:0}
+.layerWrap .bookmarkList .tbStyle td {padding:30px 0}
+.layerWrap .bookmarkList .btnSolt {margin-bottom:10px}
+.layerWrap .bookmarkList .noData {padding:30px 0; text-align:center; font-size:15px; color:#999; font-weight:400; }
+
+.layerWrap .writeTb  {position:relative;}
+.layerWrap .writeTb table {width:100%}
+.layerWrap .writeTb table th {font-size:15px; color:#333; font-weight:500; line-height:40px; text-align:left;}
+.layerWrap .writeTb table td {padding:5px 0}
+.layerWrap .writeTb table td .category {font-size:0;}
+.layerWrap .writeTb table td .category a {display:inline-block; height:38px; line-height:38px; padding:0 15px; border:solid 1px #eaeaea; background:#fff; margin-left:6px;}
+.layerWrap .writeTb table td .category a:first-child {margin-left:0}
+.layerWrap .writeTb table td .category a.on {border-color:#666; background-color:#666}
+.layerWrap .writeTb table td .category a.on span {color:#fff;}
+.layerWrap .writeTb table td .category a span {font-size:15px; color:#333; font-weight:400;}
+.layerWrap .writeTb table td .category .checks {margin-left:16px;}
+.layerWrap .writeTb table td .category .checks label em {font-size:13px; color:#999}
+.layerWrap .writeTb table td input[type="text"] {height:38px; line-height:38px; text-indent:2%; width:100%;}
+.layerWrap .writeTb table td textarea {height:280px;}
+.layerWrap .writeTb .btnArea {margin-left:198px;}
+.layerWrap .writeTb .btnArea.b1 span {width:100%; padding:0}
+.layerWrap .writeTb .b1 span {width:100%}
+.layerWrap .writeTb .b2 {position:absolute; bottom:0; left:81px;}
+.layerWrap .writeTb .b2 span {display:inline-block; cursor:pointer; font-size:14px; color:#666; font-weight:500; width:95px; text-align:center; height:48px; line-height:48px; border:solid 1px #e5e8ef}
+
+.layerWrap .mp3DownTb .btnArea {margin-top:25px}
+.layerWrap .mp3DownTb .checks input[type="checkbox"] + label {padding-left:20px}
+
+.layerWrap .infoForm dl {margin-top:18px;}
+.layerWrap .infoForm dl:first-child {margin-top:0;}
+.layerWrap .infoForm dl dt {font-size:16px; color:#333; font-weight:500; line-height:25px;}
+.layerWrap .infoForm dl dd {font-size:14px; color:#666; font-weight:400; line-height:25px; background:url(https://img.eduwill.net/resources/myroom/library/images/bul_lnb03.png) no-repeat 0 13px; padding-left: 9px;}
+.layerWrap .infoForm .smsCk {margin-top:18px}
+.layerWrap .infoForm .smsCk label .t1 {font-size:16px; color:#333; font-weight:500;}
+.layerWrap .infoForm .smsCk label .t2 {font-size:14px; color:#666; font-weight:400;}
+.layerWrap .infoForm .edumoney {border-top:solid 1px #cccccc; padding:24px 0; margin:25px 0 -35px;text-align:center; font-size:16px; color:#666; font-weight:500; } 
+.layerWrap .infoForm .edumoney span {color:#333}
+.layerWrap .infoForm .btnArea {margin-top:35px;}
+
+#content .layerWrap .applyArea .newlyList {border-bottom:none; padding:0; border:none; }
+#content .layerWrap .applyArea .newlyList .box {border:none; padding:0 10px 0 0}
+.layerWrap .applyArea .newlyList .box .tbStyle tr td {border-bottom:solid 1px #eaeaea}
+.layerWrap .newlyList .listMore{margin-top:10px}
+
+#questionLayer.layerWrap .btnArea {margin-top:20px;}
+#mp3DownLayer.layerWrap .btnArea.b1 span {width:100%; padding:0}
+
+/*
+.loading {text-align:center}
+.loading span {display: inline-block; height: 28px; line-height: 27px; padding: 0 12px; text-align: center; border: solid 1px #c7c7c7; background-color: #f8f8f8; margin-top:15px}
+*/
+
+#mp3loadingArea {position:fixed; z-index: 10000; top: 0px; right: 0px; width: 100%; height: 100%; display:none;}
+#mp3loadingArea > div{position:absolute; top:40%; left:50%;}
+#mp3loadingArea p {color:#fff; letter-spacing:1px; margin-top:10px; text-align: center;}
+
+#mp3loadingArea .loading-container,
+#mp3loadingArea .loading {
+	height: 100px;
+	position: relative;
+	width: 100px;
+	border-radius: 100%;
+}
+#mp3loadingArea .loading-container { margin: 40px auto; }
+#mp3loadingArea .loading {
+	border: 2px solid transparent;
+	border-color: transparent #fff transparent #FFF;
+	-moz-animation: rotate-loading 1.5s linear 0s infinite normal;
+	-moz-transform-origin: 50% 50%;
+	-o-animation: rotate-loading 1.5s linear 0s infinite normal;
+	-o-transform-origin: 50% 50%;
+	-webkit-animation: rotate-loading 1.5s linear 0s infinite normal;
+	-webkit-transform-origin: 50% 50%;
+	animation: rotate-loading 1.5s linear 0s infinite normal;
+	transform-origin: 50% 50%;
+}
+
+#mp3loadingArea .loading-container:hover .loading {
+	border-color: transparent #E45635 transparent #E45635;
+}
+#mp3loadingArea .loading-container:hover .loading,
+#mp3loadingArea .loading-container .loading {
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+#mp3loadingArea #loading-text {
+	-moz-animation: loading-text-opacity 2s linear 0s infinite normal;
+	-o-animation: loading-text-opacity 2s linear 0s infinite normal;
+	-webkit-animation: loading-text-opacity 2s linear 0s infinite normal;
+	animation: loading-text-opacity 2s linear 0s infinite normal;
+	color: #ffffff;
+	font-family: "Helvetica Neue, "Helvetica", ""arial";
+	font-size: 10px;
+	font-weight: bold;
+	margin-top: 45px;
+	opacity: 0;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	top: 0;
+	width: 100px;
+}
+
+#systemNotiLayer.notice_popup {position: absolute; z-index: 10; margin: 56px 0 0 200px; z-index: 1000; top:inherit}
+
+/* responsive custom */
+@media screen and (max-width: 1240px) { /* min out */
+	body {}
+	/*
+	#header .util .logout {margin-right:10px}
+	#header .util #gnb li a {padding:0 10px}
+	#header .util #gnb li.home a {padding-left:17px; background:url(https://img.eduwill.net/resources/myroom/library/images/icon_home.png) no-repeat 0px 50%;}
+	*/
+}
+
+@media screen and (max-width: 1400px) { /* min out */
+	body {}
+	
+	#header .util #gnb li a {padding:0 10px}
+	#header .util .logout {margin-right:0}
+}
+
+@media screen and (min-width: 1540px) { /* default */
+	body {}
+}
+
+@media screen and (min-width: 1279px) and (max-width: 1539px) { /* default */
+	body {}
+}
+
+
+
+
+
+
+

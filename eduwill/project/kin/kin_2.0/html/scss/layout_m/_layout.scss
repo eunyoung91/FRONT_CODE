@@ -1,0 +1,48 @@
+body * {
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+    font-family: 'Helvetica Neue', 'Apple SD Gothic Neo', HelveticaNeue-Light, AppleSDGothicNeo-Light, sans-serif;
+}
+.wrap {
+    padding: 40px 16px;
+}
+a {   
+    &,
+    &.active.focus, 
+    &.active:focus, 
+    &.focus, 
+    &:active.focus, 
+    &:active:focus, 
+    &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.page-loader {
+    
+    &-17 {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin: -24px 0 0 -24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border-top: 3px solid #b7deff;
+        border-right: 3px solid transparent;
+        -webkit-animation: rotation 1s linear infinite;
+        animation: rotation 1s linear infinite;
+        z-index: 10000;
+    }
+}
+
+// page-loader
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

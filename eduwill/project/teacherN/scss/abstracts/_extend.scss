@@ -1,0 +1,72 @@
+// Display Flex Center
+%flexCenter {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;  // Align items in center (Safari)
+	-webkit-box-align: center;    // Align items in center (Older Webkit browsers)
+	-ms-flex-align: center;       // Align items in center (IE10+)
+	align-items: center;          // Align items in center (Standard)
+	-webkit-box-pack: center;     // Justify content in center (Older Webkit browsers)
+	-ms-flex-pack: center;        // Justify content in center (IE10+)
+	justify-content: center;      // Justify content in center (Standard)
+  }
+  
+  // Floating Reset (clearfix)
+  %clearfix {
+	*zoom: 1;  // IE6/7 fix for clearfix
+	&:before,
+	&:after {
+	  content: '';
+	  display: table;
+	}
+	&:after {
+	  clear: both;
+	}
+  }
+  
+  // Text Ellipsis (Truncate text)
+  %textEllipsis {
+	white-space: nowrap;         // Prevent text from wrapping
+	text-overflow: ellipsis;     // Display ellipsis when text overflows
+	overflow: hidden;            // Hide the overflowed text
+  }
+  
+  // Clear Text Ellipsis
+  %textEllipsisClear {
+	white-space: normal;         // Allow text to wrap
+	text-overflow: unset;        // Remove text overflow behavior
+	overflow: unset;             // Remove overflow behavior
+  }
+  
+  // Hidden Elements (for accessibility purposes)
+  .hidden,
+  .sr_only,
+  .sr-only {
+	position: absolute;
+	display: inline-block;
+	overflow: hidden;
+	clip: rect(0 0 0 0);         // Clip the content
+	width: 0;
+	height: 0;
+	margin: -1px;
+	padding: 0;
+	word-break: keep-all;        // Prevent word breaking
+	white-space: nowrap;         // Prevent text from wrapping
+	color: transparent;          // Make text invisible
+	border: 0;
+	text-indent: -9999px;        // Push text out of view
+  }
+  
+  // Grid Layout
+  .grid {
+	position: relative;
+	@extend %clearfix;           // Apply clearfix to grid container
+	@include boxSizing(border-box);  // Apply box-sizing border-box to grid
+	.col {
+	  position: relative;
+	  float: left;               // Float columns to the left
+	  @include boxSizing(border-box);  // Apply box-sizing border-box to columns
+	}
+  }
+  

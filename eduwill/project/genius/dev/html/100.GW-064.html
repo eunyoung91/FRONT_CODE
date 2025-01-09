@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->	
+	<section id="middle">
+		
+		<div id="content" class="height-full padding-20">
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">평가</a>
+					<a href="#">멘토링 설문(멘티용)</a>
+				</div>
+			</div>
+			
+			<form name="frm1" id="frm1" method="post" action="/mentee/index">
+			</form>
+			
+			<div class="container section-survey nopadding">
+				<div class="panel-body" id="divTabBody">
+					<form name="frm2" id="frm2" method="post" action="" novalidate="novalidate">
+						
+						<div class="section-title clearfix">
+							<h3>멘토링 평가(멘티용)</h3>
+						</div>
+						
+						<div class="table-responsive table-basic"><!-- table-basic -->
+							<table class="table table-bordered table-row" summary="멘티 소속, 멘티 이름 / 직책, 멘티 입사일, 멘토링 기간으로 구분되는 표">
+								<caption>기본정보</caption>
+								<colgroup>
+									<col style="width: 15%;">
+									<col style="width: 35%;">
+									<col style="width: 15%;">
+									<col style="width: 35%;">
+								</colgroup>
+								<tbody>
+									<tr><!-- row -->
+										<th scope="row">멘티 소속</th>
+										<td class="team">플랫폼개발2팀</td>
+										<th scope="row">멘티 이름 / 직책</th>
+										<td class="name">김현경 매니저</td>
+									</tr>
+									<tr><!-- row -->
+										<th scope="row">멘토 이름 / 직책</th>
+										<td class="date"></td>
+										<th scope="row">멘토링 기간</th>
+										<td class="date">2021-02-01 ~ 2021-04-30</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!-- // table-basic -->
+					
+						<div class="table-responsive table-survey"><!-- table-survey -->
+							<table class="table table-bordered table-col" summary="번호, 질문, 답변으로 구분되는 표">
+								<caption>멘토링 설문</caption>
+								<colgroup>
+									<col style="width: 5%;">
+									<col style="width: auto;">
+									<col style="width: auto;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">NO</th>
+										<th scope="col">질문</th>
+										<th scope="col">답변</th>
+									</tr>
+								</thead>
+								<tbody>
+								
+									
+										
+											<tr>
+												<td>1</td>
+												<td class="text-left">멘토는 자신이 일을 하며 경험한 내용에 빗대어 이야기를 해주었다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="1">
+														
+														
+															
+																<label for="rdo_1_1" class="radio">
+																	<input class="required" type="radio" id="rdo_1_1" name="answer_1" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_1_2" class="radio">
+																	<input class="required" type="radio" id="rdo_1_2" name="answer_1" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_1_3" class="radio">
+																	<input class="required" type="radio" id="rdo_1_3" name="answer_1" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_1_4" class="radio">
+																	<input class="required" type="radio" id="rdo_1_4" name="answer_1" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_1_5" class="radio">
+																	<input class="required" type="radio" id="rdo_1_5" name="answer_1" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td>2</td>
+												<td class="text-left">멘토는 업무 수행상 구체적인 전략과 방법을 가르쳐주고, 피드백을 제공해 주었다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="2">
+														
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+															
+																<label for="rdo_2_1" class="radio">
+																	<input class="required" type="radio" id="rdo_2_1" name="answer_2" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_2_2" class="radio">
+																	<input class="required" type="radio" id="rdo_2_2" name="answer_2" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_2_3" class="radio">
+																	<input class="required" type="radio" id="rdo_2_3" name="answer_2" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_2_4" class="radio">
+																	<input class="required" type="radio" id="rdo_2_4" name="answer_2" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_2_5" class="radio">
+																	<input class="required" type="radio" id="rdo_2_5" name="answer_2" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td>3</td>
+												<td class="text-left">멘토는 나의 이야기를 경청해주고, 인격적으로 나를 존중해준다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="3">
+														
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+															
+																<label for="rdo_3_1" class="radio">
+																	<input class="required" type="radio" id="rdo_3_1" name="answer_3" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_3_2" class="radio">
+																	<input class="required" type="radio" id="rdo_3_2" name="answer_3" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_3_3" class="radio">
+																	<input class="required" type="radio" id="rdo_3_3" name="answer_3" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_3_4" class="radio">
+																	<input class="required" type="radio" id="rdo_3_4" name="answer_3" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_3_5" class="radio">
+																	<input class="required" type="radio" id="rdo_3_5" name="answer_3" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td>4</td>
+												<td class="text-left">나는 일과 관련하여 멘토가 가지고 있는 가치관과 태도에 동의한다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="4">
+														
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+															
+																<label for="rdo_4_1" class="radio">
+																	<input class="required" type="radio" id="rdo_4_1" name="answer_4" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_4_2" class="radio">
+																	<input class="required" type="radio" id="rdo_4_2" name="answer_4" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_4_3" class="radio">
+																	<input class="required" type="radio" id="rdo_4_3" name="answer_4" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_4_4" class="radio">
+																	<input class="required" type="radio" id="rdo_4_4" name="answer_4" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_4_5" class="radio">
+																	<input class="required" type="radio" id="rdo_4_5" name="answer_4" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td>5</td>
+												<td class="text-left">나는 멘토를 존경하며, 멘토의 일하는 방식을 닮으려고 노력한다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="5">
+														
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+															
+																<label for="rdo_5_1" class="radio">
+																	<input class="required" type="radio" id="rdo_5_1" name="answer_5" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_5_2" class="radio">
+																	<input class="required" type="radio" id="rdo_5_2" name="answer_5" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_5_3" class="radio">
+																	<input class="required" type="radio" id="rdo_5_3" name="answer_5" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_5_4" class="radio">
+																	<input class="required" type="radio" id="rdo_5_4" name="answer_5" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_5_5" class="radio">
+																	<input class="required" type="radio" id="rdo_5_5" name="answer_5" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td>6</td>
+												<td class="text-left">나는 멘토와 비슷한 위치가 되었을 때, 현재 나의 멘토처럼 행동하고자 노력할 것이다.</td>
+												<td>
+													<label class="lblRadios">
+														<input type="hidden" name="qst_idx" value="6">
+														
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+																
+														
+															
+																<label for="rdo_6_1" class="radio">
+																	<input class="required" type="radio" id="rdo_6_1" name="answer_6" value="전혀 그렇지 않다">
+																	<i></i>전혀 그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_6_2" class="radio">
+																	<input class="required" type="radio" id="rdo_6_2" name="answer_6" value="그렇지 않다">
+																	<i></i>그렇지 않다
+																</label>								
+																
+														
+															
+																<label for="rdo_6_3" class="radio">
+																	<input class="required" type="radio" id="rdo_6_3" name="answer_6" value="보통이다">
+																	<i></i>보통이다
+																</label>								
+																
+														
+															
+																<label for="rdo_6_4" class="radio">
+																	<input class="required" type="radio" id="rdo_6_4" name="answer_6" value="그렇다">
+																	<i></i>그렇다
+																</label>								
+																
+														
+															
+																<label for="rdo_6_5" class="radio">
+																	<input class="required" type="radio" id="rdo_6_5" name="answer_6" value="매우 그렇다">
+																	<i></i>매우 그렇다
+																</label>								
+																
+														
+													</label>
+												</td>
+											</tr>
+										
+									
+										
+									
+										
+									
+										
+									
+									
+								</tbody>
+							</table>
+						</div><!-- // table-survey -->
+					
+						<div class="section-title">
+							<h3 class="title">종합의견</h3>
+						</div>
+					
+						<div class="table-responsive table-opinion"><!-- table-opinion -->
+							<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분, 의견으로 구분되는 표">
+								<caption>종합의견</caption>
+								<colgroup>
+									<col style="width: 30%;">
+									<col style="width: auto;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">구분</th>
+										<th scope="col">의견</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											<tr>
+												<td class="text-left">멘토로부터 도움을 받은 점</td>
+												<td class="text-left">
+													<input type="hidden" name="qst_idx" value="7">
+													<textarea name="answer_7" id="answer_7" class="text form-control full required" placeholder="1가지 이상은 작성해주세요." style="height:80px;"></textarea>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td class="text-left">멘토링 과정에서 배운점과 얻은점 (ex. 업무내용, 일반지식, 사내정보 등)</td>
+												<td class="text-left">
+													<input type="hidden" name="qst_idx" value="8">
+													<textarea name="answer_8" id="answer_8" class="text form-control full required" placeholder="1가지 이상은 작성해주세요." style="height:80px;"></textarea>
+												</td>
+											</tr>
+										
+									
+										
+											<tr>
+												<td class="text-left">멘토링 관련 건의사항</td>
+												<td class="text-left">
+													<input type="hidden" name="qst_idx" value="9">
+													<textarea name="answer_9" id="answer_9" class="text form-control full required" placeholder="1가지 이상은 작성해주세요." style="height:80px;"></textarea>
+												</td>
+											</tr>
+										
+									
+															
+								</tbody>
+							</table>
+							<span><b>※ 응답하신 내용은 멘토링제도 운영 개선을 위한 자료로 활용됩니다.</b></span>
+						</div><!-- // table-opinion -->
+					
+						<div class="margin-top-50 text-center">
+							<button type="button" class="btn btn-primary btn-lg width-150" id="btnSave">저장</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<style>
+			label.error { background-color: #fdfbfb !important; border: #bf6464 2px dashed !important;}
+		</style>
+		
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

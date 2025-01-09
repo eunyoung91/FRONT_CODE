@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		<link href="//img.eduwill.net/resources/kpi/live/css/easyui.css" rel="stylesheet">
+		
+
+		<div id="content">
+			
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리자</a>
+					<a href="#">인사</a>
+					<a href="#">조직도 관리</a>
+				</div>
+				<div class="wrap">
+					<form id="frm1" name="frm1" method="post">
+						<input type="hidden" name="page" id="page" value="">
+						<input type="hidden" name="pageSize" id="pageSize" value=""> 
+						<input type="hidden" name="mst_idx" id="mst_idx" value="">
+						
+						<label class="width-100 text-center weight-800">제출연도</label>
+						<input type="text" class="text form-control width-200" id="toyear" name="toyear" value="" placeholder="ex) 2021" autocomplete="off">
+						<button class="btn btn-primary" type="button" id="btnAdd">저장</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="section-admin row">
+				<div class="col-md-2 manage-1">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>조직도</h3>
+						</div>
+						<div class="panel-body">
+							<div id="menuTree" class="menu-tree" style="height: 2000px;">
+								<ul>
+								<li style="padding-left:0px; padding-bottom:1px;">							
+											<i class="fa fa-folder-open"></i> 에듀윌								
+								</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 manage-2" id="divEmpList">
+					<div class="panel">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col col-xs-2 padding-0">
+									<label for="joinCompany">입사일</label>
+								</div>
+								<div class="col col-xs-5 padding-0">
+									<input type="text" class="form-control datepicker full" data-format="yyyy-mm-dd" data-lang="en" data-rtl="false" id="join_dt" name="join_dt" value="">
+								</div>
+								<div class="col col-xs-3 text-center padding-0">
+									이전
+								</div>
+								<div class="col col-xs-2 padding-0">
+									<button type="button" class="btn btn-teal" id="btnSaerchForEmpList">조회</button>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive" style="height: 2000px;">
+							
+								<table class="table table-bordered" summary="이름, 직책, 입사일로 구분되는 표" id="tblEmployee">
+									<caption>평가대상 목록</caption>
+									<colgroup>
+										<col style="width: 40%;">
+										<col style="width: 25%;">
+										<col style="width: 35%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" class="name">이름</th>
+											<th scope="col" class="rank">직책</th>
+											<th scope="col" class="date">입사일</th>
+										</tr>
+									</thead>
+									<tbody>
+										
+											
+												
+													<tr class="empItem" data-ldap_id="hjkwon">
+														<td class="name">권혁주(hjkwon)</td>
+														<td class="rank">팀장</td>
+														<td class="date">2010-07-19</td>
+													</tr>
+												
+													<tr class="empItem" data-ldap_id="hykim">
+														<td class="name">김하얀(hykim)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2018-01-15</td>
+													</tr>
+												
+													<tr class="empItem item-select" data-ldap_id="cgmin" style="display: none;">
+														<td class="name">민창기(cgmin)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2009-03-16</td>
+													</tr>
+												
+													<tr class="empItem" data-ldap_id="shpark12">
+														<td class="name">박성혁(shpark12)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2019-12-09</td>
+													</tr>
+												
+													<tr class="empItem item-select" data-ldap_id="hmjeong" style="display: none;">
+														<td class="name">정효민(hmjeong)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2015-11-02</td>
+													</tr>
+												
+													<tr class="empItem" data-ldap_id="wsjin">
+														<td class="name">진우상(wsjin)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2015-09-21</td>
+													</tr>
+												
+													<tr class="empItem" data-ldap_id="yjjin">
+														<td class="name">진윤정(yjjin)</td>
+														<td class="rank">매니저</td>
+														<td class="date">2018-07-23</td>
+													</tr>
+														
+											
+											
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 manage-control"><!-- manage-control -->
+					<div class="wrap">
+						<div class="add">
+							<a href="javascript:;" class="btn btn-default move-one" title="선택 항목 추가" id="btnAppend">
+								<span class="sr-only">선택 항목 추가</span>
+							</a>
+							<a href="javascript:;" class="btn btn-default move-all" title="전체 항목 추가" id="btnAppendAll">
+								<span class="sr-only">전체 항목 추가</span>
+							</a>
+						</div>
+						<div class="remove">
+							<a href="javascript:;" class="btn btn-default move-one" title="선택 항목 제외" id="btnRemove">
+								<span class="sr-only">선택 항목 제외</span>
+							</a>
+							<a href="javascript:;" class="btn btn-default move-all" title="전체 항목 제외" id="btnRemoveAll">
+								<span class="sr-only">전체 항목 제외</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5 manage-3" id="divAssList">
+					
+					<!-- for clone hidden assess_lvl element -->
+					<div id="divAssess" style="display:none;">
+						<select class="form-control" title="평가 레벨 선택" id="selectForAssessLevel"><option value="">선택</option><option value="SC001">본부장</option><option value="SC002">실장</option><option value="SC003">팀장</option><option value="SC004">팀원</option></select>
+						<select class="form-control" title="평가 시기 선택" id="selectForTypeCd"><option value="">선택</option><option value="SC001">상반기/연간</option><option value="SC002">연간</option></select>
+					</div>
+					
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3>
+								<strong class="text-warning" id="dept_name">제휴사업팀</strong> 평가대상
+								<span style="float: right; font-size: 12px; color: #949494; padding-top: 12px;">* 평가시기 : 상반기/연간(1~12월), 연간(7~12월)</span>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive" style="height: 2000px;">
+								<form name="frmAssess" id="frmAssess">
+									<input type="hidden" name="toyear" value="2021">
+									<input type="hidden" name="dept_idx" value="83">
+									<table class="table table-bordered" summary="이름, 직책, 입사일, 평가레벨, 1차 평가자, 2차 평가자로 구분되는 표" id="tblAssess">
+										<caption>평가대상 목록</caption>
+										<colgroup>
+											<col style="width: 14%;">
+											<col style="width: 8%;">
+											<col style="width: 11%;">
+											<col style="width: 10%;">
+											<col style="width: 12%;">
+											<col style="width: 15%;" span="3">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col" class="name">이름</th>
+												<th scope="col" class="rank">직책</th>
+												<th scope="col" class="date">입사일</th>
+												<th scope="col" class="level">평가 레벨</th>
+												<th scope="col" class="type">평가시기</th>
+												<th scope="col" class="evaluation-1st">1차</th>
+												<th scope="col" class="evaluation-2nd">2차</th>
+												<th scope="col" class="evaluation-3nd" style="">3차</th>
+											</tr>
+										</thead>
+										<tbody>
+											
+												
+													
+														<tr class="assItem" data-ldap_id="cgmin">
+															<td class="name">
+																
+																민창기(cgmin)
+																<input type="hidden" name="ldap_id" value="cgmin">
+															</td>
+															<td class="rank">매니저</td>
+															<td class="date">2009-03-16</td>
+															<td class="level" data-assess_lvl="">
+																<!-- select clone from hidden element -->
+																<a href="javascript:;" class="auto-filling filling-assess_lvl"><span class="sr-only">같은 값으로 채우기</span></a>
+															<select class="form-control" title="평가 레벨 선택" id="" name="assess_lvl"><option value="">선택</option><option value="SC001">본부장</option><option value="SC002">실장</option><option value="SC003">팀장</option><option value="SC004">팀원</option></select></td>
+															<td class="type" data-type_cd="">
+																<!-- select clone from hidden element -->
+																<a href="javascript:;" class="auto-filling filling-type_cd"><span class="sr-only">같은 값으로 채우기</span></a>
+															<select class="form-control" title="평가 시기 선택" id="" name="type_cd"><option value="">선택</option><option value="SC001">상반기/연간</option><option value="SC002">연간</option></select></td>
+															<td class="evaluation-1st">									
+																<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor1"><span class="sr-only">같은 값으로 채우기</span></a>
+															</td>
+															<td class="evaluation-2nd">
+																<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor2"><span class="sr-only">같은 값으로 채우기</span></a>											
+															</td>
+															<td class="evaluation-3nd" style="">
+																<input type="text" class="text form-control js-dropdown" name="assessor3" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor3"><span class="sr-only">같은 값으로 채우기</span></a>											
+															</td>
+														</tr>
+													
+														<tr class="assItem" data-ldap_id="hmjeong">
+															<td class="name">
+																
+																정효민(hmjeong)
+																<input type="hidden" name="ldap_id" value="hmjeong">
+															</td>
+															<td class="rank">매니저</td>
+															<td class="date">2015-11-02</td>
+															<td class="level" data-assess_lvl="">
+																<!-- select clone from hidden element -->
+																<a href="javascript:;" class="auto-filling filling-assess_lvl"><span class="sr-only">같은 값으로 채우기</span></a>
+															<select class="form-control" title="평가 레벨 선택" id="" name="assess_lvl"><option value="">선택</option><option value="SC001">본부장</option><option value="SC002">실장</option><option value="SC003">팀장</option><option value="SC004">팀원</option></select></td>
+															<td class="type" data-type_cd="">
+																<!-- select clone from hidden element -->
+																<a href="javascript:;" class="auto-filling filling-type_cd"><span class="sr-only">같은 값으로 채우기</span></a>
+															<select class="form-control" title="평가 시기 선택" id="" name="type_cd"><option value="">선택</option><option value="SC001">상반기/연간</option><option value="SC002">연간</option></select></td>
+															<td class="evaluation-1st">									
+																<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor1"><span class="sr-only">같은 값으로 채우기</span></a>
+															</td>
+															<td class="evaluation-2nd">
+																<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor2"><span class="sr-only">같은 값으로 채우기</span></a>											
+															</td>
+															<td class="evaluation-3nd" style="">
+																<input type="text" class="text form-control js-dropdown" name="assessor3" value="" autocomplete="off">
+																<a href="javascript:;" class="auto-filling filling-assessor3"><span class="sr-only">같은 값으로 채우기</span></a>											
+															</td>
+														</tr>
+													
+													
+													<script type="text/javascript">
+														//평가레벨 셀렉트 
+														$("#tblAssess tbody .level").each(function(i) {
+															var select1 = $("#selectForAssessLevel").clone();
+															$(select1).attr("id", "").attr("name", "assess_lvl");
+															$(this).append(select1);
+															
+															var assess_lvl = $(this).data("assess_lvl");
+															$(select1).val(assess_lvl);
+														});
+														
+														//평가시기 셀렉트
+														$("#tblAssess tbody .type").each(function(i) {
+															var select1 = $("#selectForTypeCd").clone();
+															$(select1).attr("id", "").attr("name", "type_cd");
+															$(this).append(select1);
+															
+															var type_cd = $(this).data("type_cd");
+															$(select1).val(type_cd);
+														});
+													</script>
+															
+												
+												
+											
+										</tbody>
+									</table>
+								</form>
+							</div>
+					
+							<div class="add-data clearfix margin-left-20">
+								<div class="pull-left">
+									<label for="addUser" class="inlin-block margin-right-10">
+										<i class="fa fa-plus-circle"></i>
+										대상자 추가
+									</label>
+								</div>
+								<div class="pull-left">
+									<input type="text" id="addUser" name="addUser" class="text form-control js-dropdown">
+								</div>
+							</div>
+					
+							<div class="margin-top-50 text-center">
+								<a href="javascript:;" class="btn btn-blue btn-lg width-100" id="btnSave">
+									<span>저장</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+				
+		
+		</div>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+    <title>에지인 2.0</title>
+
+    <!-- favicon setting-->
+    <link rel="Bookmark Icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="//img.eduwill.net/resources/kin/dev/html/link_icon_ios_114.png" />
+    <link rel="icon" type="image/png" href="//img.eduwill.net/resources/kin/dev/html/link_icon_and.png"
+        sizes="192x192" />
+    <link rel="shortcut icon" href="//img.eduwill.net/resources/kin/dev/html/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+
+    <!-- css -->
+    <link href="https://img.eduwill.net/resources/publish/framework/assets/plugins/bootstrap/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/mobile.css?v=5be2d9ef1b640">
+
+    <!-- js -->
+    <script type="text/javascript"
+        src="https://img.eduwill.net/resources/publish/framework/assets/plugins/jquery/jquery-2.2.3.min.js"></script>
+    <!-- 부트스트랩 컴파일 플러그인을 포함 -->
+    <script type="text/javascript">
+        var plugin_path = 'https://img.eduwill.net/resources/publish/framework/assets/plugins/';
+    </script>
+    <script src="https://img.eduwill.net/resources/publish/framework/assets/js/app.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/custom.js?v=5be2d9ef1b640"></script>
+
+    <!-- Slick Slider -->
+    <script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+    <!-- Import TweenMax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+
+    <!-- mobileSelect -->
+    <link rel="stylesheet" type="text/css" href="../js/mobileSelect.css" />
+    <script src="../js/mobileSelect.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+
+        });
+        $(window).load(function () {
+            $(".modal-write").modal("show");
+
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div role="header" data-include="include/header_inc.html"></div><!-- include :: header -->
+
+    <div class="wrap gnb-wrap">
+        <div class="breadcrumbs">
+            <button class="btn btn-link" onclick="history.back();">
+                <i class="icon icon-arrow-link-dark"></i>
+                <span>상세정보</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="container" role="sub" class="board-view">
+        <div class="wrap board-view-item">
+            <div class="item-summary">
+                <div class="subject">영어 성적이 잘 안 오르네요…영어 장종재교수님 손재석 교수님 중 선택하기 힘들어요.</div>
+                <div class="info">
+                    <span>2021-03-21 21:32</span>
+                    <span>홍길동</span>
+                    <span>조회 983</span>
+                    <span class="accent-2">내공 500</span>
+                </div>
+                <div class="utility">
+                    <button type="button" class="btn btn-link"><span><i
+                                class="icon icon-scrap-disabled"></i></span>스크랩</button>
+                    <button type="button" class="btn btn-link"><span><i class="icon icon-scrap"></i></span>스크랩</button>
+                    <div class="dropdown-group">
+                        <button type="button" class="btn btn-link" id="dLabel" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span><i
+                                    class="icon icon-sharing-dark"></i></span>공유</button>
+                        <div class="share-box dropdown-menu" aria-labelledby="dLabel">
+                            <div class="box">
+                                <p>지식인 글을 SNS에 공유해보세요</p>
+                                <ul>
+                                    <li><a href="#" onclick="fnSnsShare('facebook'); return false;"><img
+                                                src="//img.eduwill.net/resources/kin/dev/images/icon/icon_facebook.png"></a>
+                                    </li>
+                                    <li><a href="#" onclick="fnSnsShare('kakao_talk'); return false;"><img
+                                                src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaotalk.png"></a>
+                                    </li>
+                                    <li><a href="#" onclick="fnSnsShare('kakao_story'); return false;"><img
+                                                src="//img.eduwill.net/resources/kin/dev/images/icon/icon_kakaostory.png"></a>
+                                    </li>
+                                    <li><a href="#" onclick="fnSnsShare('twitter'); return false;"><img
+                                                src="//img.eduwill.net/resources/kin/dev/images/icon/icon_twitter.png"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="fnSnsShare('url_copy'); return false;"><img
+                                                src="//img.eduwill.net/resources/kin/dev/images/icon/icon_url.png"></a>
+                                        <div id="divCurUrl" class="alert divCurUrl" style="display: none;">
+                                            <button type="button" class="close"
+                                                onclick="$(this).parent().hide();"><span>닫기</span></button>
+                                            <p class="text-center">주소가 복사되었습니다.<br>원하는 곳에<br>붙여넣기 (Ctrl + V) 해 주세요.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-group">
+                        <button type="button" class="btn btn-link" id="dropdownUtility-1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><span><i
+                                    class="icon icon-more-dark"></i></span>더보기</button>
+                        <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownUtility-1">
+                            <ul>
+                                <li><a href="#">수정</a></li>
+                                <li><a href="#">삭제</a></li>
+                                <li><a href="#">질문마감</a></li>
+                                <li><a href="#">신고</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="item-text">영어 장종재 교수님 들었는데
+                영어 성적이 잘 안 오르네요
+                기본이론은 문법 위주
+                심화이론은 독해
+
+                손재석 교수님 하프모강,30점 올리기 모강 올라왔던데
+                강의 괜찮나요?
+                하프모강은 괜찮은거 같습니다
+                지금 5월 달인데 하프모강 1월달 꺼 강의 6강 까지 들었는데 괜찮은거 같애요
+                손재석 교수님 하프모강,30점 올리기 모강만 수강해도 되나요?
+                손재석 교수님으로 갈아타야 할지
+                아니면 장종재교수님 기본이론이랑 손재석 교수 하프모강 30점 올리기 모강 같이 들어야 하나요,?</div>
+            <div class="item-list-tag">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="tag">#</span>
+                            <span class="txt">9급</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="tag">#</span>
+                            <span class="txt">전기 문제풀이방법</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="tag">#</span>
+                            <span class="txt">시험방법</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="item-comment">
+                <button type="button" class="btn btn-xs btn-default" data-toggle="collapse" href="#collapseComment"><i
+                        class="icon icon-comment-b"></i>댓글 99+</button>
+                <div class="board-comment collapse in" id="collapseComment">
+                    <div class="board-comment-write">
+                        <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                            <textarea class="form-control" placeholder="댓글을 입력해 주세요." disabled="true"></textarea>
+                            <div class="profile">
+                                <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="board-hr">
+
+                    <div class="board-comment-list">
+                        <ul>
+                            <li>
+                                <div class="profile">
+                                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                                </div>
+                                <div class="info">
+                                    <span class="accent-1">김해빈</span>
+                                    <span>2021-05-10 15:06</span>
+                                </div>
+                                <div class="text">
+                                    별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일 밤을 때
+                                    이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                </div>
+                                <div class="del">
+                                    <button class="btn btn-xs btn-icon btn-square btn-trash"><i
+                                            class="icon icon-trash"></i></button>
+                                </div>
+                                <div class="utility utility-1">
+                                    <button type="button" class="btn btn-link" data-toggle="collapse"
+                                        href="#collapseReply-1"><i class="icon icon-comment-b"></i>답글</button>
+                                </div>
+                                <div class="collapse" id="collapseReply-1">
+                                    <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                        <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                            disabled="true"></textarea>
+                                        <div class="profile">
+                                            <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                alt="영웅">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nested-reply">
+                                <div class="profile">
+                                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                                </div>
+                                <div class="info">
+                                    <span class="accent-1">김해빈</span>
+                                    <span>2021-05-10 15:06</span>
+                                </div>
+                                <div class="text">
+                                    별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일 밤을 때
+                                    이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                </div>
+                                <div class="del">
+                                    <button class="btn btn-xs btn-icon btn-square btn-trash"><i
+                                            class="icon icon-trash"></i></button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="profile">
+                                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                                </div>
+                                <div class="info">
+                                    <span class="accent-1">김해빈</span>
+                                    <span>2021-05-10 15:06</span>
+                                </div>
+                                <div class="text">
+                                    별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일 밤을 때
+                                    이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                </div>
+                                <div class="utility utility-1">
+                                    <button type="button" class="btn btn-link" data-toggle="collapse"
+                                        href="#collapseReply-2"><i class="icon icon-comment-b"></i>답글</button>
+                                </div>
+                                <div class="collapse" id="collapseReply-2">
+                                    <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                        <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                            disabled="true"></textarea>
+                                        <div class="profile">
+                                            <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                alt="영웅">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="profile">
+                                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                                </div>
+                                <div class="info">
+                                    <span class="accent-1">김해빈</span>
+                                    <span>2021-05-10 15:06</span>
+                                </div>
+                                <div class="text">
+                                    별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일 밤을 때
+                                    이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                </div>
+                                <div class="utility utility-1">
+                                    <button type="button" class="btn btn-link" data-toggle="collapse"
+                                        href="#collapseReply-3"><i class="icon icon-comment-b"></i>답글</button>
+                                </div>
+                                <div class="collapse" id="collapseReply-3">
+                                    <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                        <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                            disabled="true"></textarea>
+                                        <div class="profile">
+                                            <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                alt="영웅">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="item-pagination-more">
+                        <button type="button" class="btn btn-sm btn-default btn-block">댓글 더보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap board-answer">
+            <hr class="board-hr">
+            <div class="board-answer-entry">
+                <div class="profile">
+                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                </div>
+                <dl class="text">
+                    <dt>000님, 당신의 지식을 나누어 주세요!</dt>
+                    <dd>답변하시면 내공 10점을<br>답변이 채택되면 내공 20점을 드립니다.</dd>
+                </dl>
+                <button type="button" class="btn btn-sm btn-primary">답변하기</button>
+            </div>
+
+            <hr class="board-hr">
+            <div class="board-answer-utility">
+                <div class="count">
+                    <span>답변 8개</span>
+                </div>
+                <div class="item-solt">
+                    <select class="form-control">
+                        <option>최신순</option>
+                        <option>답변적은순</option>
+                        <option>내공높은순</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="board-answer-item">
+                <div class="item-summary">
+                    <div class="profile">
+                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                    </div>
+                    <div class="subject"><span class="accent-1">임민은</span>님의 답변입니다.</div>
+                    <div class="info">
+                        <span>영웅</span>
+                        <span>채택</span>
+                        <span>2021-03-21 21:32</span>
+                    </div>
+                </div>
+                <div class="item-choose">
+                    <button type="button" class="btn">채택답변</button>
+                </div>
+                <div class="item-text">장종재 선생님이 말씀하시기를,
+                    문법은 달달달 반복하면서 대표문장 암기하면서 보일때까지 연습하는거고,
+                    단어는 문장에서 공부해야 하는거고,
+                    영어는 언어이기 때문에,
+                    여러 독해를 꾸준히 많이 풀어봐야 점수가 오른다고 하였습니다.</div>
+                <div class="utility utility-1">
+                    <button type="button" class="btn btn-link" data-toggle="collapse" href="#collapseComment-a1"><i
+                            class="icon icon-comment-b"></i>댓글 99+</button>
+                    <button type="button" class="btn btn-link btn-heart"><i class="icon icon-heart"></i>좋아요 10</button>
+                    <button type="button" class="btn btn-link"><i class="icon icon-sharing"></i>공유</button>
+                </div>
+                <div class="utility utility-3">
+                    <button type="button" class="btn btn-xs btn-icon btn-square btn-more" id="dropdownAnswer-1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i
+                                class="icon icon-more"></i></span></button>
+                    <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownAnswer-1">
+                        <ul>
+                            <li><a href="#">수정</a></li>
+                            <li><a href="#">삭제</a></li>
+                            <li><a href="#">신고</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item-comment">
+                    <div class="board-comment collapse in" id="collapseComment-a1">
+                        <div class="board-comment-write">
+                            <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                <textarea class="form-control" placeholder="댓글을 입력해 주세요." disabled="true"></textarea>
+                                <div class="profile">
+                                    <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="board-hr">
+
+                        <div class="board-comment-list">
+                            <ul>
+                                <li>
+                                    <div class="profile">
+                                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                            alt="영웅">
+                                    </div>
+                                    <div class="info">
+                                        <span class="accent-1">김해빈</span>
+                                        <span>2021-05-10 15:06</span>
+                                    </div>
+                                    <div class="text">
+                                        별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일
+                                        밤을 때 이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                    </div>
+                                    <div class="del">
+                                        <button class="btn btn-xs btn-icon btn-square btn-trash"><i
+                                                class="icon icon-trash"></i></button>
+                                    </div>
+                                    <div class="utility utility-1">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse"
+                                            href="#collapseReply-4"><i class="icon icon-comment-b"></i>답글</button>
+                                    </div>
+                                    <div class="collapse" id="collapseReply-4">
+                                        <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                            <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                                disabled="true"></textarea>
+                                            <div class="profile">
+                                                <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                    alt="영웅">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nested-reply">
+                                    <div class="profile">
+                                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                            alt="영웅">
+                                    </div>
+                                    <div class="info">
+                                        <span class="accent-1">김해빈</span>
+                                        <span>2021-05-10 15:06</span>
+                                    </div>
+                                    <div class="text">
+                                        별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일
+                                        밤을 때 이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                    </div>
+                                    <div class="del">
+                                        <button class="btn btn-xs btn-icon btn-square btn-trash"><i
+                                                class="icon icon-trash"></i></button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="profile">
+                                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                            alt="영웅">
+                                    </div>
+                                    <div class="info">
+                                        <span class="accent-1">김해빈</span>
+                                        <span>2021-05-10 15:06</span>
+                                    </div>
+                                    <div class="text">
+                                        별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일
+                                        밤을 때 이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                    </div>
+                                    <div class="utility utility-1">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse"
+                                            href="#collapseReply-5"><i class="icon icon-comment-b"></i>답글</button>
+                                    </div>
+                                    <div class="collapse" id="collapseReply-5">
+                                        <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                            <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                                disabled="true"></textarea>
+                                            <div class="profile">
+                                                <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                    alt="영웅">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="profile">
+                                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                            alt="영웅">
+                                    </div>
+                                    <div class="info">
+                                        <span class="accent-1">김해빈</span>
+                                        <span>2021-05-10 15:06</span>
+                                    </div>
+                                    <div class="text">
+                                        별빛이 이웃 때 너무나 별 강아지, 토끼, 하나에 거외다. 벌레는 너무나 언덕 잠, 아직 하나의 이런 듯합니다. 까닭이요, 아름다운 다 내일
+                                        밤을 때 이 노루, 듯합니다. 차 같이 위에 가난한 계십니다. 이제 별이 경, 이 하나 다 딴은 까닭입니다.
+                                    </div>
+                                    <div class="utility utility-1">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse"
+                                            href="#collapseReply-6"><i class="icon icon-comment-b"></i>답글</button>
+                                    </div>
+                                    <div class="collapse" id="collapseReply-6">
+                                        <div class="form-group" data-toggle="modal" data-target=".modal-write">
+                                            <textarea class="form-control" placeholder="답글을 입력해 주세요."
+                                                disabled="true"></textarea>
+                                            <div class="profile">
+                                                <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png"
+                                                    alt="영웅">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="item-pagination-more">
+                            <button type="button" class="btn btn-sm btn-default btn-block">댓글 더보기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="board-hr">
+
+            <div class="board-answer-item">
+                <div class="item-summary">
+                    <div class="profile">
+                        <img src="//img.eduwill.net/resources/kin/dev/images/icon_grade_HR.png" alt="영웅">
+                    </div>
+                    <div class="subject"><span class="accent-1">김해빈</span>님의 답변입니다.</div>
+                    <div class="info">
+                        <span>영웅</span>
+                        <span>채택</span>
+                        <span>2021-03-21 21:32</span>
+                    </div>
+                    <div class="info">
+                        <span class="accent-2">지식서포터즈 / 합격자 / 답변왕 / 월간 Top10</span>
+                    </div>
+                </div>
+                <div class="item-text">저도 이런생각 많이들어요 솔직히 네시간 앉아있기도힘들고 외우기가 쉽지않은데...
+                    대단한것같아요</div>
+                <div class="item-mypage">
+                    <div class="name">굿부동산</div>
+                    <p class="t1">30회 직장인 동차 합격자입니다.</p>
+                    <p class="t2">절실함은 모든 걸 뛰어넘습니다.
+                        이해+완벽암기 없이 문제는 풀리지 않습니다.
+                        절실하신 분만 jwt92@naver.com 으로 연락처 주시면 상담드립니다.</p>
+                    <button type="button" class="btn btn-link"><i class="icon icon-home-sm"></i>홈페이지 보기</button>
+                </div>
+                <div class="utility utility-1">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                        href="#collapseComment-a2"><i class="icon icon-comment-b"></i>댓글 1</button>
+                    <button type="button" class="btn btn-link btn-heart"><i class="icon icon-heart"></i>좋아요 10</button>
+                    <button type="button" class="btn btn-link"><i class="icon icon-sharing"></i>공유</button>
+                </div>
+                <div class="utility utility-2">
+                    <button type="button" class="btn btn-xs btn-choose">이 답변을 채택하시겠어요?</button>
+                </div>
+                <div class="utility utility-3">
+                    <button type="button" class="btn btn-xs btn-icon btn-square btn-more" id="dropdownAnswer-1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i
+                                class="icon icon-more"></i></span></button>
+                    <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownAnswer-1">
+                        <ul>
+                            <li><a href="#">수정</a></li>
+                            <li><a href="#">삭제</a></li>
+                            <li><a href="#">신고</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="board-hr">
+
+            <div class="board-answer-item">
+                <div class="item-summary">
+                    <div class="profile">
+                        <img src="//img.eduwill.net/resources/kin/kin_2.0/images/icon/icon-non-disclosure.png" alt="">
+                    </div>
+                    <div class="subject"><span class="light">비공개</span>님의 답변입니다.</div>
+                    <div class="info">
+                        <span>영웅</span>
+                        <span>채택</span>
+                        <span>2021-03-21 21:32</span>
+                    </div>
+                </div>
+                <div class="item-text">저도 이런생각 많이들어요 솔직히 네시간 앉아있기도힘들고 외우기가 쉽지않은데...
+                    대단한것같아요</div>
+                <div class="utility utility-1">
+                    <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                        href="#collapseComment-a3"><i class="icon icon-comment-b"></i>댓글</button>
+                    <button type="button" class="btn btn-link btn-heart-disabled"><i
+                            class="icon icon-heart-disabled"></i>좋아요</button>
+                    <button type="button" class="btn btn-link"><i class="icon icon-sharing"></i>공유</button>
+                </div>
+                <div class="utility utility-2">
+                    <button type="button" class="btn btn-xs btn-choose">이 답변을 채택하시겠어요?</button>
+                </div>
+                <div class="utility utility-3">
+                    <button type="button" class="btn btn-xs btn-icon btn-square btn-more" id="dropdownAnswer-1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><i
+                                class="icon icon-more"></i></span></button>
+                    <div class="dropdown-menu dropdown-menu-board" aria-labelledby="dropdownAnswer-1">
+                        <ul>
+                            <li><a href="#">수정</a></li>
+                            <li><a href="#">삭제</a></li>
+                            <li><a href="#">신고</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap board-view-more">
+            <hr class="board-hr">
+            <div class="title">
+                <span class="accent-2">‘시험’</span> 분야 인기질문
+                <div class="title-more">
+                    <button class="btn btn-link">더보기<i class="icon icon-arrow-link"></i></button>
+                </div>
+            </div>
+            <div class="board-list-box">
+                <ul>
+                    <li>
+                        <div class="subject">전기직 전기이론</div>
+                        <div class="text">안녕하세요 12월부터 공인중개사 시험준비를 계획하고</div>
+                        <div class="info">
+                            <span>조회 983</span>
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="subject">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</div>
+                        <div class="text">안녕하세요 12월부터 공인중개사 시험준비를 계획하고 있읍니다. 그동안 지식인 또는 SNS 후기등으로 나름 공인중개사 공부방법등 파악하고
+                            있는중입니다. 12월 7일 코엑스에서 실시되는 2020 합격전략설명회에는 어떤내용이 포함되어있는지 궁금합니다 이유는 지방(여수)에서 이 설명회를 위해서 상경해야할
+                            필요가 있는지 좀 판단이 잘 서지않습니다.</div>
+                        <div class="info">
+                            <span>조회 983</span>
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="subject">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</div>
+                        <div class="text">안녕하세요 12월부터 공인중개사 시험준비를 계획하고 있읍니다. 그동안 지식인 또는 SNS 후기등으로 나름 공인중개사 공부방법등 파악하고
+                            있는중입니다. 12월 7일 코엑스에서 실시되는 2020 합격전략설명회에는 어떤내용이 포함되어있는지 궁금합니다 이유는 지방(여수)에서 이 설명회를 위해서 상경해야할
+                            필요가 있는지 좀 판단이 잘 서지않습니다.</div>
+                        <div class="info">
+                            <span>조회 983</span>
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <hr class="board-hr">
+            <div class="title">
+                <span class="accent-2">‘시험’</span> 분야 답변을 기다리는 질문
+            </div>
+            <div class="board-list-base">
+                <ul>
+                    <li>
+                        <div class="subject">
+                            <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                        </div>
+                        <div class="text">
+                            <a href="#">9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬
+                                목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는
+                                시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이 너무 오래 걸려서 걱정이 많네요. 국어 한국사에서 시간 줄여서 영어에 써야 한다는데 저는
+                                영어 만큼은 아니더라도 국어도 시간이 부족합니다 그래서 한국사랑 전공 2과목에서 시간을 줄어야 하는데 전기이론하고 전기기기를 몇분</a>
+                        </div>
+                        <div class="info">
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="subject">
+                            <a href="#">올해 시험볼 때 달라지는 법안들은 어디서 확인할 수 있을까요? </a>
+                        </div>
+                        <div class="text">
+                            <a href="#">교재를 보고 있긴한데, 올해 달라지는 부분들이 있을 수 있잖아요~ 혹시 달라지는 부분은 어디서 확인할 수 있을까요~? 교재 정오표를
+                                보면될까요?</a>
+                        </div>
+                        <div class="info">
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="item-pagination-more">
+                    <button type="button" class="btn btn-sm btn-default btn-block">더보기</button>
+                </div>
+            </div>
+
+            <hr class="board-hr">
+            <div class="title">
+                비슷한 질문을 더 준비했어요
+            </div>
+            <div class="board-list-base">
+                <ul>
+                    <li>
+                        <div class="subject">
+                            <a href="#">전기직 전기이론, 전기기기 과목 몇분만에 다 풀어야 할까요?</a>
+                        </div>
+                        <div class="text">
+                            <a href="#">9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬
+                                목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는
+                                시간이9급 지방직 전기직렬 목표로 공부하고 있는데 문제푸는 시간이 너무 오래 걸려서 걱정이 많네요. 국어 한국사에서 시간 줄여서 영어에 써야 한다는데 저는
+                                영어 만큼은 아니더라도 국어도 시간이 부족합니다 그래서 한국사랑 전공 2과목에서 시간을 줄어야 하는데 전기이론하고 전기기기를 몇분</a>
+                        </div>
+                        <div class="info">
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="subject">
+                            <a href="#">올해 시험볼 때 달라지는 법안들은 어디서 확인할 수 있을까요? </a>
+                        </div>
+                        <div class="text">
+                            <a href="#">교재를 보고 있긴한데, 올해 달라지는 부분들이 있을 수 있잖아요~ 혹시 달라지는 부분은 어디서 확인할 수 있을까요~? 교재 정오표를
+                                보면될까요?</a>
+                        </div>
+                        <div class="info">
+                            <span>답변 983</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="item-pagination-more">
+                    <button type="button" class="btn btn-sm btn-default btn-block">더보기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div role="footer" data-include="include/footer_inc.html"></div><!-- include :: footer -->
+
+
+    <!-- modal : 질문하기  -->
+    <div class="modal fade modal-init modal-write">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-header-back">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+                            class="icon icon-arrow-link-dark"></i></button>
+                    <h4 class="modal-title">질문하기</h4>
+                    <button type="button" class="btn btn-sm btn-primary btn-right">등록</button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-box">
+                        <input type="text" class="form-control" placeholder="제목 입력">
+                    </div>
+                    <div id="editor-container">
+                        <!-- <textarea class="form-control" placeholder="궁금한 내용을 질문해 주세요.&#13;&#10;질문 내용에 개인정보가 포함되지 않게 유의하세요.&#13;&#10;(본인/강사 실명, 전화번호 등)"></textarea> -->
+                    </div>
+
+                    <script src="https://cdn.quilljs.com/1.3.4/quill.js"></script>
+                    <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.4/quill.snow.css">
+                    <style>
+                        #editor-container {
+                            height: 170px;
+                            width: 100%;
+
+                        }
+
+                        .ql-toolbar {
+                            margin-top: 10px;
+                        }
+                    </style>
+                    <script>
+                        var quill = new Quill('#editor-container', {
+                            modules: {
+                                toolbar: [
+                                    [{
+                                        header: [1, 2, false]
+                                    }],
+                                    ['bold', 'italic', 'underline'],
+                                    ['image', 'code-block']
+                                ]
+                            },
+                            placeholder: 'Compose an epic...',
+                            theme: 'snow' // or 'bubble'
+                        });
+
+                        quill.on('selection-change', function (range, oldRange, source) {
+                            if (range !== null && oldRange === null) {
+                                console.log('focus');
+                                $(".modal-write").addClass("header-fix-no");
+                            } else {
+                                console.log('blur');
+                                $(".modal-write").removeClass("header-fix-no");
+                            }
+                        });
+                    </script>
+
+                    <div class="input-box input-icon-group">
+                        <input type="text" class="form-control input-icon-right" placeholder="태그입력 (최대 10개)">
+                        <button class="input-button"><i class="icon icon-plus"></i></button>
+                    </div>
+                    <ul class="item-list-tag">
+                        <li>
+                            <span class="txt">Tag 1</span>
+                            <button class="btn btn-link btn-delete">닫기</button>
+                        </li>
+                        <li>
+                            <span class="txt">Tag 2</span>
+                            <button class="btn btn-link btn-delete">닫기</button>
+                        </li>
+                        <li>
+                            <span class="txt">Tag 3</span>
+                            <button class="btn btn-link btn-delete">닫기</button>
+                        </li>
+                    </ul>
+
+                    <div class="board-hr"></div>
+
+                    <div class="input-set">
+
+                        <div class="item">
+                            <div class="text-label">질문유형</div>
+                            <ul class="custom-tabs custom-tabs-fills border">
+                                <li class="active">
+                                    <a href="#label-1" data-toggle="tab" aria-expanded="true">일반질문</a>
+                                    <select class="select-hidden"
+                                        onclick="$(this).parent('li').addClass('active').siblings().removeClass('active')">
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                </li>
+                                <li class="">
+                                    <a href="#label-2" data-toggle="tab" aria-expanded="false">학습질문</a>
+                                    <select class="select-hidden"
+                                        onclick="$(this).parent('li').addClass('active').siblings().removeClass('active')">
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </li>
+                                <li class="">
+                                    <a href="#label-2" data-toggle="tab" aria-expanded="false">실전톡톡</a>
+                                    <select class="select-hidden"
+                                        onclick="$(this).parent('li').addClass('active').siblings().removeClass('active')">
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <div class="item-question">일반질문 > 선택항목</div>
+                        </div>
+                        <div class="item">
+                            <div class="text-label">추가내공</div>
+                            <ul class="custom-tabs custom-tabs-fills border">
+                                <li class=""><a href="#label-3" data-toggle="tab" aria-expanded="true">사용안함</a></li>
+                                <li class="active"><a href="#label-4" data-toggle="tab" aria-expanded="false">사용함</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="label-3"></div>
+                                <div class="tab-pane active" id="label-4">
+                                    <div class="item-grade">
+                                        <div class="grade">보유내공: 36,000</div>
+                                        <div class="input">
+                                            <input class="form-control" value="0">
+                                            <span>점</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="text-label">아이디(별명)</div>
+                            <ul class="custom-tabs custom-tabs-fills border">
+                                <li class="active"><a href="#label-5" data-toggle="tab" aria-expanded="true">공개</a></li>
+                                <li class=""><a href="#label-6" data-toggle="tab" aria-expanded="false">비공개</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="board-hr"></div>
+
+                </div>
+                <div class="text-info">불법 광고, 명예 훼손 등의 사유로 신고된 경우 게시글 숨김처리될 수 있습니다.</div>
+
+            </div>
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</body>
+
+</html>

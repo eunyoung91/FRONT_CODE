@@ -1,0 +1,1294 @@
+<head>
+	<title>에듀윌 채용</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-language" content="kr" />
+	<meta http-equiv="content-style-type" content="text/css" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<!-- mobile settings -->
+	<meta name="viewport"
+		content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta name="copyright" content="(c)2015 에듀윌" />
+	<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+	<meta name="keywords"
+		content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<!-- web fonts -->
+	<link href="https://img.eduwill.net/resources/common/web/css/webfont.css" rel="stylesheet" type="text/css">
+	<!-- core css -->
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/plugins/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" type="text/css" />
+	<!-- swiper slider -->
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/plugins/slider.swiper/dist/css/swiper.min.css"
+		rel="stylesheet" type="text/css" />
+	<!-- theme css -->
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/css/essentials.css" rel="stylesheet"
+		type="text/css" />
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/css/layout.css" rel="stylesheet" type="text/css" />
+
+	<!-- custom css -->
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/css/custom_layout.css" rel="stylesheet"
+		type="text/css" />
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/css/custom_sub.css" rel="stylesheet"
+		type="text/css" />
+	<link href="//img.eduwill.net/resources/recruit/dev/front/css/layout_main.css" rel="stylesheet" type="text/css">
+	<link href="https://img.eduwill.net/resources/recruit/dev/front/css/layout-scss.css" rel="stylesheet"
+		type="text/css">
+	<link href="../css/ui.css" rel="stylesheet" type="text/css" /> <!-- renew 추가 -->
+
+	<!-- javascript files -->
+	<script type="text/javascript">
+		var plugin_path = 'https://img.eduwill.net/resources/recruit/dev/front/plugins/';
+	</script>
+	<script type="text/javascript"
+		src="https://img.eduwill.net/resources/recruit/dev/front/plugins/jquery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="https://img.eduwill.net/resources/recruit/dev/js/scripts.js"></script>
+	<script type="text/javascript" src="https://img.eduwill.net/resources/recruit/dev/js/front-ui.js"></script>
+
+	<!-- swiper slider -->
+	<script type="text/javascript"
+		src="https://img.eduwill.net/resources/recruit/dev/front/plugins/slider.swiper/dist/js/swiper.min.js"></script>
+	<script type="text/javascript" src="https://img.eduwill.net/resources/recruit/dev/js/view/demo.swiper_slider.js">
+	</script>
+
+	<!-- Import slick -->
+	<!-- renew 추가 -->
+	<script src="https://img.eduwill.net/resources/common/web/js/slick/slick.min.js"></script>
+	<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/slick/slick.css">
+
+
+	<script>
+		$(window).load(function () {
+
+			$("#modal-agreeInfo").modal('show');
+
+
+
+		})
+		$(function () {
+
+			$(".slick-url").on('click', function () {
+				let targetUrl = $(this).attr('data-url');
+				$('.modal-video iframe').attr('src', "https://www.youtube.com/embed/" + targetUrl);
+
+			});
+
+			$('.modal-video').on('hidden.bs.modal', function (e) {
+				$('.modal-video iframe').attr('src', "");
+			})
+
+			$('.youtube-slick').on('init', function (event, slick) {
+					$('.text-list li').eq(0).show();
+
+					$(this).append(
+						'<div class="slick-counter"><span class="current"></span><span>/</span><span class="total"></span></div>'
+					);
+					$(this).find('.current').text(slick.currentSlide + 1);
+					$(this).find('.total').text(slick.slideCount);
+
+				})
+				.slick({
+					slidesToShow: 2,
+					slidesToScroll: 1,
+					autoplay: true,
+					autoplaySpeed: 3000,
+					fade: false,
+					infinite: true,
+					dots: false,
+					responsive: [{
+						breakpoint: 1100,
+						settings: {
+							slidesToShow: 1,
+						}
+					}, ]
+				})
+				.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+					$('.text-list li').eq(nextSlide).fadeIn().siblings().hide();
+
+					$(this).find('.current').text(nextSlide + 1);
+				})
+		})
+	</script>
+</head>
+
+<body>
+
+	<!-- wrapper -->
+	<div id="wrapper">
+
+		<div data-idx="150" style="display: none">
+
+			<div class="notice_popup" id="systemNotiLayer">
+				<div class="inn">
+					<div class="po_tit">시스템 정기점검 안내</div>
+					<div class="po_cont">
+						<p class="txt">보다 나은 서비스 제공을 위한<br><strong>시스템 정기점검</strong>을 진행할 예정입니다.</p>
+						<table width="100%">
+							<colgroup>
+								<col width="15%">
+								<col width="85%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>일시</th>
+									<td><strong class="co1" id="preDisplayDate">3.22(수) 오전 1시~5시 (약 4시간)</strong></td>
+								</tr>
+								<tr>
+									<th>내용</th>
+									<td><strong class="co2" id="preDisplayCont">정기점검 시간 중 서비스 및<br>홈페이지 이용 일시
+											중지</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<br>
+						<p class="txt">이용에 불편을 드려 죄송합니다.<br>보다 나은 서비스 제공을 위해 노력하겠습니다.</p>
+					</div>
+					<div class="po_bot">
+						<a href="#" onclick="javascript:closeOneDayAuto('systemNotiLayer');return false;">오늘 하루 안 보기</a>
+						<span>|</span>
+						<a href=""
+							onclick="document.getElementById('systemNotiLayer').style.display='none'; return false;">닫기
+							X</a>
+					</div>
+				</div>
+			</div>
+			<style>
+				.notice_popup {
+					position: absolute;
+					top: 0px;
+					z-index: 1010;
+					margin: 10px 0px 0px 0px;
+					font-family: '맑은고딕', Malgun gothic, Dotum, '돋움';
+					letter-spacing: -1px;
+				}
+
+				.notice_popup .inn {
+					width: 360px;
+					position: absolute;
+					top: 0px;
+					left: 0;
+					background: #fff;
+					border: 2px solid #0a6aa7;
+				}
+
+				.notice_popup .inn .po_tit {
+					height: 67px;
+					background: #0a6aa7;
+					font-size: 24px;
+					color: #fff;
+					font-weight: 600;
+					line-height: 67px;
+					text-align: center
+				}
+
+				.notice_popup .inn .po_cont {
+					padding: 16px;
+				}
+
+				.notice_popup .inn .po_cont .txt {
+					font-size: 14px;
+					color: #666;
+					text-align: center;
+					line-height: 20px;
+				}
+
+				.notice_popup .inn .po_cont .txt strong {
+					color: #000
+				}
+
+				.notice_popup .inn .po_cont table {
+					margin-top: 10px;
+					border: solid 2px #d0d0d0;
+					border-width: 2px 0
+				}
+
+				.notice_popup .inn .po_cont table th,
+				.notice_popup .inn .po_cont table td {
+					font-size: 14px;
+					color: #666;
+					border: solid 1px #d0d0d0;
+					border-width: 1px 0;
+					padding: 7px 0;
+					font-weight: 400;
+					letter-spacing: -1px
+				}
+
+				.notice_popup .inn .po_cont table td .co1 {
+					color: #ee3e00
+				}
+
+				.notice_popup .inn .po_cont table td .co2 {
+					color: #000
+				}
+
+				.notice_popup .inn .po_cont table th {
+					background: #f1f1f1;
+					text-align: center;
+				}
+
+				.notice_popup .inn .po_cont table td {
+					text-align: left;
+					padding-left: 7px
+				}
+
+				.notice_popup .inn .po_bot {
+					height: 28px;
+					background: #eeeeee;
+					text-align: right;
+					padding: 0 8px 0 0
+				}
+
+				.notice_popup .inn .po_bot:after {
+					content: "";
+					display: block;
+					clear: both
+				}
+
+				.notice_popup .inn .po_bot a {
+					line-height: 28px;
+					font-size: 11px;
+					color: #6f6f6f;
+				}
+
+				.notice_popup .inn .po_bot span {
+					color: #6f6f6f;
+					font-size: 10px;
+					padding: 0 3px 0 4px
+				}
+
+				@media screen and (max-width: 400px) {
+					.notice_popup {
+						width: 320px;
+						left: 50%;
+						margin-left: -160px
+					}
+
+					.notice_popup .inn {
+						width: 316px
+					}
+				}
+			</style>
+
+		</div>
+
+
+		<div class="hd-wrap hd-wrap-pc hd-main sticky">
+			<div class="logo">
+				<a class="ci-img" href="./main-v2.html">
+					<i>에듀윌</i>
+					<span>채용</span>
+				</a>
+			</div>
+			<div class="gnb-wrap">
+				<ul>
+					<li>
+						<a href="./sub-1.html" class="tit">에듀윌 소개</a>
+						<ul class="gnb_dep2">
+							<li><a href="./sub-1.html">Value</a></li>
+							<li><a href="./sub-2.html">Business</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="./sub-3.html" class="tit">인사이드 에듀윌</a>
+						<ul class="gnb_dep2">
+							<li><a href="./sub-3.html">Life</a></li>
+							<li><a href="./sub-4.html">People</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="./sub-5.html" class="tit">지원하기</a>
+						<ul class="gnb_dep2">
+							<li><a href="./sub-5.html">채용공고</a></li>
+							<li><a href="./sub-6.html">나의지원서</a></li>
+							<li><a href="./sub-7.html">인재풀등록</a></li>
+							<li><a href="./sub-8.html">강사ㆍ저자풀등록</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="./sub-9.html" class="tit">채용문의</a>
+						<ul class="gnb_dep2">
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="login">
+				<!-- <a href="./login.html">로그인</a> -->
+				<a href="./my_page.html" class="my">내 지원정보</a>
+			</div>
+		</div>
+
+		<div class="hd-wrap hd-wrap-mobile hd-main sticky">
+			<div class="logo">
+				<a class="ci-img" href="./main-v2.html">
+					<i>에듀윌</i>
+					<span>채용</span>
+				</a>
+			</div>
+			<div class="btn-nav">
+				<a href="#" class="menu-trigger">
+					<span></span>
+					<span></span>
+				</a>
+			</div>
+			<div class="nav-wrap">
+				<div class="dim"></div>
+				<div class="gnb-wrap">
+					<ul>
+						<li class="my-wrap">
+							<a href="./sub-6.html" class="tit">내 지원정보</a>
+							<a href="./login.html" class="logout">로그인</a>
+						</li>
+						<li>
+							<a href="#" class="tit depth-down">에듀윌 소개</a>
+							<ul class="gnb_dep2">
+								<li><a href="./sub-1.html">Value</a></li>
+								<li><a href="./sub-2.html">Business</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="tit depth-down">인사이드 에듀윌</a>
+							<ul class="gnb_dep2">
+								<li><a href="./sub-3.html">Life</a></li>
+								<li><a href="./sub-4.html">People</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="tit depth-down">지원하기</a>
+							<ul class="gnb_dep2">
+								<li><a href="./sub-5.html">채용공고</a></li>
+								<li><a href="./sub-7.html">인재풀등록</a></li>
+								<li><a href="./sub-8.html">강사ㆍ저자풀등록</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="./sub-9.html" class="tit">채용문의</a>
+						</li>
+					</ul>
+					<div class="addr">
+						<p>본사 : 서울시 구로구 디지털로34길 55 코오롱싸이언스밸리 2차 310호</p>
+						<p>copyright © (주)에듀윌 All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- // hd-wrap -->
+
+		<!-- container-wrap-->
+		<div class="container-wrap container-main container-main-v2">
+
+			<div class="section-visual">
+				<div class="visual-slick">
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/pc_img_220816.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>일자리 으뜸기업 3회 선정 위업 달성!</dt>
+										<dd>
+											'고객의 꿈, 직원의 꿈, 지역사회의 꿈을 실현'하기 위해 끊임없이 노력해온 에듀윌이<br>
+											양질의 일자리 창출에 기여하나 100대 기업에게 수여하는 '일자리 으뜸기업'으로<br>
+											2019년, 2020년에 이어 올해 세 번째로 선정이 되었습니다.
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://www.fnnews.com/news/202208110912216007" target="_blank"><span>언론 기사
+											보러가기</span></a>
+									<a href="https://youtu.be/qdT8SQyh9jQ" target="_blank"><span>소개 영상 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/mo_img_220816.png)">
+							<div class="section-inner">
+								<div class="text" style="">
+									<dl>
+										<dt>일자리 으뜸기업<br>3회 선정<br>위업 달성!</dt>
+										<dd>
+
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://www.fnnews.com/news/202208110912216007" target="_blank"><span>언론 기사
+											보러가기</span></a>
+									<a href="https://youtu.be/qdT8SQyh9jQ" target="_blank"><span>소개 영상 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/pc_img_z.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>Z세대가 가장 취업하고 싶은 기업!</dt>
+										<dd>
+											에듀윌이 Z세대가 가장 취업하고 싶은 교육기업 1위로 선정되었습니다.<br>
+											※ 20대 남녀 대학생 및 취업준비생 1,021명 대상 설문 by 잡코리아<br><br>
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="http://www.shinailbo.co.kr/news/articleView.html?idxno=1561379"
+										target="_blank"><span>언론 기사
+											보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/mo_img_z.png)">
+							<div class="section-inner">
+								<div class="text" style="">
+									<dl>
+										<dt>Z세대가<br>가장 취업하고<br>싶은 기업!</dt>
+										<dd>
+
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="http://www.shinailbo.co.kr/news/articleView.html?idxno=1561379"
+										target="_blank"><span>언론 기사
+											보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-30th.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>에듀윌이 창립 30주년을 맞았습니다.</dt>
+										<dd>
+											지나온 30년간 우수한 동료들과 함께 눈부신 성장을 거듭한 에듀윌은<br>
+											앞으로의 30년을 바라보며 더 큰 성장을 함께 할 여러분들을 기다리고 있습니다.<br><br>
+
+											<span class="highlight-black">에듀윌과 함께 꿈을 현실로 만드는 여러분을 귀하게 모십니다.</span>
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://recruit.eduwill.net/apply/noti/notiList"><span>채용중인 포지션
+											보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-30th.png)">
+							<div class="section-inner">
+								<div class="text" style="">
+									<dl>
+										<dt>&nbsp;<br>&nbsp;<br>&nbsp;</dt>
+										<dd>
+											- 에듀윌의 다양한 제도 및 직무 체험<br>
+											- 광고, 홍보 콘텐츠 제작 스킬 교육<br>
+											- 모집기간 : 2021-06-11 ~ 2021-06-20
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://recruit.eduwill.net/apply/noti/notiList"><span>채용중인 포지션
+											보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-friends5.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>에듀윌 프렌즈 제 5기 모집</dt>
+										<dd>
+											- 에듀윌의 다양한 제도 및 직무 체험<br>
+											- 광고, 홍보 콘텐츠 제작 스킬 교육<br>
+											- 모집기간 : 2021-06-11 ~ 2021-06-20
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="http://recruit.eduwill.net/apply/friends/friends?gisu=5"><span>에듀윌 프렌즈
+											지원하기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-friends5.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>에듀윌<br>프렌즈<br>제 5기 모집</dt>
+										<dd>
+											- 에듀윌의 다양한 제도 및 직무 체험<br>
+											- 광고, 홍보 콘텐츠 제작 스킬 교육<br>
+											- 모집기간 : 2021-06-11 ~ 2021-06-20
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="http://recruit.eduwill.net/apply/friends/friends?gisu=5"><span>에듀윌 프렌즈
+											지원하기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-aca.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>학원 매니저 신입(인턴) 공개 채용</dt>
+										<dd>
+											- 6개월 인턴 평가 후 정규직 전환<br>
+											- 정규직 전환 후 내부 기준에 따라 주4일 근무제 적용!<br>
+											- 2021년 4월 23일(금) ~ 2021년 05월 02일(일) 까지
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href=""><span>채용공고 보러가기</span></a>
+									<a href=""><span>채용설명회 확인하기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-aca.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>학원 매니저<br>신입(인턴)<br>공개 채용</dt>
+										<dd>
+											- JOB것들을 위한 장성규의 통큰 혜택<br>
+											- 바이럴 마케팅 신입(인턴) 10명 추가 채용<br>
+											- 2021.02.17(수) ~ 2021.02.28(일) 까지<br>
+											- JOB것들아~~~♥ 에듀윌이,,, 응원한다,,,~~~♥♥
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href=""><span>채용공고 보러가기</span></a>
+									<a href=""><span>채용설명회 확인하기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-walkman.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>신입 JOB것들 모두 모여!</dt>
+										<dd>
+											- JOB것들을 위한 장성규의 통큰 혜택<br>
+											- 바이럴 마케팅 신입(인턴) 10명 추가 채용<br>
+											- 2021.02.17(수) ~ 2021.02.28(일) 까지<br>
+											- JOB것들아~~~♥ 에듀윌이,,, 응원한다,,,~~~♥♥
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href=""><span>채용공고 보러가기</span></a>
+									<a href=""><span>에듀윌<i class="text-x">&times;</i>워크맨 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-walkman.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>신입<br>JOB것들<br>모두 모여!</dt>
+										<dd>
+											- JOB것들을 위한 장성규의 통큰 혜택<br>
+											- 바이럴 마케팅 신입(인턴) 10명 추가 채용<br>
+											- 2021.02.17(수) ~ 2021.02.28(일) 까지<br>
+											- JOB것들아~~~♥ 에듀윌이,,, 응원한다,,,~~~♥♥
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href=""><span>채용공고 보러가기</span></a>
+									<a href=""><span>에듀윌<i class="text-x">&times;</i>워크맨 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-7.jpg)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>에듀윌 프렌즈 제 4기 모집</dt>
+										<dd>
+											- 에듀윌의 다양한 제도 및 직무 체험<br>
+											- 광고, 홍보 콘텐츠 제작 스킬 교육<br>
+											- 모집기간 : 1/4(월) ~ 1/17(일)
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://recruit.eduwill.net/apply/friends/friends?gisu=4"><span>에듀윌 프렌즈
+											지원하기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-07@3x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>에듀윌<br>프렌즈<br>제 4기 모집</dt>
+										<dd>
+											- 에듀윌의 다양한 제도 및 직무 체험
+											- 광고, 홍보 콘텐츠 제작 스킬 교육
+											- 모집기간 : 1/4(월) ~ 1/17(일)
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="https://recruit.eduwill.net/apply/friends/friends?gisu=4"><span>에듀윌 프렌즈
+											지원하기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-1.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>We need people like YOU.</dt>
+										<dd>
+											자신의 일을 좋아하는 당신<br>
+											깊게 몰입해본 경험이 있는 당신<br>
+											일을 통해 더 성장하길 기대하는 당신<br>
+											열정이 넘치되 배려하는 마음을 가진 당신<br><br>
+
+											그리고, 위대한 것을 만들기 위해 모험을 두려워하지 않는<br>
+											당신이 있어야 할 자리는 에듀윌입니다.
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-5.html"><span>채용중인 포지션 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-01@3x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>We need<br>people<br>like YOU.</dt>
+										<dd>
+											자신의 일을 좋아하는 당신<br>
+											깊게 몰입해본 경험이 있는 당신<br>
+											일을 통해 더 성장하길 기대하는 당신<br>
+											열정이 넘치되 배려하는 마음을 가진 당신<br><br>
+
+											그리고, 위대한 것을 만들기 위해 모험을 두려워하지 않는<br>
+											당신이 있어야 할 자리는 에듀윌입니다.
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-5.html"><span>채용중인 포지션 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-2.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>Wow! Simple, Fast</dt>
+										<dd>
+											- 고객의 기대를 뛰어넘는 '와우' 경험을 추구합니다.<br>
+											- 단순하게 하되, 본질에 충실합니다.<br>
+											- 빠르게 시도하고, 즉시 실행합니다.
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-1.html"><span>에듀윌 가치체계 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-02@2x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>Wow!<br>Simple,<br>Fast</dt>
+										<dd>
+											- 고객의 기대를 뛰어넘는 '와우' 경험을 추구합니다.<br>
+											- 단순하게 하되, 본질에 충실합니다.<br>
+											- 빠르게 시도하고, 즉시 실행합니다.
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-1.html"><span>에듀윌 가치체계 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-4.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>꿈의 직장을 만들어갑니다</dt>
+										<dd>
+											- 업계 최초, 주 4일 근무제 실시<br>
+											- 시차 출퇴근제 도입<br>
+											- 집중휴식 시간 도입
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=0"><span>Culture 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-04@2x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>꿈의 직장을<br>만들어<br>갑니다</dt>
+										<dd>
+											- 업계 최초, 주 4일 근무제 실시<br>
+											- 시차 출퇴근제 도입<br>
+											- 집중휴식 시간 도입
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=0"><span>Culture 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-5.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>임직원의 성장과 계발을 지원합니다</dt>
+										<dd>
+											- 신규입사자 N.E.X.T 교육 진행<br>
+											- Do Dream 교육 실시<br>
+											- 리더 교육 실시<br>
+											- 사내벤처제도 실시
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=8"><span>Growth 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-05@2x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>임직원의<br>성장과 계발을<br>지원합니다</dt>
+										<dd>
+											- 신규입사자 N.E.X.T 교육 진행<br>
+											- Do Dream 교육 실시<br>
+											- 리더 교육 실시<br>
+											- 사내벤처제도 실시
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=8"><span>Growth 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-6.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>최상의 근무환경을 제공합니다</dt>
+										<dd>
+											- 사내 안마실 힐링큐브 운영<br>
+											- 심리 상담소 마음, 쉼 운영<br>
+											- 에듀윌 역 운영 <br>
+											- 다양한 포상제도 실시
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=14"><span>Benefit 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-06@2x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>최상의<br>근무환경을<br>제공합니다</dt>
+										<dd>
+											- 사내 안마실 힐링큐브 운영<br>
+											- 심리 상담소 마음, 쉼 운영<br>
+											- 에듀윌 역 운영 <br>
+											- 다양한 포상제도 실시
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-3.html?slickNo=14"><span>Benefit 보러가기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="visual-list">
+						<!-- rolling -->
+
+						<div class="bg scr-pc"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/img-top-3.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>꿈을 현실로 만드는 사람들</dt>
+										<dd>
+											- 서로를 신뢰하고 서로에게 도전하는 사람들<br>
+											- 다르게 생각하고 과감하게 실행하는 사람들<br>
+											- 함께 고민하고 기꺼이 도움을 주고받는 사람들
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-4.html"><span>에듀윌러 인터뷰 보기</span></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="bg scr-m"
+							style="background-image:url(//img.eduwill.net/resources/recruit/dev/front_renew/images/main/m-img-top-03@2x.png)">
+							<div class="section-inner">
+								<div class="text">
+									<dl>
+										<dt>꿈을 현실로<br>만드는<br>사람들</dt>
+										<dd>
+											- 서로를 신뢰하고 서로에게 도전하는 사람들<br>
+											- 다르게 생각하고 과감하게 실행하는 사람들<br>
+											- 함께 고민하고 기꺼이 도움을 주고받는 사람들
+										</dd>
+									</dl>
+								</div>
+								<div class="link">
+									<a href="./sub-4.html"><span>에듀윌러 인터뷰 보기</span></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="section section-recruit2">
+				<div class="section-inner">
+					<div class="section-tit">
+						<strong>꿈을 현실로 만드는 여러분을 기다립니다.</strong>
+					</div>
+					<ul>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>IT</strong>
+							<span>모집중<em>36</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>교육콘텐츠 기획/운영</strong>
+							<span>모집중<em>7</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>마케팅</strong>
+							<span>모집중<em>3</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>디자인</strong>
+							<span>모집중<em>7</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>교재개발/출판</strong>
+							<span>모집중<em>36</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>경영지원</strong>
+							<span>모집중<em>7</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>학점은행사업</strong>
+							<span>모집중<em>36</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>학원/국비사업</strong>
+							<span>모집중<em>7</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>영업</strong>
+							<span>모집중<em>36</em></span>
+						</li>
+						<li onclick="location.href='./sub-5.html'">
+							<strong>고객/서비스</strong>
+							<span>모집중<em>7</em></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section section-pool">
+				<div class="section-inner">
+					<div class="section-tit">
+						<strong>인재POOL에 지원서를 저장해 주세요.<br>꼭 맞는 직무 채용 시, <br class="scr-m">우선순위로 연락드리겠습니다.</strong>
+					</div>
+					<div class="btnarea">
+						<a href="" class="btn-1"><span>인재풀 등록</span></a>
+						<a href="" class="btn-2"><span>강사/저자풀 등록</span></a>
+						<a href="" class="btn-3"><span>채용공고 알림 신청</span></a>
+					</div>
+				</div>
+			</div>
+			<div class="section section-youtube">
+				<div class="section-inner">
+					<div class="section-tit">
+						<strong>What’s NEW! eduwill</strong>
+					</div>
+					<div class="youtube-slick">
+						<div data-toggle="modal" data-target=".modal-video" data-url="gS8RpXbz2bY" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/gS8RpXbz2bY/sddefault.jpg"></div>
+						</div>
+						<div data-toggle="modal" data-target=".modal-video" data-url="Ozth6WDouwA" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/Ozth6WDouwA/sddefault.jpg"></div>
+						</div>
+						<div data-toggle="modal" data-target=".modal-video" data-url="iKrYRR5ckSE" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/iKrYRR5ckSE/sddefault.jpg"></div>
+						</div>
+						<div data-toggle="modal" data-target=".modal-video" data-url="LV71WOfhD_g" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/LV71WOfhD_g/sddefault.jpg"></div>
+						</div>
+
+						<div data-toggle="modal" data-target=".modal-video" data-url="D4wZykpSDvY" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/D4wZykpSDvY/sddefault.jpg"></div>
+						</div>
+						<div data-toggle="modal" data-target=".modal-video" data-url="rEX83PFA7CI" class="slick-url">
+							<!-- rolling -->
+							<div><img src="https://img.youtube.com/vi/rEX83PFA7CI/sddefault.jpg"></div>
+						</div>
+					</div>
+					<div class="text-list">
+						<div class="more">
+							<a href="">더보기</a>
+						</div>
+						<ul>
+							<li>
+								<div class="tit">예비 공인중개사 3,000여명이<br>
+									모인 사연은?!</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									그누구도 따라올 수 없는 규모로<br>
+									매해 역사를 새로 써나아가고 있는<br>
+									2021 에듀윌 공인중개사 합격자모임!<br>
+									3,000여명이 모인 그 현장으로 함께 가볼까요?!
+								</div>
+							</li>
+							<li>
+								<div class="tit">[충격주의] 에듀윌이 워라벨로<br>
+									인정받는 이유는?!</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									워라벨하면 빼놓을 수 없는 회사, 에듀윌!<br>
+									에듀윌이 워라밸과 관련해 무려 3관왕 수상!<br>
+									에듀윌이 워라밸로 인정받는 이유는?!
+								</div>
+							</li>
+							<li>
+								<div class="tit">에듀윌 30년,<br>
+									함께한 분들 찾습니다.</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									에듀윌의 30년을 함께한 분들을 찾습니다!!!<br>
+									에듀윌이 이렇게 공개수배를 하게 된 이유는?!<br>
+									궁금하다면 영상에서 확인하세요!
+								</div>
+							</li>
+							<li>
+								<div class="tit">만약 주 4일 일한다면?<br>
+									수요일vs금요일</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									만약 주 4일 일하게 된다면?<br>
+									중간에 한번 쉬는 수요일 vs 매주 연휴 느낌의 금요일<br>
+									ps. 저는 월요병이 없어요♥ from.월요일 휴무자
+								</div>
+							</li>
+							<li>
+								<div class="tit">직장인 A씨, <br>
+									회사에서 명상을 하는 이유는?</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									바쁘다 바빠! 쌓여만 가는 업무 스트레스, <br>
+									스트레스를 건강하게 해소하는 방법이 있다고?<br>
+
+									에듀윌은 직원들을 위한 특별한 프로그램을 진행 중!<br>
+									영상으로 확인해 보세요(●ˇ∀ˇ●)
+								</div>
+							</li>
+							<li>
+								<div class="tit">취준생들의 성지가 떴다! <br>
+									이곳의 정체는?</div>
+								<div class="logo">Youtube</div>
+								<div class="text">
+									취준생들 모두 집합!!!<br>
+									중견기업에 대한 정보들과 역량 강화를 위한<br> 다양한 프로그램을 제공하는 취준생들의 성지가 떴다!<br>
+
+									자세한 내용은 영상으로 확인하세요!
+								</div>
+							</li>
+						</ul>
+
+
+
+					</div>
+				</div>
+			</div>
+			<div class="section section-inside" onclick="location.href='./sub-3.html';">
+				<div class="section-inner">
+					<div class="section-tit">
+						<strong>Inside eduwill</strong>
+					</div>
+					<p><span>주4일 근무제, 사내 안마서비스</span> 등 에듀윌이 <br class="scr-m">만들어가는 새로운 기업문화와 함께하세요.</p>
+				</div>
+			</div>
+			<div class="section section-zoom">
+				<div class="section-inner">
+					<div class="section-tit">
+						<strong>Zoom in eduwill</strong>
+					</div>
+					<p>꿈을 현실로 만드는 에듀윌에 대한 모든 것!</p>
+					<div class="btnarea">
+						<a href="">에듀윌 홈페이지</a>
+						<a href="">회사 연혁 보기</a>
+						<a href="">수상 및 인증</a>
+						<a href="">사업분야</a>
+						<a href="">사회공헌</a>
+					</div>
+				</div>
+			</div>
+			<div class="section section-notify">
+				<div class="section-inner">
+					<label>채용공고 알림신청</label>
+					<div class="input-form">
+						<input type="text" class="form-control" placeholder="회원가입 후 이용해주세요.">
+						<select class="form-control">
+							<option>분야선택</option>
+						</select>
+						<select class="form-control">
+							<option>직무선택</option>
+						</select>
+						<a href="" class="btn"><span>신청</span></a>
+					</div>
+					<div class="check-form">
+						<label class="checkbox">
+							<input type="checkbox"><i></i>개인정보 수집 및 이용 동의 (필수)
+						</label>
+						<a href="#" data-toggle="modal" data-target=".modal-agree" class="btn">자세히보기 </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // container-wrap -->
+
+		<!-- 유튜브 -->
+		<div class="modal fade modal-init modal-video">
+			<div class="modal-dialog">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+						class="icon icon-close-lg-w"></i></button>
+				<iframe width="790" height="444" src="" title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen=""></iframe>
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<!-- 개인정보 수집 및 이용동의 -->
+		<div class="modal fade modal-init modal-agree">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+								class="icon icon-close-lg"></i></button>
+						<h4 class="modal-title">개인정보 수집 및 이용동의</h4>
+					</div>
+					<div class="modal-body">
+						<div class="text-box">
+							<ul>
+								<li>
+									<dl>
+										<dt>1. 개인정보 수집 및 이용목적</dt>
+										<dd>- 관심 채용공고 알림발송</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>2. 수집하는 개인정보의 항목</dt>
+										<dd>- 이메일 주소, 관심 분야, 관심 직무</dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>3. 개인정보의 보유 및 이용 기간</dt>
+										<dd>- 수집한 개인정보는 <strong>구독 취소 또는 이메일
+												수신을 거부하기 전까지</strong> 보관됩니다.</dd>
+										<dd>
+											- 구독 취소 또는 이메일 수신 거부한 경우
+											해당 요청 시점으로 부터 5 영업일 이내
+											파기</dd>
+									</dl>
+								</li>
+							</ul>
+							<p>※ 상기 개인정보 수집 및 이용을 거부할 수 있으나, 거부 시 채용공고 알림을 받아보실 수 없습니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 개인정보 처리방침 변경 안내 -->
+		<div class="modal fade modal-init modal-agree" id="modal-agreeInfo">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+								class="icon icon-close-lg"></i></button>
+						<h4 class="modal-title">개인정보 처리방침 변경 안내</h4>
+					</div>
+					<div class="modal-body">
+						<div class="text-box">
+							에듀윌 채용을 이용해주시는 지원자 여러분께 감사드리며,
+							아래와 같이 개인정보처리방침이 변경됨을 알려드립니다.<br>
+							에듀윌은 지원자 여러분의 개인정보 보호에 최선을 다하고 있습니다.<br>
+							관련하여 궁금하신 점이나 소중한 의견은 언제든지 연락주시면 안내해 드리겠습니다.<br>
+							감사합니다.<br><br>
+
+							- 시행일자 : <strong>2023년 1월 13일</strong><br><br>
+
+							<strong>[주요 변경 내용]</strong><br><br>
+
+							1) "10. 개인정보 보호책임자" 내용 변경<br>
+
+							성명 : <del>한광일</del> 이용인<br>
+							소속 : <del>IT서비스본부</del> IT부문<br><br>
+
+							2) "11. 개인정보 관련 의견 수렴 및 불만처리" 내용 변경<br>
+
+							- 개인정보침해신고센터 : <del>118 / <a
+									href="https://privacy.kisa.or.kr/main.do">privacy.kisa.or.kr</a></del> (국번없이) 118
+							(<a href="https://privacy.kisa.or.kr/main.do">privacy.kisa.or.kr</a>)<br>
+							- 대검찰청 사이버범죄수사센터 : <del>1301 / <a
+									href="https://www.spo.go.kr/site/spo/main.do">www.spo.go.kr</a></del> (국번없이) 1301
+							(<a href="https://www.spo.go.kr/site/spo/main.do">www.spo.go.kr</a>)<br>
+							- 경찰청 사이버안전국 : <del>182 / <a href="http://www.ctrc.go.kr/">www.ctrc.go.kr</a></del> (국번없이)
+							182 (<a href="https://ecrm.police.go.kr/minwon/main">ecrm.cyber.go.kr</a>)<br>
+							- 개인정보분쟁조정위원회 : <del>02-2100-2499 / <a
+									href="https://www.kopico.go.kr/main/main.do">www.kopico.go.kr</a></del> (국번없이)
+							1833-6972 (<a href="https://www.kopico.go.kr/main/main.do">www.kopico.go.kr</a>)
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- footer -->
+		<div class="img-footer">
+			<div></div>
+		</div>
+		<!-- // footer -->
+
+	</div>
+	<!-- // wrapper -->
+</body>
+
+</html>

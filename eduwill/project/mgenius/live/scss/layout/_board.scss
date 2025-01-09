@@ -1,0 +1,149 @@
+.section-board {    
+    background-color: $color-White;   
+    ul {
+        li {
+            position: relative;
+            border-bottom: solid 1px $color-Light;
+            a {
+                display: block;
+                padding:  16px 20px;
+            }
+            .checkbox {
+                & + a {
+                    width: calc(100% - 80px);
+                }
+                padding-left: 0;
+                position: absolute; top: 50%; right: 20px;
+                @include translateY(-50%);
+                label {
+                    width: 32px;
+                    height: 32px;
+                    padding-left: 0;
+                }
+                i + span {
+                    @include font-size-color-weight($typo-size-14, $color-Dark, 600);
+                    line-height: 24px;
+                    margin-left: 0;
+                }
+                i {
+                    width: 32px; height: 32px;
+                    border-radius: 16px;
+                    position: absolute; top: 50%; left: 0;
+                    @include translateY(-50%);
+                    @include background-name-ext-repeat-poistion('icon-check-apprv-off', svg, no-repeat, 50% 50%);
+                }
+                input[type="checkbox"]:checked + i {
+                    @include background-name-ext-repeat-poistion('icon-check-apprv-on', svg, no-repeat, 50% 50%);
+                    background-color: #edf0ff;
+                }
+            }
+            .tag {
+                margin-left: -2px;
+                margin-bottom: 7px;
+                span {
+                    margin: 1px 2px 2px;
+                }
+            }
+            .text {
+                @include font-size-color-weight($typo-size-16, $color-Dark, 600);
+                line-height: 23px;
+            }
+            .info {
+                margin-top: 8px;
+                span {
+                    @include font-size-color-weight($typo-size-12, $color-Medium, 400);
+                    margin-left: 0;
+                    margin-right: 13px;
+                    line-height: 21px;
+                    position: relative;
+                    &:before {
+                        @include contentReset();
+                        width: 1px; height: 10px;
+                        background-color: $color-Light;
+                        position: absolute; top: 50%; left: -9px;
+                        @include translateY(-50%);
+                    }
+                    &:first-child:before {
+                        display: none;
+                    }
+                }
+            }
+            .icon-notify,
+            .icon-challenge {
+                position: absolute; top: 10px; right: 20px;
+            }
+            &.highlight {
+                background-color: #fff4f4;
+                padding-right: 54px;
+            }
+            &.challenge {
+                padding-right: 54px;
+            }
+            // &.visited a, 
+            // &.visited .text, 
+            // &.visited .info,
+            // &.visited .info span,
+            // & a:visited .text,
+            // & a:visited .info,
+            // & a:visited .text span {
+            //     color: #888;
+            // }
+
+            &.visited a, 
+            &.visited .text, 
+            &.visited .info,
+            &.visited .info span {
+                color: #888;
+            }
+        }
+    }
+    .nodata {
+        padding: 2px 24px 24px;
+        
+        p {
+            text-align: center;
+            padding: 22px;
+            @include font-size-color-weight($typo-size-16, $color-Medium, 400);
+            line-height: 19px;
+            border-radius: 8px;
+            background-color: $color-Bg-Disabled;
+        }
+    }
+}
+
+.paging {
+    min-height: 40px;
+    text-align: center;
+    margin-top: 16px;
+    position: relative;
+    padding: 10px 0 0 0;
+    strong, em, span {
+        display: inline-block;
+        min-width: 16px;
+        line-height: 20px;
+    }
+    strong {
+        @include font-size-color-weight($typo-size-14, #365cff, 600);
+    }
+    em {
+        @include font-size-color-weight($typo-size-14, #d0d0d0, 400);
+        margin: 0 6px 0 2px;
+        min-width: auto;
+    }
+    span {
+        @include font-size-color-weight($typo-size-14, $color-Medium, 600);
+    }
+
+    .btn {
+        min-width: 48px;
+        padding: 0;
+        font-weight: 600;
+        position: absolute; top: 0;
+        &-prev {
+            left: 16px;
+        }
+        &-next {
+            right: 16px;
+        }
+    }
+}

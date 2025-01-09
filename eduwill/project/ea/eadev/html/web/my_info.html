@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="content-language" content="kr" />
+	<title>회원가입</title>
+	<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/ea/eadev/css/common.css" />
+	<script type="text/javascript" src="//img.eduwill.net/resources/ea/eadev/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="//img.eduwill.net/resources/ea/eadev/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('input[name="join_pwd"]').focus(function () {
+				$(this).prop('type', 'password').val('');
+			});
+
+			// 비밀번호작성규칙 레이어
+			$('.pwd_rule').click(function () {
+				$('.rule_layer').show();
+				return false;
+			});
+			$('.close_layer').click(function () {
+				$('.rule_layer').hide();
+				return false;
+			});
+		});
+	</script>
+</head>
+
+
+<body>
+	<div id="wrap-login">
+
+		<header>
+			<h1>
+				<img src="//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg" alt="">
+			</h1>
+		</header>
+
+		<!-- CONTAINER -->
+		<div id="container">
+			<!-- CONTENT -->
+			<div id="content">
+
+				<div class="g_content join">
+
+					<div class="join_item">
+						<h2 class="hidden">회원정보수정</h2>
+						<div class="join_section">
+							<!--p class="msg_a">에듀윌 회원가입을 하시면 하나의 아이디와 비밀번호로 더 많은 혜택과 서비스를<br />안전하게 이용할 수 있습니다.</p-->
+
+							<div class="member_info">
+								<h3>회원정보수정</h3>
+								<div class="tbl_section">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<caption>필수정보 입력하기</caption>
+										<colgroup>
+											<col width="120px" />
+											<col width="*" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row">이름</th>
+												<td>박지혜(여)</td>
+											</tr>
+											<tr>
+												<th scope="row">아이디</th>
+												<td>abscdke54</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="joinPwd">비밀번호</label></th>
+												<td>
+													<input type="text" id="joinPwd" name="join_pwd" class="g_input"
+														placeholder="영문,숫자, 특수문자를 조합하여 6~12자 내외로 작성"
+														style="width:427px;" />
+													<a href="#" class="g_btn_c pwd_rule">비밀번호규칙</a>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="joinPwd2">비밀번호확인</label></th>
+												<td>
+													<input type="password" id="joinPwd2" name="" class="g_input"
+														placeholder="" style="width:427px;" />
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="joinEmail">이메일주소</label></th>
+												<td>
+													<div class="form_group">
+														<input type="text" id="joinEmail" name="" class="g_input"
+															placeholder="" style="width:140px;" /> <span>@</span>
+														<input type="text" id="" name="" class="g_input"
+															placeholder="" />
+														<select name="" id="" class="g_select" style="min-width:100px;">
+															<option value="직접입력">직접입력</option>
+															<option value="">naver.com</option>
+															<option value="">daum.net</option>
+															<option value="">hanmail.net</option>
+															<option value="">nate.com</option>
+															<option value="">gmail.com</option>
+															<option value="">hotmail.com</option>
+															<option value="">yahoo.co.kr</option>
+														</select>
+														<!--a href="#" class="g_btn_c">인증번호</a-->
+														<!-- 해외 거주자 일 때 이메일인증버튼 노출 -->
+													</div>
+													<p>각종 유용한 정보 제공을 위한 정보입니다.</p>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="joinPhone">휴대전화</label></th>
+												<td>
+													<div class="form_group">
+														<input type="text" id="joinPhone" name="" class="g_input"
+															placeholder="" style="width:130px;" maxlength="3" />
+														<input type="text" id="" name="" class="g_input" placeholder=""
+															style="width:130px;" maxlength="4" />
+														<input type="text" id="" name="" class="g_input" placeholder=""
+															style="width:130px;" maxlength="4" />
+													</div>
+												</td>
+											</tr>
+											<tr class="botb">
+												<th scope="row">주소</th>
+												<td>
+													<div class="form_group">
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="width:300px;" /><a href="#"
+															class="g_btn_c" style="margin-left:10px;">우편번호검색</a>
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="margin-top:10px; width:447px;" />
+														<input type="text" id="join_id" name="" class="g_input"
+															placeholder="" style="margin-top:10px; width:447px;" />
+													</div>
+													<p>교재 및 경품 수령을 위한 정보입니다.</p>
+												</td>
+											</tr>
+											<tr class="topb botb">
+												<th scope="row">마케팅정보<br>수신 동의<br>
+													<a href="#" class="g_btn_g btn_sm"
+														onclick="$('#modal-privacy-2').fadeIn(200); return false;">내용보기</a>
+												</th>
+												<td>
+													<div class="control_row">
+														<p class="text">우대서비스,혜택,경품&이벤트 정보 이메일 받기</p>
+														<div class="controls">
+															<input type="radio" name="marketing_email_agree"
+																id="marketing_email_y" /> <label
+																for="marketing_email_y">수신</label>
+															<input type="radio" name="marketing_email_agree"
+																id="marketing_email_n" /> <label
+																for="marketing_email_n">수신안함</label>
+														</div>
+													</div>
+													<div class="control_row">
+														<p class="text">우대서비스,혜택,경품&이벤트 정보 SMS 받기</p>
+														<div class="controls">
+															<input type="radio" name="marketing_sms_agree"
+																id="marketing_sms_y" /> <label
+																for="marketing_sms_y">수신</label>
+															<input type="radio" name="marketing_sms_agree"
+																id="marketing_sms_n" /> <label
+																for="marketing_sms_n">수신안함</label>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr class="topb botb">
+												<th scope="row">휴면회원<br>전환 기간</th>
+												<td>
+													<div class="control_col">
+														<p class="text">에듀윌 회원가입 후, 선택한 기간 동안 로그인 기록이 없으면 휴면회원으로
+															전환되어<br>개인정보를 분리 저장·관리 또는 파기하게 됩니다.</p>
+														<div class="controls">
+															<input type="radio" name="change_agree"
+																id="change_agree_1" /> <label
+																for="change_agree_1">탈퇴시</label>
+															<input type="radio" name="change_agree"
+																id="change_agree_2" /> <label
+																for="change_agree_2">5년</label>
+															<input type="radio" name="change_agree"
+																id="change_agree_3" /> <label
+																for="change_agree_3">1년</label>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
+									<!-- 비밀번호작성규칙 레이어 -->
+									<div class="rule_layer">
+										<dl>
+											<dt>비밀번호 작성규칙</dt>
+											<dd>
+												- 비밀번호는 반드시 영문, 숫자, 특수문자를 조합하여 최소 6자 이상 ~12자내외로<br />
+												&nbsp;&nbsp;&nbsp;구성해 주십시오. (사용가능 특수문자 : !, #)<br /><br />
+												- 생년월일, 학번, 전화번호 또는 연속된 숫자 및 문자, 사전에 포함된 잘 알려진 단어 등<br />
+												&nbsp;&nbsp;&nbsp;타인이 쉽게 알아낼 수 있는 비밀번호 사용은 위험합니다.<br /><br />
+												- 비밀번호는 비밀번호 복잡도에 따라 3~6개월에 한번씩 주기적으로 바꾸어<br />
+												&nbsp;&nbsp;&nbsp;사용하시는 것이 안전합니다.
+											</dd>
+										</dl>
+										<div class="close_layer">
+											<a href="#"><img
+													src="https://img.eduwill.net/Img2/Common/Join/new/btn_close.png"
+													alt="닫기" /></a>
+										</div>
+									</div>
+									<!-- // 비밀번호작성규칙 레이어 -->
+								</div>
+							</div>
+						</div>
+						<!-- // join_section -->
+
+						<div class="btn_secede"
+							style="position:relative; text-align:right; top:-20px; margin-bottom:-30px;">
+							<a href="#" class="g_btn_j">회원탈퇴</a>
+						</div>
+
+						<!-- 네이버 오픈 아이디 연동 2018-05-10 -->
+						<div class="openId_section">
+							<h3>간편 로그인 설정</h3>
+							<div class="tbl_section">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<caption>간편 로그인 설정</caption>
+									<colgroup>
+										<col width="33%" />
+										<col width="33%" />
+										<col width="33%" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>구분</th>
+											<th>로그인 연동 일시</th>
+											<th>계정 관리</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><i class="ico naver">네이버</i></td>
+											<td>2018-05-04 12:00</td>
+											<td>
+												<a href="#" class="g_btn_c">연동하기</a>
+												<a href="#" class="g_btn_g">해제하기</a>
+											</td>
+										</tr>
+										<tr>
+											<td><i class="ico kakao">카카오</i></td>
+											<td>2018-05-04 12:00</td>
+											<td>
+												<a href="#" class="g_btn_c">연동하기</a>
+												<a href="#" class="g_btn_g">해제하기</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- // 네이버 오픈 아이디 연동 2018-05-10 -->
+						<!-- // openId_section -->
+
+						<div class="btn_group">
+							<a href="#" class="g_btn_h">취소</a>
+							<a href="#" class="g_btn_a">확인</a>
+						</div>
+					</div>
+					<!-- // join_item -->
+
+				</div>
+				<!-- // g_content -->
+			</div>
+			<!-- //CONTENT -->
+		</div>
+		<!-- //CONTAINER -->
+
+
+	</div>
+	<!-- // WRAP -->
+
+
+	<div class="modal fade modal-privacy" id="modal-privacy-2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h3 class="modal-title">
+						<span class="logo">
+							<img src="//img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg" alt="">
+						</span>
+						마케팅정보 수신 동의
+					</h3>
+					<button type="button" class="close" data-dismiss="modal"
+						onclick="$(this).parents('.modal').fadeOut(200); return false;"><i
+							class="icon icon-x"></i></button>
+				</div>
+
+				<!-- Modal Body -->
+				<div class="modal-body">
+					<div class="term-title">[선택] 이벤트, 상품, 시험 등 혜택/정보 수신 동의</div>
+					<div class="term-box">
+						<table>
+							<tbody>
+								<tr>
+									<th>수집 및 이용 목적</th>
+									<td>에듀윌이 제공하는 다양한 이벤트, 상품, 설명회, 시험, 연관 교육 과정 안내 및 자격증 취득에 필요한 정보 제공</td>
+								</tr>
+								<tr>
+									<th>수집항목</th>
+									<td>이름, 휴대전화번호, 이메일주소</td>
+								</tr>
+								<tr>
+									<th>보유 및 이용기간</th>
+									<td><span class="under">회원탈퇴 또는 수신 동의 철회 시 까지</span></td>
+								</tr>
+								<tr>
+									<th>동의거부권 및 불이익</th>
+									<td>본 동의는 거수하실 수 있습니다. 다만 거부 시 동의를 통해 제공 가능한 각종 우대 서비스, 혜택, 경품 및
+										이벤트 안내를 받아 보실 수 없습니다.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<a href="#" class="g_btn_a" onclick="$(this).parents('.modal').fadeOut(200); return false;">닫기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

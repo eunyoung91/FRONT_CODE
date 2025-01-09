@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		
+		<div id="content" class="padding-20"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">평가</a>
+					<a href="#">목표수립</a>
+					<a href="#">업적목표</a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="/objective/achievement">
+						<label for="toyear" class="width-100 text-center weight-800">연도</label>
+						<select name="toyear" id="toyear" class="form-control width-100">
+						<option value="2021" selected="">2021</option><option value="2019">2019</option><option value="2018">2018</option></select>
+						<select name="dept_idx" id="dept_idx" class="form-control">
+						<option value="239" selected="">플랫폼개발2팀</option></select>
+						<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+						<input type="hidden" name="type_cd" id="type_cd" value="SC002">
+						
+					</form>
+				</div>
+			</div>
+			
+			<!-- 탭 -->
+			<div class="container section-tab nopadding margin-top-9">
+				<div class="wrap">
+					<ul class="nav nav-tabs">
+						
+						<li data-type_cd="SC002" class="active"><a href="javascript:;">연간(1월~12월)</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<!-- 탭 내용 -->
+			<div id="divTabBody">
+		
+		
+		<div class="container section-objective nopadding panel panel-light">
+			<div class="panel-body">
+				<div class="tab-content">
+					<div id="ttab1l_nobg" class="tab-pane active">
+						<form name="frmObjective" id="frmObjective" method="post" action="">
+							<input type="hidden" name="ass_idx" value="">
+							<input type="hidden" name="toyear" value="2021">
+							<input type="hidden" name="dept_idx" value="239">
+							<input type="hidden" name="type_cd" value="SC002">
+							
+							<div class="table-responsive table-basic">
+								
+									<table cellpadding="0" cellspacing="0" class="table table-bordered table-row margin-bottom-20" summary="소속, 직책, 이름, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표" style="width: 600px; float: right; font-size: 13px;">
+										<caption>기본정보</caption>
+										<colgroup>
+											<col style="width: 20%;">
+											<col style="width: 30%;">
+											<col style="width: 20%;">
+											<col style="width: 30%;">
+										</colgroup>
+										<tbody>
+											
+												<tr>
+													<th scope="row">1차 평가</th>
+													<td class="1st-assessor"></td>
+													<th scope="row">2차 평가</th>
+													<td class="2nd-assessor"></td>
+												</tr>
+										</tbody>
+									</table>
+								
+								<table class="table table-bordered table-row" summary="소속, 직책, 이름, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">						
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 10%;">
+										<col style="width: 20%;">
+										<col style="width: 10%;">
+										<col style="width: 20%;">
+										<col style="width: 10%;">
+										<col style="width: 20%;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">소속</th>
+											<td class="team">플랫폼개발2팀</td>
+											<th scope="row">이름 / 직책</th>
+											<td class="rank">김현경 매니저</td>
+											<th scope="row">담당업무</th>
+											<td class="my-work">
+												<input type="text" class="text form-control full" placeholder="담당업무 입력" name="assignment" value="" maxlength="100">										
+											</td>
+										</tr>
+										
+										<!-- <tr>
+											<th scope="row"><span class="text-red">*</span>작성지침</th>
+											<td colspan="5" >
+												<div style="font-size:12px" >
+													<span style="color:red;"><b>※ 지원부서 전사매출목표 필수 반영 (업적목표 - 정량목표에 직접 입력)</b></span><br/>
+													<li style="margin-top:10px;">&nbsp;&nbsp;&nbsp;&nbsp;- 경영지원본부, 법무실, 감사팀 : 가중치 20%</li>
+													<li style="margin-top:5px;">&nbsp;&nbsp;&nbsp;&nbsp;- IT플랫폼본부, IT서비스본부, 마케팅본부, 영상개발실 : 가중치 30%</li>
+													<li style="margin-top:5px;">&nbsp;&nbsp;&nbsp;&nbsp;- CM1본부, CM2본부 : 가중치 40%</li>
+												</div>			
+											</td>
+										</tr> -->
+									</tbody>
+								</table>
+								
+							</div>
+			
+							<div class="table-responsive table-objective">
+								<table class="table table-bordered table-col" summary="구분, 가중치(%), 목표, 관리로 구분되는 표" id="tblObjective">
+									<caption>상반기(1월~6월) 업적목표</caption>
+									<colgroup>
+										<col style="width: 15%;">
+										<col style="width: 25%;">
+										<col style="width: 8%;">
+										<col style="width: auto;">
+										<col style="width: 5%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" colspan="2">구분</th>
+											<th scope="col">가중치</th>
+											<th scope="col">목표</th>
+											<th scope="col">관리</th>
+										</tr>
+									</thead>
+									<tfoot>
+										<tr>
+											<th scope="col" colspan="2">합계</th>
+											<td class="weight"><strong id="totalWeight">0</strong>%</td>
+											<td class="total" colspan="2">
+												<strong class="text-danger" data-toggle="tooltip" title="" data-original-title="[부서별 평가 가중치 가이드라인]
+		- 매출부서(장) : 정량평가 70%, 정성평가 30%
+		- 매출지원부서(장) : 정량평가 50%, 정성평가 50%
+		- 지원부서(장) : 정량평가 30%, 정성평가 70%
+		※ 부서장의 경우, 위 가이드라인에 맞추어 가중치를 설정
+		※ 팀원의 경우, 업무성격에 따라 부서장 승인 하에 가중치를 조정할 수 있음">
+													가중치 합계는 100% 입니다. <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</strong>
+											</td>
+										</tr>
+									</tfoot>
+									<tbody>
+									
+										<tr class="rowType1">
+											<th scope="row" rowspan="1">
+												<span data-toggle="tooltip" title="" data-original-title="수치로 표현될 수 있는 객관적 평가 지표">
+													정량평가 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</span>
+												<button type="button" class="btn btn-sm btn-success margin-top-10" data-toggle="modal" data-target="#achievementInfo">2021년 매출목표 반영 기준표</button>
+											</th>
+											<td class="subject height-150">
+												<input type="hidden" name="seq" value="1">
+												<input type="hidden" name="kpi_type_cd" value="SC001">
+												<input type="text" class="text form-control full" placeholder="" name="subject" maxlength="100">
+											</td>
+											<td class="weight">
+												<input type="text" class="text form-control half validFormat" placeholder="" name="weight" data-format="int" data-min="1" data-max="100"> %
+											</td>
+											<td class="objective">
+												<textarea class="text form-control full" name="objective"></textarea>
+											</td>
+											<td class="action">
+												<button type="button" class="btn btn-primary text-center" name="btnAppend1">
+													<i class="fa fa-plus nopadding"><span class="sr-only">항목 추가</span></i>
+												</button>
+											</td>
+										</tr>
+																		
+										<tr class="rowType2">
+											<th scope="row" rowspan="1">
+											<span data-toggle="tooltip" title="" data-original-title="수치로 표현되기 어려운 주관적 평가 지표">
+													정성평가 <i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</span>
+											</th>
+											<td class="subject">
+												<input type="hidden" name="seq" value="2">
+												<input type="hidden" name="kpi_type_cd" value="SC002">
+												<input type="text" class="text form-control full" placeholder="" name="subject" maxlength="100">
+											</td>
+											<td class="weight">
+												<input type="text" class="text form-control half validFormat" placeholder="" name="weight" data-format="int" data-min="1" data-max="100"> %
+											</td>
+											<td class="objective">
+												<textarea class="text form-control full" name="objective"></textarea>
+											</td>
+											<td class="action">
+												<button type="button" class="btn btn-primary text-center" name="btnAppend2">
+													<i class="fa fa-plus nopadding"><span class="sr-only">항목 추가</span></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+			
+							
+										
+							<div class="clearfix margin-top-50 text-center">
+								<button type="button" class="btn btn-lg width-120 btn-primary" id="btnSave">저장</button>
+								<button type="button" class="btn btn-lg width-150 btn-teal" id="btnPreview" data-view_count="0">미리보기/인쇄</button>						
+								<button type="button" class="btn btn-lg width-120 btn-danger" id="btnApply">제출</button>
+							</div>
+							
+							
+					
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal : myObjectivePreview -->
+		<div id="myObjectivePreview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				</div>
+			</div>
+		</div>
+		<!-- // Modal -->
+		
+		<!-- Modal : capabilitySelect -->
+		<div id="achievementInfo" class="modal modal-sm fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 1100px;">
+				<div class="modal-content">
+				
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">정량목표(매출목표) 반영 기준표</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body" style="height: 100vh !important;">
+						<p class="margin-bottom-10"><strong>1. 매출목표 수립 기준</strong></p>
+						<div class="alert alert-mini alert-warning padding-15 margin-top-10">
+							<div class="margin-top-3" id="divInfoContent" style="display: block;">
+								<strong>1) 업무상 담당 아이템이 확실한 경우: <span class="text-red">해당 아이템 목표 매출액</span></strong><span class="text-gray size-12"> (소속 부서장과 협의/확인)</span><br>
+								&nbsp;&nbsp;ex) 자격증CM1팀: 공인중개사 목표 매출액 000억원 (30%) + 주택관리사 목표 매출액 000억원 (30%) -&gt; 매출비율 총합이 60%되어야 함.<br>
+								&nbsp;&nbsp;ex) 학원 (데스크별 목표 매출액) : 대방학원 공인중개사 목표 매출액 000억원 (70%)<br><br>
+								<strong>2) 업무상 담당 아이템은 확실하지 않으나, 소속 부서의 목표 매출이 있는 경우: <span class="text-red">부서 목표 매출 총액</span></strong><span class="text-gray size-12"> (소속 부서장과 협의/확인)</span><br>
+								&nbsp;&nbsp;ex) CM전략팀: CM1본부 목표 매출 총액 000억원 (60%)<br>
+								&nbsp;&nbsp;ex) 고객만족팀: 고객총괄본부 목표 매출 총액 000억원 (60%)<br><br>
+								<strong>3) 담당 아이템이 없고, 부서 목표 매출이 없는 경우: <span class="text-red">전사 목표 매출 총액 ( 175,104,620,000원 )</span></strong><br>
+								&nbsp;&nbsp;ex) 경영지원본부 (전사 목표 매출 총액) : 인사팀 전사 목표매출 총액 000억원 (30%)<br><br>
+								&nbsp;※ 2021년 담당아이템/부서 목표매출액은 소속 부서장과 협의/확인 후 작성<br>
+								&nbsp;※ 담당 아이템이 다수인 경우 아이템 비율 총합이 부여된 기준표 비율과 동일해야 함.
+							</div>
+						</div>
+						
+						<p class="margin-bottom-10"><strong>2. 매출액 반영 기준표 (소속 부서에 따라 매출목표  반영비율 자동 셋팅됨)</strong></p>
+						<div class="section-objective margin-top-10"><!-- section-objective -->
+							<div class="table-responsive">
+								<table cellpadding="0" cellspacing="0" class="table table-bordered table-col table-mini" summary="구분, 역량, 정의로 구분되는 표" id="tblIndicator">
+									<caption>역량목표 목록</caption>
+									<colgroup>
+										<col style="width: 10%;">
+										<col style="width: 15%;">
+										<col style="width: auto;">
+										<col style="width: 10%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">구분</th>
+											<th scope="col">본부/실</th>
+											<th scope="col">세부부서</th>
+											<th scope="col">비율</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 매출부서 -->
+										<tr>
+											<td rowspan="10">매출부서</td>
+											<td rowspan="2">고객총괄본부</td>
+											<td>총괄본부장, 상담센터장, 운영기획팀, 고객상담팀(*)</td>
+											<td>70%</td>
+										</tr>
+										<tr>
+											<td>고객센터장, 고객만족팀, 학습관리팀, 고객지원팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td rowspan="2">학원총괄본부</td>
+											<td>총괄본부장, 지역본부장, 학원(전체)</td>
+											<td>70%</td>
+										</tr>
+										<tr>
+											<td>학원운영기획팀, 노량진 CM팀, 학원서비스기획팀, 학원마케팅팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td rowspan="2">출판사업본부</td>
+											<td>본부장, 출판마케팅팀</td>
+											<td>70%</td>
+										</tr>
+										<tr>
+											<td>출판개발팀, 출판디자인팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td rowspan="2">평생교육원</td>
+											<td>평생교육원장, 입학관리팀</td>
+											<td>70%</td>
+										</tr>
+										<tr>
+											<td>교무학사팀, 학생지원팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td rowspan="2">신사업혁신실</td>
+											<td>실장, 제휴사업팀, 국비사업팀, 산업안전보건사업팀</td>
+											<td>70%</td>
+										</tr>
+										<tr>
+											<td>동문회사무국</td>
+											<td>60%</td>
+										</tr>
+										<!-- 지원부서 -->
+										<tr>
+											<td rowspan="8">지원부서</td>
+											<td>CM1본부</td>
+											<td>본부장, CM전략팀, 취업CM팀, 자격증CM팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td>CM2본부</td>
+											<td>본부장, 공무원CM팀</td>
+											<td>60%</td>
+										</tr>
+										<tr>
+											<td>마케팅본부</td>
+											<td>본부장, 전략마케팅, 채널마케팅, 커뮤니티마케팅, 광고마케팅, 홍보마케팅, 퍼포먼스마케팅</td>
+											<td>50%</td>
+										</tr>
+										<tr>
+											<td>영상개발실</td>
+											<td>실장, 영상개발실</td>
+											<td>50%</td>
+										</tr>
+										<tr>
+											<td>IT서비스본부</td>
+											<td>본부장, IT기획실장, 시스템실장, 웹개발팀, 시스템팀, 솔루션개발팀, 서비스기획팀, 디자인팀</td>
+											<td>40%</td>
+										</tr>
+										<tr>
+											<td>IT플랫폼본부</td>
+											<td>실장, 모바일App기획팀, 플랫폼기획팀, 플랫폼개발팀</td>
+											<td>40%</td>
+										</tr>
+										<tr>
+											<td>경영지원본부</td>
+											<td>경영관리실장, 재무팀, 경영기획관리팀, 경영지원실장, 총무팀, 구매팀, 시설팀, 사업지원실장,<br>출판제작물류팀, 인사혁신실장, 인사팀, 채용팀, 인재육성팀</td>
+											<td>30%</td>
+										</tr>
+										<tr>
+											<td>기타</td>
+											<td>법무팀, 감사팀, 운영지원팀</td>
+											<td>30%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-teal" data-dismiss="modal">확인</button>
+					</div>
+		
+				</div>
+			</div>
+		</div>
+		<!-- // Modal --></div>	
+		</div>
+		
+		<div id="objectiveCopy" class="modal fade modal-sm modal-schedule in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" style="width: 650px;">
+				<div class="modal-content">
+		
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h3 class="modal-title" id="myModalLabel">업적 목표 복사하기</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					</div>
+		
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form id="frmObjectiveCopy" name="frmObjectiveCopy" method="post" action="" novalidate="novalidate">
+							<div class="form-inline">
+								<select name="toyear" id="toyear" class="form-control width-100"></select>
+								<select name="dept_idx" id="dept_idx" class="form-control"></select>
+								<label class="checkbox"><input type="checkbox" id="type_cd" name="type_cd" value="SC001"><i></i>상반기(1월~6월)</label>
+								<label class="checkbox"><input type="checkbox" id="type_cd" name="type_cd" value="SC002"><i></i>연간(1월~12월</label>
+							</div>
+						</form>
+					</div>
+		
+					<!-- Modal Footer -->
+					<div class="modal-footer clearfix">
+						<button type="button" class="btn btn-primary" id="btnSaveForCopy">복사</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var ajaxUtil = new AjaxUtil();
+			var callUrl = "";
+			var param = "";
+			
+			$(document).ready(function(){
+				// 이전 목표 복사하기
+				$("#objectiveCopy").on("shown.bs.modal", function(){
+					// 연도
+					var toyear = $("#frm1 #toyear :selected").val();
+					callUrl = "/common/ajaxToYearListForEmployee";
+					ajaxUtil.commonAjaxPost(callUrl, null, "#frmObjectiveCopy #toyear", toyear, null);
+					
+					//팀 조회
+					callUrl = "/objective/ajaxDeptListForPrevious";
+					param = { toyear : toyear , type_cd : "SC001"};
+					ajaxUtil.commonAjaxPost(callUrl, param, "#frmObjectiveCopy #dept_idx", "", null);
+					
+					setTimeout(function(){
+						fnc_getObjectiveInfoForDept();
+					}, 500);
+					
+				});
+				
+				//취소
+				$("#objectiveCopy").on("hide.bs.modal", function(){
+					$("#frmObjectiveCopy #toyear option").remove();
+					$("#frmObjectiveCopy #dept_idx option").remove();
+					$("#frmObjectiveCopy #type_cd").prop("checked", false);
+					$("#frmObjectiveCopy #type_cd").prop("disabled", false);
+				});
+				
+				//연도 체크박스 변경
+				$("#frmObjectiveCopy #toyear").on("change", function(){
+					var toyear = $(this).val();
+					callUrl = "/objective/ajaxDeptListForPrevious";
+					param = { toyear : toyear , type_cd : "SC001" };
+					ajaxUtil.commonAjaxPost(callUrl, param, "#frmObjectiveCopy #dept_idx", "", null);
+				});
+				
+				//팀 체크박스 변경
+				$("#frmObjectiveCopy #dept_idx").on("change", function(){
+					fnc_getObjectiveInfoForDept();
+				});
+				
+				// 복사
+				$("#btnSaveForCopy").on("click", function(){
+					var length = $("#frmObjectiveCopy #type_cd:checked").length;
+					
+					if(length > 0) {
+						bConfirm("목표 내용을 복사 하시겠습니까?").done(function(s) {
+							if(s) {
+								var dataArray = $("#frmObjectiveCopy").serializeArray();
+								
+								$.ajax({
+									type:"post"
+									,url:"/objective/ajaxCloneAchievementForPrevious"
+									,data: dataArray
+									,dataType: "json"
+									,success: function(data) {
+										if(data.result == 1) {
+											fnc_toastMsgForResult("복사 되었습니다.");
+											
+											$("#objectiveCopy").modal("hide");
+											fnc_getTabBody();
+										} else {
+											fnc_toastMsgForWarning(data.resultMsg);
+										}
+									}
+									,error: function(responseJSON, status, err) {
+									}
+								});	
+							}
+						});
+					} else {
+						fnc_toastMsgForWarning("복사대상을 선택하세요.");
+						return false;
+					}
+					
+					
+				});
+			});
+			
+			// 목표 정보 조회
+			function fnc_getObjectiveInfoForDept(){
+				var toyear = $("#frm1 #toyear :selected").val();
+				var dept_idx =  $("#frmObjectiveCopy #dept_idx :selected").val();
+				
+				param = { toyear : toyear, dept_idx : dept_idx, type_cd : "SC001" };
+				$.post("/objective/ajaxObjectiveInfoForDept", param, function(data) {
+					var isnth1 = data.ISNTH1;
+					var isnth2 = data.ISNTH2;
+					$("#frmObjectiveCopy #type_cd[value=SC001]").prop("checked", isnth1 == "Y" ? true : false);
+					$("#frmObjectiveCopy #type_cd[value=SC001]").attr("disabled", isnth1 == "Y" ? false : true);
+					$("#frmObjectiveCopy #type_cd[value=SC002]").prop("checked", isnth2 == "Y" ? true : false);
+					$("#frmObjectiveCopy #type_cd[value=SC002]").attr("disabled", isnth2 == "Y" ? false : true);
+				});
+			}
+		</script>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

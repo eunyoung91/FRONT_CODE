@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		<link href="//img.eduwill.net/resources/kpi/live/css/easyui.css" rel="stylesheet">
+		
+
+		<div id="content">
+			
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리자</a>
+					<a href="#">인사</a>
+					<a href="#">조직도 관리</a>
+				</div>
+				<div class="wrap">
+					<form id="frm1" name="frm1" method="post">
+						<input type="hidden" name="page" id="page" value="">
+						<input type="hidden" name="pageSize" id="pageSize" value=""> 
+						<input type="hidden" name="mst_idx" id="mst_idx" value="">
+						
+						<label class="width-100 text-center weight-800">제출연도</label>
+						<input type="text" class="text form-control width-200" id="toyear" name="toyear" value="" placeholder="ex) 2021" autocomplete="off">
+						<button class="btn btn-primary" type="button" id="btnAdd">저장</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="section-admin row">
+				<div class="col-md-3">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3>조직도</h3>
+							<div class="btn-right">
+								<button class="btn btn-danger el-on" id="btnOn">변경 시작</button>
+								<button class="btn btn-default el-off" id="btnSort" style="display: none;">저장</button>
+								<button class="btn btn-primary el-off" id="btnOff" style="display: none;">변경 완료</button>
+							</div>
+						</div>
+						<div class="panel-body">
+							<ul class="easyui-tree tree" id="" style="height: 2000px;">
+								<li>
+									<div id="_easyui_tree_1" class="tree-node droppable" style="">
+										<span class="tree-hit tree-expanded"></span>
+										<span class="tree-icon tree-folder tree-folder-open"></span>
+										<span class="tree-title">에듀윌</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9">
+					<div class="panel" id="divTabBody">	
+						<div class="panel-body" >
+							<form id="frm1" name="frm1" method="post" novalidate="novalidate" >
+								<input type="hidden" id="idx" name="idx" value="" disabled="disabled">
+								<input type="hidden" id="isInfoChanged" name="isInfoChanged" value="N" disabled="disabled">
+								<input type="hidden" id="isRecruitChanged" name="isRecruitChanged" value="N" disabled="disabled">
+								<input type="hidden" id="isSchdulChanged" name="isSchdulChanged" value="N" disabled="disabled">
+								<input type="hidden" id="isAttendChanged" name="isAttendChanged" value="N" disabled="disabled">
+								
+								<div class="alert alert-mini alert-warning padding-15 margin-top-0" >
+									<p class="size-15">※<strong> 부서 생성 및 수정 가이드</strong> <a class="size-13" href="https://docs.eduwill.net/pages/viewpage.action?pageId=114719560" target="_blank">&gt; 매뉴얼 바로가기</a></p>
+									<div class="margin-top-3" id="divInfoContent" style="display: block;">
+										조직도 히스토리 관리를 위해 아래와 같은 기준으로 부서 생성/수정 해주세요.<br>
+										<br>
+										<strong class="size-13">1. 조직도 변경 방법 (조직 추가/삭제, 조직 명칭/정렬 변경) </strong><br>
+										&nbsp;1) <span class="text-red">'변경 시작'</span> 버튼을 클릭.<br>
+										&nbsp;2) 조직 추가/삭제, 조직 명칭/정렬 변경 후 <span class="text-red">'저장'</span> 버튼 클릭.<br>
+										&nbsp;3) 저장 완료 후 <span class="text-red">'변경 완료'</span> 버튼 클릭.
+										<br>
+										<br>
+										<strong class="size-13">2. 조직 생성 / 조직 명칭 변경 기준</strong><br>
+										<strong> 1) 조직 생성 기준</strong><br>
+										&nbsp;&nbsp;- 조직이 신설된 경우<br>
+										&nbsp;&nbsp;- 조직이 분할되는 경우 (ex. IT서비스본부 서비스기획팀 삭제 → 서비스기획1/2팀 생성)<br>
+										&nbsp;&nbsp;- 조직이 분할되며, 명칭이 변경된 경우 (ex. IT플랫폼본부 인프라개발팀 삭제 → 플랫폼개발1/2팀 생성)<br>
+										&nbsp;&nbsp;- 조직이 통합되는 경우 (ex. CM1본부, CM2본부 삭제 → CM본부 생성  )<br>
+										&nbsp;&nbsp;- 단, 상위 부서가 신설되는 경우 상위 부서만 생성 후 하위부서는 정렬 변경(하위 부서 삭제 후 재생성 하지 않습니다.)<br>
+										<br>
+										<strong> 2) 조직 수정 기준</strong><br>
+										&nbsp;&nbsp;- 명칭이 변경되지만, 조직 구성원 변경 없을 경우(ex. IT서비스본부 시스템실 네트워크보안팀 → 정보보호팀 명칭 변경)
+									</div>
+								</div>
+								
+								<div class="section-title">
+									<h3 class="title"> 기본 정보</h3>
+								</div>
+								<table class="table table-bordered" summary="" id="tbInfo1">
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 15%;">
+										<col style="width: 35%;">
+										<col style="width: 15%;">
+										<col style="width: 35%;">
+									</colgroup>
+									<tbody>
+										<tr><!-- row -->
+											<th scope="row">부서 구분 <span class="text-red">*</span></th>
+											<td class="date text-left">
+												<div class="width-250 margin-0 padding-left-3 dept-type" style="display: inline-block;">
+													<label for="rdo_1_1" class="radio margin-right-10"><input type="radio" id="rdo_1_1" name="dept_cd" value="SC001" disabled="disabled"><i></i>본부	</label>
+													<label for="rdo_1_2" class="radio margin-right-10"><input type="radio" id="rdo_1_2" name="dept_cd" value="SC002" disabled="disabled"><i></i>실</label>
+													<label for="rdo_1_3" class="radio margin-right-10"><input type="radio" id="rdo_1_3" name="dept_cd" value="SC003" disabled="disabled"><i></i>팀</label>
+													<label for="rdo_1_4" class="radio margin-right-10"><input type="radio" id="rdo_1_4" name="dept_cd" value="SC004" disabled="disabled"><i></i>파트</label>
+												</div>
+												(<label class="checkbox" style="margin: 0px 0 0 7px;"><input type="checkbox" id="isschedule" name="isschedule" value="Y" disabled="disabled"><i></i>스케줄 근무</label>
+												<span class="margin-bottom-10" data-toggle="tooltip" title="" data-original-title="스케줄 근무 부서일 경우 체크
+					ex) 고객센터, 학원 총괄 본부"> 
+													<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</span>)
+											</td>
+											<th scope="row">부서장</th>
+											<td class="name text-left">
+												<input type="text" class="form-control full" id="deptldr_name" name="deptldr_name" data-target="deptldr" autocomplete="off" value="" disabled="disabled">
+												<input type="hidden" class="ldap_id" name="deptldr_id" id="deptldr_id" value="" disabled="disabled">
+											</td>
+											
+										</tr>
+										<tr><!-- row -->
+											
+											<th scope="row">기본 업무 시간 <span class="text-red">*</span></th>
+											<td class="date text-left">
+												<input type="text" class="form-control width-150 required" name="dutyTimeStart" id="dutyTimeStart" placeholder="업무시작(09:30)" maxlength="5" autocomplete="off" value="" disabled="disabled">
+												<input type="text" class="form-control width-150 required" name="dutyTimeEnd" id="dutyTimeEnd" placeholder="업무종료(18:30)" maxlength="5" autocomplete="off" value="" disabled="disabled">
+											</td>
+											<th scope="row"></th>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+								
+								<div class="section-title">
+									<h3 class="title"> 추가 정보 <span class="text-red margin-left-0">*</span></h3>
+								</div>
+								<table class="table table-bordered" summary="">
+									<caption>기본정보</caption>
+									<colgroup>
+										<col style="width: 15%;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+										<tr><!-- row -->
+											<th scope="row">T.G.I.F 담당</th>
+											<td class="date text-left">
+												<input type="text" class="form-control width-200 required" name="chief_name" id="chief_name" autocomplete="off" value="" disabled="disabled">
+												<input type="hidden" class="ldap_id" name="chief_id" id="chief_id" value="" disabled="disabled">
+											</td>
+										</tr>
+										<tr><!-- row -->
+											<th scope="row">채용 담당</th>
+											<td class="date text-left itemR">
+												<div class="row margin-0" id="divR">
+													<input type="text" class="form-control width-200 required emp_name" name="recruit_name" id="recruit_name" autocomplete="off" disabled="disabled">
+													<input type="hidden" class="ldap_id" name="recruit_id" id="recruit_id" value="" disabled="disabled">
+													<button type="button" class="btn btn-primary btn-xs text-center btn-plus" id="btnRecruitPlus" disabled="disabled">
+														<i class="fa fa-plus nopadding"><span class="sr-only">항목추가</span></i>
+													</button>
+													<button class="btn btn-danger btn-xs text-center btn-minus" type="button" onclick="fnc_deleteEle(this)" style="display: none;" disabled="disabled">
+														<i class="fa fa-minus nopadding"><span class="sr-only">항목 제거</span></i>
+													</button>
+												</div>
+											</td>
+										</tr>
+										<tr><!-- row -->
+											<th scope="row">근무 스케줄 담당</th>
+											<td class="date text-left itemS">
+												<div class="row margin-0" id="divS">
+													<input type="text" class="form-control width-200 required emp_name" name="schdul_name" id="schdul_name" autocomplete="off" disabled="disabled">
+													<input type="hidden" class="ldap_id" name="schdul_id" id="schdul_id" value="" disabled="disabled">
+													<button type="button" class="btn btn-primary btn-xs text-center btn-plus" id="btnSchdulPlus" disabled="disabled">
+														<i class="fa fa-plus nopadding"><span class="sr-only">항목추가</span></i>
+													</button>
+													<button class="btn btn-danger btn-xs text-center btn-minus" type="button" onclick="fnc_deleteEle(this)" style="display: none;" disabled="disabled">
+														<i class="fa fa-minus nopadding"><span class="sr-only">항목 제거</span></i>
+													</button>
+												</div>
+											</td>
+										</tr>
+										<tr><!-- row -->
+											<th scope="row">근태 담당</th>
+											<td class="date text-left itemA">
+												<input type="hidden" name="att_mod_id" id="att_mod_id" value="" disabled="disabled">
+												<input type="hidden" name="att_end_id" id="att_end_id" value="" disabled="disabled">
+												
+												<div class="row margin-0" id="divA">
+													<input type="text" class="form-control width-200 required emp_name" name="attend_name" id="attend_name" autocomplete="off" disabled="disabled">
+													<input type="hidden" class="ldap_id" name="attend_id" id="attend_id" value="" disabled="disabled">
+													<button type="button" class="btn btn-primary btn-xs text-center btn-plus" id="btnAttendPlus" disabled="disabled">
+														<i class="fa fa-plus nopadding"><span class="sr-only">항목추가</span></i>
+													</button>
+													<button class="btn btn-danger btn-xs text-center btn-minus" type="button" onclick="fnc_deleteEle(this);" style="display: none;" disabled="disabled">
+														<i class="fa fa-minus nopadding"><span class="sr-only">항목 제거</span></i>
+													</button>
+													<label class="checkbox" style="margin: 0px 0 0 7px;"><input type="checkbox" id="mod_yn" name="mod_yn" value="Y" disabled="disabled"><i></i>수정 담당</label>
+													<span class="margin-bottom-10" data-toggle="tooltip" title="" data-original-title="근태 수정 요청시 결재 담당자"> 
+														<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+													</span>
+													<label class="checkbox" style="margin: 0px 0 0 7px;"><input type="checkbox" id="end_yn" name="end_yn" value="Y" disabled="disabled"><i></i>마감 담당</label>
+													<span class="margin-bottom-10" data-toggle="tooltip" title="" data-original-title="매월 근태 마감 담당자"> 
+														<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+													</span>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+							
+							<div class="margin-top-30 text-center">
+								<button type="button" class="btn btn-lg width-120 btn-primary" id="btnSave" disabled="disabled">저장</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

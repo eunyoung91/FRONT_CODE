@@ -1,0 +1,809 @@
+
+// 서포트즈 공무원 1기
+#promotion-openking {
+    // 기간엠블럼
+    .emblem-date {
+        em {
+            background-color: #ffdc00;
+            padding: 0 18px;
+            height: 27px;
+            line-height: 27px;
+            border-radius: 14px;
+            @include font-size-color-weight(14px, $color-black, 700);
+        }
+        span { 
+            line-height: 27px;
+            @include font-size-color-weight(16px, $color-white, 500);
+            opacity: 0.7;
+        }
+    }
+
+    .section-visual {
+        background-color: #8569e2;        
+        position: relative;
+        .bg1 {
+            @include background-name-ext-repeat-poistion('promotion/openking/pc/bg_light', png, no-repeat, 50% 0);
+            background-size: cover;
+            width: 1938px;
+            height: 1938px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -969px;
+        }
+        .bg2 {
+            @include background-name-ext-repeat-poistion('promotion/openking/pc/bg_title1', png, no-repeat, 50% 0);
+            background-size: cover;
+            width: 2200px;
+            height: 1388px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .inner-p {
+            height: 1388px;
+        }
+
+        .typo {
+            position: relative;
+            height: 544px;
+            &-bg,
+            &-1,
+            &-2 {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &-bg {
+                z-index: 3;
+            }
+            &-1 {
+                z-index: 1;
+                opacity: 0;
+                transform: scale(0);
+            }
+            &-2 {
+                z-index: 2;
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        .balloon {
+            position: absolute; 
+            top: 602px;
+            left: -66px;
+            img {
+                width: 186px;
+                height: 107px;
+            }
+        }
+
+        .btnarea {
+            position: absolute;
+            bottom: 110px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 5;
+            @media screen and (min-width:1281px) {
+                a {
+                    cursor: url(//img.eduwill.net/resources/kin/dev/images/promotion/openking/pc/pointer.png), auto !important;
+                }
+            }
+        }
+
+        @media screen and (max-width:1280px) {
+            .bg1 {
+                @include background-name-ext-repeat-poistion('promotion/openking/pc/bg_light', png, no-repeat, 50% 0);
+                background-size: cover;
+                width: 151.406vw;
+                height: 151.406vw;
+                position: absolute;
+                top: 0;
+                margin-left: -75.703vw;
+
+            }
+            .bg2 {
+                @include background-name-ext-repeat-poistion('promotion/openking/pc/bg_title1', png, no-repeat, 50% 0);
+                background-size: cover;
+                width: 171.875vw;
+                height: 108.438vw;
+                position: absolute;
+                top: 0;
+                left: 50%;
+            }
+            .inner-p {
+                height: 108.438vw;
+            }
+
+            .balloon {
+                top: 47.031vw;
+                left: 5.156vw;
+                img {
+                    width: 14.531vw;
+                    height: 8.359vw;
+                }
+            }
+
+            .btnarea {
+                bottom: 8.594vw;
+                img {
+                    width: 48.438vw;
+                    height: 8.594vw;
+                }
+            }
+
+            
+                
+        }
+        @media screen and (max-width:720px) {
+            .bg1,
+            .bg2 {
+                display: none;
+            }
+            .inner-p {
+                height: auto;
+            }
+            .typo {
+                background: none;
+                height: auto;
+                padding-top: 0;
+                position: absolute; 
+                top: 26.111vw;
+                .text2 {
+                    margin-top: -5.972vw;
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+            .balloon {
+                position: absolute; 
+                top: 85.833vw;
+                left: 4.167vw;
+                img {
+                    width: 33.333vw;
+                    height: 16.806vw;
+                }
+            }
+        }
+       
+    }
+
+    .section-intro {
+        .inner-p {
+            z-index: 2;
+        }
+    }
+
+    .section-item1 {
+        background-color: $color-yellow;
+        ul {
+            position: absolute;
+            bottom: 120px;
+            width: 1100px;
+            left: 50%;
+            transform: translateX(-50%);
+            @include clearfix();
+            li {
+                float: left;
+                width:  260px;
+                height: 226px;
+                margin-left: 20px;
+                background-color: #ffee80;
+                padding: 15px;
+                border-radius: 20px;
+                position: relative;
+                &:first-child {
+                    margin-left: 0;
+                }
+                div {
+                    font-family: 'Jalnan';
+                    & * {
+                        font-family: 'Jalnan';
+                    }
+                    @include font-size-color-weight(22px, $color-black, bold);
+                    &.num {
+                        font-size: 28px;
+                        margin-top: 25px;
+                    }
+                    &.date {
+                        margin-top: 20px;
+                        font-size: 20px;
+                        opacity: 0.7;
+                    }
+                    &.text {
+                        margin-top: 20px;
+                        height: 60px;
+                        line-height: 60px;
+                        border: solid 2px #8569e2;
+                        background-color: #8569e2;
+                        border-radius: 30px;
+                        &.step1 {
+                            color: $color-white;
+                            span {
+                                padding-right: 22px;
+                                position: relative;
+                                &:after {
+                                    @include contentReset();
+                                    width: 11px;
+                                    height: 19px;
+                                    @include background-name-ext-repeat-poistion('promotion/openking/pc/icon_arrow_right', png, no-repeat, 0 0);
+                                    background-size: contain;
+                                    position: absolute;
+                                    top: 1px;
+                                    right: 0;
+                                }
+                                em {
+                                    color: $color-yellow;
+                                }
+                            }
+                            @media screen and (min-width:1281px) {
+                                cursor: url(//img.eduwill.net/resources/kin/dev/images/promotion/openking/pc/pointer_50.png), auto !important;
+                            }
+                        }
+                        &.step2 {
+                            border: solid 1px #ffdc00;
+                            background-color: #ffdc00;
+                        }
+                        &.step3 {
+                            border-color: rgba(0, 0, 0, 0.15);
+                            background-color: transparent;
+                            color: rgba(0, 0, 0, 0.4);
+                        }
+                    }
+                }
+                &.end {
+                    &:after {
+                        @include contentReset();
+                        width: 130px;
+                        height: 130px;
+                        @include background-name-ext-repeat-poistion('promotion/openking/pc/icon_end', png, no-repeat, 0 0);
+                        background-size: contain;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    div {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:1280px) {
+            ul {
+                bottom: 9.375vw;
+                width: 85.938vw;
+                li {
+                    width:  20.313vw;
+                    height: 17.656vw;
+                    margin-left: 1.563vw;
+                    padding: 1.172vw;
+                    border-radius: 1.172vw;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    div {
+                        font-size: 1.719vw;
+                        &.num {
+                            font-size: 2.188vw;
+                            margin-top: 1.953vw;
+                        }
+                        &.date {
+                            margin-top: 1.563vw;
+                            font-size: 1.563vw;
+                        }
+                        &.text {
+                            margin-top: 1.563vw;
+                            height: 4.688vw;
+                            line-height: 4.688vw;
+                            border-radius: 2.344vw;
+                            &.step1 {
+                                span {
+                                    padding-right: 0;
+                                    &:after {
+                                       display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.end {
+                        &:after {
+                            width: 10.156vw;
+                            height: 10.156vw;
+                        }
+                    }
+                }
+            }
+        }
+        @media screen and (max-width:720px) {
+            ul {
+                bottom: 16.667vw;
+                width: 100%;
+                left: 0;
+                transform: translateX(0);
+                padding: 0 5.556vw;
+                li {
+                    width: 49%;
+                    height: 31.389vw;
+                    margin-left: 0;
+                    padding: 3.472vw;
+                    border-radius: 2.778vw;
+                    &:nth-child(even) {
+                        margin-left: 2%;
+                    }
+                    &:nth-child(n+1):nth-child(-n+2) {
+                        margin-bottom: 2%;
+                    }
+                    div {
+                        font-size: 3.611vw;
+                        &.num {
+                            font-size: 4.167vw;
+                            margin-top: 1.111vw;
+                        }
+                        &.date {
+                            margin-top: 3.333vw;
+                            font-size: 3.333vw;
+                        }
+                        &.text {
+                            margin-top: 2.778vw;
+                            height: 9.167vw;
+                            line-height: 9.167vw;
+                            border-radius: 4.583vw;
+                            &.step1 {
+                                span {
+                                    padding-right: 0;
+                                    &:after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.end {
+                        &:after {
+                            width: 18.056vw;
+                            height: 18.056vw;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .section-item2 {
+        .btnarea {
+            position: absolute;
+            top: 993px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            .desc {
+                @include font-size-color-weight(13px, #aaa, 500);
+                padding-top: 15px;
+            }
+            @media screen and (min-width:1281px) {
+                a {
+                    cursor: url(//img.eduwill.net/resources/kin/dev/images/promotion/openking/pc/pointer.png), auto !important;
+                }
+            }
+        }
+        ul {
+            position: absolute;
+            top: 415px;
+            width: 616px;
+            left: 50%;
+            transform: translateX(-50%);
+            @include clearfix();
+            li {
+                float: left;
+                width:  154px;
+                height: 104px;
+                @include background-name-ext-repeat-poistion('promotion/openking/pc/box', png, no-repeat, 0 0);
+                background-size: contain;
+                position: relative;
+                div {
+                    font-family: 'Jalnan';
+                    @include font-size-color-weight(22px, rgba(0, 0, 0, 0.3), bold);
+                    margin-top: 40px;
+                }
+                &.end {
+                    background-image: none;
+                    &:after {
+                        @include contentReset();
+                        width: 90px;
+                        height: 90px;
+                        @include background-name-ext-repeat-poistion('promotion/openking/pc/icon_success', png, no-repeat, 0 0);
+                        background-size: contain;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+
+
+
+            }
+        }
+        @media screen and (max-width:1280px) {
+            .btnarea {
+                top: 77.578vw;
+                img {
+                    width: 48.438vw;
+                    height: 8.438vw;
+                }
+                .desc {
+                    font-size: 1.016vw;
+                    padding-top: 1.172vw;
+                    
+                }
+            }
+            ul {
+                top: 32.422vw;
+                width: 48.125vw;
+                li {
+                    width:  12.031vw;
+                    height: 8.125vw;
+                    div {
+                        font-size: 1.719vw;
+                        margin-top: 3.125vw;
+                    }
+                    &.end {
+                        &:after {
+                            width: 7.031vw;
+                            height: 7.031vw;
+                        }
+                    }    
+                }
+            }
+        }
+        @media screen and (max-width:720px) {
+            .btnarea {
+                top: 151.389vw;
+                padding: 0 5.556vw;
+                img {
+                    width: 86.111vw;
+                    height: 15vw;
+                }
+                .desc {
+                    font-size: 3.333vw;
+                    padding-top: 3.333vw;
+                }
+            }
+            ul {
+                top: 71.111vw;
+                width: 85.556vw;
+                li {
+                    width:  21.389vw;
+                    height: 14.444vw;
+                    div {
+                        font-size: 3.333vw;
+                        margin-top: 5.556vw;
+                    }
+                    &.end {
+                        &:after {
+                            width: 12.500vw;
+                            height: 12.500vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section-item3 {
+        background-color: #ffee80;
+        img {
+            margin-top: -20px;
+        }
+        .box {
+            position: absolute;
+            top: 167px;
+            width: 100%;
+            padding: 0 190px;
+            ::-webkit-scrollbar-button:start:decrement,
+            ::-webkit-scrollbar-button:end:increment {
+                display: block; 
+                width:6px;
+                height:6px; 
+                background: transparent;
+            }
+            ::-webkit-scrollbar-track {
+                background:transparent;
+            }
+            ::-webkit-scrollbar-thumb {
+                background:#e1d271; 
+            }
+            dl {
+                height: 284px;
+                padding: 32px 140px;
+                overflow-y: auto;
+                dt {
+                    font-family: 'Jalnan';
+                    @include font-size-color-weight(18px, $color-black, bold);
+                    padding-bottom: 10px;
+                }
+                dd {
+                    @include font-size-color-weight(16px, #b8ab5a, 500);
+                    line-height: 30px;
+                    span {
+                        color: $color-black;
+                    }
+                }
+            }
+            .desc {
+                margin-top: 20px;
+                @include font-size-color-weight(14px, $color-black, 300);
+                opacity: 0.5;
+            }
+        }
+
+        @media screen and (max-width:1280px) {
+            img {
+                margin-top: -1.563vw;
+            }
+            .box {
+                top: 13.047vw;
+                padding: 0 14.844vw;
+                dl {
+                    height: 22.188vw;
+                    padding: 2.500vw 10.938vw;
+                    dt {
+                        font-size: 1.406vw;
+                        padding-bottom: 0.781vw;
+                    }
+                    dd {
+                        font-size: 1.250vw;
+                        line-height: 2.344vw;
+                    }
+                }
+                .desc {
+                    margin-top: 1.563vw;
+                    font-size: 1.094vw;
+                }
+            }
+        }
+
+        @media screen and (max-width:720px) {
+            img {
+                margin-top: -2.778vw;
+            }
+            .box {
+                top: 24.722vw;
+                padding: 0 5.556vw;
+                dl {
+                    height: 75.972vw;
+                    padding: 6.250vw 4.167vw;
+                    dt {
+                        font-size: 4.444vw;
+                        padding-bottom: 2.778vw;
+                        & + dd {
+                            margin-top: 0;
+                        }
+                    }
+                    dd {
+                        font-size: 3.611vw;
+                        line-height: 4.722vw;
+                        margin-top: 1.389vw;
+                    }
+                }
+                .desc {
+                    margin-top: 4.167vw;
+                    font-size: 3.333vw;
+                    line-height: 5.278vw;
+                }
+            }
+        }
+        
+    }
+
+    .section-item4 {
+        @include background-name-ext-repeat-poistion('promotion/openking/pc/bg_item4', png, no-repeat, 50% 0);
+        background-color: #8569e2;
+        padding-bottom: 120px;
+        .board-bbs {
+            background-color: $color-white;
+            border-radius: 8px;
+            padding: 40px;
+            min-height: 446px;
+            margin: 0 90px;
+            .form-group {
+                padding-right: 187px;
+                position: relative;
+                input[type='text'] {
+                    border-radius: 8px 0 0 8px;
+                    border: solid 3px #e2334f;
+                    height: 62px;
+                    line-height: 62px;
+                    padding-left: 18px;
+                    @include font-size-color-weight(16px, #666, 400);
+                }
+                button {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 187px;
+                    background-color: #e2334f;
+                    border: none;
+                    border-radius: 0 8px 8px 0;
+                    height: 62px;
+                    line-height: 62px;
+                    padding: 0;
+                    @include font-size-color-weight(20px, $color-white, 700);
+                    span {
+                        padding-right: 22px;
+                        @include background-name-ext-repeat-poistion('promotion/openking/pc/icon_arrow_right2', png, no-repeat, 100% 50%);
+                    }
+                }
+            }
+            .desc {
+                @include font-size-color-weight(13px, #999, 300);
+                line-height: 20px;
+                margin-top: 17px;
+                text-align: left;
+            }
+            .list {
+                margin-top: 25px;
+                table {
+                    width: 100%;
+                    colgroup {
+                        .col1 {
+                            width: 10%;
+                        }
+                        .col2 {
+                            width: 15%;
+                        }
+                        .col3 {
+                            width: 25%;
+                            display: none;
+                        }
+                        .col4 {
+                            width: 75%;
+                        }
+                    }
+                    td {
+                        border: solid 1px #ebebeb;
+                        border-width: 1px 0;
+                        padding: 23px 10px;
+                        @include font-size-color-weight(13px, #777, 300);
+                        word-break: break-word;
+                        &.text-left {
+                            color: #444;
+                        }
+                    }
+                }
+            }
+            .pagination {
+                margin-top: 30px;
+            }
+        }
+        @media screen and (max-width:1280px) {
+            .board-bbs {
+                margin: 0 7.031vw;
+            }
+        }
+        @media screen and (max-width:720px) {
+            padding: 0 0 16.667vw;
+            .board-bbs {
+                border-radius: 1.111vw;
+                padding: 4.167vw;
+                min-height: inherit;
+                margin: 0 5.556vw;
+                .form-group {
+                    padding-right: 0;
+                    input[type='text'] {
+                        border-radius: 1.111vw 1.111vw 0 0;
+                        height: 11.111vw;
+                        line-height: 11.111vw;
+                        padding-left: 3.889vw;
+                        font-size: 3.333vw;
+                    }
+                    button {
+                        position: inherit;
+                        width: 100%;
+                        background-color: #e2334f;
+                        border-radius: 0 0 1.111vw 1.111vw;
+                        height: 10.694vw;
+                        line-height: 10.694vw;
+                        font-size: 3.889vw;
+                        span {
+                            padding-right: 4.444vw;
+                            @include background-name-ext-repeat-poistion('promotion/openking/mobile/icon_arrow_right2', png, no-repeat, 100% 50%);
+                            background-size: 1.806vw 3.194vw;
+                        }
+                    }
+                }
+                .desc {
+                    display: none;
+                }
+                .list {
+                    margin-top: 4.167vw;
+                    table {
+                        colgroup {
+                            .col1 {
+                                width: 10%;
+                                display: none;
+                            }
+                            .col2 {
+                                width: 15%;
+                                display: none;
+                            }
+                            .col3 {
+                                width: 25%;
+                                display: table-column;
+                            }
+                            .col4 {
+                                width: 75%;
+                            }
+                        }
+                        td {
+                            font-size: 2.778vw;
+                            &.num {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+                .pagination {
+                    margin-top: 4.167vw;
+                }
+            }
+        }
+    }
+
+    .section_item5 {
+        .inner-p {
+            padding: 90px;
+            dl {
+                margin-top: 45px;
+                text-align: left;
+                &:first-child {
+                    margin-top: 0;
+                }
+                dt {
+                    font-family: 'Jalnan';
+                    @include font-size-color-weight(22px, $color-black, bold);
+                    & + dd {
+                        margin-top: 15px;
+                    }
+                }
+                dd {
+                    @include font-size-color-weight(16px, #666, 400);
+                    padding-left: 16px;
+                    text-indent: -16px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        @media screen and (max-width:720px) {
+            .inner-p {
+                padding: 9.722vw 5.556vw;
+                dl {
+                    margin-top: 7.639vw;
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                    dt {
+                        font-size: 4.722vw;
+                        & + dd {
+                            margin-top: 2.778vw;
+                        }
+                    }
+                    dd {
+                        font-size: 3.611vw;
+                        padding-left: 3.611vw;
+                        text-indent: -3.611vw;
+                        margin-top: 1.389vw;
+                    }
+                }
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@list</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Roboto:wght@400;700&display=swap");
+        *, *:before, *:after { box-sizing:border-box; }
+        * { margin:0;padding:0; }
+        html, body { height:100%; }
+        body { color:#333;font-family: Noto Sans KR, Roboto, Apple SD Gothic Neo, "돋움", Dotum, Verdana, Arial, sans-serif; }
+        a { color:inherit;text-decoration:none; }
+        ol, ul, li { list-style:none; }
+        .__header { width:100%;height:48px;padding:0 24px;background-color:#07a287; }
+        .__header h1 { float:left;margin-top:12px;color:#fff;font-size:16px;font-weight:700; }
+        .__container { display:flex;width:100%;height:calc(100% - 48px); }
+        .__sidebar { flex:0 0 312px;overflow-y:auto;padding:24px 24px;background-color:#f5f5f5; }
+        .__nav { margin:-4px 0;font-size:0; }
+        .__nav .__target { font-size:12px; }
+        .__nav ul { padding-left:16px; }
+        .__nav > ul { margin-top:8px;padding-left:0; }
+        .__nav a, .__nav span { display:inline-block;padding:4px 0;font-size:14px; }
+        .__nav a { position:relative;text-decoration:underline; }
+        .__nav a:after { content:"";display:block;visibility:hidden;position:absolute;top:4px;right:-6px;width:4px;height:4px;border-radius:50%; }
+        .__nav a.__active { font-weight:bold; }
+        .__nav a.__active:before { content:">";display:inline-block;margin-right:4px; }
+        .__nav span { color:#aaa; }
+        .__nav .category { color:#07a287;font-weight:bold; }
+        .__main { flex:1 1 100%;height:100%;padding:24px 24px; }
+        .__iframe { border:none;width:100%;height:100%;background-color:#fff; }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function(){
+            var target = $(".__target input"),
+                anchonr = $(".__nav a"),
+                iframe = $(".__iframe");
+            $(".__nav a").click(function(e){
+                if(target.prop("checked") === false){
+                    anchonr.removeClass("__active");
+                    $(this).addClass("__active");
+                    var href = $(this).attr("href");
+                    iframe.attr("src", href);
+                    return false;
+                }
+            });
+        });
+    </script>
+<link rel="stylesheet" href="//img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.1.5" type="text/css">
+<script type="text/javascript" src="//img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js?v=1.0.2"></script>
+</head>
+<body>
+    <div class="__header">
+        <h1>Eduwill EXIT 합격 서비스</h1>
+    </div>
+    <div class="__container">
+        <div class="__sidebar">
+            <div class="__nav">
+                <div class="__target">
+                    <label><input type="checkbox"> 새 창으로 열기</label>
+                </div>
+                <ul>
+                    <!-- <li><a href="//img.eduwill.net/resources/exit/dev/html/@guide.html" target="_blank">@가이드</a></li> -->
+                    <li><a href="//img.eduwill.net/resources/exit/dev/html/index.html" target="_blank" class="category">메인</a></li>
+                    <li><span class="category">마이페이지</span>
+                        <ul>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/mypage/mypage_student.html" target="_blank">학생</a></li>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/mypage/mypage_author.html" target="_blank">저자</a></li>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/mypage/mypage_teacher.html" target="_blank">교/강사</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="//img.eduwill.net/resources/exit/dev/html/service/service_list.html" target="_blank" class="category">서비스 소개</a></li>
+                    <li><span class="category">실시간질문답변</span>
+                        <ul>
+                            <li><span>공통</span>
+                                <ul>
+                                    <li><span>사용자 : 일반</span>
+                                        <ul>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_list.html" target="_blank">목록</a></li>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_form.html" target="_blank">등록/수정</a></li>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_detail.html" target="_blank">상세(답변대기)</a></li>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_detail_reply.html" target="_blank">상세(답변완료)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><span>사용자 : 저자</span>
+                                        <ul>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_detail_author.html" target="_blank">상세(답변대기)</a></li>
+                                            <li><a href="//img.eduwill.net/resources/exit/dev/html/qna/qna_detail_reply_author.html" target="_blank">상세(답변완료)</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="category">무료강의</span>
+                        <ul>
+                            <li><span>공통</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/lecture/lecture_list.html" target="_blank">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/lecture/lecture_detail.html" target="_blank">상세</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="category">자료실</span>
+                        <ul>
+                            <li><span>공통</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/data_room/data_room_list.html" target="_blank">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/data_room/data_room_detail.html" target="_blank">상세</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="category">필기 CBT</span>
+                        <ul>
+                            <li><span>공통</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/written_cbt/written_cbt_list.html" target="_blank">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/written_cbt/written_cbt_list_no-data.html" target="_blank">목록 (콘텐츠 없음)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="category">교사/강사 인증하기</span>
+                        <ul>
+                            <li><span>교사용 자료 조회</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/teacher/data_room/data_room_list.html" target="_blank">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/teacher/data_room/data_room_detail.html" target="_blank">상세</a></li>
+                                </ul>
+                            </li>
+                            <li><span>교사/강사 인증하기</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/teacher/certify/certify_list.html" target="_blank">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/teacher/certify/certify_detail.html" target="_blank">상세</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/teacher/certify/certify_form.html" target="_blank">등록/수정</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><span class="category">교재보기</span>
+                        <ul>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/book/book_list.html" target="_blank">목록</a></li>
+                        </ul>
+                    </li>
+                    <li><span class="category">공지사항</span>
+                        <ul>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/notice/notice_list.html" target="_blank">목록</a></li>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/notice/notice_detail.html" target="_blank">상세</a></li>
+                        </ul>
+                    </li>
+                    <li><span class="category">고객센터</span>
+                        <ul>
+                            <li><a href="//img.eduwill.net/resources/exit/dev/html/cs/faq/faq_list.html" target="_blank">FAQ</a></li>
+                            <li><span>Q&amp;A</span>
+                                <ul>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/cs/qna/qna_list.html">목록</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/cs/qna/qna_detail.html">상세(답변대기)</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/cs/qna/qna_detail_reply.html">상세(답변완료)</a></li>
+                                    <li><a href="//img.eduwill.net/resources/exit/dev/html/cs/qna/qna_form.html">등록/수정</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="__main">
+            <iframe src="" class="__iframe"></iframe>
+        </div>
+    </div>
+</body>
+</html>

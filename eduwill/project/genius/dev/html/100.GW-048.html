@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->
+	<section id="middle">
+		
+		<div id="content" class="height-full"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리</a>
+					<a href="#">근태/휴가</a>
+					<a href="#">내 연차현황</a>
+				</div>
+			</div>
+
+			<!-- <div class="container section-search-form alert alert-info">
+				<div class="section-title text-left">
+					<h3 class="title"> 내 연차현황</h3>
+				</div>
+			</div> -->
+			<form id="frm1" name="frm1" method="post">
+				<input type="hidden" id="nth" name="nth" value="1">
+			</form>
+			
+			<div class="container section-tab nopadding">
+				<div class="wrap">
+					<ul class="nav nav-tabs">
+						<li data-nth="1" class="active"><a href="javascript:;">연차현황</a></li>
+						<li data-nth="2"><a href="javascript:;">드림데이 현황</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="container section-objective nopadding panel panel-light">
+				<div class="panel-body padding-left-0" id="divTabBody">
+		
+							
+					<div class="alert alert-warning margin-bottom-9 margin-top-9">
+						※ 2020년 1월 1일 연차 발생 안내<br>
+						&nbsp;- 2020년 1월 1일 발생 연차는 연차부여기준 변경에 따라 계산해서 일괄 부여한 연차입니다.<br>
+						&nbsp;- 단, 1월 1일 입사일인 경우에는 연차발생 기준에 따라 자동으로 발생됩니다.<br><br>
+						
+						※ 2020년 1월 1일 일괄 부여 연차 사용 기한<br>
+						&nbsp;- 입사일 전날까지(예: 2015년 8월 24일 입사자는 2020년 8월 23일까지)<br>
+						&nbsp;- 단, 7월 2일 이전 입사자는 2020년에 한하여 미사용 연차를 이월함. 입사일 이후 발생연차와 합산하여 2021년 입사일 전날까지 사용 가능합니다.
+					</div>
+					
+					<div class="tab-content margin-top-0">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-6">
+									<span class="weight-600" style="font-size: 16px;">입사일 : 2016-07-11&nbsp;&nbsp;|&nbsp;&nbsp;내 연차현황 기간 : 2020-07-11 ~ 2021-07-10</span>
+								</div>
+								<div class="col-xs-6 text-right">
+									<span>
+										<button type="button" class="btn-sm promote" id="btnDownload" data-nth="1" style="display: ">미사용 연차 사용계획서 다운로드 &gt;</button>
+										<button type="button" class="btn-sm promote" id="btnDownload" data-nth="2" style="display: ">연차사용시기 지정 통보서 다운로드 &gt;</button>
+									</span>
+								</div>
+							</div>
+							
+							<div class="section-title">
+								<h4 class="title"> 연차 통계</h4>
+							</div>
+							
+							<div class="table-responsive table-performance"><!-- table-performance -->
+								<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" style="width: 30%;">
+									<colgroup>
+										<col style="width: 33%;">
+										<col style="width: 33%;">
+										<col style="width: 33%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">총 
+												<sapn data-toggle="tooltip" data-placement="top" title="" data-original-title="이월연차합계 + 발생연차합계">
+													<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</sapn>
+											</th>
+											<th scope="col">사용연차</th>
+											<th scope="col">잔여연차</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="">0</td>
+											<td class="">0.5</td>
+											<td class="text-blue weight-700">-0.5</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="section-title">
+								<h4 class="title"> 연차 상세 현황 </h4>
+							</div>
+							
+							<div class="padding-10">
+								<div class="text-red info" style="cursor: pointer;">※ 연차 발생 가이드 보기 ▼</div>
+								<div class="list-box margin-top-10 padding-10" id="divInfo" style="display: none;">
+									<div class="padding-10"><h4 class="width-100" style="display: inline-block;">개근연차</h4><span>2018년 근로기준법 연차휴가 개정으로 인해 생성된 휴가</span></div>
+									<div class="row margin-left-0">
+										
+										<div class="padding-10 col-xs-6">
+											<table class="table table-bordered table-col table1">
+												<colgroup>
+													<col style="width: 20%;">
+													<col style="width: auto;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>대상</th>
+														<td class="text-left text-blue">2017년 5월30일 입사자부터 적용</td>
+													</tr>
+													<tr>
+														<th>발생 기준</th>
+														<td class="text-left">
+															-입사일 이후 1개월 개근 시 다음달에 1일의 개근연차 발생<br>
+															-입사월 최초 1개월 제외하고 최대 11일 발생
+														</td>
+													</tr>
+													<tr>
+														<th>개근연차 소진</th>
+														<td class="text-left">
+															-연차 사용시에는 개근연차 우선으로 사용<br>
+															-연차 사용 촉진시 개근연차는 잔여연차 일수에서 제외<br>
+															-개근연차가 남아 있는 경우 주4일제 휴무일 4회당 1일 개근연차 차감됨
+														</td>
+													</tr>
+													<tr>
+														<th>개근연차 이월</th>
+														<td class="text-left">입사일을 기준으로 미사용 개근연차는 다음해로 이월됨</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="padding-10  col-xs-6" style="margin-top:-30px">
+											<span class="text-default" style="padding-bottom:10px; display:block;">예시) 2019년 2월 25일 입사자 홍길동 개근연차</span>
+											<table class="table table-bordered table-col width-350 table2">
+												<colgroup>
+													<col style="width: 25%;">
+													<col style="width: 7;">
+													<col style="width: 25%;">
+													<col style="width: 25%;">
+													<col style="width: 18%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th colspan="3">근무일(시작) ~ 근무일(종료)</th>
+														<th>발생일자</th>
+														<th>수(개)</th>
+													</tr>
+												</thead>
+												<tbody>
+													
+														<tr>
+															<td>19.2.25</td>
+															<td>~</td>
+															<td>19.3.24</td>
+															<td>19.3.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.3.25</td>
+															<td>~</td>
+															<td>19.4.24</td>
+															<td>19.4.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.4.25</td>
+															<td>~</td>
+															<td>19.5.24</td>
+															<td>19.5.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.5.25</td>
+															<td>~</td>
+															<td>19.6.24</td>
+															<td>19.6.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.6.25</td>
+															<td>~</td>
+															<td>19.7.24</td>
+															<td>19.7.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.7.25</td>
+															<td>~</td>
+															<td>19.8.24</td>
+															<td>19.8.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.8.25</td>
+															<td>~</td>
+															<td>19.9.24</td>
+															<td>19.9.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.9.25</td>
+															<td>~</td>
+															<td>19.10.24</td>
+															<td>19.10.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.10.25</td>
+															<td>~</td>
+															<td>19.11.24</td>
+															<td>19.11.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.11.25</td>
+															<td>~</td>
+															<td>19.12.24</td>
+															<td>19.12.25</td>
+															<td>1</td>
+														</tr>
+													
+														<tr>
+															<td>19.12.25</td>
+															<td>~</td>
+															<td>20.1.24</td>
+															<td>20.1.25</td>
+															<td>1</td>
+														</tr>
+													
+													<tr>
+														<td colspan="4">합계</td>
+														<td>11</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div>
+										<div class="padding-10"><h4>연차</h4></div>
+										<div class="padding-10">
+											<table class="table table-bordered table-col half table3">
+												<colgroup>
+													<col style="width: 20%;">
+													<col style="width: auto;">
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>발생 기준</th>
+														<td class="text-left">
+															- 입사 후 1년이 되면 15일 발생 (입사 후 1년간 80% 이상 정상 출근하는 경우)<br>
+															- 연차 일수는 2년마다 1일씩 추가되어 최대 25일까지 발생
+														</td>
+													</tr>
+													<tr>
+														<th>연차 소진</th>
+														<td class="text-left">
+															-연차휴가는 입사일로부터 다음해 입사일 전날까지 사용(신청일 기준X)하여야 함<br>
+															(예시 2019년 2월25일 발생한 연차는 2020년 2월24일까지 모두 사용해야함)<br>
+															-회사는 연차사용촉진을 실시하여 미사용 연차휴가는 소멸<br>
+															-개근연차가 소진 또는 없는 경우 주4일제 휴무일 8회당 1일 연차가 차감됨
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="table-responsive table-performance"><!-- table-performance -->
+								<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" style="width: 40%;">
+									<colgroup>
+										<col style="width: 20%;">
+										<col style="width: 20%;">
+										<col style="width: 20%;">
+										<col style="width: 20%;">
+										<col style="width: 20%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">구분</th>
+											<th scope="col">이월연차</th>
+											<th scope="col">발생연차</th>
+											<th scope="col">사용연차
+												<sapn data-toggle="tooltip" data-placement="top" title="" data-original-title="연차휴가 승인이 완료된
+												상태의 휴가">
+													<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</sapn>
+											</th>
+											<th scope="col">잔여연차
+												<sapn data-toggle="tooltip" data-placement="top" title="" data-original-title="(이월연차+발생연차)
+												- 사용연차">
+													<i class="fa fa-exclamation-circle"><em class="sr-only">알림</em></i>
+												</sapn>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>연차</th>
+											<td>0</td>
+											<td>0</td>
+											<td>0.5</td>
+											<td>-0.5</td>
+										</tr>
+										<tr>
+											<th>개근연차</th>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<th>합계</th>
+											<td>0</td>
+											<td>0</td>
+											<td>0.5</td>
+											<td>-0.5</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="section-title">
+								<h4 class="title"> 휴가/휴무/ 휴직내역</h4>
+							</div>
+							
+							<form id="frm2" name="frm2" method="post">
+								<input type="hidden" id="page" name="page" value="1">
+								
+								<div class="wrap row padding-20 padding-top-10 ">
+									<select class="form-control width-200 padding-right-10" id="type_cd" name="type_cd"><option value="">휴가유형</option><option value="SC001" data-rfval1="Y">연차</option><option value="SC002" data-rfval1="Y">경조</option><option value="SC003" data-rfval1="Y">기타</option><option value="SC004" data-rfval1="Y">장기근속휴가</option><option value="SC005" data-rfval1="Y">대체휴무</option><option value="SC006" data-rfval1="Y">휴직</option><option value="SC008" data-rfval1="N">드림데이 연차차감</option></select>
+									<select class="form-control width-200" id="off_cd" name="off_cd">
+										<option value="">휴가종류</option>
+									</select>
+								</div>
+								<div class="table-responsive table-performance" id="divTabBody2">
+					
+					
+					
+					
+					
+					
+					
+			
+									<div class="container section-must-read nopadding margin-top-10"><!-- section-must-read -->
+										<div class="panel panel-default">
+											<div class="dataTables_length" id="datatable_length"><!-- dataTables_length -->
+												<label>
+													<select name="pageSize" id="pageSize" aria-controls="datatable" class="form-control input-xsmall input-inline">
+														<option value="10">10</option>
+														<option value="20">20</option>
+														<option value="50">50</option>
+														<option value="100">100</option>
+													</select>
+												</label>
+												<span class="margin-left-3 text-red">※ 2020년 1월 2일부터 에듀윌 피플을 통해 신청한 휴가만 노출됩니다.</span>
+											</div><!-- // dataTables_length -->
+									
+											<div class="table-responsive table-books margin-top-10 scroll-zone">
+												<table id="datatable" class="table table-col" cellpadding="0" cellspacing="0">
+													<colgroup>
+														<col style="width: 25%;">
+														<col style="width: 25%;">
+														<col style="width: 20%;">
+														<col style="width: 30%;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th scope="col">구분</th>
+															<th scope="col">신청기간</th>
+															<th scope="col">일수</th>
+															<th scope="col">비고</th>
+														</tr>
+													</thead>
+													<tbody>
+														
+															
+															
+																<tr>
+																	<td colspan="4">
+																		데이터가 존재하지 않습니다.
+																	</td>
+																</tr>
+															
+														
+													</tbody>
+												</table>
+											</div>
+									
+											<div class="text-center">
+												<!-- 페이징 영역 -->
+												<ul class="pagination"><li class="active"><a>1</a></li></ul>
+											</div>
+											
+										</div>
+									</div>
+									
+									
+									<style>
+									.scroll-zone {overflow-y: auto; height: 500px;}
+									.scroll-zone .table-responsive {height:auto}
+									
+									.scroll-zone *::-webkit-scrollbar { width: 4px !important }
+									.scroll-zone *::-webkit-scrollbar-button:start:decrement,
+									.scroll-zone *::-webkit-scrollbar-button:end:increment { background-color: none !important; }
+									.scroll-zone *::-webkit-scrollbar-track { border-radius: 2px; background-color: transparent !important; }
+									.scroll-zone *::-webkit-scrollbar-thumb { border-radius: 2px; background-color: #ddd !important; }
+									</style>
+								</div>
+							</form>
+							
+							<div class="text-center margin-top-20">
+								<button type="button" class="btn btn-danger write" id="btnWrite">휴가신청서 작성</button>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 엑셀 다운로드 용 -->
+					<form id="frmExcel" name="frmExcel" method="post" action="/anvact/mine/excelDownloadForAnvactPromoteNth">
+						<input type="hidden" id="nth" name="nth">
+					</form>
+					<!-- // 엑셀 다운로드 용 -->
+		
+					<style>
+					.list-box{margin-top: 21px; border-radius: 5px; border: 0.5px solid rgba(102, 102, 102, .3); padding: 15px 6px 15px 0; }
+					.tooltip {width: 145px !important;}
+					.tooltip-inner {max-width: 200px !important;}
+					.write {height: 45px; padding: 0 30px; font-size: 16px; font-weight: 700;}
+					.table1 tr th, .table1 tr td {height: 97px !important; }
+					.table2 tr th, .table2 tr td {height: 28px !important; }
+					.promote {border: solid 1px #337ab7; border-radius: 3px; height: 26px; margin-left: 9px; margin-bottom: 2px; color: #337ab7; padding: 3px 10px !important; font-weight: 500;}
+					</style>
+				</div>
+			</div>
+
+		</div><!-- // content -->
+		
+		
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

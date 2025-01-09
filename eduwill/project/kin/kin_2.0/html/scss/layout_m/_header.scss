@@ -1,0 +1,165 @@
+.hd-wrap {
+    padding: 0; 
+    background-color: $color-White;
+    margin-bottom: -1px;
+    &-inner {
+        box-shadow: inset 0 -1px 0 0 $color-Light;
+        @include clearfix();
+        height: 56px;
+        padding: 0;
+        .logo {
+            float: left;
+            padding: 18px 0 0 16px;
+            a {
+                display: block;
+                font-size: 0;
+                width: 133px; height: 19px;
+                @include background-name-ext-repeat-poistion('common/bi@2x', png, no-repeat, 0 0);
+                background-size: contain;
+            }
+            &-text {
+                float: left;
+                padding: 18px 0 0 16px;
+                a {
+                    display: block;
+                    @include font-init('EduwillPassBold');
+                    @include font-size-color-weight($typo-size-20, $color-Dark, 400);
+                    text-decoration: none;
+                    .icon { 
+                        vertical-align: top;
+                        margin-right: 6px;
+                        transform: scale(0.8);
+                        margin-top: -3px;
+                    }
+                    em {
+                        @include font-init('EduwillPassBold');
+                        padding-left: 6px;
+                        position: relative;
+                        color: $color-Accent-1;
+                    }
+                }
+            }
+        }
+        .utility {
+            float: right;
+            padding: 8px 12px 0 0;
+            & > div {
+                display: inline-block;
+                margin-left: 8px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                .btn {
+                    width: 40px; height: 40px;
+                    position: relative;
+                }
+                .badge {
+                    min-width: 13px;
+                    padding: 0 3px;
+                    @include font-init('Montserrat');
+                    background-color: $color-Red;
+                    font-size: $typo-size-10;
+                    line-height: 13px;
+                    position: absolute;
+                    top: 8px;
+                    left: 18px;
+                }
+            }
+        }
+    }
+    &.nav-up {
+        & + .gnb-wrap {
+            padding-top: 56px;
+        }
+        position: fixed; top: 0; left: 0; 
+        z-index: 1000;
+        width: 100%;
+        -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+}
+.gnb-wrap {
+    box-shadow: inset 0 1px 0 0 $color-Light;
+    padding: 0;
+    &-inner {
+        height: 52px;
+        overflow: hidden;
+        box-shadow: inset 0 -1px 0 0 $color-Light;
+    }
+    .gnb {
+        font-size: 0;
+        padding: 0 16px 16px;
+        overflow-x: auto;
+        white-space: nowrap;
+        li {
+            display: inline-block;
+            margin-left: 24px;
+            &:first-child {
+                margin-left: 0;
+            }
+            
+            a {
+                @include font-size-color-weight($typo-size-16, $color-Dark, 400);
+                display: inline-block;
+                padding: 18px 0;
+                &.active {
+                    color: $color-Accent-1;
+                }
+            }
+        }
+    }
+    
+    .breadcrumbs {
+        padding: 16px;
+        box-shadow: inset 0 -1px 0 0 $color-Light;
+        .btn {
+            text-decoration: none;
+        }
+        .icon {
+            margin-right: 12px;
+        }
+        span {
+            @include font-size-color-weight($typo-size-16, $color-Dark, 400);
+            vertical-align: 1px;
+        }
+    }
+    &-app {
+        padding: 12px 24px;
+        .breadcrumbs {
+            * {
+                vertical-align: top;
+            }
+            .btn {
+                text-decoration: none;
+            }
+            .icon {
+                margin-right: 12px;
+            }
+            span {
+                @include font-size-color-weight($typo-size-18, $color-Dark, 400);
+                line-height: 24px;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes slide-bottom {
+        0% {
+          -webkit-transform: translateY(-20px);
+                  transform: translateY(0);
+        }
+        100% {
+          -webkit-transform: translateY(-20px);
+                  transform: translateY(0);
+        }
+      }
+    @keyframes slide-bottom {
+        0% {
+          -webkit-transform: translateY(-20px);
+                  transform: translateY(-20px);
+        }
+        100% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0);
+        }
+    }

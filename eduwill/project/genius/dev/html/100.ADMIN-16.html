@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 그룹웨어(Genius)</title>
+
+<!-- favicon files -->
+<link rel="Bookmark Icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" />
+<link rel="icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="//img.eduwill.net/Img2/Common/favicon/favicon.ico" type="image/x-icon" />
+
+<!-- css files -->
+<!-- layout css -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="css/genius.css" />
+
+
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/live/plugins/';</script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/jquery.easyui.min.js" type="text/javascript" ></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/ajaxUtil.js" type="text/javascript"></script>
+
+<!-- validation -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+
+<script src="//img.eduwill.net/resources/kpi/live/js/custom.js?v=5a2d148c09b00" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/js/common.js?v=5ad59eb6c6f40" type="text/javascript"></script>
+
+<!-- 토스트메시지 -->
+<link href="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="//img.eduwill.net/resources/kpi/live/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+
+<!-- print -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/printThis/printThis.js"></script>
+
+<!-- editable -->
+<script type="text/javascript" src="//img.eduwill.net/resources/kpi/live/plugins/bootstrap-editable.min.js"></script>
+
+<!-- Fullcalendar -->
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.css" />
+<link rel="stylesheet" href="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.print.css" media="print" />
+<script src="//img.eduwill.net/resources/kpi/live/plugins/moment.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/lang-all.js" type="text/javascript"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/fullcalendar/gcal.js" type="text/javascript"></script>
+
+<!-- CKEditor -->
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/ckeditor.js"></script>
+<script src="//img.eduwill.net/resources/kpi/live/plugins/ckeditor/ckeditor_4.10.0_full/adapters/jquery.js"></script>
+
+<script type="text/javascript">
+	function pagePrint(){
+		$('#pagePrint').printThis();
+	}
+
+	$(document).ready(function() {
+		/** Bootstrap Tooltip **/ 
+		$("[data-toggle=tooltip]").tooltip();
+	})
+
+</script>
+
+</head>
+
+<body class="body-sub body-genius page-goal-manage">
+
+<!-- wrapper -->
+<div id="wrapper" class="clearfix">
+
+	<!-- hd-wrap -->
+    <section class="hd-wrap">
+        <div class="hd-wrap-inner">
+            <div class="logo">
+                <a href="">지니어스</a>
+            </div>
+            <div class="gnb">
+                <ul>
+                    <li><a href="">전자결재</a></li>
+                    <li><a href="">전사공지</a></li>
+                    <li><a href="">업무요청</a></li>
+                    <li><a href="">인사관리</a></li>
+                    <li><a href="">지원관리</a></li>
+                </ul>
+            </div>
+            <div class="comp-right">
+                
+                <div class="logout">
+                    <button class="btn btn-g-link">로그아웃</button>
+                </div>
+                <div class="state">
+                    <span onclick="$(this).next('.menu-tootip').fadeIn(100);"><i class="state-1"></i> 근무중</span>
+                    <!--
+                    <span><i class="state-2"></i> 자리비움</span>
+                    <span><i class="state-3"></i> 로그오프</span>
+                    -->
+                    <div class="menu-tootip" style="display: none;" onclick="$(this).fadeOut(100);">
+                        <div class="menu-tootip-inner">
+                            <div class="link"><a href="#"><i class="state-1"></i> 근무중</a></div>
+                            <div class="link"><a href="#"><i class="state-2"></i> 자리비움</a></div>
+                            <div class="link"><a href="#"><i class="state-3"></i> 로그오프</a></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="organization">
+                    <span><button class="btn btn-g-link btn-setting">관리자</button></span>
+                    <span><button class="btn btn-g-link btn-person">조직도</button></span>
+                </div>               
+            </div>
+        </div>
+    </section>
+    <div class="hd-wrap-expand" style="display: none;">
+        <div class="hd-wrap-expand-inner">
+            <div class="link">
+                <a herf="">결재문서 작성</a>
+                <a herf="">결재하기</a>
+                <a herf="">수신함</a>
+                <a herf="">매출/예산 계획 제출</a>
+            </div>
+            <div class="link">
+                <a herf="">공지사항</a>
+                <a herf="">에듀윌러 소식</a>
+                <a herf="">에듀윌 스타</a>
+                <a herf="">꿈의 직장</a>
+            </div>
+            <div class="link">
+                <a herf="">마케팅</a>
+                <a herf="">총무</a>
+                <a herf="">IT</a>
+                <a herf="">법무</a>
+            </div>
+            <div class="link">
+                <a herf="">인사정보</a>
+                <a herf="">평가</a>
+                <a herf="">교육</a>
+                <a herf="">자주 묻는 질문</a>
+            </div>
+            <div class="link">
+                <a herf="">힐링큐브</a>
+                <a herf="">E-스퀘어</a>
+                <a herf="">차량배차</a>
+                <a herf="">마음,쉼</a>
+            </div>
+        </div>
+    </div>
+    <!-- // hd-wrap -->
+
+	<!-- aside -->
+	<aside id="aside">
+		<div class="aside-loaction">
+			<strong>전사공지</strong>
+			<button class="btn-collapse">접기</button>
+		</div>
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 el_primary menu-open active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>공지사항</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2 active">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">전체공지
+										<!-- <span class="label label-number">8</span> -->
+									</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>에듀윌러 소식</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>에듀윌 스타</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">depth2</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>꿈의직장</span></span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="expand-wrap" style="display: none;">
+		<button class="btn-expand">열기</button>
+	</div>
+	<!-- // aside -->
+
+	<!-- middle -->	
+	<section id="middle">
+		
+		<div id="content" class="padding-20"><!-- content -->
+			<div class="container section-search-form section-search-form-bg">
+				<div class="middle-location">
+					<a href="/" class="home">홈</a>
+					<a href="#">인사관리자</a>
+					<a href="#">업적/역량</a>
+					<a href="#">평가시기 관리</a>
+				</div>
+				<div class="wrap row">
+					<form name="frm1" id="frm1" method="post" action="/manage/schedule/index">
+						<label for="selectYear" class="width-100 text-center weight-800">연도</label>
+						<select name="toyear" id="toyear" class="form-control width-100">undefined<option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option></select>
+						<button type="submit" class="btn btn-teal" id="btnSearch">조회</button>
+						<button type="button" class="btn btn-blue" data-toggle="modal" data-target="#newRegister">등록</button>
+					</form>
+				</div>
+			</div>
+			<div class="container section-period-manage">
+				<div class="table-responsive">
+					<table class="table table-bordered nomargin" summary="구분, 내용, 상반기, 하반기로 구분되는 표">
+						<caption>평가시기 관리 표</caption>
+						<colgroup>
+							<col style="width: 20%;">
+							<col style="width: auto;">
+							<col style="width: 25%;" span="2">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" class="sort">구분</th>
+								<th scope="col" class="content">내용</th>
+								<th scope="col" class="first-half">상반기(1월 ~ 6월)</th>
+								<th scope="col" class="second-half">연간(1월 ~ 12월)</th>
+							</tr>
+						</thead>
+						<tbody>
+						
+							
+								
+									<tr>
+										<td class="sort">목표수립</td>
+										<td class="content">
+											<p>목표수립 작성</p>
+											<ul>
+												<li>업적목표, 역량목표</li>
+											</ul>
+										</td>
+										<td class="first-half">
+											<label class="switch switch-danger">
+												<input type="checkbox" checked="">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="Y" data-title="상반기 목표수립을" data-toyear="2021" data-nth="1" data-colname="OBJECTIVE"></span>
+											</label>
+										</td>
+										<td class="second-half">
+											<label class="switch switch-danger">
+												<input type="checkbox" checked="">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="Y" data-title="연간 목표수립을" data-toyear="2021" data-nth="2" data-colname="OBJECTIVE"></span>
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="sort">평가서작성</td>
+										<td class="content">
+											<p>평가서 작성</p>
+											<ul>
+												<li>업적평가, 역량평가 성과 및 본인평가</li>
+											</ul>
+										</td>
+										<td class="first-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="상반기 평가서 작성을" data-toyear="2021" data-nth="1" data-colname="REPORT"></span>
+											</label>
+										</td>
+										<td class="second-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="연간 평가서 작성을" data-toyear="2021" data-nth="2" data-colname="REPORT"></span>
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="sort">1차평가</td>
+										<td class="content">
+											<p>평가 관리</p>
+											<ul>
+												<li>업적평가서 : 1차평가, 1차 종합의견</li>
+												<li>역량평가서 : 1차평가</li>
+											</ul>
+										</td>
+										<td class="first-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="상반기 1차평가를" data-toyear="2021" data-nth="1" data-colname="ASSESS1TH"></span>
+											</label>
+										</td>
+										<td class="second-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="연간 1차평가를" data-toyear="2021" data-nth="2" data-colname="ASSESS1TH"></span>
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td class="sort">2차평가</td>
+										<td class="content">
+											<p>평가 관리</p>
+											<ul>
+												<li>업적평가서 : 2차평가, 2차 종합의견</li>
+												<li>역량평가서 : 2차평가</li>
+											</ul>
+										</td>
+										<td class="first-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="상반기 2차평가를" data-toyear="2021" data-nth="1" data-colname="ASSESS2TH"></span>
+											</label>
+										</td>
+										<td class="second-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="연간 2차평가를" data-toyear="2021" data-nth="2" data-colname="ASSESS2TH"></span>
+											</label>
+										</td>
+									</tr>
+									
+										<tr>
+											<td class="sort">3차평가</td>
+											<td class="content">
+												<p>평가 관리</p>
+												<ul>
+													<li>업적평가서 : 3차평가, 3차 종합의견</li>
+													<li>역량평가서 : 3차평가</li>
+												</ul>
+											</td>
+											<td class="first-half">
+												<label class="switch switch-danger">
+													<input type="checkbox">
+													<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="상반기 3차평가를" data-toyear="2021" data-nth="1" data-colname="ASSESS3TH"></span>
+												</label>
+											</td>
+											<td class="second-half">
+												<label class="switch switch-danger">
+													<input type="checkbox">
+													<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="연간 3차평가를" data-toyear="2021" data-nth="2" data-colname="ASSESS3TH"></span>
+												</label>
+											</td>
+										</tr>
+									
+									<tr>
+										<td class="sort">결과 발표</td>
+										<td class="content">
+											<p>평가결과 관리</p>
+											<ul>
+												<li>평가결과 : 평가 종합의견 및 등급 발표</li>
+											</ul>
+										</td>
+										<td class="first-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="상반기 결과발표를" data-toyear="2021" data-nth="1" data-colname="RESULT"></span>
+											</label>
+										</td>
+										<td class="second-half">
+											<label class="switch switch-danger">
+												<input type="checkbox">
+												<span class="switch-label" data-on="ON" data-off="OFF" data-val="N" data-title="연간 결과발표를" data-toyear="2021" data-nth="2" data-colname="RESULT"></span>
+											</label>
+										</td>
+									</tr>
+								
+								
+							
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 평가시기 생성 모달 팝업 -->
+		<div id="newRegister" class="modal modal-sm fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title" id="myModalLabel">평가시기 관리 신규 생성</h4>
+					</div>
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form name="frmReg" id="frmReg" method="post" action="">
+							<label for="selectYear" class="width-100 text-center weight-800">년도</label>
+							<select name="toyear" id="toyear" class="form-control width-100">
+							</select>
+						</form>
+					</div>
+					<!-- Modal Footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="btnSave">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- // middle -->
+</div>
+<!-- // wrapper -->
+
+</body>
+</html>

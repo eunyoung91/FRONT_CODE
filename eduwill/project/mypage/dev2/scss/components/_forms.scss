@@ -1,0 +1,118 @@
+//체크박스
+/* checkbox */
+.checkbox, .radio {
+    display: inline-block;
+    padding-left: rem(24);
+    line-height: rem(24);
+    height: auto;
+    min-height: rem(24);
+    cursor: pointer;
+    position: relative;    
+    margin: 0;
+    input[type="checkbox"],
+    input[type="radio"] {
+        position: absolute; left: rem(-9999);        
+    }
+    i + span {
+        margin-left: rem(4);
+        @include font-size-color-weight(rem(14), $color-dark, 400);
+        display: inline-block;
+        margin-top: rem(1);
+    }
+    i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: rem(24);
+        height: rem(24);
+        
+    }
+    input[type="checkbox"] + i {
+        @include background-name-ext-repeat-poistion('icon_check_off', svg, no-repeat, 0 0);
+    }
+    input[type="checkbox"]:checked + i {
+        @include background-name-ext-repeat-poistion('icon_check_on', svg, no-repeat, 0 0);
+    }
+    input[type="checkbox"]:disabled + i {
+        @include background-name-ext-repeat-poistion('icon_check_disabled', svg, no-repeat, 0 0);
+    }
+
+    input[type="radio"] + i {
+        @include background-name-ext-repeat-poistion('icon_radio_off', svg, no-repeat, 0 0);
+    }
+    input[type="radio"]:checked + i {
+        @include background-name-ext-repeat-poistion('icon_radio_on', svg, no-repeat, 0 0);
+    }
+    input[type="radio"]:disabled + i {
+        @include background-name-ext-repeat-poistion('icon_radio_disabled', svg, no-repeat, 0 0);
+    }
+
+	&.type-check input[type="radio"] + i {
+        @include background-name-ext-repeat-poistion('icon_check_off', svg, no-repeat, 0 0);
+    }
+    &.type-check input[type="radio"]:checked + i {
+        @include background-name-ext-repeat-poistion('icon_check_on', svg, no-repeat, 0 0);
+    }
+    &.type-check input[type="radio"]:disabled + i {
+        @include background-name-ext-repeat-poistion('icon_check_disabled', svg, no-repeat, 0 0);
+    }
+}
+
+
+input[type="text"].form-control,
+input[type="password"].form-control,
+input[type="::-moz-list-number"].form-control,
+select.form-control {
+	@include font-size-color-weight(rem(14), $color-dark, 400);
+	height: rem(40);
+	line-height: rem(21);
+	padding: rem(6) rem(14);
+	border-radius: rem(4);
+	border-color: #ddd;
+	text-indent: 0;
+	box-shadow: none;
+	&:focus {
+		box-shadow: none;
+		border-color: #ddd;
+	}
+	@include placeholder-color(#bfbfbf);
+	&:disabled {
+		color: $color-secondary;
+		background-color: #F2F2F2;
+	}
+}
+select.form-control {
+    padding-right: rem(40);
+    @include background-name-ext-repeat-poistion("icon_down", svg, no-repeat, right rem(8) center);
+    background-size: rem(24);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.label {
+	@include font-size-color-weight(rem(11), $color-primary, 400);
+	border: solid rem(1) $color-primary;
+	height: rem(16);
+	line-height: rem(16);
+	padding: rem(0) rem(6);
+	border-radius: rem(0);
+	display: inline-block;
+
+	&-default {
+		background-color: transparent;
+		border-color: transparent;
+	}
+	&-dark {
+		background-color: $color-dark;
+		border-color: $color-dark;
+		color: $color-white;
+	}
+	&-primary {
+		background-color: $color-white;
+		border: solid rem(1) $color-primary;
+	}
+}
+
+

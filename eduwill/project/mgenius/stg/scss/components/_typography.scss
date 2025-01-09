@@ -1,0 +1,66 @@
+
+@import url('//img.eduwill.net/resources/common/web/css/webfont.css'); 
+
+// font-family
+.font-AppleSDGothicNeoM {
+    @include font-init('AppleSDGothicNeoM');
+}
+.font-AppleSDGothicNeoB {
+    @include font-init('AppleSDGothicNeoB');
+}
+.font-AppleSDGothicNeoH {
+    @include font-init('AppleSDGothicNeoH');
+}
+.font-Verdana {
+   @include font-init('Verdana');    
+}
+.font-Tahoma {
+    @include font-init('Tahoma');
+    letter-spacing: 1px;
+}
+.font-NotoSerif {
+    @include font-init('Noto Serif KR');
+}
+.font-NotoSansKR {
+    @include font-init('Noto Sans KR');
+}
+.font-Montserrat {
+    @include font-init('Montserrat');
+}
+.font-EduwillPassBold {
+    @include font-init('EduwillPassBold');
+}
+.font-EduwillBetaRegular {
+    @include font-init('EduwillBetaRegular');
+}
+
+
+// size
+@each $size in 42,36,28,24,20,18,17,16,15,14,13,12 {
+    .typo-size-#{$size} {
+        font-size: #{$size}px;
+    }    
+}
+
+// color
+@each $color, $code in (White, #ffffff),
+                       (Black, #000000),
+                       (Accent-1, #2673f0),
+                       (Accent-1-hover, #2267d8),
+                       (Accent-1-Light, rgba(38, 115, 240, 0.05)),
+                       (Accect-2, #4b9f47),
+                       (Dark, #0a1b3d),
+                       (Red, #e6531e),
+                       (Medium, #5a667d),
+                       (Medium-Light, #a6aec5),
+                       (Light, #eeeff3),
+                       (Light-box-line, #e4e4e4),
+                       (Bg-Disabled, #f5f5f5),
+                       (Bg-square, #f5f8ff) {
+    .typo-color-#{$color} {
+        color: $code; 
+    }
+}
+
+
+
