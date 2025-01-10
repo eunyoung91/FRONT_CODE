@@ -1,4 +1,23 @@
-﻿# 서초 메가스터디학원 강사 소개 페이지 구현 가이드
+﻿# index.html
+  ## Nelify 배포용 version
+
+# bak_teacherN.html
+  ## 하드코딩 version
+
+# teacherN.html
+  ## Vue.js version
+
+# teacherN_data.html
+  ## Vue.js + data 구조개선 version
+
+
+
+
+
+
+
+
+# 서초 메가스터디학원 강사 소개 페이지 구현 가이드
 
 ## 1. 프로젝트 소개
 

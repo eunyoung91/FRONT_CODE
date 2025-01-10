@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="imagetoolbar" content="no">
+	<title>서초 메가스터디학원</title>
+
+	<link rel="stylesheet" type="text/css" href="https://mseocho.megastudy.net/common/css/main_renew.css">
+	<link rel="stylesheet" type="text/css" href="css/teacher_2024.css">
+</head>
+
+<body>
+	<div id="app">
+		<div id="sub_wrap">
+			<!-- header -->
+			<header id="header">
+				<div class="top_wrap">
+					<a href="/seocho/nsu" target="_top">
+						<img src="https://img.megastudy.net/campus/library/v2015_mob/asset/img/main_renew/logo/logo_seocho.svg" alt="서초 메가스터디학원">
+					</a>
+					<a class="btn_menu" href="javascript:void(0);" aria-label="메뉴보기">메뉴보기</a>
+				</div>
+			</header>
+		
+			<div class="container pad_no" id="top">
+				<div class="clearfix"></div>
+				<div class="mask" v-show="isPopupVisible" @click="closePopup"></div>
+		
+				<div class="header_tit_wrap"><h2>선생님</h2></div>
+		
+				<div class="teacherWrap_2024">
+					<div class="teacher_top">
+						<div class="tabWrap tab_teacher">
+							<ul class="tab">
+								<li v-for="(subject, code) in subjects" :key="code" :class="{'on': selectedTab === code}" @click="viewLecTeacherList(code)">
+									{{ subject }}
+								</li>
+							</ul>
+						</div>
+					</div>
+	
+					<div class="dvLecListWrap">
+						<div v-for="(subjectTeachers, code) in teachers" :key="code" class="dvLecList" v-show="selectedTab === code || selectedTab === ''">
+							<h4 class="title">{{ subjects[code] }}</h4>
+							<div class="lecTeacherList">
+								<ul>
+									<li class="liTeacherView" v-for="teacher in subjectTeachers" :key="teacher.id">
+										<div class="teacherBox">
+											<a class="teacher_thumb" href="javascript:;" @click="openPopup(teacher)" aria-label="{{ teacher.name }} 선생님 정보 보기">
+												<div class="photo">
+													<img :src="teacher.photo" :alt="teacher.name" onerror="this.onerror=null; this.src='https://campus.megastudy.net/Data/Teacher/teacher_photo/ready1.png';" loading="lazy">
+												</div>
+												<div class="info">
+													<span class="name"><strong>{{ teacher.name }}</strong> 선생님</span>
+												</div>
+											</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 레이어 팝업 -->
+			<div v-show="isPopupVisible" class="ly ly_lecTeacher">
+				<div class="lyinner">
+					<div class="info_visual">
+						<!-- 사진 영역 -->
+						<div class="photo" v-if="popupTeacher">
+							<img :src="popupTeacher.photo" :alt="popupTeacher.name" onerror="this.onerror=null; this.src='https://campus.megastudy.net/Data/Teacher/teacher_photo/ready1.png';" loading="lazy">
+						</div>
+						<!-- 정보 영역 -->
+						<div class="info">
+							<span class="subject" v-if="popupTeacher"><em>{{ popupTeacher.subject }}</em></span>
+							<span class="name" v-if="popupTeacher"><strong>{{ popupTeacher.name }}</strong> 선생님</span>
+						</div>
+					</div>
+					<!-- 상세 설명 영역 -->
+					<div class="info_desc" v-if="popupTeacher">
+						<ul class="list_type">
+							<li>
+								<strong class="tit">강의 특징</strong>
+								<div class="list_type_main">{{ popupTeacher.features }}</div>
+							</li>
+							<li>
+								<strong class="tit">약력</strong>
+								<ul class="list_type_sub">
+									<li v-for="experience in popupTeacher.experience" :key="experience">{{ experience }}</li>
+								</ul>
+							</li>
+							<li v-if="popupTeacher.books.length">
+								<strong class="tit">저서</strong>
+								<ul class="list_type_sub">
+									<li v-for="book in popupTeacher.books" :key="book">{{ book }}</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a href="javascript:;" class="ly-close" @click="closePopup" aria-label="팝업 닫기">닫기</a>
+			</div>
+
+			<!-- footer -->
+			<footer id="footer" role="contentinfo">
+				<footer>
+			</footer>
+		</div>
+	</div> 
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				selectedTab: '',
+				isPopupVisible: false,
+				popupTeacher: null,
+				subjects: {
+					'': '전체',
+					'CD0023': '국어',
+					'CD0024': '수학',
+					'CD0025': '영어',
+					'CD0026': '사회',
+					'CD0027': '과학',
+					'CD0053': '한국사',
+					'CD0028': '대학별고사'
+				},
+				teachers: {
+					'CD0023': [
+						{
+							id: 1,
+							name: '김대우',
+							subject: '국어',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/국어_김대우.png',
+							features: '수능국어의 체계를 잡고 시간성과 정확성을 함께 끌어 올리는 수업',
+							experience: ['(현) 서초 메가스터디학원', '(현) 대치 공감'],
+							books: []
+						},
+						{
+							id: 2,
+							name: '설승환',
+							subject: '국어',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/국어_설승환.png',
+							features: '누구도 범접할 수 없는 수능 국어 ‘올라운더’',
+							experience: ['(현) 서초 메가스터디학원', '(현) 대치명인학원'],
+							books: ['국어문법 베스트셀러 <다담 언어와 매체 800제>', '<다담 화법과 작문 500제>']
+						},
+						{
+							id: 3,
+							name: '윤대석',
+							subject: '국어',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/국어_윤대석.png',
+							features: '누구도 범접할 수 없는 수능 국어 ‘올라운더’',
+							experience: ['(현) 서초 메가스터디학원', '(현) 대치명인학원'],
+							books: ['국어문법 베스트셀러 <다담 언어와 매체 800제>', '<다담 화법과 작문 500제>']
+						},
+						
+
+					],
+					'CD0024': [
+						{
+							id: 1,
+							name: '강성현',
+							subject: '수학',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/수학_강성현.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						},
+						{
+							id: 2,
+							name: '나경민',
+							subject: '수학',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/수학_나경민.png',
+							features: '정의에 의한 문제 해석',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 학과장(수학과)'],
+							books: ['수능 기출 올픽 수학영역 수학Ⅰ']
+						}
+					],
+					'CD0025': [
+						{
+							id: 1,
+							name: '김도엽',
+							subject: '영어',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/영어_김도엽.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						},
+						{
+							id: 2,
+							name: '나경민',
+							subject: '영어',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/수학_나경민.png',
+							features: '정의에 의한 문제 해석',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 학과장(수학과)'],
+							books: ['수능 기출 올픽 수학영역 수학Ⅰ']
+						}
+					],
+					'CD0026': [
+						{
+							id: 1,
+							name: '서용준',
+							subject: '사회',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/사회탐구_서용준.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						},
+						{
+							id: 2,
+							name: '이명신',
+							subject: '사회',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/사회탐구_이명신.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['고려대학교 졸업', '(현) 메가스터디학원 사회탐구 강사', '(전) 2020년,2021년 메가스터디 평가원 모의고사 해설 위원'],
+							books: ['카페인 모의고사 가/나 형']
+						}
+					],
+					'CD0027': [
+						{
+							id: 1,
+							name: '김남준',
+							subject: '과학',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/과학탐구_김남준.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						}
+					],
+					'CD0053': [
+						{
+							id: 1,
+							name: '이명신',
+							subject: '한국사',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/사회탐구_이명신2.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						}
+					],
+					'CD0028': [
+						{
+							id: 1,
+							name: '금현윤',
+							subject: '대학별고사',
+							photo: 'https://campus.megastudy.net/Data/Teacher/teacher_photo/강사명_여실루엣15.png',
+							features: '카페인 모의고사 가/나 형',
+							experience: ['(현) 강남 메가스터디학원 팀플전문관 강사'],
+							books: ['카페인 모의고사 가/나 형']
+						}
+					]
+				}
+			},
+			computed: {
+				allTeachers() {
+					return [...this.teachers['CD0023'], ...this.teachers['CD0024'], ...this.teachers['CD0025'], ...this.teachers['CD0026'], ...this.teachers['CD0027'], ...this.teachers['CD0053'], ...this.teachers['CD0028']];
+				}
+			},
+			methods: {
+				viewLecTeacherList(tab) {
+					this.selectedTab = tab;
+				},
+				openPopup(teacher) {
+					this.popupTeacher = teacher;
+					this.isPopupVisible = true;
+				},
+				closePopup() {
+					this.isPopupVisible = false;
+					this.popupTeacher = null;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
