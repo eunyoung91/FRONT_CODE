@@ -1,0 +1,264 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+
+.contents_wrap{
+    padding-top: 0 !important;
+    padding-bottom:0;
+    img{ width:100%;}
+
+    .section{
+        font-family: $font-pretendard;
+        .inner{
+            .noti{
+                color:$color-base-light;
+                text-align: center;
+                font-family: $font-pretendard;
+                @include vw(font-size, 20px);
+                font-style: normal;
+                font-weight: 400;
+                line-height: 150%;
+                text-align: right;
+            }
+        }
+    }
+
+    .visual{
+        position:relative;height:calc(1250vw / 7.2);overflow:hidden;
+        &::before, 
+        &::after {content:'';position:absolute;top:0;width:50%;height:100%;height: calc(1250vw / 7.2);}
+        &::before {left:0;background:#081019;}
+        &::after {right:0;background:#081019;}
+        & .bg {position:absolute;left:0;top:0;z-index:1;opacity:1;width:100%;height:calc(1250vw / 7.2);background:linear-gradient(to bottom,  #26262e 0%,#25252d 35%,#24242c 66%,#25252d 100%);}
+        & .bgOn {position:absolute;left:50%;top:0;z-index:1;opacity:0;transform:translate(-50%,10px);width:100%;height:calc(1250vw / 7.2);
+            background:url('https://img.megastudy.net/campus/library/v2015_mob/asset/campus_common/2025/2025_premium/v_bg.jpg') no-repeat 0 0;
+            background-size: cover;
+        }
+        &.on .bg {opacity:0;transition:all 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.3s;}
+        &.on .bgOn {opacity:1;transform:translate(-50%,0);transition:all 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.2s;}
+        & .inner {position:relative;z-index:2;width:100%;margin:calc(75vw / 7.2) auto 0;text-align:center;}
+        & .v-tit01 {opacity:0;transform:translateY(-20%);width: calc(651vw / 7.2);margin: 0 auto;}
+        & .v-tit02  {overflow:hidden;text-align:center;width:0;height: calc(106vw / 7.2);position: relative;margin: calc(-23vw / 7.2) auto 0;}
+        & .v-tit02 img {opacity:1;position: absolute;top: 0;left: 0;width: calc(420vw / 7.2);height: calc(106vw / 7.2);}
+        & .v-tit03 {overflow: hidden;width: calc(504vw / 7.2);margin: calc(45vw / 7.2) auto 0;opacity: 0;}
+        & .v-obj01 {overflow: hidden;width: calc(720vw / 7.2);margin: calc(69vw / 7.2) auto 0;opacity: 0;}
+        // & .v-obj01 {margin-left: -6%;}
+        &.on .v-tit01 {opacity:1;transform:translateY(0);transition:all .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s;}
+        &.on .v-tit02 {animation: slide-right 1s 2s both ease-in-out;}
+        &.on .v-tit03 {opacity: 1;}
+        &.on .v-obj01 {opacity: 1;}
+        &.on .v-tit02 img {opacity: 1;position: absolute;top: 0;left: 0;}
+        &.on .v-tit03 img {animation: appear 3s 2s both ease-in-out;}
+        &.on .v-obj01 img {animation: appear 3s 2s both ease-in-out;}
+
+        @keyframes appear {
+            0% { opacity: 0;}
+            100% { opacity: 1;}
+        }
+        @keyframes slide-right {
+            0% { width: calc(0vw / 7.2);}
+            100% { width: calc(420vw / 7.2);}
+        }
+    }
+
+    .section01{
+        background: linear-gradient(180deg, #E5C79A 7.33%, #705E44 102.83%), #FFF;
+        .inner{
+            @include vw(padding, 130px 36px);
+            .box-list{
+                letter-spacing: 0;
+                @include vw(margin-top, 80px);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                @include vw(gap, 24px);
+                align-self: stretch;
+                .box{
+                    position: relative;
+                    display: flex;
+                    @include vw(min-height, 404px);
+                    @include vw(padding, 48px);
+                    flex-direction: column;
+                    align-items: flex-start;
+                    @include vw(gap, 14px);
+                    align-self: stretch;
+                    @include vw(border-radius, 20px);
+                    background: rgba(27, 24, 19, 0.80);
+                    strong{
+                        text-align: left;
+                        display: block;
+                        color: $color-white;
+                        font-family: var(--Font-family, Pretendard);
+                        @include vw(font-size, 44px);
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 140%;
+                    }
+                    p{
+                        color: $color-point;
+                        text-align: center;
+                        @include vw(font-size, 34px);
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 140%;
+                    }
+                    span{
+                        color: $color-white;
+                        @include vw(font-size, 26px);
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 150%;
+                        opacity: 0.6;
+                    }
+                    .icon{
+                        position: absolute;
+                        @include vw(width, 180px);
+                        @include vw(right, 16.2px);
+                        @include vw(bottom, 13.2px);
+                    }
+                }
+            }
+        }
+    }
+    .section02{
+        background: $bg-color-white;
+        .inner{
+            @include vw(padding, 130px 36px);
+            .info{
+                @include vw(margin-top, 80px);
+            }
+            .noti{
+                @include vw(margin-top, 36px);
+            }
+        }
+    }
+    .section03{
+        background: $bg-color-base;
+        .inner{
+            @include vw(padding, 130px 36px);
+            .info{
+                @include vw(margin-top, 80px);
+            }
+            .review-swiper{
+                @include vw(margin-top, 80px);
+                .swiper{
+                    .swiper-slide {
+                        @include vw(padding-bottom, 36px);
+                        .review{
+                            display: flex;
+                            @include vw(padding, 56px 0px);
+
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            @include vw(gap, 44px);
+                            @include vw(min-height, 534px);
+
+                            @include vw(border-radius, 20px);
+                            background: $bg-color-white;
+
+                            .label{
+                                position: absolute;
+                                @include vw(right, 24px);
+                                @include vw(top, 24px);
+                                img{    
+                                    @include vw(height, 102px);
+                                    width: auto;
+                                    max-width: 100%;
+                                }
+                            }
+                            .desc{
+                                display: flex;
+                                @include vw(padding, 0 48px);
+                                align-items: center;
+                                @include vw(gap, 20px);
+                                align-self: stretch;
+                                .profile{
+                                    display: flex;
+                                    @include vw(width, 120px);
+                                    @include vw(height, 120px);
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                .tit{
+                                    color: $color-base;
+                                    font-family: var(--Font-family, Pretendard);
+                                    @include vw(font-size, 30px);
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: 150%; /* 45px */
+                                    strong{
+                                        display: block;
+                                        color: $color-black;
+                                        font-family: var(--Font-family, Pretendard);
+                                        @include vw(font-size, 32px);
+                                        font-style: normal;
+                                        font-weight: 700;
+                                        line-height: 140%;
+                                        letter-spacing: -1px;
+                                    }
+                                }
+                            }
+                            .txt{
+                                display: inline;
+                                position: relative;
+                                @include vw(padding, 0 10px 0 48px);
+                                @include vw(padding-top, 52px);
+                                flex-direction: column;
+                                align-items: flex-start;
+                                @include vw(gap, 8px);
+                                align-self: stretch;
+                                color: $color-base;
+                                @include vw(font-size, 26px);
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 150%;
+                                strong{
+                                    display: inline;
+                                    color: $color-black;
+                                    @include vw(font-size, 26px);
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    line-height: 150%;
+                                }
+                                &::before{
+                                    display: block;
+                                    content: '';
+                                    background: url('https://img.megastudy.net/campus/library/v2015_mob/asset/campus_common/2025/2025_premium/ico_quotes.png') no-repeat 0 0;
+                                    background-size:cover;
+                                    @include vw(width, 37px);
+                                    @include vw(height, 31px);
+                                    position: absolute;
+                                    top: 0;
+                                    @include vw(left, 44px);
+                                }
+                            }
+                        }
+                    }
+                    .swiper-scrollbar {
+                        @include vw(bottom, 0);
+                        @include vw(height, 8px);
+                        background:rgba(227, 227, 227, 1);
+                    }
+                    .swiper-scrollbar-drag {
+                        background: rgba(136, 104, 56, 1);
+                    }
+                    .swiper-button-prev, .swiper-rtl .swiper-button-next{
+                        display: none !important;
+                    }
+                    .swiper-button-next, .swiper-rtl .swiper-button-prev{
+                        display: none !important;
+                    }
+                }
+
+            }
+            .noti{
+                @include vw(margin-top, 36px);
+            }
+        }
+    }
+}

@@ -10,9 +10,8 @@
 # teacherN_data.html
   ## Vue.js + data 구조개선 version
 
-
-
-
+# teacherN_data_type2.html
+  ## 로딩 상태 추가 : 데이터를 로드하는 동안 로딩 상태를 보여주는 UI를 추가
 
 
 

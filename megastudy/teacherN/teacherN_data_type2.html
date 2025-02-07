@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="imagetoolbar" content="no">
+	<title>서초 메가스터디학원</title>
+
+	<link rel="stylesheet" type="text/css" href="https://mseocho.megastudy.net/common/css/main_renew.css">
+	<link rel="stylesheet" type="text/css" href="css/teacher_2024.css">
+</head>
+
+
+<body v-cloak>
+	
+	<div id="app">
+		
+		<div id="sub_wrap">
+			<!-- header -->
+			<header id="header">
+				<div class="top_wrap">
+					<a href="/seocho/nsu" target="_top">
+						<img src="https://img.megastudy.net/campus/library/v2015_mob/asset/img/main_renew/logo/logo_seocho.svg" alt="서초 메가스터디학원">
+					</a>
+					<a class="btn_menu" href="javascript:void(0);" aria-label="메뉴보기">메뉴보기</a>
+				</div>
+			</header>
+		
+			<div class="container pad_no" id="top">
+				<div class="clearfix"></div>
+				<div class="mask" v-show="isPopupVisible" @click="closePopup"></div>
+		
+				<div class="header_tit_wrap"><h2>선생님</h2></div>
+
+				<div v-if="loading" class="loading">
+					<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+				</div>
+
+				<div v-else>
+
+					<div class="teacherWrap_2024">
+						<div class="teacher_top">
+							<div class="tabWrap tab_teacher">
+								<ul class="tab">
+									<li v-for="(subject, code) in subjects" :key="code" :class="{'on': selectedTab === code}" @click="viewLecTeacherList(code)">
+										{{ subject }}
+									</li>
+								</ul>
+							</div>
+						</div>
+		
+						<div class="dvLecListWrap">
+							<div v-for="(subjectTeachers, code) in teachers" :key="code" class="dvLecList" v-show="selectedTab === code || selectedTab === ''">
+								<h4 class="title">{{ subjects[code] }}</h4>
+								<div class="lecTeacherList">
+									<ul>
+										<li class="liTeacherView" v-for="teacher in subjectTeachers" :key="teacher.id">
+											<div class="teacherBox">
+												<a class="teacher_thumb" href="javascript:;" @click="openPopup(teacher)" aria-label="{{ teacher.name }} 선생님 정보 보기">
+													<div class="photo">
+														<img :src="teacher.photo" :alt="teacher.name" onerror="this.onerror=null; this.src='https://campus.megastudy.net/Data/Teacher/teacher_photo/ready1.png';" loading="lazy">
+													</div>
+													<div class="info">
+														<span class="name"><strong>{{ teacher.name }}</strong> 선생님</span>
+													</div>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- 레이어 팝업 -->
+			<div v-show="isPopupVisible" class="ly ly_lecTeacher">
+				<div class="lyinner">
+					<div class="info_visual">
+						<!-- 사진 영역 -->
+						<div class="photo" v-if="popupTeacher">
+							<img :src="popupTeacher.photo" :alt="popupTeacher.name" onerror="this.onerror=null; this.src='https://campus.megastudy.net/Data/Teacher/teacher_photo/ready1.png';" loading="lazy">
+						</div>
+						<!-- 정보 영역 -->
+						<div class="info">
+							<span class="subject" v-if="popupTeacher"><em>{{ popupTeacher.subject }}</em></span>
+							<span class="name" v-if="popupTeacher"><strong>{{ popupTeacher.name }}</strong> 선생님</span>
+						</div>
+					</div>
+					<!-- 상세 설명 영역 -->
+					<div class="info_desc" v-if="popupTeacher">
+						<ul class="list_type">
+							<li>
+								<strong class="tit">강의 특징</strong>
+								<div class="list_type_main">{{ popupTeacher.features }}</div>
+							</li>
+							<li>
+								<strong class="tit">약력</strong>
+								<ul class="list_type_sub">
+									<li v-for="experience in popupTeacher.experience" :key="experience">{{ experience }}</li>
+								</ul>
+							</li>
+							<li v-if="popupTeacher.books.length">
+								<strong class="tit">저서</strong>
+								<ul class="list_type_sub">
+									<li v-for="book in popupTeacher.books" :key="book">{{ book }}</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<a href="javascript:;" class="ly-close" @click="closePopup" aria-label="팝업 닫기">닫기</a>
+			</div>
+
+			<!-- footer -->
+			<footer id="footer" role="contentinfo">
+				footer 입니다.
+			</footer>
+		</div>
+	</div> 
+
+	<!-- Vue.js 라이브러리 불러오기 -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+	<script>
+		// Vue 인스턴스를 생성하여 페이지에 데이터와 기능 연결
+		new Vue({
+			el: '#app',
+			data: {
+				loading: true,  // 로딩 상태
+				selectedTab: '',  // 선택된 탭 (기본값은 빈 문자열)
+				isPopupVisible: false,  // 팝업 표시 여부
+				popupTeacher: null,  // 팝업에 표시될 선생님 정보
+				subjects: {},  // 과목 목록
+				teachers: {}  // 선생님 목록
+			},
+			created() {
+				this.loadData();  // 데이터 로딩 함수 호출
+			},
+			computed: {
+				// 모든 선생님을 하나의 배열로 결합
+				allTeachers() {
+					return [...this.teachers['CD0023'], ...this.teachers['CD0024'], ...this.teachers['CD0025'], ...this.teachers['CD0026'], ...this.teachers['CD0027'], ...this.teachers['CD0053'], ...this.teachers['CD0028']];
+				},
+				// 선택된 탭에 맞는 선생님만 필터링하여 반환
+				filteredTeachers() {
+					if (this.selectedTab === '') return this.allTeachers;  // 아무것도 선택되지 않으면 모든 선생님 반환
+					return this.teachers[this.selectedTab] || [];  // 선택된 과목에 해당하는 선생님 반환
+				}
+			},
+			methods: {
+				// 외부 파일에서 데이터를 불러오는 함수
+				async loadData() {
+					this.loading = true; // 로딩 시작
+					try {
+						const response = await fetch('teachersData.json');
+						const data = await response.json();
+						this.subjects = data.subjects; // 과목 목록
+						this.teachers = data.teachers; // 선생님 목록
+					} catch (error) {
+						console.error('Error loading data:', error); // 오류 처리
+					} finally {
+						this.loading = false; // 로딩 완료
+					}
+				},
+
+				// 과목 탭을 클릭했을 때 해당 과목의 선생님 리스트 표시
+				viewLecTeacherList(tab) {
+					this.selectedTab = tab;
+				},
+				// 선생님 정보를 팝업으로 열기
+				openPopup(teacher) {
+					this.popupTeacher = teacher;
+					this.isPopupVisible = true;
+				},
+				// 팝업 닫기
+				closePopup() {
+					this.isPopupVisible = false;
+					this.popupTeacher = null;
+				}
+			}
+		});
+	</script>
+</body>
+</html>
+

@@ -54,6 +54,107 @@ html body {
 html body.hid {
   overflow: hidden;
 }
+html body .loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+html body .loading .lds-roller,
+html body .loading .lds-roller div,
+html body .loading .lds-roller div:after {
+  box-sizing: border-box;
+}
+html body .loading .lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+html body .loading .lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+html body .loading .lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7.2px;
+  height: 7.2px;
+  border-radius: 50%;
+  background: #2F4698;
+  margin: -3.6px 0 0 -3.6px;
+}
+html body .loading .lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+html body .loading .lds-roller div:nth-child(1):after {
+  top: 62.62742px;
+  left: 62.62742px;
+}
+html body .loading .lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+html body .loading .lds-roller div:nth-child(2):after {
+  top: 67.71281px;
+  left: 56px;
+}
+html body .loading .lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+html body .loading .lds-roller div:nth-child(3):after {
+  top: 70.90963px;
+  left: 48.28221px;
+}
+html body .loading .lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+html body .loading .lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+html body .loading .lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+html body .loading .lds-roller div:nth-child(5):after {
+  top: 70.90963px;
+  left: 31.71779px;
+}
+html body .loading .lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+html body .loading .lds-roller div:nth-child(6):after {
+  top: 67.71281px;
+  left: 24px;
+}
+html body .loading .lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+html body .loading .lds-roller div:nth-child(7):after {
+  top: 62.62742px;
+  left: 17.37258px;
+}
+html body .loading .lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+html body .loading .lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12.28719px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 html body .container {
   box-sizing: border-box;
   color: #1D1D1D;
@@ -104,14 +205,86 @@ html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
   margin: 0;
   list-style: none;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
-    gap: 44px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      gap: 44px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      gap: 44px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      gap: 44px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      gap: 44px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      gap: 44px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
-    padding: 0 24px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      padding: 0 24px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      padding: 0 24px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      padding: 0 24px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      padding: 0 24px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab {
+      padding: 0 24px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
@@ -129,14 +302,86 @@ html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
   font-family: "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
   transition: color 0.3s ease;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
-    padding: 29px 0 28px 0;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      padding: 29px 0 28px 0;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      padding: 29px 0 28px 0;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      padding: 29px 0 28px 0;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      padding: 29px 0 28px 0;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      padding: 29px 0 28px 0;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
-    font-size: 26px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      font-size: 26px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      font-size: 26px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      font-size: 26px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      font-size: 26px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li {
+      font-size: 26px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on {
@@ -155,9 +400,45 @@ html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:afte
   height: 0.625vw;
   background: #2F4698;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
-    height: 4px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+      height: 4px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+      height: 4px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+      height: 4px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+      height: 4px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .teacher_top .tab_teacher .tab li.on:after {
+      height: 4px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .teacher_top .tab_teacher::-webkit-scrollbar {
@@ -167,14 +448,86 @@ html body .container .teacherWrap_2024 .dvLecListWrap {
   margin-top: 19.375vw;
   padding-bottom: 6.25vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap {
-    margin-top: 124px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      margin-top: 124px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      margin-top: 124px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      margin-top: 124px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      margin-top: 124px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      margin-top: 124px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap {
-    padding-bottom: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      padding-bottom: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      padding-bottom: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      padding-bottom: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      padding-bottom: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap {
+      padding-bottom: 40px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
@@ -188,24 +541,168 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
   margin-bottom: 2.34375vw;
   padding: 0 3.75vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
-    font-size: 30px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      font-size: 30px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      font-size: 30px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      font-size: 30px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      font-size: 30px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      font-size: 30px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
-    margin-top: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-top: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-top: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-top: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-top: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-top: 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
-    margin-bottom: 15px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-bottom: 15px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-bottom: 15px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-bottom: 15px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-bottom: 15px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      margin-bottom: 15px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
-    padding: 0 24px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      padding: 0 24px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      padding: 0 24px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      padding: 0 24px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      padding: 0 24px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .title {
+      padding: 0 24px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
@@ -213,9 +710,45 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   overflow: hidden;
   padding: 0 3.75vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
-    padding: 0 24px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+      padding: 0 24px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+      padding: 0 24px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+      padding: 0 24px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+      padding: 0 24px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList {
+      padding: 0 24px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
@@ -230,9 +763,45 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   gap: 0 2%;
   row-gap: 2.03125vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
-    row-gap: 13px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+      row-gap: 13px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+      row-gap: 13px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+      row-gap: 13px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+      row-gap: 13px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul {
+      row-gap: 13px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
@@ -244,9 +813,45 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   width: 32%;
   height: 41.875vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
-    height: 268px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+      height: 268px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+      height: 268px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+      height: 268px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+      height: 268px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView {
+      height: 268px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox {
@@ -265,29 +870,177 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   bottom: 0;
   left: 2.109375vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
-    left: 13.5px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 13.5px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 13.5px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 13.5px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 13.5px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 13.5px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
-    left: 0;
-    right: 0;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 0;
+      right: 0;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 0;
+      right: 0;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 0;
+      right: 0;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 0;
+      right: 0;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo {
+      left: 0;
+      right: 0;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
   width: 37.1875vw;
   width: 37.1875vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
-    width: 238px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
-    width: 238px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .photo img {
+      width: 238px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info {
@@ -304,9 +1057,45 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   font-weight: 400;
   font-size: 3.4375vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
-    font-size: 22px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+      font-size: 22px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+      font-size: 22px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+      font-size: 22px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+      font-size: 22px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name {
+      font-size: 22px;
+    }
   }
 }
 html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
@@ -315,14 +1104,86 @@ html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList
   font-size: 4.6875vw;
   margin-bottom: 0.3125vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
-    font-size: 30px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      font-size: 30px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      font-size: 30px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      font-size: 30px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      font-size: 30px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      font-size: 30px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
-    margin-bottom: 2px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      margin-bottom: 2px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      margin-bottom: 2px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      margin-bottom: 2px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      margin-bottom: 2px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .container .teacherWrap_2024 .dvLecListWrap .dvLecList .lecTeacherList > ul > li.liTeacherView .teacherBox .teacher_thumb .info .name strong {
+      margin-bottom: 2px;
+    }
   }
 }
 html body .ly {
@@ -351,9 +1212,45 @@ html body .ly .lyinner .info_visual {
   height: 56.25vw;
   overflow: hidden;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual {
-    height: 360px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual {
+      height: 360px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual {
+      height: 360px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual {
+      height: 360px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual {
+      height: 360px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual {
+      height: 360px;
+    }
   }
 }
 html body .ly .lyinner .info_visual:after {
@@ -367,19 +1264,127 @@ html body .ly .lyinner .info_visual:after {
   border-radius: 25vw 0vw 0vw 0vw;
   background: linear-gradient(15deg, rgba(214, 231, 248, 0) -55.23%, #D0E4F7 83.07%);
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual:after {
-    width: 379px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual:after {
+      width: 379px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual:after {
+      width: 379px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual:after {
+      width: 379px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual:after {
+      width: 379px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual:after {
+      width: 379px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual:after {
-    height: 248px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual:after {
+      height: 248px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual:after {
+      height: 248px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual:after {
+      height: 248px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual:after {
+      height: 248px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual:after {
+      height: 248px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual:after {
-    border-radius: 160px 0px 0px 0px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual:after {
+      border-radius: 160px 0px 0px 0px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual:after {
+      border-radius: 160px 0px 0px 0px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual:after {
+      border-radius: 160px 0px 0px 0px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual:after {
+      border-radius: 160px 0px 0px 0px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual:after {
+      border-radius: 160px 0px 0px 0px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .photo {
@@ -388,28 +1393,172 @@ html body .ly .lyinner .info_visual .photo {
   top: 12.5vw;
   left: 50.9375vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .photo {
-    top: 80px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .photo {
+      top: 80px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .photo {
+      top: 80px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .photo {
+      top: 80px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .photo {
+      top: 80px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .photo {
+      top: 80px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .photo {
-    left: 326px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .photo {
+      left: 326px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .photo {
+      left: 326px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .photo {
+      left: 326px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .photo {
+      left: 326px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .photo {
+      left: 326px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .photo img {
   width: 57.8125vw;
   width: 57.8125vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .photo img {
-    width: 370px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .photo img {
-    width: 370px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .photo img {
+      width: 370px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .info {
@@ -418,14 +1567,86 @@ html body .ly .lyinner .info_visual .info {
   top: 12.5vw;
   left: 5.9375vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info {
-    top: 80px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info {
+      top: 80px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info {
+      top: 80px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info {
+      top: 80px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info {
+      top: 80px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info {
+      top: 80px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info {
-    left: 38px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info {
+      left: 38px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info {
+      left: 38px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info {
+      left: 38px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info {
+      left: 38px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info {
+      left: 38px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .info .subject {
@@ -436,14 +1657,86 @@ html body .ly .lyinner .info_visual .info .subject {
   margin-bottom: 1.5625vw;
   letter-spacing: -0.42px;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .subject {
-    font-size: 28px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      font-size: 28px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      font-size: 28px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      font-size: 28px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      font-size: 28px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      font-size: 28px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .subject {
-    margin-bottom: 10px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      margin-bottom: 10px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      margin-bottom: 10px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      margin-bottom: 10px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      margin-bottom: 10px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .subject {
+      margin-bottom: 10px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .info .subject .sub_subject {
@@ -454,14 +1747,86 @@ html body .ly .lyinner .info_visual .info .subject .sub_subject {
   letter-spacing: -0.42px;
   padding-left: 1.25vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .subject .sub_subject {
-    font-size: 24px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      font-size: 24px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      font-size: 24px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      font-size: 24px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      font-size: 24px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      font-size: 24px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .subject .sub_subject {
-    padding-left: 8px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      padding-left: 8px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      padding-left: 8px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      padding-left: 8px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      padding-left: 8px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .subject .sub_subject {
+      padding-left: 8px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .info .name {
@@ -472,9 +1837,45 @@ html body .ly .lyinner .info_visual .info .name {
   color: #333;
   letter-spacing: -0.23px;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .name {
-    font-size: 36px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .name {
+      font-size: 36px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .name {
+      font-size: 36px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .name {
+      font-size: 36px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .name {
+      font-size: 36px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .name {
+      font-size: 36px;
+    }
   }
 }
 html body .ly .lyinner .info_visual .info .name strong {
@@ -484,9 +1885,45 @@ html body .ly .lyinner .info_visual .info .name strong {
   font-size: 7.1875vw;
   letter-spacing: -0.9px;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_visual .info .name strong {
-    font-size: 46px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_visual .info .name strong {
+      font-size: 46px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_visual .info .name strong {
+      font-size: 46px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_visual .info .name strong {
+      font-size: 46px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_visual .info .name strong {
+      font-size: 46px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_visual .info .name strong {
+      font-size: 46px;
+    }
   }
 }
 html body .ly .lyinner .info_desc {
@@ -495,14 +1932,86 @@ html body .ly .lyinner .info_desc {
   line-height: 160%;
   color: #333;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc {
-    padding: 0 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc {
+      padding: 0 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc {
+      padding: 0 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc {
+      padding: 0 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc {
+      padding: 0 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc {
+      padding: 0 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc {
-    padding-bottom: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc {
+      padding-bottom: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc {
+      padding-bottom: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc {
+      padding-bottom: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc {
+      padding-bottom: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc {
+      padding-bottom: 40px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type {
@@ -523,34 +2032,250 @@ html body .ly .lyinner .info_desc .list_type .tit {
   margin-bottom: 2.5vw;
   display: inline-block;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    border-width: 2px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-width: 2px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-width: 2px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-width: 2px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-width: 2px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-width: 2px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    border-radius: 9999px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-radius: 9999px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-radius: 9999px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-radius: 9999px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-radius: 9999px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      border-radius: 9999px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    padding: 6px 16px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      padding: 6px 16px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      padding: 6px 16px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      padding: 6px 16px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      padding: 6px 16px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      padding: 6px 16px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    font-size: 30px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      font-size: 30px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      font-size: 30px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      font-size: 30px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      font-size: 30px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      font-size: 30px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    margin-top: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-top: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-top: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-top: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-top: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-top: 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .tit {
-    margin-bottom: 16px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-bottom: 16px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-bottom: 16px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-bottom: 16px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-bottom: 16px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .tit {
+      margin-bottom: 16px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type .list_type_main {
@@ -559,14 +2284,86 @@ html body .ly .lyinner .info_desc .list_type .list_type_main {
   line-height: 160%;
   font-size: 4.375vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_main {
-    font-size: 28px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_main {
-    font-size: 28px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main {
+      font-size: 28px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type .list_type_main > p {
@@ -574,9 +2371,45 @@ html body .ly .lyinner .info_desc .list_type .list_type_main > p {
   position: relative;
   padding-left: 2.5vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_main > p {
-    padding-left: 16px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+      padding-left: 16px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+      padding-left: 16px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+      padding-left: 16px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+      padding-left: 16px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > p {
+      padding-left: 16px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type .list_type_main > p:after {
@@ -592,9 +2425,45 @@ html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
   font-weight: 700;
   line-height: 160%;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
-    font-size: 28px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+      font-size: 28px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+      font-size: 28px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+      font-size: 28px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+      font-size: 28px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_main > strong {
+      font-size: 28px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
@@ -606,19 +2475,127 @@ html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
   font-weight: 400;
   line-height: 160%;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
-    margin-bottom: 2px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      margin-bottom: 2px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      margin-bottom: 2px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      margin-bottom: 2px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      margin-bottom: 2px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      margin-bottom: 2px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
-    padding-left: 16px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      padding-left: 16px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      padding-left: 16px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      padding-left: 16px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      padding-left: 16px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      padding-left: 16px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
-    font-size: 28px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      font-size: 28px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      font-size: 28px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      font-size: 28px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      font-size: 28px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li {
+      font-size: 28px;
+    }
   }
 }
 html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
@@ -631,24 +2608,168 @@ html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
   border-radius: 0.9375vw;
   background: #333;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
-    top: 19px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      top: 19px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      top: 19px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      top: 19px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      top: 19px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      top: 19px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
-    width: 6px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      width: 6px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      width: 6px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      width: 6px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      width: 6px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      width: 6px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
-    height: 6px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      height: 6px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      height: 6px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      height: 6px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      height: 6px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      height: 6px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
-    border-radius: 6px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      border-radius: 6px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      border-radius: 6px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      border-radius: 6px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      border-radius: 6px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .lyinner .info_desc .list_type .list_type_sub > li:after {
+      border-radius: 6px;
+    }
   }
 }
 html body .ly .ly-close {
@@ -666,24 +2787,168 @@ html body .ly .ly-close {
   line-height: 0;
   text-indent: -999em;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .ly-close {
-    top: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .ly-close {
+      top: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .ly-close {
+      top: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .ly-close {
+      top: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .ly-close {
+      top: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .ly-close {
+      top: 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .ly-close {
-    right: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .ly-close {
+      right: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .ly-close {
+      right: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .ly-close {
+      right: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .ly-close {
+      right: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .ly-close {
+      right: 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .ly-close {
-    width: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .ly-close {
+      width: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .ly-close {
+      width: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .ly-close {
+      width: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .ly-close {
+      width: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .ly-close {
+      width: 40px;
+    }
   }
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body .ly .ly-close {
-    height: 40px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
+  }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body .ly .ly-close {
+      height: 40px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body .ly .ly-close {
+      height: 40px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body .ly .ly-close {
+      height: 40px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body .ly .ly-close {
+      height: 40px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body .ly .ly-close {
+      height: 40px;
+    }
   }
 }
 html body #footer {
@@ -691,8 +2956,64 @@ html body #footer {
   padding: 5% 0;
   font-size: 4.0625vw;
 }
-@media screen and (min-width: 680px) {
+@switch $point {
   html body #footer {
-    font-size: 26px;
+    @break;
+    @break;
+    @break;
+    @break;
+    @break;
+    @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
   }
+  @case desktop:
+		@media screen and (min-width: 1100px) {
+    html body #footer {
+      font-size: 26px;
+    }
+  }
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {
+    html body #footer {
+      font-size: 26px;
+    }
+  }
+  @case maxMobile:
+		@media screen and (max-width: 679px) {
+    html body #footer {
+      font-size: 26px;
+    }
+  }
+  @case minMobile:
+		@media screen and (max-width: 320px) {
+    html body #footer {
+      font-size: 26px;
+    }
+  }
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {
+    html body #footer {
+      font-size: 26px;
+    }
+  }
+}
+
+@switch $point {
+  @case desktop:
+		@media screen and (min-width: 1100px) {}
+  @break;
+  @case minDesktop:
+		@media screen and (min-width: 1024px) {}
+  @break;
+  @case maxMobile:
+		@media screen and (max-width: 679px) {}
+  @break;
+  @case minMobile:
+		@media screen and (max-width: 320px) {}
+  @break;
+  @case galaxyfold:
+		@media screen and (min-width: 590px) and (min-height: 603px) {}
+  @break;
+  @default :
+		@warn "Breakpoint `maxMobile` not found. Please provide a valid value (desktop, minDesktop, maxMobile, minMobile, galaxyfold).";
 }/*# sourceMappingURL=teacher_2024.css.map */
