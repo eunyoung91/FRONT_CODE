@@ -33,14 +33,6 @@
 							<button class="subject-btn">한국사</button>
 							<button class="subject-btn">사회</button>
 							<button class="subject-btn">과학</button>
-
-							<button class="subject-btn">수학</button>
-							<button class="subject-btn">영어</button>
-							<button class="subject-btn">한국사</button>
-							<button class="subject-btn">사회</button>
-							<button class="subject-btn">과학</button>
-
-							
 						</div>
 					</nav>
 				</div>
@@ -101,15 +93,15 @@
 						<table>
 							<colgroup>
 								<col style="width: 20%;">
-								<col style="width: 25%;">
-								<col style="width: 20%;">
-								<col style="width: 35%;">
+								<col style="width: auto" span="3">
+								<col style="width: 34%">
 							</colgroup>
 							<thead>
 								<tr>
-									<th>응시연도</th>
-									<th>시험유형</th>
+									<th>응시<br class="mo-only">연도</th>
+									<th>시험<br class="mo-only">유형</th>
 									<th>회차</th>
+									<th>과목</th>
 									<th></th>
 								</tr>
 							</thead>
@@ -118,6 +110,7 @@
 									<td>2025</td>
 									<td>OMEGA</td>
 									<td>6회</td>
+									<td>화법과작문</td>
 									<td>
 										<button class="score-btn">
 											<span class="text">성적표 보기</span><span class="new">NEW</span><span class="arrow"></span>
@@ -128,6 +121,7 @@
 									<td>2025</td>
 									<td>OMEGA BLUE</td>
 									<td>3회</td>
+									<td>화법과작문</td>
 									<td>
 										<button class="score-btn">
 											<span class="text">성적표 보기</span><span class="arrow"></span>
@@ -138,6 +132,7 @@
 									<td>2025</td>
 									<td>OMEGA BLACK</td>
 									<td>1회</td>
+									<td>-</td>
 									<td>
 										<button class="score-btn">
 											<span class="text">성적표 보기</span><span class="arrow"></span>
@@ -148,6 +143,7 @@
 									<td>2025</td>
 									<td>OMEGA</td>
 									<td>4회</td>
+									<td><span class="ellipsis">과목과목과목과목과목과목과목과목과목과목</span></td>
 									<td>
 										<button class="score-btn">
 											<span class="text">성적표 보기</span><span class="arrow"></span>
@@ -158,6 +154,7 @@
 									<td>2025</td>
 									<td>OMEGA</td>
 									<td>3회</td>
+									<td>-</td>
 									<td>
 										<button class="score-btn">
 											<span class="text">성적표 보기</span><span class="arrow"></span>
@@ -170,13 +167,13 @@
 
 					<!-- 응시 현황이 없을 경우 -->
 					<div class="no-exam-list">
-						<img src="img/no_exam_list.png" alt="응시한 시험이 없습니다.">
+						<img src="http://img.megastudy.net/campus/library/v2015_mob/common/img/mebook/no_exam_list.png" alt="응시한 시험이 없습니다.">
 						<p>
 							<strong>OMEGA 모의고사<br class="mo-only"> 시험 응시 현황을 제공합니다.</strong>
 							응시한 시험이 없습니다.
 						</p>
 					</div>
-
+					<!-- // 응시 현황이 없을 경우 -->
 				</div>
 			</div>
         </main>
@@ -194,7 +191,7 @@
 			}
 
 			function updateButtonText() {
-				if (window.matchMedia('(max-width: 479px)').matches) {
+				if (window.matchMedia('(max-width: 480px)').matches) {
 					$('.score-btn .text').text('성적표');
 				} else {
 					$('.score-btn .text').text('성적표 보기');
@@ -233,11 +230,10 @@
 				}
 			});
 		
-			// 페이지 로드 시 실행
 			$(document).ready(function() {
 				updateButtonText();
 			});
-			// 윈도우 리사이즈 이벤트에 리스너 추가
+
 			$(window).resize(function() {
 				updateButtonText();
 			});

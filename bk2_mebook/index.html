@@ -33,6 +33,18 @@
 							<button class="subject-btn">한국사</button>
 							<button class="subject-btn">사회</button>
 							<button class="subject-btn">과학</button>
+
+							<button class="subject-btn">수학</button>
+							<button class="subject-btn">영어</button>
+							<button class="subject-btn">한국사</button>
+							<button class="subject-btn">사회</button>
+							<button class="subject-btn">과학</button>
+							<button class="subject-btn">수학</button>
+							<button class="subject-btn">영어</button>
+							<button class="subject-btn">한국사</button>
+							<button class="subject-btn">사회</button>
+							<button class="subject-btn">과학</button>
+							
 						</div>
 					</nav>
 				</div>
@@ -61,25 +73,25 @@
 						
 							<div class="custom-select">
 								<button class="select-button">
-									<span class="selected-value">선택</span>
+									<span class="selected-value">전체</span>
 									<span class="arrow"></span>
 								</button>
 								<ul class="select-dropdown">
-									<li data-value="1">1</li>
-									<li data-value="2">2</li>
-									<li data-value="3">3</li>
+									<li data-value="OMEGA">OMEGA</li>
+									<li data-value="OMEGA_BLACK">OMEGA_BLACK</li>
+									<li data-value="OMEGA_BLUE">OMEGA_BLUE</li>
 								</ul>
 							</div>
 						
 							<div class="custom-select">
 								<button class="select-button">
-									<span class="selected-value">선택</span>
+									<span class="selected-value">전체</span>
 									<span class="arrow"></span>
 								</button>
 								<ul class="select-dropdown">
-									<li data-value="1">1</li>
-									<li data-value="2">2</li>
-									<li data-value="3">3</li>
+									<li data-value="1">1회</li>
+									<li data-value="2">2회</li>
+									<li data-value="3">3회</li>
 								</ul>
 							</div>
 						</div>
@@ -168,6 +180,7 @@
 							응시한 시험이 없습니다.
 						</p>
 					</div>
+
 				</div>
 			</div>
         </main>
@@ -183,7 +196,15 @@
 					$(this).addClass('active');
 				});
 			}
-		
+
+			function updateButtonText() {
+				if (window.matchMedia('(max-width: 479px)').matches) {
+					$('.score-btn .text').text('성적표');
+				} else {
+					$('.score-btn .text').text('성적표 보기');
+				}
+			}
+
 			// 과목 탭과 메인 탭 전환
 			toggleActiveClass('.subject-btn');
 			toggleActiveClass('.tab-btn');
@@ -216,10 +237,15 @@
 				}
 			});
 		
-			// 모바일 해상도에서 성적표 보기 텍스트 변경
-			if (window.matchMedia('(max-width: 479px)').matches) {
-				$('.score-btn .text').text('성적표');
-			}
+			// 페이지 로드 시 실행
+			$(document).ready(function() {
+				updateButtonText();
+			});
+			// 윈도우 리사이즈 이벤트에 리스너 추가
+			$(window).resize(function() {
+				updateButtonText();
+			});
+
 		});
 		</script>
 </body>
