@@ -1,0 +1,113 @@
+.admin-container{
+    padding-bottom: 1000px;
+    *{
+        font-family: $font-pretendard;
+        line-height:1;
+    }
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    //sidebar
+    .admin-sidebar {
+        min-width: 214px;
+        max-width: 214px;
+        background-color:#f0f0f0;
+        border-right: solid 1px #c1cce4;
+        .main-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background:#fff;
+            .menu-logo{
+                text-align: center;
+                padding:20px 0 30px 0;
+                background-color: #3357a4;
+            }
+            .menu-item {
+                border-bottom: solid 1px #c1cce4;
+                a {
+                    font-size: 14px;
+                    display: inline-block;
+                    color:#0b2355;
+                    &:hover {
+                        color: #d51d05;
+                        text-decoration: underline;
+                    }
+                }
+                > a{
+                    font-weight: bold;
+                    position: relative;
+                    margin: 10px 0 10px 30px;
+                    &:before{
+                        position: absolute;
+                        content: "\25B6";
+                        left:-12px;
+                        top:50%;
+                        transform: translateY(-50%);
+                        font-size:8px;
+                    }
+                }
+                .sub-menu {
+                    border-top: solid 1px #c1cce4;
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                    padding:5px 0;
+                    li {
+                        a {
+                            position: relative;
+                            font-weight: normal;
+                            margin: 2px 0 2px 30px;
+                            line-height:1.2;
+                            &:before{
+                                position: absolute;
+                                content: "\2013";
+                                left:-12px;
+                                top:50%;
+                                transform: translateY(-50%);
+                                font-size:8px;
+                            }
+                            &:hover {
+                                color: #d51d05;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //content
+    .admin-content{
+        position: relative;
+        width:940px;
+        .main-header{
+            .header-noti{
+                width:940px;
+                text-align: center;
+                background-color: yellow;
+                padding: 10px 0px;
+                &.fixed{
+                    position: fixed;
+                    top: 0px;
+                    z-index:2;
+                }
+            }
+            .header-login{
+                @include flex-row(row, center, between);
+                background:#4899ee;
+                padding:20px;
+                > div{
+                    font-size: 18px;
+                    letter-spacing: 0;
+                    color:#fff;
+                }
+            }
+        }
+
+        .main-content{
+
+        }
+    }
+}

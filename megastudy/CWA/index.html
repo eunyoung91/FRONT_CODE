@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="https://campus.megastudy.net/admin/css/style.css">
+	<link rel="stylesheet" href="css/admin_style.css">
+
+    <script type="text/javascript" src="https://campus.megastudy.net/public/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+
+        <!-- 사이드바 -->
+        <aside class="admin-sidebar">
+            <ul class="main-menu">
+                <li class="menu-logo">
+                    <a href="/admin/"><img src="https://campus.megastudy.net/admin/image/admin_logo.png" width="167" height="45"></a>
+                </li>
+
+                <li class="menu-item">
+                    <a href="/admin/member/member_list.asp">대메뉴명</a>
+                    <ul class="sub-menu">
+                        <li><a href="/admin/member/member_list.asp" code="2">소메뉴명1</a></li>
+                        <li><a href="/admin/member/member_signout.asp" code="3">소메뉴명2</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="/admin/teacher/teacher_info_list.asp">대메뉴명2</a>
+                    <ul class="sub-menu">
+                        <li><a href="/admin/teacher/teacher_info_list.asp" code="5">소메뉴명1</a></li>
+                        <li><a href="/admin/teacher/teacher_list.asp" code="6">소메뉴명2</a></li>
+                    </ul>
+                </li>
+
+                <br><br>
+                <h1 class="tac">사이드바 영역</h1>
+                <br><br>
+            </ul>
+        </aside>
+        <!-- 사이드바 -->
+
+        
+        <!-- 컨텐츠 -->
+        <div class="admin-content">
+            <!-- 헤더 영역 -->
+            <header class="main-header">
+                <div class="header-noti"><p><strong>DEV-ADMIN 개발 서버 입니다.</strong></p></div>
+                <script type="text/javascript">
+                    $(function() {
+                        var jbOffset = $( '.header-noti' ).offset();
+                        $( window ).scroll( function() {
+                            if ( $( document ).scrollTop() > jbOffset.top ) {
+                                $( '.header-noti' ).addClass( 'fixed' );
+                            } else {
+                                $( '.header-noti' ).removeClass( 'fixed' );
+                            }
+                        });
+                        $(document).attr("title", "DEV-ADMIN");
+                    });
+                    // 사이트 로딩이 길어 질 경우 title의 노출 시점이 맞지 않아 중복 추가
+                    $(document).attr("title", "DEV-ADMIN");
+                </script>
+                <div class="header-login">
+                    <div><img src="https://campus.megastudy.net/admin/image/icon01.png"> <b>박은영(권한 관리자)님|</b> 2024.11.20 9:17 로그인 하셨습니다.</div>
+                    <div>
+                        <a href="/admin/logout.asp" class="btn-logout">
+                            <!-- <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="로그아웃" width="auto" height="14">  -->
+                            <span>로그아웃</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <!-- // 헤더 영역 -->
+            <section class="main-content">
+                <br><br><h1>레이어 팝업</h1>
+                
+                <div id="app">
+                    <br>
+                    <a href="#" @click.prevent="openPopup('popup1')" class="btn-01">팝업 1 열기</a>
+                    <!-- 팝업 1 -->
+                    <div v-if="popups.popup1" class="popup-overlay" @click.self="closePopup('popup1')">
+                        <div class="popup-inner">
+                            <a href="#" class="close-btn" @click.prevent="closePopup('popup1')">&#10005;</a>
+                            <div class="popup-header">
+                                <img class="bullet" src="https://campus.megastudy.net/admin/image/icon_pop_dot.png" alt="">
+                                <span>팝업 제목이 들어가요1</span>
+                            </div>
+                            <div class="popup-content">
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                                팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요팝업 내용이 들어가요<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" @click.prevent="openPopup('popup2')"class="btn-01">팝업 2 열기</a>
+                    <!-- 팝업 2 -->
+                    <div v-if="popups.popup2" class="popup-overlay" @click.self="closePopup('popup2')">
+                        <div class="popup-inner">
+                            <a href="#" class="close-btn" @click.prevent="closePopup('popup2')">&#10006;</a>
+                            <div class="popup-header">
+                                <img class="bullet" src="https://campus.megastudy.net/admin/image/icon_pop_dot.png" alt="">
+                                <span>팝업 제목이 들어가요2</span>
+                            </div>
+                            <div class="popup-content">
+                                <p>이곳은 두 번째 팝업 내용입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        new Vue({
+                            el: "#app",
+                            data: {
+                                popups: {
+                                    popup1: false,
+                                    popup2: false
+                                }
+                            },
+                            methods: {
+                                openPopup(popupKey) {
+                                    this.$set(this.popups, popupKey, true);
+                                    document.body.style.overflow = "hidden"; // 스크롤 막기
+                                },
+                                closePopup(popupKey) {
+                                    this.$set(this.popups, popupKey, false);
+                                    if (!Object.values(this.popups).includes(true)) {
+                                        document.body.style.overflow = ""; // 모든 팝업이 닫히면 원래대로
+                                    }
+                                }
+                            }
+                        });
+                    });
+                </script>
+
+                <br><br><h1>타이틀 영역</h1>
+                <div class="title-menu">
+                    <div class="title-main">
+                        <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="아이콘">
+                        <span>해당 메뉴명이 들어가요</span>
+                    </div>
+                    <div>
+                        <a href="admin_list.asp" class="btn-01 overed">버튼overed</a>
+                        <a href="admin_grade.asp" class="btn-01 ">버튼normal</a>
+                    </div>
+                </div>
+
+                <div class="title-menu">
+                    <div class="title-main">
+                        <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="아이콘">
+                        <span>회원 현황 (금일 : <b>2025-04-02</b> 기준)</span>
+                    </div>
+                </div>
+                <div class="title-sub">
+                    <img src="https://campus.megastudy.net/admin/image/dot_icon04.png" alt="아이콘">
+                    <span>해당 서브 메뉴명이 들어가요</span>
+                </div>
+
+
+                <br><br><h1>학원리스트 영역</h1>
+
+                <div class="aca-list-area">
+
+                    <div class="aca-list">
+                        <span>&bull;</span>
+                        <div>
+                            <a href="?campuscodedetail=INTRO&amp;campuscode=INTRO" class="campus_current introChk">INTRO</a>
+                        </div>
+                    </div>
+
+                    <div class="aca-list">
+                        <span>&bull;</span>
+                        <div>
+                            <a href="?campuscodedetail=CD0206&amp;campuscode=CD0001" class="">강남 재수학원</a>
+                            | <a href="?campuscodedetail=CD0208&amp;campuscode=CD0004" class="">서초 재수학원</a>
+                            | <a href="?campuscodedetail=CD0210&amp;campuscode=CD0005" class="">강북 재수학원</a>
+                            | <a href="?campuscodedetail=CD0211&amp;campuscode=CD0006" class="">노량진 재수학원</a>
+                            | <a href="?campuscodedetail=CD0213&amp;campuscode=CD0036" class="">신촌 재수학원</a>
+                            | <a href="?campuscodedetail=CD0276&amp;campuscode=CD0275" class="">송파 재수학원</a>
+                            | <a href="?campuscodedetail=CD0251&amp;campuscode=CD0250" class="">부천 재수학원</a> 
+                            | <a href="?campuscodedetail=CD0253&amp;campuscode=CD0252" class="">분당 재수학원</a> 
+                            | <a href="?campuscodedetail=CD0255&amp;campuscode=CD0254" class="">일산 재수학원</a> 
+                            | <a href="?campuscodedetail=CD0217&amp;campuscode=CD0179" class="">평촌 재수학원</a> 
+                            | <a href="?campuscodedetail=CD0220&amp;campuscode=CD0178" class="">최상위권 전문관</a>
+                            | <a href="?campuscodedetail=CD0243&amp;campuscode=CD0039" class="">자연계 전문관</a>
+                            | <a href="?campuscodedetail=CD0280&amp;campuscode=CD0279" class="">안성 기숙학원</a>
+                        </div>
+                    </div>
+
+                    <div class="aca-list">
+                        <span>&bull;</span>
+                        <div>
+                            <a href="?campuscodedetail=CD0214&amp;campuscode=CD0098" class="">성북 재학학원</a>
+                            | <a href="?campuscodedetail=CD0278&amp;campuscode=CD0277" class="">테스트 학원</a>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><h1>검색 영역</h1>
+                <div class="search-area">
+                    <div class="search-area-inner">
+
+                        <div>
+                            <div>&bull; 분류</div>
+                            <div>
+                                <select name="kind" onchange="checkKind(this)">
+                                    <option value="">전체</option>
+                                    <option value='3' >최종 관리자</option><option value='1' >권한 관리자</option><option value='2' >일반 관리자</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 소속</div>
+                            <div>
+                                <select name="ccode" onchange="checkKind(this)">
+                                    <option value="">전체</option>
+                                    <option value="B" detail="B|B">본사</option><option value="CD0001" detail="CD0206|강남 재수학원|nsu">강남</option>
+                                    <option value="CD0004" detail="CD0208|서초 재수학원|nsu">서초</option>
+                                    <option value="CD0005" detail="CD0210|강북 재수학원|nsu">강북</option>
+                                    <option value="CD0006" detail="CD0211|노량진 재수학원|nsu">노량진</option>
+                                    <option value="CD0036" detail="CD0213|신촌 재수학원|nsu">신촌</option>
+                                    <option value="CD0275" detail="CD0276|송파 재수학원|nsu">송파</option>
+                                    <option value="CD0179" detail="CD0217|평촌 재수학원|nsu">평촌</option>
+                                    <option value="CD0098" detail="CD0214|성북 재학학원|jaehak">성북</option>
+                                    <option value="CD0039" detail="CD0243|자연계 전문관|gisuk">자연계 전문관</option>
+                                    <option value="CD0178" detail="CD0220|최상위권 전문관|gisuk">최상위권 전문관</option>
+                                    <option value="CD0279" detail="CD0280|안성 기숙학원|gisuk">안성기숙</option>
+                                    <option value="CD0250" detail="CD0251|부천 재수학원|nsu">부천</option>
+                                    <option value="CD0252" detail="CD0253|분당 재수학원|nsu">분당</option>
+                                    <option value="CD0254" detail="CD0255|일산 재수학원|nsu">일산</option>
+                                    <option value="CD0262" detail="CD0263|대입컨설팅센터|common">대입컨설팅센터</option>
+                                    <option value="CD0281" detail="CD0282|바른길 입시컨설팅|common">바른길 입시컨설팅</option>
+                                    <option value="CD0277" detail="CD0278|테스트 학원|nsu">테스트 학원</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 구분</div>
+                            <div>
+                                <select name="ccode2" onchange="checkKind(this)">
+                                    <option value="">전체</option>
+                                    <option value="nsu" >재종</option>
+                                    <option value="jaehak">연합</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 승인상태</div>
+                            <div>
+                                <select name="search_mode" onchange="checkKind(this)">
+                                    <option value="">전체</option>
+                                    <option value="N" >대기</option>
+                                    <option value="Y">완료</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 검색</div>
+                            <div>
+                                <select name="keyfield" id="keyfield" class="input">
+                                    <option value="mn_name" >이름</option>
+                                    <option value="mn_id" >아이디</option>
+                                    <!--<option value="belong" >소속</option>-->
+                                </select>
+                            </div>
+                            <div>
+                                <input name="keyword" type="text" size="20" tabindex="1" value="" class="input_search" onkeypress="if(event.keyCode==13){form1.submit();}">
+                            </div>
+                            <div>
+                                <input v-model="form.keyword" class="input_search" size="40" @keypress.enter.prevent="formSubmit('sbtn', 1)">
+                            </div>
+                            
+                            <div>
+                                <a href="javascript:form1.submit()" class="btn-01">검색</a>
+                                <a href="?mode=" class="btn-01">취소</a>
+                            </div>
+                            <!--<b><a href="log.asp">[관리자 방문 로그]</a></b>-->
+                        </div>
+
+                        <div>
+                            <div>&bull; 기간</div>
+                            <div>
+                                <a href="javascript:searchTerm('ww','-1')" class="btn-01 f11 f_gray2">1주일</a>
+                                <a href="javascript:searchTerm('m','-1')" class="btn-01 f11 f_gray2">1달</a>
+                                <a href="javascript:searchTerm('m','-2')" class="btn-01 f11 f_gray2">2달</a>
+                                <a href="javascript:searchTerm('m','-3')" class="btn-01 f11 f_gray2">3달</a>
+                                <a href="javascript:searchTerm('m','-6')" class="btn-01 f11 f_gray2">최근 6개월</a>
+                                <input name="sdate" id="sdate" type="text" value="2025-03-25" size="10" maxlength="10" class="input_search  hasDatepicker">
+                                ~
+                                <input name="edate" id="edate" type="text" value="2025-04-01" size="10" maxlength="10" class="input_search  hasDatepicker">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <br><br><h1>텍스트 박스 영역</h1>
+                <div class="text-box">
+                    <strong>텍스트 박스 영역텍스트 박스 영역</strong>
+                    <div>① 텍스트 박스 영역 1</div>
+                    <div>② 텍스트 박스 영역 2</div>
+                    <div>③ 텍스트 박스 영역 3</div>
+                </div>
+                
+
+                <br><br><h1>버튼 영역</h1>
+                <div class="btn-box">
+                    <div>
+                        성공 : <b class="num">1,740</b>건
+                        (업무시간 내 : <b class="num">1,739</b>건 
+                        &ensp;/&ensp; 업무시간 외 : <b class="num">>1</b>건)
+                        &ensp;|&ensp; 실패 : <b class="num">196</b>건	
+                    </div>
+                    <div>
+                        <a href="javascript:void(0);" id="excelDownload" class="btn-01">업무시간 외 접속 내역</a>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <div>
+                        <a href="javascript:checkReqDelete();" class="btn-01">관리자삭제요청</a>
+                    </div>
+                    <div>
+                        <a href="javascript:goWrite();" class="btn-01">글쓰기</a>
+                    </div>
+                </div>
+
+                <div class="btn-box center">
+                    <div>
+                        <a href="javascript:checkReqDelete();" class="btn-01">저장</a>
+                    </div>
+                    <div>
+                        <a href="javascript:goWrite();" class="btn-01">취소</a>
+                    </div>
+                </div>
+                <hr style="margin:30px 0;"/>
+
+                <div class="btn-box">
+                    <div>
+                        <span class="btn-01 f14 pointer" onclick="location.href='admin_list.asp'"><a class="overed"><b>전체(46)</b></a></span>
+                        <span class="btn-01 f14 pointer" onclick="location.href='admin_list.asp?mode=N'"><a class=""><b>대기(3)</b></a></span>
+                        <span class="btn-01 f14 pointer" onclick="location.href='admin_list.asp?mode=Y'"><a class=""><b>완료(43)</b></a></span>
+                    </div>
+                    <div>
+                        <span class="btn-01 f14 pointer"><a onclick=""><img src="https://campus.megastudy.net/admin/image/icon_excel.png" style="vertical-align: bottom;" width="auto" height="14"> 엑셀 다운로드</a></span>
+                        <span class="btn-01 f14 pointer"><a onclick="location.href='admin_write.asp?flag=new&refer=%2Fadmin%2Fsystem%2Fadmin%5Flist%2Easp%3F'">신규등록</a></span>
+                    </div>
+                </div>
+
+                <hr style="margin:30px 0;"/>
+
+                <div class="btn-box">
+                    <div>
+                        <a href="javascript:moveToWrite();" class="btn-01">신규등록</a>
+                        <a href="javascript:saveOrder();" class="btn-01">순서저장</a>
+                        <a href="javascript:saveUseNew('Y');" class="btn-01 btnNewIcon">New등록</a>
+                        <a href="javascript:saveUseNew('N');" class="btn-01 btnNewIcon">New해제</a>
+                        <a href="javascript:saveUseView('Y');" class="btn-01 btnExp">메뉴노출</a>
+                        <a href="javascript:saveUseView('N');" class="btn-01 btnExp">메뉴비노출</a>
+                        <a href="javascript:saveDelete();" class="btn-01 btnDel">메뉴삭제</a>
+                    </div>
+                    <div>
+                        <select name="campusdetail" id="cboCampusDetail">
+                            <option value="">--캠퍼스선택--</option>
+                            <option value="INTRO" campuscode="INTRO" gubuncode="INTRO">인트로페이지</option><option value="B" campuscode="B" gubuncode="B">학원공통</option><option value="CD0206" campuscode="CD0001" gubuncode="nsu">강남 재수학원</option><option value="CD0208" campuscode="CD0004" gubuncode="nsu">서초 재수학원</option><option value="CD0210" campuscode="CD0005" gubuncode="nsu">강북 재수학원</option><option value="CD0211" campuscode="CD0006" gubuncode="nsu">노량진 재수학원</option><option value="CD0213" campuscode="CD0036" gubuncode="nsu">신촌 재수학원</option><option value="CD0276" campuscode="CD0275" gubuncode="nsu">송파 재수학원</option><option value="CD0251" campuscode="CD0250" gubuncode="nsu">부천 재수학원</option><option value="CD0253" campuscode="CD0252" gubuncode="nsu">분당 재수학원</option><option value="CD0255" campuscode="CD0254" gubuncode="nsu">일산 재수학원</option><option value="CD0217" campuscode="CD0179" gubuncode="nsu">평촌 재수학원</option><option value="CD0220" campuscode="CD0178" gubuncode="gisuk">최상위권 전문관</option><option value="CD0243" campuscode="CD0039" gubuncode="gisuk">자연계 전문관</option><option value="CD0280" campuscode="CD0279" gubuncode="gisuk">안성 기숙학원</option><option value="CD0214" campuscode="CD0098" gubuncode="jaehak">성북 재학학원</option><option value="CD0263" campuscode="CD0262" gubuncode="common">대입컨설팅센터</option><option value="CD0282" campuscode="CD0281" gubuncode="common">바른길 입시컨설팅</option><option value="CD0278" campuscode="CD0277" gubuncode="nsu">테스트 학원</option>
+                        </select>
+                        <select name="pmenucode" id="cboPMenuCode">
+                            <option value="">선택</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr style="margin:30px 0;"/>
+
+                <br><br><h1>테이블 영역</h1>
+                <div class="table-area">
+                    <form @submit.prevent="">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="type01">
+                            <colgroup>
+                                <col style="width:4%;" />
+                                <col style="width:auto;" span="10" />
+                            </colgroup>
+                            <tr>
+                                <th><input type="checkbox" id="codesAll" onclick="codesAllClicked()" ></th>
+                                <th>번호</th>
+                                <th>분류</th>
+                                <th>소속</th>
+                                <th>이름</th>
+                                <th>아이디</th>
+                                <th>
+                                <select id="req_reason" name="req_reason">
+                                    <option value="" selected>전체</option>
+                                    <option value="N" >신규등록</option>
+                                    <option value="M" >부서이동</option>
+                                    <option value="D" >관리자삭제</option>                                                    
+                                </select>
+                                </th>
+                                <th>요청일</th>
+                                <th>승인일</th>
+                                <th>
+                                    <select id="" name="">
+                                        <option value="" selected>전체</option>
+                                        <option value="" >대기</option>
+                                        <option value="" >정상</option>
+                                        <option value="" >차단</option>                                                 
+                                        <option value="" >삭제</option>                                                 
+                                    </select>
+                                </th>
+                                <th>최종접속(성공)</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                
+                                    <input type="hidden" name="hdAppState" value="N">
+                                </td>
+                                <td>64</td>
+                                <td><b class="f_blue">일반 관리자</b></td>
+                                <td>본사</td>
+                                <td><a href="admin_write.asp?flag=modify&code=753&refer=%2Fadmin%2Fsystem%2Fadmin%5Flist%2Easp%3F"><b class="f_orange"><u>권**</u></b></a></td>
+                                <td><b>sck*****</b></td>
+                                <td>신규등록<input type="hidden" name="hdAppDInfo" value=""></td>
+                                <td>2024-10-29</td>
+                                <td>대기</td>
+                                <td>정상</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr class="useview">
+                                <td>
+                                
+                                    <input type="hidden" name="hdAppState" value="Y">
+                                </td>
+                                <td>63</td>
+                                <td><b class="f_blue">권한 관리자</b></td>
+                                <td>본사</td>
+                                <td><a href="admin_write.asp?flag=modify&code=752&refer=%2Fadmin%2Fsystem%2Fadmin%5Flist%2Easp%3F"><b class="f_orange"><u>박**</u></b></a></td>
+                                <td><b>eyp*****</b></td>
+                                <td>신규등록<input type="hidden" name="hdAppDInfo" value=""></td>
+                                <td>2024-10-11</td>
+                                <td>2024-10-11</td>
+                                <td>정상</td>
+                                <td><a href='/admin/system/admin_log.asp?keyfield=mn_id&keyword=eypark73' class='f_blue'><font color=blue>2024-11-20</font></a></td>
+                            </tr>
+                            
+                        
+                        </table>
+                    </form>
+                </div>
+
+
+
+                <div class="table-area">
+                    <form @submit.prevent="">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="type01">
+                            <colgroup>
+                                <col style="width:4%;" />
+                                <col style="width:auto;" span="10" />
+                            </colgroup>
+                            <tr>
+                                <th><input type="checkbox" id="codesAll" onclick="codesAllClicked()" ></th>
+                                <th>번호</th>
+                                <th>분류</th>
+                                <th>소속</th>
+                                <th>이름</th>
+                                <th>아이디</th>
+                                <th>
+                                <select id="req_reason" name="req_reason">
+                                    <option value="" selected>전체</option>
+                                    <option value="N" >신규등록</option>
+                                    <option value="M" >부서이동</option>
+                                    <option value="D" >관리자삭제</option>                                                    
+                                </select>
+                                </th>
+                                <th>요청일</th>
+                                <th>승인일</th>
+                                <th>
+                                    <select id="" name="">
+                                        <option value="" selected>전체</option>
+                                        <option value="" >대기</option>
+                                        <option value="" >정상</option>
+                                        <option value="" >차단</option>                                                 
+                                        <option value="" >삭제</option>                                                 
+                                    </select>
+                                </th>
+                                <th>최종접속(성공)</th>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                
+                                    <input type="hidden" name="hdAppState" value="N">
+                                </td>
+                                <td>64</td>
+                                <td><b class="f_blue">일반 관리자</b></td>
+                                <td>본사</td>
+                                <td><a href="admin_write.asp?flag=modify&code=753&refer=%2Fadmin%2Fsystem%2Fadmin%5Flist%2Easp%3F"><b class="f_orange"><u>권**</u></b></a></td>
+                                <td><b>sck*****</b></td>
+                                <td>신규등록<input type="hidden" name="hdAppDInfo" value=""></td>
+                                <td>2024-10-29</td>
+                                <td>대기</td>
+                                <td>정상</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr class="useview">
+                                <td>
+                                
+                                    <input type="hidden" name="hdAppState" value="Y">
+                                </td>
+                                <td>63</td>
+                                <td><b class="f_blue">권한 관리자</b></td>
+                                <td>본사</td>
+                                <td><a href="admin_write.asp?flag=modify&code=752&refer=%2Fadmin%2Fsystem%2Fadmin%5Flist%2Easp%3F"><b class="f_orange"><u>박**</u></b></a></td>
+                                <td><b>eyp*****</b></td>
+                                <td>신규등록<input type="hidden" name="hdAppDInfo" value=""></td>
+                                <td>2024-10-11</td>
+                                <td>2024-10-11</td>
+                                <td>정상</td>
+                                <td><a href='/admin/system/admin_log.asp?keyfield=mn_id&keyword=eypark73' class='f_blue'><font color=blue>2024-11-20</font></a></td>
+                            </tr>
+                            
+                        
+                        </table>
+                    </form>
+                </div>
+
+
+
+
+                <br><br><h1>페이징 영역</h1>
+                <div class="paging-box">
+                    <img src='/library/v2015/library/image/mypage/list_arrow_p.png' alt='이전 10개' width='21' height='20' class='btn_page first'> <b>1</b> 
+                    <a href='?clear=&refer=&curPage=2&curGroupPage=1&mode=&f_req_reason=&kind=&ccode=&ccode2=&search_mode=&keyfield=&keyword='><span>2</span></a>  
+                    <a href='?clear=&refer=&curPage=3&curGroupPage=1&mode=&f_req_reason=&kind=&ccode=&ccode2=&search_mode=&keyfield=&keyword='><span>3</span></a>  
+                    <a href='?clear=&refer=&curPage=4&curGroupPage=1&mode=&f_req_reason=&kind=&ccode=&ccode2=&search_mode=&keyfield=&keyword='><span>4</span></a>  
+                    <img src='/library/v2015/library/image/mypage/list_arrow_f.png' alt='다음 10개'  class='btn_page last' width='21' height='20'> 
+                </div>
+
+
+
+            </section>
+        </div>
+        <!-- // 컨텐츠 -->
+
+    </div>
+
+</body>
+</html>
