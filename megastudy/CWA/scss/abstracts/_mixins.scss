@@ -198,85 +198,6 @@
 	}
 }
 
-// closeButton
-// @include closeButton(#355ef0, 40px, 2px, #fff);
-@mixin closeButton($bgColor, $size, $thickness, $lineColor) {
-	& {
-		display: inline-block;
-		width: $size;
-		height: $size;
-		padding: $size/2;
-		cursor: pointer;
-	}
-
-	@if $bgColor {
-		background-color: $bgColor;
-	} @else {
-		background-color: transparent;
-	}
-
-	&:before,
-	&:after {
-		content: '';
-		display: block;
-		width: 140%;
-		height: $thickness;
-		background: $lineColor;
-	}
-
-	&:before {
-		margin-top: -$thickness/4;
-		margin-left: $thickness/2;
-		@include rotate(45deg);
-		@include transformOrigin(0 0);
-	}
-
-	&:after {
-		margin-left: -41%;
-		margin-top: -$thickness;
-		@include rotate(-45deg);
-		@include transformOrigin(100% 0);
-	}
-}
-
-// arrow
-// @include arrow(left, 8px, 8px, 2px, $color-base-dark);
-@mixin arrow($direction, $width, $height, $borderWidth, $color) {
-	& {
-		position: relative;
-		display: inline-block;
-	}
-
-	&:before {
-		content: '';
-		position: absolute;
-		top: 50%;
-		display: block;
-		@include vw(width, $width);
-		@include vw(height, $height);
-		@include vw(margin-top, -($width/2));
-		border-width: 0;
-		border-style: solid;
-		border-color: $color;
-		@include rotate(45deg);
-
-		@if $direction == 'right' {
-			@include vw(right, $width*2);
-			border-top-width: $borderWidth;
-			border-right-width: $borderWidth;
-		} @else if $direction == 'left' {
-			@include vw(left, $width*2);
-			border-bottom-width: $borderWidth;
-			border-left-width: $borderWidth;
-		} @else if $direction == 'bottom' {
-			border-bottom-width: $borderWidth;
-			border-right-width: $borderWidth;
-		} @else if $direction == 'top' {
-			border-top-width: $borderWidth;
-			border-left-width: $borderWidth;
-		}
-	}
-}
 
 // rem
 // @include rem(margin, 25px 20px 0);
@@ -467,35 +388,6 @@
 	background: radial-gradient($direction, $color-stops);
 }
 
-// @include bg($color: #001d3d, $url: '#{$img-path}/pc/bg_top.jpg');
-// @include bg($color: #a5d0fb, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
-@mixin bg($color: null, $url: null, $repeat: null, $position: null, $size: null){
-	@if $color {
-		background-color: $color;
-	}
-
-	@if $url {
-		background-image: url($url);
-	}
-
-	@if $repeat {
-		background-repeat: $repeat;
-	} @else {
-		background-repeat: no-repeat;
-	}
-
-	@if $position {
-		background-position: $position;
-	} @else {
-		background-position: center top;
-	}
-
-	@if $size {
-		background-size: $size;
-	} @else {
-		background-size: auto;
-	}
-}
 
 // multiple text ellipsis
 // @include multipleEllipsis(3);
@@ -509,55 +401,24 @@
 	word-wrap: break-word;
 }
 
-//flex
-//@include flex-row(row, center, start);
-//@include flex-row(row, center, between);
-//@include flex-row(column, between, center);
-@mixin flex-row($dir ,$align, $justify) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
+
+//@include flex(row, center, start); // 기본적인 가로 정렬 (중앙 정렬 + 왼쪽 정렬)
+//@include flex(column, between, center); // 세로 방향 정렬 (양 끝 정렬 + 중앙 정렬)
+//@include flex(column, center, end); // 세로 방향 정렬 (가운데 정렬 + 끝 정렬) 
+@mixin flex($dir: row, $align: center, $justify: start) {
     display: flex;
-    @if($dir == row){
-        -moz-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-    @if($dir == column){
-        -moz-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-    @if($align == start){
-        -moz-align-items: flex-start;
-        align-items: flex-start;
-    }
-    @if($align == center){
-        -moz-align-items: center;
-        align-items: center;
-    }
-    @if($align == end){
-        -moz-align-items: flex-end;
-        align-items: flex-end;
-    }     
-    @if($align == stretch) {
-        -moz-align-items: stretch;
-        align-items: stretch;
-    }
-    @if($justify == between){
-        -moz-justify-content: space-between;
-        justify-content: space-between;
-    }
-    @if($justify == center){
-        -moz-justify-content: center;
-        justify-content: center;
-    }
-    @if($justify == start){
-        -moz-justify-content: flex-start;
-        justify-content: flex-start;
-    }
-    @if($justify == end){
-        -moz-justify-content: flex-end;
-        justify-content: flex-end;
-    }
+
+    // 방향 설정
+    flex-direction: if($dir == column, column, row);
+
+    // 정렬 방식 설정
+    align-items: 
+        if($align == start, flex-start, 
+        if($align == end, flex-end, 
+        if($align == stretch, stretch, center)));
+
+    justify-content: 
+        if($justify == between, space-between, 
+        if($justify == end, flex-end, 
+        if($justify == center, center, flex-start)));
 }
