@@ -36,9 +36,6 @@
             width: 5px;
             height: 9px;
         }
-        span{
-            @include arrow(left, 8px, 8px, 2px, $color-base-dark);
-        }
     }
 }
 
@@ -124,7 +121,7 @@
 
 //table
 .table-area{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 table{
@@ -142,6 +139,7 @@ table{
     }
     th, td{
         font-size: 14px;
+        line-height:1.2;
     }
     &.type01{
         text-align:center; 
@@ -152,18 +150,50 @@ table{
             border-right:1px solid #d7d7d7; 
             background:#fff; 
             padding:8px 5px;
+            &.blue{
+                background:#f6fafe !important
+            }
         }
         th{
             font-weight:bold; 
             background:#f1f1f1;
         }
         td{
+
         }
         b{ color:#3357a4 }
     }
 }
 
 
+.column-area {
+    @include flex(row, stretch, start);
+    gap: 30px;
+    .column-2 {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+        display: flex;
+        flex-direction: column;
+    }
+    .table-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .table-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            form{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            table{
+                flex:1;
+            }
+        }
+    }    
+}
 
 //paging
 .paging-box{
