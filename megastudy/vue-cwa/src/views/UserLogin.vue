@@ -26,9 +26,7 @@
                                 </div>
                             </div>
                             <div>
-                                <a href="javascript:void(0);" @click="checkLogin" class="btn-login">
-                                    <span>LOGIN</span>
-                                </a>
+                                <button @click="checkLogin" class="btn-login"><span>LOGIN</span></button>
                             </div>
                         </div>
 

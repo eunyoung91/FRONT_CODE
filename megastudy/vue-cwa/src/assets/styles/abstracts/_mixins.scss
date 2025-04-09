@@ -1,3 +1,7 @@
+// --------------------------------------------
+// mixins
+// --------------------------------------------
+
 // breakpoint
 // @include breakpoint(maxMobile){ ... }
 @mixin breakpoint($point) {
@@ -48,6 +52,41 @@
 	@each $prefix in -webkit-, '' {
 		#{$prefix}box-shadow: $value;
 	}
+}
+
+// @include flex(column, start, between);
+@mixin flex($dir: row, $align: center, $justify: start) {
+	$align-map: (
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		stretch: stretch,
+		baseline: baseline
+	);
+	$justify-map: (
+		start: flex-start,
+		end: flex-end,
+		center: center,
+		between: space-between,
+		around: space-around,
+		evenly: space-evenly
+	);
+	display: flex;
+	flex-direction: $dir;
+	align-items: map-get($align-map, $align);
+	justify-content: map-get($justify-map, $justify);
+}
+
+// multiple text ellipsis
+// @include multipleEllipsis(3);
+@mixin multipleEllipsis($line){
+	display: -webkit-box;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
 }
 
 // transition
@@ -197,7 +236,6 @@
 		text-indent: -9999px;
 	}
 }
-
 
 // rem
 // @include rem(margin, 25px 20px 0);
@@ -389,39 +427,3 @@
 }
 
 
-// multiple text ellipsis
-// @include multipleEllipsis(3);
-@mixin multipleEllipsis($line){
-	display: -webkit-box;
-	overflow: hidden;
-	-o-text-overflow: ellipsis;
-	text-overflow: ellipsis;
-	-webkit-line-clamp: $line;
-	-webkit-box-orient: vertical;
-	word-wrap: break-word;
-}
-
-// @include flex(column, start, between);
-@mixin flex($dir: row, $align: center, $justify: start) {
-	$align-map: (
-		start: flex-start,
-		end: flex-end,
-		center: center,
-		stretch: stretch,
-		baseline: baseline
-	);
-
-	$justify-map: (
-		start: flex-start,
-		end: flex-end,
-		center: center,
-		between: space-between,
-		around: space-around,
-		evenly: space-evenly
-	);
-
-	display: flex;
-	flex-direction: $dir;
-	align-items: map-get($align-map, $align);
-	justify-content: map-get($justify-map, $justify);
-}

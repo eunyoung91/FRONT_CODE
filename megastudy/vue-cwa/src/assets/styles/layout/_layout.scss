@@ -1,12 +1,11 @@
-*{ 
-    font-family: $font-pretendard;
-    @include boxSizing(border-box);
-}
+// --------------------------------------------
+// layout
+// --------------------------------------------
+
 html, body, #app {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 .admin-container{
     font-size: 14px;
@@ -17,10 +16,10 @@ html, body, #app {
     gap:50px;
 
     .admin-sidebar {
-        width:214px;
         background-color:#f0f0f0;
         border-right: solid 1px #c1cce4;
         .main-menu {
+            width:214px;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -29,6 +28,10 @@ html, body, #app {
                 text-align: center;
                 padding:20px 0 30px 0;
                 background-color: #3357a4;
+                .logo{
+                    width:167px;
+                    height:45px;
+                }
             }
             .menu-item {
                 border-bottom: solid 1px #c1cce4;
@@ -44,7 +47,7 @@ html, body, #app {
                 > a{
                     font-weight: bold;
                     position: relative;
-                    margin: 10px 0 10px 30px;
+                    margin: 10px 10px 10px 35px;
                     &:before{
                         position: absolute;
                         content: "\25B6";
@@ -59,12 +62,12 @@ html, body, #app {
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    padding:5px 0;
+                    padding:8px 0;
                     li {
                         a {
                             position: relative;
                             font-weight: normal;
-                            margin: 2px 0 2px 30px;
+                            margin: 2px 10px 2px 35px;
                             line-height:1.2;
                             &:before{
                                 position: absolute;
@@ -87,6 +90,7 @@ html, body, #app {
     .admin-content{
         width:100%;
         height:100%;
+        overflow: hidden;
         .main-header{
             position: relative;
             z-index:1;
@@ -108,9 +112,12 @@ html, body, #app {
                 background:#4899ee;
                 padding:20px;
                 > div{
-                    font-size: 18px;
+                    font-size: 16px;
                     letter-spacing: 0;
                     color: $color-white;
+                    @include flex(row, center, center);
+                    gap:5px;
+
                 }
             }
         }
@@ -120,7 +127,6 @@ html, body, #app {
                 width:100%;
             }
         }
-        //login
         .login-content{
             position: relative;
             width:100%;

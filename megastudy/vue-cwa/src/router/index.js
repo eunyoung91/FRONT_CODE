@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Adminguide from '@/views/AdminGuide.vue'
+import Adminguide from '@/views/guide/AdminGuide.vue'
 
 import UserLogin from "@/views/UserLogin.vue";
 

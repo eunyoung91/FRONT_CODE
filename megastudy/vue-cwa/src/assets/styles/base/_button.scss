@@ -1,68 +1,75 @@
-.btn-login{
-	width:87px;
-	height:57px;
-	text-align: center;
-	background-color:$color-primary;
-	vertical-align:middle;
-	text-decoration:none;
-	display: inline-block;
-	@include flex(row, center, center);
-	&:hover, &:visited{
-		text-decoration:none;
+// --------------------------------------------
+// button
+// --------------------------------------------
+
+// --------------------------------------------
+// Base Button Style
+// --------------------------------------------
+%btn-base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	line-height: inherit;
+	appearance: none;
+	text-decoration: none;
+	&:focus {
+		outline: none;
 	}
-	span{
-		color:$color-white;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.btn-login {
+	@extend %btn-base;
+	width: 87px;
+	height: 57px;
+	background-color: $color-primary;
+	@include flex(row, center, center);
+	span {
+		color: $color-white;
 		font-weight: 300;
 		font-size: 20px;
 	}
 }
 
-.btn-logout{
-	padding:5px 34px;
-	border:1px solid #999;
-	background-color:$color-white;
-	vertical-align:middle;
-	text-decoration:none;
-	display: inline-block;
-	&:hover, &:visited{
-		text-decoration:none;
-	}
-	span{
-		color:#4899ee;
+.btn-logout {
+	@extend %btn-base;
+	padding: 5px 34px;
+	background-color: $color-white;
+	span {
+		color: #4899ee;
 		font-weight: bold;
 		font-size: 16px;
 	}
 }
 
-.btn{
-	&-01{
-		font-size: 12px;
-		padding:4px 10px;
-		border:1px solid #999999;
-		background-color:$color-white;
-		vertical-align:middle;
-		text-decoration:none;
-		display: inline-block;
-		text-align: center;
-		&.overed{
-			color:$color-red;
-		}
-		&:hover, &:visited{
-			text-decoration: none;
-		}
-		&.btnNewIcon{
-			color:#0000FF;
-		}
-		&.btnExp{
-			color:#a52a2a;
-		}
-		&.btnExp{
-			color:#a52a2a;
-		}
-		&.btnDel{
-			color:$color-red;
-		}
+.btn-01 {
+	@extend %btn-base;
+	font-size: 12px;
+	padding: 4px 10px;
+	border: 1px solid #999;
+	background-color: $color-white;
+	text-align: center;
+	&.overed {
+		color: #d51d05;
+	}
+	&.btnNewIcon {
+		color: #0000FF;
 	}
 
-}
+	&.btnExp {
+		color: #a52a2a;
+	}
 
+	&.btnDel {
+		color: $color-red;
+	}
+}
