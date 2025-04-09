@@ -1,20 +1,21 @@
-html, body{
-    width:100%; 
-    height:100%;
+*{ 
+    font-family: $font-pretendard;
+    @include boxSizing(border-box);
+}
+html, body, #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 .admin-container{
-    *{ 
-        font-family: $font-pretendard;
-        @include boxSizing(border-box);
-    }
-    line-height:1;
     font-size: 14px;
     height:100%;
     color:$color-333;
     
     @include flex(row, start, start);
     gap:50px;
-    //sidebar
+
     .admin-sidebar {
         width:214px;
         background-color:#f0f0f0;
@@ -83,8 +84,6 @@ html, body{
             }
         }
     }
-
-    //header
     .admin-content{
         width:100%;
         height:100%;
@@ -218,5 +217,4 @@ html, body{
             padding-bottom: 500px;
         }
     }
-
 }

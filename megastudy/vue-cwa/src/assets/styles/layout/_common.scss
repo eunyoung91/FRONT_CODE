@@ -1,0 +1,234 @@
+//title
+.title-menu {
+    margin-top:30px;
+    @include flex(row, center, between);
+}
+.title {
+    &-main { 
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color:#555;
+        font-weight: bold;
+        letter-spacing: 0;
+        img {
+            margin-right: 4px;
+            margin-top:-1px;
+            width: 12px;
+            height: 13px;
+        }
+        b{
+            color:$color-point;
+        }
+    }
+    &-sub { 
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color:#0079d7;
+        font-weight: bold;
+        letter-spacing: 0;
+        margin-top: 15px;
+        
+        img {
+            margin-right: 4px;
+            margin-top:-1px;
+            width: 5px;
+            height: 9px;
+        }
+    }
+}
+
+
+//aca-list
+.aca-list-area{
+    margin-top:30px;
+    padding: 16px 12px;
+    background:$bg-color-1;
+    @include flex(row, center, between);
+    gap:10px;
+    flex-wrap: wrap;
+    .aca-list {
+        width:100%;
+        @include flex(row, start, start);
+        gap:8px;
+        div {
+            word-break: keep-all;
+            @include flex(row, start, start);
+            gap:8px;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+
+//search
+.search-area{
+    margin-top:30px;
+    padding: 16px 12px;
+    background:$bg-color-1;
+    font-size: 14px;
+    @include flex(row, center, between);
+    &-inner{
+        @include flex(row, center, start);
+        flex-wrap: wrap;
+        gap:12px;
+        > div{
+            word-break: keep-all;
+            @include flex(row, center, start);
+            gap:6px;
+            white-space: nowrap;
+            > div:nth-child(2){
+                flex:1 1 0;
+            }
+        }
+    }
+}
+
+
+//text-box 
+.text-box{
+    margin-top:20px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height:1.2;
+    strong{
+        font-size: 16px;
+        line-height:1.8;
+        font-weight: bold;
+    }
+    li{
+
+    }
+}
+
+
+//btn-box
+.btn-box{
+    margin-top:20px;
+    @include flex(row, center, between);
+    font-size: 14px;
+    &.center{
+        @include flex(row, center, center);
+        gap:6px;
+    }
+    .num{
+        color:$color-num;
+    }
+}
+
+
+//table
+.table-area{
+    margin-top: 10px;
+}
+
+table{
+    tr{
+        &.useview {
+            td{
+                background-color:#F7F6E6;
+            }
+        }
+        &.hot {
+            td{
+                background-color:#ECF5FD;
+            }
+        }
+    }
+    th, td{
+        font-size: 14px;
+        line-height:1.2;
+    }
+    &.type01{
+        text-align:center; 
+        border-top:2px solid #4899ee; 
+        border-bottom:2px solid #d7d7d7;
+        th,td{
+            border-top:1px solid #d7d7d7; 
+            border-right:1px solid #d7d7d7; 
+            background:#fff; 
+            padding:8px 5px;
+            &.blue{
+                background:#f6fafe !important
+            }
+        }
+        th{
+            font-weight:bold; 
+            background:#f1f1f1;
+        }
+        td{
+
+        }
+        b{ color:#3357a4 }
+    }
+}
+
+
+.column-area {
+    @include flex(row, stretch, start);
+    gap: 30px;
+    .column-2 {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+        display: flex;
+        flex-direction: column;
+    }
+    .table-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .table-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            form{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            table{
+                flex:1;
+            }
+        }
+    }    
+}
+
+//paging
+.paging-box{
+    .first{
+        margin-right:8px;
+    }
+    .last{
+        margin-left:8px;
+    }
+    padding:15px 0;
+    gap:7px;
+    text-align: center;
+    font-size:14px;
+    font-weight: normal;
+    @include flex(row, center, center);
+    b{
+        font-weight: bold;
+        color: $color-point;
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

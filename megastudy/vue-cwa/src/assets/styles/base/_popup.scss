@@ -1,0 +1,51 @@
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $dim;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: map-get($z-index, popup-overlay);
+	.popup-inner{
+		position: relative;
+		font-size: 14px;
+		.popup-header{
+			position: relative; 
+			padding:10px 10px; 
+			background-color: $color-primary; 
+			color: $color-white;
+			border-bottom: 1px solid $border-color-1;
+			@include flex(row, center, start);
+			.bullet{
+				width:5px;
+				height:8px;
+				padding-right: 5px;
+			}
+		}
+		.popup-content {
+			background: $color-white;
+			padding: 20px;
+			text-align: center;
+			position: relative;
+		}
+		.close-btn {
+			position: absolute;
+			z-index:1;
+			top: 5px;
+			right: 10px;
+			background: none;
+			border: none;
+			font-size: 20px;
+			font-weight: normal;
+			color: $color-white;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+}
+
+
+
