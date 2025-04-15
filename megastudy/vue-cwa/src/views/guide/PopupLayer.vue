@@ -1,4 +1,4 @@
-<!-- 🔹 PopupLayer.vue: 관리자 페이지 사이드 메뉴 컴포넌트 -->
+<!-- 🔹 PopupLayer.vue: 관리자 페이지에서 사용되는 공통 팝업 레이어 컴포넌트 -->
 <template>
   <div v-if="visible" class="popup-overlay" @click.self="close">
     <div class="popup-inner">

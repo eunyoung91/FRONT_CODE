@@ -391,8 +391,8 @@
 </template>
 
 <script>
-import AdminSidebar from './AdminSidebar.vue'
-import AdminHeader from './AdminHeader.vue'
+import AdminSidebar from '@/views/guide/AdminSidebar.vue'
+import AdminHeader from '@/views/guide/AdminHeader.vue'
 import PopupLayer from '@/components/guide/PopupLayer.vue';
 import BasePagination from "@/components/guide/BasePagination.vue";
 
