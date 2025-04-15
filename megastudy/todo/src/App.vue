@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="container">
-    <h1 class="text-center">Todo App</h1>
+    <!-- <h1 class="text-center">Todo App</h1> -->
+    <hr/>
     <input 
       v-model="todoText"
       type="text" 
@@ -14,7 +15,8 @@
       v-for="item in todoLists" 
       :key="item.id"
       :item="item"
-      />
+      @toggle-checkbox ="toggleCheckbox"
+    />
 
   </div>
 </template>
@@ -44,6 +46,9 @@ export default {
         checked : false,
       });
       this.todoText = '';
+    },
+    toggleCheckbox({id, checked}){
+      console.log(id, checked);
     }
   },
 }

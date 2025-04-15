@@ -1,6 +1,9 @@
 <template>
       <div>
-        <input type="checkbox" :checked="item.checked">
+        {{ item.checked }}
+        <input type="checkbox" :checked="item.checked"
+          @change="toggleCheckbox"
+        >
         <span class="ml-3">{{ item.text }}</span>
     </div>
 </template>
@@ -12,6 +15,15 @@
         type: Object,
         required: true,
       }
-    }
+    },
+
+    methods: {
+      toggleCheckbox(e){
+        this.$emit('toggle-checkbox', {
+          id : this.item.id,
+          checked: e.target.checked
+        })
+      }
+    },
   }
 </script>

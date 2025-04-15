@@ -140,7 +140,7 @@ export default {
         submitCode() {
             if (this.verificationCode === this.correctVerificationCode) {
                 alert('로그인 성공!');
-                this.$router.push('/campus-notice');
+                this.$router.push('/guide');
             } else {
                 alert('인증번호가 올바르지 않습니다.');
             }

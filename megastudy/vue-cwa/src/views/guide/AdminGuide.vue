@@ -39,10 +39,9 @@
                         &ensp;|&ensp; 실패 : <b class="num">{{ failure }}</b>건
                     </div>
                     <div>
-                        <button type="button" @click="downloadExcel" class="btn-01">업무시간 외 접속 내역</button>
+                        <button type="button" class="btn-01">업무시간 외 접속 내역</button>
                     </div>
                 </div>
-
 
                 <div class="btn-box">
                     <div>
@@ -261,7 +260,6 @@
                     </div>
                 </div>
 
-
                 <h1>레이어 팝업</h1>
                 <button type="button" class="btn-01" @click.prevent="showPopup('popup1')">팝업 1 열기</button>
                 <button type="button" class="btn-01" @click.prevent="showPopup('popup2')">팝업 2 열기</button>
@@ -300,7 +298,6 @@
                     <div>③ 텍스트 박스 영역 3</div>
                 </div>
 
-
                 <h1>테이블 영역</h1>
                 <div class="table-area">
                     <form @submit.prevent="">
@@ -335,7 +332,7 @@
                                         <option value="" >삭제</option>                                                 
                                     </select>
                                 </th>
-                                <th>최종접속(성공)</th>
+                                <th>최종접속<br>(성공)</th>
                             </tr>
                             
                             <tr>
@@ -379,7 +376,6 @@
 
                 <h1>페이징 영역</h1>
 
-                <template>
                 <BasePagination
                     :current-page="currentPage"
                     :page-numbers="visiblePages"
@@ -389,17 +385,12 @@
                     :next-page-set-start="nextSetStart"
                     @page-changed="handlePageChange"
                 />
-                </template>
-
-
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
-
 import AdminSidebar from './AdminSidebar.vue'
 import AdminHeader from './AdminHeader.vue'
 import PopupLayer from '@/components/guide/PopupLayer.vue';
@@ -507,7 +498,9 @@ export default {
             ],
             menuList: ['메뉴1', '메뉴2', '메뉴3'], // 필요 시 API 연동 또는 수동입력
 
+            // paging
             currentPage: 1,
+            allPages: Array.from({ length: 100 }, (_, i) => i + 1),
             pageSize: 10,
 
         };
@@ -522,29 +515,27 @@ export default {
         this.menuData = this.convertMenuData(menus);
     },
 
+// currentPage: 1,
+// allPages: Array.from({ length: 100 }, (_, i) => i + 1),
+// pageSize: 10,
+
     computed: {
-        // totalPages() {
-        //     return Math.ceil(this.teachers.length / this.pageSize);
-        // },
-        // visiblePages() {
-        //     const groupSize = 5;
-        //     const start = Math.floor((this.currentPage - 1) / groupSize) * groupSize + 1;
-        //     return Array.from({ length: groupSize }, (_, i) => start + i).filter(
-        //     (page) => page <= this.totalPages
-        //     );
-        // },
-        // hasPrev() {
-        //     return this.visiblePages[0] > 1;
-        // },
-        // hasNext() {
-        //     return this.visiblePages[this.visiblePages.length - 1] < this.totalPages;
-        // },
-        // prevSetEnd() {
-        //     return this.visiblePages[0] - 1;
-        // },
-        // nextSetStart() {
-        //     return this.visiblePages[this.visiblePages.length - 1] + 1;
-        // },
+        visiblePages() {
+            const start = Math.floor((this.currentPage - 1) / this.pageSize) * this.pageSize;
+            return this.allPages.slice(start, start + this.pageSize);
+        },
+        hasPrev() {
+            return this.currentPage > this.pageSize;
+        },
+        hasNext() {
+            return this.currentPage <= this.allPages.length - this.pageSize;
+        },
+        prevSetEnd() {
+            return Math.max(this.currentPage - this.pageSize, 1);
+        },
+        nextSetStart() {
+            return this.currentPage + this.pageSize;
+        },
     },
 
     methods: {
@@ -648,13 +639,9 @@ export default {
             this.form.edate = formatDate(today);
         },
 
-        handlePageChange(newPage) {
-            this.currentPage = newPage;
-            window.scrollTo({ top: 0, behavior: "smooth" });
+        handlePageChange(page) {
+            this.currentPage = page;
         },
-
-
-
     }
 };
 </script>

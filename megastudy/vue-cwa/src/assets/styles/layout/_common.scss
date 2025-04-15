@@ -210,23 +210,45 @@ table{
 }
 
 //paging
-.paging-box{
-    .first{
-        margin-right:8px;
-    }
-    .last{
-        margin-left:8px;
-    }
-    padding:15px 0;
-    gap:7px;
+// 페이징 영역
+.paging-box {
+    padding: 15px 0;
+    gap: 2px;
     text-align: center;
-    font-size:14px;
+    font-size: 14px;
     font-weight: normal;
-    @include flex(row, center, center);
-    b{
-        font-weight: bold;
-        color: $color-point;
-        text-decoration: underline;
+    @include flex(row, center, center); // 예: flex(row, center, center)
+    li {
+        display: inline-block;
+        a, span {
+            display: inline-block;
+            padding: 4px;
+            color: #333;
+            text-decoration: none;
+        }
+        &.first {
+            margin-right: 4px;
+        }
+        &.last {
+            margin-left: 4px;
+        }
+        &.active {
+            b {
+                font-weight: bold;
+                color: $color-point;
+                text-decoration: underline;
+            }
+        }
+        &.disabled {
+            a {
+                pointer-events: none;
+                color: #ccc;
+                cursor: default;
+            }
+            span {
+                color: #ccc;
+            }
+        }
     }
 }
 
