@@ -88,9 +88,6 @@
             @include flex(row, center, start);
             gap:6px;
             white-space: nowrap;
-            // > div:nth-child(2){
-            //     flex:1 1 0;
-            // }
             .calendar-group {
                 display: flex;
                 align-items: center;
@@ -113,22 +110,6 @@
         font-weight: bold;
     }
     li{
-
-    }
-}
-
-
-//btn-box
-.btn-box{
-    margin-top:20px;
-    @include flex(row, center, between);
-    font-size: 14px;
-    &.center{
-        @include flex(row, center, center);
-        gap:6px;
-    }
-    .num{
-        color:$color-num;
     }
 }
 
@@ -210,21 +191,21 @@ table{
 }
 
 //paging
-// 페이징 영역
 .paging-box {
     padding: 15px 0;
     gap: 2px;
     text-align: center;
     font-size: 14px;
     font-weight: normal;
-    @include flex(row, center, center); // 예: flex(row, center, center)
+    @include flex(row, center, center);
     li {
         display: inline-block;
         a, span {
             display: inline-block;
-            padding: 4px;
             color: #333;
             text-decoration: none;
+            cursor: pointer;
+            min-width: 22px;
         }
         &.first {
             margin-right: 4px;
@@ -237,6 +218,7 @@ table{
                 font-weight: bold;
                 color: $color-point;
                 text-decoration: underline;
+                min-width: 22px;
             }
         }
         &.disabled {

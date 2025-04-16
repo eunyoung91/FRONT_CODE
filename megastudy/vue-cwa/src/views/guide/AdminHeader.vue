@@ -10,15 +10,20 @@
         <b>{{ userName }}({{ userRole }})님 |</b> {{ loginTime }} 로그인 하셨습니다.
       </div>
       <div>
-        <button class="btn-logout"><span>로그아웃</span></button>
+        <CommonButton variant="secondary" size="large">로그아웃</CommonButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CommonButton from '@/components/guide/CommonButton.vue';
+
 export default {
     name: 'AdminHeader',
+    components: {
+      CommonButton
+    },
     props: {
         userName: String,
         userRole: String,

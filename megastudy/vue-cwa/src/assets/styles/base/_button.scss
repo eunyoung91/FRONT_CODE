@@ -2,86 +2,156 @@
 // button
 // --------------------------------------------
 
-// --------------------------------------------
-// Base Button Style
-// --------------------------------------------
-%btn-base {
+.btn-box{
+	@include flex(row, center, start);
+	flex-wrap: wrap;
+	gap:5px;
+	& + .btn-box{
+		margin-top: 12px;
+	}
+}
+
+.btn {
+	border: none;
+	cursor: pointer;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	cursor: pointer;
-	border: none;
-	background: none;
-	padding: 0;
-	margin: 0;
-	font: inherit;
-	color: inherit;
-	line-height: inherit;
-	appearance: none;
-	text-decoration: none;
-	&:focus {
-		outline: none;
+	font-weight: 500;
+	border-radius: 6px;
+	transition: all 0.3s ease;
+	box-sizing: border-box;
+	// disabled
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
 	}
-	&:hover {
-		text-decoration: none;
+
+	// 🎨 Variant
+	&-primary {
+		background-color: #007bff;
+		color: #fff;
+		&:hover {
+			background-color: #0056b3;
+		}
+		&.is-active {
+			background-color: #00408f;
+		}
 	}
-}
 
-.btn-01 + .btn-01 {
-	margin-left: 5px;
-}
-.btn-01 + input[type="date"] {
-	margin-left: 5px;
-}
-
-.btn-login {
-	@extend %btn-base;
-	width: 87px;
-	height: 57px;
-	background-color: $color-primary;
-	@include flex(row, center, center);
-	span {
-		color: $color-white;
-		font-weight: 300;
-		font-size: 20px;
+	&-secondary {
+		background-color: #6c757d;
+		color: #fff;
+		&:hover {
+			background-color: #545b62;
+		}
+		&.is-active {
+			background-color: #3d4349;
+		}
 	}
-}
 
-.btn-logout {
-	@extend %btn-base;
-	padding: 5px 34px;
-	background-color: $color-white;
-	span {
-		color: #4899ee;
-		font-weight: bold;
+	&-danger {
+		background-color: #dc3545;
+		color: #fff;
+		&:hover {
+			background-color: #b52a37;
+		}
+		&.is-active {
+			background-color: #8a1f2c;
+		}
+	}
+
+	&-outline {
+		position: relative;
+		background-color: transparent;
+		color: #007bff;
+		overflow: hidden;
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			border: 2px solid #007bff;
+			border-radius: 6px;
+			pointer-events: none;
+			box-sizing: border-box;
+		}
+		&:hover {
+			background-color: #007bff;
+			color: #fff;
+			&::before {
+				border-color: transparent;
+			}
+		}
+		&.is-active {
+			background-color: #0056b3;
+			color: #fff;
+	
+			&::before {
+				border-color: transparent;
+			}
+	
+			transform: scale(0.98); // 클릭한 느낌을 줌
+		}
+	}
+	// 🔠 Size
+	&-size-small {
+		font-size: 12px;
+		padding: 4px 10px;
+	}
+	&-size-medium {
+		font-size: 14px;
+		padding: 8px 18px;
+	}
+	&-size-large {
 		font-size: 16px;
+		padding: 12px 26px;
+	}
+
+	// 아이콘 여백
+	i,
+	svg {
+		margin: 0 4px;
+		
 	}
 }
 
-.btn-01 {
-	@extend %btn-base;
-	font-size: 12px;
-	padding: 3px 10px;
-	border: 1px solid #999;
-	background-color: $color-white;
-	text-align: center;
-	&:hover {
-		background-color: #eee;
-		border-color: #666;
-	}
-	&.overed {
-		color: #d51d05;
-	}
-	&.btnNewIcon {
-		color: #0000FF;
-	}
 
-	&.btnExp {
-		color: #a52a2a;
-	}
 
-	&.btnDel {
-		color: $color-red;
-	}
-}
 
+
+
+// %btn-base {
+// 	display: inline-flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	cursor: pointer;
+// 	border: none;
+// 	background: none;
+// 	padding: 0;
+// 	margin: 0;
+// 	font: inherit;
+// 	color: inherit;
+// 	line-height: inherit;
+// 	appearance: none;
+// 	text-decoration: none;
+// 	&:focus {
+// 		outline: none;
+// 	}
+// 	&:hover {
+// 		text-decoration: none;
+// 	}
+// }
+
+// .btn-login {
+// 	@extend %btn-base;
+// 	width: 87px;
+// 	height: 57px;
+// 	background-color: $color-primary;
+// 	@include flex(row, center, center);
+// 	span {
+// 		color: $color-white;
+// 		font-weight: 300;
+// 		font-size: 20px;
+// 	}
+// }

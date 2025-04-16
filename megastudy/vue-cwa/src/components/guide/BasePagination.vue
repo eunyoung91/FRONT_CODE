@@ -6,7 +6,6 @@
         </a>
         <span v-else>&lt; 이전</span>
     </li>
-
     <li
         v-for="pageNum in pageNumbers"
             :key="pageNum"

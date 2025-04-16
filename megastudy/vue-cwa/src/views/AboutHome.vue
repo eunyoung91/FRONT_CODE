@@ -23,40 +23,41 @@
                 <div class="table-area">
                     <form @submit.prevent="">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="type01">
-                            <tbody><tr>
-                              <th colspan="3">금일 신규 회원수</th>
-                              <th rowspan="2">금일 탈퇴<br> 회원수</th>
-                              <th rowspan="2">전체 가입<br> 회원수</th>
-                              <th rowspan="2">전체 탈퇴<br> 회원수</th>
-                              <th rowspan="2">전체 휴면<br> 회원수</th>
-                              <th colspan="4" class="brn">회원별 학년 구분</th>
-                              </tr>
-                            <tr>
-                              <td class="blue">총원</td>
-                              <td class="blue">동시가입<br>
-                                (회원사이트)</td>
-                              <td class="blue">동시가입<br>
-                                (고등사이트)</td>
-                              <td class="blue">중1~3</td>
-                              <td class="blue">고1~3</td>
-                              <td class="blue">재수</td>
-                              <td class="blue brn">재수이상</td>
-                              </tr>
-                            <tr>
-                              <td><b>197명</b></td>
-                              <td><b>0명</b></td>
-                              <td><b>0명</b></td>
-        
-                              <td><b>18명</b></td>
-                              <td><b>693,522명</b></td>
-                              <td><b>3,097명</b></td>
-                              <td><b>0명</b></td>
-        
-                              <td><b>820명</b></td>
-                              <td><b>16,340명</b></td>
-                              <td><b>8,910명</b></td>
-                              <td class="brn"><b>10명</b></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <th colspan="3">금일 신규 회원수</th>
+                                    <th rowspan="2">금일 탈퇴<br> 회원수</th>
+                                    <th rowspan="2">전체 가입<br> 회원수</th>
+                                    <th rowspan="2">전체 탈퇴<br> 회원수</th>
+                                    <th rowspan="2">전체 휴면<br> 회원수</th>
+                                    <th colspan="4" class="brn">회원별 학년 구분</th>
+                                </tr>
+                                <tr>
+                                    <td class="blue">총원</td>
+                                    <td class="blue">동시가입<br>
+                                        (회원사이트)</td>
+                                    <td class="blue">동시가입<br>
+                                        (고등사이트)</td>
+                                    <td class="blue">중1~3</td>
+                                    <td class="blue">고1~3</td>
+                                    <td class="blue">재수</td>
+                                    <td class="blue brn">재수이상</td>
+                                </tr>
+                                <tr>
+                                    <td><b>197명</b></td>
+                                    <td><b>0명</b></td>
+                                    <td><b>0명</b></td>
+                
+                                    <td><b>18명</b></td>
+                                    <td><b>693,522명</b></td>
+                                    <td><b>3,097명</b></td>
+                                    <td><b>0명</b></td>
+                
+                                    <td><b>820명</b></td>
+                                    <td><b>16,340명</b></td>
+                                    <td><b>8,910명</b></td>
+                                    <td class="brn"><b>10명</b></td>
+                                </tr>
                             </tbody>
                         </table>
                     </form>
