@@ -22,6 +22,7 @@
                         <span>해당 메뉴명이 들어가요</span>
                     </div>
                     <!-- 오른쪽 영역 -->
+
                 </div>
 
                 <div class="title-sub">
@@ -29,7 +30,7 @@
                     <span>해당 서브 메뉴명이 들어가요</span>
                 </div>
 
-
+                
                 <h1>버튼 영역 @/components/guide/CommonButton.vue</h1>
                 
                 <h2>🟣 기본 / active</h2>
@@ -291,7 +292,6 @@ export default {
             pageSize: 10,
 
             //button
-
 
         };
     },
