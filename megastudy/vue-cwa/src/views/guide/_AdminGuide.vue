@@ -1,4 +1,6 @@
-<!-- 🔸 AdminGuide.vue: 가이드 페이지 전체를 구성하는 메인 뷰 컴포넌트 -->
+
+<!-- bak -->
+
 <template>
     <div class="admin-container">
         <AdminSidebar :menu-data="menuData" />

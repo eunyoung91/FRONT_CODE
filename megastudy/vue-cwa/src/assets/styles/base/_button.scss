@@ -30,14 +30,34 @@
 
 	// 🎨 Variant
 	&-primary {
-		background-color: #007bff;
-		color: #fff;
-		&:hover {
-			background-color: #0056b3;
+		position: relative;
+		background-color: transparent;
+		color: #999;
+		overflow: hidden;
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			border: 1px solid #999;
+			border-radius: 6px;
+			pointer-events: none;
+			box-sizing: border-box;
 		}
-		&.is-active {
-			background-color: #00408f;
-		}
+		// &:hover {
+		// 	background-color: #999;
+		// 	color: #666;
+		// 	&::before {
+		// 		border-color: transparent;
+		// 	}
+		// }
+		// &.is-active {
+		// 	background-color: #999;
+		// 	color: #666;
+		// 	&::before {
+		// 		border-color: transparent;
+		// 	}
+		// 	transform: scale(0.98);
+		// }
 	}
 
 	&-secondary {

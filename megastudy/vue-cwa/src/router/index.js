@@ -30,14 +30,3 @@ const router = new VueRouter({
 
 export default router
 
-
-//브랜치테스트1
-
-//변경사항1
-
-//변경사항2
-
-//변경사항3
-
-//bugfix branch를 만들었어요
-//bugfix 커밋을 해볼게요

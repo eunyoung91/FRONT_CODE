@@ -1,4 +1,9 @@
-
+<!-- 
+✍️ 테스트용 계정 정보
+아이디: admin
+비밀번호: 1234
+인증번호: 654321 
+-->
 <template>
     <div class="admin-container">
         <div class="admin-content login">
@@ -19,15 +24,15 @@
                             <div>
                                 <div>
                                     <strong>아이디</strong>
-                                    <input name="userid" id="userid" type="text" size="37" class="input_login" tabindex="1" v-model="loginForm.userid">
+                                    <input name="userid" id="userid" type="text" v-model="loginForm.userid">
                                 </div>
                                 <div>
                                     <strong>비밀번호</strong>
-                                    <input name="passwd" id="passwd" type="password" size="37" class="input_login" v-model="loginForm.passwd" @keydown.enter="checkLogin">
+                                    <input name="passwd" id="passwd" type="password" v-model="loginForm.passwd" @keydown.enter="checkLogin">
                                 </div>
                             </div>
                             <div>
-                                <button @click="checkLogin" class="btn-login"><span>LOGIN</span></button>
+                                <CommonButton variant="secondary" @click.prevent="checkLogin">LOGIN</CommonButton>
                             </div>
                         </div>
 
@@ -35,21 +40,23 @@
                             <div>
                                 <input type="checkbox" name="SAVEID" id="checkbox" v-model="rememberId">
                             </div>
-                            <div><b style="color:#3357a4;">ID 저장</b> [접속자 IP : ]</div>
+                            <div><b style="color:#3357a4;">ID 저장</b> [접속자 IP : {{ userIP }}]</div>
                         </div>
 
-                        <!-- 인증번호 입력 폼 -->
+                        <!-- 인증번호 -->
                         <div class="login-etc" v-if="showVerificationForm">
                             <div>
                                 <strong>인증번호</strong>
                                 <div>
-                                    <input type="text" name="admin_app" id="admin_app" maxlength="6" class="input_login" size="37" v-model="verificationCode" @keydown.enter="submitCode">
+                                    <input type="text" name="admin_app" id="admin_app" maxlength="6"  v-model="verificationCode" @keydown.enter="submitCode">
                                 </div>
                                 <div>
-                                    <a class="btn-01" @click="submitCode">인증</a>
+                                    <CommonButton variant="secondary" @click.prevent="submitCode">인증</CommonButton>
                                 </div>
                             </div>
                         </div>
+                        <!-- // 인증번호 -->
+
                     </div>
 
                     <div class="login-noti">
@@ -76,30 +83,30 @@
     </div>
 </template>
 
-<!-- 
-    ✍️ 테스트용 계정 정보
-    아이디: admin
-    비밀번호: 1234
-    인증번호: 654321 
--->
-
 <script>
-// import axiosInstance from '@/axios';
+import CommonButton from '@/components/guide/CommonButton.vue';
+
 export default {
+    components: {
+        CommonButton,
+    },
     data() {
         return {
             loginForm: {
-            userid: '',
-            passwd: '',
+                userid: '',
+                passwd: '',
             },
+            userIP: '',
             rememberId: false,
             showVerificationForm: false,
             verificationCode: '',
-            
             correctVerificationCode: '', // mock 인증번호 저장용
         };
     },
     mounted() {
+        // 예시용 mock
+        this.userIP = '192.168.0.1'; // 실제로는 API 등을 통해 받아와야 함
+
         const storedId = localStorage.getItem('savedId');
         if (storedId) {
             this.loginForm.userid = storedId;
