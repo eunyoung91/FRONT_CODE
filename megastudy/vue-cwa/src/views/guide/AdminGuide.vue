@@ -2,6 +2,7 @@
 
 <template>
     <div class="admin-container">
+        
         <AdminSidebar :menu-data="menuData" />
 
         <div class="admin-content">
@@ -13,101 +14,267 @@
 
             <div class="main-content">
 
-                <h1>타이틀 영역</h1>
-
-                <div class="title-menu">
-                    <!-- 왼쪽 영역 -->
-                    <div class="title-main">
-                        <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="아이콘">
-                        <span>해당 메뉴명이 들어가요</span>
+                <h1>🟪 폼 요소<br>@import "base/form"</h1>
+                <div>
+                    <h2>🟣 input</h2>
+                    <!-- ✅ 일반 input -->
+                    <div class="form-group">
+                        <label for="username" class="sr-only">이름</label>
+                        <input
+                        type="text"
+                        id="username"
+                        v-model="form.username"
+                        class="input-basic"
+                        placeholder="이름을 입력하세요"
+                        />
                     </div>
-                    <!-- 오른쪽 영역 -->
+                    <!-- ✅ disabled input -->
+                    <div class="form-group">
+                        <label for="email" class="sr-only">이메일 (비활성화)</label>
+                        <input
+                        type="email"
+                        id="email"
+                        class="input-basic"
+                        value="user@example.com"
+                        disabled
+                        />
+                    </div>
+                    <!-- ✅ readonly input -->
+                    <div class="form-group">
+                        <label for="id" class="sr-only">아이디 (읽기 전용)</label>
+                        <input
+                        type="text"
+                        id="id"
+                        class="input-basic"
+                        value="readonly_user"
+                        readonly
+                        />
+                    </div>
 
+
+                    <h2>🟣 Checkbox & Radio</h2>
+
+                    <!-- ✅ 일반 Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="agree" v-model="form.agree" />
+                        <label for="agree">약관에 동의합니다</label>
+                    </div>
+                    <!-- ✅ disabled Checkbox -->
+                    <div class="form-check">
+                        <input type="checkbox" id="agree-disabled" checked disabled />
+                        <label for="agree-disabled">동의 불가 (disabled)</label>
+                    </div>
+
+                    <hr class="hr"/>
+                    
+                    <!-- ✅ 일반 Radio -->
+                    <div class="form-check">
+                        <input type="radio" id="gender-m" value="male" v-model="form.gender" />
+                        <label for="gender-m">남성</label>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input type="radio" id="gender-f" value="female" v-model="form.gender" />
+                        <label for="gender-f">여성</label>
+                    </div>
+
+                    <!-- ✅ readonly Radio (유사 동작) -->
+                    <!-- HTML 자체는 readonly 지원 안 하므로 disabled로 대체 -->
+                    <div class="form-check">
+                        <input type="radio" id="gender-readonly" value="male" checked disabled />
+                        <label for="gender-readonly">남성 (읽기 전용)</label>
+                    </div>
+
+                    <h2>🟣 File Input</h2>
+
+                    <!-- ✅ 일반 파일 선택 -->
+                    <div class="file-basic">
+                        <label for="resume" class="sr-only">이력서 업로드</label>
+                        <input type="file" id="resume" />
+                    </div>
+
+                    <!-- ✅ disabled 상태 -->
+                    <div class="file-basic">
+                        <label for="file-disabled" class="sr-only">파일 업로드 (비활성화)</label>
+                        <input type="file" id="file-disabled" disabled />
+                    </div>
+
+                    <!-- ✅ readonly 유사 처리 (비활성화로 대체) -->
+                    <!-- 파일 선택은 readonly 미지원, disabled로 처리 -->
+                    <div class="file-basic">
+                        <input type="file" id="resume" @change="handleFileChange" />
+                        <label for="resume">파일 선택</label>
+                        <span class="file-name">{{ fileName || '선택된 파일 없음' }}</span>
+                    </div>
+
+
+                    <h2>🟣 textarea</h2>
+                    <!-- ✅ 일반 textarea -->
+                    <div class="form-group">
+                        <label for="bio" class="sr-only">자기소개</label>
+                        <textarea
+                        id="bio"
+                        v-model="form.bio"
+                        class="textarea-basic"
+                        placeholder="자기소개를 입력하세요"
+                        ></textarea>
+                    </div>
+                    <!-- ✅ readonly textarea -->
+                    <div class="form-group">
+                        <label for="intro" class="sr-only">소개 내용 (읽기 전용)</label>
+                        <textarea
+                        id="intro"
+                        class="textarea-basic"
+                        readonly
+                        >Vue를 이용해 관리자 페이지를 개발 중입니다.</textarea>
+                    </div>
+                    <h2>🟣 select</h2>
+                    <!-- ✅ 일반 select -->
+                    <div class="form-group">
+                        <label for="job" class="sr-only">직업</label>
+                        <div class="select-wrap">
+                        <select
+                            id="job"
+                            v-model="form.job"
+                            class="select-basic"
+                        >
+                            <option value="">선택하세요</option>
+                            <option value="developer">개발자</option>
+                            <option value="designer">디자이너</option>
+                            <option value="pm">PM</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <!-- ✅ disabled select -->
+                    <div class="form-group">
+                        <label for="country" class="sr-only">국가 (비활성화)</label>
+                        <div class="select-wrap">
+                        <select
+                            id="country"
+                            class="select-basic"
+                            disabled
+                        >
+                            <option>대한민국</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <!-- ✅ readonly select (사용자 선택 불가하도록 흉내) -->
+                    <div class="form-group">
+                        <label for="grade" class="sr-only">등급 (읽기 전용)</label>
+                        <div class="select-wrap">
+                        <select
+                            id="grade"
+                            class="select-basic"
+                            :value="form.grade"
+                            readonly
+                        >
+                            <option value="admin">관리자</option>
+                            <option value="user">사용자</option>
+                        </select>
+                        </div>
+                    </div>
+             
                 </div>
 
-                <div class="title-sub">
-                    <img src="https://campus.megastudy.net/admin/image/dot_icon04.png" alt="아이콘">
-                    <span>해당 서브 메뉴명이 들어가요</span>
-                </div>
 
+<h1>🟪 타이틀 영역</h1>
+
+<div class="title-menu">
+    <!-- 왼쪽 영역 -->
+    <div class="title-main">
+        <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="아이콘">
+        <span>해당 메뉴명이 들어가요</span>
+    </div>
+    <!-- 오른쪽 영역 -->
+
+</div>
+
+<div class="title-sub">
+    <img src="https://campus.megastudy.net/admin/image/dot_icon04.png" alt="아이콘">
+    <span>해당 서브 메뉴명이 들어가요</span>
+</div>
+
+
+                <h1>🟪 버튼 영역<br> @/components/guide/CommonButton.vue <br> @import "base/button"</h1>
+                <div>
+                    <h2>🟣 기본 / active</h2>
                 
-                <h1>버튼 영역 @/components/guide/CommonButton.vue</h1>
-                
-                <h2>🟣 기본 / active</h2>
-                
-                <div class="btn-box">
-                    <CommonButton size="large">버튼 (Primary, large)</CommonButton>
-                    <CommonButton variant="secondary" size="large">버튼 (secondary, large)</CommonButton>
-                    <CommonButton variant="danger" size="large">버튼 (danger, large)</CommonButton>
-                    <CommonButton variant="outline" size="large">버튼 (outline, large)</CommonButton>
-                </div>
-                <div class="btn-box">
-                    <CommonButton>버튼 (Primary, Medium)</CommonButton>
-                    <CommonButton variant="secondary">버튼 (secondary, Medium)</CommonButton>
-                    <CommonButton variant="danger">버튼 (danger, Medium)</CommonButton>
-                    <CommonButton variant="outline">버튼 (outline, Medium)</CommonButton>
-                </div>
-                <div class="btn-box">
-                    <CommonButton size="small">버튼 (Primary, small)</CommonButton>
-                    <CommonButton variant="secondary" size="small">버튼 (secondary, small)</CommonButton>
-                    <CommonButton variant="danger" size="small">버튼 (danger, small)</CommonButton>
-                    <CommonButton variant="outline" size="small">버튼 (outline, small)</CommonButton>
-                </div>
+                    <div class="btn-box">
+                        <CommonButton size="large">버튼 (Primary, large)</CommonButton>
+                        <CommonButton variant="secondary" size="large">버튼 (secondary, large)</CommonButton>
+                        <CommonButton variant="danger" size="large">버튼 (danger, large)</CommonButton>
+                        <CommonButton variant="outline" size="large">버튼 (outline, large)</CommonButton>
+                    </div>
+                    <div class="btn-box">
+                        <CommonButton>버튼 (Primary, Medium)</CommonButton>
+                        <CommonButton variant="secondary">버튼 (secondary, Medium)</CommonButton>
+                        <CommonButton variant="danger">버튼 (danger, Medium)</CommonButton>
+                        <CommonButton variant="outline">버튼 (outline, Medium)</CommonButton>
+                    </div>
+                    <div class="btn-box">
+                        <CommonButton size="small">버튼 (Primary, small)</CommonButton>
+                        <CommonButton variant="secondary" size="small">버튼 (secondary, small)</CommonButton>
+                        <CommonButton variant="danger" size="small">버튼 (danger, small)</CommonButton>
+                        <CommonButton variant="outline" size="small">버튼 (outline, small)</CommonButton>
+                    </div>
 
-                <h2>🟣 disabled</h2>
-                <div class="btn-box">
-                    <CommonButton :disabled="true">버튼 (Primary, Medium, disabled)</CommonButton>
-                    <CommonButton variant="secondary" :disabled="true">버튼 (secondary, Medium, disabled)</CommonButton>
-                    <CommonButton variant="danger" :disabled="true">버튼 (danger, Medium, disabled)</CommonButton>
-                    <CommonButton variant="outline" :disabled="true">버튼 (outline, Medium, disabled)</CommonButton>
-                </div>
+                    <h2>🟣 disabled</h2>
+                    <div class="btn-box">
+                        <CommonButton :disabled="true">버튼 (Primary, Medium, disabled)</CommonButton>
+                        <CommonButton variant="secondary" :disabled="true">버튼 (secondary, Medium, disabled)</CommonButton>
+                        <CommonButton variant="danger" :disabled="true">버튼 (danger, Medium, disabled)</CommonButton>
+                        <CommonButton variant="outline" :disabled="true">버튼 (outline, Medium, disabled)</CommonButton>
+                    </div>
 
-                <h2>🟣 icon</h2>
-                <div class="btn-box">
-                    <CommonButton variant="secondary" size="small" iconPosition="right">
-                        다운로드
-                        <template #icon>
-                            <i class="fas fa-file"></i>
-                        </template>
-                    </CommonButton>
+                    <h2>🟣 icon</h2>
+                    <div class="btn-box">
+                        <CommonButton variant="secondary" size="small" iconPosition="right">
+                            다운로드
+                            <template #icon>
+                                <i class="fas fa-file"></i>
+                            </template>
+                        </CommonButton>
 
-                    <CommonButton variant="secondary" size="small" iconPosition="right">
-                        엑셀 다운로드
-                        <template #icon>
-                            <i class="fas fa-file-excel"></i>
-                        </template>
-                    </CommonButton>
+                        <CommonButton variant="secondary" size="small" iconPosition="right">
+                            엑셀 다운로드
+                            <template #icon>
+                                <i class="fas fa-file-excel"></i>
+                            </template>
+                        </CommonButton>
 
-                    <CommonButton variant="danger" size="medium">
-                        <template #icon>
-                            <i class="fas fa-trash-alt"></i>
-                        </template>
-                        삭제하기
-                    </CommonButton>
+                        <CommonButton variant="danger" size="medium">
+                            <template #icon>
+                                <i class="fas fa-trash-alt"></i>
+                            </template>
+                            삭제하기
+                        </CommonButton>
 
-                    <CommonButton variant="danger" iconPosition="right">
-                        경고 메시지
-                        <template #icon>
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </template>
-                    </CommonButton>
+                        <CommonButton variant="danger" iconPosition="right">
+                            경고 메시지
+                            <template #icon>
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </template>
+                        </CommonButton>
 
-                    <CommonButton variant="outline" iconPosition="right">
-                        다음 단계
-                        <template #icon>
-                            <i class="fas fa-arrow-right"></i>
-                        </template>
-                    </CommonButton>
+                        <CommonButton variant="outline" iconPosition="right">
+                            다음 단계
+                            <template #icon>
+                                <i class="fas fa-arrow-right"></i>
+                            </template>
+                        </CommonButton>
 
-                    <CommonButton variant="secondary" size="small">
-                        <template #icon>
-                            <i class="fas fa-cog"></i>
-                        </template>
-                    </CommonButton>
-                </div>
+                        <CommonButton variant="secondary" size="small">
+                            <template #icon>
+                                <i class="fas fa-cog"></i>
+                            </template>
+                        </CommonButton>
+                    </div>
 
-                <h2>🟣 ex</h2>
-                <div class="btn-box">
+                    <h2>🟣 ex</h2>
+                    <div class="btn-box">
+                    </div>
                 </div>
 
                 <h1>레이어 팝업</h1>
@@ -261,6 +428,21 @@ export default {
             ],
             // 🔍 SearchArea용 폼 데이터 추가
             form: {
+                username: '',
+                bio: '',
+                job: '',
+                grade: 'admin',
+
+                agree: false,
+                gender: '',
+
+                fileName: '',
+
+
+
+
+
+                
                 kind: '',
                 ccode: '',
                 ccode2: '',
@@ -343,6 +525,12 @@ export default {
     },
 
     methods: {
+        handleFileChange(event) {
+            const file = event.target.files[0];
+            this.fileName = file ? file.name : '';
+        },
+
+
         // button
 		toggleActive() {
 			this.isActive = !this.isActive;
@@ -428,5 +616,14 @@ export default {
         padding:5px;
         background:rgba(145, 10, 255, 0.1);
     }
-
+    .form-group{
+        margin-bottom:10px;
+    }
+    .hr{
+        margin:0;padding:0;border:0;
+        width:100%;
+        height:1px;
+        margin:10px 0;
+        background:#ccc;
+    }
 </style>
