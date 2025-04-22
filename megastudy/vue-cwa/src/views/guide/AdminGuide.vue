@@ -17,9 +17,10 @@
                 <h1>🟪 폼 요소<br>@import "base/form"</h1>
                 <div>
                     <h2>🟣 input</h2>
-                    <!-- ✅ 일반 input -->
+
+                    <!-- ✅ basic input -->
                     <div class="form-group">
-                        <label for="username" class="sr-only">이름</label>
+                        <label for="username" class="sr-only"> 이름</label>
                         <input
                         type="text"
                         id="username"
@@ -28,20 +29,22 @@
                         placeholder="이름을 입력하세요"
                         />
                     </div>
+
                     <!-- ✅ disabled input -->
                     <div class="form-group">
-                        <label for="email" class="sr-only">이메일 (비활성화)</label>
+                        <label for="email" class="sr-only"> 이메일 (비활성화)</label>
                         <input
                         type="email"
                         id="email"
                         class="input-basic"
                         value="user@example.com"
-                        disabled
+                        
                         />
                     </div>
+
                     <!-- ✅ readonly input -->
                     <div class="form-group">
-                        <label for="id" class="sr-only">아이디 (읽기 전용)</label>
+                        <label for="id" class="sr-only"> 아이디 (읽기 전용)</label>
                         <input
                         type="text"
                         id="id"
@@ -51,51 +54,51 @@
                         />
                     </div>
 
-
                     <h2>🟣 Checkbox & Radio</h2>
 
                     <!-- ✅ 일반 Checkbox -->
                     <div class="form-check">
                         <input type="checkbox" id="agree" v-model="form.agree" />
-                        <label for="agree">약관에 동의합니다</label>
+                        <label for="agree"> 약관에 동의합니다</label>
                     </div>
+                    &nbsp;
                     <!-- ✅ disabled Checkbox -->
                     <div class="form-check">
                         <input type="checkbox" id="agree-disabled" checked disabled />
-                        <label for="agree-disabled">동의 불가 (disabled)</label>
+                        <label for="agree-disabled"> 동의 불가 (disabled)</label>
                     </div>
 
-                    <hr class="hr"/>
-                    
+                    <br><br>
+
                     <!-- ✅ 일반 Radio -->
                     <div class="form-check">
                         <input type="radio" id="gender-m" value="male" v-model="form.gender" />
-                        <label for="gender-m">남성</label>
+                        <label for="gender-m"> 남성</label>
                     </div>
-                    
+                    &nbsp;
                     <div class="form-check">
                         <input type="radio" id="gender-f" value="female" v-model="form.gender" />
-                        <label for="gender-f">여성</label>
+                        <label for="gender-f"> 여성</label>
                     </div>
-
+                    &nbsp;
                     <!-- ✅ readonly Radio (유사 동작) -->
                     <!-- HTML 자체는 readonly 지원 안 하므로 disabled로 대체 -->
                     <div class="form-check">
                         <input type="radio" id="gender-readonly" value="male" checked disabled />
-                        <label for="gender-readonly">남성 (읽기 전용)</label>
+                        <label for="gender-readonly"> 남성 (읽기 전용)</label>
                     </div>
 
                     <h2>🟣 File Input</h2>
 
                     <!-- ✅ 일반 파일 선택 -->
                     <div class="file-basic">
-                        <label for="resume" class="sr-only">이력서 업로드</label>
+                        <label for="resume" class="sr-only"> 이력서 업로드</label>
                         <input type="file" id="resume" />
                     </div>
 
                     <!-- ✅ disabled 상태 -->
                     <div class="file-basic">
-                        <label for="file-disabled" class="sr-only">파일 업로드 (비활성화)</label>
+                        <label for="file-disabled" class="sr-only"> 파일 업로드 (비활성화)</label>
                         <input type="file" id="file-disabled" disabled />
                     </div>
 
@@ -107,11 +110,10 @@
                         <span class="file-name">{{ fileName || '선택된 파일 없음' }}</span>
                     </div>
 
-
                     <h2>🟣 textarea</h2>
                     <!-- ✅ 일반 textarea -->
                     <div class="form-group">
-                        <label for="bio" class="sr-only">자기소개</label>
+                        <label for="bio" class="sr-only"> 자기소개</label>
                         <textarea
                         id="bio"
                         v-model="form.bio"
@@ -121,7 +123,7 @@
                     </div>
                     <!-- ✅ readonly textarea -->
                     <div class="form-group">
-                        <label for="intro" class="sr-only">소개 내용 (읽기 전용)</label>
+                        <label for="intro" class="sr-only"> 소개 내용 (읽기 전용)</label>
                         <textarea
                         id="intro"
                         class="textarea-basic"
@@ -129,9 +131,10 @@
                         >Vue를 이용해 관리자 페이지를 개발 중입니다.</textarea>
                     </div>
                     <h2>🟣 select</h2>
+
                     <!-- ✅ 일반 select -->
                     <div class="form-group">
-                        <label for="job" class="sr-only">직업</label>
+                        <label for="job" class="sr-only"> 직업</label>
                         <div class="select-wrap">
                         <select
                             id="job"
@@ -148,7 +151,7 @@
 
                     <!-- ✅ disabled select -->
                     <div class="form-group">
-                        <label for="country" class="sr-only">국가 (비활성화)</label>
+                        <label for="country" class="sr-only"> 국가 (비활성화)</label>
                         <div class="select-wrap">
                         <select
                             id="country"
@@ -162,7 +165,7 @@
 
                     <!-- ✅ readonly select (사용자 선택 불가하도록 흉내) -->
                     <div class="form-group">
-                        <label for="grade" class="sr-only">등급 (읽기 전용)</label>
+                        <label for="grade" class="sr-only"> 등급 (읽기 전용)</label>
                         <div class="select-wrap">
                         <select
                             id="grade"
@@ -175,27 +178,7 @@
                         </select>
                         </div>
                     </div>
-             
                 </div>
-
-
-<h1>🟪 타이틀 영역</h1>
-
-<div class="title-menu">
-    <!-- 왼쪽 영역 -->
-    <div class="title-main">
-        <img src="https://campus.megastudy.net/admin/image/dot_icon03.png" alt="아이콘">
-        <span>해당 메뉴명이 들어가요</span>
-    </div>
-    <!-- 오른쪽 영역 -->
-
-</div>
-
-<div class="title-sub">
-    <img src="https://campus.megastudy.net/admin/image/dot_icon04.png" alt="아이콘">
-    <span>해당 서브 메뉴명이 들어가요</span>
-</div>
-
 
                 <h1>🟪 버튼 영역<br> @/components/guide/CommonButton.vue <br> @import "base/button"</h1>
                 <div>
@@ -436,13 +419,8 @@ export default {
                 agree: false,
                 gender: '',
 
-                fileName: '',
+           
 
-
-
-
-
-                
                 kind: '',
                 ccode: '',
                 ccode2: '',
@@ -452,21 +430,8 @@ export default {
                 sdate: '',
                 edate: ''
             },
-            // success: {
-            //     total: 1740,
-            //     inTime: 1739,
-            //     outOfTime: 1
-            // },
-            // failure: 196,
-            // tabList: [
-            //     { label: '전체(46)', url: 'admin_list.asp', active: true },
-            //     { label: '대기(3)', url: 'admin_list.asp?mode=N', active: false },
-            //     { label: '완료(43)', url: 'admin_list.asp?mode=Y', active: false }
-            // ],
-            // selectedCampus: '',
-            // selectedMenu: '',
 
-            // menuList: ['메뉴1', '메뉴2', '메뉴3'], // 필요 시 API 연동 또는 수동입력
+            fileName: '',
 
             // paging
             currentPage: 1,
@@ -521,7 +486,6 @@ export default {
             return this.currentPage + this.pageSize;
         },
 
-
     },
 
     methods: {
@@ -529,7 +493,6 @@ export default {
             const file = event.target.files[0];
             this.fileName = file ? file.name : '';
         },
-
 
         // button
 		toggleActive() {

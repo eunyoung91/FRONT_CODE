@@ -427,3 +427,37 @@
 }
 
 
+// ----------------------------------------
+// Margin 유틸리티 믹스인
+// ----------------------------------------
+@mixin generate-margin-top($values...) {
+	@each $value in $values {
+		.mt#{$value} {
+			margin-top: #{$value}px;
+		}
+	}
+}
+
+// ----------------------------------------
+// Padding 유틸리티 믹스인
+// ----------------------------------------
+@mixin generate-padding($values...) {
+	@each $value in $values {
+		.p#{$value} { padding: #{$value}px; }
+		.pt#{$value} { padding-top: #{$value}px; }
+		.pb#{$value} { padding-bottom: #{$value}px; }
+		.pl#{$value} { padding-left: #{$value}px; }
+		.pr#{$value} { padding-right: #{$value}px; }
+	}
+}
+
+// ----------------------------------------
+// Font Size 유틸리티 믹스인
+// ----------------------------------------
+@mixin generate-font-size($values...) {
+	@each $value in $values {
+		.f#{$value} {
+			font-size: #{$value}px;
+		}
+	}
+}

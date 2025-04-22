@@ -2,16 +2,22 @@
 // Utilities
 // --------------------------------------------
 
-// ✅ Margin Utilities
-.mt20 { margin-top: 20px; }
-.mt30 { margin-top: 30px; }
-
-// ✅ Font Size
-.f14 { font-size: 14px; }
+// ----------------------------------------
+// Margin 유틸리티 클래스 출력
+// ----------------------------------------
+@include generate-margin-top(10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
 
 
-// ✅ Cursor
-.pointer { cursor: pointer; }
+// ----------------------------------------
+// Padding 유틸리티 클래스 출력
+// ----------------------------------------
+@include generate-padding(5, 10, 15, 20, 30, 40, 50, 60, 70, 80);
+
+
+// ----------------------------------------
+// Font Size 유틸리티 클래스 출력
+// ----------------------------------------
+@include generate-font-size(12, 14, 16, 18, 20, 24, 32);
 
 
 // ✅ Border Utilities
@@ -19,12 +25,27 @@
 .brn { border-right: none !important; }
 
 
+// ✅ Cursor
+.pointer { cursor: pointer; }
+
+
 // ✅ Link States
-a:visited { color: #666; text-decoration: none; }
-a:link { color: #424242; text-decoration: none; }
-a:active { color: #424242; text-decoration: none; }
-a:hover { color: #d51d05; text-decoration: none; }
-a.overed { color: #d51d05; text-decoration: underline; }
-a.overed:hover { color: #d51d05; text-decoration: underline; }
+a:link,
+a:active {
+    color: #424242;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover,
+a.overed,
+a.overed:hover {
+    color: #d51d05;
+    text-decoration: underline;
+}
 
 
