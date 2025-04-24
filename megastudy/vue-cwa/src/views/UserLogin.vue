@@ -20,9 +20,8 @@
                     <img src="https://campus.megastudy.net/admin/image/intro_tit.png" alt="메가스터디학원 관리자 사이트 입니다.">
 
                     <p>1. main</p>
-                    <p>2. main commit O / push X</p>
-                    <p>2. main commit O / push X</p>
-                   
+                    <p>2. 수정 : main commit O / push X X</p>
+                    <p>3. branch1</p>
 
                     <div class="login-main">
                         <div class="login-box">
