@@ -22,6 +22,7 @@
                     <p>1. main</p>
                     <p>2. 수정 : main commit O / push X X</p>
                     <p>3. branch1</p>
+                    <p>4. branch2</p>
 
                     <div class="login-main">
                         <div class="login-box">
