@@ -14,10 +14,9 @@
 
             <div class="main-content">
 
-                <h1>🟪 폼 요소<br>@import "base/form"</h1>
+                <h1>🟪 폼 요소<br><br>@import "base/form"</h1>
                 <div>
                     <h2>🟣 input</h2>
-
                     <!-- ✅ basic input -->
                     <div class="form-group">
                         <label for="username" class="sr-only"> 이름</label>
@@ -180,7 +179,7 @@
                     </div>
                 </div>
 
-                <h1>🟪 버튼 영역<br> @/components/guide/CommonButton.vue <br> @import "base/button"</h1>
+                <h1>🟪 버튼 영역<br><br>@/components/guide/CommonButton.vue / @import "base/button"</h1>
                 <div>
                     <h2>🟣 기본 / active</h2>
                 
@@ -236,6 +235,7 @@
 
                         <CommonButton variant="danger" iconPosition="right">
                             경고 메시지
+                            test
                             <template #icon>
                                 <i class="fas fa-exclamation-triangle"></i>
                             </template>
@@ -260,7 +260,7 @@
                     </div>
                 </div>
 
-                <h1>레이어 팝업</h1>
+                <h1>🟪 레이어 팝업<br><br>@/components/guide/PopupLayer.vue / @import "base/popup"</h1>
                 <div class="btn-box">
                     <CommonButton variant="secondary" @click.prevent="showPopup('popup1')">
                         팝업 1 열기
@@ -289,7 +289,7 @@
                     <p>이곳은 두 번째 팝업 내용입니다.</p>
                 </PopupLayer>
 
-                <h1>페이징 영역</h1>
+                <h1>🟪 페이징 영역<br><br>@/components/guide/BasePagination.vue / @import "layout/common"</h1>
                 <BasePagination
                     :current-page="currentPage"
                     :page-numbers="visiblePages"
