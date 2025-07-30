@@ -1,0 +1,309 @@
+<!-- #include virtual="/Public/Method.asp" -->
+<!-- #include virtual="/Public/class.Mssql.asp" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="euc-kr">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="keywords" content="메가스터디학원, 재수학원, 입시, 재수기숙학원, 메가스터디러셀, 러셀학원, 러셀기숙학원, 메가스터디, 대입, N수, 반수, 6월모평, 9월모평, 수능, 더프, 시대인재, 청솔, 이투스, 서바이벌, 2026대입, 대입전략, 고3, 수험생, 재수생, 반수생, 전국">
+    <meta name="description" content="반박불가! 완벽한 수준별 맞춤 학습, 메가스터디학원 2026 N수 반수반">
+    <meta property="og:title" content="메가스터디학원">
+    <meta property="og:description" content="반박불가! 완벽한 수준별 맞춤 학습, 메가스터디학원 2026 N수 반수반">
+    <meta property="og:site_name" content="메가스터디학원">
+    <meta property="og:url" content="https://campus.megastudy.net/campus_common/2026/2026_half_gate/index.asp">
+    <%
+	pageOgMeta = "<meta property='og:image' content='https://img.megastudy.net/campus/library/v2015/library/campus_common/2026/2026_half_gate/thumb.jpg'>"
+	response.write pageOgMeta
+    %>
+    <!-- #Include Virtual = "/library/include/reload/favicon.asp" -->
+
+    <title><%=gMGC_Campus_Title%></title>
+    <!-- #Include Virtual = "/library/include/reload/css_common.asp" -->
+    <!-- #Include Virtual = "/library/include/reload/css_table.asp" -->
+    <link rel="stylesheet" type="text/css" href="/library/css/report_2015.css" />
+    <link rel="stylesheet" type="text/css" href="/library/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/library/css/amazingslider.css">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/> -->
+
+    <!-- #include virtual="/public/jquery.asp" -->
+    <!-- #Include Virtual = "/library/include/reload/js_common.asp" -->
+    <link rel="stylesheet" type="text/css" href="/library/css/intro_new.css">
+
+    <!-- intro전용 css -->
+    <script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/jquery/slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://campus.megastudy.net/public/js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="/public/js/intro.js"></script>
+    <!-- #Include Virtual = "/library/include/reload/js_basic.asp" -->
+    <script type="text/javascript" src="/Public/js/CommonUtil.js"></script>
+
+    <!-- half gate -->
+    <link rel="stylesheet" type="text/css" href="web.css">
+    <script type="text/javascript" src="ui.js?v=1"></script>
+</head>
+<body>
+<div id="wrapper"> 
+    
+    <!--  최상단메뉴//--> 
+    <!--#include virtual="/library/include/common/top.asp" --> 
+    <!--  //최상단메뉴-->
+    
+    <div id="header" class="<%=GetCampusColorType()%>"> 
+        <!--상단 학원로고 및 선택 탭//  --> 
+        <!--#include virtual="/library/include/common/top_campus_tab.asp" --> 
+        <!-- //상단 학원로고 및 선택 탭 --> 
+        
+        <!--  상단 대메뉴//--> 
+        <!--#include virtual="/library/include/common/top_campus_detail_menu.asp" --> 
+        <!-- //상단 대메뉴 --> 
+    </div>
+    <!-- // header -->
+
+    <div id="container" class="half_gate">
+        <div id="contents">
+            <div id="topTitle" class="visual_top">
+                <div class="act_wrap">
+                    <div class="txt_wrap">
+                        <div class="txt1">
+                            <img class="act1_1" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_txt01.png" alt="반박불가!" />
+                            <img class="act1_2" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_txt02.png" alt="완벽한 수준별 맞춤 학습" />
+                        </div>
+                        <div class="txt2">
+                            <img class="act2" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_tit01.png" alt="2026" />
+                        </div>
+                        <div class="txt3"> 
+                            <img class="act3" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_tit02.png" alt="N수 반수반" />
+                        </div>
+                    </div>
+
+                    <div class="object_wrap">
+                        <div class="obj_posi">
+                            <div class="cube_box">
+                                <img class="act4" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_cube.png" alt="" />
+
+                                <div class="cube c1">
+                                    <img class="act4_1" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_cube01.png" alt="" />
+                                </div>
+                                <div class="cube c1_b">
+                                    <img class="act4_1" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_cube01_blink.png" alt="" />
+                                </div>
+                                <div class="cube c2">
+                                    <img class="act4_2" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_cube02.png" alt="" />
+                                </div>
+                                <div class="cube c3">
+                                    <img class="act4_3" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_cube03.png" alt="" />
+                                </div>
+                            </div>
+                            
+                            <div class="light_wrap">
+                                <img class="act5" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/top_line.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%If CDbl(getYmdhmin()) <= CDbl("2025"&"0705"&"1400") Then '게이트 마감 타이머 설정 / sook / 2025-07-04 %>
+            <div class="quick_banner">
+                <div class="banner_wrap">
+                    <a href="https://campus.megastudy.net/common/notice/fair_view.asp?code=26427" target="_blank">
+                        <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/quick_banr.jpg" alt="2026 N수 반수반 설명회">
+                    </a>
+                </div>
+            </div>
+            <%End If%>
+            <div class="btn_top_wrap">
+                <a href="javascript:;" class="btnTop" style="bottom: 30px; position: fixed; opacity: 1;"><span class="blind">top</span></a>
+            </div>
+            
+            <div id="academyList" class="fixed_academy_list">
+                <div class="academy_title">학원 안내</div>
+                <ul class="academy_list">
+                    <li><a href="https://seocho.megastudy.net/seocho/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">서초</a></li>
+                    <li><a href="https://gangbuk.megastudy.net/gangbuk/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">강북</a></li>
+                    <li><a href="https://noryangjin.megastudy.net/noryangjin/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">노량진</a></li>
+                    <li><a href="https://sinchon.megastudy.net/sinchon/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">신촌</a></li>
+                    <li><a href="https://songpa.megastudy.net/songpa/nsu/nsu/2026/2026_half/half_01.asp  " target="_blank">송파</a></li>
+                    <li><a href="https://bucheon.megastudy.net/bucheon/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">부천</a></li>
+                    <li><a href="https://bundang.megastudy.net/bundang/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">분당</a></li>
+                    <li><a href="https://ilsan.megastudy.net/ilsan/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">일산</a></li>
+                    <li><a href="https://pyeongchon.megastudy.net/pyeongchon/nsu/nsu/2026/2026_half/half_01.asp" target="_blank">평촌</a></li>
+                </ul>
+            </div>
+
+            <div class="cont_section1">
+                <div class="inner">
+                    <div class="title_wrap card_sticky">
+                        <img data-aos="fade-up" data-aos-delay="100" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con01_title.png" alt="메가스터디학원은 진짜 수준별 맞춤 학습을 제공합니다!" />
+                    </div>
+                    <div class="ct_wrap sticky_wrap">
+                        <div class="card_sticky">
+                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con01_img01.png" alt="" />
+                        </div>
+                        <div class="card_sticky">
+                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con01_img02.png" alt="" />
+                        </div>
+                        <div class="card_sticky">
+                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con01_img03.png" alt="" />
+                        </div>
+                        <div class="card_sticky">
+                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con01_img04.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="cont_section2">
+                <div class="inner">
+                    <div class="title_wrap">
+                        <img data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_title.png" alt="2026 N수 반수반" />
+                    </div>
+                    <div class="sub_title_wrap">
+                        <img data-aos="zoom-in" data-aos-delay="200" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_point1.png" alt="Point1" />
+                        <img class="mt30" data-aos="fade-in" data-aos-delay="400" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_sub_title01.png" alt="수준별, 난이도별, 시기별 제공되는 나만의 맞춤 콘텐츠" />
+                    </div>
+                    <div class="ct_wrap" data-aos="fade-up" data-aos-delay="600" data-aos-duration="400">
+                        <div class="tab_wrap">
+                            <ul class="tab_menu">
+                                <li class="active">
+                                    <a href="#tab1">
+                                        <span>확실한 실전 대비</span>
+                                        <strong>수준별 맞춤 모의고사</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2">
+                                        <span>선택 과목까지 세분화</span>
+                                        <strong>수준별 맞춤 교재</strong>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3">
+                                        <span>수능 트렌드와 수험생 니즈 완벽 반영</span>
+                                        <strong>테마&middot;심화 수업</strong>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tab_contents">
+                                <div id="tab1" class="tab_ct active">
+                                    <ul class="img_list link_wrap">
+                                        <li>
+                                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab01_img01.png" alt="OMEGA" />
+                                            <a href="https://campus.megastudy.net/campus_common/2025/2025_omega/index.asp" target="_blank">자세히 보기</a>
+                                        </li>
+                                        <li>
+                                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab01_img02.png" alt="전대실모" />
+                                            <a href="https://campus.megastudy.net/campus_common/2025/2025_jdsm/index.asp" target="_blank">자세히 보기</a>
+                                        </li>
+                                        <li>
+                                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab01_img03.png" alt="메대프" />
+                                            <a href="https://campus.megastudy.net/campus_common/2025/2025_premium/index.asp" target="_blank">자세히 보기</a>
+                                        </li>
+                                        <li>
+                                            <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab01_img04.png" alt="ALPAH" />
+                                            <a href="https://campus.megastudy.net/campus_common/2025/2025_alpha/index.asp" target="_blank">자세히 보기</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="tab2" class="tab_ct">
+                                    <ul class="img_list">
+                                        <li><img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab02_img01.png" alt="수능 스케일" /></li>
+                                        <li><img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab02_img02.png" alt="월간 스케일" /></li>
+                                        <li><img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab02_img03.png" alt="수능 스피어" /></li>
+                                    </ul>
+                                    <a class="btn_view" href="https://campus.megastudy.net/campus_common/2025/2025_custom_contents/index.asp" target="_blank">
+                                        <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/tab02_btn_view.png" alt="자세히 보기" />
+                                    </a>
+                                </div>
+                                <div id="tab3" class="tab_ct">
+                                    <img src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab03_img01.png" alt="원하는 수업만 선택하여 무제한으로 수강하는 테마·심화 수업" />
+                                    <img class="mt60" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_tab03_img02.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub_title_wrap">
+                        <img data-aos="zoom-in" data-aos-delay="100" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_point2.png" alt="Point2" />
+                        <img class="mt30" data-aos="fade-in" data-aos-delay="400" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_sub_title02.png" alt="필요한 수업, 부족한 과목만 선택 수강하는 수준별 맞춤 선택 학습" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-up" data-aos-delay="500" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_img02.png" alt="예시 시간표" />
+                    </div>
+
+                    <div class="sub_title_wrap">
+                        <img data-aos="zoom-in" data-aos-delay="100" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_point3.png" alt="Point3" />
+                        <img class="mt30" data-aos="fade-in" data-aos-delay="400" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_sub_title03.png" alt="강사진과 입시 전문 담임의 관리로 대입성공 로드맵 완성" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-up" data-aos-delay="500" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_img03.png" alt="" />
+                    </div>
+
+                    <div class="sub_title_wrap">
+                        <img data-aos="zoom-in" data-aos-delay="100" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_point4.png" alt="Point4" />
+                        <img class="mt30" data-aos="fade-in" data-aos-delay="400" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_sub_title04.png" alt="수능 만점을 향한 강력한 동기부여 팀플장학" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-up" data-aos-delay="500" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_img04.png" alt="입학 / 모의고사 / 졸업" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-up" data-aos-delay="600" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con02_img05.png" alt="총 26,404명의 학생이 약 720억원의 팀플장학 혜택을 받았습니다." />
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont_section3">
+                <div class="inner">
+                    <div class="title_wrap">
+                        <img data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con03_title.png" alt="메가스터디학원만의 특별 혜택" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-in" data-aos-delay="200" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con03_img01.png" alt="메가패스, QUBE 질문권, 합격 예측 서비스 무료" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont_section4">
+                <div class="inner">
+                    <div class="title_wrap">
+                        <img data-aos="fade-up" data-aos-delay="0" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_title.png" alt="생생한 후기와 당연한 결과" />
+                    </div>
+                    <div class="ct_wrap">
+                        <img data-aos="fade-right" data-aos-delay="300" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_img01.png" alt="후기1" />
+                        <img class="mt40" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_img02.png" alt="후기2" />
+                        <img class="mt40" data-aos="fade-right" data-aos-delay="300" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_img03.png" alt="후기3" />
+                        <img class="mt40" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_img04.png" alt="후기4" />
+                        <img class="mt40" data-aos="fade-in" data-aos-delay="400" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/con04_txt01.png" alt="※ 국수탐(2) 백분위 합 기준" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="bottom_bnr" class="cont_section5">
+                <div class="inner">
+                    <div class="bnr_wrap">
+                        <img data-aos="fade-down" data-aos-delay="0" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/bottom_bnr_txt01.png" alt="최상의 결과로 대입성공을 완성하다" />
+                    </div>
+                    <div class="bottom_cube1">
+                        <img data-aos="fade-up" data-aos-delay="300" data-aos-duration="400" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/bottom_bnr_cube01.png" alt="" />
+                    </div>
+                    <div class="bottom_cube2">
+                        <img data-aos="fade-down" data-aos-delay="300" data-aos-duration="300" src="<%=Application("img_path")%>/library/campus_common/2026/2026_half_gate/bottom_bnr_cube02.png" alt="" />
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- // contents -->
+    </div>
+</div>
+
+<!-- wrapper End --> 
+<!--#include virtual="/library/include/common/bottom.asp" -->
+</body>
+</html>

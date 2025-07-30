@@ -1,0 +1,141 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* ==========================
+COMMON
+=========================== */
+.alpha-wrap {position: relative; overflow: hidden;min-width: 1200px;}
+.inner {position:relative;width:1200px;margin:0 auto;box-sizing:border-box;}
+.r-txt {text-align:right;font-size:16px;color:#888;margin-top:27px;font-family: Pretendard;}
+
+/* ==========================
+VISUAL
+=========================== */
+.visual-wrap {position:relative;width:100%;height:100%;}
+.visual {background-color:#0c061a;height:950px;overflow:hidden;position:relative;}
+.visual .bg {position:absolute;top:0;left:50%;transform:translateX(-50%);}
+.visual .inner {width:1925px;position:absolute;top:0;left:50%;transform:translateX(-50%);height:950px;}
+.visual *[class^="v-circle0"] {position:absolute;opacity:0;}
+.visual .v-circle01 {top:-255px;left:120px;
+	animation: floatUp 1s ease-out forwards, floating 3s ease-in-out infinite;
+    animation-delay: 1.4s, 2s;
+}
+.visual .v-circle02 {top:70px;right:340px;
+	animation: floatUp 1s ease-out forwards, floating 3s ease-in-out infinite;
+    animation-delay: 1.6s, 2.4s;
+}
+.visual .v-circle03 {top:664px;left:286px;
+	animation: floatUp 1s ease-out forwards, floating 3s ease-in-out infinite;
+    animation-delay: 1.8s, 2.8s;
+}
+.visual .v-circle04 {top:750px;right:70px;
+	animation: floatUp 1s ease-out forwards, floating 3s ease-in-out infinite;
+    animation-delay: 2.2s, 3.2s;
+}
+.visual .v-circle05 {top:220px;left:-60px;
+	animation:fadeIn 1s both, floating 3s ease-in-out infinite;
+    animation-delay: 2s, 3.6s;
+}
+.visual .v-circle06 {top:470px;right:-120px;
+	animation:fadeIn 1s both, floating 3s ease-in-out infinite;
+    animation-delay: 3s, 4s;
+}
+@keyframes floatUp {
+    0% {
+		opacity: 0;
+        transform: translateY(200px);
+    }
+    100% {
+		opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.visual h3 {font-size:80px;color:#fff;font-weight:800;position:absolute;top:50%;left:0;width:100%;transform:translateY(-50%);text-align:center;letter-spacing: 50px;opacity: 0;
+    animation:letterMove 2.5s 1.5s both;
+}
+@keyframes letterMove {
+    0% {
+		opacity: 0;
+        letter-spacing: 50px;
+    }
+    50% {
+		opacity: 1;
+        letter-spacing: 0;
+    }
+    100% {
+		opacity: 0;
+        letter-spacing: 0;
+    }
+}
+.visual .v-planet {position:absolute;top:calc(50% - 30px);left:calc(50% + 30px);margin-left:calc(-734px / 2);margin-top:calc(-837px / 2);mix-blend-mode: screen;opacity: 0;
+    animation: floatUp 1s 3.5s ease-out forwards;
+}
+.visual .v-light {position:absolute;top:0;left:calc(50% - 225px);margin-left:calc(-1239px / 2);mix-blend-mode: hard-light;opacity: 0;
+    animation:fadeIn 1s 3.5s infinite alternate;
+}
+.visual .v-tit {display:flex;justify-content: center;align-items: center;flex-direction: column;height:100%;padding-top:10px;}
+.visual .v-tit h2 {
+    animation:fadeIn 1s 4s both;
+}
+.visual .v-tit h1 {margin-top:-84px;
+    animation: puff-in-center 0.3s 4.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+@keyframes puff-in-center {
+	0% {
+			  transform: scale(2.5);
+			  filter: blur(4px);
+	  opacity: 0;
+	}
+	100% {
+			  transform: scale(1);
+			  filter: blur(0px);
+	  opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+ }
+/* ==========================
+CONTENTS
+=========================== */
+*[class^="cont0"] {padding:120px 0;text-align:center;}
+*[class^="cont0"] h3 {margin-bottom:80px;}
+.cont01 {background-color:#FFF8E3;}
+.cont02 h4 {margin:100px 0 80px;}
+.cont02 ul {text-align:left;}
+.cont02 ul li:not(:first-child) {margin-top:8px;}
+.cont02 .review-wrap li:first-child {padding-left:146px;}
+.cont02 .review-wrap li:nth-child(2) {padding-left:254px;}
+.cont02 .review-wrap li:nth-child(3) {padding-left:80px;}
+.cont02 .review-wrap li:nth-child(4) {padding-left:480px;}
+.cont02 .review-wrap li:nth-child(5) {padding-left:62px;}
+.cont02 .review-wrap li:nth-child(6) {padding-left:308px;}
+.cont02 .review-wrap li:nth-child(7) {padding-left:160px;}
+.cont02 .paper-slide .swiper-button-prev, .swiper-container-rtl .swiper-button-next {background-image: url("https://russeldata.megastudy.net/campus/images/russel/event/2025/alpha/btn_prev.png");width:50px;height:50px;margin-top:-25px;background-size:100%;left:26px;}
+.cont02 .paper-slide .swiper-button-next, .swiper-container-rtl .swiper-button-prev {background-image: url("https://russeldata.megastudy.net/campus/images/russel/event/2025/alpha/btn_next.png");width:50px;height:50px;margin-top:-25px;background-size:100%;right:26px;}
+
+.cont03 {background-color:#231930;}
+.cont03 .blend-img {mix-blend-mode: screen;}
+.cont04 {background-color:#EEE7F6;}
+
+
+
+
+.cont02 .paper-slide .swiper-button-prev, .swiper-container-rtl .swiper-button-next,
+.cont02 .paper-slide .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    color:transparent;
+}
+.cont02 .inner{
+    overflow: hidden;
+}

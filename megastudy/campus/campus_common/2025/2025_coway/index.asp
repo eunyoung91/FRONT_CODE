@@ -1,0 +1,1002 @@
+<!-- #include virtual="/Public/Method.asp" -->
+<!-- #include virtual="/Public/class.Mssql.asp" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="euc-kr">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- #Include Virtual = "/library/include/reload/favicon.asp" -->
+    <title><%=gMGC_Campus_Title%></title>
+    <!-- #Include Virtual = "/library/include/reload/css_common.asp" -->
+    <!-- #Include Virtual = "/library/include/reload/css_table.asp" -->
+    <!-- #include virtual="/public/jquery.asp" -->
+    <!-- #Include Virtual = "/library/include/reload/js_common.asp" -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> <!-- flatpickr 스타일 -->
+    <link rel="stylesheet" type="text/css" href="web.css?v=6">
+
+    <script type="text/javascript" src="/common/js/jquery-1.8.3.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!-- flatpickr 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script> <!-- 한글 번역 -->
+
+</head>
+<body>
+<div id="wrapper"> 
+    <!--  최상단메뉴//--> 
+    <!--include virtual="/library/include/common/top.asp" --> 
+    <!--  //최상단메뉴-->
+
+    <div id="container">
+        <div id="cowayApply" class="coway-apply">
+            <!-- visual -->
+
+            <div class="visual">
+
+                <div class="visual-title">
+                    <div class="title-main">
+                        <div>대입 성공의 모든 공식</div>
+                        <img class="pc-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/main_title.png" alt="" />
+                        <img class="tablet-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/main_title_tablet.png" alt="" />
+                        <img class="mo-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/main_title_mo.png" alt="" />
+                    </div>
+
+                    <!-- 20250528 -->
+                    <%If Request.Cookies("param1") = "coway" Then%>
+                        <!-- member -->
+                        <div class="title-sub">
+                            코웨이 멤버쉽 고객을 위한<br>
+                            <strong>수강료 지원 특별 혜택</strong>으로<br>
+                            <strong>최상의 교육 서비스를 경험하세요!</strong><br>
+                        </div>
+                    <%ElseIf Request.Cookies("param1") = "cowayls" Then%>
+                        <!-- corasol -->
+                        <div class="title-sub">
+                            코웨이 라이프 솔루션 멤버쉽<br class="mo-only"> 고객을 위한<br>
+                            <strong>수강료 지원 특별 혜택</strong>으로<br>
+                            <strong>최상의 교육 서비스를 경험하세요!</strong><br>
+                        </div>
+                    <%ElseIf Request.Cookies("param1") = "staff" Then%>
+                        <!-- staff -->
+                        <div class="title-sub">
+                            코웨이&코웨이 라이프 솔루션<br class="mo-only"> 임직원을 위한<br>
+                            <strong>수강료 지원 특별 혜택</strong>으로<br>
+                            <strong>최상의 교육 서비스를 경험하세요!</strong><br>
+                        </div>
+                    <%ElseIf Request.Cookies("param1") = "cody" Then%>
+                        <!-- cody -->
+                        <div class="title-sub">
+                            코웨이 코디를 위한<br>
+                            <strong>수강료 지원 특별 혜택</strong>으로<br>
+                            <strong>최상의 교육 서비스를 경험하세요!</strong><br>
+                        </div>
+                    <%Else%>
+                        <!-- member -->
+                        <div class="title-sub">
+                            코웨이 멤버쉽 고객을 위한<br>
+                            <strong>수강료 지원 특별 혜택</strong>으로<br>
+                            <strong>최상의 교육 서비스를 경험하세요!</strong><br>
+                        </div>
+                    <%End If%>
+                    <!-- // 20250528 -->
+
+                </div>
+
+                <div class="visual-con">
+                    <p>특별 혜택 받는 방법</p>
+                    <div>
+                        <img class="pc-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/step_common.png" alt="" />
+                        <!-- <img class="tablet-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/step_tablet.png" alt="" /> -->
+                        <img class="tablet-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/step_common.png" style="width:100%;" alt="" />
+                        <img class="mo-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/step_mo.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <!-- // visual -->
+
+            <!-- contents -->
+            <div class="contents">
+                <div id="contentsType1" class="contents-type contents-type-1">
+                    <div class="contents-inner">
+                        <div class="contents-title">
+                            <div class="text">
+                                <span>단과 수업과 의무자습을 한방에!</span>
+                                <strong>
+                                    최상위권<br class="mo-only"> 대입성공의 경쟁력<br>
+                                    <em>러셀</em>
+                                </strong>
+                            </div>
+                            <a href="" class="btn" id="russelBtn"><span>1:1 상담 신청</span></a>
+                        </div>
+                        <div class="contents-list">
+                            <div class="con">
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">01</em>
+                                        <div class="txt">
+                                            <span>최상위권 선택은 단연, 러셀</span>
+                                            <strong>
+                                                6년 수능 만점자 배출<sup>*</sup>
+                                            </strong>
+                                        </div>
+                                        <div class="medal">
+                                            <img src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/medal.png" alt="" />
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            <strong>
+                                                2025 수능 만점자 3명 배출<sup>*</sup>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">02</em>
+                                        <div class="txt">
+                                            <span>면학분위기로 소문난</span>
+                                            <strong>
+                                                바른공부 자습전용관
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            면학분위기는 물론<br>
+                                            전문 입시담임의 학생 맞춤관리<br>
+                                            학생중심으로 설계된<br>
+                                            효율적인 학습 동선과 공간
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">03</em>
+                                        <div class="txt">
+                                            <span>필요한 수업만 자율적으로 선택하는</span>
+                                            <strong>
+                                                최상위권<br>
+                                                수준별 맞춤 단과
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            과목별/수준별/진도별<br>
+                                            <strong>전략적 수업선택</strong><br>
+                                            체계적인 커리큘럼과<br>
+                                            <strong>충분한 자습시간 확보</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">04</em>
+                                        <div class="txt">
+                                            <span>검증된 강의력과 콘텐츠</span>
+                                            <strong>
+                                                메가스터디<br>
+                                                온&middot;오프 강사진
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            성적향상으로 검증된<br>
+                                            수능&내신 전문 강사진
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="standard">
+                                <div class="noti">
+                                    데이터 산출기준<span class="ico"></span>
+                                    <div class="tooltip">
+                                        *국/수/탐2 만점 및 영/한 1등급 기준<br>
+                                        *2018~2022,2025수능실채점기준<br>
+                                        **2025 수능 실채점 기준(국/수/탐2만점 및 영/한 1등급)<br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contentsType2" class="contents-type contents-type-2">
+                    <div class="contents-inner">
+                        <div class="contents-title">
+                            <div class="text">
+                                <span>성적 상승, 대입성공의 핵심 공식!</span>
+                                <strong>
+                                    수준이 다른 진.짜<br class="tablet-only"><br class="mo-only"> 수준별 맞춤 선택 학습<br>
+                                    <em>메가스터디학원</em>
+                                </strong>
+                            </div>
+                            <a href="" class="btn" id="campusBtn"><span>1:1 상담 신청</span></a>
+                        </div>
+                        <div class="contents-list">
+                            <div class="con">
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">01</em>
+                                        <div class="txt">
+                                            <span>국수영 선택 과목도 치밀하게</span>
+                                            <strong>
+                                                수준별 맞춤 학습
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            정확한 실력 점검을 통해<br>
+                                            국수영 수준을 파악하고 진단한<br>
+                                            <strong>수준별 맞춤 학습</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">02</em>
+                                        <div class="txt">
+                                            <span>수업은 자유롭게! 관리는 충분하게!</span>
+                                            <strong>
+                                                100% 개인 시간표<br>
+                                                맞춤 설계
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            필요한 수업만, 부족한 과목만,<br>
+                                            수업과 자기주도학습의<br>
+                                            <strong>자유로운 맞춤 시간표</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">03</em>
+                                        <div class="txt">
+                                            <span>선택 과목까지 세심하게!</span>
+                                            <strong>
+                                                수준별 맞춤 교재
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            똑같은 국수영 교재가 아닌<br>
+                                            선택 과목까지<br>
+                                            <strong>수준별, 레벨별 맞춤 교재</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">04</em>
+                                        <div class="txt">
+                                            <span>완벽 실전 수능 대비!</span>
+                                            <strong>
+                                                수준별 고퀄리티<br>
+                                                모의고사
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            완벽한 실전 대비를 위해<br>
+                                            수준별, 난이도별, 시기별<br>
+                                            <strong>맞춤 실전 모의고사</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contentsType3" class="contents-type contents-type-3">
+                    <div class="contents-inner">
+                        <div class="contents-title">
+                            <div class="text">
+                                <span>최상위권이 선택하는 명확한 이유</span>
+                                <strong>
+                                    이유 있는<br class="tablet-only"><br class="mo-only"> 러셀 전체 학원 내 1등<br>
+                                    <em>러셀 기숙학원</em>
+                                </strong>
+                            </div>
+                            <a href="" class="btn" id="gisukBtn"><span>1:1 상담 신청</span></a>
+                        </div>
+                        <div class="contents-list">
+                            <div class="con">
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">01</em>
+                                        <div class="txt">
+                                            <span>메가스터디 전체 학원 내</span>
+                                            <strong>
+                                                최상위권 의치한약수<br>
+                                                입결 1위<sup>*</sup>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            2025학년도<br>
+                                            <strong>의치한약수 + 서포카연고</strong><br>
+                                            651명**
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">02</em>
+                                        <div class="txt">
+                                            <span>학습특성에 맞게 설계된<br>성적향상/합격 시스템</span>
+                                            <strong>
+                                                수준별 / 성별 / 계열별<br>
+                                                특화 전문관
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            최상위권 집결, <strong>최상위권 전문관</strong><br>
+                                            자연계열 합격, 관리 특화된 <strong>자연계 전문관</strong><br>
+                                            성별 특화된 관리 노하우,<br>
+                                            <strong>남학생/여학생 전문관</strong><br>
+                                            수학극복 특화 프로그램, <strong>여학생 수학전문관</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">03</em>
+                                        <div class="txt">
+                                            <span>우수한 강사진과 검증된 학습콘텐츠!</span>
+                                            <strong>
+                                                메가스터디 인강·<br>
+                                                대치동 단과 강사진 출강
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            학생 개별성적을 고려한 <strong>과목별/수준별 수업</strong><br>
+                                            인강/현장 마감으로 <strong>검증된 강의</strong><br>
+                                            시기별 제공되는 <strong>실전강화 콘텐츠</strong><br>
+                                            <strong>(과목별 50~100회)</strong><br>
+                                            현장에서 진행되는 <strong>질의응답 클리닉</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list">
+                                    <div class="top">
+                                        <em class="tag">04</em>
+                                        <div class="txt">
+                                            <span>다양한 기숙사 타입, 최신시설</span>
+                                            <strong>
+                                                입시 전문담임<br>
+                                                집중관리까지
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="desc">
+                                            수시/정시 컨설팅 및<br>
+                                            24시간 집중관리로<br>
+                                            <strong>빈틈없는 면학분위기 조성</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="standard">
+                                <div class="noti">
+                                    데이터 산출기준<span class="ico"></span>
+                                    <div class="tooltip">
+                                        * 러셀 기숙학원 2025학년도 합격생 1,893명(중복포함)<br>
+                                        ** 러셀기숙 (구)남-의대관 307명, (구)여-의대관 177명,(구)서의치관 184명,<br>
+                                        (구)양지 메가스터디 기숙 788명, (구)서초 메가스터디 기숙 437명 기준<br>
+                                        ** 2025년 4월 7일 기준 취합자료<br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contents-map">
+                    <div class="contents-inner">
+                        <div class="map-title">
+                            <strong>
+                                목표, 그 이상의<br class="mo-only"> 성공을 위해<br>
+                                전국 어디에서나<br class="tablet-only"><br class="mo-only"> 여러분과 함께 합니다.
+                            </strong>
+                            <span>
+                                이미 수많은 합격자 수로 증명된<br class="tablet-only"><br class="mo-only"> 입시 명문<br class="pc-only">
+                                러셀&메가스터디학원만이 가능한<br class="tablet-only"><br class="mo-only"> 학습 시스템을 경험하세요.
+                            </span>
+                        </div>
+                        <div class="map-info">
+                            <div class="map">
+                                <img class="pc-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/map.png" alt="" />
+                                <img class="tablet-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/map_tablet.png" alt="" />
+                                <img class="mo-only" src="<%=Application("img_path")%>/library/campus_common/2025/2025_coway/map_mo.png" alt="" />
+                            </div>
+                        </div>
+                        <dl clsas="map-notice">
+                            <dt>※ 반드시 확인하세요.</dt>
+                            <dd><span>&bull;</span><span>본 수강료 지원 혜택은 코웨이 멤버쉽 고객 전용 페이지를 통해 1:1 전화 상담 신청 후 등록한 경우에 한해 적용됩니다.</span></dd>
+                            <dd><span>&bull;</span><span>수강료 지원 혜택은 학원 등록 시 최종 결제 금액 중 ‘수강료’에 한해 적용됩니다.</span></dd>
+                            <dd><span>&bull;</span><span>러셀 수강료 지원 혜택은 바른공부 자습전용관 등록 시에만 적용됩니다. (단과만 등록 시 적용 안됨)</span></dd>
+                            <dd><span>&bull;</span><span>코웨이 멤버쉽 고객을 위한 혜택은 러셀&메가스터디학원 타 혜택과 중복 지원 불가 합니다.</span></dd>
+                            <dd><span>&bull;</span><span>코웨이 멤버쉽 고객 혜택 지원을 위해 매 결제 시 마다 코웨이 멤버쉽 자격을 확인할 수 있습니다.</span></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <!-- //contents -->
+        </div>
+    </div>
+
+    <!-- container End --> 
+</div>
+
+<!-- 레이어 -->
+<div class="popup-overlay">
+    <div>
+        <div class="popup-content">
+            <div class="popup-content-scroll">
+                <h1>1:1 전화 상담 신청</h1>
+                <h2>신청하신 학원 담당자가 확인 후<br class="mo-only"> 예약 확정 문자가 발송됩니다.</h2>
+                <small>※ 본 신청은 학부모만 가능하며 기재하신 학부모 연락처로 연락드립니다.</small>
+                <a href="javascript:();" class="popup-close"><span></span></a>
+
+                <div class="form-list">
+                    <div class="form-group">
+                        <label for="academy">학원 선택 <span class="req">*</span></label>
+                        <div class="select-wrap">
+                            <select id="layerAca">
+                                <option value="0">학원 선택</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name1">학부모 이름 <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <input type="text" id="name1" placeholder="학부모 이름 입력" value="" maxlength="60">
+                        </div>
+                    </div>
+                    <div class="form-group cert">
+                        <label for="phone1">학부모 휴대전화번호 <span class="req">*</span></label>
+                        <div class="align">
+                            <div class="input-wrap">
+                                <input type="text" id="phone1" placeholder="'-' 없이 숫자만 입력" maxlength="13" pattern="[0-9]*">
+                            </div>
+                            <div class="num-btn" id="sendBtn" onclick="javascript:smsAuthSend();"><span id="sendBtnSpan">인증번호발송</span></div>
+                            <div class="num-text" style="display:none;"><span>인증완료</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group cert" id="smsCheck" style="display:none;">
+                        <label for="num1">인증번호 입력 <span class="req">*</span></label>
+                        <div class="align">
+                            <div class="input-wrap">
+                                <input type="text" id="num1" placeholder="인증번호 6자리 입력" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                <span class="timer"></span>
+                            </div>
+                            <div class="num-btn" id="numCheck" onclick="javascript:smsAuthCheck();"><span>인증번호확인</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name2">학생 이름 <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <input type="text" id="name2" placeholder="학생 이름 입력" value="" maxlength="60">
+                        </div>
+                    </div>
+                    <div class="form-group cert">
+                        <label for="phone2">학생 휴대전화번호 <span class="req">*</span></label>
+                        <div class="input-wrap">
+                            <input type="text" id="phone2" placeholder="'-' 없이 숫자만 입력" maxlength="13" pattern="[0-9]*">
+                        </div>
+                    </div>
+                    <div class="form-group date">
+                        <label for="datepicker"><span class="dot">예약일시</span> <span class="req">*</span></label>
+                        <div class="align">
+                            <div class="input-wrap">
+                                <input type="text" id="datepicker" class="datepicker-with-icon" placeholder="날짜 선택" />
+                            </div>
+                            <div>
+                                <div class="select-wrap">
+                                    <select id="datetime">
+                                        <option value="00:00">시간 선택</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="13:00">13:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="18:00">19:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">학년 <span class="req">*</span></label>
+                        <div class="radio-wrap">
+                            <div>
+                                <input type="radio" class="" name="grade" id="grade1" value="11"><label for="grade1">고1</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="" name="grade" id="grade2" value="12"><label for="grade2">고2</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="" name="grade" id="grade3" value="13"><label for="grade3">고3</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="" name="grade" id="grade4" value="21"><label for="grade4">N수</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">계열 <span class="req">*</span></label>
+                        <div class="radio-wrap">
+                            <div>
+                                <input type="radio" class="" name="type" id="type1" value="11"><label for="type1">인문계</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="" name="type" id="type2" value="12"><label for="type2">자연계</label>
+                            </div>
+                            <div>
+                                <input type="radio" class="" name="type" id="type3" value="14"><label for="type3">기타</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group only">
+                        <label for="content"><span class="dot">문의 내용</span><span class="req">*</span></label>
+                        <textarea id="content" placeholder="내용 입력"></textarea>
+                    </div>
+                    <div class="form-group only">
+                        <label><span class="dot">개인정보 수집 및 이용</span></label>
+                        <div class="text-wrap">
+                            <strong>개인정보 수집 및 이용 개인정보 보호법 제15조 제1항 4호에 따라 정보주체와 체결한 
+                            계약으로 정보주체의 동의없이 개인정보를 수집 및 이용합니다.</strong><br>
+                            수집항목 : 보호자 이름, 보호자 휴대전화번호, 학생 이름, 학생 휴대전화번호, 학년, 계열, 문의 내용<br>
+                            처리목적 : 방문상담 예약 및 본인확인, 예약확인, 방문상담 관련 안내<br>
+                            보유 및 이용기간 : <em class="under">1년</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-btn">
+            <div>
+                <a class="cancel-btn"><span>취소</span></a>
+                <a class="apply-btn"><span>신청</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // 레이어 -->
+
+<script>
+
+    $(document).ready(function () {
+        //param1값 정의
+        var param1 = getCookie("param1");
+        var param2 = getCookie("param2");
+
+        //잘못된 접근 리다이렉트
+        if(param2 != "Y" || (param1 != "cowayls" && param1 != "cody" && param1 != "coway" && param1 != "staff")) {
+            //테스트서버, 로컬
+            if(window.location.hostname != "campus.megastudy.net" && (window.location.hostname == "tmcampus.megastudy.net" || window.location.hostname == "localhost")) {
+                confirm("현재 테스트진행중으로, 접근 불가 페이지로 이동하시겠습니까?\n취소 클릭시 임시로 대상구분은 코라솔 고객으로 입력됩니다.") ? window.location.href = "https://campus.megastudy.net/campus_common/2025/2025_coway/forbidden.asp" : param1 = "cowayls";
+            }else{
+                window.location.href = "https://campus.megastudy.net/campus_common/2025/2025_coway/forbidden.asp"
+            };
+        };
+
+        // flatpickr 초기화
+        const fp = flatpickr("#datepicker", {
+            locale: "ko",
+            dateFormat: "Y-m-d",
+            allowInput: true,
+            disableMobile: true
+        });
+
+        // 달력 아이콘 클릭 시 달력 열기
+        var calendarIcon = document.getElementById("calendar-icon");
+        if (calendarIcon) {
+            calendarIcon.addEventListener("click", function () {
+                fp.open();
+            });
+        }
+
+        // 팝업 열기
+        $('.btn').on('click', function (e) {
+            applyLayerAcaSet(e.currentTarget.id);
+            e.preventDefault();
+            $('body').addClass('popup-open');
+            $('.popup-overlay').fadeIn(300);
+        });
+
+        // 팝업 닫기 (취소 버튼 또는 X 버튼)
+        $('.popup-overlay .cancel-btn, .popup-overlay .popup-close').on('click', function(e) {
+            if(confirm("취소하시면 입력한 모든 내용이 초기화됩니다. 계속 진행하시겠습니까?")) {
+                applyLayerDown();
+            }
+        });
+
+        //휴대전화번호 체크
+        $("#phone1, #phone2").on('keyup', function() {
+            $(this).val($(this).val().replace(/[^0-9]/g, "")
+            .replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3")
+            .replace("--", "-") );
+        });
+
+        //신청 버튼
+        $(".apply-btn").on('click', function() {
+            var vMobileRule = /01(0|1|6|7|8|9)[-](\d{4}|\d{3})[-]\d{4}$/; //휴대전화번호 양식
+            var layerAca = $("#layerAca").val(); //학원 코드
+            var name1 = $("#name1").val(); //학부모 이름
+            var phone1 = $("#phone1").val(); //학부모 휴대전화번호
+            var name2 = $("#name2").val(); //학생 이름
+            var phone2 = $("#phone2").val(); //학생 휴대전화번호
+            var datepicker = $("#datepicker").val(); //예약일시 날짜
+            var datetime = $("#datetime").val(); //예약일시 시간
+            var appdate = datepicker + " " + datetime + ":00"//예약일시
+            var grade = $('input[name="grade"]:checked').val(); //학년
+            var type = $('input[name="type"]:checked').val(); //계열
+            var content = $("#content").val(); //문의 내용
+            
+            //유효성 체크
+            if(layerAca == 0 || typeof layerAca === 'undefined' || layerAca == "") {
+                alert("학원을 선택해주세요.");
+                return false;
+            }else if(name1 == "" || typeof name1 === "undefined") {
+                alert("학부모 이름을 입력해주세요.");
+                return false;
+            }else if(!vMobileRule.test(phone1) || phone1 == "" || typeof phone1 === "undefined") {
+                alert("학부모 휴대전화번호를 입력하시고, 인증을 진행하세요.");
+                return false;
+            }else if($('.num-text').css('display') == 'none') {
+                alert("인증을 진행하시고 인증번호를 입력하세요.");
+                return false;
+            }else if(name2 == "" || typeof name2 === "undefined") {
+                alert("학생 이름을 입력해주세요.");
+                return false;
+            }else if(!vMobileRule.test(phone2) || phone2 == "" || typeof phone2 === "undefined") {
+                alert("학생 휴대전화번호를 입력해주세요.");
+                return false;
+            }else if(datetime == "" || typeof datetime === "undefined" || datepicker == "" || typeof datepicker === "undefined" || datetime == "00:00") {
+                alert("예약 시간을 선택해주세요.");
+                return false;
+            }else if(typeof grade === "undefined") {
+                alert("학년을 선택해주세요.");
+                return false;
+            }else if(typeof type === "undefined") {
+                alert("계열을 선택해주세요.");
+                return false;
+            }else if(content == "") {
+                alert("내용을 입력해주세요.");
+                return false;
+            };
+
+            var param = {
+                layerAca : layerAca,
+                name1 : escape(name1),
+                phone1 : phone1,
+                name2 : escape(name2),
+                phone2 : phone2,
+                appdate1 : appdate,
+                grade1 : grade,
+                type1 : type,
+                content1 : escape(content),
+                param1 : param1
+            };
+
+            if(confirm("입력하신 정보로 신청하시겠습니까?")) {
+                $.ajax({
+                    type:"POST",
+                    url: "apply.asp", 
+                    data: param,
+                    dataType : "html",
+                    success: function(result) {
+                        var data = JSON.parse(result);
+                        if(data.RESULT == 0) {
+                            alert("신청이 완료되었습니다. 선택한 학원에서 전화상담 일정 확인을 위해 입력하신 학부모님 휴대전화번호로 연락 드리겠습니다.");
+                            applyLayerDown();
+                        }else{
+                            alert("신청 도중 오류 발생 (" + data.RESULT + ")");
+                            // applyLayerDown();
+                        }
+                        return;
+                    },
+                    error: function(error) {
+                        alert("신청 도중 오류 발생");
+                    }
+                });
+            };
+        });
+    });
+
+    function pageLoadEvent() {
+        var temp_s = $("#cowayApply").offset().top;
+        $('html, body').animate({ scrollTop: temp_s }, 400);
+    }
+
+    function aosEvent() {
+        AOS.init({
+            duration: 500,
+            delay: 0,
+            easing: 'ease-in',
+            offset: 200,
+            once: true,
+            animatedClassName: 'aos-animate'
+        });
+    }
+
+    function applyLayerAcaSet(type) {
+        var options = []
+        if(type == "russelBtn") {
+            options = [
+                {value: 70, text: "러셀 강남"},
+                {value: 56, text: "러셀 대치"},
+                {value: 66, text: "러셀 목동"},
+                {value: 73, text: "러셀 부천"},
+                {value: 65, text: "러셀 분당"},
+                {value: 72, text: "러셀 영통"},
+                {value: 101, text: "러셀 중계"},
+                {value: 71, text: "러셀 평촌"},
+                {value: 129, text: "러셀 대구"},
+                {value: 127, text: "러셀 대전"},
+                {value: 69, text: "러셀 센텀"},
+                {value: 245, text: "러셀 울산"},
+                {value: 124, text: "CORE 광주"},
+                {value: 136, text: "CORE 원주"},
+                {value: 133, text: "CORE 전주"},
+                {value: 134, text: "CORE 창원"},
+                {value: 135, text: "CORE 청주"},
+            ];
+        }else if(type == "campusBtn") {
+            options = [
+                {value: 12, text: "서초 메가스터디학원"},
+                {value: 17, text: "강북 메가스터디학원"},
+                {value: 41, text: "노량진 메가스터디학원"},
+                {value: 27, text: "신촌 메가스터디학원"},
+                {value: 41, text: "노량진 메가스터디학원"},
+                {value: 27, text: "신촌 메가스터디학원"},
+                {value: 115, text: "송파 메가스터디학원"},
+                {value: 74, text: "부천 메가스터디학원"},
+                {value: 75, text: "분당 메가스터디학원"},
+                {value: 76, text: "일산 메가스터디학원"},
+                {value: 45, text: "평촌 메가스터디학원"},
+            ];
+        }else if(type == "gisukBtn") {
+            options = [
+                {value: 148, text: "러셀 기숙(최상위권 전문관)"}
+            ];
+        }else {
+        };
+        
+        $("#layerAca").find("option:not(:first)").remove();
+        for(i = 0; i<options.length; i++) {
+            var opt = $("<option></option>")
+                .attr("value", options[i].value)
+                .text(options[i].text);
+            
+            $("#layerAca").append(opt);
+        };
+    };
+
+    //인증번호 타이머 전역변수 세팅
+    var setTimeSMS = 180;
+    var nowTimeSMS = setTimeSMS;
+    // 인증번호 확인 타이머
+    function fnSmsTimer() {
+        var vMin = ("0" + Math.floor(nowTimeSMS / 60)).slice(-2) + ":" + ("0" + (nowTimeSMS % 60)).slice(-2);
+        
+        nowTimeSMS--;
+        if (nowTimeSMS < 0) {
+            $("#smsCheck").hide();
+            vMin = "";
+            clearInterval(timerSMS);
+            $("#num1").val("");
+            $("#phone1").prop("disabled", false);
+            $("#sendBtn").attr("onclick", "javascript:smsAuthSend();");  
+        }
+        $(".timer").html(vMin);
+    }
+
+    //인증번호 발송
+    function smsAuthSend() {
+        var phone1 = $("#phone1").val();
+        var vMobileRule = /01(0|1|6|7|8|9)[-](\d{4}|\d{3})[-]\d{4}$/g;
+
+        if($("#phone1").val() == "" ) {
+            alert("휴대전화번호를 입력해 주세요.");
+            $("#phone1").focus();
+            return false;
+        } else if ($("#phone1").val().length < 12) {
+            alert("휴대전화번호 형식이 올바르지 않습니다.");
+            $("#phone1").focus();
+            return false;
+        } else if (!vMobileRule.test($("#phone1").val())){
+            alert("휴대전화번호 형식이 올바르지 않습니다.");
+            $("#phone1").focus();
+            return false;
+        } else{
+            var param = {
+                phone1 : phone1,
+                mode : "SEND"
+            };
+
+            $.ajax({
+                type:"POST",
+                url: "confirm_auth_num.asp", 
+                data: param,
+                dataType : "html",
+                success: function(result) {
+                    var data = JSON.parse(result);
+                    if (data.RESULT == "S") {
+                        <% If IsDevSvr() Then %>
+                        $("#num1").val(data.RESULT_MSG); //인증번호 세팅
+                        <% End If%>
+                        nowTimeSMS = setTimeSMS; //초기화
+                        timerSMS = setInterval("fnSmsTimer()", 1000); //타이머 시작
+                        $("#smsCheck").show();
+                        alert("입력하신 휴대전화번호로 인증번호가 발송되었습니다.");
+                        $("#phone1").prop("disabled", true);
+                        $("#sendBtn").attr("onclick", "javascript:alert('인증번호를 재발송할 수 없습니다.');");
+                    }else if(data.RESULT == "A") {
+                        nowTimeSMS = setTimeSMS; //초기화
+                        alert("이미 신청한 이력이 있습니다.");
+                        $("#phone1").val("");
+                        $("#phone1").focus();
+                    }else{
+                        alert("SMS 발송 중 오류가 발생하였습니다.(" + data.RESULT +")");
+                    }
+                },
+                error: function(error) {
+                    alert("SMS 발송 중 오류가 발생하였습니다.");
+                }
+            });
+        };
+    };
+
+    //인증번호 확인
+    function smsAuthCheck() {
+        var phone1 = $("#phone1").val();
+        var num1 = $("#num1").val().replace(/-/gi,"");
+
+        if(num1 == "" || num1.length < 6 ) {
+            alert("인증번호 6자리를 입력해 주세요.");
+            $("#num1").focus();
+            return;  
+	    };
+
+        var param = {
+            phone1 : phone1,
+            mode : "CHECK",
+            num1 : num1
+        };
+
+        $.ajax({
+            type:"POST",
+            url: "confirm_auth_num.asp", 
+            data: param,
+            dataType : "html",
+            success: function(result) {
+                var data = JSON.parse(result);
+                if(data.RESULT == "S"){ //인증 완료
+                    $("#smsCheck").hide();
+                    $("#sendBtn").hide();
+                    $(".num-text").show();
+                    alert("인증이 완료되었습니다.");
+                    clearInterval(timerSMS);
+                }else if(data.RESULT == "N"){
+                    alert("인증번호 발송 내역이 없습니다.");
+                }else if(data.RESULT == "X"){
+                    alert("인증번호가 일치하지 않습니다.");
+                }else{
+                    alert("인증번호 확인 중 오류가 발생하였습니다.(" + data.RESULT +")");
+                }
+            },
+            error: function(error) {
+                alert("인증번호 확인 중 오류가 발생하였습니다.else");
+            }
+        });
+    };
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+        return null;
+    }
+
+    function applyLayerDown() {
+        $("#layerAca").val(""); //학원 코드
+        $("#name1").val(""); //학부모 이름
+        $("#phone1").val(""); //학부모 휴대전화번호
+        $("#name2").val(""); //학생 이름
+        $("#phone2").val(""); //학생 휴대전화번호
+        $("#datepicker").val(""); //예약일시 날짜
+        $("#datetime").val(""); //예약일시 시간
+        $('input[name="grade"]:checked').prop("checked", false); // 학년 체크 해제
+        $('input[name="type"]:checked').prop("checked", false); // 계열 체크 해제
+        $("#content").val(""); //문의 내용
+        $("#smsCheck").hide(); //인증번호 확인란
+        $("#num1").val(""); //인증번호
+        $("#phone1").prop("disabled", false); //학부모 휴대전화번호
+        $("#sendBtn").attr("onclick", "javascript:smsAuthSend();"); //인증번호 발송 버튼 활성화
+        $("#sendBtn").show(); //인증번호 발송 버튼 노출
+        $(".num-text").hide(); //인증완료 문구 비노출
+
+        if (typeof timerSMS !== 'undefined' && timerSMS) {
+            clearInterval(timerSMS); //타이머가 돌고있다면 클리어
+            timerSMS = null;
+        }
+
+        // e.preventDefault();
+        $('.popup-overlay').fadeOut(300, function() {
+            $('body').removeClass('popup-open');
+        });
+    };
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // PC 환경이면 스크립트 동작하지 않음
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    // 모든 .noti 요소 가져오기
+    var notiList = document.querySelectorAll('.noti');
+
+    notiList.forEach(function(noti) {
+        var tooltip = noti.querySelector('.tooltip');
+        var isTooltipVisible = false;
+
+        noti.addEventListener('click', function (e) {
+            e.stopPropagation();
+
+            // 모든 툴팁 닫기
+            document.querySelectorAll('.tooltip').forEach(function(tip) {
+                tip.style.display = 'none';
+            });
+
+            // 현재 툴팁 열기
+            tooltip.style.display = 'block';
+            isTooltipVisible = true;
+        });
+
+        tooltip.addEventListener('click', function (e) {
+            e.stopPropagation();
+            tooltip.style.display = 'none';
+            isTooltipVisible = false;
+        });
+    });
+
+    // 바깥 영역 클릭 시 툴팁 모두 닫기
+    // document.addEventListener('click', function () {
+    //     document.querySelectorAll('.tooltip').forEach(function(tip) {
+    //         tip.style.display = 'none';
+    //     });
+    // });
+});
+</script>
+
+
+</body>
+</html>

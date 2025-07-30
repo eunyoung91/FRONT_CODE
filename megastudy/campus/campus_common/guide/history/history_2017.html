@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메가스터디학원</title>
+
+    <link rel="stylesheet" type="text/css" href="https://campus.megastudy.net/library/css/common_new.css" />
+    <link rel="stylesheet" type="text/css" href="https://campus.megastudy.net/library/css/table.css" />
+    <link rel="stylesheet" type="text/css" href="../guide_renewal.css" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // 좌측 인디케이터
+            $('.academy li').on('click',function( ){
+                $(this).parents(".academy").find("li").removeClass("on");
+                $(this).addClass("on");  
+
+                // 학원별 메뉴 클릭시 타이틀 색상 변경
+                for ( i = 1; i < 17; i++ ) {
+                    if($('.academy li').eq(i).hasClass('on')){
+                        $('.cont_tit h3').eq(i-1).css({
+                            color : "#0082ff"
+                        }); 
+                    }else{
+                        $('.cont_tit h3').eq(i-1).css({
+                            color : "#575757"
+                        })
+                    }
+                } 
+                
+            });  
+            // 히스토리 페이지 이동 버튼
+            $('.year_btn').on('click',function(){
+                $(this).toggleClass('open');   
+                $('.year_list').toggleClass('open');
+
+            }); 
+            $('.gnb_area, .lnb, .cont_list').click(function(e){
+                if( $('.year_list').hasClass('open') ) $('.year_btn, .year_list').toggleClass('open');
+            });
+
+            // Top 버튼
+            $('.topBtn').hide();
+
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 100){
+                    $('.topBtn').fadeIn();
+                }
+                else{
+                    $('.topBtn').fadeOut();
+                } 
+            });
+            
+        });
+    </script> 
+</head>
+<body> 
+
+<div id="renewal"> 
+    <div class="topBtn_area">
+        <div class="topBtn">
+            <a href="#renewal">TOP</a>
+        </div>
+    </div>
+    
+    <div class="gnb_area">
+        <div class="logo">
+            <div class="img_wrap"> 
+                <a href="https://campus.megastudy.net/" target="_blank"><img src="https://img.megastudy.net/campus/library/v2015/library/intro/main_logo.gif"  style="width:155px;" alt="" border="0" /></a>
+            </div>
+
+            <!-- 팀명추가 -->
+            <div class="team_name">
+                <p>웹서비스실 웹디자인1팀</p>
+            </div>
+        </div>
+        <div class="gnb">   
+            <div class="sub_btn">
+                <ul> 
+                    <li><a href="https://docs.google.com/presentation/d/10xXI4NLade9krOAAU6dCPQqDObJpL-90/edit#slide=id.p1" target="_blank">운영 메뉴얼</a></li>
+                </ul>
+            </div>
+ 
+        </div>
+    </div>
+
+    <div class="con_area">
+        <div class="lnb">
+            <div class="academy">
+                <ul>
+                    <li class="nav_01 on"><a href="#renewal">학원별 전체보기</a></li>
+                    <li><a href="#etc">- etc.</a></li>
+                    <li><a href="#gongtong">- 공통</a></li>
+                    <li><a href="#gangnam">- 강남 팀플전문관</a></li>
+                    <li><a href="#seocho">- 서초 의약학전문관</a></li>
+                    <li><a href="#gangbuk">- 강북</a></li>
+                    <li><a href="#noryangjin">- 노량진</a></li>
+                    <li><a href="#sinchon">- 신촌</a></li>
+                    <li><a href="#pyeongchon">- 평촌</a></li>
+                    <li><a href="#bucheon">- 부천</a></li>
+                    <li><a href="#bundang">- 분당</a></li>
+                    <li><a href="#ilsan">- 일산</a></li> 
+                    <li><a href="#yangji">- 양지본원</a></li>
+                    <li><a href="#yangjim">- 서초기숙</a></li>
+                    <li><a href="#seongbuk">- 성북재학</a></li>   
+                    <li><a href="#gangdong">- 강동재정/강동재학</a></li> 
+                    <li><a href="#yangju">- 양주재학</a></li>  
+                </ul>
+            </div> 
+        </div>
+
+        
+        <div class="cont_box"> 
+            <div class="year_box">
+                <div class="year_btn">
+                    <button>2017 History</button>
+                </div>
+
+                <div class="year_list">
+                    <ul>
+                        <li><a href="history_2025.html">2025 History</a></li> 
+                        <li><a href="history_2024.html">2024 History</a></li> 
+                        <li><a href="history_2023.html">2023 History</a></li> 
+                        <li><a href="history_2022.html">2022 History</a></li> 
+                        <li><a href="history_2021.html">2021 History</a></li> 
+                        <li><a href="history_2020.html">2020 History</a></li> 
+                        <li><a href="history_2019.html">2019 History</a></li> 
+                        <li><a href="history_2018.html">2018 History</a></li> 
+                        <li><a href="history_2017.html">2017 History</a></li> 
+                        <li><a href="history_2016.html">2016 History</a></li> 
+                    </ul>
+                </div>
+            </div> 
+
+            <select name="" id="sel_month" class="sel_box">
+                <option value="all">월별 전체보기</option>
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+
+
+            <div>
+                <ul class="cont_list">
+                    <!-- etc -->
+                    <li>
+                        <div class="cont_tit" id="etc">
+                            <h3>etc.</h3>
+                        </div>
+                        <div class="cont_block etc_box common"> 
+                            <div> 
+                                <h4>공지사항/설명회</h4>	
+                                <ul> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170207.jpg" target="_blank">2018 재수정규반 입학식</a>
+                                        <span>2017-02-07</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170207_m.jpg" target="_blank">MO</a></span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_sc_170207.jpg" target="_blank">서초기숙_2018 재수정규반 입학식</a><span>2017-02-07</span></li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170331.jpg" target="_blank">전국학원연합 모의고사</a>
+                                        <span>2017-03-31</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170510.jpg" target="_blank">2018학년도 주요대학 모집전형</a>
+                                        <span>2017-05-10</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170512.jpg" target="_blank">2018 대입반수 학습전략 설명회</a>
+                                        <span>2017-05-12</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170516.jpg" target="_blank">6월모평 설명회</a>
+                                        <span>2017-05-16</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170613.jpg" target="_blank">7월 메가스터디&대성학원 전국학원연합 모의고사</a>
+                                        <span>2017-06-13</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170627.jpg" target="_blank">2018 수시 합격 프로그램</a>
+                                        <span>2017-06-27</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170703.jpg" target="_blank">2018 수시지원전략 설명회</a>
+                                        <span>2017-07-03</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170712.jpg" target="_blank">서바이벌 모의고사</a>
+                                        <span>2017-07-12</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170904.jpg" target="_blank">9월모평 분석&과목별 해설지 다운로드</a>
+                                        <span>2017-09-04</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170914.jpg" target="_blank">2018학년도 수시지원대학 입력 안내</a>
+                                        <span>2017-09-14</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_170927.jpg" target="_blank">2018 수능대박 기원 원장단 마라톤 참가기</a>
+                                        <span>2017-09-27</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171012.jpg" target="_blank">논술고사장 응원 - 건대편</a>
+                                        <span>2017-10-12</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171017.jpg" target="_blank">수능 실전 모의체험</a>
+                                        <span>2017-10-17</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171017_m.jpg" target="_blank">MO</a></span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171020.jpg" target="_blank">2018학년도 수능가채점 설명회</a>
+                                        <span>2017-10-20</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171020_m.jpg" target="_blank">MO</a></span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171102.jpg" target="_blank">수능 D-Day 그뤠잇 VS 스튜핏</a>
+                                        <span>2017-11-02</span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171113.jpg" target="_blank">2018 합격예측 서비스</a>
+                                        <span>2017-11-13</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2017]/notice_171113_m.jpg" target="_blank">MO</a></span>
+                                    </li>
+                                </ul>
+        
+                                <h4>만족도 조사_Mobile</h4>	
+                                <ul>
+                                    <li><a href="http://tcampus.megastudy.net/popup/2017_survey/pop_survey.asp" target="_blank">2018 만족도조사 - 상반기</a><span>-</span></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </li>
+        
+                    <!-- 공통 -->
+                    <li>
+                        <div class="cont_tit" id="gongtong">
+                            <h3>공통</h3>
+                        </div>
+                        <ul class="cont_block common a_leng"> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2018_jaejung/index.asp" target="_blank">2018 재수정규반 게이트</a>
+                                <span class="date">2016-12-30</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/2018_jaejung.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/event/2018_exp/index.asp" target="_blank">융합형 재수정규반</a>
+                                <span class="date">2017-01-12</span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/2016_quantum_leap/quantum_leap.asp" target="_blank">기숙학원 순회설명회</a>
+                                <span class="date">2017-01-12</span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/2016_predict/PredictRecordMain.asp" target="_blank">2018 재수성공 성적예측 서비스</a>
+                                <span class="date">2017-01-20</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/2018_predict.asp" target="_blank">MO</a></span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/2018_concert/2018con.asp" target="_blank">2018 팀플콘서트 후기</a>
+                                <span class="date">2017-01-31</span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/2018_concert/index.asp" target="_blank">2018 팀플콘서트 - 사전예약 페이지</a>
+                                <span class="date">2017-01-31</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/jaehak/2017_susi/lec.asp" target="_blank">수시 논술 특강 - 수능 전</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/jaehak/2017_susi/lec2.asp" target="_blank">수시 논술 특강 - 수능 후</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/nsu/2018_bansu/bansu.asp" target="_blank">2018 2학기 개강반 게이트</a>
+                                <span class="date">-</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/2018_bansu.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/jaehak/2018_winter/index.asp" target="_blank">2018 윈터스쿨 게이트</a>
+                                <span class="date">2017-12-30</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/2018_winter.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/teamplay/info.asp" target="_blank">제8회 팀플장학 - 팀플장학생 선발안내</a>
+                                <span class="date">-</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/teamplay_info.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/predict_new/Predict.asp" target="_blank">2018 재수성공 성적예측서비스 - 리뉴얼</a>
+                                <span class="date">-</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/predict/2018_predict.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/teachergroup/teachergroup.asp" target="_blank">입시전문가</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2017_mta/mta_10.asp" target="_blank">MTA 2기</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2018_lte/2018_lte.asp" target="_blank">LTE 모의고사</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/day30/day30_math.asp" target="_blank">일일수학30제</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/jaehak/2018_susi/lec.asp" target="_blank">논술 특강</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/consult/consult.asp" target="_blank">대입컨설팅센터 소개</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2018_nonsul/nonsul_01.asp" target="_blank">논구술의 힘</a>
+                                <span class="date">-</span>
+                            </li>
+                            <li class="label">
+                                <a href="http://tcampus.megastudy.net/campus_common/nsu/2019_pre2/index.asp" target="_blank">2019 재수 우선선발반 게이트</a>
+                                <span class="date">2017-11-23</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/2019_pre2.asp" target="_blank">MO</a></span>
+                            </li> 
+                        </ul> 
+                    </li>
+        
+                    <!-- 강남 -->
+                    <li>
+                        <div class="cont_tit" id="gangnam">
+                            <h3>강남 팀플전문관</h3>
+                        </div>
+                        <ul id="gn_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 서초 -->
+                    <li>
+                        <div class="cont_tit" id="seocho">
+                            <h3>서초 의약학전문관</h3>
+                        </div>
+                        <ul id="scho_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 강북 -->
+                    <li>
+                        <div class="cont_tit" id="gangbuk">
+                            <h3>강북 <sup class="fz12" style="color:#797979;">강북재학, 2021-12-28 강북재종으로 통합</sup></h3> 
+                        </div>
+                        <ul id="gb_list" class="cont_block">
+                        </ul> 
+                    </li>
+                    
+                    <!-- 노량진 -->
+                    <li>
+                        <div class="cont_tit" id="noryangjin">
+                            <h3>노량진</h3>
+                        </div>
+                        <ul id="nrj_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 신촌 -->
+                    <li>
+                        <div class="cont_tit" id="sinchon">
+                            <h3>신촌</h3>
+                        </div>
+                        <ul id="schon_list" class="cont_block">
+                        </ul>
+                    </li> 
+
+                    <!-- 평촌 -->
+                    <li>
+                        <div class="cont_tit" id="pyeongchon">
+                            <h3>평촌</h3>
+                        </div>
+                        <ul id="pc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 부천 -->
+                    <li>
+                        <div class="cont_tit" id="bucheon">
+                            <h3>부천</h3>
+                        </div>
+                        <ul id="bc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 분당 -->
+                    <li>
+                        <div class="cont_tit" id="bundang">
+                            <h3>분당</h3>
+                        </div>
+                        <ul id="bd_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 일산 -->
+                    <li>
+                        <div class="cont_tit" id="ilsan">
+                            <h3>일산</h3>
+                        </div>
+                        <ul id="is_list" class="cont_block">
+                        </ul> 
+                    </li>
+  
+                    <!-- 양지본원 -->
+                    <li>
+                        <div class="cont_tit" id="yangji">
+                            <h3>양지본원</h3>
+                        </div>
+                        <ul id="yj_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 서초기숙 -->
+                    <li>
+                        <div class="cont_tit" id="yangjim">
+                            <h3>서초기숙</h3>
+                        </div>
+                        <ul id="sc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 성북재학 -->
+                    <li>
+                        <div class="cont_tit" id="seongbuk">
+                            <h3>성북재학</h3>
+                        </div>
+                        <ul id="sb_list" class="cont_block">
+                        </ul>  
+                    </li> 
+
+                    <!-- 강동재정/강동재학 -->
+                    <li>
+                        <div class="cont_tit" id="gangdong">
+                            <h3>강동재정/강동재학 <sup class="fz12" style="color:#797979;">2020-02-28/07-31 운영종료</sup></h3>
+                        </div>
+                        <ul id="gd_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 양주재학 -->
+                    <li>
+                        <div class="cont_tit" id="yangju">
+                            <h3>양주재학 <sup class="fz12" style="color:#797979;">2021-01-11 운영종료</sup></h3>
+                        </div>
+                        <ul id="yjj_list" class="cont_block">
+                        </ul> 
+                    </li>
+ 
+ 
+
+                </ul>
+            </div>
+    
+                
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="json/history_2017.json"></script>
+<script type="text/javascript" src="history_list.js"></script>
+
+</body>
+</html>

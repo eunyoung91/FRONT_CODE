@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메가스터디학원</title>
+
+    <link rel="stylesheet" type="text/css" href="https://campus.megastudy.net/library/css/common_new.css" />
+    <link rel="stylesheet" type="text/css" href="https://campus.megastudy.net/library/css/table.css" />
+    <link rel="stylesheet" type="text/css" href="../guide_renewal.css" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // 좌측 인디케이터
+            $('.academy li').on('click',function( ){
+                $(this).parents(".academy").find("li").removeClass("on");
+                $(this).addClass("on");  
+
+                // 학원별 메뉴 클릭시 타이틀 색상 변경
+                for ( i = 1; i < 17; i++ ) {
+                    if($('.academy li').eq(i).hasClass('on')){
+                        $('.cont_tit h3').eq(i-1).css({
+                            color : "#0082ff"
+                        }); 
+                    }else{
+                        $('.cont_tit h3').eq(i-1).css({
+                            color : "#575757"
+                        })
+                    }
+                } 
+                
+            });  
+            // 히스토리 페이지 이동 버튼
+            $('.year_btn').on('click',function(){
+                $(this).toggleClass('open');   
+                $('.year_list').toggleClass('open');
+
+            }); 
+            $('.gnb_area, .lnb, .cont_list').click(function(e){
+                if( $('.year_list').hasClass('open') ) $('.year_btn, .year_list').toggleClass('open');
+            });
+
+            // Top 버튼
+            $('.topBtn').hide();
+
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 100){
+                    $('.topBtn').fadeIn();
+                }
+                else{
+                    $('.topBtn').fadeOut();
+                } 
+            });
+            
+        });
+    </script> 
+</head>
+<body> 
+
+<div id="renewal"> 
+    <div class="topBtn_area">
+        <div class="topBtn">
+            <a href="#renewal">TOP</a>
+        </div>
+    </div>
+    
+    <div class="gnb_area">
+        <div class="logo">
+            <div class="img_wrap"> 
+                <a href="https://campus.megastudy.net/" target="_blank"><img src="https://img.megastudy.net/campus/library/v2015/library/intro/main_logo.gif"  style="width:155px;" alt="" border="0" /></a>
+            </div>
+
+            <!-- 팀명추가 -->
+            <div class="team_name">
+                <p>웹서비스실 웹디자인1팀</p>
+            </div>
+        </div>
+        <div class="gnb">   
+            <div class="sub_btn">
+                <ul> 
+                    <li><a href="https://docs.google.com/presentation/d/10xXI4NLade9krOAAU6dCPQqDObJpL-90/edit#slide=id.p1" target="_blank">운영 메뉴얼</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+
+    <div class="con_area">
+        <div class="lnb">
+            <div class="academy">
+                <ul>
+                    <li class="nav_01 on"><a href="#renewal">학원별 전체보기</a></li>
+                    <li><a href="#etc">- etc.</a></li>
+                    <li><a href="#gongtong">- 공통</a></li>
+                    <li><a href="#gangnam">- 강남 팀플전문관</a></li>
+                    <li><a href="#seocho">- 서초 의약학전문관</a></li>
+                    <li><a href="#gangbuk">- 강북</a></li>
+                    <li><a href="#noryangjin">- 노량진</a></li>
+                    <li><a href="#sinchon">- 신촌</a></li>
+                    <li><a href="#pyeongchon">- 평촌</a></li>
+                    <li><a href="#bucheon">- 부천</a></li>
+                    <li><a href="#bundang">- 분당</a></li>
+                    <li><a href="#ilsan">- 일산</a></li>
+                    <li><a href="#songpa">- 송파</a></li>
+                    <li><a href="#yangji">- 양지기숙</a></li>
+                    <li><a href="#yangjim">- 서초기숙</a></li>
+                    <li><a href="#ansung">- 안성기숙</a></li> 
+                    <li><a href="#seongbuk">- 성북재학</a></li> 
+                </ul>
+            </div> 
+        </div>
+
+        
+        <div class="cont_box"> 
+            <div class="year_box">
+                <div class="year_btn">
+                    <button>2024 History</button>
+                </div>
+
+                <div class="year_list">
+                    <ul>
+                        <li><a href="history_2025.html">2025 History</a></li> 
+                        <li><a href="history_2024.html">2024 History</a></li> 
+                        <li><a href="history_2023.html">2023 History</a></li> 
+                        <li><a href="history_2022.html">2022 History</a></li> 
+                        <li><a href="history_2021.html">2021 History</a></li> 
+                        <li><a href="history_2020.html">2020 History</a></li> 
+                        <li><a href="history_2019.html">2019 History</a></li> 
+                        <li><a href="history_2018.html">2018 History</a></li> 
+                        <li><a href="history_2017.html">2017 History</a></li> 
+                        <li><a href="history_2016.html">2016 History</a></li> 
+                    </ul>
+                </div>
+            </div> 
+
+            <select name="" id="sel_month" class="sel_box">
+                <option value="all">월별 전체보기</option>
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+
+
+            <div>
+                <ul class="cont_list">
+                    <!-- etc -->
+                    <li>
+                        <div class="cont_tit" id="etc">
+                            <h3>etc.</h3>
+                        </div>
+                        <div class="cont_block etc_box common"> 
+                            <div> 
+                                <h4>공지사항/설명회</h4>	
+                                <ul>	 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_6mo_240530.png" target="_blank">2025 6월 모평 분석 설명회</a>
+                                        <span class="date">2024-05-27</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_6mo_240530_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_susi_apply_240617.png" target="_blank">2025 수시지원전략 설명회</a>
+                                        <span class="date">2024-06-17</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_susi_apply_240617_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_teacher_apply_240716.png" target="_blank">2025 재수종합반 강사 공개선발</a>
+                                        <span class="date">2024-07-16</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_teacher_apply_240716_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/test/notice_240906.html" target="_blank">2025 수능 실전 모의체험</a>
+                                        <span class="date">2024-09-10</span>
+                                        <span class="mob_btn"><a href="https://tmcampus.megastudy.net/test/notice_240906.html" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_pre_score_241025.png" target="_blank">2025 수능 가채점 설명회</a>
+                                        <span class="date">2024-10-25</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_pre_score_241025_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/test/notice_241107.html" target="_blank">2025 정시 합격예측 서비스</a>
+                                        <span class="date">2024-11-14</span>
+                                        <span class="mob_btn"><a href="https://tmcampus.megastudy.net/test/notice_241107.html" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_jungsi_241119.png" target="_blank">2025 정시 최종지원전략 설명회</a>
+                                        <span class="date">2024-11-19</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/notice_2025_jungsi_241119_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                </ul>
+        
+                                <h4>팝업</h4>
+                                <ul>   
+                                    <li>
+                                        <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/popup_seocho_240126.png" target="_blank">[서초재종] 성적을 부탁해</a>
+                                        <span class="date">2024-01-26</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/popup_seocho_m_240126.png" target="_blank">MO</a></span>
+                                    </li>
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_is_240208.png" target="_blank">[일산재종] 2022~2024학년도 누적 입시결과</a>
+                                        <span>2024-02-08</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_is_m_240208.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_as_240620.png" target="_blank">[안성기숙] 고1,2 대학 입시 설명회</a>
+                                        <span>2024-06-20</span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_as_240709.png" target="_blank">[안성기숙] 2025 안성맞춤 수시지원전략 설명회</a>
+                                        <span>2024-07-12</span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_yj_240725.png" target="_blank">[양지기숙] 이승효 강사 전격 출강</a>
+                                        <span>2024-07-25</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_yj_m_240725.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tsinchon.megastudy.net/sinchon/main_0819.asp" target="_blank">[신촌재종] 2025 경찰대학&사관학교 홍보 레이어</a>
+                                        <span>2024-08-20</span>
+                                        <span class="mob_btn"><a href="https://tmsinchon.megastudy.net/sinchon/main_0819.asp" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_bc_240905.png" target="_blank">[인트로/부천재종] 9월 모평 만점자 홍보 레이어</a>
+                                        <span>2024-09-05</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_bc_240905_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_cheering_241015.png" target="_blank">[인트로] 2025 수능 응원 영상 레이어</a>
+                                        <span>2024-10-15</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_popup_cheering_241015_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/gn_layer_241030.png" target="_blank">[강남재종] 통합 이전 안내 레이어</a>
+                                        <span>2024-10-30</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/gn_layer_241030_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_layer_241101.png" target="_blank">[인트로] 수준별 맞춤학습시스템 티저 레이어</a>
+                                        <span>2024-11-04</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_layer_241101_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tyangji.megastudy.net/yangji/main_241115.asp?refer=" target="_blank">[양지기숙] 최상위권 전문관 레이어</a>
+                                        <span>2024-11-15</span>
+                                        <span class="mob_btn"><a href="https://tmyangji.megastudy.net/yangji/main_241115.asp?refer=" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tseochob.megastudy.net/yangjim/main_241115.asp?refer=" target="_blank">[서초기숙] 자연계 전문관 레이어</a>
+                                        <span>2024-11-15</span>
+                                        <span class="mob_btn"><a href="https://tmseochob.megastudy.net/yangjim/main_241115.asp?refer=" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tansung.megastudy.net/ansung/main_241209.asp" target="_blank">[안성기숙] 통합 폐원 안내 레이어</a>
+                                        <span>2024-11-21</span>
+                                        <span class="mob_btn"><a href="https://tmansung.megastudy.net/ansung/main.asp" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/yangjim_layer_241210.png" target="_blank">[자연계 전문관] 홍보 레이어</a>
+                                        <span>2024-12-10</span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/seocho_layer_241213.png" target="_blank">[서초재종] 통합 안내 레이어</a>
+                                        <span>2024-12-13</span>
+                                        <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/seocho_layer_241213_m.png" target="_blank">MO</a></span>
+                                    </li> 
+                                    <li><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/yangjim_layer_241219.png" target="_blank">[자연계 전문관] 홍보 레이어 수정</a>
+                                        <span>2024-12-19</span>
+                                    </li>  
+                                </ul>
+        
+                                <h4>만족도 조사_Mobile</h4>
+                                <ul>  
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240107_survey" target="_blank">2024 재수종합반 3차 만족도 조사</a><span>2024-01-08</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240108_survey" target="_blank">2024 퍼플반 3차 만족도 조사</a><span>2024-01-08</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240126_survey/" target="_blank">2024 윈터스쿨 만족도 조사</a><span>2024-01-26</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240202_survey/" target="_blank">2025 재수 우선선발반 만족도 조사</a><span>2024-02-02</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240424_survey/" target="_blank">2025 재수종합반 1차 만족도 조사</a><span>2024-04-24</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240425_survey/" target="_blank">2025 퍼플반 1차 만족도 조사</a><span>2024-04-24</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240816_survey/" target="_blank">2025 재수종합반 2차 만족도 조사</a><span>2024-08-09</span></li> 
+                                    <li><a href="https://mcampus.megastudy.net/survey/20240817_survey/" target="_blank">2025 퍼플반 2차 만족도 조사</a><span>2024-08-09</span></li> 
+                                </ul> 
+
+                                <h4>리뉴얼</h4>
+                                <ul>
+                                    <li>
+                                        <a href="https://tseocho.megastudy.net/seocho/nsu/main_n.asp" target="_blank">[N수통학] 홈페이지 메인 리뉴얼</a><span>2024-12-30</span>
+                                        <span class="mob_btn"><a href="https://tmseocho.megastudy.net/seocho/nsu/main_n.asp" target="_blank">MO</a></span>
+                                    </li>  
+                                    <li>
+                                        <a href="https://mseocho.megastudy.net/seocho/nsu/class/2026/2026_nsu_regular/index.asp?tab=edu-semi93" target="_blank">[N수 정규반] 모집페이지 MO</a><span>2024-12-23</span> 
+                                    </li> 
+                                    <li>
+                                        <a href="https://seocho.megastudy.net/campus_common/campus/teacherN.asp" target="_blank">[N수통학] 선생님 소개 리뉴얼</a><span>2024-12-30</span>
+                                        <span class="mob_btn"><a href="https://mseocho.megastudy.net/teacher/teacherN.asp" target="_blank">MO</a></span>
+                                    </li>   
+                                </ul>
+ 
+                            </div>
+                        </div> 
+                    </li>
+        
+                    <!-- 공통 -->
+                    <li>
+                        <div class="cont_tit" id="gongtong">
+                            <h3>공통</h3>
+                        </div>
+                        <ul class="cont_block common a_leng"> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_369pass/index.asp" target="_blank">369 맞춤합격시스템</a>
+                                <span class="date">2024-01-19</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_369pass/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_quel/index.asp" target="_blank">QUEL 모의고사</a>
+                                <span class="date">2024-01-24</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_quel/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_waffle/index.asp" target="_blank">와플 플래너</a>
+                                <span class="date">2024-01-26</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_waffle/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_su/index.asp" target="_blank">秀 모의고사</a>
+                                <span class="date">2024-01-30</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_su/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_weekplanner/" target="_blank">주간완전학습 플래너</a>
+                                <span class="date">2024-02-06</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_weekplanner/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/2025_emg_concert/index.asp" target="_blank">긴급! 의대증원에 따른 입시판도분석 설명회</a>
+                                <span class="date">2024-02-07</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/2025_emg_concert/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_map/index.asp" target="_blank">MAP</a>
+                                <span class="date">2024-02-08</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_map/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_math30/index.asp" target="_blank">일일수학 30제</a>
+                                <span class="date">2024-02-08</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_math30/index.asp" target="_blank">MO</a></span>
+                            </li> 
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_megamentor/index.asp" target="_blank">메가멘토란?</a>
+                                <span class="date">2024-02-22</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_megamentor/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2024/2024_sp_megamentor/index.asp" target="_blank">우수 메가멘토</a>
+                                <span class="date">2024-02-22</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/nsu/2024/2024_sp_megamentor/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_goosul/" target="_blank">구술의 힘</a>
+                                <span class="date">2024-02-26</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_goosul/" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_nonsul/" target="_blank">논술의 힘</a>
+                                <span class="date">2024-02-26</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_nonsul/" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_quel_unit/index.asp" target="_blank">QUEL:UNIT</a>
+                                <span class="date">2024-02-28</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_quel_unit/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/teamplay/interview/2024/index.asp" target="_blank">재수성공스토리</a>
+                                <span class="date">2024-02-28</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/teamplay/interview/2024/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_premium/index.asp" target="_blank">메가X대성 더 프리미엄 모의고사</a>
+                                <span class="date">2024-02-29</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_premium/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_team/" target="_blank">팀플장학생 공개(덕분에)</a>
+                                <span class="date">2024-03-06</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_team/" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/teamplay/info/intro_2024.asp" target="_blank">메가스터디 팀플이란</a>
+                                <span class="date">2024-03-08</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/teamplay/info/intro_2024.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2025/2025_half_gate/index.asp" target="_blank">2025 반수시작반 게이트</a>
+                                <span class="date">2024-04-01</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2025/2025_half_gate/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label gongtong">
+                                <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/2025_megapass_240402.jpg" target="_blank">2025 메가패스 컨셉변경</a>
+                                <span class="date">2024-04-02</span>
+                                <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/2025_megapass_240402_m.jpg" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_smart_report/index.asp" target="_blank">메가 스마트 리포트</a>
+                                <span class="date">2024-04-05</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_smart_report/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/2024_su_exam/index.asp" target="_blank">秀 모의고사 체험 프로모션</a>
+                                <span class="date">2024-04-23</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/2024_su_exam/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_admis_expert/index.asp" target="_blank">입시전문가 홍보 페이지</a>
+                                <span class="date">2024-04-30</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_admis_expert/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/nsu/2024/2024_megamentor_22/index.asp" target="_blank">우수 메가멘토(update)</a>
+                                <span class="date">2024-05-16</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/nsu/2024/2024_megamentor_22/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2025/2025_teamplay/index.asp" target="_blank">2025학년도 팀플장학 안내 페이지</a>
+                                <span class="date">2024-05-31</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2025/2025_teamplay/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/202407_su_exam/index.asp" target="_blank">秀 모의고사 체험 프로모션(240720 시행)</a>
+                                <span class="date">2024-07-20</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/202407_su_exam/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2025/2025_winter_gate/index.asp" target="_blank">2025 윈터스쿨 게이트</a>
+                                <span class="date">2024-07-19</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2025/2025_winter_gate/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label gongtong">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_weekplanner_2/index.asp" target="_blank">주간완전학습 플래너 업데이트</a>
+                                <span class="date">2024-07-12</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_weekplanner_2/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label gongtong">
+                                <a href="https://tcampus.megastudy.net/common/notice/recruit_process.asp" target="_blank">2025 유형별 수시모집 전형</a>
+                                <span class="date">2024-07-19</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/common/notice/recruit_process.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/202408_su_exam/index.asp" target="_blank">秀 모의고사 체험 프로모션 예약_08/17(토) 시행</a>
+                                <span class="date">2024-07-30</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/202408_su_exam/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2025/2025_final_gate/index.asp" target="_blank">2025 수능 파이널 문제풀이반 게이트</a>
+                                <span class="date">2024-08-12</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2025/2025_final_gate/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_e_quel/index.asp" target="_blank">E-QUEL 모의고사 홍보 페이지</a>
+                                <span class="date">2024-09-04</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_e_quel/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/2024_winter_learning/index.asp" target="_blank">겨울방학 학습전략 설명회</a>
+                                <span class="date">2024-09-26</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/2024_winter_learning/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/202410_su_exam/index.asp" target="_blank">秀 모의고사 체험 프로모션(241019 시행)</a>
+                                <span class="date">2024-10-19</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/202410_su_exam/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2026/2026_nsufirst_gate/index.asp" target="_blank">2026 N수 우선반 게이트</a>
+                                <span class="date">2024-11-01</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2026/2026_nsufirst_gate/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2024/2024_custom_pass/index.asp" target="_blank">수준별 맞춤학습시스템 홍보 페이지</a>
+                                <span class="date">2024-11-14</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2024/2024_custom_pass/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_banner_241114.png" target="_blank">수능일 전후 홍보 배너</a>
+                                <span class="date">2024-11-14</span>
+                                <span class="mob_btn"><a href="https://tcampus.megastudy.net/library/v2015/library/history/[2024]/intro_banner_241114_m.png" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label gongtong">
+                                <a href="https://tcampus.megastudy.net/campus_common/2025/2025_teamplay_step/index.asp" target="_blank">팀플장학 1차 서류 제출</a>
+                                <span class="date">2024-12-06</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2025/2025_teamplay_step/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label gongtong">
+                                <a href="https://tcampus.megastudy.net/test/notice_241126.html" target="_blank">2026 메가패스 재원생 할인 혜택 홍보 페이지</a>
+                                <span class="date">2024-11-29</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/test/notice_241126.html" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/campus_common/2026/2026_nsu_regular_gate/index.asp" target="_blank">2026 N수 정규반 게이트</a>
+                                <span class="date">2024-12-23</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/campus_common/2026/2026_nsu_regular_gate/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                            <li class="label">
+                                <a href="https://tcampus.megastudy.net/event/2026_early/index.asp" target="_blank">2026 N수 우선반 통합 설명회 게이트</a>
+                                <span class="date">2024-12-18</span>
+                                <span class="mob_btn"><a href="https://tmcampus.megastudy.net/event/2026_early/index.asp" target="_blank">MO</a></span>
+                            </li>  
+                        </ul> 
+                    </li>
+        
+                    <!-- 강남 -->
+                    <li>
+                        <div class="cont_tit" id="gangnam">
+                            <h3>강남 팀플전문관 → 강남 <sup class="fz12" style="color:#797979;">2024-11-15 학원명 변경</sup></h3>
+                        </div>
+                        <ul id="gn_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 서초 -->
+                    <li>
+                        <div class="cont_tit" id="seocho">
+                            <h3>서초 의약학전문관 → 서초 <sup class="fz12" style="color:#797979;">2024-11-15 학원명 변경</sup></h3>
+                        </div>
+                        <ul id="scho_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 강북 -->
+                    <li>
+                        <div class="cont_tit" id="gangbuk">
+                            <h3>강북</h3> 
+                        </div>
+                        <ul id="gb_list" class="cont_block">
+                        </ul> 
+                    </li>
+                    
+                    <!-- 노량진 -->
+                    <li>
+                        <div class="cont_tit" id="noryangjin">
+                            <h3>노량진</h3>
+                        </div>
+                        <ul id="nrj_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 신촌 -->
+                    <li>
+                        <div class="cont_tit" id="sinchon">
+                            <h3>신촌</h3>
+                        </div>
+                        <ul id="schon_list" class="cont_block">
+                        </ul>
+                    </li> 
+
+                    <!-- 평촌 -->
+                    <li>
+                        <div class="cont_tit" id="pyeongchon">
+                            <h3>평촌</h3>
+                        </div>
+                        <ul id="pc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 부천 -->
+                    <li>
+                        <div class="cont_tit" id="bucheon">
+                            <h3>부천</h3>
+                        </div>
+                        <ul id="bc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 분당 -->
+                    <li>
+                        <div class="cont_tit" id="bundang">
+                            <h3>분당</h3>
+                        </div>
+                        <ul id="bd_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 일산 -->
+                    <li>
+                        <div class="cont_tit" id="ilsan">
+                            <h3>일산</h3>
+                        </div>
+                        <ul id="is_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 송파 -->
+                    <li>
+                        <div class="cont_tit" id="songpa">
+                            <h3>송파</h3>
+                        </div>
+                        <ul id="sp_list" class="cont_block">
+                        </ul> 
+                    </li>
+    
+                    <!-- 양지기숙 -->
+                    <li>
+                        <div class="cont_tit" id="yangji">
+                            <h3>양지기숙 → 최상위권 전문관 <sup class="fz12" style="color:#797979;">2024-11-15 학원명 변경</sup></h3>
+                        </div>
+                        <ul id="yj_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 서초기숙 -->
+                    <li>
+                        <div class="cont_tit" id="yangjim">
+                            <h3>서초기숙 → 자연계 전문관 <sup class="fz12" style="color:#797979;">2024-11-15 학원명 변경</sup></h3>
+                        </div>
+                        <ul id="sc_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 안성기숙 -->
+                    <li>
+                        <div class="cont_tit" id="ansung">
+                            <h3>안성기숙 → 운영종료 <sup class="fz12" style="color:#797979;">2024-12</sup></h3>
+                        </div>
+                        <ul id="as_list" class="cont_block">
+                        </ul> 
+                    </li>
+
+                    <!-- 성북재학 -->
+                    <li>
+                        <div class="cont_tit" id="seongbuk">
+                            <h3>성북재학</h3>
+                        </div>
+                        <ul id="sb_list" class="cont_block">
+                        </ul>  
+                    </li>
+
+                </ul>
+            </div>
+    
+                
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="json/history_2024.json"></script>
+<script type="text/javascript" src="history_list.js"></script>
+
+</body>
+</html>

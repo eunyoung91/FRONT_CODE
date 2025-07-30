@@ -1,0 +1,233 @@
+/* 2023 히스토리 페이지 리뉴얼 */ 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap'); 
+
+* {margin:0;padding:0;box-sizing: border-box;}
+html{scroll-behavior: smooth;scroll-padding-top: 120px;}
+body{width: 100%;padding:0;margin:0;font-family: "Noto Sans KR", sans-serif;} 
+
+/* top 버튼 */
+.topBtn_area {position:relative;z-index:99999;}
+.topBtn_area .topBtn {position:fixed;bottom:25px;right:9px;}
+.topBtn_area .topBtn a{
+    display: block;width:45px;height:45px;
+    border: 1.5px solid #575757;border-radius:50%;
+    color:#575757;font-weight: bold;
+    text-align: center; line-height: 42px;
+}
+.topBtn_area .topBtn a:hover{background-color: #575757;color:#fff;transition: .3s;}
+
+/* select */
+.sel_box{
+    float:right;width:140px;height:40px;margin-top:60px;margin-right:60px;
+    border-radius: 5px; 
+    background:#fff url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/select_v.png') 90% 50% no-repeat; 
+    appearance: none;  -webkit-appearance: none; -moz-appearance: none; outline: none; cursor: pointer; padding-right:20px;
+    color: #6d6d6d;font-size: 16px;font-family: "Noto Sans KR";font-weight: 450;text-align: center;  
+} 
+.sel_box:focus{
+    border: 1px solid #0082ff;
+    background:#fff url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/select_up.png') 90% 50% no-repeat; 
+} 
+select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+}  
+  
+#renewal {position:relative;width:100%;height:auto;margin:0 auto;}
+#renewal .gnb_area {position:fixed;z-index:999;width:100%;height:auto;border-bottom: 1.5px solid #e1e4e6;background-color:#fff; box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);}
+#renewal .gnb_area .logo{width:10%;height:100%;}
+#renewal .gnb_area .logo img{margin: 25px auto;padding-left:30px;text-align: center;}
+
+/* 팀명 */
+#renewal .gnb_area .logo .team_name {display: inline-block; position: absolute; top:30px; left:230px;}
+#renewal .gnb_area .logo .team_name p{font-weight: bold; font-size: 15px; color: #5c5c5c;;}
+ 
+/* 운영메뉴얼 버튼 */
+#renewal .gnb_area .gnb .sub_btn{position:absolute;top:27px;right:60px;}
+#renewal .gnb_area .gnb .sub_btn li{color: #575757;font-size: 20px;}
+#renewal .gnb_area .gnb .sub_btn li a:hover{color:#0082ff;font-weight: bold;transition: all .3s;}
+
+/* 콘텐츠 영역 */
+#renewal .con_area {display: flex;position:absolute;z-index: 1;width:100%;height:auto;margin:0 auto;margin-top:81.5px;}
+
+/* lnb */ 
+#renewal .con_area .lnb{
+    position:fixed;z-index:99;width:230px;height:100%;
+    border-right: 1.5px solid #e1e4e6;background-color: #fff; 
+}
+#renewal .con_area .lnb .academy{position:fixed;top: 83px;left: 5px;padding-top: 50px;} 
+#renewal .con_area .lnb .academy ul{padding-left:25px;}
+#renewal .con_area .lnb .academy li{height:35px;padding-left:24px;font-size: 16px;}
+#renewal .con_area .lnb .academy li a{margin-top:25px;line-height: 35px;}
+#renewal .con_area .lnb .academy li.on{color:#0082ff;font-weight: bold;}
+#renewal .con_area .lnb .academy li.nav_01{padding-left:0px;margin-bottom:10px;font-weight: bold;font-size: 18px;text-align: center;}
+#renewal .con_area .lnb .academy li:nth-child(1){padding-bottom:45px;border-bottom:2px solid #eff1f2;}
+
+/* 팀명 추가 */
+/* #renewal .con_area .lnb .team_name {position: fixed; bottom:3%; width:230px;}
+#renewal .con_area .lnb .team_name p{font-weight: bold; font-size: 15px; padding-left:33px;} */
+  
+
+#renewal .con_area .cont_box {width:100%;min-width: 1600px;height:auto;margin-left:230px;background-color:#f0f0f0;} 
+#renewal .con_area .cont_box > div{display: block;width:100%;height:auto;padding-left:60px;}   
+#renewal .con_area .cont_box .cont_list{display: flex;flex-flow: row wrap;width:100%;height:auto;padding-top:55px;}    
+#renewal .con_area .cont_box .cont_list > li{display: flex;width:33%;min-width: 374px;height:auto;}    
+#renewal .con_area .cont_box .cont_list .cont_block{
+    width:91%;margin-top:50px;margin-right: 55px;margin-bottom:100px; 
+    border: 2px solid #dcdcdc;border-radius:15px; box-shadow: -2px 0px 10px rgba(0, 0, 0, .1); background-color: #fff; 
+} 
+
+#renewal .con_area .cont_box .cont_list .cont_tit h3{position:absolute;padding-left:20px;margin-bottom: 15px; width: 450px; color:#575757;font-size: 23px;font-weight: bold;} 
+#renewal .con_area .cont_box .cont_list .cont_tit h3.tit_on{color:#0082ff;} 
+#renewal .con_area .cont_box .cont_list .cont_tit h3::before{
+    display: block;position:absolute;content: '';z-index:2;top:10px;left:0px;
+    width: 16px;height:16px;
+    background: url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/square.png') 50% 0 no-repeat;
+} 
+#renewal .con_area .cont_box .cont_list .cont_block li{height:50px;border-bottom: 2px dotted #e1e4e6;font-size: 15px;line-height: 51px;}   
+#renewal .con_area .cont_box .cont_list .cont_block li:last-child{border-bottom: none;}    
+
+/* 모집명이 두 줄 넘어갈 때 - class 추가 => .lh16 */
+#renewal .con_area .cont_box .cont_list .cont_block li.lh16 {padding-top:8px; line-height: 16px;}
+#renewal .con_area .cont_box .cont_list .cont_block li.lh16 > span{top:17px;}   
+
+#renewal .con_area .cont_box .cont_list .cont_block li:first-child{border-radius: 15px 15px 0 0 !important;} 
+#renewal .con_area .cont_box .cont_list .cont_block li > a{display:block;width:280px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;} 
+#renewal .con_area .cont_box .cont_list .cont_block.a_leng li > a{width:230px !important;}  
+#renewal .con_area .cont_box .cont_list .cont_block li a:hover{text-decoration: underline;} 
+ /*etc  */
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box {} 
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li {position:relative;height:37px !important;padding:3px 0 3px 20px;border-bottom: 0px !important;line-height:40px;}
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li:last-child {margin-bottom: 10px;}
+
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box h4{height:60px;padding-left:20px;background-color: #e2e2e2; font-size: 17px;font-weight: bold;line-height:58px;} 
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box h4:first-child{border-radius: 13px 13px 0 0;} 
+  
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li > span{
+    display: block;position:absolute;float:right;top:2px;right:20px;
+    color:#797979;font-size: 13px;font-weight: 300;
+}   
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li > span.mob_btn{
+    display: block;position:absolute;top:24%;right:19.5%;
+    border: 1.5px solid #23b9da;border-radius: 5px;background-color: #fff;color:#23b9da;line-height: 1.8em;
+}  
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li > span.mob_btn a {width:40px;height:20px;margin: 0 auto;padding:0 10px;font-size: 15px;font-weight:bold;text-decoration: none;}
+#renewal .con_area .cont_box .cont_list .cont_block.etc_box li > span.mob_btn:hover {background-color:#23b9da;color:#fff;transition:all .15s;}
+
+/* 라벨_인트로(default) */  
+.cont_box li.label {position:relative;z-index:2;padding-left:83px;line-height: 1.7em;}
+.cont_box li.label:before{
+    display: block;
+    content: '인트로';
+    position:absolute; 
+    /* top:16px; left:20px; */
+    top:34%; left:4%; z-index:1;
+    width:50px; height:20px;
+    padding:1px;
+    border-radius: 20px; 
+    background-color: #ff9417; 
+    color:#fff; font-size: 12px; font-weight: bold;  
+    text-align: center; line-height:1.5em;
+}
+/* 공통 라벨 */  
+.cont_box li.label.gongtong:before { 
+    content: '공통'; 
+    background-color: #af86ea;  
+}
+/* 모집  */ 
+.cont_box li.label.mojip:before{ 
+    content: '모집'; 
+    background-color: #4c8be9;  
+}
+/* 단과 라벨 */ 
+.cont_box li.label.danka:before{ 
+    content: '단과'; 
+    background-color: #ef5ea4;  
+}
+/* 연합 라벨 */ 
+.cont_box li.label.yeonhap:before{ 
+    content: '연합'; 
+    background-color: #ef5ea4;   
+}
+/* 학원별 특별 콘텐츠 라벨 */  
+.cont_box li.label.contt:before{ 
+    content: '콘텐츠'; 
+    background-color: #5bbb41;  
+}
+
+
+.cont_block {display:table;}
+.no_result {display:table-cell; text-align:center; vertical-align:middle;}
+
+/* 연도 */
+.cont_block > li > span{display: block;position:absolute;top:0px;right:20px;float:right;color:#797979;font-size: 13px;font-weight: 300;}   
+ 
+/* 모바일 버튼 */
+#renewal .con_area .cont_box .cont_list .cont_block li span.mob_btn {
+    display: block;position:absolute;
+    /* top:14px;right:93px; */
+    top:28%;right:19.5%;
+    border: 1.5px solid #23b9da;border-radius: 5px;background-color: #fff;color:#23b9da;line-height: 1.8em;
+}
+#renewal .con_area .cont_box .cont_list .cont_block li span.mob_btn a{width:40px;height:20px;margin: 0 auto;padding:0 10px;font-size: 15px;font-weight:bold;text-decoration: none;}
+#renewal .con_area .cont_box .cont_list .cont_block li span.mob_btn:hover{background-color:#23b9da;color:#fff;transition:all .15s;} 
+
+
+ /* history 연도 버튼 */
+#renewal .con_area .cont_box .year_box{position:relative;} 
+#renewal .con_area .cont_box .year_btn button{ 
+    display:block;position:absolute;top:55px;left:10px;
+    width:300px;height: 40px; 
+    font-family: "Noto Sans KR";font-size: 33px;font-weight: bold; 
+} 
+#renewal .con_area .cont_box button.year_btn::after{
+    display: block;position:absolute;top: 27px;left: 20px;content: '';z-index:2;
+    width: 20px;height:12px;
+    background: url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/renewal/Triangle.png') 50% 0 no-repeat; 
+} 
+#renewal .con_area .cont_box .year_btn.open button::after{
+    background: url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/renewal/Triangle_up.png') 50% 0 no-repeat;     
+}
+ 
+#renewal .con_area .cont_box .year_list {position:relative;z-index:9999; }
+#renewal .con_area .cont_box .year_list ul {
+    display:none;position:absolute;top:110px;left:0; overflow-y:scroll;
+    width:225px;height:260px;padding:15px;
+    border: 1.5px solid #e1e4e6;border-radius: 5px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, .25); background-color: #fff;text-align: center;
+}  
+#renewal .con_area .cont_box .year_list.open ul{display:block;}
+
+#renewal .con_area .cont_box .year_list ul li{padding:5px 0;color:#797979;font-size:16px;line-height: 1.8em;}
+/* #renewal .con_area .cont_box .year_list ul li:last-child{border-bottom: none;padding:10px 0 5px 0;} */
+#renewal .con_area .cont_box .year_list ul li a:hover{color:#0082ff;font-weight: bold;transition: all .3s;}
+ 
+
+/* year_btn scrollbar custom */
+#renewal .con_area .cont_box .year_btn button::after{
+    display: block;position:absolute;top:23px;right:10px;content: '';z-index:2;
+    width: 20px;height:12px;
+    background: url('http://tcampus.megastudy.net/library/v2015/library/campus_common/guide/renewal/Triangle.png') 50% 0 no-repeat;
+}   
+/* #renewal .gnb_area .gnb .year_btn.open button::after{transform: rotate(-180deg);transition: all .2s;} */
+#renewal .con_area .cont_box .year_btn.open button::after{
+    background: url('<%=Application("img_path")%>/library/campus_common/guide/renewal/Triangle_up.png') 50% 0 no-repeat; 
+}  
+#renewal .con_area .cont_box .year_list ul::-webkit-scrollbar {
+    width: 30px; 
+}
+
+#renewal .con_area .cont_box .year_list ul::-webkit-scrollbar-track { 
+    border-radius: 15px;   
+    background:transparent;
+}
+
+#renewal .con_area .cont_box .year_list ul::-webkit-scrollbar-thumb {
+    height: 17%; 
+    border: 12px solid #fff;
+    border-radius: 15px;   
+    background-color: #c1c1c1; 
+} 
+#renewal .con_area .cont_box .year_btn.open button::after{
+    background: url('https://img.megastudy.net/campus/library/v2015/library/campus_common/guide/renewal/Triangle_up.png') 50% 0 no-repeat; 
+}

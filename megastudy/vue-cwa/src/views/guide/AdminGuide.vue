@@ -14,6 +14,157 @@
 
             <div class="main-content">
 
+
+                <h1>검색 영역</h1>
+                <div class="search-area">
+                    <div class="search-area-inner">
+                        <div>
+                            <div>&bull; 분류</div>
+                            <div>
+                                <select v-model="form.kind">
+                                    <option value="">전체</option>
+                                    <option value="3">최종 관리자</option>
+                                    <option value="1">권한 관리자</option>
+                                    <option value="2">일반 관리자</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 소속</div>
+                            <div>
+                                <select v-model="form.ccode">
+                                    <option value="">전체</option>
+                                    <option value="B">본사</option>
+                                    <option value="CD0001">강남</option>
+                                    <option value="CD0004">서초</option>
+                                    <option value="CD0005">강북</option>
+                                    <option value="CD0006">노량진</option>
+                                    <option value="CD0036">신촌</option>
+                                    <option value="CD0275">송파</option>
+                                    <option value="CD0179">평촌</option>
+                                    <option value="CD0098">성북</option>
+                                    <option value="CD0039">자연계 전문관</option>
+                                    <option value="CD0178">최상위권 전문관</option>
+                                    <option value="CD0279">안성기숙</option>
+                                    <option value="CD0250">부천</option>
+                                    <option value="CD0252">분당</option>
+                                    <option value="CD0254">일산</option>
+                                    <option value="CD0262">대입컨설팅센터</option>
+                                    <option value="CD0281">바른길 입시컨설팅</option>
+                                    <option value="CD0277">테스트 학원</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 구분</div>
+                            <div>
+                                <select v-model="form.ccode2">
+                                    <option value="">전체</option>
+                                    <option value="nsu">재종</option>
+                                    <option value="jaehak">연합</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 승인상태</div>
+                            <div>
+                                <select v-model="form.search_mode">
+                                    <option value="">전체</option>
+                                    <option value="N">대기</option>
+                                    <option value="Y">완료</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 검색</div>
+                            <div>
+                                <select v-model="form.keyfield">
+                                    <option value="mn_name">이름</option>
+                                    <option value="mn_id">아이디</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input
+                                    v-model="form.keyword"
+                                    type="text"
+                                    class=""
+                                    size="20"
+                                    @keypress.enter.prevent="formSubmit('sbtn', 1)"
+                                />
+                            </div>
+                            <div>
+                                <button type="button" class="btn-01" @click="formSubmit('sbtn', 1)">검색</button>
+                                <button type="button" class="btn-01" @click="resetForm">취소</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div>&bull; 기간</div>
+                            <div>
+                                <button type="button" class="btn-01" @click="setDateRange('ww', -1)">1주일</button>
+                                <button type="button" class="btn-01" @click="setDateRange('m', -1)">1달</button>
+                                <button type="button" class="btn-01" @click="setDateRange('m', -2)">2달</button>
+                                <button type="button" class="btn-01" @click="setDateRange('m', -3)">3달</button>
+                                <button type="button" class="btn-01" @click="setDateRange('m', -6)">최근 6개월</button>
+                                <input v-model="form.sdate" type="date" class="" />
+                                ~
+                                <input v-model="form.edate" type="date" class="" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <h1>학원리스트 영역</h1>
+
+                <div class="aca-list-area">
+                    <div
+                        class="aca-list"
+                        v-for="(group, groupIndex) in campusList"
+                        :key="`group-${groupIndex}`"
+                    >
+                        <span>&bull;</span>
+                        <div>
+                            <template v-for="(campus, campusIndex) in group">
+                                <a
+                                    v-if="campus.isIntro"
+                                    :key="`intro-${groupIndex}-${campusIndex}`"
+                                    :href="`?campuscodedetail=${campus.detail}&campuscode=${campus.code}`"
+                                    class="campus_current introChk"
+                                >
+                                    {{ campus.name }}
+                                </a>
+
+                                <template v-else>
+                                    <a
+                                        :key="`campus-${groupIndex}-${campusIndex}`"
+                                        :href="`?campuscodedetail=${campus.detail}&campuscode=${campus.code}`"
+                                    >
+                                        {{ campus.name }}
+                                    </a>
+                                    <span
+                                        v-if="campusIndex !== group.length - 1"
+                                        class="divider"
+                                        :key="`divider-${groupIndex}-${campusIndex}`"
+                                    > | </span>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                
                 <p>main 에서 수정</p>
 
                 <h1>🟪 폼 요소<br>@import "base/form"</h1>
