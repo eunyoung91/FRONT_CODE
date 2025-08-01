@@ -109,7 +109,7 @@
                 </div>
             </div> 
     
-            <div class="section_tab">
+            <div class="section_tab" id="section_tab">
                 <div class="mojip_inner">
                     <div class="title_wrap" data-aos="fade-up">
                         실전 감각을 극대화하는<br>
@@ -176,7 +176,7 @@
                                                     <div class="text_sub">
                                                         <strong>한계를 뛰어넘는 실력을 완성하다</strong>
                                                         <p><span>&middot;</span><span>최상위권을 결정짓는 고난도 실전 모의고사</span></p>
-                                                        <p><span>&middot;</span><span>1등급을 넘어 만점을 향한<br class="pc_only"> 고난도 문항 완전 정복</span></p>
+                                                        <p><span>&middot;</span><span>1등급을 넘어 만점을 향한<br class="pc_only"><br class="mo_only"> 고난도 문항 완전 정복</span></p>
                                                     </div>
                                                 </div>
                                                 <a class="slide_link"  
@@ -392,7 +392,7 @@
                                     <strong class="academy_name">서초</strong>
                                     <p class="academy_call">02-535-5678</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mseocho.megastudy.net/seocho/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mseocho.megastudy.net/seocho/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-535-5678">02-535-5678</a>
                                     </div>
                                 </div>
@@ -403,7 +403,7 @@
                                     <strong class="academy_name">강북</strong>
                                     <p class="academy_call">02-935-3378</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mgangbuk.megastudy.net/gangbuk/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mgangbuk.megastudy.net/gangbuk/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-935-3378">02-935-3378</a>
                                     </div>
                                 </div>
@@ -414,7 +414,7 @@
                                     <strong class="academy_name">노량진</strong>
                                     <p class="academy_call">02-826-1555</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mnoryangjin.megastudy.net/noryangjin/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mnoryangjin.megastudy.net/noryangjin/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-826-1555">02-826-1555</a>
                                     </div>
                                 </div>
@@ -425,7 +425,7 @@
                                     <strong class="academy_name">신촌</strong>
                                     <p class="academy_call">02-3144-1010</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://msinchon.megastudy.net/sinchon/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://msinchon.megastudy.net/sinchon/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-3144-1010">02-3144-1010</a>
                                     </div>
                                 </div>
@@ -436,7 +436,7 @@
                                     <strong class="academy_name">송파</strong>
                                     <p class="academy_call">02-428-8181</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://msongpa.megastudy.net/songpa/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://msongpa.megastudy.net/songpa/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-428-8181">02-428-8181</a>
                                     </div>
                                 </div>
@@ -447,7 +447,7 @@
                                     <strong class="academy_name">부천</strong>
                                     <p class="academy_call">032-326-9900</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mbucheon.megastudy.net/bucheon/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mbucheon.megastudy.net/bucheon/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:032-326-9900">032-326-9900</a>
                                     </div>
                                 </div>
@@ -458,7 +458,7 @@
                                     <strong class="academy_name">분당</strong>
                                     <p class="academy_call">031-781-3100</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mbundang.megastudy.net/bundang/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mbundang.megastudy.net/bundang/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:031-781-3100">031-781-3100</a>
                                     </div>
                                 </div>
@@ -469,7 +469,7 @@
                                     <strong class="academy_name">일산</strong>
                                     <p class="academy_call">031-8073-9600</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://milsan.megastudy.net/ilsan/nsu/class/2026/final/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://milsan.megastudy.net/ilsan/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:031-8073-9600">031-8073-9600</a>
                                     </div>
                                 </div>
@@ -480,7 +480,7 @@
                                     <strong class="academy_name">평촌</strong>
                                     <p class="academy_call">031-388-3141</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mpyeongchon.megastudy.net/pyeongchon/nsu/bbs/invite_notice_view.asp?code=26947&tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mpyeongchon.megastudy.net/pyeongchon/nsu/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:031-388-3141">031-388-3141</a>
                                     </div>
                                 </div>
@@ -491,7 +491,7 @@
                                     <strong class="academy_name">성북</strong>
                                     <p class="academy_call">02-927-8001</p>
                                     <div class="mo_academy_info">
-                                        <a class="btn_info" href="https://mseongbuks.megastudy.net/seongbuk/jaehak/class/2026/winter/index.asp?tab=edu-semi90" target="_blank">모집안내</a>
+                                        <a class="btn_info" href="https://mseongbuks.megastudy.net/seongbuk/jaehak/class/2026/final/index.asp?tab=edu-semi50" target="_blank">모집안내</a>
                                         <a class="btn_tel" href="tel:02-927-8001">02-927-8001</a>
                                     </div>
                                 </div>
@@ -524,14 +524,14 @@
                             <li><a href="#academyList">학원 안내</a></li> 
                         </ul>  
                     </div>
-                    <div id="academyList02" class="fixed_academy_list _02"> 
+                    <!-- <div id="academyList02" class="fixed_academy_list _02"> 
                         <ul class="academy_list pc_ta_only">
                             <a href="https://campus.megastudy.net/common/notice/fair_view.asp?code=26829" target="_blank">설명회</a>  
                         </ul>  
                         <ul class="academy_list mo_only">
                             <a href="https://mcampus.megastudy.net/common/notice/fair_view.asp?code=26829">설명회</a>  
                         </ul>  
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

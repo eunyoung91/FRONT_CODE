@@ -1,0 +1,53 @@
+/* ==================================================================
+	Helper class(스타일 재사용성 높이는 짧은 클래스)
+===================================================================== */
+/* === [Layout helpers] === */
+.f_left {float: left}
+.f_right {float: right}
+.d_flex {display: flex}
+.d_grid {display: grid}
+.clearfix:after {display: block;content: '';clear: both}
+
+
+
+/* ========= [Visibility] ========= */
+.sr-only {position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0 0 0 0);white-space: nowrap;border: 0;} /* 시각적으로는 숨기지만, 스크린리더는 인식 가능 */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+
+
+/* 디바이스별 컨텐츠 */
+.mo_only {display: block;}
+.ta_only {display: none;}
+.pc_only {display: none;}
+
+/* 디바이스별 줄바꿈 */
+.show-mo {display: block;}
+.show-ta {display: none; }
+.show-pc {display: none; }
+
+/* 태블릿 (768px 이상) */
+@media (min-width: 768px) {
+  /* 디바이스별 컨텐츠 */
+  .mo_only {display: none;}
+  .ta_only {display: block;}
+  
+  /* 디바이스별 줄바꿈 */
+  .show-mo {display: none;}
+  .show-ta {display: block;}
+}
+
+/* PC (1200px 이상) */
+@media (min-width: 1200px) {
+  /* 디바이스별 컨텐츠 */
+  .ta_only {display: none;}
+  .pc_only {display: block;}
+
+  /* 디바이스별 줄바꿈 */
+  .show-ta {display: none;}
+  .show-pc {display: block;}
+}
+
+/* ========= [Spacing] ========= */

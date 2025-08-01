@@ -4,6 +4,7 @@ $(document).ready(function () {
     initSwipers();
     setResponsiveAOS();
     initTabs();
+    setSlideLinkScrollFlag();
 
     // 2. Resize 이벤트 등록
     $(window).on('resize', function () {
@@ -39,6 +40,12 @@ function setResponsiveLinks() {
         if (selectedHref) {
             $(this).attr('href', selectedHref);
         }
+    });
+}
+
+function setSlideLinkScrollFlag() {
+    $('.slide_link').on('click', function () {
+        sessionStorage.setItem('scrollToSectionTab', 'true');
     });
 }
 
@@ -119,8 +126,14 @@ function toggleFixedFloating() {
 
 // 페이지 로드 시 특정 위치로 이동
 function pageLoadEvent() {
-    var temp_s = $("#topVisual").offset().top;
-    $('html, body').animate({ scrollTop: temp_s }, 500);
+    if (sessionStorage.getItem('scrollToSectionTab') === 'true') {
+        sessionStorage.removeItem('scrollToSectionTab');
+        var temp_s = $(".section_tab").offset().top;
+        $('html, body').animate({ scrollTop: temp_s }, 500);
+    } else {
+        var temp_s = $("#topVisual").offset().top;
+        $('html, body').animate({ scrollTop: temp_s }, 500);
+    }
 }
 
 // AOS 초기화

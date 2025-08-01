@@ -1,0 +1,39 @@
+@import url('reset.css');
+@font-face {
+	font-family: 'Pretendard Variable';		/* 사용할 글꼴 이름 */
+	font-weight: 45 920;					/* 가변 글꼴의 지원 범위 (최소~최대) */
+	font-style: normal;						/* 일반체 (이탤릭 아님) */
+	font-display: swap;						/* 시스템 기본 글꼴을 먼저 보여주고, 웹폰트 로딩 : 사용자 경험 향상 */
+	src: url('../../library/css/fonts/woff2/PretendardVariable.woff2') format('woff2-variations'); /* 가변 woff2 파일 : Chrome, Safari 등 최신 브라우저 지원 */
+}
+
+html,body{width:100%; min-width:280px; height:100%; background:#fff;}
+html {font-size:clamp(16px, 1.066vw, 18px);}
+body {line-height:1; font-size:1rem; font-family:'Pretendard Variable', 'Malgun Gothic', 'Noto Sans KR', dotum; font-weight:normal; -webkit-text-size-adjust:none; color:#222;}
+
+h1,h2,h3,h4,h5,p {margin:0;}
+
+#wrapper {width:100%; height:100%;}
+#header {border-bottom:1px solid #E2E2E2;}
+#header .logo {display:inline-block; padding-left:20px; margin:1.19rem 0;}
+#header .logo img {width:clamp(163px, 13.5vw, 203px); height:auto;}
+#header .logo img.img_mega {width:clamp(130px, 10.8vw, 162px);}
+#header .logo img.img_nrj {width:clamp(178px, 14.8vw, 222px);}
+
+#footer {padding:25px 0; border-top:1px solid #E2E2E2;}
+#footer .copy {line-height:20px; font-size:12px; color:#C5C5C5; text-align:center;}
+
+.container {max-width:1200px; margin:0 auto;}
+.container.inner {padding:0 20px;}
+
+
+/* top fix 버튼 */
+.scroll_btn_wrap {position:fixed;bottom:100px;right:3%;cursor:pointer;z-index:5; }
+.scroll_btn {position:fixed;bottom:4%;right:4%;z-index:100;display: block;}
+.scroll_btn_top {height:0;opacity:0;visibility:hidden;cursor:pointer;margin-bottom:5px;transition:ease-in all .2s;}
+.scroll_btn_top.on {height:60px;opacity:1;visibility: visible;}
+
+
+@media screen and (max-width:640px){
+	#header .logo {margin:1.06rem 0;}
+}
