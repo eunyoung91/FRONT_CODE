@@ -1,25 +1,25 @@
 $(document).ready(function () {
-    // 1. ÃÊ±â ¼ÂÆÃ (¸µÅ© ºĞ±â, swiper ÃÊ±âÈ­, ÅÇ ÀÌº¥Æ®, AOS ¼Ó¼º ¼³Á¤)
+    // 1. ì´ˆê¸° ì…‹íŒ… (ë§í¬ ë¶„ê¸°, swiper ì´ˆê¸°í™”, íƒ­ ì´ë²¤íŠ¸, AOS ì†ì„± ì„¤ì •)
     setResponsiveLinks();
     initSwipers();
     setResponsiveAOS();
     initTabs();
     setSlideLinkScrollFlag();
 
-    // 2. Resize ÀÌº¥Æ® µî·Ï
+    // 2. Resize ì´ë²¤íŠ¸ ë“±ë¡
     $(window).on('resize', function () {
         setResponsiveLinks();
         setResponsiveAOS();
     });
 
-    // 3. Scroll ÀÌº¥Æ® µî·Ï
+    // 3. Scroll ì´ë²¤íŠ¸ ë“±ë¡
     $(window).on('scroll', function () {
         toggleFixedFloating();
     });
 });
 
 $(window).on('load', function () {
-    // ¸ğµç ¸®¼Ò½º ·Îµå ÈÄ ½ÇÇàÇÒ ÇÔ¼ö
+    // ëª¨ë“  ë¦¬ì†ŒìŠ¤ ë¡œë“œ í›„ ì‹¤í–‰í•  í•¨ìˆ˜
     aosEvent();            
     titleTweenEvent();    
     toggleFixedFloating(); 
@@ -28,7 +28,7 @@ $(window).on('load', function () {
 
 // ========================== Functions ==========================
 
-// ¸µÅ© ÀÚµ¿ ºĞ±â
+// ë§í¬ ìë™ ë¶„ê¸°
 function setResponsiveLinks() {
     var isMobile = window.innerWidth <= 767;
 
@@ -49,7 +49,7 @@ function setSlideLinkScrollFlag() {
     });
 }
 
-// Swiper ÃÊ±âÈ­
+// Swiper ì´ˆê¸°í™”
 var swipers = [];
 function initSwipers() {
     $('.swiper-container').each(function (index) {
@@ -66,7 +66,7 @@ function initSwipers() {
     });
 }
 
-// ÅÇ ÀÌº¥Æ® ¼³Á¤
+// íƒ­ ì´ë²¤íŠ¸ ì„¤ì •
 function initTabs() {
     $('.tabs .tab').on('click', function () {
         var index = $(this).data('index');
@@ -77,7 +77,7 @@ function initTabs() {
         $('.swiper-container').hide();
         $('.swiper-container[data-index="' + index + '"]').show();
 
-        // ÇöÀç Swiper ÀçÃÊ±âÈ­ (ÅÇ ÀüÈ¯ ½Ã)
+        // í˜„ì¬ Swiper ì¬ì´ˆê¸°í™” (íƒ­ ì „í™˜ ì‹œ)
         if (swipers[index]) {
             swipers[index].destroy(true, true);
         }
@@ -95,7 +95,7 @@ function initTabs() {
     });
 }
 
-// ¹İÀÀÇü AOS ¼Ó¼º ¼³Á¤
+// ë°˜ì‘í˜• AOS ì†ì„± ì„¤ì •
 function setResponsiveAOS() {
     var isMobile = window.innerWidth <= 767;
     var aosType = isMobile ? 'fade-down' : 'fade-up';
@@ -107,7 +107,7 @@ function setResponsiveAOS() {
     AOS.refresh();
 }
 
-// Fixed Floating Banner Åä±Û
+// Fixed Floating Banner í† ê¸€
 function toggleFixedFloating() {
     var $banner = $(".fixedFloating");
     var $bottom = $("#academyList");
@@ -124,7 +124,7 @@ function toggleFixedFloating() {
     }
 }
 
-// ÆäÀÌÁö ·Îµå ½Ã Æ¯Á¤ À§Ä¡·Î ÀÌµ¿
+// í˜ì´ì§€ ë¡œë“œ ì‹œ íŠ¹ì • ìœ„ì¹˜ë¡œ ì´ë™
 function pageLoadEvent() {
     if (sessionStorage.getItem('scrollToSectionTab') === 'true') {
         sessionStorage.removeItem('scrollToSectionTab');
@@ -136,7 +136,7 @@ function pageLoadEvent() {
     }
 }
 
-// AOS ÃÊ±âÈ­
+// AOS ì´ˆê¸°í™”
 function aosEvent() {
     AOS.init({
         offset: 300,
@@ -147,7 +147,7 @@ function aosEvent() {
     });
 }
 
-// GSAP Å¸ÀÌÆ² ¾Ö´Ï¸ŞÀÌ¼Ç
+// GSAP íƒ€ì´í‹€ ì• ë‹ˆë©”ì´ì…˜
 function titleTweenEvent() {
     const tl = gsap.timeline();
     tl.set(".bg_overlay", { opacity: 0 })
